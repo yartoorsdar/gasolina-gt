@@ -109,10 +109,38 @@
             font-weight: 500;
         }
 
-        .price-value {
+        .price-values {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 1px;
+        }
+
+        /* ── Precio con impuestos → fuego rojo animado ── */
+        @keyframes fireFlicker {
+            0%, 100% { color: #ff4500; text-shadow: 0 0 6px rgba(255,69,0,0.7), 0 0 12px rgba(255,69,0,0.3); }
+            25% { color: #ff6347; text-shadow: 0 0 10px rgba(255,99,71,0.8), 0 0 20px rgba(255,69,0,0.5); }
+            50% { color: #ff2a00; text-shadow: 0 0 4px rgba(255,42,0,0.6), 0 0 8px rgba(255,69,0,0.3); }
+            75% { color: #ff7020; text-shadow: 0 0 14px rgba(255,112,32,0.9), 0 0 28px rgba(255,69,0,0.4); }
+        }
+
+        .price-value-main {
             font-size: 1.3rem;
             font-weight: 700;
-            color: var(--accent);
+            animation: fireFlicker 2s ease-in-out infinite;
+        }
+
+        /* ── Precio sin impuestos → dinero verde animado ── */
+        @keyframes moneyGlow {
+            0%, 100% { color: #4ade8a; text-shadow: 0 0 6px rgba(74,222,138,0.5); transform: scale(1); }
+            50% { color: #86efac; text-shadow: 0 0 12px rgba(74,222,138,0.9), 0 0 20px rgba(34,197,94,0.4); transform: scale(1.03); }
+        }
+
+        .price-value-exempt {
+            font-size: 1rem;
+            font-weight: 600;
+            animation: moneyGlow 2s ease-in-out infinite;
         }
 
         .price-regimen {
@@ -370,7 +398,7 @@
         }
 
         .history-table-wrap {
-            overflow-x: auto; max-height: 400px; overflow-y: auto;
+            overflow-x: auto; max-height: 400px; overflow-y: hidden;
         }
 
         .history-table {
@@ -400,8 +428,21 @@
 
         @media (max-width: 600px) {
             header h1 { font-size: 1.4rem; }
-            .price-value { font-size: 1.1rem; }
+            .price-value-main { font-size: 1.1rem; }
+            .price-value-exempt { font-size: 0.85rem; }
             #historialChart { height: 250px; }
+
+            /* Tabla anual en móvil: sin scroll vertical, todo visible */
+            .history-table-wrap {
+                max-height: none; overflow-y: hidden;
+            }
+            .history-table th { position: static; }
+
+            .history-table td:first-child,
+            .history-table th:first-child {
+                min-width: 50px;
+                white-space: nowrap;
+            }
         }
     </style>
     <link rel="stylesheet" href="style-glass.css">
@@ -424,13 +465,11 @@
 
         <!-- Main content (hidden until loaded) -->
         <main id="content" style="display:none;">
-            <!-- Last update -->
-            <p class="last-update" id="lastUpdate"></p>
-
             <!-- Precios de combustible -->
             <div class="grid grid-2">
                 <div class="card glass-card glass-card-animated" id="glassDemoCard">
-                    <h2>&#x1F4E6; Precios Combustible (Area Metropolitana)</h2>
+                    <h2 style="text-align:center;">&#x26FD; Precios Combustible</h2>
+                    <p style="text-align:center;margin:-4px 0 12px;font-size:0.9rem;color:var(--text-muted);">(Area Metropolitana)</p>
                     <div id="preciosCombustible"></div>
                     <!-- Gráfica de tendencia semanal -->
                     <div style="text-align:center;margin-top:16px;">
@@ -512,7 +551,10 @@
         // ──────────────────────────────────────────
         // Configuración
         // ──────────────────────────────────────────
-        const DATA_DIR = '/';
+        const DATA_DIR = './';  // JSONs en web/ junto con index.html
+        const GITHUB_RAW = 'https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export';
+        // Usar GitHub raw como fuente principal (evita cache de Vercel)
+        const PRIMARY_DATA_URL = `${GITHUB_RAW}/resumen.json`;
         const CONFIG = {
             impuestos: {
                 iva: 0.12,
@@ -528,7 +570,7 @@
         function fmtQ(v) { return `Q${v.toFixed(2)}`; }
 
         /** Formatea precio en USD */
-        function fmtUSD(v) { return `$${v.toFixed(2)}/bbl`; }
+        function fmtUSD(v) { return `$${v.toFixed(2)}`; }
 
         /** Formatea fecha relativa (hace X días) */
         function fmtFechaRelativa(fechaStr) {
@@ -566,42 +608,88 @@
 
         function renderPreciosCombustible(data) {
             const container = document.getElementById('preciosCombustible');
-            const precios = data.precios_combustible || [];
+            let precios = data.precios_combustible || [];
             if (!precios || precios.length === 0) {
                 container.innerHTML = '<p style="color:var(--text-muted);">Sin datos disponibles</p>';
                 return;
             }
 
+            // Normalizar nombres de producto a forma canónica
+            const normalizar = (nombre) => {
+                const n = nombre.toLowerCase().trim();
+                if (n === 'diessel' || n === 'diesel') return 'diésel';
+                if (n === 'super' || n === 'superior') return 'superior';
+                if (n === 'regular' || n === 'reg') return 'regular';
+                return nombre;
+            };
+
+            precios.forEach(p => p.producto = normalizar(p.producto));
+
+            // Solo aceptar combustibles — descartar wti u otros productos que filtren mal del JSON
+            const combustiblesPermitidos = new Set(['superior', 'regular', 'diésel']);
+            precios = precios.filter(p => combustiblesPermitidos.has(p.producto));
+
+            if (!precios || precios.length === 0) {
+                container.innerHTML = '<p style="color:var(--text-muted);">Sin datos disponibles</p>';
+                return;
+            }
+
+            // Deduplicar: mantener solo el primer precio por producto
+            const vistos = new Set();
+            precios = precios.filter(p => {
+                if (vistos.has(p.producto)) return false;
+                vistos.add(p.producto);
+                return true;
+            });
+
             let html = '';
-            const orden = ['superior', 'regular', 'diésel'];
+            const orden = ['regular', 'superior', 'diésel'];
             const productos = { superior: 'Gasolina Superior', regular: 'Gasolina Regular', diésel: 'Diésel' };
 
             // Ordenar estable por el orden definido
             const ordenMap = new Map(orden.map((p, i) => [p, i]));
             precios.sort((a, b) => (ordenMap.get(a.producto) ?? -1) - (ordenMap.get(b.producto) ?? -1));
 
+            // ── Constantes de impuestos (Decreto 38-92 + IVA) ──
+            const IDP = { superior: 4.70, regular: 4.60, diésel: 1.30 };
+
             for (const p of precios) {
-                const regimenClass2 = regimenClass(p.regimen);
-                const regimenLabel2 = regimenLabel(p.regimen);
+                const producto = p.producto || 'superior';
+                const idp = IDP[producto] ?? 4.60;
+                const precioFinal = p.precio;
+
+                // IVA incluido en precio final: IVA = (precioFinal - IDP) * 12/112
+                const ivamonto = Math.max(0, (precioFinal - idp) * 12 / 112);
+                // Base = lo que queda despues de quitar IVA e IDP del precioFinal
+                const baseSinImpuestos = Math.max(0, precioFinal - ivamonto - idp);
+
                 const priceColor = precioColor(p.regimen);
+
                 html += `
                     <div class="price-item">
                         <div>
-                            <span class="price-label">${productos[p.producto] || p.producto}</span>
-                            <span class="price-regimen ${regimenClass2}">${regimenLabel2}</span>
+                            <span class="price-label">${productos[producto] || producto}</span>
                             ${p.nota ? `<br><small style="color:var(--text-muted)">${p.nota}</small>` : ''}
                         </div>
-                        <div class="price-value" style="color:${priceColor}">${fmtQ(p.precio)}</div>
+                        <div class="price-values">
+                            <span class="price-value-main" style="color:${priceColor}"><span style="font-size:0.75em;font-weight:400;margin-right:6px;">Con IVA+IDP</span>${fmtQ(precioFinal)}</span>
+                            <span class="price-value-exempt"><span style="font-size:0.85em;font-weight:400;margin-right:4px;">Sin IVA+IDP:</span>${fmtQ(baseSinImpuestos)}</span>
+                        </div>
                     </div>
                 `;
             }
 
-            const fecha = precios[0]?.fecha_observacion || '';
-            html += `<p class="price-date">Última actualización: ${fecha} (${fmtFechaRelativa(fecha)})</p>`;
+            const fecha = precios.length ? new Date(Math.max(...precios.map(p => new Date(p.fecha)))).toISOString().slice(0,10) : '';
+            let horaStr = '';
+            if (precios.length > 0) {
+                const iso = precios.reduce((a, b) => new Date(a.fetched_at).getTime() > new Date(b.fetched_at).getTime() ? a : b);
+                const h = parseInt(iso.fetched_at.slice(11, 13)) - 6;
+                horaStr = `${String(h).padStart(2,'0')}:${iso.fetched_at.slice(14, 16)}`;
+            }
+            html += `<p class="price-date">Última actualización: ${fecha} a las ${horaStr}</p>`;
             container.innerHTML = html;
 
             // ── Gráfica de barras comparativa ──
-            // Guardar datos para animación
             window.__weekData = precios;
             startWeeklyAnimation();
         }
@@ -625,9 +713,10 @@
             ctx.closePath();
         }
 
-        // ── Weekly chart animation ──
+        // ── Weekly chart animation — limitada a 1.5s para evitar flickering en móvil ──
         let weeklyAnimId = null;
         let weeklyTime = 0;
+        const WEEKLY_ANIM_DURATION = 1.5;
 
         function startWeeklyAnimation() {
             if (weeklyAnimId) cancelAnimationFrame(weeklyAnimId);
@@ -635,7 +724,13 @@
             function frame() {
                 weeklyTime += 0.02;
                 drawWeeklyPriceChartAnimated(window.__weekData, weeklyTime);
-                weeklyAnimId = requestAnimationFrame(frame);
+                if (weeklyTime < WEEKLY_ANIM_DURATION) {
+                    weeklyAnimId = requestAnimationFrame(frame);
+                } else {
+                    // Dibujar estado final una última vez y detener
+                    drawWeeklyPriceChartAnimated(window.__weekData, WEEKLY_ANIM_DURATION);
+                    weeklyAnimId = null;
+                }
             }
             frame();
         }
@@ -647,9 +742,10 @@
             diésel: 145      // verde lima
         };
 
-        // ── WTI Weekly chart animation ──
+        // ── WTI Weekly chart animation — limitada a 1.5s para evitar flickering en móvil ──
         let wtiWeeklyAnimId = null;
         let wtiWeeklyTime = 0;
+        const WTI_WEEKLY_ANIM_DURATION = 1.5;
 
         function startWTIWeeklyAnimation() {
             if (wtiWeeklyAnimId) cancelAnimationFrame(wtiWeeklyAnimId);
@@ -657,7 +753,12 @@
             function frame() {
                 wtiWeeklyTime += 0.02;
                 drawWTIWeeklyChartAnimated(window.__wtiData, wtiWeeklyTime);
-                wtiWeeklyAnimId = requestAnimationFrame(frame);
+                if (wtiWeeklyTime < WTI_WEEKLY_ANIM_DURATION) {
+                    wtiWeeklyAnimId = requestAnimationFrame(frame);
+                } else {
+                    drawWTIWeeklyChartAnimated(window.__wtiData, WTI_WEEKLY_ANIM_DURATION);
+                    wtiWeeklyAnimId = null;
+                }
             }
             frame();
         }
@@ -718,7 +819,7 @@
             if (chartW < 10 || chartH < 10) return;
 
             // ── Título ──
-            ctx.fillStyle = 'rgba(200, 220, 245, 0.8)';
+            ctx.fillStyle = '#c8d8f5';
             ctx.font = 'bold 13px -apple-system, sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText('¿Cómo ha cambiado el precio esta semana?', centerX, 16);
@@ -966,7 +1067,7 @@
             var centerX = cssW / 2;
 
             // ── Título (centrado en canvas completo) ──
-            ctx.fillStyle = 'rgba(200, 220, 245, 0.8)';
+            ctx.fillStyle = '#c8d8f5';
             ctx.font = 'bold 13px -apple-system, sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText('Precios de los últimos 7 días', centerX, titleY);
@@ -1238,7 +1339,7 @@
 
             // Temas predefinidos con sus palabras clave
             const temas = [
-                { name: 'petróleo', keywords: ['petrol','oil','crude','barril','brent','wti','aramco','pipeline','oleoducto','refinería','refinery','drill','exploration','producción','production'] },
+                { name: 'petróleo', keywords: ['petrol','oil','crude','barril','wti','aramco','pipeline','oleoducto','refinería','refinery','drill','exploration','producción','production'] },
                 { name: 'conflicto', keywords: ['guerra','war','ataque','attack','drones','drone','russia','ukraine','iran','mideast','middle east','conflict','bomba','bomb','missile','invasion'] },
                 { name: 'exportaciones', keywords: ['export','ban','prohibición','prohibition','embargo','shipping','freight','barrel export'] },
                 { name: 'china', keywords: ['china','chinese','beijing','xi','asia','asian'] },
@@ -1636,8 +1737,9 @@
             diésel: 145      // verde lima
         };
 
+        // ── Historial chart animation — limitada a 2s para evitar flickering en móvil ──
         let animFrameId = null;
-        let animTime = 0;
+        const HIST_ANIM_DURATION = 2.0;
 
         function startHistorialAnimation() {
             if (animFrameId) cancelAnimationFrame(animFrameId);
@@ -1645,7 +1747,12 @@
             function frame() {
                 animTime += 0.015;
                 drawHistorialChartAnimated(window.__histData, window.__histProductos, animTime);
-                animFrameId = requestAnimationFrame(frame);
+                if (animTime < HIST_ANIM_DURATION) {
+                    animFrameId = requestAnimationFrame(frame);
+                } else {
+                    drawHistorialChartAnimated(window.__histData, window.__histProductos, HIST_ANIM_DURATION);
+                    animFrameId = null;
+                }
             }
             frame();
         }
@@ -1729,7 +1836,7 @@
             const nYears = histData.length;
 
             // ── Título ──
-            ctx.fillStyle = 'rgba(200, 220, 245, 0.8)';
+            ctx.fillStyle = '#c8d8f5';
             ctx.font = 'bold 13px -apple-system, sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText('Historial de Precios Anuales', centerX, 16);
@@ -1962,26 +2069,32 @@
             const loadingEl = document.getElementById('loading');
             const errorEl = document.getElementById('error');
             const contentEl = document.getElementById('content');
+            const CACHE_BUST = Date.now();
+
+            // URL única: GitHub raw (siempre funciona, CORS OK)
+            const resumenUrl = `${GITHUB_RAW}/resumen.json?t=${CACHE_BUST}`;
+            const consolidadoUrl = `${GITHUB_RAW}/consolidado.json?t=${CACHE_BUST}`;
+
+            let resData, consData = null;
+            try {
+                resData = await fetch(resumenUrl);
+                if (!resData.ok) throw new Error(`HTTP ${resData.status}`);
+            } catch (err) {
+                throw new Error('No se pudo cargar resumen.json: ' + err.message);
+            }
 
             try {
-                // Cargar ambos JSON en paralelo
-                const [resData, consData] = await Promise.all([
-                    fetch(`${DATA_DIR}/resumen.json`),
-                    fetch(`${DATA_DIR}/consolidado.json`).catch(() => null)
-                ]);
+                const r = await fetch(consolidadoUrl).catch(() => null);
+                if (r?.ok) consData = r;
+            } catch {}
 
-                if (!resData.ok) throw new Error(`HTTP ${resData.status}`);
-
+            try {
                 const data = await resData.json();
                 let historial = null;
                 if (consData?.ok) {
                     historial = await consData.json();
                     window.__consData = historial;
                 }
-
-                // Actualizar timestamp
-                document.getElementById('lastUpdate').textContent =
-                    `Datos actualizados: ${data.actualizado_at || 'N/A'}`;
 
                 // Renderizar secciones (excepto historial — necesita DOM visible)
                 renderPreciosCombustible(data);
@@ -1996,14 +2109,11 @@
                 if (historial) {
                     renderHistorial(historial);
                 }
-
             } catch (err) {
                 loadingEl.style.display = 'none';
                 errorEl.style.display = 'block';
                 errorEl.innerHTML = `
                     <strong>Error al cargar datos</strong><br>
-                    Asegúrese de que los archivos JSON existen en <code>${DATA_DIR}/</code>.<br>
-                    Ejecute: <code>python main.py --all --export</code><br>
                     <small style="color:var(--text-muted)">${err.message}</small>
                 `;
             }
