@@ -142,66 +142,57 @@ def fetch_precios_petroleo(codes: dict = None, api_key: str = "") -> list[dict]:
 # ──────────────────────────────────────────────
 
 def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
-    """Guarda precios de petróleo en la DB (acumula historial diario).
-    
-    Borra solo las entradas de HOY antes de insertar para reemplazar datos
-    corruptos o viejos. Las entradas de días anteriores se conservan como historial.
-    """
+    """Guarda precios de petróleo en la DB (acumula historial diario)."""
     if cfg is None:
         import json
         config_path = _project_root / "config.json"
         with open(config_path, "r", encoding="utf-8") as f:
             cfg = json.load(f)
 
-    import sqlite3
-    conn = sqlite3.connect("data/historial.db")
+    from collector.db import conectar, insertar_precio
+    conn = conectar()
 
-    # Borrar solo HOY — mantener historial de días anteriores intacto
     hoy = datetime.now().strftime("%Y-%m-%d")
-    conn.execute(
-        "DELETE FROM precios_petroleo WHERE fecha=? AND referencia IN ('brent', 'wti')",
-        (hoy,),
-    )
+    
+    # Borrar HOY para no duplicar (conserva historial de días anteriores)
+    conn.execute("DELETE FROM precios WHERE fecha=? AND producto IN ('brent', 'wti')", (hoy,))
 
     inserted = 0
     for p in precios:
         try:
-            cursor = conn.execute("""
-                INSERT INTO precios_petroleo (fecha, referencia, usd_barril, fuente, fetched_at)
-                VALUES (?, ?, ?, 'OilPriceAPI', ?)
-            """, (hoy, p["referencia"], p["usd_barril"], datetime.now().isoformat()))
-            if cursor.lastrowid:
+            row_id = insertar_precio(
+                conn=conn,
+                fecha=hoy,
+                producto=p["referencia"],
+                precio=p["usd_barril"],
+                fuente="OilPriceAPI",
+            )
+            if row_id is not None:
                 inserted += 1
         except Exception as exc:
             print(f"[petroleo] Error guardando {p}: {exc}")
 
-    conn.commit()
     conn.close()
     return inserted
 
 
 def obtener_petroleo_actual(conn) -> list[dict]:
-    """Obtiene el precio más reciente de cada referencia.
-    
-    Prioriza OilPriceAPI sobre FRED para la misma fecha.
-    Ordena por fecha DESC para siempre tomar los datos más frescos.
-    """
-    rows = conn.execute("""
-        SELECT fecha, referencia, usd_barril, fuente FROM precios_petroleo 
-        WHERE referencia IN ('brent', 'wti') AND fuente IN ('OilPriceAPI', 'FRED')
-        ORDER BY fecha DESC, 
-            CASE WHEN fuente='OilPriceAPI' THEN 0 ELSE 1 END,
-            id DESC
-    """).fetchall()
+    """Obtiene el precio más reciente de brent y wti desde la única tabla precios."""
+    rows = conn.execute(
+        "SELECT * FROM precios WHERE producto IN ('brent', 'wti') ORDER BY fecha DESC, id DESC"
+    ).fetchall()
 
-    # Tomar solo el primero por referencia (ya ordenado: fecha más reciente, OilPriceAPI preferido)
     seen = set()
     result = []
     for r in rows:
-        if r[1] not in seen:
-            seen.add(r[1])
-            result.append({"referencia": r[1], "fecha": r[0], "usd_barril": r[2]})
-    
+        if r["producto"] not in seen:
+            seen.add(r["producto"])
+            result.append({
+                "referencia": r["producto"],
+                "fecha": r["fecha"],
+                "usd_barril": r["precio"],
+            })
+
     return sorted(result, key=lambda x: x["referencia"])
 
 

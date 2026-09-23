@@ -259,21 +259,13 @@ def ejecutar() -> dict:
 
         inserted = 0
         for p in precios:
-            incluye_impuestos = (
-                1 if precio_incluye_impuestos(p["fecha"], cfg) else 0
-            )
-
-            from collector.db import insertar_precio_combustible
-            row_id = insertar_precio_combustible(
+            from collector.db import insertar_precio
+            row_id = insertar_precio(
                 conn=conn,
-                fecha_obs=p["fecha"],
+                fecha=p["fecha"],
                 producto=p["producto"],
                 precio=p["precio"],
-                incluye_impuestos=incluye_impuestos,
-                regimen="normal",
-                nota=None,
                 fuente=p.get("fuente", "MEM HTML"),
-                url=p.get("url", ""),
             )
             if row_id is not None:
                 inserted += 1

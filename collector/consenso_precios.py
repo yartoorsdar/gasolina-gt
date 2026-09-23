@@ -103,20 +103,16 @@ MAX_REINTENTOS = 8                   # máximo de intentos antes de rendirse
 # ──────────────────────────────────────────────
 
 def obtener_precios_recentes(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    """Obtiene todos los precios de combustible de los últimos N días.
-
-    Returns:
-        Lista de rows SQLite con todas las columnas de precios_combustible.
-    """
+    """Obtiene todos los precios de combustible de los últimos N días."""
     query = """
-        SELECT * FROM precios_combustible
-        WHERE fecha_observacion >= date('now', ?)
-          AND producto IN ('superior', 'regular', 'diessel')
+        SELECT * FROM precios
+        WHERE fecha >= date('now', ?)
+          AND producto IN ('superior', 'regular', 'diésel')
           AND fuente IN (
-              'MEM PDF', 'MEM HTML', 'Prensa Libre', 'GNews GT',
+              'Ministerio de Energía y Minas', 'MEM HTML', 'Prensa Libre', 'GNews GT',
               'GlobalPetrolPrices', 'Chapin TV'
           )
-        ORDER BY fecha_observacion, producto, fuente
+        ORDER BY fecha, producto, fuente
     """
     rows = conn.execute(query, (f"-{DIAS_RECENTES} days",)).fetchall()
     return rows
@@ -127,15 +123,11 @@ def obtener_precios_recentes(conn: sqlite3.Connection) -> list[sqlite3.Row]:
 # ──────────────────────────────────────────────
 
 def agrupar_precios(rows: list[sqlite3.Row]) -> dict:
-    """Agrupa precios por (fecha, producto) → {('2026-09-21', 'superior'): [row, row]}.
-
-    Returns:
-        Dict con keys = tupla (fecha, producto), values = lista de rows.
-    """
+    """Agrupa precios por (fecha, producto) → {('2026-09-21', 'superior'): [row, row]}."""
     grupos: dict[tuple[str, str], list[sqlite3.Row]] = {}
 
     for row in rows:
-        fecha = row["fecha_observacion"]
+        fecha = row["fecha"]
         producto = row["producto"]
         clave = (fecha, producto)
 

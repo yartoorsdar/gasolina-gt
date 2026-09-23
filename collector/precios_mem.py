@@ -374,33 +374,20 @@ def guardar_precios_en_db(precios: list[dict], cfg: dict = None) -> int:
         with open(config_path, "r", encoding="utf-8") as f:
             cfg = json.load(f)
 
-    from collector.db import conectar, insertar_precio_combustible
+    from collector.db import conectar, insertar_precio
     conn = conectar()
 
     inserted = 0
     for p in precios:
         fecha_obs = p["fecha"]
 
-        # Determina si el precio observado incluye impuestos (Etapa 1)
-        from collector.impuestos import precio_incluye_impuestos
-        incluye_impuestos = 1 if precio_incluye_impuestos(fecha_obs, cfg) else 0
-
-        # Determina regimen basado en config.json
-        regimen = _determinar_regimen(fecha_obs, cfg)
-
-        nota = ""
-
         try:
-            row_id = insertar_precio_combustible(
+            row_id = insertar_precio(
                 conn=conn,
-                fecha_obs=fecha_obs,
+                fecha=fecha_obs,
                 producto=p["producto"],
                 precio=p["precio"],
-                incluye_impuestos=incluye_impuestos,
-                regimen=regimen,
-                nota=nota if nota else None,
                 fuente=p.get("fuente", "Ministerio de Energía y Minas"),
-                url="",  # se llena cuando tengamos la URL del PDF específico
             )
             if row_id is not None:
                 inserted += 1

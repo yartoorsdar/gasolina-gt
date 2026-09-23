@@ -435,28 +435,19 @@ def ejecutar() -> dict:
 
 
 def guardar_precios_en_db(precios: list[dict]) -> int:
-    """Guarda precios de fuentes alternas en la base de datos.
-
-    Args:
-        precios: Lista de dicts con keys: fecha, producto, precio, fuente, tipo.
-
-    Returns:
-        Número de registros insertados exitosamente.
-    """
-    from collector.db import conectar, insertar_precio_combustible
+    """Guarda precios de fuentes alternas en la base de datos."""
+    from collector.db import conectar, insertar_precio
     
     conn = conectar()
     inserted = 0
     
     for p in precios:
         try:
-            row_id = insertar_precio_combustible(
+            row_id = insertar_precio(
                 conn=conn,
-                fecha_obs=p["fecha"],
+                fecha=p["fecha"],
                 producto=p["producto"],
                 precio=p["precio"],
-                incluye_impuestos=1,
-                regimen="normal",
                 fuente=p.get("fuente", "fuentes_alternas"),
             )
             if row_id is not None:

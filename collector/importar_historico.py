@@ -307,7 +307,7 @@ def importar_historico(precios: list[dict], cfg: dict = None) -> dict:
         with open(config_path, "r", encoding="utf-8") as f:
             cfg = json.load(f)
 
-    from collector.db import conectar, insertar_precio_combustible
+    from collector.db import conectar, insertar_precio
     conn = conectar()
 
     inserted = 0
@@ -320,23 +320,12 @@ def importar_historico(precios: list[dict], cfg: dict = None) -> dict:
         producto = p["producto"]
         precio = p["precio"]
 
-        # Determina si el precio observado incluye impuestos (Etapa 1)
-        from collector.impuestos import precio_incluye_impuestos
-        incluye_impuestos = 1 if precio_incluye_impuestos(fecha_obs, cfg) else 0
-
-        regimen = _determinar_regimen_historico(fecha_obs, cfg)
-
-        nota = ""
-
         try:
-            row_id = insertar_precio_combustible(
+            row_id = insertar_precio(
                 conn=conn,
-                fecha_obs=fecha_obs,
+                fecha=fecha_obs,
                 producto=producto,
                 precio=precio,
-                incluye_impuestos=incluye_impuestos,
-                regimen=regimen,
-                nota=nota if nota else None,
                 fuente=p.get("fuente", "Ministerio de Energía y Minas"),
             )
             if row_id is not None:
