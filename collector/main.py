@@ -143,6 +143,21 @@ def ejecutar_consenso(cfg: dict = None) -> dict:
     return _ejecutar()
 
 
+def ejecutar_consenso_retry(cfg: dict = None) -> dict:
+    """Wrapper para consenso_precios.ejecutar_con_reintentos (modo retry)."""
+    from collector.consenso_precios import (
+        MAX_REINTENTOS,
+        RETRY_INTERVAL_SEGUNDOS,
+        ejecutar_con_reintentos as _ejecutar,
+    )
+
+    return _ejecutar(
+        intervalo_segundos=RETRY_INTERVAL_SEGUNDOS,
+        max_reintentos=MAX_REINTENTOS,
+        exportar_json=True,
+    )
+
+
 def ejecutar_historico(cfg: dict = None) -> dict:
     """Wrapper para importar_historico.ejecutar."""
     from collector.importar_historico import ejecutar as _ejecutar
@@ -417,6 +432,10 @@ Ejemplos:
         "--consenso", action="store_true",
         help="Validación por consenso multifuente (Q0.20 tolerancia)",
     )
+    parser.add_argument(
+        "--consenso-retry", action="store_true",
+        help="Consenso con reintentos: 45min hasta lograr consenso + exportar JSON",
+    )
     parser.add_argument("--historico", action="store_true", help="Importar histórico (XLSX)")
     parser.add_argument("--petroleo", action="store_true", help="Brent/WTI (EIA API)")
     parser.add_argument("--noticias", action="store_true", help="Feeds RSS")
@@ -427,7 +446,8 @@ Ejemplos:
     args = parser.parse_args()
 
     # Si no se especifica nada, ejecutar todo por defecto
-    if not any([args.all, args.precios_mem, args.mem_html, args.consenso, args.historico, args.petroleo, args.noticias]):
+    if not any([args.all, args.precios_mem, args.mem_html, args.consenso,
+                args.consenso_retry, args.historico, args.petroleo, args.noticias]):
         args.all = True
 
     cfg = cargar_config()
@@ -438,7 +458,10 @@ Ejemplos:
         modulos_activas.append(("precios_mem", ejecutar_precios_mem))
     if args.all or args.mem_html:
         modulos_activas.append(("mem_html", ejecutar_mem_html))
-    if args.all or args.consenso:
+    if args.all or args.consenso_retry:
+        # --consenso-retry ejecuta el modo retry (reemplaza a consenso normal)
+        modulos_activas.append(("consenso_retry", ejecutar_consenso_retry))
+    elif args.all or args.consenso:
         modulos_activas.append(("consenso_precios", ejecutar_consenso))
     if args.all or args.historico:
         modulos_activas.append(("historico", ejecutar_historico))

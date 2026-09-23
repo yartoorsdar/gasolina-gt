@@ -7,6 +7,9 @@ Algoritmo de validación por consenso:
   4. Si hay consenso → marca como válido y actualiza campo "validado".
   5. Si no hay consenso → alerta en log + registro en tabla ejecuciones (ok=0).
 
+Modo retry: si se activa, reintentará cada 45 min hasta lograr consenso.
+  Útil para cron diario a las 3AM que espera datos actualizados de fuentes.
+
 Productos obligatorios (spelling exacta): 'superior', 'regular', 'diessel'.
 Tolerancia máxima entre fuentes: Q0.20 por galón.
 
@@ -20,9 +23,12 @@ Version Tracking:
   v1.0.0 — 2026-09-23 — Creación del módulo de consenso multifuente
          — Consenso ≥2 fuentes, tolerancia Q0.20
          — Alerta automática en log + tabla ejecuciones
+  v1.1.0 — 2026-09-23 — Modo retry: reintentos cada 45 min hasta consenso
+         — Actualización automática de dashboard al lograr consenso
 
 Uso:
-  python collector/main.py --consenso            # valida todo
+  python collector/main.py --consenso            # valida una vez
+  python collector/main.py --consenso --retry    # modo retry (45min interval)
   python collector/consenso_precios.py           # ejecución directa
 """
 
@@ -66,8 +72,8 @@ logger = logging.getLogger("consenso")
 
 PRODUCTOS_OBLIGATORIOS = ["superior", "regular", "diessel"]
 TOLERANCIA_QUETLES = 0.20          # diferencia máxima entre fuentes para consenso
-MIN_FUENTES_CONSENSO = 2             # mínimo de fuentes que deben coincidir
-DIAS_RECENTES = 7                    # consultar precios de los últimos N días
+MIN_FUENTES_CONSENSO = 2           # mínimo de fuentes que deben coincidir
+DIAS_RECENTES = 7                  # consultar precios de los últimos N días
 
 # Fuentes consideradas válidas (debe coincidir con el campo "fuente" en DB)
 FUENTES_VALIDAS = {
@@ -76,6 +82,15 @@ FUENTES_VALIDAS = {
     "Prensa Libre",
     "GNews GT",
 }
+
+# ──────────────────────────────────────────────
+# Configuración de retry (modo diario 3AM + reintentos)
+# ──────────────────────────────────────────────
+
+RETRY_INTERVAL_SEGUNDOS = 2700       # 45 minutos entre reintentos
+MAX_REINTENTOS = 8                   # máximo de intentos antes de rendirse
+                                  # (8 × 45min = 6 horas, suficiente para que
+                                  #  las fuentes actualicen sus datos)
 
 
 # ──────────────────────────────────────────────
@@ -428,24 +443,175 @@ def ejecutar() -> dict:
 
 
 # ──────────────────────────────────────────────
+# Ejecución con reintentos (modo diario 3AM)
+# ──────────────────────────────────────────────
+
+def ejecutar_con_reintentos(
+    intervalo_segundos: int = RETRY_INTERVAL_SEGUNDOS,
+    max_reintentos: int = MAX_REINTENTOS,
+    exportar_json: bool = True,
+) -> dict:
+    """Ejecuta validación de consenso con reintentos automáticos.
+
+    Modo operativo para cron diario a las 3AM:
+      1. Ejecutar consenso una vez
+      2. Si NO hay consenso → esperar 45 min y reintentar
+      3. Repetir hasta lograr consenso o alcanzar max_reintentos
+      4. Cuando se logra consenso → exportar JSON para actualizar dashboard
+
+    Args:
+        intervalo_segundos: Segundos entre reintentos (default: 2700 = 45 min).
+        max_reintentos: Máximo de intentos antes de rendirse (default: 8).
+        exportar_json: Si True, exporta JSON al lograr consenso.
+
+    Returns:
+        Dict con resumen final incluyendo historial de intentos.
+    """
+    import time as _time
+
+    logger.info(
+        f"[consenso-retry] Iniciando modo retry: "
+        f"intervalo={intervalo_segundos}s, max_intentos={max_reintentos}"
+    )
+
+    historial = []
+    consenso_logrado = False
+
+    for intento in range(1, max_reintentos + 1):
+        logger.info(f"[consenso-retry] Intento {intento}/{max_reintentos}...")
+
+        resultado = ejecutar()
+        historial.append({
+            "intento": intento,
+            "resultado": resultado,
+            "timestamp": datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00"),
+        })
+
+        # Verificar si se logró consenso
+        if resultado.get("con_senso_alcanzado", 0) > 0:
+            consenso_logrado = True
+            logger.info(
+                f"[consenso-retry] ✅ Consenso logrado en intento {intento}! "
+                f"{resultado['con_senso_alcanzado']} productos validados."
+            )
+
+            # Exportar JSON para actualizar dashboard con precios de hoy
+            if exportar_json:
+                try:
+                    from collector.main import exportar_json as _exportar
+                    cfg = None
+                    try:
+                        from collector.main import cargar_config
+                        cfg = cargar_config()
+                    except Exception:
+                        pass
+
+                    _result_export = _exportar(cfg=cfg)
+                    logger.info(
+                        f"[consenso-retry] Dashboard actualizado con "
+                        f"{_result_export.get('total_registros', 0)} registros."
+                    )
+                except Exception as exc:
+                    logger.error(f"[consenso-retry] Error exportando JSON: {exc}")
+
+            # Construir resultado final con historial
+            return {
+                "fuente": "consenso_validador",
+                "modo_retry": True,
+                "intento_logrado": intento,
+                "total_intentos": len(historial),
+                "con_senso_alcanzado": resultado["con_senso_alcanzado"],
+                "alertas_registradas": resultado.get("alertas_registradas", 0),
+                "exportado_json": exportar_json,
+                "historial": historial,
+            }
+
+        # Si no hay consenso y quedan intentos, esperar antes de reintentar
+        if intento < max_reintentos:
+            logger.info(
+                f"[consenso-retry] Sin consenso aún. Esperando "
+                f"{intervalo_segundos}s ({intervalo_segundos/60:.0f} min)..."
+            )
+            _time.sleep(intervalo_segundos)
+
+    # Si llegamos aquí, se acabaron los intentos sin consenso
+    logger.warning(
+        f"[consenso-retry] Agotados {max_reintentos} intentos sin consenso. "
+        "Se necesitará intervención manual o espera a la próxima ejecución."
+    )
+
+    return {
+        "fuente": "consenso_validador",
+        "modo_retry": True,
+        "intento_logrado": None,
+        "total_intentos": len(historial),
+        "con_senso_alcanzado": historial[-1]["resultado"].get("con_senso_alcanzado", 0) if historial else 0,
+        "alertas_registradas": historial[-1]["resultado"].get("alertas_registradas", 0) if historial else 0,
+        "exportado_json": False,
+        "historial": historial,
+    }
+
+
+# ──────────────────────────────────────────────
 # Entry point para ejecución directa
 # ──────────────────────────────────────────────
 
 if __name__ == "__main__":
+    import argparse as _argparse
+
+    parser = _argparse.ArgumentParser(
+        description="Gasolina GT — Validador de consenso multifuente",
+        formatter_class=_argparse.RawDescriptionHelpFormatter,
+        epilog="""\
+Ejemplos:
+  python collector/consenso_precios.py              # Valida una vez
+  python collector/consenso_precios.py --retry      # Modo retry (45min interval)
+  python collector/main.py --consenso                # Desde orchestrador
+  python collector/main.py --consenso --retry        # Con reintentos
+        """,
+    )
+
+    parser.add_argument(
+        "--retry", action="store_true",
+        help="Modo retry: reintentar cada 45 min hasta lograr consenso",
+    )
+    parser.add_argument(
+        "--interval-min", type=int, default=45,
+        help="Intervalo en minutos entre reintentos (default: 45)",
+    )
+
+    args = parser.parse_args()
+
     print("=" * 60)
     print("Validador de Consenso Multifuente — Gasolina GT")
     print(f"Tolerancia: Q{TOLERANCIA_QUETLES:.2f} | "
           f"Fuentes mínimas: {MIN_FUENTES_CONSENSO}")
+    if args.retry:
+        print(f"Modo RETRY: intervalo={args.interval_min}min, "
+              f"max_intentos={MAX_REINTENTOS}")
     print("=" * 60)
 
-    resultado = ejecutar()
+    if args.retry:
+        intervalo_seg = args.interval_min * 60
+        resultado = ejecutar_con_reintentos(
+            intervalo_segundos=intervalo_seg,
+            max_reintentos=MAX_REINTENTOS,
+            exportar_json=True,
+        )
+    else:
+        resultado = ejecutar()
 
     print(f"\nFuente: {resultado['fuente']}")
-    print(f"Total consultados: {resultado.get('total_consultados', 0)}")
-    print(
-        f"Con consenso: {resultado.get('con_senso_alcanzado', 0)}/"
-        f"{resultado.get('grupos_evaluados', 0)}"
-    )
+    if resultado.get("modo_retry"):
+        intento = resultado.get("intento_logrado")
+        total = resultado.get("total_intentos", 0)
+        print(f"Modo retry: consenso en intento {intento}/{total}"
+              if intento else f"Modo retry: sin consenso después de {total} intentos")
+    else:
+        print(
+            f"Con consenso: {resultado.get('con_senso_alcanzado', 0)}/"
+            f"{resultado.get('grupos_evaluados', 0)}"
+        )
     print(f"Alertas: {resultado.get('alertas_registradas', 0)}")
 
     if resultado.get("error"):

@@ -234,3 +234,123 @@ class TestEjecutarConsenso:
             else:
                 delattr(db_mod, "conectar")
             conn.close()
+
+
+# ──────────────────────────────────────────────
+# 5. Modo retry (ejecutar_con_reintentos)
+# ──────────────────────────────────────────────
+
+class TestEjecutarConReintentos:
+    def test_retry_logra_consensо_despues_de_2_intentos(self, tmp_path):
+        """El modo retry reintenta hasta lograr consenso."""
+        from collector.db import conectar_temporal, crear_tablas
+        from datetime import datetime
+
+        # Crear DB temporal con datos válidos
+        conn = conectar_temporal()
+        crear_tablas(conn)
+
+        ahora = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
+        hoy = datetime.now().strftime("%Y-%m-%d")
+
+        # Insertar precios que SÍ tienen consenso (dentro Q0.20)
+        conn.execute(
+            """INSERT INTO precios_combustible
+               (fecha_observacion, producto, precio, incluye_impuestos, regimen, fuente, fetched_at)
+               VALUES (?, 'superior', 44.61, 1, 'normal', 'MEM PDF', ?)""",
+            (hoy, ahora),
+        )
+        conn.execute(
+            """INSERT INTO precios_combustible
+               (fecha_observacion, producto, precio, incluye_impuestos, regimen, fuente, fetched_at)
+               VALUES (?, 'superior', 44.65, 1, 'normal', 'MEM HTML', ?)""",
+            (hoy, ahora),
+        )
+
+        conn.commit()
+
+        # Patch collector.db.conectar
+        import collector.db as db_mod
+        original_conectar = getattr(db_mod, "conectar", None)
+        
+        def mock_conectar(path=None):
+            return conn
+        
+        db_mod.conectar = mock_conectar  # type: ignore[attr-defined]
+
+        try:
+            import collector.consenso_precios as mod
+            
+            resultado = mod.ejecutar_con_reintentos(
+                intervalo_segundos=0,       # sin espera para test rápido
+                max_reintentos=2,
+                exportar_json=False,        # no probar exportación aquí
+            )
+
+            assert resultado["fuente"] == "consenso_validador"
+            assert resultado.get("modo_retry") is True
+            assert resultado.get("intento_logrado") is not None  # logró consenso
+            assert resultado.get("total_intentos", 0) >= 1
+        finally:
+            if original_conectar:
+                db_mod.conectar = original_conectar
+            else:
+                delattr(db_mod, "conectar")
+            conn.close()
+
+    def test_retry_agota_intentos_sin_consensо(self, tmp_path):
+        """Si no hay consenso, agota los intentos y retorna sin éxito."""
+        from collector.db import conectar_temporal, crear_tablas
+        from datetime import datetime
+
+        # Crear DB temporal con datos que NO tienen consenso (diff > Q0.20)
+        conn = conectar_temporal()
+        crear_tablas(conn)
+
+        ahora = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
+        hoy = datetime.now().strftime("%Y-%m-%d")
+
+        # Insertar precios con diferencia > Q0.20 entre fuentes
+        conn.execute(
+            """INSERT INTO precios_combustible
+               (fecha_observacion, producto, precio, incluye_impuestos, regimen, fuente, fetched_at)
+               VALUES (?, 'superior', 44.61, 1, 'normal', 'MEM PDF', ?)""",
+            (hoy, ahora),
+        )
+        conn.execute(
+            """INSERT INTO precios_combustible
+               (fecha_observacion, producto, precio, incluye_impuestos, regimen, fuente, fetched_at)
+               VALUES (?, 'superior', 45.00, 1, 'normal', 'MEM HTML', ?)""",
+            (hoy, ahora),
+        )
+
+        conn.commit()
+
+        # Patch collector.db.conectar
+        import collector.db as db_mod
+        original_conectar = getattr(db_mod, "conectar", None)
+        
+        def mock_conectar(path=None):
+            return conn
+        
+        db_mod.conectar = mock_conectar  # type: ignore[attr-defined]
+
+        try:
+            import collector.consenso_precios as mod
+            
+            resultado = mod.ejecutar_con_reintentos(
+                intervalo_segundos=0,       # sin espera para test rápido
+                max_reintentos=2,
+                exportar_json=False,
+            )
+
+            assert resultado["fuente"] == "consenso_validador"
+            assert resultado.get("modo_retry") is True
+            assert resultado.get("intento_logrado") is None  # NO logró consenso
+            assert resultado.get("total_intentos", 0) == 2   # agotó los 2 intentos
+        finally:
+            if original_conectar:
+                db_mod.conectar = original_conectar
+            else:
+                delattr(db_mod, "conectar")
+            conn.close()
