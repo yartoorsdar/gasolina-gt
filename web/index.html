@@ -652,19 +652,18 @@
             const ordenMap = new Map(orden.map((p, i) => [p, i]));
             precios.sort((a, b) => (ordenMap.get(a.producto) ?? -1) - (ordenMap.get(b.producto) ?? -1));
 
-            // ── Constantes de impuestos ────────────────────────
+            // ── Constantes de impuestos (Decreto 38-92 + IVA) ──
             const IDP = { superior: 4.70, regular: 4.60, diésel: 1.30 };
-            const IVA_RATE = 12 / 112;  // IVA incluido en precio final
 
             for (const p of precios) {
                 const producto = p.producto || 'superior';
                 const idp = IDP[producto] ?? 4.60;
                 const precioFinal = p.precio;
 
-                // Calcular base imponible: precio_final = base × 1.12 + IDP
-                // → base = (precio_final - IDP) / 1.12
-                const baseImponible = Math.max(0, (precioFinal - idp) * 112 / 124);
-                const ivaMonto = baseImponible * 0.12;
+                // IVA incluido en precio final: IVA = (precioFinal - IDP) * 12/112
+                const ivamonto = Math.max(0, (precioFinal - idp) * 12 / 112);
+                // Base imponible = lo que queda despues de quitar IDP e IVA
+                const baseImponible = precioFinal - idp - ivamonto;
 
                 // Precio sin impuestos (Decreto 22-2026 si se aprueba)
                 const precioSinImpuestos = Math.max(0, baseImponible + idp);
