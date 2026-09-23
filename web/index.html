@@ -612,6 +612,10 @@
         function renderPreciosCombustible(data) {
             const container = document.getElementById('preciosCombustible');
             let precios = data.precios_combustible || [];
+            
+            // Debug temporal
+            console.log('[DEBUG] precios_combustible:', precios.map(p => ({p: p.producto, f: p.fecha})));
+
             if (!precios || precios.length === 0) {
                 container.innerHTML = '<p style="color:var(--text-muted);">Sin datos disponibles</p>';
                 return;
