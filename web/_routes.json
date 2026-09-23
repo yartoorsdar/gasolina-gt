@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "include": ["/resumen.json", "/consolidado.json", "/precios_combustible.json", "/petroleo.json", "/noticias.json", "/historial_precios.json", "/historial_petroleo.json"],
+  "exclude": [],
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}
