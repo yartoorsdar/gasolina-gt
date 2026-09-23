@@ -1,16 +1,28 @@
 {
   "noticias": [
     {
+      "id": 35,
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNbWUwcHd0VWxObFJIUWN0Nkp1Ukp6ZzRWOEktYThfeGt3d3RVR05DMTdOQXFienp0U3hxd210UklMYm10aVI2R1hLeHowTko2WXkwaWhLMFJrajN4ay11RV9LZm1FcWY5cXdkQmI0RmdBeTF5VmVMeEhIcDdQd29TdU9HNXY3ZWxnWl9oTUZ1Sl9OV3NsLTZTZWRTNUJWZUN6RWVQMGRLTmZaVnUtVnNCN1czSHpnZzNsTlNXRktDWjVzSnNEeEhF?oc=5",
+      "titulo": "Ukrainian Drones Attack Russia’s Bashkortostan, Smoke Spotted Near Ufa Oil Refinery - UNITED24 Media",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-23T14:30:55-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxNbWUwcHd0VWxObFJIUWN0Nkp1Ukp6ZzRWOEktYThfeGt3d3RVR05DMTdOQXFienp0U3hxd210UklMYm10aVI2R1hLeHowTko2WXkwaWhLMFJrajN4ay11RV9LZm1FcWY5cXdkQmI0RmdBeTF5VmVMeEhIcDdQd29TdU9HNXY3ZWxnWl9oTUZ1Sl9OV3NsLTZTZWRTNUJWZUN6RWVQMGRLTmZaVnUtVnNCN1czSHpnZzNsTlNXRktDWjVzSnNEeEhF?oc=5\" target=\"_blank\">Ukrainian Drones Attack Russia’s Bashkortostan, Smoke Spotted Near Ufa Oil Refinery</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UNITED24 Media</font>",
+      "fetched_at": "2026-09-23T14:58:56-06:00"
+    },
+    {
       "id": 22,
       "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVDFUdnM4Tm1wMjM1QURkT0hvV29kZ0xCV2F0bVFaRkVqUEROaWMwLWNfeXk4T2JVR010NjBBLXJWWnJwQ1hEcGU0emRzTDZRUUs0ODJ6ZHlVcm9hdERaTG1pd1BaLXQtUFBJc0xrdW54QnBOUURQN0RuNzFaWWhjcEV4dmJBd1FYcXJGcXhQNVBaWlBPRGZvOU5CZzhrZHJ4bHFCN2NqTUdRaXBQcWVSaGpXeEZ0Z19G?oc=5",
-      "titulo": "Saudi Arabia Restarts East-West Pipeline to Resume Exports Days After Drone Attack - pipeline-journal.net",
+      "titulo": "Saudi Arabia Restarts East-West Pipeline to Resume Exports Days After Drone Attack - Pipeline Technology Journal",
       "medio": "Google News EN",
       "publicado_at": "2026-09-23T12:55:02-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVDFUdnM4Tm1wMjM1QURkT0hvV29kZ0xCV2F0bVFaRkVqUEROaWMwLWNfeXk4T2JVR010NjBBLXJWWnJwQ1hEcGU0emRzTDZRUUs0ODJ6ZHlVcm9hdERaTG1pd1BaLXQtUFBJc0xrdW54QnBOUURQN0RuNzFaWWhjcEV4dmJBd1FYcXJGcXhQNVBaWlBPRGZvOU5CZzhrZHJ4bHFCN2NqTUdRaXBQcWVSaGpXeEZ0Z19G?oc=5\" target=\"_blank\">Saudi Arabia Restarts East-West Pipeline to Resume Exports Days After Drone Attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">pipeline-journal.net</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVDFUdnM4Tm1wMjM1QURkT0hvV29kZ0xCV2F0bVFaRkVqUEROaWMwLWNfeXk4T2JVR010NjBBLXJWWnJwQ1hEcGU0emRzTDZRUUs0ODJ6ZHlVcm9hdERaTG1pd1BaLXQtUFBJc0xrdW54QnBOUURQN0RuNzFaWWhjcEV4dmJBd1FYcXJGcXhQNVBaWlBPRGZvOU5CZzhrZHJ4bHFCN2NqTUdRaXBQcWVSaGpXeEZ0Z19G?oc=5\" target=\"_blank\">Saudi Arabia Restarts East-West Pipeline to Resume Exports Days After Drone Attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Pipeline Technology Journal</font>",
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 24,
@@ -22,7 +34,31 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxPd1N0cEZSOUFtN2lpV25Xel9hVGVoZTFPdUJPd2RyQTJ4QmM5dTVta3FRalllVzBVa1h2anJiRTFUTTNucjh2ZEpVMUJXellaWnEwVDZhSG04czVuRms2QmJ4NVFMUEg1MV9CLUk0VDl6dmRMSWtVT1hxNk9YcWQ3dHphRE9obUhfejV1ZkprVVJlcTBFbGZKY1BmVEtaT25lMUJvT1BYWUk?oc=5\" target=\"_blank\">Video Does Not Show Houthi Attack on Israeli Oil Pipeline</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">موقع مسبار</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
+    },
+    {
+      "id": 41,
+      "url": "https://oilprice.com/Energy/Energy-General/EIA-Reports-3M-Barrel-Crude-Build-as-Distillate-Stocks-Fall-12-Below-Average.html",
+      "titulo": "EIA Reports 3M Barrel Crude Build as Distillate Stocks Fall 12% Below Average",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T09:47:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Crude oil inventories in the United States saw an increase of 3 million barrels during the week ending September 18, according to new data from the U.S. Energy Information Administration (EIA) released on Wednesday. The increase brings commercial stockpiles to 426.4 million barrels, according to government data, which is now 2% above the five-year average for this time of year. The EIA’s data release follows API’s figures that were released a day earlier, which reported that crude oil inventorie",
+      "fetched_at": "2026-09-23T14:58:56-06:00"
+    },
+    {
+      "id": 42,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Climate-Startup-Signs-CO2-Deals-With-Three-US-Oil-Producers.html",
+      "titulo": "Climate Startup Signs CO2 Deals With Three U.S. Oil Producers",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T09:30:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Cuts to U.S. federal incentives for carbon capture projects and an uncertain regulatory environment going forward have prompted some start-ups to move from solely capturing and storing carbon dioxide to selling it to oil companies to help them boost oil recovery.   Carbon management engineering company Spiritus, for example, has recently signed preliminary agreements with three U.S. oil and gas producers to sell them the captured CO2 for enhanced oil recovery (EOR).  The injection of CO2 into re",
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 26,
@@ -34,10 +70,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeDh3VFZGMHdYRFFGVkd4VVcyUGV1bXZTZ2NSQVNYbVJpWVNJX1lvV1VuMEpvNGowTEw5S2tDOVlpdXZIQnZvQ3l1V3R2b3ZueURCZEI3VWlTbGxaU2t3ZENyMmp1MkdhTXgzRmhXczlEeFBYZVg1Z2JkT2REVHBJRDRBRExSNmhzMTlKTjA0MEU0Y1RQdV81WDAzbWVscGo4SnAyYzlZOURTUnROOFg4ZkdFbGl1ekVFZXZoTm9aQjJCZw?oc=5\" target=\"_blank\">Kuibyshev Refinery Burns into Second Day Following Ukrainian Retaliatory Drone Strikes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UNITED24 Media</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 41,
+      "id": 43,
       "url": "https://oilprice.com/Geopolitics/International/Chinas-80-Grip-on-Iranian-Oil-Looms-Over-Trump-Xi-Summit.html",
       "titulo": "China's 80% Grip on Iranian Oil Looms Over Trump-Xi Summit",
       "medio": "OilPrice.com",
@@ -46,22 +82,22 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Ahead of a high-stakes US-China summit planned for September 24 at the White House, Beijing appears to be spotlighting its influence over Iran to gain leverage during negotiations with its chief geopolitical rival. Expectations for a US-China breakthrough on Iran at the upcoming summit in Washington are low. Trump has signaled a focus on economic outcomes for this meeting with Xi and the Chinese leader has reciprocated by assembling a delegation of top business executives. But in the run-up to t",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 25,
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQLV9fYnE5WHptSjVIVU9iVjVMbjNvMXhLMENZb0tuX3RFUlFsd25qV202d3pWbEhqbUJHd3dLMHc5QjU5LXFBdzhhR3ZlLXJ5eUJ5dGpDRDE4UTZBb3dmTWxQRWNpU2xEMnpxdUxRVWRXaEV2UUNsX05HOWxTWGJxQ2MtbkxPRDhOVUJ1dW1FSVVMcnNtR1MxV0pfVWpFLV9hWGFhYlFhclJNdFdCODc0dVk5d21xM0HSAbwBQVVfeXFMT2hmejZMV0ZRRE1taTNCa2tlSlNfWkthQ3NGUE43OTZ3YldlZUxENXliamtoVlBzOEVxUThVcWh1Y3EtaUZRZk5HTlpaRkxfQUhDS2tCVmdyUnVDNXBQdmZYRVhEN0Y3Yjhud20xLXc3Q28xYTdfUWI5OVlBTnU1TllRZWV5d0NKMVk2SlNUX3paSVRNRldNaUl3ak5rVmVMQWl1UWtFMGtFdDVVSGVLTmhnQ2ZYeWZuc0ZNR3E?oc=5",
-      "titulo": "Drones attack Bashkortostan, smoke seen near Ufa Oil Refinery – media - Ukrinform",
+      "titulo": "Drones attack Bashkortostan, smoke seen near Ufa Oil Refinery – media - ukrinform.net",
       "medio": "Google News EN",
       "publicado_at": "2026-09-23T08:25:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxQLV9fYnE5WHptSjVIVU9iVjVMbjNvMXhLMENZb0tuX3RFUlFsd25qV202d3pWbEhqbUJHd3dLMHc5QjU5LXFBdzhhR3ZlLXJ5eUJ5dGpDRDE4UTZBb3dmTWxQRWNpU2xEMnpxdUxRVWRXaEV2UUNsX05HOWxTWGJxQ2MtbkxPRDhOVUJ1dW1FSVVMcnNtR1MxV0pfVWpFLV9hWGFhYlFhclJNdFdCODc0dVk5d21xM0HSAbwBQVVfeXFMT2hmejZMV0ZRRE1taTNCa2tlSlNfWkthQ3NGUE43OTZ3YldlZUxENXliamtoVlBzOEVxUThVcWh1Y3EtaUZRZk5HTlpaRkxfQUhDS2tCVmdyUnVDNXBQdmZYRVhEN0Y3Yjhud20xLXc3Q28xYTdfUWI5OVlBTnU1TllRZWV5d0NKMVk2SlNUX3paSVRNRl",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 42,
+      "id": 44,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/TotalEnergies-to-Develop-Offshore-Gas-Field-to-Boost-Nigeria-LNG-Supply.html",
       "titulo": "TotalEnergies to Develop Offshore Gas Field to Boost Nigeria LNG Supply",
       "medio": "OilPrice.com",
@@ -70,10 +106,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "TotalEnergies has decided to invest in the development of the Ima gas field offshore Nigeria to increase supply for the expanding Nigeria LNG export plant, the French supermajor said on Wednesday. As operator and holder of a 40% interest in the Ima gas field, TotalEnergies and its local partner AMNI, owning the remaining 60%, have taken the final investment decision (FID) for the development of the field straddling the OML 112 and 117 offshore licenses in Nigeria. The Ima gas field, which lies i",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 43,
+      "id": 45,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/Hormuz-Traffic-Running-80-Below-Its-10-Day-Average.html",
       "titulo": "Hormuz Traffic Running 80% Below Its 10-Day Average",
       "medio": "OilPrice.com",
@@ -82,10 +118,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Only three commodity vessels moved through the Strait of Hormuz in the past day, preliminary tanker-tracking data by Kpler showed on Wednesday, as the oil market weighs the potential resumption of U.S.-Iran talks against continued disruptions in the Middle East. The three commodity vessels, which included one Panamax oil tanker, transited the Strait of Hormuz outbound, according to Kpler’s data cited by Reuters. The observable traffic on Tuesday was below Monday’s four vessels that transited Hor",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 44,
+      "id": 46,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/Asias-Crude-Imports-Hit-Highest-Level-Since-the-Iran-War-Began.html",
       "titulo": "Asia's Crude Imports Hit Highest Level Since the Iran War Began",
       "medio": "OilPrice.com",
@@ -94,7 +130,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Asia is set to import the highest volumes of crude oil in September since February this year, when the Iran war started, crippled supply from the Middle East, and forced buyers in Asia to slash purchases.  Asia is expected to import 23.96 million barrels per day (bpd) of crude oil this month, per data compiled by Kpler and cited by Reuters’ Asia Commodities and Energy Columnist, Clyde Russell.  The crude imports in September would be higher than the 23.38 million bpd that arrived in the region i",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 32,
@@ -106,10 +142,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxPSWZRRGRpXzJPdVlsZTVQRjlDUWRUN25Hd1dKTzFwcGNzR0lOX2dKZzUwNnZ4UmlQa1hoNHk1cW56Si1zMERkdGhHaVZ4QnVHcVJWa1I0UDZkLVY5UGQ5TU9rWEhLdzc5QmFyN1Rqby1hTzRpYVlhSUkwQ056QS16U2tpWkhVdWVHMDJ0OHdIUzZIN3BHTDdWN2dwTVQxWks4Q2I0UlZvTHZQdEMwc2F4Tg?oc=5\" target=\"_blank\">How Ukraine’s devastating attacks on Putin’s oil refineries brought the war to Russia’s doorstep</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Independent</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 45,
+      "id": 47,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Set-for-Longest-Losing-Streak-Since-August-2025.html",
       "titulo": "Oil Set for Longest Losing Streak Since August 2025",
       "medio": "OilPrice.com",
@@ -118,10 +154,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Oil prices fell in Asian trading on Wednesday and were on course for a sixth consecutive day of declines as the first U.S.-Iran talks in months revived hopes of a deal and eased concerns about oil supply from the Middle East.  In Wednesday trade in Asia, Brent Crude prices dipped by about 1% to $98.30, after falling on Tuesday below the $100 a barrel mark. The U.S. benchmark, WTI Crude, fell by 1.4% to below the $ 90-a-barrel threshold and traded at $89.49.   Oil prices extended the losses that ",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 46,
+      "id": 48,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/100-Brent-Keeping-Chinas-Oil-Buying-in-Check-Goldman-Says.html",
       "titulo": "$100 Brent Keeping China's Oil Buying in Check, Goldman Says",
       "medio": "OilPrice.com",
@@ -130,10 +166,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "China's crude oil exports will rise only slightly in the fourth quarter from the third quarter if oil prices remain high, potentially easing the upward pressure on benchmark crude prices, Goldman Sachs says. China's crude oil imports rose for the second consecutive month in August as refiners turned to additional non-Middle Eastern supply and boosted overseas fuel shipments amid eased export restrictions. China imported 8.93 million bpd of crude oil in August, up by 6.2% compared to July, and fu",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 47,
+      "id": 49,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/Michigan-Judge-Tosses-States-Antitrust-Suit-Against-Big-Oil.html",
       "titulo": "Michigan Judge Tosses State's Antitrust Suit Against Big Oil",
       "medio": "OilPrice.com",
@@ -142,10 +178,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "A district judge in Grand Rapids has dismissed a lawsuit brought against several oil supermajors that accused the companies of conspiring to interfere with competition in alternative energy and electric cars. The lawsuit was filed by Michigan Attorney General Dan Nessel, alleging Exxon, Chevron, Shell, BP, and the American Petroleum Institute colluded to try to “restrain the emergence of electric vehicles and ‌renewable primary energy technologies in the United States,” as quoted by Reuters. Acc",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 48,
+      "id": 50,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/South-Korea-Aims-to-Cut-Middle-East-Crude-Reliance-to-50-by-2035.html",
       "titulo": "South Korea Aims to Cut Middle East Crude Reliance to 50% by 2035",
       "medio": "OilPrice.com",
@@ -154,10 +190,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "South Korea will try to cut its reliance on Middle East crude imports to 50% by 2035, Reuters has reported, citing the country’s industry ministry. The ministry has drafted a 10-year natural resource security plan, which envisages a “fundamental shift” in the way South Korea sources its imports. The plan also calls for a boost in oil reserves by some 20 million barrels by 2030. South Korea imports as much as 70% of its crude oil from Middle Eastern producers, and most of it must pass through the",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 49,
+      "id": 51,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/Trump-Backs-Diesel-Export-Ban-as-Prices-Hit-Record-Highs.html",
       "titulo": "Trump Backs Diesel Export Ban as Prices Hit Record Highs",
       "medio": "OilPrice.com",
@@ -166,10 +202,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "President Trump has declared his support for a potential ban on diesel fuel exports amid record-breaking prices at the pump. “I've said let's not send out the diesel. We make a lot of diesel ... I've called for it. I've called for it within my people,” Trump said, as quoted by Reuters, on the sidelines of this week’s UN General Assembly. The comment follows a statement by Treasury Secretary Scott Bessent that the administration was mulling over the effectiveness of such a ban on exports, and whe",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 9,
+      "id": 8,
       "url": "https://news.google.com/rss/articles/CBMixAJBVV95cUxPcFNwclJDaEtWcmV0R2laYlBvVFRUNm5KN1BkTFZKNHZzZ0JFYjdIMHdyOWVGZWFPVEZaVUhicjhQQWhhUTU2VW51dEVIb1AzVFJKNjJnTlpjX3Jrb0dlUnVicWZfbm9GUFhPamVzZUI2STZYTW83Nno5NHcwTml1V0NUeWxZWnpMeVVnRXdUNHFnRVRTMGI5MVhJejdaNmxkUFNRb1VyVXhtNFZqUC1XTFU5eVpvbUZHMkxEbXJhSUZneFZoQnFUMWVSZWpzVUU3WWJSdFdNdHk2amV0SFdWZS1hbWFRSGlrWmgxbm0xckRYMDRYUDlvMlRHWnZjbXIzQ1FDeGpIdFljX3pndldlYnpPVjZtUEp2c0d2LWFDanVVY1FCdmR6SlVyU2JjNjkzN2dNSWsxbVI3VXVHQ0JPNWo5a2M?oc=5",
       "titulo": "Estados Unidos. Genocida Trump en la ONU: Petróleo de Venezuela, insulto al secuestrado presidente Nicolás Maduro, ataque furibundo a Cuba y reafirmación de la guerra con Irán (videos) - Resumen Latinoamericano -",
       "medio": "Google News ES",
@@ -178,10 +214,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMixAJBVV95cUxPcFNwclJDaEtWcmV0R2laYlBvVFRUNm5KN1BkTFZKNHZzZ0JFYjdIMHdyOWVGZWFPVEZaVUhicjhQQWhhUTU2VW51dEVIb1AzVFJKNjJnTlpjX3Jrb0dlUnVicWZfbm9GUFhPamVzZUI2STZYTW83Nno5NHcwTml1V0NUeWxZWnpMeVVnRXdUNHFnRVRTMGI5MVhJejdaNmxkUFNRb1VyVXhtNFZqUC1XTFU5eVpvbUZHMkxEbXJhSUZneFZoQnFUMWVSZWpzVUU3WWJSdFdNdHk2amV0SFdWZS1hbWFRSGlrWmgxbm0xckRYMDRYUDlvMlRHWnZjbXIzQ1FDeGpIdFljX3pndldlYnpPVjZtUEp2c0d2LWFDanVVY1FCdmR6SlVyU2JjNjkzN2dNSWsxbVI3VXVHQ0JPNWo5a2M?oc=5\" target=\"",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 50,
+      "id": 52,
       "url": "https://oilprice.com/Energy/Natural-Gas/Washington-Needs-This-LNG-Deal-More-Than-Beijing-Does.html",
       "titulo": "Washington Needs This LNG Deal More Than Beijing Does",
       "medio": "OilPrice.com",
@@ -190,10 +226,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Xi Jinping arrives in Washington September 24, prepared to discuss reviving a $6 billion-a-year trade in US liquefied natural gas, contingent on lifting a 15% Chinese tariff that has blocked American gas since Q1 2025. Iranian missiles destroyed 17% of Qatar's LNG export capacity in March, and China absorbed that shock by buying more from everyone except the United States: Australia took 36% of its LNG imports from January through July, Southeast Asia 20%, Russia 12%, and Canada, a new entrant, ",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 51,
+      "id": 53,
       "url": "https://oilprice.com/Energy/Energy-General/Trump-Proposes-5-Billion-Fund-to-Rebuild-Gulf-Energy-Infrastructure.html",
       "titulo": "Trump Proposes $5 Billion Fund to Rebuild Gulf Energy Infrastructure",
       "medio": "OilPrice.com",
@@ -202,10 +238,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "U.S. President Donald Trump has proposed a fund to finance infrastructure rebuilding damaged in the war with Iran, offering $5 billion in U.S. money for starters. The information comes from the Wall Street Journal, which cited unnamed sources from Washington and Gulf states. The money from the fund would also be used to help Gulf states develop alternative oil export routes bypassing the Strait of Hormuz, the report also said, adding that the United States will ask these states to also contribut",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 52,
+      "id": 54,
       "url": "https://oilprice.com/Energy/Energy-General/Is-Chinas-Secret-Power-Advantage-About-To-Trigger-An-89-Crash-In-US-AI-Stock.html",
       "titulo": "Is China’s Secret Power Advantage About To Trigger An 89% Crash In U.S. AI Stock",
       "medio": "OilPrice.com",
@@ -214,7 +250,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "The current focus of the world’s governments, business and media when it comes to artificial intelligence (AI) is on the dangers it poses to jobs, democracy and even the future of humanity itself. For many of a certain generation, these fears crystallise in the cold but relentlessly courteous voice of HAL, the on?board AI in Stanley Kubrick’s 2001: A Space Odyssey. After a crew member questions HAL’s diagnosis of a faulty antenna, the system secretly lip?reads the astronauts, discovers their pla",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 30,
@@ -226,10 +262,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxQUU1IdmtFdFRYNFEzT1BuRVRpamQxZDh0N3czV01WWGFtbHVYYWZZYmdna3FTVVpFeXd2cjZtSVA1R0c2MEpUdWlXUHRqSzBqQ0MtQ1NsSG1mN2EyVmZtN1o5RDlvVkxGLU5mMVBENXU5ZHFpUWhxX2xRWXNkSEdFbzZraUctOThBMzBoX3VNVGtBYnVsMGRwb0dkRHZDaEsyZU1fZ041V2FjcHR4aThNTTF0LThLcHpKV0p6Z3hKT24?oc=5\" target=\"_blank\">Here's What the Houthi–Saudi Arabia Conflict Means for the United States</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Council on Foreign Relations</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 53,
+      "id": 55,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/US-Gasoline-Distillate-Inventories-Continue-to-Fall-as-Crude-Stocks-Hold.html",
       "titulo": "US Gasoline, Distillate Inventories Continue to Fall as Crude Stocks Hold",
       "medio": "OilPrice.com",
@@ -238,31 +274,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "The American Petroleum Institute (API) estimated that crude oil inventories in the United States rose by 1.786 million barrels in the week ending September 18. In the week prior, US crude oil inventories grew by a substantial 7.14 million barrels. Commercial crude oil inventories excluding the SPR have lost 39 million barrels over the last 23 weeks, but US crude inventories are up nearly 12 million for the year, according to API data, kept in check by draws from the SPR. For the week ending Sept",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
-    },
-    {
-      "id": 54,
-      "url": "https://oilprice.com/Energy/Energy-General/Global-Energy-Demand-Set-to-Jump-60-by-2060-as-Developing-Nations-Power-Up.html",
-      "titulo": "Global Energy Demand Set to Jump 60% by 2060 as Developing Nations Power Up",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-22T16:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Emerging economies are going to see an explosion of energy demand over the coming decades. Countries like Brazil, India, Nigeria, and Indonesia are racing to expand their energy production and imports in order to keep up with rapid economic development. While the leaders of these and other emerging economies are making a concerted effort to expand their renewable energy capacity, meeting demand will require an all-of-the-above approach to energy that will extend the life of oil and gas, accordin",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
-    },
-    {
-      "id": 55,
-      "url": "https://oilprice.com/Energy/Crude-Oil/Norways-Liquids-Output-Rebounds-by-Nearly-100000-Bpdbut-Still-Trails-2025.html",
-      "titulo": "Norway’s Liquids Output Rebounds by Nearly 100,000 Bpd—but Still Trails 2025",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-22T15:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Norway’s crude oil production rose to 1.882 million barrels per day in August, exceeding the Norwegian Offshore Directorate’s forecast but remaining below the level recorded during the same month last year, preliminary figures released on Tuesday showed. Total liquids production, including crude oil, natural gas liquids and condensate, averaged 2.073 million barrels per day. That was an increase of 97,000 barrels per day, or about 4.9%, from the 1.976 million barrels per day produced in July. De",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 27,
@@ -274,22 +286,22 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiiwFBVV95cUxQdkZNZEtRS1dqcEI1X3dySnFhNUlqRTFVc1h6ZGtrOUFjSmV4Q2d1Vk1OM3ZfalpWaS1Wb2RwdzVobHNDR1BRd0t5OFRzNjUxcmN1c09mQ0FzVS0wZGV1Nm8zRVlaMGw3c0taZTNVRVZHTmE0T0FGZ0hfS1lqU0xLNDM2aDdjVlZiVzU0?oc=5\" target=\"_blank\">Oil Prices Increase After Iraq Attack Shuts Down Saudi Pipeline</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Organization for World Peace</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 37,
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQYVN2cWg2ZEVUN1J4U2JtcDlNWnhkcHFpZ2dHSTVXcGEycF9lS0Y4bkpOaVllLTNvZXdxUFlLLXRIOWNUdG85LWtBVnZ1alF1Mi16SXpMVXpobTRhT0gwXzBoVDV3YmlDSnV2c1JjOGdnRk5aWmxyTlFvMWtncVFtMElaVkl6clg4UXRSREd1MjJ5bzdtUUZSZEwzVTc3Wmdk?oc=5",
-      "titulo": "Saudi Aramco Ramps Up Gulf Oil Loadings in Response to Pipeline Attack - pipeline-journal.net",
+      "titulo": "Saudi Aramco Ramps Up Gulf Oil Loadings in Response to Pipeline Attack - Pipeline Technology Journal",
       "medio": "Google News EN",
       "publicado_at": "2026-09-22T12:25:32-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMioAFBVV95cUxQYVN2cWg2ZEVUN1J4U2JtcDlNWnhkcHFpZ2dHSTVXcGEycF9lS0Y4bkpOaVllLTNvZXdxUFlLLXRIOWNUdG85LWtBVnZ1alF1Mi16SXpMVXpobTRhT0gwXzBoVDV3YmlDSnV2c1JjOGdnRk5aWmxyTlFvMWtncVFtMElaVkl6clg4UXRSREd1MjJ5bzdtUUZSZEwzVTc3Wmdk?oc=5\" target=\"_blank\">Saudi Aramco Ramps Up Gulf Oil Loadings in Response to Pipeline Attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">pipeline-journal.net</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMioAFBVV95cUxQYVN2cWg2ZEVUN1J4U2JtcDlNWnhkcHFpZ2dHSTVXcGEycF9lS0Y4bkpOaVllLTNvZXdxUFlLLXRIOWNUdG85LWtBVnZ1alF1Mi16SXpMVXpobTRhT0gwXzBoVDV3YmlDSnV2c1JjOGdnRk5aWmxyTlFvMWtncVFtMElaVkl6clg4UXRSREd1MjJ5bzdtUUZSZEwzVTc3Wmdk?oc=5\" target=\"_blank\">Saudi Aramco Ramps Up Gulf Oil Loadings in Response to Pipeline Attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Pipeline Technology Journal</font>",
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 12,
+      "id": 11,
       "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQZTh1ZGdBLXZDbEZKb015REhqSXNIWnRuaFVTUko0bUEwc3dWWEp5ZkxLLTFOUmNsUzNuR1ZtZmFDUEdaWV9QWTNXZFJXZzJxb2ZpNlNqc1pVUVVpNmZheVZQbFNIcmRkNEdzVHpGdTVXaXRiV1BRdzkxWDdHTzU2MHlIZzRLZm5wWXBzOUhaV1dJT0VKU2k5aDlBdVkzWXVIRG9wdldXOThPS0E2cncxWV9EWFotN1BtT2w1MWNJYXpaY2lIVlh3X3FQUHNGeHVqUlAtUlM2OUdmMUE1ZG94UFh2NA?oc=5",
       "titulo": "Arabia Saudita aumenta las exportaciones de petróleo a través del Golfo tras ataque a oleoducto - IDNFinancials",
       "medio": "Google News ES",
@@ -298,34 +310,22 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi4wFBVV95cUxQZTh1ZGdBLXZDbEZKb015REhqSXNIWnRuaFVTUko0bUEwc3dWWEp5ZkxLLTFOUmNsUzNuR1ZtZmFDUEdaWV9QWTNXZFJXZzJxb2ZpNlNqc1pVUVVpNmZheVZQbFNIcmRkNEdzVHpGdTVXaXRiV1BRdzkxWDdHTzU2MHlIZzRLZm5wWXBzOUhaV1dJT0VKU2k5aDlBdVkzWXVIRG9wdldXOThPS0E2cncxWV9EWFotN1BtT2w1MWNJYXpaY2lIVlh3X3FQUHNGeHVqUlAtUlM2OUdmMUE1ZG94UFh2NA?oc=5\" target=\"_blank\">Arabia Saudita aumenta las exportaciones de petróleo a través del Golfo tras ataque a oleoducto</a>&nbsp;&nbsp;<font colo",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 10,
+      "id": 17,
       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxObHZYa0xwOFQ4OUFVVWpCMVJVQXlibFBnN1ZDa01BZklCMkdGNkdaZ2dOcGdpZGc4aUh5RWNHN1pWTkYtaEZMdFA2aFk1ZlFrRW92dE83R1RPMzYxS21LbEc3YnhvV1FUdlAxRWdla2F4azVXMFh5eFJTYVh2Z0NyV2pQd0I0TG5xMXh1bVJwY2RtSHFVMVFF?oc=5",
-      "titulo": "Arabia Saudita reactiva oleoducto Este-Oeste para reanudar las exportaciones desde Yanbu: fuentes - Yahoo",
+      "titulo": "Arabia Saudita reactiva oleoducto Este-Oeste para reanudar las exportaciones desde Yanbu: fuentes - es.finance.yahoo.com",
       "medio": "Google News ES",
       "publicado_at": "2026-09-22T10:33:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxObHZYa0xwOFQ4OUFVVWpCMVJVQXlibFBnN1ZDa01BZklCMkdGNkdaZ2dOcGdpZGc4aUh5RWNHN1pWTkYtaEZMdFA2aFk1ZlFrRW92dE83R1RPMzYxS21LbEc3YnhvV1FUdlAxRWdla2F4azVXMFh5eFJTYVh2Z0NyV2pQd0I0TG5xMXh1bVJwY2RtSHFVMVFF?oc=5\" target=\"_blank\">Arabia Saudita reactiva oleoducto Este-Oeste para reanudar las exportaciones desde Yanbu: fuentes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxObHZYa0xwOFQ4OUFVVWpCMVJVQXlibFBnN1ZDa01BZklCMkdGNkdaZ2dOcGdpZGc4aUh5RWNHN1pWTkYtaEZMdFA2aFk1ZlFrRW92dE83R1RPMzYxS21LbEc3YnhvV1FUdlAxRWdla2F4azVXMFh5eFJTYVh2Z0NyV2pQd0I0TG5xMXh1bVJwY2RtSHFVMVFF?oc=5\" target=\"_blank\">Arabia Saudita reactiva oleoducto Este-Oeste para reanudar las exportaciones desde Yanbu: fuentes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">es.finance.yahoo.com</font>",
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 17,
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPeWQ4REhYcGtrLVNQV2ZDVlhneFE3Tnl0ZDJxYk5fT2tGZkM0R3F0YUFwdEg1YmxwSTN6azlQVzRlb280RHIwXzI4eWxLNlpDSFNmV2RQcHlPWmN6cDJUZ0lYOTl5UFV4TzFWS2gyTWpGak9KVjVENUhIdGNQQjl0REZ3R0N6aEhHTW95dDJGN2tReEg0VWlQeWdUTGNmaVdpUDBEaUVQT1BZQmxsXzNvbjhPeGxyQmo4RHYzNmRGVjhQYmJTNWRxZkVzWVBJVDA?oc=5",
-      "titulo": "Drones ucranianos atacan e incendian la refinería de petróleo de Kuibyshev en Samara - UNITED24 Media",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-22T10:15:44-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMizwFBVV95cUxPeWQ4REhYcGtrLVNQV2ZDVlhneFE3Tnl0ZDJxYk5fT2tGZkM0R3F0YUFwdEg1YmxwSTN6azlQVzRlb280RHIwXzI4eWxLNlpDSFNmV2RQcHlPWmN6cDJUZ0lYOTl5UFV4TzFWS2gyTWpGak9KVjVENUhIdGNQQjl0REZ3R0N6aEhHTW95dDJGN2tReEg0VWlQeWdUTGNmaVdpUDBEaUVQT1BZQmxsXzNvbjhPeGxyQmo4RHYzNmRGVjhQYmJTNWRxZkVzWVBJVDA?oc=5\" target=\"_blank\">Drones ucranianos atacan e incendian la refinería de petróleo de Kuibyshev en Samara</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UNITED24 Media</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
-    },
-    {
-      "id": 8,
+      "id": 9,
       "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNUVBldzNfaFVqZElRcmhISHlRaEp0d21WSzhqLXVWTkc1aUtUdHJQWUg1dGNTTVc0cW5Vb2h1ajROX3YtdUw0d2JhOGR4QW9aSW9FTERHMkJ5QWg1dFUwOTFvVlJFemhpakNXdXdJZlRjN1UyUDlIem5rREtLb0Q5TDRQZjBVNU1NaElvNU92ZF9raEVMMThXS0VJS0FnYWE0VWxrWVpqcmRwT3RXWXhWU0txY3lSalNBbFNKM0Ewa1Q4bUYtcWVuRmJzcXZmNWtsTGJuTk5DdDRDSlVVU2phRWQxeGVETTQ?oc=5",
       "titulo": "Paralizado el 45% del refino ruso: un ataque de precisión deja sin producción a la capital - UNITED24 Media",
       "medio": "Google News ES",
@@ -334,7 +334,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi5wFBVV95cUxNUVBldzNfaFVqZElRcmhISHlRaEp0d21WSzhqLXVWTkc1aUtUdHJQWUg1dGNTTVc0cW5Vb2h1ajROX3YtdUw0d2JhOGR4QW9aSW9FTERHMkJ5QWg1dFUwOTFvVlJFemhpakNXdXdJZlRjN1UyUDlIem5rREtLb0Q5TDRQZjBVNU1NaElvNU92ZF9raEVMMThXS0VJS0FnYWE0VWxrWVpqcmRwT3RXWXhWU0txY3lSalNBbFNKM0Ewa1Q4bUYtcWVuRmJzcXZmNWtsTGJuTk5DdDRDSlVVU2phRWQxeGVETTQ?oc=5\" target=\"_blank\">Paralizado el 45% del refino ruso: un ataque de precisión deja sin producción a la capital</a>&nbsp;&nbsp;<font colo",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 38,
@@ -346,7 +346,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiyAFBVV95cUxPNmJidHFzNHlscWlnT2hsWFdKc1hNRFMxOWRnTTRQRHVHbV9tRTJySFJoOGFoZXdNdTIwMngxZlczRmY3dWJxWkNiWTRYclVyT0JoWXQyUHJpNThicmpUNDMwWjNqREdrYmw3Ty1peU9oaEtRdC1GWXE1S0o1eGlrWDZONDhqS0FDbWotZXV1LXBvTEhUWHdlT1BzYU5udjNKTTFXdk1hX0wwVk1yczRTdV94R0p4UUQ1bEViTXJ2S2pEaTVLTFlvdw?oc=5\" target=\"_blank\">Saudi Arabia restarts East-West oil pipeline, sources say</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Reuters</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 56,
@@ -358,31 +358,31 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Publicly traded companies represent a tiny share of the total number of companies producing crude oil and natural gas in the United States, but they make up a large share of U.S. production. In 2025, publicly traded companies accounted for just 2% of about 12,000 oil and natural gas producers but produced 68% of the crude oil and natural gas in the Lower 48 states.",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 19,
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNSW5Bb19Hdlk4Vi0yRHRCOVN1bWk2YUVtVkhXSGg2RUF1VUI1SGR1dmFSaFdSMzMyZE9FWFBvQk1NdkVJX0k4OUNfcThZSXpQZ1lKcVJmQUlTbU9IR25aR2VBQmx0MVMwX25UenA4eUlJYWRPMkN4ZzlRYjJITjQ4Mnp5M3NSZkxPRW9YMFNJWXN3SzM3bzQzempRU0ZrdHpQVGdBTGl5SQ?oc=5",
-      "titulo": "Arabia Saudita eleva exportación de petróleo por el golfo Pérsico tras ataque a oleoducto: datos - Yahoo",
+      "titulo": "Arabia Saudita eleva exportación de petróleo por el golfo Pérsico tras ataque a oleoducto: datos - es.finance.yahoo.com",
       "medio": "Google News ES",
       "publicado_at": "2026-09-21T18:11:05-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxNSW5Bb19Hdlk4Vi0yRHRCOVN1bWk2YUVtVkhXSGg2RUF1VUI1SGR1dmFSaFdSMzMyZE9FWFBvQk1NdkVJX0k4OUNfcThZSXpQZ1lKcVJmQUlTbU9IR25aR2VBQmx0MVMwX25UenA4eUlJYWRPMkN4ZzlRYjJITjQ4Mnp5M3NSZkxPRW9YMFNJWXN3SzM3bzQzempRU0ZrdHpQVGdBTGl5SQ?oc=5\" target=\"_blank\">Arabia Saudita eleva exportación de petróleo por el golfo Pérsico tras ataque a oleoducto: datos</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMipwFBVV95cUxNSW5Bb19Hdlk4Vi0yRHRCOVN1bWk2YUVtVkhXSGg2RUF1VUI1SGR1dmFSaFdSMzMyZE9FWFBvQk1NdkVJX0k4OUNfcThZSXpQZ1lKcVJmQUlTbU9IR25aR2VBQmx0MVMwX25UenA4eUlJYWRPMkN4ZzlRYjJITjQ4Mnp5M3NSZkxPRW9YMFNJWXN3SzM3bzQzempRU0ZrdHpQVGdBTGl5SQ?oc=5\" target=\"_blank\">Arabia Saudita eleva exportación de petróleo por el golfo Pérsico tras ataque a oleoducto: datos</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">es.finance.yahoo.com</font>",
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 20,
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNWVpCclVaNHZSUVZCZ2hvMlhXbnRrS3Y4UVZEME1COVh4MnItcm5VT1V1QkhnUk1xUXpMdkk3YzlSN25tRG5yTnZxdnlZNF9TaEh3YjR0VHZfSDRiUElwZ0FMQjV1NGtYX1dobkZ5aG9QODJTZTVzTjB2TWMzbTF2dE9VQXdJcFNXS1lrVDJZOWdDRUtON2FteWlJbFF0NjU2MmZyOTZuNWYzS1E3S3VKM3BB?oc=5",
-      "titulo": "Refinería petrolera de Moscú detiene producción tras ataque con drones del domingo: fuentes - Yahoo",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE4xQmkxNG5GS2E1cDZ1c3dmY1E3TGpXaVdKeUFyTENrZWFGcWU0RW9FYmFaaWpWcTd2SFN2OHVzSms0NVJCcVNuaTRoRXZnczBSUElFWHB6VjhOM1VoM1hBSkxCRXIzZzdNMER4bzBLUEk2V2J6MjFv?oc=5",
+      "titulo": "Arabia Saudita eleva exportación de petróleo por el golfo Pérsico tras ataque a oleoducto: datos - TradingView",
       "medio": "Google News ES",
-      "publicado_at": "2026-09-21T16:04:52-06:00",
+      "publicado_at": "2026-09-21T17:57:03-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMisgFBVV95cUxNWVpCclVaNHZSUVZCZ2hvMlhXbnRrS3Y4UVZEME1COVh4MnItcm5VT1V1QkhnUk1xUXpMdkk3YzlSN25tRG5yTnZxdnlZNF9TaEh3YjR0VHZfSDRiUElwZ0FMQjV1NGtYX1dobkZ5aG9QODJTZTVzTjB2TWMzbTF2dE9VQXdJcFNXS1lrVDJZOWdDRUtON2FteWlJbFF0NjU2MmZyOTZuNWYzS1E3S3VKM3BB?oc=5\" target=\"_blank\">Refinería petrolera de Moscú detiene producción tras ataque con drones del domingo: fuentes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMid0FVX3lxTE4xQmkxNG5GS2E1cDZ1c3dmY1E3TGpXaVdKeUFyTENrZWFGcWU0RW9FYmFaaWpWcTd2SFN2OHVzSms0NVJCcVNuaTRoRXZnczBSUElFWHB6VjhOM1VoM1hBSkxCRXIzZzdNMER4bzBLUEk2V2J6MjFv?oc=5\" target=\"_blank\">Arabia Saudita eleva exportación de petróleo por el golfo Pérsico tras ataque a oleoducto: datos</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">TradingView</font>",
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 21,
@@ -394,10 +394,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMizAFBVV95cUxQcThldmdWd2c5aHdfck8zYk1XMWtsa3kweWlXaTNQWEpnV2NIUHhiNTh2cHhoSndCV2Z2QkhwNl9DZEJObFJha2pXWG1JcUZpVXlZU1RqQ2diZUJ0YVV2alRBRmRCampGOGdQQnM4UVV2R2ZMQ2p6WC1QSk5iOGJEWDZ2YXdaSzlLeGtZYnNuVld5MGZESG1tenNaMFlFcExWeVhlZjJBTlJOeHNmVkhBYzFkejJkNno5VWEwU05hRHU4NGlqT1U5UXcxUzU?oc=5\" target=\"_blank\">Saudi Arabia ramps up Gulf oil exports after pipeline attack, data shows</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Reuters</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 35,
+      "id": 34,
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOM0ZqN3BCT1Q3OXIxNWE5Vl9GVHVTNHNJWUgwdEIwNnQ5OHlPN0lmc0R3RHRubUUzdFB0bGVVZTZrVURNMWRkREczMlNuaGgxS0pyLUVvZ0FRZVpFeE9XdExBcXJtWXM5c01wSVFCRndLelVBNnU3WFFOX2lUTE82NzdzdGxUOXRuTzZWclp1b0JFQUxqcmctUmNKUW1PZWUtOV93M2lnX2NPN2ItZXUtT2lGbHo5cHRrSHRPcFBKa0w?oc=5",
       "titulo": "Moscow oil refinery output halted after Sunday drone attack, sources say - Reuters",
       "medio": "Google News EN",
@@ -406,7 +406,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxOM0ZqN3BCT1Q3OXIxNWE5Vl9GVHVTNHNJWUgwdEIwNnQ5OHlPN0lmc0R3RHRubUUzdFB0bGVVZTZrVURNMWRkREczMlNuaGgxS0pyLUVvZ0FRZVpFeE9XdExBcXJtWXM5c01wSVFCRndLelVBNnU3WFFOX2lUTE82NzdzdGxUOXRuTzZWclp1b0JFQUxqcmctUmNKUW1PZWUtOV93M2lnX2NPN2ItZXUtT2lGbHo5cHRrSHRPcFBKa0w?oc=5\" target=\"_blank\">Moscow oil refinery output halted after Sunday drone attack, sources say</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Reuters</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 7,
@@ -418,10 +418,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxOaUN2YjZDc19JWGtHUGUtcElvZ2VfT3lpazlKQXJaWXpWMkJ1ZVlfNjZaVW8ydmgyekZiNE5TTTJDNW5yME5vc3hZdGRIQmRleTdxVTR6Y2xYOXdGa1lCMFk3d2x6bFFKbDNac1BPTVZhYWVIenpwdTBtOVZlX0ZYQ3pzQmRURzg4bXlHd3RGcG55bXNQWnlVbTRDZDRJV0gtSjkxTGRiNWY?oc=5\" target=\"_blank\">Ataque masivo con drones contra Moscú alcanza Refinería y deja víctimas</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Noticia Zavaleta</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 5,
+      "id": 6,
       "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNNURRYjZjLU5EWmJSb2ZMeGNGRjFuLXY4Tk85WjJmMUJ3WXhockZvTVUtbzRyTHpoeEh0NGZBMGFUNzB4TzV3ZExCWlJPTzk2Zm9ZWWpKUmlQdGMyNWZZMFRTM250WDRfblg0RVNXckZya0tYU1k5TEpKVE9MdTV3RktOaWNjdDkwMllDSnY3V2lCMnVDVlRmUklkcFk5Ums5LXotbWxHRF9vbEF2RUZMR253eG5ZcnREWUYxYXdzbEgwZWtHRmZ3cjI0aWxZXzBER3kyQ1N6dHZCQkE0Q2RaZUtuT1ptQTI3MVByOTBPQTNVVnNV?oc=5",
       "titulo": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con las autoridades de ese país, los dispositivos impactaron la principal refinería de petróleo de la capital y un edificio residencial. El alcalde Sergei Sobyanin d - facebook.com",
       "medio": "Google News ES",
@@ -430,7 +430,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi9AFBVV95cUxNNURRYjZjLU5EWmJSb2ZMeGNGRjFuLXY4Tk85WjJmMUJ3WXhockZvTVUtbzRyTHpoeEh0NGZBMGFUNzB4TzV3ZExCWlJPTzk2Zm9ZWWpKUmlQdGMyNWZZMFRTM250WDRfblg0RVNXckZya0tYU1k5TEpKVE9MdTV3RktOaWNjdDkwMllDSnY3V2lCMnVDVlRmUklkcFk5Ums5LXotbWxHRF9vbEF2RUZMR253eG5ZcnREWUYxYXdzbEgwZWtHRmZ3cjI0aWxZXzBER3kyQ1N6dHZCQkE0Q2RaZUtuT1ptQTI3MVByOTBPQTNVVnNV?oc=5\" target=\"_blank\">Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con l",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 1,
@@ -442,10 +442,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxPX0lyZkFfN1ZkSE1CcFQtb0kwb0RPMEZUamlRT3d5VjRYcFY3TTRuZUFsNU5ma3FFbUpLd1drLUJPMmVqQnROSHR2MmZYdVp0R3ZPRUxpeDhIOVJQZnFoaHNXSnlhVmdhWVhla0U5aC1SbENsUjFRWlR4MWJLcGhwSTdRRUJiNm81eXFPWlA4emhEUV9WejM1b3hvSlJCWUk3VTdJRg?oc=5\" target=\"_blank\">Ucrania lanza más de 1.000 drones contra Rusia, incluido “mayor ataque de la historia” contra Moscú</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Greenwich Time</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 11,
+      "id": 12,
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNZ1Z4c2lUUHdVT2tsMDI3ZTZXbkNwdXZUZTBzWEJ0QUJfaDdmdGktanNpZk56LTR6Uy1yUEM4eGlQNUotbnR6bzhMZG9kdndfN3E1eHNVVldHb25KWEtTUzZlcnUydXVEdl85NXVtVmZXVDR1Vk9PN09qU09HeUNPQ0pUS1cxNnc?oc=5",
       "titulo": "Ucrania bombardeó refinería petrolera en Moscú - elcomerciodecolorado.com",
       "medio": "Google News ES",
@@ -454,7 +454,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxNZ1Z4c2lUUHdVT2tsMDI3ZTZXbkNwdXZUZTBzWEJ0QUJfaDdmdGktanNpZk56LTR6Uy1yUEM4eGlQNUotbnR6bzhMZG9kdndfN3E1eHNVVldHb25KWEtTUzZlcnUydXVEdl85NXVtVmZXVDR1Vk9PN09qU09HeUNPQ0pUS1cxNnc?oc=5\" target=\"_blank\">Ucrania bombardeó refinería petrolera en Moscú</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">elcomerciodecolorado.com</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 39,
@@ -466,7 +466,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxNVVNJbGZEQXkzaEQ0UGs4U192Sks0X1UtRWtrYXhIbG0tdDhKLU4xYU1kZTFTY2g3VG4xSUE1b3MxVUNzLXlNUjZrSnRiQy1jeWo2bmJhNElYME1DUWxKdHBtbktxSUpNUkNJcjRkc1NMUmtkT2hKOWpZRGdfdDRiV0JaZVNnTWd5Sk1qbnA3N0oyWEFULTVBcllkZGsyOHZLenl4ZHNLbHRIX1B0RDRJdA?oc=5\" target=\"_blank\">Three dead in Moscow region, drones hit oil refinery in Russian capital</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Reuters</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 2,
@@ -478,7 +478,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxNcnJqNEJNOEgxaC1YcXNtNzljeWxKdlJmM0pMMUM0UlpoMklBR1ZSWFI0REVjWlVZMWxlV2FxRWlMLXpvWXBqTVpjTHNVVDVYZXRhWEZ1ZVFlVHJXcTBHaGMtY3ZtOC16N0lubjFxZzByT1hmX0NiTzBwN3Z2SVBURXQ2cE55d21kSmRxRklCaFg2X3hQMXliQUJBZTQ?oc=5\" target=\"_blank\">Arde en llamas una refinería de petróleo de Moscú tras un ataque ucraniano, según un vídeo publicado por Zelensky</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CNN en Español</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 3,
@@ -490,10 +490,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE5CY0dINlhhc09NdHhscF9LV0s5UEdPeldGQ0RCbmduUmQ2aUpNN21iMVNwWHdnMlZ4NFFEZEt3SWxRbkhQM2pPbjBIaml4U0pyZnNaOHlnai0ydFNt0gFiQVVfeXFMT0ZMOWFHLXVfTnRRZEo5ZVpZMjh3bjI0OUtpMFVXX21vNlJUVjYySEp6VGJaQTd2WVc3Q0xuM0Z1QU9rQlo1ZkozX2NFZFNpTmMwTEJLQWlwZFZFQTBTYjkyZkE?oc=5\" target=\"_blank\">Ucrania golpea Moscú con unos 450 drones en el mayor ataque contra la capital rusa hasta la fecha</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 14,
+      "id": 15,
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOUHIxakVjNjVyWVI2YTY1bURpLWRxbHNtSTB5QlRUekNGX1FFdWduc3Bjb29WRFZhdnZhdk9SLUJGa3JyZF9TdWVrY3dzcFRxTEp2RG1oc3Q5X09qbmpVa3g3X1FXNE85dHlfd0tDMjRTeHNORXZjYm1ZcER6WnpxclZJTUpGdw?oc=5",
       "titulo": "Moscú, blanco del mayor ataque con drones de Ucrania en el último día de las elecciones de Rusia - CNN en Español",
       "medio": "Google News ES",
@@ -502,7 +502,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMihgFBVV95cUxOUHIxakVjNjVyWVI2YTY1bURpLWRxbHNtSTB5QlRUekNGX1FFdWduc3Bjb29WRFZhdnZhdk9SLUJGa3JyZF9TdWVrY3dzcFRxTEp2RG1oc3Q5X09qbmpVa3g3X1FXNE85dHlfd0tDMjRTeHNORXZjYm1ZcER6WnpxclZJTUpGdw?oc=5\" target=\"_blank\">Moscú, blanco del mayor ataque con drones de Ucrania en el último día de las elecciones de Rusia</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CNN en Español</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 23,
@@ -514,7 +514,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMirwFBVV95cUxORGt0RWRlLUFoQ2xGYlVjY0x0bS1oU2VYaURwQlVrVEZtX2JYUkxCOGF1NmpmcWZkNmE3REtjd2d0bW1IV2JoTnpXcndfVTE4dVlCWXFfVVVCSjJRQUFWVlMzZS1iUDZkTHRhQ0l5MDEtcHgzSGM3dHpETVhxWWd2NXlvdUlqU2xlN1VtVHlINm5Wb09IWW1lazRvNmRsY1RabmtuTWhRNWpiZk1LSXVR0gG0AUFVX3lxTE5BRzJ5UkhlX1hUYWVGN2pQNVk2SURFZ3NTZy1Bc0MyN0QtcW9ySU15LTE1aU8zRm4yMXhCVHNINndqcjdsWmM5b1ZOd3pqRS1GZTkyUG8yRkktNFZhbjU0LTdBTTFXdlBBT0hNX1VIVEtwNFQtbDdxVGFDbzdNQ0Jhdmp6QXdua3N0R0V4RkFlbkRsRFdsQ1RpSm4wa3",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 57,
@@ -526,7 +526,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "The price of distillate fuel oil, often sold as diesel, is driven by the price of crude oil, retail margins, distribution costs, taxes, and crack spreads, the indicator we use for refining margins. Tight global supplies of distillate fuel oil and elevated crude oil prices have driven prices higher in recent months.",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 4,
@@ -538,7 +538,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi7AFBVV95cUxQbHotT3RYV3ZqUzByMHhzSTZ6UHFkMXltN1NVTjNCYUFSVEw3b0p3WDdVaW51UHJkWFlMYWliR3dUZnlURnNKT0VlbTRhRGN0ckR2aGNDaTYzTWhkdG8tdzZwbXFRcWkyN2dwZ0F5cUZLd21kTjVYeFc1bTU1LU9jZDRPclFwWXM3U3lSa09yOTdsTzV0RDBDSk5yalJVNi15QlVHdUlZR1pVSjN3dUF0NWExV1VPalkwcU4zUVBJUnV3RG1BMlJBeEJqS0Iwdk9iZ0ZyUmxCbkVoNGc1UmFfN1pXN2t6Zkk0bXdiMA?oc=5\" target=\"_blank\">Los ataques hutíes elevan el precio del petróleo. Para los yemeníes, el costo es mucho mayor</a>&nbsp;&nbsp;<",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 28,
@@ -550,7 +550,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxQbWc0UUlrZk1rVC05TDYwR2pkYklPeGhqNDdXWm40SFdMaFdnRE9ybFJmbDJqMVAzSm5DT0ptRVhzVlZnc2dZaDd1dVVncG1fZ1llUFh1N01aYlpJNG5rN0lpYS1CUktVV3dCbHAzbE1zLUNYNWlJS2lTcUdtZDZDbWp5ci05T01TZ25fTUo0OWhDeDB6cE9TNG9sd0V4Q21CUEh1NnNoTGFaQ2hpcm9CTEh3a1dBc0wz?oc=5\" target=\"_blank\">Explainer: How a Saudi pipeline attack is testing EU’s oil security</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Euronews.com</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 33,
@@ -562,7 +562,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMihAFBVV95cUxQTzVjMkh4M1lsaEJyZkV0a3lzMlhVNHVsZVNoV1A4d0VkTjluTFgwc0JXTHpPNWRFMjlfdThqMmxlLTI4dGRaalR4SnBEZmZ6aDBxTGNRNzZMX0VzVk9tcmIyR1pvS0l4ZlNBbjctU0hWWUJIYXRIdTFNc1NhVFRnLUVwY2E?oc=5\" target=\"_blank\">Saudi Pipeline Attack Risks ‘Disastrous’ Loss of Oil as Fighting Escalates</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">nytimes.com</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 58,
@@ -574,7 +574,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "On August 28, 2026, Cheniere Energy, Inc., completed its Corpus Christi Liquefaction Stage 3 Project (CCL Stage 3) in Texas, taking custody and control of the seventh and last liquefied natural gas (LNG) train in the project.",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 29,
@@ -586,7 +586,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxQVVpYWE4zLVJiUVlxU0FOY0I5LWxZWHNWeThtZDhDVS1PWl9ucmktSFpwa3ktcFJRS3JXbmI5elgxZVB1YjItUVVhaHlfal9LMUg5cXlKQV9GUnA5VjEwWDVyNHV4TS0tS25GcHA4OHR1QlJxNHVUNXpIWDJNb1NzZ2FYVFBBTFFtRFQ2Z1ZpWF9UM3VaU3dPM3l3T0ZDNmFSZVpKSUgtSW90S0sxN2NhLTRsampIbGPSAbwBQVVfeXFMUDNGZWJhZnNXU1MzUE9JZDN1U3NKX2Rjckk3SmdLd29IdGtuakw2bXU2Nnptc29xOEtVM05KYnlVZkdYZHBzN2tabGc4cXpkTzl0dmlwOHgzUy1IVU80Mlp1RzdrcTVWTk9Ucjg2YVQwdFJ0aTVINS01ZGhZVFVmcF84dWQ3V2lKMXNCWC1lU25CVkswRF",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 31,
@@ -598,7 +598,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxOeDdvckhVQlJKZzN2eU90TEg3YU9vRmhZdTdjdkZ1cExSOUd4N09GVEktMTBVT012ZUdGWUdtc2JLaDdIWDJWWFdpUmlJU3pMVWt3MXR2bXRyUXlnSHJTVDJ2Vzg1bmx1ZFptX3ZoVmlMZS1EODlaM3FHbGFJTHFUM0I5YkE5WVRGcEs0UlNkZjdsdXhzdHF6dXFqbHV0bFFZRmRCNDF1WHpQOGZLeGJCdkJIRmNOa1Bzb1FKNU9fcGc?oc=5\" target=\"_blank\">Oil Prices Rise as Saudi East-West Pipeline Attack Threatens Export Routes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WSJ</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 36,
@@ -610,10 +610,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxNX1ZzcDVZWkp0ZjB1QVdPOEVINDZfQkp6bGNUN2htRzFIVzNpeDNkRkk2dWZQZ2dVR05GMnpLZl9tRVZmbHVKNXp1TW9NRVZqdkhLQldqQTdtS3AxZTdHQVZjdnowLXBZS3NJbXlicUZmejlHWmdPbXFKWUZ5VktENmRRSHQ1d0lQU3FPb1BpaG4zVlJ3b0lrdzl0OE1kSGtEZ2hfV2xXZEYtWnE5YjhMQzYtbw?oc=5\" target=\"_blank\">Houthi gains in Yemen, attack on Saudi pipeline compound pressure on oil markets</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">PBS</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 6,
+      "id": 5,
       "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQVHpKSWNnc0xsTF9DYUZoX0gxQjJpb1BYanAwbWhWTUdxVTJmMDk1aXIzalRuemNfOE93STR2ekdBU3N6ZGNlaU1kOVdxVkxMQWprRjhnb2FQQUJlUmFOb18xbDNTQlZZT09zelltYzllXzJBSzR4b1J1eFdaQ0ZmeDE1LVVndmlmWjJYdG1yQW9jZEtGVC1QZ09ZZlpEMVgtc0lMTERuX2MzNjFYMkdMcHpXbnlXMmdVWFlfWFlzc0FaM25NdWZPRWxtdWU5ODhDekg4cTl2R1E?oc=5",
       "titulo": "Irak dice que ataques a oleoducto saudí salieron de su territorio y otras noticias de Oriente Medio - Chicago Tribune",
       "medio": "Google News ES",
@@ -622,22 +622,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi2AFBVV95cUxQVHpKSWNnc0xsTF9DYUZoX0gxQjJpb1BYanAwbWhWTUdxVTJmMDk1aXIzalRuemNfOE93STR2ekdBU3N6ZGNlaU1kOVdxVkxMQWprRjhnb2FQQUJlUmFOb18xbDNTQlZZT09zelltYzllXzJBSzR4b1J1eFdaQ0ZmeDE1LVVndmlmWjJYdG1yQW9jZEtGVC1QZ09ZZlpEMVgtc0lMTERuX2MzNjFYMkdMcHpXbnlXMmdVWFlfWFlzc0FaM25NdWZPRWxtdWU5ODhDekg4cTl2R1E?oc=5\" target=\"_blank\">Irak dice que ataques a oleoducto saudí salieron de su territorio y otras noticias de Oriente Medio</a>&nbsp;&nbsp;<font color=\"#6f6f6f\"",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 15,
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5HX2s3UkNtdlhKangzYXpfQUhpeWMwRkNnTmp5b1lRM205ZWdOQ1FsU1AtQ2tkcTdRdnF5SEgyakd1YWVjQTVDcllxQlh2RzJVX3VLSFRPYTdkVDDSAWBBVV95cUxQa2lNTHZGYmZwNTJYUVF0OVpPdUxSUHBUUmVieVB2NE44TlhCRkNCV0ExclhoNXFBak96a2ZqXzN3M0VyWm83YjlnWlZTVm1zQXNzMWFrY1plbFR6S0dUNWg?oc=5",
-      "titulo": "El oleoducto que transporta cerca del 5% del petróleo mundial y que Arabia Saudita cerró tras un ataque con drones desde Iraq - BBC",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-12T07:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE5HX2s3UkNtdlhKangzYXpfQUhpeWMwRkNnTmp5b1lRM205ZWdOQ1FsU1AtQ2tkcTdRdnF5SEgyakd1YWVjQTVDcllxQlh2RzJVX3VLSFRPYTdkVDDSAWBBVV95cUxQa2lNTHZGYmZwNTJYUVF0OVpPdUxSUHBUUmVieVB2NE44TlhCRkNCV0ExclhoNXFBak96a2ZqXzN3M0VyWm83YjlnWlZTVm1zQXNzMWFrY1plbFR6S0dUNWg?oc=5\" target=\"_blank\">El oleoducto que transporta cerca del 5% del petróleo mundial y que Arabia Saudita cerró tras un ataque con drones desde Iraq</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
-    },
-    {
-      "id": 16,
+      "id": 10,
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxORmJ0elJsNERtZHBGTEpxdnotOXRHVmVrVjAyTG5HdlRoSGphU1FtZThjNkY1WW5IaHBjazFLRy1rNWNEZW5KTHVpR3Uxa1hDQjhZRHVkUmdCak1VbkZoM1lHNENLUi03WThRRER6cGRsaGNhZmpPTTVNZHhUVTJoVHlDYks3b1ZtS3d4U211Ny16VG1MN1NScw?oc=5",
       "titulo": "El Gobierno iraquí condena ataque contra oleoducto de Arabia Saudita e inicia investigación - Yahoo",
       "medio": "Google News ES",
@@ -646,10 +634,22 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxORmJ0elJsNERtZHBGTEpxdnotOXRHVmVrVjAyTG5HdlRoSGphU1FtZThjNkY1WW5IaHBjazFLRy1rNWNEZW5KTHVpR3Uxa1hDQjhZRHVkUmdCak1VbkZoM1lHNENLUi03WThRRER6cGRsaGNhZmpPTTVNZHhUVTJoVHlDYks3b1ZtS3d4U211Ny16VG1MN1NScw?oc=5\" target=\"_blank\">El Gobierno iraquí condena ataque contra oleoducto de Arabia Saudita e inicia investigación</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
-      "id": 34,
+      "id": 16,
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5HX2s3UkNtdlhKangzYXpfQUhpeWMwRkNnTmp5b1lRM205ZWdOQ1FsU1AtQ2tkcTdRdnF5SEgyakd1YWVjQTVDcllxQlh2RzJVX3VLSFRPYTdkVDDSAWBBVV95cUxQa2lNTHZGYmZwNTJYUVF0OVpPdUxSUHBUUmVieVB2NE44TlhCRkNCV0ExclhoNXFBak96a2ZqXzN3M0VyWm83YjlnWlZTVm1zQXNzMWFrY1plbFR6S0dUNWg?oc=5",
+      "titulo": "El oleoducto que transporta cerca del 5% del petróleo mundial y que Arabia Saudita cerró tras un ataque con drones desde Iraq - BBC",
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-12T07:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE5HX2s3UkNtdlhKangzYXpfQUhpeWMwRkNnTmp5b1lRM205ZWdOQ1FsU1AtQ2tkcTdRdnF5SEgyakd1YWVjQTVDcllxQlh2RzJVX3VLSFRPYTdkVDDSAWBBVV95cUxQa2lNTHZGYmZwNTJYUVF0OVpPdUxSUHBUUmVieVB2NE44TlhCRkNCV0ExclhoNXFBak96a2ZqXzN3M0VyWm83YjlnWlZTVm1zQXNzMWFrY1plbFR6S0dUNWg?oc=5\" target=\"_blank\">El oleoducto que transporta cerca del 5% del petróleo mundial y que Arabia Saudita cerró tras un ataque con drones desde Iraq</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font",
+      "fetched_at": "2026-09-23T14:58:56-06:00"
+    },
+    {
+      "id": 40,
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxORUJVdmZzRjhhZXFCWHhYMXhRSlJQRGdySlNwQW41dkJaRXd1ZnBlbE5ZR2c5Wk5xYTNRRzJNRzUxTF9oN095Mi0taGRZaXpOZVNtYlJVSjFpNkV5NjBuQXBmb1dTWUs3RmNsQlVPWEh5WnFFc0plcDNnUDNjUVpiZUN2M0VrX0xQVXVoLXNoa2hQelVfa19LX3F2R3BwTExwV0JkLWJKNFRMd1BJX1k0VFJVUkLSAboBQVVfeXFMTktuU3M2eUZqUkt0aVBWRGpUQVQxZGNRRHVfTG9CMXlGbTljTm43SkFYVWR3UzBxSGRyR2tOQUx6M0lvdzVYcWNsNnBVNVhJR3FwRUJKRmszaE5CUUE2UWk4dDJySHcxTWpsdjJZbnVYYjRzOFpOQU0wZHVvT1BlS2V6VXpQWTUyYmhfRHJyWkFfdS1JSUlUQU5WNnQwNDYzSTdXSGV5S0xCaTNqTE83YjF4aXViNnVtMk53?oc=5",
       "titulo": "Saudi Arabia shuts critical oil pipeline after drone attack: What it means - Al Jazeera",
       "medio": "Google News EN",
@@ -658,31 +658,31 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMitAFBVV95cUxORUJVdmZzRjhhZXFCWHhYMXhRSlJQRGdySlNwQW41dkJaRXd1ZnBlbE5ZR2c5Wk5xYTNRRzJNRzUxTF9oN095Mi0taGRZaXpOZVNtYlJVSjFpNkV5NjBuQXBmb1dTWUs3RmNsQlVPWEh5WnFFc0plcDNnUDNjUVpiZUN2M0VrX0xQVXVoLXNoa2hQelVfa19LX3F2R3BwTExwV0JkLWJKNFRMd1BJX1k0VFJVUkLSAboBQVVfeXFMTktuU3M2eUZqUkt0aVBWRGpUQVQxZGNRRHVfTG9CMXlGbTljTm43SkFYVWR3UzBxSGRyR2tOQUx6M0lvdzVYcWNsNnBVNVhJR3FwRUJKRmszaE5CUUE2UWk4dDJySHcxTWpsdjJZbnVYYjRzOFpOQU0wZHVvT1BlS2V6VXpQWTUyYmhfRHJyWkFfdS1JSUlUQU",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
-    },
-    {
-      "id": 40,
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQczRVMDVmcFFkMWs3TDRSemk1SnA1SW1NSTRmaGU3VXRmbDlvUnlGTll6VHRRYWxjOTl1N3QzcFhIYWs5RjJaRGRmclRQYmpLdW8tNHNXWExZTnpmSklXaFU4YWJvOC1EcEpvcDdQVnpfWnBYT3l6X1pCRW9Bc19YQzNmYnFrbHBNQXd4aE1nVkpKWktoTjFoM2dSa1BGMnlSb3dVMnJhOFVTRHRrXzlHSFVXTDFvZVNzQ19r?oc=5",
-      "titulo": "Saudis shut down oil pipeline as Houthis tighten grip on Red Sea shipping - Reuters",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-12T07:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiuwFBVV95cUxQczRVMDVmcFFkMWs3TDRSemk1SnA1SW1NSTRmaGU3VXRmbDlvUnlGTll6VHRRYWxjOTl1N3QzcFhIYWs5RjJaRGRmclRQYmpLdW8tNHNXWExZTnpmSklXaFU4YWJvOC1EcEpvcDdQVnpfWnBYT3l6X1pCRW9Bc19YQzNmYnFrbHBNQXd4aE1nVkpKWktoTjFoM2dSa1BGMnlSb3dVMnJhOFVTRHRrXzlHSFVXTDFvZVNzQ19r?oc=5\" target=\"_blank\">Saudis shut down oil pipeline as Houthis tighten grip on Red Sea shipping</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Reuters</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 13,
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOVG1IYkdKNFg3WEhEMEZnQTNZeXpXcjNwMlpiM183bWdQaURSSEdHdHY4aHVlRTRFb1gybzZSdDNLQ1NGMUZZRWFMSkNXdlZOWm56bW1hWVlhLUZ4QTFYYzl6T2JVb0UyamhsVUo3ZDBqRTAyR3hYRW1xek9uRU9PZk1DR1E5WG1DZEZpQjlUdHRLUGRxWnl4ZWktWmx1RWd5eVc2Z9IBpAFBVV95cUxQTDVuTlE2WUU1bS1BZ1M2SGZSUXRqNHZNZU5MWVhSU2d2RzBJMGpqUEJ5UV9nejRhM1pZWlNZNC1fNFpnOVZJYkdYak5BTDY1U2NQeUttWWRhQjZMZjFMNlNrcU1DRHU3UFhtOVlLMThhS3dYc1o1c3hlOGtwOUk5ajZfNFhBRVNrTFBpbW44ZWhDSXZObzNSSXJNVDRKVzF4SXFtag?oc=5",
-      "titulo": "Arabia Saudita cierra oleoducto Este-Oeste tras ataques - dw.com",
+      "titulo": "Arabia Saudita cierra oleoducto Este-Oeste tras ataques - DW.com",
       "medio": "Google News ES",
       "publicado_at": "2026-09-11T07:00:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxOVG1IYkdKNFg3WEhEMEZnQTNZeXpXcjNwMlpiM183bWdQaURSSEdHdHY4aHVlRTRFb1gybzZSdDNLQ1NGMUZZRWFMSkNXdlZOWm56bW1hWVlhLUZ4QTFYYzl6T2JVb0UyamhsVUo3ZDBqRTAyR3hYRW1xek9uRU9PZk1DR1E5WG1DZEZpQjlUdHRLUGRxWnl4ZWktWmx1RWd5eVc2Z9IBpAFBVV95cUxQTDVuTlE2WUU1bS1BZ1M2SGZSUXRqNHZNZU5MWVhSU2d2RzBJMGpqUEJ5UV9nejRhM1pZWlNZNC1fNFpnOVZJYkdYak5BTDY1U2NQeUttWWRhQjZMZjFMNlNrcU1DRHU3UFhtOVlLMThhS3dYc1o1c3hlOGtwOUk5ajZfNFhBRVNrTFBpbW44ZWhDSXZObzNSSXJNVDRKVzF4SXFtag?oc=",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
+    },
+    {
+      "id": 14,
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPYUhybGNmamY4VDY1OTRtNVJham43YUlWYTN4YV9kZTV4NHp0Ri1hV0dGdUJDVmRkbFU3UWpUU1l6dzNtMFowQWNhM3FCWFBKZzE2eU5vcGdyQm9Bemg3LUEtWXhUaUU0ZDZWZlRaeGNpNmZzenY0V0hLa2Y1SWV3bjZZc2stc0hVNWlqODZmLWVXZzJ5OUE4aVM0dVRqY2tSV0R1VXVodUdSVmYwSzRhRHJQQUU3aWRZWF92Q0s3eDRUVGpMYUVpbnVDQzItSkJsMVJTWFZnNlduQVhMVmtrMA?oc=5",
+      "titulo": "Ataque con drones paraliza un oleoducto clave de Arabia Saudita mientras los hutíes aumentan su control sobre una ruta clave - Telemundo",
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-11T07:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxPYUhybGNmamY4VDY1OTRtNVJham43YUlWYTN4YV9kZTV4NHp0Ri1hV0dGdUJDVmRkbFU3UWpUU1l6dzNtMFowQWNhM3FCWFBKZzE2eU5vcGdyQm9Bemg3LUEtWXhUaUU0ZDZWZlRaeGNpNmZzenY0V0hLa2Y1SWV3bjZZc2stc0hVNWlqODZmLWVXZzJ5OUE4aVM0dVRqY2tSV0R1VXVodUdSVmYwSzRhRHJQQUU3aWRZWF92Q0s3eDRUVGpMYUVpbnVDQzItSkJsMVJTWFZnNlduQVhMVmtrMA?oc=5\" target=\"_blank\">Ataque con drones paraliza un oleoducto clave de Arabia Saudita mientras los hutíes aumentan su control sobre una ruta clave<",
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 18,
@@ -694,7 +694,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMihwFBVV95cUxQTWVrUUdYUXp2eklaMmdBOTNLb0M2X3UxWlhjeHo1M0JJQWpjcXRwSW1rRV9lcVdRcFFDQ0h5MHcyN2VoQXJQSjNKQU1vdE5LcWk4QlNYN3o3V2pIeHU4V2ZWQ1YwMFZ2RFR6cVI3ZWhEZnFJUlNjQXhyYlhoOTF1RWEyaGhCeVk?oc=5\" target=\"_blank\">Cierran oleoducto de Arabia Saudita tras un ataque que provocó incendios</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CNN en Español</font>",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 59,
@@ -706,7 +706,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "We forecast U.S. crude oil production will average 13.8 million barrels per day (b/d) in 2026, surpassing the previous record of 13.7 million b/d set in 2025, in our latest Short-Term Energy Outlook (STEO).",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 60,
@@ -718,7 +718,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Low-cost Appalachian and Canadian natural gas supplies coupled with lower-than-usual regional consumption have pushed down natural gas prices at a major New England pricing hub in recent months to trade at a discount to the widely cited U.S. benchmark, Henry Hub.",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 61,
@@ -730,7 +730,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "What are crack spreads and why are they elevated? Crack spreads are indicators of the profitability of refining crude oil into petroleum products such as gasoline and diesel. One common crack spread is calculated by subtracting the spot market price of a gallon of crude oil from the wholesale price of a gallon of refined product. Since May, the gasoline crack spread in New York Harbor has averaged about $1 per gallon (gal) higher than in 2025, when the crack spread peaked around 60 cents/gal. Ga",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 62,
@@ -742,7 +742,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Sustained high temperatures have contributed to persistently high electricity demand in the Electric Reliability Council of Texas (ERCOT), the regional transmission organization for most of the state.",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 63,
@@ -754,7 +754,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "U.S. liquefied natural gas (LNG) exports averaged 17.4 billion cubic feet per day (Bcf/d) in the first six months of the year, 23% more than the same period in 2025, according to our Natural Gas Monthly. In our latest Short-Term Energy Outlook, we estimate U.S. LNG exports will average 17.3 Bcf/d in the second half of 2026 (2H26) before rising to 18.7 Bcf/d in 1H27.",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 64,
@@ -766,7 +766,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "In 2025, uranium concentrate production in the United States totaled 2.1 million pounds of triuranium octoxide (U3O8), the base component of nuclear reactor fuel. U.S. U3O8 production in 2025 was the most since 2017 and more than triple the volume produced in 2024.",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 65,
@@ -778,7 +778,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "In the 2026 release of our Liquids Pipeline Projects Database, we tracked the completion of 8 liquid fuels pipeline projects since the start of 2025, and an additional 14 new projects have been announced.",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     },
     {
       "id": 66,
@@ -790,7 +790,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Seaborne petroleum product exports from Nigeria have grown seven-fold since 2023, playing an increasing role in the international market for petroleum products at a time when supplies from other areas have been constrained.",
-      "fetched_at": "2026-09-23T14:12:24-06:00"
+      "fetched_at": "2026-09-23T14:58:56-06:00"
     }
   ],
   "total_registros": 66
