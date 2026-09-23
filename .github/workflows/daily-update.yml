@@ -1,0 +1,53 @@
+name: Daily Update — Gasolina GT
+
+on:
+  # Cada día a las 8:00 AM (hora Guatemala = UTC-6)
+  schedule:
+    - cron: '0 14 * * *'  # 14:00 UTC = 08:00 CST
+
+  # Ejecución manual desde GitHub UI
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --no-cache-dir -r requirements.txt
+          playwright install chromium
+
+      - name: Create data directories
+        run: |
+          New-Item -ItemType Directory -Force -Path "data\inbox\historico"
+          New-Item -ItemType Directory -Force -Path "logs"
+
+      - name: Run collectors + export JSONs
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+          OILPRICEAPI_KEY: ${{ secrets.OILPRICEAPI_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python collector/main.py --all --export
+
+      - name: Commit and push updated JSONs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/export/*.json
+          if git diff --cached --quiet; then
+            echo "::notice::No changes to commit."
+          else
+            git commit -m "Auto-update: precios y datos actualizados [skip ci]"
+            git push
+            echo "::notice::✅ JSONs pushed to main branch"
+          fi
