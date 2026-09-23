@@ -37,7 +37,7 @@ jobs:
           OILPRICEAPI_KEY: ${{ secrets.OILPRICEAPI_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          python collector/main.py --all --export
+          timeout /t 600 python collector/main.py --all --export || echo "Timeout or error, continuing..."
 
       - name: Commit and push updated JSONs
         run: |

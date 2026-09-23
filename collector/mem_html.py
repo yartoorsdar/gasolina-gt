@@ -90,8 +90,8 @@ async def _scrape_page(url: str = MEM_HTML_URL) -> BeautifulSoup | None:
                 print(f"[mem_html] Status {response.status}, reintentando...")
                 await page.reload(wait_until="domcontentloaded", timeout=15000)
 
-            # Esperar más tiempo para Cloudflare challenge (10 seg mínimo)
-            await page.wait_for_timeout(10000)
+            # Esperar para Cloudflare challenge (5 seg suficiente)
+            await page.wait_for_timeout(5000)
             
             # Verificar que la página tiene datos reales
             body_text = await page.inner_text("body")
