@@ -114,6 +114,7 @@ def _ejecutar_modulo(nombre: str, funcion) -> dict:
         logger.error(f"[{nombre}] Error: {exc}")
         return {"fuente": "error", "error": str(exc)}
     finally:
+        conn.commit()  # Forzar flush antes de cerrar
         conn.close()
 
 
@@ -493,10 +494,12 @@ Ejemplos:
         modulos_activas.append(("noticias", ejecutar_noticias))
 
     resultados = []
+    
     for nombre, funcion in modulos_activas:
         try:
             resultado = _ejecutar_modulo(nombre, funcion)
             resultados.append({"modulo": nombre, "resultado": resultado})
+            
         except Exception as exc:
             logger.error(f"Fallo ejecutando {nombre}: {exc}")
             resultados.append(
