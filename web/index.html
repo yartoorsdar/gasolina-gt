@@ -1962,6 +1962,9 @@
         // ──────────────────────────────────────────
 
         async function cargarDashboard() {
+            // DEBUG: escribir inmediatamente para verificar que JS corre
+            document.getElementById('loading').textContent = 'Iniciando fetch...';
+            
             const loadingEl = document.getElementById('loading');
             const errorEl = document.getElementById('error');
             const contentEl = document.getElementById('content');
