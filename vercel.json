@@ -3,6 +3,13 @@
     { "src": "web/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/(resumen|consolidado|precios_combustible|petroleo|noticias|historial_precios|historial_petroleo)\\.json$", "headers": { "Content-Type": "application/json" }, "dest": "/$1.json" }
+    { "src": "/resumen\\.json$", "dest": "/resumen.json" },
+    { "src": "/consolidado\\.json$", "dest": "/consolidado.json" },
+    { "src": "/precios_combustible\\.json$", "dest": "/precios_combustible.json" },
+    { "src": "/petroleo\\.json$", "dest": "/petroleo.json" },
+    { "src": "/noticias\\.json$", "dest": "/noticias.json" },
+    { "src": "/historial_precios\\.json$", "dest": "/historial_precios.json" },
+    { "src": "/historial_petroleo\\.json$", "dest": "/historial_petroleo.json" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
