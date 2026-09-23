@@ -662,11 +662,8 @@
 
                 // IVA incluido en precio final: IVA = (precioFinal - IDP) * 12/112
                 const ivamonto = Math.max(0, (precioFinal - idp) * 12 / 112);
-                // Base imponible = lo que queda despues de quitar IDP e IVA
-                const baseImponible = precioFinal - idp - ivamonto;
-
-                // Precio sin impuestos (Decreto 22-2026 si se aprueba)
-                const precioSinImpuestos = Math.max(0, baseImponible + idp);
+                // Base = lo que queda despues de quitar IVA e IDP del precioFinal
+                const baseSinImpuestos = Math.max(0, precioFinal - ivamonto - idp);
 
                 const regimenClass2 = regimenClass(p.regimen);
                 const regimenLabel2 = regimenLabel(p.regimen);
@@ -681,7 +678,7 @@
                         </div>
                         <div class="price-values">
                             <span class="price-value-main" style="color:${priceColor}">${fmtQ(precioFinal)}</span>
-                            <span class="price-value-exempt">Sin IVA+IDP: ${fmtQ(precioSinImpuestos)}</span>
+                            <span class="price-value-exempt">Sin IVA+IDP: ${fmtQ(baseSinImpuestos)}</span>
                         </div>
                     </div>
                 `;
