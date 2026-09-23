@@ -26,7 +26,7 @@ import json
 import logging
 import sqlite3
 import sys
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 # Asegurar que el root del proyecto esté en sys.path para imports relativos
@@ -310,7 +310,7 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
     if conn is None:
         conn = conectar()
 
-    ahora = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
+    ahora = datetime.now(timezone(timedelta(hours=-6))).strftime("%Y-%m-%dT%H:%M:%S-06:00")
 
     resultados_export = {
         "archivos": {},
