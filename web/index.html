@@ -682,7 +682,7 @@
                 `;
             }
 
-            const fecha = precios[0]?.fecha || '';
+            const fecha = precios[0]?.fecha || precios[0]?.fecha_observacion || '';
             html += `<p class="price-date">Última actualización: ${fecha} (${fmtFechaRelativa(fecha)})</p>`;
             container.innerHTML = html;
 
