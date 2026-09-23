@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Test</title></head><body>
+<h1 id="status">Cargando...</h1>
+<script>
+(async () => {
+    try {
+        const r = await fetch('https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export/resumen.json');
+        document.getElementById('status').textContent = 'FETCH OK: ' + r.status;
+        if (r.ok) {
+            const d = await r.json();
+            document.body.innerHTML += '<p>actualizado_at: ' + d.actualizado_at + '</p>';
+            document.body.innerHTML += '<p>precios_count: ' + d.precios_combustible.length + '</p>';
+        }
+    } catch(e) {
+        document.getElementById('status').textContent = 'FETCH FAIL: ' + e.message;
+    }
+})();
+</script>
+</body></html>

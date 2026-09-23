@@ -1,9 +1,8 @@
-"""Obtiene precios de petróleo Brent y WTI desde OilPriceAPI (tiempo real).
+"""Obtiene precios de petróleo WTI desde OilPriceAPI (tiempo real).
 
 Fuente: https://www.oilpriceapi.com/
-Endpoint: /v1/prices/latest?by_code=BRENT_CRUDE_USD
+Endpoint: /v1/prices/latest?by_code=WTI_CRUDE_USD
 
-FRED se usa solo para historial en la DB, no para el precio actual.
 El dashboard siempre muestra el precio más reciente de OilPriceAPI (hoy).
 """
 import os
@@ -33,7 +32,6 @@ DEFAULT_API_KEY_ENV = "OILPRICEAPI_KEY"
 BASE_URL = "https://api.oilpriceapi.com/v1/prices/latest"
 
 CODES = {
-    "brent": "BRENT_CRUDE_USD",
     "wti":   "WTI_CRUDE_USD",
 }
 
@@ -100,8 +98,8 @@ def fetch_precio_petroleo(code: str, api_key: str) -> dict | None:
         print(f"[petroleo] Sin precio para '{code}'")
         return None
 
-    # Determinar referencia desde el código
-    referencia = "brent" if "BRENT" in code.upper() else "wti"
+    # Referencia siempre WTI
+    referencia = "wti"
 
     # Fecha del response (created_at o as_of)
     created_at = petro_data.get("created_at", "") or petro_data.get("as_of", "")
@@ -142,7 +140,7 @@ def fetch_precios_petroleo(codes: dict = None, api_key: str = "") -> list[dict]:
 # ──────────────────────────────────────────────
 
 def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
-    """Guarda precios de petróleo en la DB (acumula historial diario)."""
+    """Guarda precios de petróleo WTI en la DB (acumula historial diario)."""
     if cfg is None:
         import json
         config_path = _project_root / "config.json"
@@ -155,7 +153,7 @@ def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
     hoy = datetime.now().strftime("%Y-%m-%d")
     
     # Borrar HOY para no duplicar (conserva historial de días anteriores)
-    conn.execute("DELETE FROM precios WHERE fecha=? AND producto='brent'", (hoy,))
+    conn.execute("DELETE FROM precios WHERE fecha=? AND producto='wti'", (hoy,))
 
     inserted = 0
     for p in precios:
@@ -163,7 +161,7 @@ def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
             row_id = insertar_precio(
                 conn=conn,
                 fecha=hoy,
-                producto="brent",
+                producto="wti",
                 precio=p["usd_barril"],
                 fuente="OilPriceAPI",
             )
@@ -177,16 +175,16 @@ def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
 
 
 def obtener_petroleo_actual(conn) -> list[dict]:
-    """Obtiene el precio más reciente de brent desde la única tabla precios."""
+    """Obtiene el precio más reciente de wti desde la única tabla precios."""
     row = conn.execute(
-        "SELECT * FROM precios WHERE producto='brent' ORDER BY fecha DESC, id DESC LIMIT 1"
+        "SELECT * FROM precios WHERE producto='wti' ORDER BY fecha DESC, id DESC LIMIT 1"
     ).fetchone()
 
     if not row:
         return []
 
     return [{
-        "referencia": "brent",
+        "referencia": "wti",
         "fecha": row["fecha"],
         "usd_barril": row["precio"],
     }]

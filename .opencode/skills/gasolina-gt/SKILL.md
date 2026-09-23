@@ -1,6 +1,6 @@
 ---
 name: gasolina-gt
-description: Staged build of a local web dashboard that tracks Guatemala fuel prices (super, regular, diesel) with and without taxes (IVA + IDP, Decreto 22-2026 exemption), price history in SQLite, Brent/WTI crude prices, and sourced news alerts about wars and attacks on oil infrastructure. Use this skill for ANY work on the gasolina-gt project - collectors, database, tax logic, news classification, the HTML page, or scheduling - even if the user only says "siguiente etapa", "continúa", "gasolina" or "combustibles".
+description: Staged build of a local web dashboard that tracks Guatemala fuel prices (super, regular, diesel) with and without taxes (IVA + IDP, Decreto 22-2026 exemption), price history in SQLite, WTI crude prices, and sourced news alerts about wars and attacks on oil infrastructure. Use this skill for ANY work on the gasolina-gt project - collectors, database, tax logic, news classification, the HTML page, or scheduling - even if the user only says "siguiente etapa", "continúa", "gasolina" or "combustibles".
 ---
 
 # gasolina-gt — Guatemala fuel price dashboard (staged build)
@@ -140,7 +140,7 @@ Pure functions, no I/O except reading constants passed in: `quitar_impuestos(pre
 ### Etapa 2 — db.py (SQLite)
 Tables:
 - `precios_combustible(id, fecha_observacion, producto, precio, incluye_impuestos, fuente, url, fetched_at, UNIQUE(fecha_observacion, producto, fuente))`
-- `precios_petroleo(id, fecha, referencia /*brent|wti*/, usd_barril, fuente, url, fetched_at, UNIQUE(fecha, referencia))`
+- `precios_petroleo(id, fecha, referencia /*wti*/, usd_barril, fuente, url, fetched_at, UNIQUE(fecha, referencia))`
 - `noticias(id, url UNIQUE, titulo, medio, publicado_at, categoria, pais, relevancia, resumen_es, fetched_at)`
 - `ejecuciones(id, inicio, fin, modulo, ok, mensaje)`
 Helpers for insert-or-ignore and simple queries. Use a temp DB in tests.
@@ -154,8 +154,8 @@ FIRST ask the user for the exact URL where the Ministerio de Energía y Minas (M
 Ask the user for the URL/files of MEM historical price series. Write a one-time importer into the same table, idempotent (safe to run twice). Report: date range imported, row count per product, rows skipped and why.
 **Check:** run twice; second run inserts 0 rows.
 
-### Etapa 5 — petroleo.py (Brent / WTI)
-Use the EIA API v2 with the key from `.env` (daily spot series: Brent `RBRTE`, WTI `RWTC`). Confirm the endpoint with the user before coding. Store the latest available values; note in the page that EIA spot data can lag a few days and show the actual data date, never "hoy" unless it is today.
+### Etapa 5 — petroleo.py (WTI)
+Use OilPriceAPI with the key from `.env` (daily spot series: WTI `WTI_CRUDE_USD`). Confirm the endpoint with the user before coding. Store the latest available values; note in the page that oil data can lag a few days and show the actual data date, never "hoy" unless it is today.
 **Check:** run the module; show the last 5 stored values with their dates.
 
 ### Etapa 6 — noticias.py (wars and infrastructure attacks)
@@ -168,7 +168,7 @@ Use the EIA API v2 with the key from `.env` (daily spot series: Brent `RBRTE`, W
 
 ### Etapa 7 — main.py (orchestrator + JSON export)
 Runs Etapas 3, 5 and 6 modules in sequence; a failure in one module is logged in `ejecuciones` and does not stop the others. Then exports:
-- `web/data/actual.json`: latest price per product with both values (con/sin impuestos), which one is observed, observation date, source; latest Brent/WTI with date; decree state; `generado_at`.
+- `web/data/actual.json`: latest price per product with both values (con/sin impuestos), which one is observed, observation date, source; latest WTI with date; decree state; `generado_at`.
 - `web/data/historial.json`: full fuel and oil series.
 - `web/data/noticias.json`: last 30 days of relevant news, sorted by `publicado_at` desc.
 Log to `logs/collector.log`.
@@ -180,7 +180,7 @@ Log to `logs/collector.log`.
 - Three cards (super, regular, diésel): observed price large, the other value smaller with a clear label, observation date and source link.
 - Toggle "con impuestos / sin impuestos" that switches the whole page.
 - History chart per product with range selector (30 días, 6 meses, todo); shade the exemption period.
-- Brent/WTI card with data date.
+- WTI card with data date.
 - News alerts list: category badge, country, summary, outlet, date, link.
 - Footer: `generado_at` and a warning if data is older than 24 h.
 Dark/light via `prefers-color-scheme`, responsive. No external requests at runtime except the local JSON files.

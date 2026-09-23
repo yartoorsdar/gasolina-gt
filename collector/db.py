@@ -4,7 +4,7 @@ Una sola tabla: precios
   - id, fecha, producto, precio, fuente, fetched_at
 
 Productos: 'superior', 'regular', 'diésel' (combustible GTQ/Gal)
-           'brent', 'wti' (petróleo USD/Bbl)
+           'wti' (petróleo USD/Bbl)
 
 Insert or ignore para ser idempotente.
 """

@@ -18,7 +18,7 @@ python serve.py                             # dashboard at http://localhost:8089
 ```powershell
 python collector/precios_mem.py        # MEM weekly PDF → DB (AutoServicio + Servicio Completo)
 python collector/importar_historico.py # XLSX daily historical → DB
-python collector/petroleo.py           # EIA API Brent/WTI → DB
+python collector/petroleo.py           # OilPriceAPI WTI → DB
 python collector/noticias.py           # RSS feeds → DB
 ```
 

@@ -5,7 +5,7 @@ Ejecuta todos los collectors en secuencia:
   2. mem_html       → precios actuales HTML (Playwright, bypass Cloudflare)
   3. consenso_precios → validación por consenso multifuente (Q0.20 tolerancia)
   4. importar_historico → historial de precios (XLSX diario MEM)
-  5. petroleo       → Brent y WTI (API EIA)
+  5. petroleo       → WTI (API OilPriceAPI)
   6. noticias       → feeds RSS clasificados
 
 También exporta la DB a archivos JSON para uso externo o web.
@@ -280,7 +280,7 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
 
     Archivos generados en data/export/:
       - precios_combustible.json  (todos los precios con regimen y impuestos)
-      - petroleo.json             (Brent/WTI históricos)
+      - petroleo.json             (WTI históricos)
       - noticias.json             (noticias RSS clasificadas)
       - resumen.json              (resumen para dashboard web)
 
@@ -327,7 +327,7 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
 
     # ── 2. Historial de precios (combustible + petróleo, últimos 365 días) ──
     historial = []
-    for producto in ["superior", "regular", "diésel", "brent"]:
+    for producto in ["superior", "regular", "diésel", "wti"]:
         rows = obtener_historial_precios(conn, producto=producto, dias=365)
         historial.extend(_fila_a_dict(r) for r in rows)
 
@@ -344,12 +344,12 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
     resultados_export["archivos"]["historial_precios"] = str(path_historico)
     resultados_export["total_registros"] += len(historial)
 
-    # ── 3. Petróleo actual (brent desde la única tabla) ──
+    # ── 3. Petróleo actual (wti desde la única tabla) ──
     petroleo_actual = []
-    row = obtener_ultimo_precio(conn, "brent")
+    row = obtener_ultimo_precio(conn, "wti")
     if row:
         petroleo_actual.append({
-            "referencia": "brent",
+            "referencia": "wti",
             "fecha": row["fecha"],
             "usd_barril": row["precio"],
             "fuente": row["fuente"],
@@ -361,9 +361,9 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
     resultados_export["archivos"]["petroleo"] = str(path_petroleo)
     resultados_export["total_registros"] += len(petroleo_actual)
 
-    # ── 4. Historial de petróleo (últimos 90 días, solo brent) ──
+    # ── 4. Historial de petróleo (últimos 90 días, solo wti) ──
     hist_petroleo = []
-    rows = obtener_historial_precios(conn, producto="brent", dias=90)
+    rows = obtener_historial_precios(conn, producto="wti", dias=90)
     hist_petroleo.extend(_fila_a_dict(r) for r in rows)
 
     path_hist_petroleo = export_dir / "historial_petroleo.json"
@@ -431,7 +431,7 @@ Ejemplos:
   python main.py --all                  Ejecuta todos los colectores
   python main.py --precios-mem          Solo precios MEM actuales
   python main.py --historico            Solo importar histórico (XLSX)
-  python main.py --petroleo             Solo Brent/WTI (EIA API)
+  python main.py --petroleo             Solo WTI (OilPriceAPI)
   python main.py --noticias             Solo feeds RSS
   python main.py --export               Exporta DB a JSON
   python main.py --all --export         Ejecuta todo y exporta
@@ -452,7 +452,7 @@ Ejemplos:
         help="Consenso con reintentos: 45min hasta lograr consenso + exportar JSON",
     )
     parser.add_argument("--historico", action="store_true", help="Importar histórico (XLSX)")
-    parser.add_argument("--petroleo", action="store_true", help="Brent/WTI (EIA API)")
+    parser.add_argument("--petroleo", action="store_true", help="WTI (OilPriceAPI)")
     parser.add_argument("--noticias", action="store_true", help="Feeds RSS")
     parser.add_argument(
         "--alternos", action="store_true",
