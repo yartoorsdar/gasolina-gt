@@ -99,22 +99,25 @@ class TestEjecutarTodo:
 
         with patch("collector.main.ejecutar_precios_mem") as mock_pm, \
              patch("collector.main.ejecutar_mem_html") as mock_mh, \
+             patch("collector.main.ejecutar_consenso") as mock_cs, \
              patch("collector.main.ejecutar_historico") as mock_hi, \
              patch("collector.main.ejecutar_petroleo") as mock_pt, \
              patch("collector.main.ejecutar_noticias") as mock_n:
 
             mock_pm.return_value = {"fuente": "mem", "insertados": 6}
             mock_mh.return_value = {"fuente": "html", "insertados": 0}
+            mock_cs.return_value = {"fuente": "consenso_validador", "con_senso_alcanzado": 3}
             mock_hi.return_value = {"fuente": "xlsx", "insertados": 100}
             mock_pt.return_value = {"fuente": "eia_api", "insertados": 2}
             mock_n.return_value = {"fuente": "rss_feeds", "insertados": 50}
 
             resultados = ejecutar_todo(cfg=cfg, exportar=False)
 
-        assert len(resultados) == 5
+        assert len(resultados) == 6
         modulos = [r["modulo"] for r in resultados]
         assert "precios_mem" in modulos
         assert "mem_html" in modulos
+        assert "consenso_precios" in modulos
         assert "historico" in modulos
         assert "petroleo" in modulos
         assert "noticias" in modulos
@@ -127,8 +130,8 @@ class TestEjecutarTodo:
 
             resultados = ejecutar_todo(cfg=cfg, exportar=False)
 
-        # Debería continuar con los demás módulos (ahora 5 modulos)
-        assert len(resultados) == 5
+        # Debería continuar con los demás módulos (ahora 6 modulos)
+        assert len(resultados) == 6
 
 
 # ──────────────────────────────────────────────

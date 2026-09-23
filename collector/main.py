@@ -3,16 +3,18 @@
 Ejecuta todos los collectors en secuencia:
   1. precios_mem    → precios actuales de combustible (PDF MEM)
   2. mem_html       → precios actuales HTML (Playwright, bypass Cloudflare)
-  3. importar_historico → historial de precios (XLSX diario MEM)
-  4. petroleo       → Brent y WTI (API EIA)
-  5. noticias       → feeds RSS clasificados
+  3. consenso_precios → validación por consenso multifuente (Q0.20 tolerancia)
+  4. importar_historico → historial de precios (XLSX diario MEM)
+  5. petroleo       → Brent y WTI (API EIA)
+  6. noticias       → feeds RSS clasificados
 
 También exporta la DB a archivos JSON para uso externo o web.
 
 Uso:
   python main.py --all              # ejecuta todo
-  python main.py --precios-mem      # solo precios MEM actuales
+  python main.py --precios-mem      # solo precios MEM actuales (PDF)
   python main.py --mem-html         # solo scraping HTML del MEM
+  python main.py --consenso         # validación por consenso multifuente
   python main.py --historico        # solo importar histórico
   python main.py --petroleo         # solo Brent/WTI
   python main.py --noticias         # solo RSS feeds
@@ -134,6 +136,13 @@ def ejecutar_mem_html(cfg: dict = None) -> dict:
     return _ejecutar()
 
 
+def ejecutar_consenso(cfg: dict = None) -> dict:
+    """Wrapper para consenso_precios.ejecutar (validación multifuente)."""
+    from collector.consenso_precios import ejecutar as _ejecutar
+
+    return _ejecutar()
+
+
 def ejecutar_historico(cfg: dict = None) -> dict:
     """Wrapper para importar_historico.ejecutar."""
     from collector.importar_historico import ejecutar as _ejecutar
@@ -179,6 +188,7 @@ def ejecutar_todo(cfg: dict = None, exportar: bool = False) -> list[dict]:
     modulos = [
         ("precios_mem", ejecutar_precios_mem),
         ("mem_html", ejecutar_mem_html),
+        ("consenso_precios", ejecutar_consenso),
         ("historico", ejecutar_historico),
         ("petroleo", ejecutar_petroleo),
         ("noticias", ejecutar_noticias),
@@ -403,6 +413,10 @@ Ejemplos:
     )
     parser.add_argument("--precios-mem", action="store_true", help="Precios MEM actuales (PDF)")
     parser.add_argument("--mem-html", action="store_true", help="Precios MEM HTML (Playwright)")
+    parser.add_argument(
+        "--consenso", action="store_true",
+        help="Validación por consenso multifuente (Q0.20 tolerancia)",
+    )
     parser.add_argument("--historico", action="store_true", help="Importar histórico (XLSX)")
     parser.add_argument("--petroleo", action="store_true", help="Brent/WTI (EIA API)")
     parser.add_argument("--noticias", action="store_true", help="Feeds RSS")
@@ -413,7 +427,7 @@ Ejemplos:
     args = parser.parse_args()
 
     # Si no se especifica nada, ejecutar todo por defecto
-    if not any([args.all, args.precios_mem, args.mem_html, args.historico, args.petroleo, args.noticias]):
+    if not any([args.all, args.precios_mem, args.mem_html, args.consenso, args.historico, args.petroleo, args.noticias]):
         args.all = True
 
     cfg = cargar_config()
@@ -424,6 +438,8 @@ Ejemplos:
         modulos_activas.append(("precios_mem", ejecutar_precios_mem))
     if args.all or args.mem_html:
         modulos_activas.append(("mem_html", ejecutar_mem_html))
+    if args.all or args.consenso:
+        modulos_activas.append(("consenso_precios", ejecutar_consenso))
     if args.all or args.historico:
         modulos_activas.append(("historico", ejecutar_historico))
     if args.all or args.petroleo:
