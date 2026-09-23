@@ -155,7 +155,7 @@ def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
     hoy = datetime.now().strftime("%Y-%m-%d")
     
     # Borrar HOY para no duplicar (conserva historial de días anteriores)
-    conn.execute("DELETE FROM precios WHERE fecha=? AND producto IN ('brent', 'wti')", (hoy,))
+    conn.execute("DELETE FROM precios WHERE fecha=? AND producto='brent'", (hoy,))
 
     inserted = 0
     for p in precios:
@@ -163,7 +163,7 @@ def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
             row_id = insertar_precio(
                 conn=conn,
                 fecha=hoy,
-                producto=p["referencia"],
+                producto="brent",
                 precio=p["usd_barril"],
                 fuente="OilPriceAPI",
             )
@@ -177,23 +177,19 @@ def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
 
 
 def obtener_petroleo_actual(conn) -> list[dict]:
-    """Obtiene el precio más reciente de brent y wti desde la única tabla precios."""
-    rows = conn.execute(
-        "SELECT * FROM precios WHERE producto IN ('brent', 'wti') ORDER BY fecha DESC, id DESC"
-    ).fetchall()
+    """Obtiene el precio más reciente de brent desde la única tabla precios."""
+    row = conn.execute(
+        "SELECT * FROM precios WHERE producto='brent' ORDER BY fecha DESC, id DESC LIMIT 1"
+    ).fetchone()
 
-    seen = set()
-    result = []
-    for r in rows:
-        if r["producto"] not in seen:
-            seen.add(r["producto"])
-            result.append({
-                "referencia": r["producto"],
-                "fecha": r["fecha"],
-                "usd_barril": r["precio"],
-            })
+    if not row:
+        return []
 
-    return sorted(result, key=lambda x: x["referencia"])
+    return [{
+        "referencia": "brent",
+        "fecha": row["fecha"],
+        "usd_barril": row["precio"],
+    }]
 
 
 def ejecutar(cfg: dict = None) -> dict:

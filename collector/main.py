@@ -327,7 +327,7 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
 
     # ── 2. Historial de precios (combustible + petróleo, últimos 365 días) ──
     historial = []
-    for producto in ["superior", "regular", "diésel", "brent", "wti"]:
+    for producto in ["superior", "regular", "diésel", "brent"]:
         rows = obtener_historial_precios(conn, producto=producto, dias=365)
         historial.extend(_fila_a_dict(r) for r in rows)
 
@@ -344,17 +344,16 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
     resultados_export["archivos"]["historial_precios"] = str(path_historico)
     resultados_export["total_registros"] += len(historial)
 
-    # ── 3. Petróleo actual (brent, wti desde la única tabla) ──
+    # ── 3. Petróleo actual (brent desde la única tabla) ──
     petroleo_actual = []
-    for ref in ["brent", "wti"]:
-        row = obtener_ultimo_precio(conn, ref)
-        if row:
-            petroleo_actual.append({
-                "referencia": row["producto"],
-                "fecha": row["fecha"],
-                "usd_barril": row["precio"],
-                "fuente": row["fuente"],
-            })
+    row = obtener_ultimo_precio(conn, "brent")
+    if row:
+        petroleo_actual.append({
+            "referencia": "brent",
+            "fecha": row["fecha"],
+            "usd_barril": row["precio"],
+            "fuente": row["fuente"],
+        })
     path_petroleo = export_dir / "petroleo.json"
     _write_json(
         path_petroleo, {"precios": petroleo_actual, "actualizado_at": ahora}
@@ -362,11 +361,10 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
     resultados_export["archivos"]["petroleo"] = str(path_petroleo)
     resultados_export["total_registros"] += len(petroleo_actual)
 
-    # ── 4. Historial de petróleo (últimos 90 días, desde la única tabla) ──
+    # ── 4. Historial de petróleo (últimos 90 días, solo brent) ──
     hist_petroleo = []
-    for ref in ["brent", "wti"]:
-        rows = obtener_historial_precios(conn, producto=ref, dias=90)
-        hist_petroleo.extend(_fila_a_dict(r) for r in rows)
+    rows = obtener_historial_precios(conn, producto="brent", dias=90)
+    hist_petroleo.extend(_fila_a_dict(r) for r in rows)
 
     path_hist_petroleo = export_dir / "historial_petroleo.json"
     _write_json(
