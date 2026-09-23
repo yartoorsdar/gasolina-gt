@@ -137,11 +137,11 @@ def _scheduler_loop(interval_seconds: int):
     logger.info(f"Programador detenido. Total de ejecuciones: {run_count}")
 
 
-def schedule(interval_seconds: int = 3600, background: bool = True):
+def schedule(interval_seconds: int = 10800, background: bool = True):
     """Inicia el programador en un hilo separado.
 
     Args:
-        interval_seconds: Segundos entre ejecuciones (default: 1 hora).
+        interval_seconds: Segundos entre ejecuciones (default: 3 horas).
         background: Si True, corre en segundo plano.
     """
     signal.signal(signal.SIGINT, _signal_handler)
@@ -309,7 +309,7 @@ Ejemplos:
         "--schedule",
         type=int,
         metavar="SEGUNDOS",
-        help="Programar ejecuciones repetidas cada N segundos",
+        help="Programar ejecuciones repetidas cada N segundos (default: 10800 = 3 horas)",
     )
     parser.add_argument(
         "--export-task",
