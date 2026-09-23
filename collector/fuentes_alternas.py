@@ -365,6 +365,64 @@ def ejecutar() -> dict:
         else:
             print(f"[alternas]   ❌ {art['label']}: No se pudo fetchear")
 
+    # ── Guardar en DB ────────────────────────────────────
+    print("[alternas] 3. Guardando precios en base de datos...")
+    
+    # Convertir GPP a formato DB (por galón)
+    if gpp_data:
+        GALON_LITROS = 3.78541
+        gpp_precios_db = [
+            {
+                "fecha": gpp_data["fecha"],
+                "producto": "superior",
+                "precio": round(gpp_data["gasolina_gtq_liter"] * GALON_LITROS, 2),
+                "fuente": "GlobalPetrolPrices",
+                "tipo": "nacional_promedio",
+            },
+            {
+                "fecha": gpp_data["fecha"],
+                "producto": "diésel",  # Corregido: con acento como espera el dashboard
+                "precio": round(gpp_data["diesel_gtq_liter"] * GALON_LITROS, 2),
+                "fuente": "GlobalPetrolPrices",
+                "tipo": "nacional_promedio",
+            },
+        ]
+        
+        insertados_gpp = guardar_precios_en_db(gpp_precios_db)
+        print(f"[alternas]   GPP: {insertados_gpp} registros guardados")
+    
+    # Convertir Chapin TV a formato DB
+    chapintv_precios_db = []
+    for art in result["chapintv_articles"]:
+        if art.get("superior"):
+            chapintv_precios_db.append({
+                "fecha": art["fecha"],
+                "producto": "superior",
+                "precio": art["superior"],
+                "fuente": "Chapin TV",
+                "tipo": "metro_sondeo",
+            })
+        if art.get("regular"):
+            chapintv_precios_db.append({
+                "fecha": art["fecha"],
+                "producto": "regular",
+                "precio": art["regular"],
+                "fuente": "Chapin TV",
+                "tipo": "metro_sondeo",
+            })
+        if art.get("diesel"):
+            chapintv_precios_db.append({
+                "fecha": art["fecha"],
+                "producto": "diésel",  # Corregido: con acento como espera el dashboard
+                "precio": art["diesel"],
+                "fuente": "Chapin TV",
+                "tipo": "metro_sondeo",
+            })
+    
+    if chapintv_precios_db:
+        insertados_chapin = guardar_precios_en_db(chapintv_precios_db)
+        print(f"[alternas]   ChapinTV: {insertados_chapin} registros guardados")
+
     # ── Resumen ──────────────────────────────────────────
     print(
         f"[alternas] Completado. Fuentes alternas: "
@@ -373,6 +431,40 @@ def ejecutar() -> dict:
     )
 
     return result
+
+
+def guardar_precios_en_db(precios: list[dict]) -> int:
+    """Guarda precios de fuentes alternas en la base de datos.
+
+    Args:
+        precios: Lista de dicts con keys: fecha, producto, precio, fuente, tipo.
+
+    Returns:
+        Número de registros insertados exitosamente.
+    """
+    from collector.db import conectar, insertar_precio_combustible
+    
+    conn = conectar()
+    inserted = 0
+    
+    for p in precios:
+        try:
+            row_id = insertar_precio_combustible(
+                conn=conn,
+                fecha_obs=p["fecha"],
+                producto=p["producto"],
+                precio=p["precio"],
+                incluye_impuestos=1,
+                regimen="normal",
+                fuente=p.get("fuente", "fuentes_alternas"),
+            )
+            if row_id is not None:
+                inserted += 1
+        except Exception as exc:
+            print(f"[alternas-db] Error guardando {p['producto']} Q{p['precio']}: {exc}")
+    
+    conn.close()
+    return inserted
 
 
 # ──────────────────────────────────────────────

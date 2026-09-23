@@ -84,6 +84,8 @@ FUENTES_VALIDAS = {
     "MEM HTML",
     "Prensa Libre",
     "GNews GT",
+    "GlobalPetrolPrices",
+    "Chapin TV",
 }
 
 # ──────────────────────────────────────────────
@@ -111,7 +113,8 @@ def obtener_precios_recentes(conn: sqlite3.Connection) -> list[sqlite3.Row]:
         WHERE fecha_observacion >= date('now', ?)
           AND producto IN ('superior', 'regular', 'diessel')
           AND fuente IN (
-              'MEM PDF', 'MEM HTML', 'Prensa Libre', 'GNews GT'
+              'MEM PDF', 'MEM HTML', 'Prensa Libre', 'GNews GT',
+              'GlobalPetrolPrices', 'Chapin TV'
           )
         ORDER BY fecha_observacion, producto, fuente
     """

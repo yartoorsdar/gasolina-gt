@@ -1,6 +1,78 @@
 {
   "noticias": [
     {
+      "id": 4970,
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeDh3VFZGMHdYRFFGVkd4VVcyUGV1bXZTZ2NSQVNYbVJpWVNJX1lvV1VuMEpvNGowTEw5S2tDOVlpdXZIQnZvQ3l1V3R2b3ZueURCZEI3VWlTbGxaU2t3ZENyMmp1MkdhTXgzRmhXczlEeFBYZVg1Z2JkT2REVHBJRDRBRExSNmhzMTlKTjA0MEU0Y1RQdV81WDAzbWVscGo4SnAyYzlZOURTUnROOFg4ZkdFbGl1ekVFZXZoTm9aQjJCZw?oc=5",
+      "titulo": "Kuibyshev Refinery Burns into Second Day Following Ukrainian Retaliatory Drone Strikes - UNITED24 Media",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-23T09:19:03-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeDh3VFZGMHdYRFFGVkd4VVcyUGV1bXZTZ2NSQVNYbVJpWVNJX1lvV1VuMEpvNGowTEw5S2tDOVlpdXZIQnZvQ3l1V3R2b3ZueURCZEI3VWlTbGxaU2t3ZENyMmp1MkdhTXgzRmhXczlEeFBYZVg1Z2JkT2REVHBJRDRBRExSNmhzMTlKTjA0MEU0Y1RQdV81WDAzbWVscGo4SnAyYzlZOURTUnROOFg4ZkdFbGl1ekVFZXZoTm9aQjJCZw?oc=5\" target=\"_blank\">Kuibyshev Refinery Burns into Second Day Following Ukrainian Retaliatory Drone Strikes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UNITED24 Media</font>",
+      "fetched_at": "2026-09-23T03:58:32-06:00"
+    },
+    {
+      "id": 5412,
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQLV9fYnE5WHptSjVIVU9iVjVMbjNvMXhLMENZb0tuX3RFUlFsd25qV202d3pWbEhqbUJHd3dLMHc5QjU5LXFBdzhhR3ZlLXJ5eUJ5dGpDRDE4UTZBb3dmTWxQRWNpU2xEMnpxdUxRVWRXaEV2UUNsX05HOWxTWGJxQ2MtbkxPRDhOVUJ1dW1FSVVMcnNtR1MxV0pfVWpFLV9hWGFhYlFhclJNdFdCODc0dVk5d21xM0HSAbwBQVVfeXFMT2hmejZMV0ZRRE1taTNCa2tlSlNfWkthQ3NGUE43OTZ3YldlZUxENXliamtoVlBzOEVxUThVcWh1Y3EtaUZRZk5HTlpaRkxfQUhDS2tCVmdyUnVDNXBQdmZYRVhEN0Y3Yjhud20xLXc3Q28xYTdfUWI5OVlBTnU1TllRZWV5d0NKMVk2SlNUX3paSVRNRldNaUl3ak5rVmVMQWl1UWtFMGtFdDVVSGVLTmhnQ2ZYeWZuc0ZNR3E?oc=5",
+      "titulo": "Drones attack Bashkortostan, smoke seen near Ufa Oil Refinery – media - Ukrinform",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-23T08:25:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxQLV9fYnE5WHptSjVIVU9iVjVMbjNvMXhLMENZb0tuX3RFUlFsd25qV202d3pWbEhqbUJHd3dLMHc5QjU5LXFBdzhhR3ZlLXJ5eUJ5dGpDRDE4UTZBb3dmTWxQRWNpU2xEMnpxdUxRVWRXaEV2UUNsX05HOWxTWGJxQ2MtbkxPRDhOVUJ1dW1FSVVMcnNtR1MxV0pfVWpFLV9hWGFhYlFhclJNdFdCODc0dVk5d21xM0HSAbwBQVVfeXFMT2hmejZMV0ZRRE1taTNCa2tlSlNfWkthQ3NGUE43OTZ3YldlZUxENXliamtoVlBzOEVxUThVcWh1Y3EtaUZRZk5HTlpaRkxfQUhDS2tCVmdyUnVDNXBQdmZYRVhEN0Y3Yjhud20xLXc3Q28xYTdfUWI5OVlBTnU1TllRZWV5d0NKMVk2SlNUX3paSVRNRl",
+      "fetched_at": "2026-09-23T04:21:27-06:00"
+    },
+    {
+      "id": 4975,
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPSWZRRGRpXzJPdVlsZTVQRjlDUWRUN25Hd1dKTzFwcGNzR0lOX2dKZzUwNnZ4UmlQa1hoNHk1cW56Si1zMERkdGhHaVZ4QnVHcVJWa1I0UDZkLVY5UGQ5TU9rWEhLdzc5QmFyN1Rqby1hTzRpYVlhSUkwQ056QS16U2tpWkhVdWVHMDJ0OHdIUzZIN3BHTDdWN2dwTVQxWks4Q2I0UlZvTHZQdEMwc2F4Tg?oc=5",
+      "titulo": "How Ukraine’s devastating attacks on Putin’s oil refineries brought the war to Russia’s doorstep - independent.co.uk",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-23T05:29:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxPSWZRRGRpXzJPdVlsZTVQRjlDUWRUN25Hd1dKTzFwcGNzR0lOX2dKZzUwNnZ4UmlQa1hoNHk1cW56Si1zMERkdGhHaVZ4QnVHcVJWa1I0UDZkLVY5UGQ5TU9rWEhLdzc5QmFyN1Rqby1hTzRpYVlhSUkwQ056QS16U2tpWkhVdWVHMDJ0OHdIUzZIN3BHTDdWN2dwTVQxWks4Q2I0UlZvTHZQdEMwc2F4Tg?oc=5\" target=\"_blank\">How Ukraine’s devastating attacks on Putin’s oil refineries brought the war to Russia’s doorstep</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">independent.co.uk</font>",
+      "fetched_at": "2026-09-23T03:58:32-06:00"
+    },
+    {
+      "id": 5135,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Set-for-Longest-Losing-Streak-Since-August-2025.html",
+      "titulo": "Oil Set for Longest Losing Streak Since August 2025",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T05:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Oil prices fell in Asian trading on Wednesday and were on course for a sixth consecutive day of declines as the first U.S.-Iran talks in months revived hopes of a deal and eased concerns about oil supply from the Middle East.  In Wednesday trade in Asia, Brent Crude prices dipped by about 1% to $98.30, after falling on Tuesday below the $100 a barrel mark. The U.S. benchmark, WTI Crude, fell by 1.4% to below the $ 90-a-barrel threshold and traded at $89.49.   Oil prices extended the losses that ",
+      "fetched_at": "2026-09-23T04:14:12-06:00"
+    },
+    {
+      "id": 4987,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/100-Brent-Keeping-Chinas-Oil-Buying-in-Check-Goldman-Says.html",
+      "titulo": "$100 Brent Keeping China's Oil Buying in Check, Goldman Says",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T04:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "China's crude oil exports will rise only slightly in the fourth quarter from the third quarter if oil prices remain high, potentially easing the upward pressure on benchmark crude prices, Goldman Sachs says. China's crude oil imports rose for the second consecutive month in August as refiners turned to additional non-Middle Eastern supply and boosted overseas fuel shipments amid eased export restrictions. China imported 8.93 million bpd of crude oil in August, up by 6.2% compared to July, and fu",
+      "fetched_at": "2026-09-23T03:58:32-06:00"
+    },
+    {
+      "id": 4173,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Michigan-Judge-Tosses-States-Antitrust-Suit-Against-Big-Oil.html",
+      "titulo": "Michigan Judge Tosses State's Antitrust Suit Against Big Oil",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T03:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "A district judge in Grand Rapids has dismissed a lawsuit brought against several oil supermajors that accused the companies of conspiring to interfere with competition in alternative energy and electric cars. The lawsuit was filed by Michigan Attorney General Dan Nessel, alleging Exxon, Chevron, Shell, BP, and the American Petroleum Institute colluded to try to “restrain the emergence of electric vehicles and ‌renewable primary energy technologies in the United States,” as quoted by Reuters. Acc",
+      "fetched_at": "2026-09-23T02:01:06-06:00"
+    },
+    {
       "id": 1514,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/South-Korea-Aims-to-Cut-Middle-East-Crude-Reliance-to-50-by-2035.html",
       "titulo": "South Korea Aims to Cut Middle East Crude Reliance to 50% by 2035",
@@ -95,6 +167,18 @@
       "relevancia": null,
       "resumen_es": "The current focus of the world’s governments, business and media when it comes to artificial intelligence (AI) is on the dangers it poses to jobs, democracy and even the future of humanity itself. For many of a certain generation, these fears crystallise in the cold but relentlessly courteous voice of HAL, the on?board AI in Stanley Kubrick’s 2001: A Space Odyssey. After a crew member questions HAL’s diagnosis of a faulty antenna, the system secretly lip?reads the astronauts, discovers their pla",
       "fetched_at": "2026-09-22T22:00:01-06:00"
+    },
+    {
+      "id": 4971,
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQUU1IdmtFdFRYNFEzT1BuRVRpamQxZDh0N3czV01WWGFtbHVYYWZZYmdna3FTVVpFeXd2cjZtSVA1R0c2MEpUdWlXUHRqSzBqQ0MtQ1NsSG1mN2EyVmZtN1o5RDlvVkxGLU5mMVBENXU5ZHFpUWhxX2xRWXNkSEdFbzZraUctOThBMzBoX3VNVGtBYnVsMGRwb0dkRHZDaEsyZU1fZ041V2FjcHR4aThNTTF0LThLcHpKV0p6Z3hKT24?oc=5",
+      "titulo": "Here's What the Houthi–Saudi Arabia Conflict Means for the United States - Council on Foreign Relations",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-22T16:47:57-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxQUU1IdmtFdFRYNFEzT1BuRVRpamQxZDh0N3czV01WWGFtbHVYYWZZYmdna3FTVVpFeXd2cjZtSVA1R0c2MEpUdWlXUHRqSzBqQ0MtQ1NsSG1mN2EyVmZtN1o5RDlvVkxGLU5mMVBENXU5ZHFpUWhxX2xRWXNkSEdFbzZraUctOThBMzBoX3VNVGtBYnVsMGRwb0dkRHZDaEsyZU1fZ041V2FjcHR4aThNTTF0LThLcHpKV0p6Z3hKT24?oc=5\" target=\"_blank\">Here's What the Houthi–Saudi Arabia Conflict Means for the United States</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Council on Foreign Relations</font>",
+      "fetched_at": "2026-09-23T03:58:32-06:00"
     },
     {
       "id": 25,
@@ -541,6 +625,18 @@
       "fetched_at": "2026-09-23T00:23:27-06:00"
     },
     {
+      "id": 4616,
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOdEFXU2pQVTB4SGx3MkFMb3hRMTV3dFZYMzd4SDBLSURMcUdNTGh1TGl4aVkyZmZiQ1k4YmFJYjdiVGRJQ0oyMFoycEtmTGhGRzhCMDVoUWYtWXdDSkEyWm42TjVQLXBLRVlXQjVfQjFkeHBTc1l0enJFY2VzSWM4cXJMeUFCU0RRbVU2b190ajlfT0kyQ0FDUnV0S0djSTFBaEtUZ001MVdJeEVQRlRv?oc=5",
+      "titulo": "Three dead in Moscow as Ukraine launches massive drone attack while Russia votes - NBC News",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-20T14:31:41-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMirwFBVV95cUxOdEFXU2pQVTB4SGx3MkFMb3hRMTV3dFZYMzd4SDBLSURMcUdNTGh1TGl4aVkyZmZiQ1k4YmFJYjdiVGRJQ0oyMFoycEtmTGhGRzhCMDVoUWYtWXdDSkEyWm42TjVQLXBLRVlXQjVfQjFkeHBTc1l0enJFY2VzSWM4cXJMeUFCU0RRbVU2b190ajlfT0kyQ0FDUnV0S0djSTFBaEtUZ001MVdJeEVQRlRv?oc=5\" target=\"_blank\">Three dead in Moscow as Ukraine launches massive drone attack while Russia votes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">NBC News</font>",
+      "fetched_at": "2026-09-23T02:16:04-06:00"
+    },
+    {
       "id": 6,
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNcnJqNEJNOEgxaC1YcXNtNzljeWxKdlJmM0pMMUM0UlpoMklBR1ZSWFI0REVjWlVZMWxlV2FxRWlMLXpvWXBqTVpjTHNVVDVYZXRhWEZ1ZVFlVHJXcTBHaGMtY3ZtOC16N0lubjFxZzByT1hmX0NiTzBwN3Z2SVBURXQ2cE55d21kSmRxRklCaFg2X3hQMXliQUJBZTQ?oc=5",
       "titulo": "Arde en llamas una refinería de petróleo de Moscú tras un ataque ucraniano, según un vídeo publicado por Zelensky - CNN en Español",
@@ -817,6 +913,18 @@
       "fetched_at": "2026-09-22T22:00:01-06:00"
     },
     {
+      "id": 5114,
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOVG1IYkdKNFg3WEhEMEZnQTNZeXpXcjNwMlpiM183bWdQaURSSEdHdHY4aHVlRTRFb1gybzZSdDNLQ1NGMUZZRWFMSkNXdlZOWm56bW1hWVlhLUZ4QTFYYzl6T2JVb0UyamhsVUo3ZDBqRTAyR3hYRW1xek9uRU9PZk1DR1E5WG1DZEZpQjlUdHRLUGRxWnl4ZWktWmx1RWd5eVc2Z9IBpAFBVV95cUxQTDVuTlE2WUU1bS1BZ1M2SGZSUXRqNHZNZU5MWVhSU2d2RzBJMGpqUEJ5UV9nejRhM1pZWlNZNC1fNFpnOVZJYkdYak5BTDY1U2NQeUttWWRhQjZMZjFMNlNrcU1DRHU3UFhtOVlLMThhS3dYc1o1c3hlOGtwOUk5ajZfNFhBRVNrTFBpbW44ZWhDSXZObzNSSXJNVDRKVzF4SXFtag?oc=5",
+      "titulo": "Arabia Saudita cierra oleoducto Este-Oeste tras ataques - dw.com",
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-11T07:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMipAFBVV95cUxOVG1IYkdKNFg3WEhEMEZnQTNZeXpXcjNwMlpiM183bWdQaURSSEdHdHY4aHVlRTRFb1gybzZSdDNLQ1NGMUZZRWFMSkNXdlZOWm56bW1hWVlhLUZ4QTFYYzl6T2JVb0UyamhsVUo3ZDBqRTAyR3hYRW1xek9uRU9PZk1DR1E5WG1DZEZpQjlUdHRLUGRxWnl4ZWktWmx1RWd5eVc2Z9IBpAFBVV95cUxQTDVuTlE2WUU1bS1BZ1M2SGZSUXRqNHZNZU5MWVhSU2d2RzBJMGpqUEJ5UV9nejRhM1pZWlNZNC1fNFpnOVZJYkdYak5BTDY1U2NQeUttWWRhQjZMZjFMNlNrcU1DRHU3UFhtOVlLMThhS3dYc1o1c3hlOGtwOUk5ajZfNFhBRVNrTFBpbW44ZWhDSXZObzNSSXJNVDRKVzF4SXFtag?oc=",
+      "fetched_at": "2026-09-23T04:14:12-06:00"
+    },
+    {
       "id": 63,
       "url": "https://www.eia.gov/todayinenergy/detail.php?id=68125",
       "titulo": "United States on track for record crude oil production in 2026",
@@ -913,5 +1021,5 @@
       "fetched_at": "2026-09-22T22:00:01-06:00"
     }
   ],
-  "total_registros": 76
+  "total_registros": 85
 }
