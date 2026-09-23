@@ -614,7 +614,8 @@
             let precios = data.precios_combustible || [];
             
             // Debug temporal
-            console.log('[DEBUG] precios_combustible:', precios.map(p => ({p: p.producto, f: p.fecha})));
+            console.log('[DEBUG] precios_combustible keys:', precios[0] ? Object.keys(precios[0]) : 'empty');
+            console.log('[DEBUG] precios_combustible raw:', JSON.stringify(precios, null, 2));
 
             if (!precios || precios.length === 0) {
                 container.innerHTML = '<p style="color:var(--text-muted);">Sin datos disponibles</p>';
