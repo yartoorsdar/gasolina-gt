@@ -43,6 +43,7 @@ jobs:
           OILPRICEAPI_KEY: ${{ secrets.OILPRICEAPI_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
+          python -c "from datetime import datetime, timezone, timedelta; print('UTC:', datetime.utcnow().strftime('%H:%M')); print('GT:', datetime.now(timezone(timedelta(hours=-6))).strftime('%H:%M'))"
           python collector/main.py --alternos --petroleo --noticias --export
 
       - name: Commit and push updated JSONs
