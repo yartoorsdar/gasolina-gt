@@ -109,10 +109,24 @@
             font-weight: 500;
         }
 
-        .price-value {
+        .price-values {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 1px;
+        }
+
+        .price-value-main {
             font-size: 1.3rem;
             font-weight: 700;
             color: var(--accent);
+        }
+
+        .price-value-exempt {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4ade8a;
         }
 
         .price-regimen {
@@ -623,18 +637,38 @@
             const ordenMap = new Map(orden.map((p, i) => [p, i]));
             precios.sort((a, b) => (ordenMap.get(a.producto) ?? -1) - (ordenMap.get(b.producto) ?? -1));
 
+            // ── Constantes de impuestos ────────────────────────
+            const IDP = { superior: 4.70, regular: 4.60, diésel: 1.30 };
+            const IVA_RATE = 12 / 112;  // IVA incluido en precio final
+
             for (const p of precios) {
+                const producto = p.producto || 'superior';
+                const idp = IDP[producto] ?? 4.60;
+                const precioFinal = p.precio;
+
+                // Calcular base imponible: precio_final = base × 1.12 + IDP
+                // → base = (precio_final - IDP) / 1.12
+                const baseImponible = Math.max(0, (precioFinal - idp) * 112 / 124);
+                const ivaMonto = baseImponible * 0.12;
+
+                // Precio sin impuestos (Decreto 22-2026 si se aprueba)
+                const precioSinImpuestos = Math.max(0, baseImponible + idp);
+
                 const regimenClass2 = regimenClass(p.regimen);
                 const regimenLabel2 = regimenLabel(p.regimen);
                 const priceColor = precioColor(p.regimen);
+
                 html += `
                     <div class="price-item">
                         <div>
-                            <span class="price-label">${productos[p.producto] || p.producto}</span>
+                            <span class="price-label">${productos[producto] || producto}</span>
                             <span class="price-regimen ${regimenClass2}">${regimenLabel2}</span>
                             ${p.nota ? `<br><small style="color:var(--text-muted)">${p.nota}</small>` : ''}
                         </div>
-                        <div class="price-value" style="color:${priceColor}">${fmtQ(p.precio)}</div>
+                        <div class="price-values">
+                            <span class="price-value-main" style="color:${priceColor}">${fmtQ(precioFinal)}</span>
+                            <span class="price-value-exempt">Sin IVA+IDP: ${fmtQ(precioSinImpuestos)}</span>
+                        </div>
                     </div>
                 `;
             }
