@@ -1,0 +1,38 @@
+{
+  "precios": [
+    {
+      "id": 6955,
+      "fecha_observacion": "2026-09-21",
+      "producto": "diésel",
+      "precio": 49.4,
+      "incluye_impuestos": 1,
+      "regimen": "normal",
+      "nota": null,
+      "fuente": "Ministerio de Energía y Minas",
+      "fetched_at": "2026-09-23T00:00:19-06:00"
+    },
+    {
+      "id": 6954,
+      "fecha_observacion": "2026-09-21",
+      "producto": "regular",
+      "precio": 42.58,
+      "incluye_impuestos": 1,
+      "regimen": "normal",
+      "nota": null,
+      "fuente": "Ministerio de Energía y Minas",
+      "fetched_at": "2026-09-23T00:00:19-06:00"
+    },
+    {
+      "id": 6953,
+      "fecha_observacion": "2026-09-21",
+      "producto": "superior",
+      "precio": 44.61,
+      "incluye_impuestos": 1,
+      "regimen": "normal",
+      "nota": null,
+      "fuente": "Ministerio de Energía y Minas",
+      "fetched_at": "2026-09-23T00:00:19-06:00"
+    }
+  ],
+  "actualizado_at": "2026-09-23T01:08:50-06:00"
+}
