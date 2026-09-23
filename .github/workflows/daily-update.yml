@@ -8,6 +8,10 @@ on:
   # Ejecución manual desde GitHub UI
   workflow_dispatch:
 
+  # Disparar en push a main (para que los fixes se apliquen al instante)
+  push:
+    branches: [main]
+
 jobs:
   update-daily:
     permissions:
