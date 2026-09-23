@@ -56,7 +56,8 @@ jobs:
           if git diff --cached --quiet; then
             echo "::notice::No changes to commit."
           else
+            git pull --rebase origin main || true
             git commit -m "Daily update: GPP + petróleo + noticias [skip ci]"
-            git push
+            git push origin main || true
             echo "::notice::OK JSONs pushed"
           fi
