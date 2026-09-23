@@ -370,7 +370,7 @@
         }
 
         .history-table-wrap {
-            overflow-x: auto; max-height: 400px; overflow-y: auto;
+            overflow-x: auto; max-height: 400px; overflow-y: hidden;
         }
 
         .history-table {
@@ -403,7 +403,12 @@
             .price-value { font-size: 1.1rem; }
             #historialChart { height: 250px; }
 
-            /* Tabla anual: evitar traslape de labels en móvil */
+            /* Tabla anual en móvil: sin scroll vertical, todo visible */
+            .history-table-wrap {
+                max-height: none; overflow-y: hidden;
+            }
+            .history-table th { position: static; }
+
             .history-table td:first-child,
             .history-table th:first-child {
                 min-width: 50px;
