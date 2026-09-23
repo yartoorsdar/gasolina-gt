@@ -4,5 +4,6 @@ lxml
 feedparser
 openpyxl
 pdfplumber
+playwright
 python-dotenv
 pytest

@@ -2,15 +2,17 @@
 
 Ejecuta todos los collectors en secuencia:
   1. precios_mem    → precios actuales de combustible (PDF MEM)
-  2. importar_historico → historial de precios (XLSX diario MEM)
-  3. petroleo       → Brent y WTI (API EIA)
-  4. noticias       → feeds RSS clasificados
+  2. mem_html       → precios actuales HTML (Playwright, bypass Cloudflare)
+  3. importar_historico → historial de precios (XLSX diario MEM)
+  4. petroleo       → Brent y WTI (API EIA)
+  5. noticias       → feeds RSS clasificados
 
 También exporta la DB a archivos JSON para uso externo o web.
 
 Uso:
   python main.py --all              # ejecuta todo
   python main.py --precios-mem      # solo precios MEM actuales
+  python main.py --mem-html         # solo scraping HTML del MEM
   python main.py --historico        # solo importar histórico
   python main.py --petroleo         # solo Brent/WTI
   python main.py --noticias         # solo RSS feeds
@@ -125,6 +127,13 @@ def ejecutar_precios_mem(cfg: dict = None) -> dict:
     return _ejecutar()
 
 
+def ejecutar_mem_html(cfg: dict = None) -> dict:
+    """Wrapper para mem_html.ejecutar (Playwright HTML scraping)."""
+    from collector.mem_html import ejecutar as _ejecutar
+
+    return _ejecutar()
+
+
 def ejecutar_historico(cfg: dict = None) -> dict:
     """Wrapper para importar_historico.ejecutar."""
     from collector.importar_historico import ejecutar as _ejecutar
@@ -169,6 +178,7 @@ def ejecutar_todo(cfg: dict = None, exportar: bool = False) -> list[dict]:
 
     modulos = [
         ("precios_mem", ejecutar_precios_mem),
+        ("mem_html", ejecutar_mem_html),
         ("historico", ejecutar_historico),
         ("petroleo", ejecutar_petroleo),
         ("noticias", ejecutar_noticias),
@@ -391,7 +401,8 @@ Ejemplos:
     parser.add_argument(
         "--all", action="store_true", help="Ejecutar todos los colectores"
     )
-    parser.add_argument("--precios-mem", action="store_true", help="Precios MEM actuales")
+    parser.add_argument("--precios-mem", action="store_true", help="Precios MEM actuales (PDF)")
+    parser.add_argument("--mem-html", action="store_true", help="Precios MEM HTML (Playwright)")
     parser.add_argument("--historico", action="store_true", help="Importar histórico (XLSX)")
     parser.add_argument("--petroleo", action="store_true", help="Brent/WTI (EIA API)")
     parser.add_argument("--noticias", action="store_true", help="Feeds RSS")
@@ -402,7 +413,7 @@ Ejemplos:
     args = parser.parse_args()
 
     # Si no se especifica nada, ejecutar todo por defecto
-    if not any([args.all, args.precios_mem, args.historico, args.petroleo, args.noticias]):
+    if not any([args.all, args.precios_mem, args.mem_html, args.historico, args.petroleo, args.noticias]):
         args.all = True
 
     cfg = cargar_config()
@@ -411,6 +422,8 @@ Ejemplos:
     modulos_activas = []
     if args.all or args.precios_mem:
         modulos_activas.append(("precios_mem", ejecutar_precios_mem))
+    if args.all or args.mem_html:
+        modulos_activas.append(("mem_html", ejecutar_mem_html))
     if args.all or args.historico:
         modulos_activas.append(("historico", ejecutar_historico))
     if args.all or args.petroleo:
