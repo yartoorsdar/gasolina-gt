@@ -26,7 +26,7 @@
   },
   "petroleo": {
     "series": {
-      "wti": "DCOILWTICO",
+      "wti": "DCOILWTICO"
     }
   },
   "noticias": {
