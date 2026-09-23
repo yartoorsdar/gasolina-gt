@@ -683,11 +683,11 @@
             }
 
             const fecha = precios.length ? new Date(Math.max(...precios.map(p => new Date(p.fecha)))).toISOString().slice(0,10) : '';
-            // Usar UTC directo — sin ambigüedades de timezone del runner
+            // Convertir fetched_at (UTC del runner) a Guatemala (UTC-6)
             let horaStr = '';
             if (precios.length > 0) {
                 const maxFetched = new Date(Math.max(...precios.map(p => new Date(p.fetched_at))));
-                horaStr = maxFetched.toUTCString().slice(-12, -4); // extrae HH:MM de UTC
+                horaStr = maxFetched.toLocaleTimeString('es-GT', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Guatemala' });
             }
             html += `<p class="price-date">Última actualización: ${fecha} a las ${horaStr}</p>`;
             container.innerHTML = html;
