@@ -1,5 +1,5 @@
 {
-  "actualizado_at": "2026-09-23T15:05:01+00:00",
+  "actualizado_at": "2026-09-23T15:23:11+00:00",
   "precios_combustible": [
     {
       "id": 2,
@@ -7,7 +7,7 @@
       "producto": "diésel",
       "precio": 50.5,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T15:04:49-06:00"
+      "fetched_at": "2026-09-23T15:22:59-06:00"
     },
     {
       "id": 1,
@@ -15,7 +15,7 @@
       "producto": "superior",
       "precio": 45.74,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T15:04:49-06:00"
+      "fetched_at": "2026-09-23T15:22:59-06:00"
     },
     {
       "id": 4,
@@ -23,14 +23,14 @@
       "producto": "regular",
       "precio": 41.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-23T15:04:49-06:00"
+      "fetched_at": "2026-09-23T15:22:59-06:00"
     }
   ],
   "petroleo": [
     {
       "referencia": "wti",
       "fecha": "2026-09-23",
-      "usd_barril": 92.01,
+      "usd_barril": 91.24,
       "fuente": "OilPriceAPI"
     }
   ],
@@ -46,7 +46,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxNbWUwcHd0VWxObFJIUWN0Nkp1Ukp6ZzRWOEktYThfeGt3d3RVR05DMTdOQXFienp0U3hxd210UklMYm10aVI2R1hLeHowTko2WXkwaWhLMFJrajN4ay11RV9LZm1FcWY5cXdkQmI0RmdBeTF5VmVMeEhIcDdQd29TdU9HNXY3ZWxnWl9oTUZ1Sl9OV3NsLTZTZWRTNUJWZUN6RWVQMGRLTmZaVnUtVnNCN1czSHpnZzNsTlNXRktDWjVzSnNEeEhF?oc=5\" target=\"_blank\">Ukrainian Drones Attack Russia’s Bashkortostan, Smoke Spotted Near Ufa Oil Refinery</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UNITED24 Media</font>",
-      "fetched_at": "2026-09-23T15:05:01-06:00"
+      "fetched_at": "2026-09-23T15:23:11-06:00"
     },
     {
       "id": 22,
@@ -58,7 +58,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVDFUdnM4Tm1wMjM1QURkT0hvV29kZ0xCV2F0bVFaRkVqUEROaWMwLWNfeXk4T2JVR010NjBBLXJWWnJwQ1hEcGU0emRzTDZRUUs0ODJ6ZHlVcm9hdERaTG1pd1BaLXQtUFBJc0xrdW54QnBOUURQN0RuNzFaWWhjcEV4dmJBd1FYcXJGcXhQNVBaWlBPRGZvOU5CZzhrZHJ4bHFCN2NqTUdRaXBQcWVSaGpXeEZ0Z19G?oc=5\" target=\"_blank\">Saudi Arabia Restarts East-West Pipeline to Resume Exports Days After Drone Attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Pipeline Technology Journal</font>",
-      "fetched_at": "2026-09-23T15:05:01-06:00"
+      "fetched_at": "2026-09-23T15:23:11-06:00"
     },
     {
       "id": 24,
@@ -70,7 +70,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxPd1N0cEZSOUFtN2lpV25Xel9hVGVoZTFPdUJPd2RyQTJ4QmM5dTVta3FRalllVzBVa1h2anJiRTFUTTNucjh2ZEpVMUJXellaWnEwVDZhSG04czVuRms2QmJ4NVFMUEg1MV9CLUk0VDl6dmRMSWtVT1hxNk9YcWQ3dHphRE9obUhfejV1ZkprVVJlcTBFbGZKY1BmVEtaT25lMUJvT1BYWUk?oc=5\" target=\"_blank\">Video Does Not Show Houthi Attack on Israeli Oil Pipeline</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">موقع مسبار</font>",
-      "fetched_at": "2026-09-23T15:05:01-06:00"
+      "fetched_at": "2026-09-23T15:23:11-06:00"
     },
     {
       "id": 41,
@@ -82,7 +82,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Copper closed Tuesday a hair below its all-time high, extending its winning streak to six sessions as Chinese buyers restocked ahead of back-to-back holidays and warehouse inventories in Shanghai and London kept draining. Three-month copper on the London Metal Exchange settled at $14,783 a metric ton, up 0.8%, according to Shanghai Metals Market, leaving it $92 short of the $14,875 record set Sept. 10. Comex copper for December delivery hit $6.871 a pound in New York during the session, within 2",
-      "fetched_at": "2026-09-23T15:05:01-06:00"
+      "fetched_at": "2026-09-23T15:23:11-06:00"
     },
     {
       "id": 42,
@@ -94,7 +94,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Crude oil inventories in the United States saw an increase of 3 million barrels during the week ending September 18, according to new data from the U.S. Energy Information Administration (EIA) released on Wednesday. The increase brings commercial stockpiles to 426.4 million barrels, according to government data, which is now 2% above the five-year average for this time of year. The EIA’s data release follows API’s figures that were released a day earlier, which reported that crude oil inventorie",
-      "fetched_at": "2026-09-23T15:05:01-06:00"
+      "fetched_at": "2026-09-23T15:23:11-06:00"
     },
     {
       "id": 43,
@@ -106,7 +106,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Cuts to U.S. federal incentives for carbon capture projects and an uncertain regulatory environment going forward have prompted some start-ups to move from solely capturing and storing carbon dioxide to selling it to oil companies to help them boost oil recovery.   Carbon management engineering company Spiritus, for example, has recently signed preliminary agreements with three U.S. oil and gas producers to sell them the captured CO2 for enhanced oil recovery (EOR).  The injection of CO2 into re",
-      "fetched_at": "2026-09-23T15:05:01-06:00"
+      "fetched_at": "2026-09-23T15:23:11-06:00"
     },
     {
       "id": 26,
@@ -118,7 +118,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeDh3VFZGMHdYRFFGVkd4VVcyUGV1bXZTZ2NSQVNYbVJpWVNJX1lvV1VuMEpvNGowTEw5S2tDOVlpdXZIQnZvQ3l1V3R2b3ZueURCZEI3VWlTbGxaU2t3ZENyMmp1MkdhTXgzRmhXczlEeFBYZVg1Z2JkT2REVHBJRDRBRExSNmhzMTlKTjA0MEU0Y1RQdV81WDAzbWVscGo4SnAyYzlZOURTUnROOFg4ZkdFbGl1ekVFZXZoTm9aQjJCZw?oc=5\" target=\"_blank\">Kuibyshev Refinery Burns into Second Day Following Ukrainian Retaliatory Drone Strikes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UNITED24 Media</font>",
-      "fetched_at": "2026-09-23T15:05:01-06:00"
+      "fetched_at": "2026-09-23T15:23:11-06:00"
     },
     {
       "id": 44,
@@ -130,7 +130,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Ahead of a high-stakes US-China summit planned for September 24 at the White House, Beijing appears to be spotlighting its influence over Iran to gain leverage during negotiations with its chief geopolitical rival. Expectations for a US-China breakthrough on Iran at the upcoming summit in Washington are low. Trump has signaled a focus on economic outcomes for this meeting with Xi and the Chinese leader has reciprocated by assembling a delegation of top business executives. But in the run-up to t",
-      "fetched_at": "2026-09-23T15:05:01-06:00"
+      "fetched_at": "2026-09-23T15:23:11-06:00"
     },
     {
       "id": 25,
@@ -142,7 +142,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxQLV9fYnE5WHptSjVIVU9iVjVMbjNvMXhLMENZb0tuX3RFUlFsd25qV202d3pWbEhqbUJHd3dLMHc5QjU5LXFBdzhhR3ZlLXJ5eUJ5dGpDRDE4UTZBb3dmTWxQRWNpU2xEMnpxdUxRVWRXaEV2UUNsX05HOWxTWGJxQ2MtbkxPRDhOVUJ1dW1FSVVMcnNtR1MxV0pfVWpFLV9hWGFhYlFhclJNdFdCODc0dVk5d21xM0HSAbwBQVVfeXFMT2hmejZMV0ZRRE1taTNCa2tlSlNfWkthQ3NGUE43OTZ3YldlZUxENXliamtoVlBzOEVxUThVcWh1Y3EtaUZRZk5HTlpaRkxfQUhDS2tCVmdyUnVDNXBQdmZYRVhEN0Y3Yjhud20xLXc3Q28xYTdfUWI5OVlBTnU1TllRZWV5d0NKMVk2SlNUX3paSVRNRl",
-      "fetched_at": "2026-09-23T15:05:01-06:00"
+      "fetched_at": "2026-09-23T15:23:11-06:00"
     },
     {
       "id": 45,
@@ -154,7 +154,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "TotalEnergies has decided to invest in the development of the Ima gas field offshore Nigeria to increase supply for the expanding Nigeria LNG export plant, the French supermajor said on Wednesday. As operator and holder of a 40% interest in the Ima gas field, TotalEnergies and its local partner AMNI, owning the remaining 60%, have taken the final investment decision (FID) for the development of the field straddling the OML 112 and 117 offshore licenses in Nigeria. The Ima gas field, which lies i",
-      "fetched_at": "2026-09-23T15:05:01-06:00"
+      "fetched_at": "2026-09-23T15:23:11-06:00"
     }
   ]
 }
