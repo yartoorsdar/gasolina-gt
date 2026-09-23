@@ -136,6 +136,13 @@ def ejecutar_mem_html(cfg: dict = None) -> dict:
     return _ejecutar()
 
 
+def ejecutar_fuentes_alternas(cfg: dict = None) -> dict:
+    """Wrapper para fuentes_alternas.ejecutar (GPP + Chapin TV)."""
+    from collector.fuentes_alternas import ejecutar as _ejecutar
+
+    return _ejecutar()
+
+
 def ejecutar_consenso(cfg: dict = None) -> dict:
     """Wrapper para consenso_precios.ejecutar (validación multifuente)."""
     from collector.consenso_precios import ejecutar as _ejecutar
@@ -440,6 +447,10 @@ Ejemplos:
     parser.add_argument("--petroleo", action="store_true", help="Brent/WTI (EIA API)")
     parser.add_argument("--noticias", action="store_true", help="Feeds RSS")
     parser.add_argument(
+        "--alternos", action="store_true",
+        help="Fuentes alternas: GlobalPetrolPrices + Chapin TV",
+    )
+    parser.add_argument(
         "--export", action="store_true", help="Exportar base de datos a JSON"
     )
 
@@ -447,7 +458,8 @@ Ejemplos:
 
     # Si no se especifica nada, ejecutar todo por defecto
     if not any([args.all, args.precios_mem, args.mem_html, args.consenso,
-                args.consenso_retry, args.historico, args.petroleo, args.noticias]):
+                args.consenso_retry, args.historico, args.petroleo, args.noticias,
+                args.alternos]):
         args.all = True
 
     cfg = cargar_config()
@@ -458,6 +470,8 @@ Ejemplos:
         modulos_activas.append(("precios_mem", ejecutar_precios_mem))
     if args.all or args.mem_html:
         modulos_activas.append(("mem_html", ejecutar_mem_html))
+    if args.all or args.alternos:
+        modulos_activas.append(("fuentes_alternas", ejecutar_fuentes_alternas))
     if args.all or args.consenso_retry:
         # --consenso-retry ejecuta el modo retry (reemplaza a consenso normal)
         modulos_activas.append(("consenso_retry", ejecutar_consenso_retry))

@@ -61,6 +61,7 @@ async def _scrape_page(url: str = MEM_HTML_URL) -> BeautifulSoup | None:
                 "--disable-dev-shm-usage",
                 "--disable-gpu",
                 "--disable-extensions",
+                "--disable-blink-features=AutomationControlled",
             ],
         )
         context = await browser.new_context(
@@ -72,23 +73,30 @@ async def _scrape_page(url: str = MEM_HTML_URL) -> BeautifulSoup | None:
             locale="es-GT",
             viewport={"width": 1440, "height": 900},
         )
+        
+        # Inyectar script anti-detección de Cloudflare
+        await context.add_init_script("""
+            Object.defineProperty(navigator, 'webdriver', {get: () => false});
+            window.navigator.plugins = [1,2,3,4,5];
+        """)
+        
         page = await context.new_page()
 
         try:
-            # Navegar y esperar contenido (no networkidle porque Cloudflare tarda)
+            # Navegar y esperar contenido completo
             response = await page.goto(url, wait_until="domcontentloaded", timeout=30000)
-
+            
             if response and response.status != 200:
-                print(f"[mem_html] Status {response.status}, intentando reconectar...")
+                print(f"[mem_html] Status {response.status}, reintentando...")
                 await page.reload(wait_until="domcontentloaded", timeout=15000)
 
-            # Esperar a que Cloudflare resuelva el challenge y se renderice
-            await page.wait_for_timeout(5000)
-
-            # Verificar que la pagina tiene datos (busca "Q4" o "Gasolina")
+            # Esperar más tiempo para Cloudflare challenge (10 seg mínimo)
+            await page.wait_for_timeout(10000)
+            
+            # Verificar que la página tiene datos reales
             body_text = await page.inner_text("body")
             if not any(kw in body_text for kw in ["Q4", "Gasolina", "Combustible"]):
-                print("[mem_html] Pagina sin datos visibles, esperando mas...")
+                print("[mem_html] Sin datos visibles, esperando más...")
                 await page.wait_for_timeout(5000)
 
             html = await page.content()
