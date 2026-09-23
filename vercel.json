@@ -3,14 +3,18 @@
   "builds": [
     { "src": "**", "use": "@vercel/static" }
   ],
-  "git": {
-    "deploymentEnabled": {
-      "main": true
+  "headers": [
+    {
+      "source": "/(resumen|consolidado|precios_combustible|petroleo|noticias|historial_precios|historial_petroleo)\\.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=60, s-maxage=60, stale-while-revalidate=300" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=300, s-maxage=300" }
+      ]
     }
-  },
-  "cacheHints": {
-    "data/export/*.json": [
-      { "path": "data/export/*", "maxAge": 60, "rules": ["*"] }
-    ]
-  }
+  ]
 }

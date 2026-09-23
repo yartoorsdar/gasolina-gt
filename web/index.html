@@ -1962,12 +1962,13 @@
             const loadingEl = document.getElementById('loading');
             const errorEl = document.getElementById('error');
             const contentEl = document.getElementById('content');
+            const CACHE_BUST = Date.now();
 
             try {
-                // Cargar ambos JSON en paralelo
+                // Cargar ambos JSON en paralelo con cache-busting
                 const [resData, consData] = await Promise.all([
-                    fetch(`${DATA_DIR}/resumen.json`),
-                    fetch(`${DATA_DIR}/consolidado.json`).catch(() => null)
+                    fetch(`${DATA_DIR}/resumen.json?v=${CACHE_BUST}`),
+                    fetch(`${DATA_DIR}/consolidado.json?v=${CACHE_BUST}`).catch(() => null)
                 ]);
 
                 if (!resData.ok) throw new Error(`HTTP ${resData.status}`);

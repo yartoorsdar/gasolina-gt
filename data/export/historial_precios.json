@@ -254,10 +254,10 @@
     }
   ],
   "productos": [
+    "diessel",
     "superior",
-    "regular",
-    "diessel"
+    "regular"
   ],
   "total_registros": 21,
-  "actualizado_at": "2026-09-23T04:48:43-06:00"
+  "actualizado_at": "2026-09-23T05:01:04-06:00"
 }

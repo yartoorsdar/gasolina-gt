@@ -1,6 +1,30 @@
 {
-  "actualizado_at": "2026-09-23T01:08:50-06:00",
+  "actualizado_at": "2026-09-23T05:01:04-06:00",
   "precios_combustible": [
+    {
+      "id": 6957,
+      "fecha_observacion": "2026-09-21",
+      "producto": "diessel",
+      "precio": 50.5,
+      "incluye_impuestos": 1,
+      "regimen": "normal",
+      "nota": null,
+      "fuente": "GlobalPetrolPrices",
+      "fetched_at": "2026-09-23T04:46:55-06:00",
+      "url": ""
+    },
+    {
+      "id": 6971,
+      "fecha_observacion": "2026-09-21",
+      "producto": "diésel",
+      "precio": 50.5,
+      "incluye_impuestos": 1,
+      "regimen": "normal",
+      "nota": null,
+      "fuente": "GlobalPetrolPrices",
+      "fetched_at": "2026-09-23T04:48:41-06:00",
+      "url": ""
+    },
     {
       "id": 6955,
       "fecha_observacion": "2026-09-21",
@@ -10,7 +34,8 @@
       "regimen": "normal",
       "nota": null,
       "fuente": "Ministerio de Energía y Minas",
-      "fetched_at": "2026-09-23T00:00:19-06:00"
+      "fetched_at": "2026-09-23T00:00:19-06:00",
+      "url": null
     },
     {
       "id": 6954,
@@ -21,7 +46,20 @@
       "regimen": "normal",
       "nota": null,
       "fuente": "Ministerio de Energía y Minas",
-      "fetched_at": "2026-09-23T00:00:19-06:00"
+      "fetched_at": "2026-09-23T00:00:19-06:00",
+      "url": null
+    },
+    {
+      "id": 6956,
+      "fecha_observacion": "2026-09-21",
+      "producto": "superior",
+      "precio": 45.74,
+      "incluye_impuestos": 1,
+      "regimen": "normal",
+      "nota": null,
+      "fuente": "GlobalPetrolPrices",
+      "fetched_at": "2026-09-23T04:46:55-06:00",
+      "url": ""
     },
     {
       "id": 6953,
@@ -32,7 +70,8 @@
       "regimen": "normal",
       "nota": null,
       "fuente": "Ministerio de Energía y Minas",
-      "fetched_at": "2026-09-23T00:00:19-06:00"
+      "fetched_at": "2026-09-23T00:00:19-06:00",
+      "url": null
     }
   ],
   "petroleo": [
@@ -55,8 +94,80 @@
       "fetched_at": "2026-09-23T00:43:53.414121"
     }
   ],
-  "noticias_count": 76,
+  "noticias_count": 85,
   "ultimas_noticias": [
+    {
+      "id": 4970,
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeDh3VFZGMHdYRFFGVkd4VVcyUGV1bXZTZ2NSQVNYbVJpWVNJX1lvV1VuMEpvNGowTEw5S2tDOVlpdXZIQnZvQ3l1V3R2b3ZueURCZEI3VWlTbGxaU2t3ZENyMmp1MkdhTXgzRmhXczlEeFBYZVg1Z2JkT2REVHBJRDRBRExSNmhzMTlKTjA0MEU0Y1RQdV81WDAzbWVscGo4SnAyYzlZOURTUnROOFg4ZkdFbGl1ekVFZXZoTm9aQjJCZw?oc=5",
+      "titulo": "Kuibyshev Refinery Burns into Second Day Following Ukrainian Retaliatory Drone Strikes - UNITED24 Media",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-23T09:19:03-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeDh3VFZGMHdYRFFGVkd4VVcyUGV1bXZTZ2NSQVNYbVJpWVNJX1lvV1VuMEpvNGowTEw5S2tDOVlpdXZIQnZvQ3l1V3R2b3ZueURCZEI3VWlTbGxaU2t3ZENyMmp1MkdhTXgzRmhXczlEeFBYZVg1Z2JkT2REVHBJRDRBRExSNmhzMTlKTjA0MEU0Y1RQdV81WDAzbWVscGo4SnAyYzlZOURTUnROOFg4ZkdFbGl1ekVFZXZoTm9aQjJCZw?oc=5\" target=\"_blank\">Kuibyshev Refinery Burns into Second Day Following Ukrainian Retaliatory Drone Strikes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UNITED24 Media</font>",
+      "fetched_at": "2026-09-23T03:58:32-06:00"
+    },
+    {
+      "id": 5412,
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQLV9fYnE5WHptSjVIVU9iVjVMbjNvMXhLMENZb0tuX3RFUlFsd25qV202d3pWbEhqbUJHd3dLMHc5QjU5LXFBdzhhR3ZlLXJ5eUJ5dGpDRDE4UTZBb3dmTWxQRWNpU2xEMnpxdUxRVWRXaEV2UUNsX05HOWxTWGJxQ2MtbkxPRDhOVUJ1dW1FSVVMcnNtR1MxV0pfVWpFLV9hWGFhYlFhclJNdFdCODc0dVk5d21xM0HSAbwBQVVfeXFMT2hmejZMV0ZRRE1taTNCa2tlSlNfWkthQ3NGUE43OTZ3YldlZUxENXliamtoVlBzOEVxUThVcWh1Y3EtaUZRZk5HTlpaRkxfQUhDS2tCVmdyUnVDNXBQdmZYRVhEN0Y3Yjhud20xLXc3Q28xYTdfUWI5OVlBTnU1TllRZWV5d0NKMVk2SlNUX3paSVRNRldNaUl3ak5rVmVMQWl1UWtFMGtFdDVVSGVLTmhnQ2ZYeWZuc0ZNR3E?oc=5",
+      "titulo": "Drones attack Bashkortostan, smoke seen near Ufa Oil Refinery – media - Ukrinform",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-23T08:25:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxQLV9fYnE5WHptSjVIVU9iVjVMbjNvMXhLMENZb0tuX3RFUlFsd25qV202d3pWbEhqbUJHd3dLMHc5QjU5LXFBdzhhR3ZlLXJ5eUJ5dGpDRDE4UTZBb3dmTWxQRWNpU2xEMnpxdUxRVWRXaEV2UUNsX05HOWxTWGJxQ2MtbkxPRDhOVUJ1dW1FSVVMcnNtR1MxV0pfVWpFLV9hWGFhYlFhclJNdFdCODc0dVk5d21xM0HSAbwBQVVfeXFMT2hmejZMV0ZRRE1taTNCa2tlSlNfWkthQ3NGUE43OTZ3YldlZUxENXliamtoVlBzOEVxUThVcWh1Y3EtaUZRZk5HTlpaRkxfQUhDS2tCVmdyUnVDNXBQdmZYRVhEN0Y3Yjhud20xLXc3Q28xYTdfUWI5OVlBTnU1TllRZWV5d0NKMVk2SlNUX3paSVRNRl",
+      "fetched_at": "2026-09-23T04:21:27-06:00"
+    },
+    {
+      "id": 4975,
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPSWZRRGRpXzJPdVlsZTVQRjlDUWRUN25Hd1dKTzFwcGNzR0lOX2dKZzUwNnZ4UmlQa1hoNHk1cW56Si1zMERkdGhHaVZ4QnVHcVJWa1I0UDZkLVY5UGQ5TU9rWEhLdzc5QmFyN1Rqby1hTzRpYVlhSUkwQ056QS16U2tpWkhVdWVHMDJ0OHdIUzZIN3BHTDdWN2dwTVQxWks4Q2I0UlZvTHZQdEMwc2F4Tg?oc=5",
+      "titulo": "How Ukraine’s devastating attacks on Putin’s oil refineries brought the war to Russia’s doorstep - independent.co.uk",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-23T05:29:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxPSWZRRGRpXzJPdVlsZTVQRjlDUWRUN25Hd1dKTzFwcGNzR0lOX2dKZzUwNnZ4UmlQa1hoNHk1cW56Si1zMERkdGhHaVZ4QnVHcVJWa1I0UDZkLVY5UGQ5TU9rWEhLdzc5QmFyN1Rqby1hTzRpYVlhSUkwQ056QS16U2tpWkhVdWVHMDJ0OHdIUzZIN3BHTDdWN2dwTVQxWks4Q2I0UlZvTHZQdEMwc2F4Tg?oc=5\" target=\"_blank\">How Ukraine’s devastating attacks on Putin’s oil refineries brought the war to Russia’s doorstep</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">independent.co.uk</font>",
+      "fetched_at": "2026-09-23T03:58:32-06:00"
+    },
+    {
+      "id": 5135,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Set-for-Longest-Losing-Streak-Since-August-2025.html",
+      "titulo": "Oil Set for Longest Losing Streak Since August 2025",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T05:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Oil prices fell in Asian trading on Wednesday and were on course for a sixth consecutive day of declines as the first U.S.-Iran talks in months revived hopes of a deal and eased concerns about oil supply from the Middle East.  In Wednesday trade in Asia, Brent Crude prices dipped by about 1% to $98.30, after falling on Tuesday below the $100 a barrel mark. The U.S. benchmark, WTI Crude, fell by 1.4% to below the $ 90-a-barrel threshold and traded at $89.49.   Oil prices extended the losses that ",
+      "fetched_at": "2026-09-23T04:14:12-06:00"
+    },
+    {
+      "id": 4987,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/100-Brent-Keeping-Chinas-Oil-Buying-in-Check-Goldman-Says.html",
+      "titulo": "$100 Brent Keeping China's Oil Buying in Check, Goldman Says",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T04:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "China's crude oil exports will rise only slightly in the fourth quarter from the third quarter if oil prices remain high, potentially easing the upward pressure on benchmark crude prices, Goldman Sachs says. China's crude oil imports rose for the second consecutive month in August as refiners turned to additional non-Middle Eastern supply and boosted overseas fuel shipments amid eased export restrictions. China imported 8.93 million bpd of crude oil in August, up by 6.2% compared to July, and fu",
+      "fetched_at": "2026-09-23T03:58:32-06:00"
+    },
+    {
+      "id": 4173,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Michigan-Judge-Tosses-States-Antitrust-Suit-Against-Big-Oil.html",
+      "titulo": "Michigan Judge Tosses State's Antitrust Suit Against Big Oil",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T03:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "A district judge in Grand Rapids has dismissed a lawsuit brought against several oil supermajors that accused the companies of conspiring to interfere with competition in alternative energy and electric cars. The lawsuit was filed by Michigan Attorney General Dan Nessel, alleging Exxon, Chevron, Shell, BP, and the American Petroleum Institute colluded to try to “restrain the emergence of electric vehicles and ‌renewable primary energy technologies in the United States,” as quoted by Reuters. Acc",
+      "fetched_at": "2026-09-23T02:01:06-06:00"
+    },
     {
       "id": 1514,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/South-Korea-Aims-to-Cut-Middle-East-Crude-Reliance-to-50-by-2035.html",
@@ -103,78 +214,6 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Xi Jinping arrives in Washington September 24, prepared to discuss reviving a $6 billion-a-year trade in US liquefied natural gas, contingent on lifting a 15% Chinese tariff that has blocked American gas since Q1 2025. Iranian missiles destroyed 17% of Qatar's LNG export capacity in March, and China absorbed that shock by buying more from everyone except the United States: Australia took 36% of its LNG imports from January through July, Southeast Asia 20%, Russia 12%, and Canada, a new entrant, ",
-      "fetched_at": "2026-09-22T22:00:01-06:00"
-    },
-    {
-      "id": 32,
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE05aVFXekU0elNucWRlSWZILWtRY29ndk5iZjJTOWhOTUsxU0tzaWMwNkJqUEhLQkJDVTJ4RlZKSWVHdzJQMFg4Yk8zU1NYcWsyQ2R4LWo0eTJnWnRzQW5hTjdQTHRXZzU0RDc4?oc=5",
-      "titulo": "Saudi Arabia Partially Restores East West Oil Pipeline After Drone Attack - Межа. Новини України.",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-22T18:48:36-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMia0FVX3lxTE05aVFXekU0elNucWRlSWZILWtRY29ndk5iZjJTOWhOTUsxU0tzaWMwNkJqUEhLQkJDVTJ4RlZKSWVHdzJQMFg4Yk8zU1NYcWsyQ2R4LWo0eTJnWnRzQW5hTjdQTHRXZzU0RDc4?oc=5\" target=\"_blank\">Saudi Arabia Partially Restores East West Oil Pipeline After Drone Attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Межа. Новини України.</font>",
-      "fetched_at": "2026-09-22T22:00:01-06:00"
-    },
-    {
-      "id": 46,
-      "url": "https://oilprice.com/Energy/Energy-General/Trump-Proposes-5-Billion-Fund-to-Rebuild-Gulf-Energy-Infrastructure.html",
-      "titulo": "Trump Proposes $5 Billion Fund to Rebuild Gulf Energy Infrastructure",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-22T18:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "U.S. President Donald Trump has proposed a fund to finance infrastructure rebuilding damaged in the war with Iran, offering $5 billion in U.S. money for starters. The information comes from the Wall Street Journal, which cited unnamed sources from Washington and Gulf states. The money from the fund would also be used to help Gulf states develop alternative oil export routes bypassing the Strait of Hormuz, the report also said, adding that the United States will ask these states to also contribut",
-      "fetched_at": "2026-09-22T22:00:01-06:00"
-    },
-    {
-      "id": 35,
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOODV6OXRjNDdNODI5bHJoWXBuX3ZfUVlpS1NKVkcyLUlMYzhSYUF1b0lFRXRRLXBoOGxaWEV4RE9ybVpCTV9vWlh2VGNQekEyTTZQeHp2VEM1VndYWjZIR2F5aEtVRThOSGJSczhzUXpZaWloVE15UWUzQ25uLW9hUHdtdXYzY1ZsMFE?oc=5",
-      "titulo": "Saudi Arabia restarts East-West oil pipeline, sources say - American Journal of Transportation",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-22T17:09:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiigFBVV95cUxOODV6OXRjNDdNODI5bHJoWXBuX3ZfUVlpS1NKVkcyLUlMYzhSYUF1b0lFRXRRLXBoOGxaWEV4RE9ybVpCTV9vWlh2VGNQekEyTTZQeHp2VEM1VndYWjZIR2F5aEtVRThOSGJSczhzUXpZaWloVE15UWUzQ25uLW9hUHdtdXYzY1ZsMFE?oc=5\" target=\"_blank\">Saudi Arabia restarts East-West oil pipeline, sources say</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">American Journal of Transportation</font>",
-      "fetched_at": "2026-09-22T22:00:01-06:00"
-    },
-    {
-      "id": 47,
-      "url": "https://oilprice.com/Energy/Energy-General/Is-Chinas-Secret-Power-Advantage-About-To-Trigger-An-89-Crash-In-US-AI-Stock.html",
-      "titulo": "Is China’s Secret Power Advantage About To Trigger An 89% Crash In U.S. AI Stock",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-22T17:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "The current focus of the world’s governments, business and media when it comes to artificial intelligence (AI) is on the dangers it poses to jobs, democracy and even the future of humanity itself. For many of a certain generation, these fears crystallise in the cold but relentlessly courteous voice of HAL, the on?board AI in Stanley Kubrick’s 2001: A Space Odyssey. After a crew member questions HAL’s diagnosis of a faulty antenna, the system secretly lip?reads the astronauts, discovers their pla",
-      "fetched_at": "2026-09-22T22:00:01-06:00"
-    },
-    {
-      "id": 25,
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOeDdvckhVQlJKZzN2eU90TEg3YU9vRmhZdTdjdkZ1cExSOUd4N09GVEktMTBVT012ZUdGWUdtc2JLaDdIWDJWWFdpUmlJU3pMVWt3MXR2bXRyUXlnSHJTVDJ2Vzg1bmx1ZFptX3ZoVmlMZS1EODlaM3FHbGFJTHFUM0I5YkE5WVRGcEs0UlNkZjdsdXhzdHF6dXFqbHV0bFFZRmRCNDF1WHpQOGZLeGJCdkJIRmNOa1Bzb1FKNU9fcGc?oc=5",
-      "titulo": "Oil Prices Rise as Saudi East-West Pipeline Attack Threatens Export Routes - WSJ",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-22T16:44:39-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxOeDdvckhVQlJKZzN2eU90TEg3YU9vRmhZdTdjdkZ1cExSOUd4N09GVEktMTBVT012ZUdGWUdtc2JLaDdIWDJWWFdpUmlJU3pMVWt3MXR2bXRyUXlnSHJTVDJ2Vzg1bmx1ZFptX3ZoVmlMZS1EODlaM3FHbGFJTHFUM0I5YkE5WVRGcEs0UlNkZjdsdXhzdHF6dXFqbHV0bFFZRmRCNDF1WHpQOGZLeGJCdkJIRmNOa1Bzb1FKNU9fcGc?oc=5\" target=\"_blank\">Oil Prices Rise as Saudi East-West Pipeline Attack Threatens Export Routes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">WSJ</font>",
-      "fetched_at": "2026-09-22T22:00:01-06:00"
-    },
-    {
-      "id": 48,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/US-Gasoline-Distillate-Inventories-Continue-to-Fall-as-Crude-Stocks-Hold.html",
-      "titulo": "US Gasoline, Distillate Inventories Continue to Fall as Crude Stocks Hold",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-22T16:08:45-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "The American Petroleum Institute (API) estimated that crude oil inventories in the United States rose by 1.786 million barrels in the week ending September 18. In the week prior, US crude oil inventories grew by a substantial 7.14 million barrels. Commercial crude oil inventories excluding the SPR have lost 39 million barrels over the last 23 weeks, but US crude inventories are up nearly 12 million for the year, according to API data, kept in check by draws from the SPR. For the week ending Sept",
       "fetched_at": "2026-09-22T22:00:01-06:00"
     }
   ]
