@@ -310,7 +310,19 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
     if conn is None:
         conn = conectar()
 
-    ahora = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
+    # Obtener hora actual de Guatemala desde API de tiempo (no depende del timezone del runner)
+    try:
+        import urllib.request as urllib_urllib
+        time_resp = urllib_urllib.urlopen("http://worldtimeapi.org/api/timezone/America/Guatemala")
+        time_data = json.loads(time_resp.read().decode())
+        ahora = time_data.get("datetime", "")
+        if ahora:
+            # Asegurar formato ISO con offset -06:00
+            ahora = ahora[:19] + "-06:00"
+        else:
+            ahora = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+    except Exception:
+        ahora = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S+00:00")
 
     resultados_export = {
         "archivos": {},
