@@ -1,0 +1,8 @@
+{
+  "builds": [
+    { "src": "web/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/(resumen|consolidado|precios_combustible|petroleo|noticias|historial_precios|historial_petroleo)\\.json$", "headers": { "Content-Type": "application/json" }, "dest": "/$1.json" }
+  ]
+}
