@@ -687,10 +687,11 @@
             const ahoraData = data.actualizado_at || '';
             let horaStr = '';
             if (ahoraData) {
-                try {
-                    const dt = new Date(ahoraData);
-                    horaStr = dt.toLocaleTimeString('es-GT', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Guatemala' });
-                } catch {}
+                // Extraer HH:MM del formato ISO directamente (ya viene en GT/UTC-6)
+                const match = ahoraData.match(/T(\d{2}):(\d{2})/);
+                if (match) {
+                    horaStr = `${match[1]}:${match[2]}`;
+                }
             }
             html += `<p class="price-date">Última actualización: ${fecha} a las ${horaStr}</p>`;
             container.innerHTML = html;

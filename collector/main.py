@@ -310,7 +310,7 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
     if conn is None:
         conn = conectar()
 
-    ahora = (datetime.utcnow() - timedelta(hours=6)).strftime("%Y-%m-%dT%H:%M:%S-06:00")
+    ahora = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
 
     resultados_export = {
         "archivos": {},
