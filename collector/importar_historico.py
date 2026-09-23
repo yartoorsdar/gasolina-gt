@@ -307,13 +307,19 @@ def importar_historico(precios: list[dict], cfg: dict = None) -> dict:
         with open(config_path, "r", encoding="utf-8") as f:
             cfg = json.load(f)
 
-    from collector.db import conectar, insertar_precio
+    from collector.db import conectar, insertar_precio, borrar_precios_hoy
     conn = conectar()
 
     inserted = 0
     skipped = 0
     dates_seen = set()
     products_counted = {}
+
+    # Borrar precios de hoy de esta fuente antes de insertar nuevo
+    fuente = precios[0].get("fuente", "Ministerio de Energía y Minas") if precios else ""
+    borrados = borrar_precios_hoy(conn, fuente)
+    if borrados > 0:
+        print(f"[historico]   Borrado(s): {borrados} precio(s) de hoy ({fuente})")
 
     for p in precios:
         fecha_obs = p["fecha"]
@@ -326,7 +332,7 @@ def importar_historico(precios: list[dict], cfg: dict = None) -> dict:
                 fecha=fecha_obs,
                 producto=producto,
                 precio=precio,
-                fuente=p.get("fuente", "Ministerio de Energía y Minas"),
+                fuente=fuente,
             )
             if row_id is not None:
                 inserted += 1

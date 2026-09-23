@@ -435,11 +435,20 @@ def ejecutar() -> dict:
 
 
 def guardar_precios_en_db(precios: list[dict]) -> int:
-    """Guarda precios de fuentes alternas en la base de datos."""
-    from collector.db import conectar, insertar_precio
+    """Guarda precios de fuentes alternas en la base de datos.
+    
+    Borra primero los precios de hoy de la misma fuente para evitar duplicados.
+    """
+    from collector.db import conectar, insertar_precio, borrar_precios_hoy
     
     conn = conectar()
     inserted = 0
+    
+    # Borrar precios de hoy de esta fuente antes de insertar nuevo
+    fuente = precios[0].get("fuente", "fuentes_alternas") if precios else ""
+    borrados = borrar_precios_hoy(conn, fuente)
+    if borrados > 0:
+        print(f"[alternas]   Borrado(s): {borrados} precio(s) de hoy ({fuente})")
     
     for p in precios:
         try:

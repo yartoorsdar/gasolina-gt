@@ -116,6 +116,21 @@ def insertar_precio(
     return row["id"] if row else None
 
 
+def borrar_precios_hoy(conn: sqlite3.Connection, fuente: str) -> int:
+    """Borra precios de hoy insertados por una fuente específica.
+
+    Returns:
+        Cantidad de filas borradas.
+    """
+    hoy = date.today().strftime("%Y-%m-%d")
+    cursor = conn.execute(
+        "DELETE FROM precios WHERE fecha = ? AND fuente = ?",
+        (hoy, fuente),
+    )
+    conn.commit()
+    return cursor.rowcount
+
+
 def insertar_noticia(
     conn: sqlite3.Connection,
     url: str,

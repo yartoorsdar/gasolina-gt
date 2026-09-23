@@ -359,6 +359,8 @@ def guardar_precios_en_db(precios: list[dict], cfg: dict = None) -> int:
 
     Aplica la lógica de incluye_impuestos desde Etapa 1 y el regimen
     según config.json → regimenes.
+    
+    Borra primero los precios de hoy de la misma fuente para evitar duplicados.
 
     Args:
         precios: Lista de dicts con keys: fecha, producto, precio, fuente.
@@ -374,10 +376,17 @@ def guardar_precios_en_db(precios: list[dict], cfg: dict = None) -> int:
         with open(config_path, "r", encoding="utf-8") as f:
             cfg = json.load(f)
 
-    from collector.db import conectar, insertar_precio
+    from collector.db import conectar, insertar_precio, borrar_precios_hoy
     conn = conectar()
 
     inserted = 0
+    
+    # Borrar precios de hoy de esta fuente antes de insertar nuevo
+    fuente = precios[0].get("fuente", "Ministerio de Energía y Minas") if precios else ""
+    borrados = borrar_precios_hoy(conn, fuente)
+    if borrados > 0:
+        print(f"[precios_mem]   Borrado(s): {borrados} precio(s) de hoy ({fuente})")
+
     for p in precios:
         fecha_obs = p["fecha"]
 
@@ -387,7 +396,7 @@ def guardar_precios_en_db(precios: list[dict], cfg: dict = None) -> int:
                 fecha=fecha_obs,
                 producto=p["producto"],
                 precio=p["precio"],
-                fuente=p.get("fuente", "Ministerio de Energía y Minas"),
+                fuente=fuente,
             )
             if row_id is not None:
                 inserted += 1
