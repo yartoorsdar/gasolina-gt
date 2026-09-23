@@ -390,9 +390,10 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
     resultados_export["total_registros"] += len(noticias)
 
     # ── 6. Resumen para dashboard web ──
+    combustibles = [p for p in precios_actuales if p.get("producto") in ("superior", "regular", "diésel")]
     resumen = {
         "actualizado_at": ahora,
-        "precios_combustible": precios_actuales,
+        "precios_combustible": combustibles,
         "petroleo": petroleo_actual,
         "noticias_count": len(noticias),
         "ultimas_noticias": noticias[:10],  # top 10 más recientes
