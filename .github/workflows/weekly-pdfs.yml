@@ -45,6 +45,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Configurar credenciales con GITHUB_TOKEN para el push
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/yartoorsdar/gasolina-gt.git
           git add data/export/*.json
           if git diff --cached --quiet; then
             echo "::notice::No changes to commit."
