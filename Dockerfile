@@ -13,4 +13,4 @@ COPY web/ ./web/
 
 EXPOSE 8089
 
-CMD ["python", "serve.py"]
+CMD ["python", "-u", "serve.py"]

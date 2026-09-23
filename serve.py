@@ -31,7 +31,10 @@ print(f"  Salir con Ctrl+C")
 print(f"{'='*50}\n")
 
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    webbrowser.open(f"http://localhost:{PORT}/web/index.html")
+    try:
+        webbrowser.open(f"http://localhost:{PORT}/web/index.html")
+    except Exception:
+        pass  # Ignore in Docker/headless environments
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
