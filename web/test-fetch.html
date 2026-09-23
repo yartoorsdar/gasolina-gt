@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Test Fetch</title></head><body>
+<h1>Test de fetch desde gasolina-gt.vercel.app</h1>
+<div id="result"></div>
+<script>
+(async function() {
+    const el = document.getElementById('result');
+    let html = '<h2>Testing fetch...</h2>';
+    
+    // Test 1: GitHub raw resumen.json
+    try {
+        const r1 = await fetch('https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export/resumen.json?t=' + Date.now());
+        html += '<p style="color:green">Test 1 (GitHub raw): OK - ' + r1.status + '</p>';
+        if (r1.ok) { const d = await r1.json(); html += '<p>actualizado_at: ' + (d.actualizado_at || '?') + '</p>'; }
+    } catch(e) { html += '<p style="color:red">Test 1 FAIL: ' + e.message + '</p>'; }
+    
+    // Test 2: Local JSON
+    try {
+        const r2 = await fetch('./resumen.json?t=' + Date.now());
+        html += '<p style="color:' + (r2.ok ? 'green' : 'orange') + '">Test 2 (local ./resumen.json): ' + r2.status + '</p>';
+    } catch(e) { html += '<p style="color:red">Test 2 FAIL: ' + e.message + '</p>'; }
+    
+    // Test 3: /web/resumen.json
+    try {
+        const r3 = await fetch('/web/resumen.json?t=' + Date.now());
+        html += '<p style="color:' + (r3.ok ? 'green' : 'orange') + '">Test 3 (/web/resumen.json): ' + r3.status + '</p>';
+    } catch(e) { html += '<p style="color:red">Test 3 FAIL: ' + e.message + '</p>'; }
+    
+    el.innerHTML = html;
+})();
+</script>
+</body></html>
