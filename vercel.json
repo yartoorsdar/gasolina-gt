@@ -1,6 +1,6 @@
 {
   "builds": [
-    { "src": "web/**", "use": "@vercel/static" }
+    { "src": "**", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/resumen\\.json$", "dest": "/resumen.json" },
@@ -10,6 +10,7 @@
     { "src": "/noticias\\.json$", "dest": "/noticias.json" },
     { "src": "/historial_precios\\.json$", "dest": "/historial_precios.json" },
     { "src": "/historial_petroleo\\.json$", "dest": "/historial_petroleo.json" },
-    { "src": "/(.*)", "dest": "/index.html" }
+    { "src": "/web/(.*)", "dest": "/web/$1" },
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }

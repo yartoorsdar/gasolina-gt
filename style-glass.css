@@ -1,0 +1,639 @@
+/* ═══════════════════════════════════════════
+   Gasolina GT — Glass Design Tokens (iOS-style)
+   Paso 1: tokens + 1 tarjeta de prueba
+   ═══════════════════════════════════════════ */
+
+/* ── Design tokens (CSS custom properties) ── */
+:root {
+    /* Colors — Guatemala palette */
+    --gt-blue: #4997D0;
+    --gt-navy: #1a2a4a;
+    --gt-white: #ffffff;
+    --gt-violet: #6c5ce7;
+    --gt-cyan: #00cec9;
+
+    /* Light theme */
+    --glass-bg-light: rgba(255, 255, 255, 0.72);
+    --glass-border-light: rgba(255, 255, 255, 0.60);
+    --glass-text-light: #1a1a2e;
+    --glass-muted-light: #3d3d56;
+    --glass-shadow-light: 0 8px 32px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    /* Dark theme (default showcase) */
+    --glass-bg-dark: rgba(255, 255, 255, 0.10);
+    --glass-border-dark: rgba(255, 255, 255, 0.18);
+    --glass-text-dark: #f0f0f5;
+    --glass-muted-dark: #a0a0b8;
+    --glass-shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    /* Shared */
+    --glass-blur: 24px;
+    --glass-radius: 26px;
+    --glass-highlight: rgba(255, 255, 255, 0.35);
+    --transition-smooth: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Animation timings */
+    --anim-border-cycle: 4s;
+    --anim-bg-cycle: 25s;
+    --anim-hover-lift: 3px;
+
+    /* Typography */
+    --font-stack: -apple-system, "SF Pro Display", "Segoe UI", Inter, Roboto, Helvetica, sans-serif;
+
+    /* Price display */
+    --price-size: 2.4rem;
+    --price-weight: 800;
+}
+
+/* ── Dark mode (default) ── */
+@media (prefers-color-scheme: dark), (prefers-color-scheme: no-preference) {
+    :root {
+        --glass-bg: var(--glass-bg-dark);
+        --glass-border: var(--glass-border-dark);
+        --glass-text: var(--glass-text-dark);
+        --glass-muted: var(--glass-muted-dark);
+        --glass-shadow: var(--glass-shadow-dark);
+    }
+}
+
+/* ── Light mode override ── */
+@media (prefers-color-scheme: light) {
+    :root {
+        --glass-bg: var(--glass-bg-light);
+        --glass-border: var(--glass-border-light);
+        --glass-text: var(--glass-text-light);
+        --glass-muted: var(--glass-muted-light);
+        --glass-shadow: var(--glass-shadow-light);
+    }
+}
+
+/* ── Animated gradient mesh background ── */
+.glass-mesh-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #e8f4fd 0%, #dce8f5 50%, #c8d6e5 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+    .glass-mesh-bg {
+        background: linear-gradient(135deg, #0a1628 0%, #141e33 50%, #1a2a4a 100%);
+    }
+}
+
+.glass-mesh-bg::before,
+.glass-mesh-bg::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: mesh-drift var(--anim-bg-cycle) ease-in-out infinite alternate;
+}
+
+.glass-mesh-bg::before {
+    width: 60vmax;
+    height: 60vmax;
+    top: -20%;
+    left: -10%;
+    background: radial-gradient(circle, var(--gt-blue) 0%, transparent 70%);
+}
+
+.glass-mesh-bg::after {
+    width: 50vmax;
+    height: 50vmax;
+    bottom: -15%;
+    right: -10%;
+    background: radial-gradient(circle, var(--gt-violet) 0%, transparent 70%);
+    animation-delay: -8s;
+}
+
+.mesh-blob-third {
+    position: absolute;
+    width: 40vmax;
+    height: 40vmax;
+    top: 40%;
+    left: 30%;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.25;
+    background: radial-gradient(circle, var(--gt-cyan) 0%, transparent 70%);
+    animation: mesh-drift-2 calc(var(--anim-bg-cycle) * 1.3) ease-in-out infinite alternate;
+}
+
+@media (prefers-color-scheme: dark) {
+    .glass-mesh-bg::before,
+    .glass-mesh-bg::after { opacity: 0.25; }
+    .mesh-blob-third { opacity: 0.15; }
+}
+
+@keyframes mesh-drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    33%  { transform: translate(8vw, 5vh) scale(1.08); }
+    66%  { transform: translate(-5vw, -3vh) scale(0.95); }
+    100% { transform: translate(3vw, 7vh) scale(1.04); }
+}
+
+@keyframes mesh-drift-2 {
+    0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+    50%  { transform: translate(-6vw, 4vh) rotate(180deg) scale(1.1); }
+    100% { transform: translate(4vw, -5vh) rotate(360deg) scale(0.96); }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+    .glass-mesh-bg::before,
+    .glass-mesh-bg::after,
+    .mesh-blob-third {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+    .glass-card-animated::after {
+        animation: none !important;
+    }
+    .glass-card:hover {
+        transform: none !important;
+    }
+}
+
+/* ── Glass card base ── */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur)) saturate(1.6);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.6);
+    border-radius: var(--glass-radius);
+    box-shadow: var(--glass-shadow);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+/* Top edge inner highlight */
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent);
+}
+
+/* Hover lift */
+.glass-card:hover {
+    transform: translateY(calc(-1 * var(--anim-hover-lift)));
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Animated flag-color border (Guatemala: sky blue → white → sky blue) ── */
+.glass-card-animated {
+    position: relative;
+}
+
+.glass-card-animated::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--glass-radius);
+    padding: 1.5px;
+    background: linear-gradient(90deg, var(--gt-blue), #ffffff, var(--gt-cyan), var(--gt-violet), var(--gt-blue)) 0% / 300% 100%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: border-shimmer var(--anim-border-cycle) linear infinite;
+    pointer-events: none; /* <-- permite clicks a través del borde */
+}
+
+@keyframes border-shimmer {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
+
+/* ── Fallback for no backdrop-filter ── */
+.no-backdrop-filter .glass-card,
+.glass-card.no-blur-fallback {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--glass-border-light);
+}
+
+@media (prefers-color-scheme: dark) {
+    .no-backdrop-filter .glass-card,
+    .glass-card.no-blur-fallback {
+        background: rgba(30, 40, 60, 0.92);
+        border: 1px solid var(--glass-border-dark);
+    }
+}
+
+/* ── Mobile responsive (360px+) ── */
+@media (max-width: 480px) {
+    :root {
+        --price-size: 1.5rem;
+        --anim-hover-lift: 2px;
+    }
+    .glass-card { padding: 16px; border-radius: 22px; margin-bottom: 4px; }
+    .grid-2, .grid-3 { gap: 10px !important; }
+    
+    /* Prevent horizontal overflow */
+    .container { padding: 12px 8px; max-width: 100%; }
+    .glass-card { overflow-x: hidden; word-break: break-word; }
+    
+    /* Chart smaller on mobile */
+    #historialChart,
+    .glass-card #historialChart {
+        height: 220px !important;
+        min-width: unset;
+    }
+    
+    /* Stacked card gap */
+    main > .glass-card + .glass-card {
+        margin-top: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .glass-card h2,
+    .glass-heading { font-size: 0.85rem; }
+    .glass-card .price-label { font-size: 0.8rem; }
+    .glass-card .price-value { font-size: 1.2rem; }
+    .glass-card .oil-price { font-size: 1.4rem; }
+}
+
+/* ── Spacing between stacked glass cards (desktop) ── */
+.glass-card + .glass-card,
+main > .glass-card + .glass-card {
+    margin-top: 20px;
+}
+
+}
+
+/* ── Glass card overrides (scoped to glass-card children) ── */
+.glass-card h2,
+.glass-heading {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--glass-text);
+    text-transform: none;
+    letter-spacing: normal;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (prefers-color-scheme: light) {
+    .glass-card h2,
+    .glass-heading {
+        color: var(--glass-text-light);
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+}
+
+.glass-card .price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-card .price-item:last-child { border-bottom: none; }
+
+@media (prefers-color-scheme: light) {
+    .glass-card .price-item { border-bottom-color: rgba(0, 0, 0, 0.08); }
+}
+
+.glass-card .price-label {
+    font-weight: 500;
+    color: var(--glass-text);
+    font-size: 0.9rem;
+}
+
+@media (prefers-color-scheme: light) {
+    .glass-card .price-label { color: #1a1a2e; }
+}
+
+.glass-card .price-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00b894 0%, var(--gt-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@media (prefers-color-scheme: light) {
+    .glass-card .price-value {
+        background: linear-gradient(135deg, #079992 0%, #08708b 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: initial;
+    }
+}
+
+.glass-card .price-regimen {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 14px;
+    margin-left: 6px;
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--glass-text);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (prefers-color-scheme: light) {
+    .glass-card .price-regimen {
+        background: rgba(0, 0, 0, 0.06);
+        color: #3d3d56;
+        border-color: rgba(0, 0, 0, 0.12);
+    }
+}
+
+.glass-card .price-date {
+    font-size: 0.75rem;
+    color: var(--glass-muted);
+    margin-top: 6px;
+}
+
+@media (prefers-color-scheme: light) {
+    .glass-card .price-date { color: #3d3d56; }
+}
+
+/* ── Oil cards (petróleo) scoped ── */
+.glass-card .oil-card {
+    text-align: center;
+    padding: 20px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    margin-bottom: 10px;
+}
+
+.glass-card .oil-card:last-child { margin-bottom: 0; }
+
+@media (prefers-color-scheme: light) {
+    .glass-card .oil-card { background: rgba(0, 0, 0, 0.04); }
+}
+
+.glass-card .oil-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00b894 0%, var(--gt-cyan) 50%, #55efc4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.glass-card .oil-label {
+    font-size: 0.8rem;
+    color: var(--glass-muted);
+    margin-top: 6px;
+}
+
+.glass-card .oil-spread {
+    text-align: center;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+.glass-card .oil-spread strong { color: var(--gt-cyan); }
+
+@media (prefers-color-scheme: light) {
+    .glass-card .oil-spread { background: rgba(0, 0, 0, 0.04); }
+    .glass-card .oil-spread strong { color: #079992; }
+}
+
+/* ── News list scoped ── */
+.glass-card .news-item {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-card .news-item:last-child { border-bottom: none; }
+
+@media (prefers-color-scheme: light) {
+    .glass-card .news-item { border-bottom-color: rgba(0, 0, 0, 0.08); }
+}
+
+.glass-card .news-title a {
+    color: var(--glass-text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+@media (prefers-color-scheme: light) {
+    .glass-card .news-title a { color: #1a1a2e; }
+}
+
+.glass-card .news-title a:hover {
+    color: var(--gt-cyan);
+}
+
+.glass-card .news-meta {
+    font-size: 0.8rem;
+    color: var(--glass-muted);
+    margin-top: 2px;
+}
+
+@media (prefers-color-scheme: light) {
+    .glass-card .news-meta { color: #3d3d56; }
+}
+
+.glass-card .news-category {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--glass-muted);
+    margin-right: 4px;
+}
+
+@media (prefers-color-scheme: light) {
+    .glass-card .news-category { background: rgba(0, 0, 0, 0.06); color: #3d3d56; }
+}
+
+/* ── Resumen inteligente de noticias ── */
+.news-summary-box {
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border-left: 3px solid var(--gt-cyan);
+}
+
+.news-summary-box p {
+    margin-bottom: 4px;
+    line-height: 1.5;
+    color: var(--glass-text);
+    font-size: 0.85rem;
+}
+
+@media (prefers-color-scheme: light) {
+    .news-summary-box { background: rgba(0, 0, 0, 0.04); }
+    .news-summary-box p { color: #1a1a2e; }
+}
+
+/* ── Alerta de impacto petrolero ── */
+.oil-impact-alert {
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    /* Fondo más opaco para mejor legibilidad */
+}
+
+/* Alto impacto — fondo sólido oscuro con texto claro */
+.oil-impact-alert[data-nivel="alto"] {
+    background: rgba(231, 76, 60, 0.85);
+    color: #ffffff;
+    border-width: 1px;
+}
+
+.oil-impact-alert[data-nivel="alto"] strong {
+    color: #ffffff;
+}
+
+.oil-impact-alert[data-nivel="alto"] span {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Medio impacto — fondo sólido con buen contraste */
+.oil-impact-alert[data-nivel="medio"],
+.oil-impact-alert[data-nivel="medio-alta"] {
+    background: rgba(243, 156, 18, 0.8);
+    color: #ffffff;
+}
+
+.oil-impact-alert[data-nivel="medio"] strong,
+.oil-impact-alert[data-nivel="medio-alta"] strong {
+    color: #ffffff;
+}
+
+.oil-impact-alert[data-nivel="medio"] span,
+.oil-impact-alert[data-nivel="medio-alta"] span {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Bajo impacto — fondo neutro visible */
+.oil-impact-alert[data-nivel="bajo"] {
+    background: rgba(108, 117, 125, 0.75);
+    color: #ffffff;
+}
+
+.oil-impact-alert[data-nivel="bajo"] strong {
+    color: #ffffff;
+}
+
+.oil-impact-alert[data-nivel="bajo"] span {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.oil-impact-alert strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+@media (prefers-color-scheme: light) {
+    .oil-impact-alert[data-nivel="alto"] { background: rgba(231, 76, 60, 0.9); }
+    .oil-impact-alert[data-nivel="medio"],
+    .oil-impact-alert[data-nivel="medio-alta"] { background: rgba(243, 156, 18, 0.85); }
+    .oil-impact-alert[data-nivel="bajo"] { background: rgba(108, 117, 125, 0.85); }
+    /* Light mode fallback */
+    .oil-impact-alert strong { color: #1a1a2e; }
+}
+
+/* ── History table scoped ── */
+.glass-card .history-table th {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 8px;
+    text-align: right;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    color: var(--glass-muted);
+}
+
+.glass-card .history-table th:first-child { text-align: left; }
+
+.glass-card .history-table td {
+    padding: 6px 8px;
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--glass-text);
+}
+
+.glass-card .history-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: var(--glass-muted);
+}
+
+.glass-card .history-table tr:hover td {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+@media (prefers-color-scheme: light) {
+    .glass-card .history-table th {
+        background: rgba(255, 255, 255, 0.95);
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+        color: #3d3d56;
+    }
+    .glass-card .history-table td {
+        border-bottom-color: rgba(0, 0, 0, 0.06);
+        color: #1a1a2e;
+    }
+    .glass-card .history-table td:first-child {
+        color: #3d3d56;
+    }
+    .glass-card .history-table tr:hover td { background: rgba(0, 0, 0, 0.02); }
+}
+
+/* ── Change indicators in history table ── */
+.glass-card .change-positive { color: #d63031; font-weight: 600; }
+.glass-card .change-negative { color: #00b894; font-weight: 600; }
+
+@media (prefers-color-scheme: light) {
+    .glass-card .change-positive { color: #c0392b; }
+    .glass-card .change-negative { color: #00a381; }
+}
+
+/* ── Chart canvas in glass card ── */
+.glass-card #historialChart,
+#historialChart {
+    display: block;
+    width: 100%;
+    height: 350px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+    .glass-card #historialChart,
+    #historialChart {
+        height: 250px !important;
+    }
+}
+
+/* ── Weekly price chart wrapper ── */
+.weekly-chart-wrapper {
+    text-align: center;
+    margin-top: 16px;
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    margin-right: -16px;
+}
+
+@media (max-width: 600px) {
+    .weekly-chart-wrapper {
+        width: calc(100% + 20px);
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+}
