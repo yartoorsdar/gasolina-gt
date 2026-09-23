@@ -513,6 +513,7 @@
         // Configuración
         // ──────────────────────────────────────────
         const DATA_DIR = '';
+        const GITHUB_RAW = 'https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export';
         const CONFIG = {
             impuestos: {
                 iva: 0.12,
@@ -1964,41 +1965,61 @@
             const contentEl = document.getElementById('content');
             const CACHE_BUST = Date.now();
 
-            try {
-                // Cargar ambos JSON en paralelo con cache-busting
-                const [resData, consData] = await Promise.all([
-                    fetch(`${DATA_DIR}/resumen.json?v=${CACHE_BUST}`),
-                    fetch(`${DATA_DIR}/consolidado.json?v=${CACHE_BUST}`).catch(() => null)
-                ]);
+            // Intentar local primero, fallback a GitHub raw
+            const fuentes = [
+                `${DATA_DIR}/resumen.json?v=${CACHE_BUST}`,
+                `${GITHUB_RAW}/resumen.json?t=${CACHE_BUST}`
+            ];
 
-                if (!resData.ok) throw new Error(`HTTP ${resData.status}`);
+            let resData = null;
+            for (const url of fuentes) {
+                try {
+                    const r = await fetch(url);
+                    if (r.ok) { resData = r; break; }
+                } catch {}
+            }
 
-                const data = await resData.json();
-                let historial = null;
-                if (consData?.ok) {
-                    historial = await consData.json();
-                    window.__consData = historial;
-                }
+            // Si fallback a GitHub raw, obtener consolidado también desde allí
+            const useGithubRaw = !resData && fuentes[1].includes('raw.githubusercontent');
+            const consUrl = useGithubRaw
+                ? `${GITHUB_RAW}/consolidado.json?t=${CACHE_BUST}`
+                : `${DATA_DIR}/consolidado.json?v=${CACHE_BUST}`;
 
-                // Actualizar timestamp
-                document.getElementById('lastUpdate').textContent =
-                    `Datos actualizados: ${data.actualizado_at || 'N/A'}`;
+            let consData = null;
+            if (useGithubRaw) {
+                try { const r = await fetch(consUrl); if (r.ok) consData = r; } catch {}
+            } else {
+                try { const r = await fetch(consUrl).catch(() => null); if (r?.ok) consData = r; } catch {}
+            }
 
-                // Renderizar secciones (excepto historial — necesita DOM visible)
-                renderPreciosCombustible(data);
-                renderPetroleo(data);
-                renderNoticias(data);
+            if (!resData && !useGithubRaw) throw new Error('No se pudo cargar resumen.json');
 
-                // Mostrar contenido, ocultar loading
-                loadingEl.style.display = 'none';
-                contentEl.style.display = 'block';
+            const data = await resData.json();
+            let historial = null;
+            if (consData?.ok) {
+                historial = await consData.json();
+                window.__consData = historial;
+            }
 
-                // Renderizar historial DESPUÉS de que el DOM sea visible (getBoundingClientRect funciona)
-                if (historial) {
-                    renderHistorial(historial);
-                }
+            // Actualizar timestamp
+            document.getElementById('lastUpdate').textContent =
+                `Datos actualizados: ${data.actualizado_at || 'N/A'}`;
 
-            } catch (err) {
+            // Renderizar secciones (excepto historial — necesita DOM visible)
+            renderPreciosCombustible(data);
+            renderPetroleo(data);
+            renderNoticias(data);
+
+            // Mostrar contenido, ocultar loading
+            loadingEl.style.display = 'none';
+            contentEl.style.display = 'block';
+
+            // Renderizar historial DESPUÉS de que el DOM sea visible (getBoundingClientRect funciona)
+            if (historial) {
+                renderHistorial(historial);
+            }
+
+        } catch (err) {
                 loadingEl.style.display = 'none';
                 errorEl.style.display = 'block';
                 errorEl.innerHTML = `
