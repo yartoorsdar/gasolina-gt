@@ -25,6 +25,42 @@
       "fetched_at": "2026-09-23T04:21:27-06:00"
     },
     {
+      "id": 5800,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/TotalEnergies-to-Develop-Offshore-Gas-Field-to-Boost-Nigeria-LNG-Supply.html",
+      "titulo": "TotalEnergies to Develop Offshore Gas Field to Boost Nigeria LNG Supply",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T07:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "TotalEnergies has decided to invest in the development of the Ima gas field offshore Nigeria to increase supply for the expanding Nigeria LNG export plant, the French supermajor said on Wednesday. As operator and holder of a 40% interest in the Ima gas field, TotalEnergies and its local partner AMNI, owning the remaining 60%, have taken the final investment decision (FID) for the development of the field straddling the OML 112 and 117 offshore licenses in Nigeria. The Ima gas field, which lies i",
+      "fetched_at": "2026-09-23T12:31:13-06:00"
+    },
+    {
+      "id": 5801,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Hormuz-Traffic-Running-80-Below-Its-10-Day-Average.html",
+      "titulo": "Hormuz Traffic Running 80% Below Its 10-Day Average",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T07:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Only three commodity vessels moved through the Strait of Hormuz in the past day, preliminary tanker-tracking data by Kpler showed on Wednesday, as the oil market weighs the potential resumption of U.S.-Iran talks against continued disruptions in the Middle East. The three commodity vessels, which included one Panamax oil tanker, transited the Strait of Hormuz outbound, according to Kpler’s data cited by Reuters. The observable traffic on Tuesday was below Monday’s four vessels that transited Hor",
+      "fetched_at": "2026-09-23T12:31:13-06:00"
+    },
+    {
+      "id": 5802,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Asias-Crude-Imports-Hit-Highest-Level-Since-the-Iran-War-Began.html",
+      "titulo": "Asia's Crude Imports Hit Highest Level Since the Iran War Began",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T06:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Asia is set to import the highest volumes of crude oil in September since February this year, when the Iran war started, crippled supply from the Middle East, and forced buyers in Asia to slash purchases.  Asia is expected to import 23.96 million barrels per day (bpd) of crude oil this month, per data compiled by Kpler and cited by Reuters’ Asia Commodities and Energy Columnist, Clyde Russell.  The crude imports in September would be higher than the 23.38 million bpd that arrived in the region i",
+      "fetched_at": "2026-09-23T12:31:13-06:00"
+    },
+    {
       "id": 4975,
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPSWZRRGRpXzJPdVlsZTVQRjlDUWRUN25Hd1dKTzFwcGNzR0lOX2dKZzUwNnZ4UmlQa1hoNHk1cW56Si1zMERkdGhHaVZ4QnVHcVJWa1I0UDZkLVY5UGQ5TU9rWEhLdzc5QmFyN1Rqby1hTzRpYVlhSUkwQ056QS16U2tpWkhVdWVHMDJ0OHdIUzZIN3BHTDdWN2dwTVQxWks4Q2I0UlZvTHZQdEMwc2F4Tg?oc=5",
       "titulo": "How Ukraine’s devastating attacks on Putin’s oil refineries brought the war to Russia’s doorstep - independent.co.uk",
@@ -1021,5 +1057,5 @@
       "fetched_at": "2026-09-22T22:00:01-06:00"
     }
   ],
-  "total_registros": 85
+  "total_registros": 88
 }

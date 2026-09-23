@@ -1,18 +1,6 @@
 {
-  "actualizado_at": "2026-09-23T05:01:04-06:00",
+  "actualizado_at": "2026-09-23T12:31:13-06:00",
   "precios_combustible": [
-    {
-      "id": 6957,
-      "fecha_observacion": "2026-09-21",
-      "producto": "diessel",
-      "precio": 50.5,
-      "incluye_impuestos": 1,
-      "regimen": "normal",
-      "nota": null,
-      "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T04:46:55-06:00",
-      "url": ""
-    },
     {
       "id": 6971,
       "fecha_observacion": "2026-09-21",
@@ -26,28 +14,16 @@
       "url": ""
     },
     {
-      "id": 6955,
+      "id": 6957,
       "fecha_observacion": "2026-09-21",
-      "producto": "diésel",
-      "precio": 49.4,
+      "producto": "diessel",
+      "precio": 50.5,
       "incluye_impuestos": 1,
       "regimen": "normal",
       "nota": null,
-      "fuente": "Ministerio de Energía y Minas",
-      "fetched_at": "2026-09-23T00:00:19-06:00",
-      "url": null
-    },
-    {
-      "id": 6954,
-      "fecha_observacion": "2026-09-21",
-      "producto": "regular",
-      "precio": 42.58,
-      "incluye_impuestos": 1,
-      "regimen": "normal",
-      "nota": null,
-      "fuente": "Ministerio de Energía y Minas",
-      "fetched_at": "2026-09-23T00:00:19-06:00",
-      "url": null
+      "fuente": "GlobalPetrolPrices",
+      "fetched_at": "2026-09-23T04:46:55-06:00",
+      "url": ""
     },
     {
       "id": 6956,
@@ -62,10 +38,10 @@
       "url": ""
     },
     {
-      "id": 6953,
+      "id": 6954,
       "fecha_observacion": "2026-09-21",
-      "producto": "superior",
-      "precio": 44.61,
+      "producto": "regular",
+      "precio": 42.58,
       "incluye_impuestos": 1,
       "regimen": "normal",
       "nota": null,
@@ -94,7 +70,7 @@
       "fetched_at": "2026-09-23T00:43:53.414121"
     }
   ],
-  "noticias_count": 85,
+  "noticias_count": 88,
   "ultimas_noticias": [
     {
       "id": 4970,
@@ -119,6 +95,42 @@
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxQLV9fYnE5WHptSjVIVU9iVjVMbjNvMXhLMENZb0tuX3RFUlFsd25qV202d3pWbEhqbUJHd3dLMHc5QjU5LXFBdzhhR3ZlLXJ5eUJ5dGpDRDE4UTZBb3dmTWxQRWNpU2xEMnpxdUxRVWRXaEV2UUNsX05HOWxTWGJxQ2MtbkxPRDhOVUJ1dW1FSVVMcnNtR1MxV0pfVWpFLV9hWGFhYlFhclJNdFdCODc0dVk5d21xM0HSAbwBQVVfeXFMT2hmejZMV0ZRRE1taTNCa2tlSlNfWkthQ3NGUE43OTZ3YldlZUxENXliamtoVlBzOEVxUThVcWh1Y3EtaUZRZk5HTlpaRkxfQUhDS2tCVmdyUnVDNXBQdmZYRVhEN0Y3Yjhud20xLXc3Q28xYTdfUWI5OVlBTnU1TllRZWV5d0NKMVk2SlNUX3paSVRNRl",
       "fetched_at": "2026-09-23T04:21:27-06:00"
+    },
+    {
+      "id": 5800,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/TotalEnergies-to-Develop-Offshore-Gas-Field-to-Boost-Nigeria-LNG-Supply.html",
+      "titulo": "TotalEnergies to Develop Offshore Gas Field to Boost Nigeria LNG Supply",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T07:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "TotalEnergies has decided to invest in the development of the Ima gas field offshore Nigeria to increase supply for the expanding Nigeria LNG export plant, the French supermajor said on Wednesday. As operator and holder of a 40% interest in the Ima gas field, TotalEnergies and its local partner AMNI, owning the remaining 60%, have taken the final investment decision (FID) for the development of the field straddling the OML 112 and 117 offshore licenses in Nigeria. The Ima gas field, which lies i",
+      "fetched_at": "2026-09-23T12:31:13-06:00"
+    },
+    {
+      "id": 5801,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Hormuz-Traffic-Running-80-Below-Its-10-Day-Average.html",
+      "titulo": "Hormuz Traffic Running 80% Below Its 10-Day Average",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T07:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Only three commodity vessels moved through the Strait of Hormuz in the past day, preliminary tanker-tracking data by Kpler showed on Wednesday, as the oil market weighs the potential resumption of U.S.-Iran talks against continued disruptions in the Middle East. The three commodity vessels, which included one Panamax oil tanker, transited the Strait of Hormuz outbound, according to Kpler’s data cited by Reuters. The observable traffic on Tuesday was below Monday’s four vessels that transited Hor",
+      "fetched_at": "2026-09-23T12:31:13-06:00"
+    },
+    {
+      "id": 5802,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Asias-Crude-Imports-Hit-Highest-Level-Since-the-Iran-War-Began.html",
+      "titulo": "Asia's Crude Imports Hit Highest Level Since the Iran War Began",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T06:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Asia is set to import the highest volumes of crude oil in September since February this year, when the Iran war started, crippled supply from the Middle East, and forced buyers in Asia to slash purchases.  Asia is expected to import 23.96 million barrels per day (bpd) of crude oil this month, per data compiled by Kpler and cited by Reuters’ Asia Commodities and Energy Columnist, Clyde Russell.  The crude imports in September would be higher than the 23.38 million bpd that arrived in the region i",
+      "fetched_at": "2026-09-23T12:31:13-06:00"
     },
     {
       "id": 4975,
@@ -179,42 +191,6 @@
       "relevancia": null,
       "resumen_es": "South Korea will try to cut its reliance on Middle East crude imports to 50% by 2035, Reuters has reported, citing the country’s industry ministry. The ministry has drafted a 10-year natural resource security plan, which envisages a “fundamental shift” in the way South Korea sources its imports. The plan also calls for a boost in oil reserves by some 20 million barrels by 2030. South Korea imports as much as 70% of its crude oil from Middle Eastern producers, and most of it must pass through the",
       "fetched_at": "2026-09-23T00:33:33-06:00"
-    },
-    {
-      "id": 928,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/Trump-Backs-Diesel-Export-Ban-as-Prices-Hit-Record-Highs.html",
-      "titulo": "Trump Backs Diesel Export Ban as Prices Hit Record Highs",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T00:35:19-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "President Trump has declared his support for a potential ban on diesel fuel exports amid record-breaking prices at the pump. “I've said let's not send out the diesel. We make a lot of diesel ... I've called for it. I've called for it within my people,” Trump said, as quoted by Reuters, on the sidelines of this week’s UN General Assembly. The comment follows a statement by Treasury Secretary Scott Bessent that the administration was mulling over the effectiveness of such a ban on exports, and whe",
-      "fetched_at": "2026-09-23T00:00:50-06:00"
-    },
-    {
-      "id": 897,
-      "url": "https://news.google.com/rss/articles/CBMixAJBVV95cUxPcFNwclJDaEtWcmV0R2laYlBvVFRUNm5KN1BkTFZKNHZzZ0JFYjdIMHdyOWVGZWFPVEZaVUhicjhQQWhhUTU2VW51dEVIb1AzVFJKNjJnTlpjX3Jrb0dlUnVicWZfbm9GUFhPamVzZUI2STZYTW83Nno5NHcwTml1V0NUeWxZWnpMeVVnRXdUNHFnRVRTMGI5MVhJejdaNmxkUFNRb1VyVXhtNFZqUC1XTFU5eVpvbUZHMkxEbXJhSUZneFZoQnFUMWVSZWpzVUU3WWJSdFdNdHk2amV0SFdWZS1hbWFRSGlrWmgxbm0xckRYMDRYUDlvMlRHWnZjbXIzQ1FDeGpIdFljX3pndldlYnpPVjZtUEp2c0d2LWFDanVVY1FCdmR6SlVyU2JjNjkzN2dNSWsxbVI3VXVHQ0JPNWo5a2M?oc=5",
-      "titulo": "Estados Unidos. Genocida Trump en la ONU: Petróleo de Venezuela, insulto al secuestrado presidente Nicolás Maduro, ataque furibundo a Cuba y reafirmación de la guerra con Irán (videos) - resumenlatinoamericano.org",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-22T20:38:25-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMixAJBVV95cUxPcFNwclJDaEtWcmV0R2laYlBvVFRUNm5KN1BkTFZKNHZzZ0JFYjdIMHdyOWVGZWFPVEZaVUhicjhQQWhhUTU2VW51dEVIb1AzVFJKNjJnTlpjX3Jrb0dlUnVicWZfbm9GUFhPamVzZUI2STZYTW83Nno5NHcwTml1V0NUeWxZWnpMeVVnRXdUNHFnRVRTMGI5MVhJejdaNmxkUFNRb1VyVXhtNFZqUC1XTFU5eVpvbUZHMkxEbXJhSUZneFZoQnFUMWVSZWpzVUU3WWJSdFdNdHk2amV0SFdWZS1hbWFRSGlrWmgxbm0xckRYMDRYUDlvMlRHWnZjbXIzQ1FDeGpIdFljX3pndldlYnpPVjZtUEp2c0d2LWFDanVVY1FCdmR6SlVyU2JjNjkzN2dNSWsxbVI3VXVHQ0JPNWo5a2M?oc=5\" target=\"",
-      "fetched_at": "2026-09-23T00:00:50-06:00"
-    },
-    {
-      "id": 45,
-      "url": "https://oilprice.com/Energy/Natural-Gas/Washington-Needs-This-LNG-Deal-More-Than-Beijing-Does.html",
-      "titulo": "Washington Needs This LNG Deal More Than Beijing Does",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-22T19:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Xi Jinping arrives in Washington September 24, prepared to discuss reviving a $6 billion-a-year trade in US liquefied natural gas, contingent on lifting a 15% Chinese tariff that has blocked American gas since Q1 2025. Iranian missiles destroyed 17% of Qatar's LNG export capacity in March, and China absorbed that shock by buying more from everyone except the United States: Australia took 36% of its LNG imports from January through July, Southeast Asia 20%, Russia 12%, and Canada, a new entrant, ",
-      "fetched_at": "2026-09-22T22:00:01-06:00"
     }
   ]
 }
