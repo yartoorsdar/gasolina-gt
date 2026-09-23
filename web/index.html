@@ -598,6 +598,15 @@
 
             precios.forEach(p => p.producto = normalizar(p.producto));
 
+            // Solo aceptar combustibles — descartar wti u otros productos que filtren mal del JSON
+            const combustiblesPermitidos = new Set(['superior', 'regular', 'diésel']);
+            precios = precios.filter(p => combustiblesPermitidos.has(p.producto));
+
+            if (!precios || precios.length === 0) {
+                container.innerHTML = '<p style="color:var(--text-muted);">Sin datos disponibles</p>';
+                return;
+            }
+
             // Deduplicar: mantener solo el primer precio por producto
             const vistos = new Set();
             precios = precios.filter(p => {
