@@ -686,7 +686,7 @@
             // Hora de la última inserción en DB (max fetched_at de los precios)
             let horaStr = '';
             if (precios.length > 0) {
-                const maxFetched = Math.max(...precios.map(p => new Date(p.fetched_at)));
+                const maxFetched = new Date(Math.max(...precios.map(p => new Date(p.fetched_at))));
                 horaStr = maxFetched.toLocaleTimeString('es-GT', { hour: '2-digit', minute: '2-digit' });
             }
             html += `<p class="price-date">Última actualización: ${fecha} a las ${horaStr}</p>`;
