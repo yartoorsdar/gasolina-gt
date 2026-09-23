@@ -684,7 +684,7 @@
 
             const fecha = precios.length ? new Date(Math.max(...precios.map(p => new Date(p.fecha)))).toISOString().slice(0,10) : '';
             const fetchedAt = precios.length ? new Date(Math.max(...precios.map(p => new Date(p.fetched_at)))) : null;
-            const horaStr = fetchedAt ? fetchedAt.toLocaleTimeString('es-GT', { hour: '2-digit', minute: '2-digit' }) : '';
+            const horaStr = fetchedAt ? fetchedAt.toLocaleTimeString('es-GT', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Guatemala' }) : '';
             html += `<p class="price-date">Última actualización: ${fecha} a las ${horaStr}</p>`;
             container.innerHTML = html;
 
