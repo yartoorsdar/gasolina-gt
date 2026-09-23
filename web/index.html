@@ -402,6 +402,13 @@
             header h1 { font-size: 1.4rem; }
             .price-value { font-size: 1.1rem; }
             #historialChart { height: 250px; }
+
+            /* Tabla anual: evitar traslape de labels en móvil */
+            .history-table td:first-child,
+            .history-table th:first-child {
+                min-width: 50px;
+                white-space: nowrap;
+            }
         }
     </style>
     <link rel="stylesheet" href="style-glass.css">
@@ -646,9 +653,10 @@
             ctx.closePath();
         }
 
-        // ── Weekly chart animation ──
+        // ── Weekly chart animation — limitada a 1.5s para evitar flickering en móvil ──
         let weeklyAnimId = null;
         let weeklyTime = 0;
+        const WEEKLY_ANIM_DURATION = 1.5;
 
         function startWeeklyAnimation() {
             if (weeklyAnimId) cancelAnimationFrame(weeklyAnimId);
@@ -656,7 +664,13 @@
             function frame() {
                 weeklyTime += 0.02;
                 drawWeeklyPriceChartAnimated(window.__weekData, weeklyTime);
-                weeklyAnimId = requestAnimationFrame(frame);
+                if (weeklyTime < WEEKLY_ANIM_DURATION) {
+                    weeklyAnimId = requestAnimationFrame(frame);
+                } else {
+                    // Dibujar estado final una última vez y detener
+                    drawWeeklyPriceChartAnimated(window.__weekData, WEEKLY_ANIM_DURATION);
+                    weeklyAnimId = null;
+                }
             }
             frame();
         }
@@ -668,9 +682,10 @@
             diésel: 145      // verde lima
         };
 
-        // ── WTI Weekly chart animation ──
+        // ── WTI Weekly chart animation — limitada a 1.5s para evitar flickering en móvil ──
         let wtiWeeklyAnimId = null;
         let wtiWeeklyTime = 0;
+        const WTI_WEEKLY_ANIM_DURATION = 1.5;
 
         function startWTIWeeklyAnimation() {
             if (wtiWeeklyAnimId) cancelAnimationFrame(wtiWeeklyAnimId);
@@ -678,7 +693,12 @@
             function frame() {
                 wtiWeeklyTime += 0.02;
                 drawWTIWeeklyChartAnimated(window.__wtiData, wtiWeeklyTime);
-                wtiWeeklyAnimId = requestAnimationFrame(frame);
+                if (wtiWeeklyTime < WTI_WEEKLY_ANIM_DURATION) {
+                    wtiWeeklyAnimId = requestAnimationFrame(frame);
+                } else {
+                    drawWTIWeeklyChartAnimated(window.__wtiData, WTI_WEEKLY_ANIM_DURATION);
+                    wtiWeeklyAnimId = null;
+                }
             }
             frame();
         }
@@ -1660,13 +1680,23 @@
         let animFrameId = null;
         let animTime = 0;
 
+        // ── Historial chart animation — limitada a 2s para evitar flickering en móvil ──
+        let animFrameId = null;
+        let animTime = 0;
+        const HIST_ANIM_DURATION = 2.0;
+
         function startHistorialAnimation() {
             if (animFrameId) cancelAnimationFrame(animFrameId);
             animTime = 0;
             function frame() {
                 animTime += 0.015;
                 drawHistorialChartAnimated(window.__histData, window.__histProductos, animTime);
-                animFrameId = requestAnimationFrame(frame);
+                if (animTime < HIST_ANIM_DURATION) {
+                    animFrameId = requestAnimationFrame(frame);
+                } else {
+                    drawHistorialChartAnimated(window.__histData, window.__histProductos, HIST_ANIM_DURATION);
+                    animFrameId = null;
+                }
             }
             frame();
         }
