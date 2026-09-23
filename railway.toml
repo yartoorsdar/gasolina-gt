@@ -2,7 +2,7 @@
 builder = "DOCKERFILE"
 
 [deploy]
+startCommand = "python serve.py 8089"
 healthcheckPath = "/web/index.html"
 healthcheckTimeout = 120
 restartPolicyType = "ALWAYS"
-startCommand = "/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"
