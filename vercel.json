@@ -7,5 +7,10 @@
     "deploymentEnabled": {
       "main": true
     }
+  },
+  "cacheHints": {
+    "data/export/*.json": [
+      { "path": "data/export/*", "maxAge": 60, "rules": ["*"] }
+    ]
   }
 }
