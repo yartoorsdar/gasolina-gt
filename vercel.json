@@ -2,5 +2,10 @@
   "framework": null,
   "builds": [
     { "src": "**", "use": "@vercel/static" }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  }
 }
