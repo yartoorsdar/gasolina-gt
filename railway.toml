@@ -5,3 +5,4 @@ builder = "DOCKERFILE"
 healthcheckPath = "/web/index.html"
 healthcheckTimeout = 120
 restartPolicyType = "ALWAYS"
+startCommand = "/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf"
