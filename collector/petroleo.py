@@ -142,10 +142,10 @@ def fetch_precios_petroleo(codes: dict = None, api_key: str = "") -> list[dict]:
 # ──────────────────────────────────────────────
 
 def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
-    """Guarda precios de petróleo en la DB.
+    """Guarda precios de petróleo en la DB (acumula historial diario).
     
-    Borra TODOS los registros existentes antes de insertar para asegurar
-    que solo queden los datos más recientes (hoy).
+    Borra solo las entradas de HOY antes de insertar para reemplazar datos
+    corruptos o viejos. Las entradas de días anteriores se conservan como historial.
     """
     if cfg is None:
         import json
@@ -156,11 +156,14 @@ def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
     import sqlite3
     conn = sqlite3.connect("data/historial.db")
 
-    # Borrar TODO lo que haya antes de insertar (evita datos corruptos de runs anteriores)
-    conn.execute("DELETE FROM precios_petroleo WHERE referencia IN ('brent', 'wti')")
+    # Borrar solo HOY — mantener historial de días anteriores intacto
+    hoy = datetime.now().strftime("%Y-%m-%d")
+    conn.execute(
+        "DELETE FROM precios_petroleo WHERE fecha=? AND referencia IN ('brent', 'wti')",
+        (hoy,),
+    )
 
     inserted = 0
-    hoy = datetime.now().strftime("%Y-%m-%d")
     for p in precios:
         try:
             cursor = conn.execute("""
