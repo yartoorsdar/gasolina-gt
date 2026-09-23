@@ -142,10 +142,10 @@ def fetch_precios_petroleo(codes: dict = None, api_key: str = "") -> list[dict]:
 # ──────────────────────────────────────────────
 
 def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
-    """Guarda precios de petróleo en la DB (idempotente).
+    """Guarda precios de petróleo en la DB.
     
-    Borra entradas previas de OilPriceAPI para las mismas fechas antes
-    de insertar, asegurando que los datos nuevos reemplacen a los viejos.
+    Borra TODOS los registros existentes antes de insertar para asegurar
+    que solo queden los datos más recientes (hoy).
     """
     if cfg is None:
         import json
@@ -156,19 +156,17 @@ def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
     import sqlite3
     conn = sqlite3.connect("data/historial.db")
 
+    # Borrar TODO lo que haya antes de insertar (evita datos corruptos de runs anteriores)
+    conn.execute("DELETE FROM precios_petroleo WHERE referencia IN ('brent', 'wti')")
+
     inserted = 0
+    hoy = datetime.now().strftime("%Y-%m-%d")
     for p in precios:
         try:
-            # Borrar entrada previa de OilPriceAPI para esta fecha+referencia
-            conn.execute(
-                "DELETE FROM precios_petroleo WHERE referencia=? AND fecha=? AND fuente='OilPriceAPI'",
-                (p["referencia"], p["fecha"]),
-            )
-            
             cursor = conn.execute("""
                 INSERT INTO precios_petroleo (fecha, referencia, usd_barril, fuente, fetched_at)
                 VALUES (?, ?, ?, 'OilPriceAPI', ?)
-            """, (p["fecha"], p["referencia"], p["usd_barril"], datetime.now().isoformat()))
+            """, (hoy, p["referencia"], p["usd_barril"], datetime.now().isoformat()))
             if cursor.lastrowid:
                 inserted += 1
         except Exception as exc:

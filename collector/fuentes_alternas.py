@@ -368,19 +368,20 @@ def ejecutar() -> dict:
     # ── Guardar en DB ────────────────────────────────────
     print("[alternas] 3. Guardando precios en base de datos...")
     
-    # Convertir GPP a formato DB (por galón)
+    # Convertir GPP a formato DB (por galón) — usar fecha de hoy siempre
     if gpp_data:
         GALON_LITROS = 3.78541
+        hoy = datetime.now().strftime("%Y-%m-%d")
         gpp_precios_db = [
             {
-                "fecha": gpp_data["fecha"],
+                "fecha": hoy,
                 "producto": "superior",
                 "precio": round(gpp_data["gasolina_gtq_liter"] * GALON_LITROS, 2),
                 "fuente": "GlobalPetrolPrices",
                 "tipo": "nacional_promedio",
             },
             {
-                "fecha": gpp_data["fecha"],
+                "fecha": hoy,
                 "producto": "diésel",  # Corregido: con acento como espera el dashboard
                 "precio": round(gpp_data["diesel_gtq_liter"] * GALON_LITROS, 2),
                 "fuente": "GlobalPetrolPrices",
