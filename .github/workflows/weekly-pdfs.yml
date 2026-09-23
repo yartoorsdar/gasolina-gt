@@ -41,6 +41,7 @@ jobs:
           python collector/main.py --precios-mem --historico --export
 
       - name: Commit and push updated JSONs
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -50,5 +51,5 @@ jobs:
           else
             git commit -m "Weekly update: precios MEM PDF [skip ci]"
             git push
-            echo "::notice::✅ JSONs pushed"
+            echo "::notice::OK JSONs pushed"
           fi

@@ -312,7 +312,7 @@ def ejecutar() -> dict:
         if gpp_data:
             result["gpp_data"] = gpp_data
             print(
-                f"[alternas]   ✅ GPP: {gpp_data['fecha']} | "
+                f"[alternas]   [OK] GPP: {gpp_data['fecha']} | "
                 f"Gasolina: Q{gpp_data['gasolina_gtq_liter']}/L, "
                 f"Diesel: Q{gpp_data['diesel_gtq_liter']}/L"
             )
@@ -329,13 +329,13 @@ def ejecutar() -> dict:
                 ),
             }
             print(
-                f"[alternas]   → Por galón: Gasolina Q{gpp_galon['gasolina_gtq_galon']}, "
+                f"[alternas]   -> Por galón: Gasolina Q{gpp_galon['gasolina_gtq_galon']}, "
                 f"Diesel Q{gpp_galon['diesel_gtq_galon']}"
             )
         else:
-            print("[alternas]   ⚠️ GPP: HTML obtenido pero no se pudieron extraer precios")
+            print("[alternas]   [WARN] GPP: HTML obtenido pero no se pudieron extraer precios")
     else:
-        print("[alternas]   ❌ GPP: No se pudo fetchear")
+        print("[alternas]   [FAIL] GPP: No se pudo fetchear")
 
     # ── Fuente 2: Chapin TV (artículos conocidos) ────────
     print("[alternas] 2. Consultando artículos de Chapin TV...")
@@ -357,13 +357,13 @@ def ejecutar() -> dict:
                 reg_str = f"Q{datos['regular']}" if datos.get("regular") else "N/A"
                 die_str = f"Q{datos['diesel']}" if datos.get("diesel") else "N/A"
                 print(
-                    f"[alternas]   ✅ {art['label']}: Sup={sup_str}, "
+                    f"[alternas]   [OK] {art['label']}: Sup={sup_str}, "
                     f"Reg={reg_str}, Die={die_str}"
                 )
             else:
-                print(f"[alternas]   ⚠️ {art['label']}: No se extrajeron precios")
+                print(f"[alternas]   [WARN] {art['label']}: No se extrajeron precios")
         else:
-            print(f"[alternas]   ❌ {art['label']}: No se pudo fetchear")
+            print(f"[alternas]   [FAIL] {art['label']}: No se pudo fetchear")
 
     # ── Guardar en DB ────────────────────────────────────
     print("[alternas] 3. Guardando precios en base de datos...")

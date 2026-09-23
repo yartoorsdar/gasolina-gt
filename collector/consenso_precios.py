@@ -701,7 +701,7 @@ def ejecutar_con_reintentos(
         if resultado.get("con_senso_alcanzado", 0) > 0:
             consenso_logrado = True
             logger.info(
-                f"[consenso-retry] ✅ Consenso logrado en intento {intento}! "
+                f"[consenso-retry] [OK] Consenso logrado en intento {intento}! "
                 f"{resultado['con_senso_alcanzado']} productos validados."
             )
 

@@ -40,6 +40,7 @@ jobs:
           python collector/main.py --alternos --petroleo --noticias --export
 
       - name: Commit and push updated JSONs
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -49,5 +50,5 @@ jobs:
           else
             git commit -m "Daily update: GPP + petróleo + noticias [skip ci]"
             git push
-            echo "::notice::✅ JSONs pushed"
+            echo "::notice::OK JSONs pushed"
           fi

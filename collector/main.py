@@ -396,7 +396,7 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
     conn.close()
 
     logger.info(
-        f"Exportación completada: {resultados_export['total_registros']} registros → {export_dir}"
+        f"Exportación completada: {resultados_export['total_registros']} registros -> {export_dir}"
     )
     return resultados_export
 
