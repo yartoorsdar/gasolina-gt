@@ -255,7 +255,11 @@ def obtener_precio(
 
 
 def obtener_precios_actuales(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    """Obtiene el precio más reciente por cada producto."""
+    """Obtiene el precio más reciente por cada producto.
+    
+    Si hay múltiples fuentes para la misma fecha, prioriza GPP sobre MEM
+    usando el ID más alto (GPP se inserta después de MEM).
+    """
     rows = conn.execute(
         """SELECT pc.* FROM precios_combustible pc
            INNER JOIN (
@@ -263,9 +267,17 @@ def obtener_precios_actuales(conn: sqlite3.Connection) -> list[sqlite3.Row]:
                FROM precios_combustible
                GROUP BY producto
            ) latest ON pc.producto = latest.producto AND pc.fecha_observacion = latest.max_fecha
-           ORDER BY pc.producto"""
+           ORDER BY pc.id DESC"""
     ).fetchall()
-    return rows
+    
+    # Tomar solo el primer precio por producto (GPP si existe, sino MEM)
+    seen = set()
+    result = []
+    for row in rows:
+        if row["producto"] not in seen:
+            seen.add(row["producto"])
+            result.append(row)
+    return result
 
 
 def obtener_historial_precios(
