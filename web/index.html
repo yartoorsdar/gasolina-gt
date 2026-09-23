@@ -1994,38 +1994,36 @@
             let consData = null;
             try { const r = await fetch(consUrl).catch(() => null); if (r?.ok) consData = r; } catch {}
 
-            const data = await resData.json();
-            let historial = null;
-            if (consData?.ok) {
-                historial = await consData.json();
-                window.__consData = historial;
-            }
+            try {
+                const data = await resData.json();
+                let historial = null;
+                if (consData?.ok) {
+                    historial = await consData.json();
+                    window.__consData = historial;
+                }
 
-            // Actualizar timestamp
-            document.getElementById('lastUpdate').textContent =
-                `Datos actualizados: ${data.actualizado_at || 'N/A'}`;
+                // Actualizar timestamp
+                document.getElementById('lastUpdate').textContent =
+                    `Datos actualizados: ${data.actualizado_at || 'N/A'}`;
 
-            // Renderizar secciones (excepto historial — necesita DOM visible)
-            renderPreciosCombustible(data);
-            renderPetroleo(data);
-            renderNoticias(data);
+                // Renderizar secciones (excepto historial — necesita DOM visible)
+                renderPreciosCombustible(data);
+                renderPetroleo(data);
+                renderNoticias(data);
 
-            // Mostrar contenido, ocultar loading
-            loadingEl.style.display = 'none';
-            contentEl.style.display = 'block';
+                // Mostrar contenido, ocultar loading
+                loadingEl.style.display = 'none';
+                contentEl.style.display = 'block';
 
-            // Renderizar historial DESPUÉS de que el DOM sea visible (getBoundingClientRect funciona)
-            if (historial) {
-                renderHistorial(historial);
-            }
-
-        } catch (err) {
+                // Renderizar historial DESPUÉS de que el DOM sea visible (getBoundingClientRect funciona)
+                if (historial) {
+                    renderHistorial(historial);
+                }
+            } catch (err) {
                 loadingEl.style.display = 'none';
                 errorEl.style.display = 'block';
                 errorEl.innerHTML = `
                     <strong>Error al cargar datos</strong><br>
-                    Asegúrese de que los archivos JSON existen en <code>${DATA_DIR}/</code>.<br>
-                    Ejecute: <code>python main.py --all --export</code><br>
                     <small style="color:var(--text-muted)">${err.message}</small>
                 `;
             }
