@@ -3,6 +3,9 @@
   "builds": [
     { "src": "**", "use": "@vercel/static" }
   ],
+  "rewrites": [
+    { "source": "/", "destination": "/web/index.html" }
+  ],
   "headers": [
     {
       "source": "/(resumen|consolidado|precios_combustible|petroleo|noticias|historial_precios|historial_petroleo)\\.json",
