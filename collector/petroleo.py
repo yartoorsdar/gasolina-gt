@@ -181,23 +181,28 @@ def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
 
 
 def obtener_petroleo_actual(conn) -> list[dict]:
-    """Obtiene el precio más reciente de cada referencia (OilPriceAPI primero)."""
+    """Obtiene el precio más reciente de cada referencia.
+    
+    Prioriza OilPriceAPI sobre FRED para la misma fecha.
+    Ordena por fecha DESC para siempre tomar los datos más frescos.
+    """
     rows = conn.execute("""
-        SELECT fecha, referencia, usd_barril 
-        FROM precios_petroleo 
-        WHERE fuente IN ('OilPriceAPI', 'FRED')
-        AND id IN (
-            SELECT MAX(id) FROM precios_petroleo 
-            WHERE referencia IN ('brent', 'wti') AND fuente IN ('OilPriceAPI', 'FRED')
-            GROUP BY referencia
-        )
-        ORDER BY referencia
+        SELECT fecha, referencia, usd_barril, fuente FROM precios_petroleo 
+        WHERE referencia IN ('brent', 'wti') AND fuente IN ('OilPriceAPI', 'FRED')
+        ORDER BY fecha DESC, 
+            CASE WHEN fuente='OilPriceAPI' THEN 0 ELSE 1 END,
+            id DESC
     """).fetchall()
 
-    return [
-        {"referencia": r[1], "fecha": r[0], "usd_barril": r[2]}
-        for r in rows
-    ]
+    # Tomar solo el primero por referencia (ya ordenado: fecha más reciente, OilPriceAPI preferido)
+    seen = set()
+    result = []
+    for r in rows:
+        if r[1] not in seen:
+            seen.add(r[1])
+            result.append({"referencia": r[1], "fecha": r[0], "usd_barril": r[2]})
+    
+    return sorted(result, key=lambda x: x["referencia"])
 
 
 def ejecutar(cfg: dict = None) -> dict:
