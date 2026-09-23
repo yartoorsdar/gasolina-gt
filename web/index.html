@@ -465,9 +465,6 @@
 
         <!-- Main content (hidden until loaded) -->
         <main id="content" style="display:none;">
-            <!-- Last update -->
-            <p class="last-update" id="lastUpdate"></p>
-
             <!-- Precios de combustible -->
             <div class="grid grid-2">
                 <div class="card glass-card glass-card-animated" id="glassDemoCard">
@@ -2098,10 +2095,6 @@
                     historial = await consData.json();
                     window.__consData = historial;
                 }
-
-                // Actualizar timestamp
-                document.getElementById('lastUpdate').textContent =
-                    `Datos actualizados: ${data.actualizado_at || 'N/A'}`;
 
                 // Renderizar secciones (excepto historial — necesita DOM visible)
                 renderPreciosCombustible(data);
