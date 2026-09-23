@@ -1,0 +1,46 @@
+{
+  "impuestos": {
+    "iva": 0.12,
+    "idp_por_galon": {
+      "superior": 4.70,
+      "regular": 4.60,
+      "diessel": 1.30
+    }
+  },
+  "decreto_22_2026": {
+    "estado": "pendiente_sancion",
+    "fecha_aprobacion_congreso": "2026-09-22",
+    "fecha_vigencia_inicio": null,
+    "fecha_vigencia_fin": "2026-12-31"
+  },
+  "regimenes": {
+    "normal": {
+      "descripcion": "IVA + IDP completos (régimen general)"
+    }
+  },
+  "fuentes": {
+    "precios_mem_url": "",
+    "precios_mem_formato": "pdf",
+    "precios_mem_plan_b_inbox": "data/inbox/",
+    "historico_precios_url": "https://mem.gob.gt/historico-precios-nacionales/"
+  },
+  "petroleo": {
+    "series": {
+      "brent": "DCOILBRENTEU",
+      "wti": "DCOILWTICO"
+    }
+  },
+  "noticias": {
+    "feeds": [
+      "https://news.google.com/rss/search?q=petr%C3%B3leo+OR+refiner%C3%ADa+OR+oleoducto+ataque&hl=es-419&gl=US&ceid=US:es-419",
+      "https://news.google.com/rss/search?q=oil+refinery+OR+pipeline+attack+OR+OPEC&hl=en-US&gl=US&ceid=US:en",
+      "https://oilprice.com/rss/main",
+      "https://www.eia.gov/rss/todayinenergy.xml"
+    ]
+  },
+  "llm": {
+    "base_url": "https://generativelanguage.googleapis.com/v1beta",
+    "model": "gemini-3.6-flash",
+    "api_key": ""
+  }
+}
