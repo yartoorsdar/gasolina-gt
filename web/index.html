@@ -1967,32 +1967,22 @@
             const contentEl = document.getElementById('content');
             const CACHE_BUST = Date.now();
 
-            // Fuente principal: GitHub raw (siempre datos frescos)
-            // Fallback local si se corre desde filesystem (python serve.py)
-            const urls = [
-                `${PRIMARY_DATA_URL}?t=${CACHE_BUST}`,
-                `${DATA_DIR}/resumen.json?v=${CACHE_BUST}`
-            ];
+            // URL única: GitHub raw (siempre funciona, CORS OK)
+            const resumenUrl = `${GITHUB_RAW}/resumen.json?t=${CACHE_BUST}`;
+            const consolidadoUrl = `${GITHUB_RAW}/consolidado.json?t=${CACHE_BUST}`;
 
-            let resData = null;
-            for (const url of urls) {
-                try {
-                    const r = await fetch(url);
-                    if (r.ok) { resData = r; break; }
-                } catch {}
-            }
-            if (!resData) throw new Error('No se pudo cargar resumen.json');
-
-            // Consolidado: mismo orden de fuentes
-            let consUrl = `${GITHUB_RAW}/consolidado.json?t=${CACHE_BUST}`;
-            if (urls[0] === resData.url) {
-                consUrl = `${GITHUB_RAW}/consolidado.json?t=${CACHE_BUST}`;
-            } else {
-                consUrl = `${DATA_DIR}/consolidado.json?v=${CACHE_BUST}`;
+            let resData, consData = null;
+            try {
+                resData = await fetch(resumenUrl);
+                if (!resData.ok) throw new Error(`HTTP ${resData.status}`);
+            } catch (err) {
+                throw new Error('No se pudo cargar resumen.json: ' + err.message);
             }
 
-            let consData = null;
-            try { const r = await fetch(consUrl).catch(() => null); if (r?.ok) consData = r; } catch {}
+            try {
+                const r = await fetch(consolidadoUrl).catch(() => null);
+                if (r?.ok) consData = r;
+            } catch {}
 
             try {
                 const data = await resData.json();
