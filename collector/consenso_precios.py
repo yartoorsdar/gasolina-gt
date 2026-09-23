@@ -25,6 +25,9 @@ Version Tracking:
          — Alerta automática en log + tabla ejecuciones
   v1.1.0 — 2026-09-23 — Modo retry: reintentos cada 45 min hasta consenso
          — Actualización automática de dashboard al lograr consenso
+  v1.2.0 — 2026-09-23 — Integración Gemini AI para validación inteligente
+         — Gemini evalúa contexto entre fuentes (nacional vs metro)
+         — Confirma o rechaza consenso con razonamiento
 
 Uso:
   python collector/main.py --consenso            # valida una vez
@@ -262,6 +265,166 @@ def validar_consenso_grupo(
 
 
 # ──────────────────────────────────────────────
+# Validación con IA (Gemini) — Consenso inteligente
+# ──────────────────────────────────────────────
+
+def _obtener_config_llm() -> dict | None:
+    """Carga la config del LLM desde config.json."""
+    import json as _json
+    
+    config_path = Path(__file__).resolve().parent.parent / "config.json"
+    try:
+        with open(config_path, "r", encoding="utf-8") as f:
+            cfg = _json.load(f)
+        llm_cfg = cfg.get("llm", {})
+        if llm_cfg.get("base_url") and llm_cfg.get("model"):
+            return llm_cfg
+    except Exception:
+        pass
+    return None
+
+
+def validar_con_ia(
+    fecha: str,
+    producto: str,
+    precios_observados: list[dict],
+    resultado_reglas: dict,
+) -> dict | None:
+    """Usa Gemini para evaluar si los precios de múltiples fuentes son consistentes.
+
+    Esta función es un validador INTELIGENTE que complementa las reglas básicas:
+      - Considera el contexto de cada fuente (nacional vs metro)
+      - Evalúa si diferencias > Q0.20 son razonables dado el origen
+      - Proporciona razonamiento humano-legible
+
+    Args:
+        fecha: Fecha de observación (YYYY-MM-DD).
+        producto: Nombre del producto ('superior', 'regular', 'diessel').
+        precios_observados: Lista de dicts con {precio, fuente, tipo}.
+        resultado_reglas: Resultado de validar_consenso_grupo (reglas básicas).
+
+    Returns:
+        Dict con {consenso, precio_valido, razonamiento} o None si falla.
+    """
+    llm_cfg = _obtener_config_llm()
+    if not llm_cfg:
+        return None
+
+    import os as _os
+    
+    base_url = llm_cfg.get("base_url", "").strip()
+    model = llm_cfg.get("model", "").strip()
+    api_key = _os.environ.get("GEMINI_API_KEY", llm_cfg.get("api_key", "")).strip()
+
+    if not base_url or not model:
+        return None
+
+    # Construir prompt con contexto de fuentes
+    fuente_descripcion = {
+        "MEM PDF": "Precios oficiales MEM (Ciudad de Guatemala, autoservicio)",
+        "MEM HTML": "Precios oficiales MEM via web (Ciudad de Guatemala)",
+        "GlobalPetrolPrices": "Promedio nacional Guatemala (no solo capital)",
+        "Chapin TV": "Sondeo en estaciones de servicio (área metropolitana)",
+        "Prensa Libre": "Reporte de prensa (área metropolitana)",
+    }
+
+    precios_text = "\n".join(
+        f"- Q{p['precio']:.2f} via {p.get('fuente', 'desconocida')} ({fuente_descripcion.get(p.get('fuente', ''), 'fuente externa')})"
+        for p in precios_observados
+    )
+
+    contexto = (
+        f"Eres un analista de precios de combustible en Guatemala.\n\n"
+        f"FECHA: {fecha}\nPRODUCTO: {producto}\n\n"
+        f"Precios observados de diferentes fuentes:\n{precios_text}\n\n"
+        f"Reglas de negocio:\n"
+        f"- MEM reporta precios para Ciudad de Guatemala (área metropolitana)\n"
+        f"- GlobalPetrolPrices reporta promedio nacional (puede diferir +/- Q1.00)\n"
+        f"- Chapin TV/Prensa Libre son sondeos en estaciones (variación natural)\n"
+        f"- Tolerancia esperada entre fuentes similares: Q0.20\n"
+        f"- Diferencia MEM vs Nacional promedio: hasta Q1.50 es razonable\n\n"
+        f"EVALUA:\n"
+        f"1. ¿Los precios son consistentes? (si/parcial/no)\n"
+        f"2. ¿Cuál es el precio más confiable para usar?\n"
+        f"3. ¿Hay alguna fuente que deba descartarse?\n\n"
+        f"RESPONDE SOLO EN JSON con estas keys:\n"
+        f"- consenso: 'si', 'parcial' o 'no'\n"
+        f"- precio_recomendado: numero (el mas confiable)\n"
+        f"- razonamiento: texto corto explicando tu decision\n"
+    )
+
+    try:
+        import requests as _requests
+        
+        if "generativelanguage" in base_url:
+            resp = _requests.post(
+                f"{base_url}/models/{model}:generateContent?key={api_key}",
+                json={
+                    "contents": [{
+                        "parts": [
+                            {"text": contexto}
+                        ]
+                    }],
+                    "generationConfig": {"temperature": 0.2},
+                },
+                timeout=30,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            content = data["candidates"][0]["content"]["parts"][0]["text"]
+        else:
+            # OpenAI compatible
+            resp = _requests.post(
+                f"{base_url}/v1/chat/completions",
+                json={
+                    "model": model,
+                    "messages": [
+                        {"role": "system", "content": "Eres un analista de precios de combustible en Guatemala. Responde solo con JSON."},
+                        {"role": "user", "content": contexto},
+                    ],
+                    "temperature": 0.2,
+                },
+                timeout=30,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            content = data["choices"][0]["message"]["content"]
+
+        # Parsear JSON de respuesta
+        import re as _re
+        json_match = _re.search(
+            r"\{[^}]*consenso[^}]*precio_recomendado[^}]*razonamiento[^}]*\}",
+            content, _re.DOTALL
+        )
+        if json_match:
+            parsed = _json.loads(json_match.group())
+            
+            consenso_str = str(parsed.get("consenso", "")).lower()
+            consenso = consenso_str in ("si", "sí") or consenso_str == "parcial"
+            
+            # Si es "parcial", usar precio_reglas si existe
+            if consenso_str == "parcial" and resultado_reglas.get("precio_valido"):
+                precio_reco = resultado_reglas["precio_valido"]
+            else:
+                try:
+                    precio_reco = float(parsed.get("precio_recomendado"))
+                except (ValueError, TypeError):
+                    precio_reco = resultado_reglas.get("precio_valido")
+
+            return {
+                "consenso": consenso,
+                "precio_valido": round(precio_reco, 2) if precio_reco else None,
+                "razonamiento": parsed.get("razonamiento", ""),
+                "fuente_ia": "gemini",
+            }
+
+    except Exception as exc:
+        logger.warning(f"[consenso-ia] Error Gemini: {exc}")
+
+    return None
+
+
+# ──────────────────────────────────────────────
 # Actualización de estado en DB (validado / no validado)
 # ──────────────────────────────────────────────
 
@@ -387,13 +550,23 @@ def ejecutar() -> dict:
         grupos = agrupar_precios(rows)
         logger.info(f"[consenso] {len(grupos)} grupos (fecha × producto) encontrados.")
 
-        # ── Paso 3: Validar consenso para cada grupo ──
+        # ── Paso 3: Validar consenso para cada grupo (reglas básicas) ──
         validados = []
         no_consenso = []
+        ia_usada = 0
 
         for (fecha, producto), grupo_rows in sorted(grupos.items()):
             res = validar_consenso_grupo(grupo_rows, producto, fecha)
             resultados_validacion.append(res)
+
+            # Extraer precios con sus fuentes para la IA
+            precios_para_ia = []
+            for row in grupo_rows:
+                fuente = row["fuente"] if "fuente" in row.keys() else "desconocida"
+                precios_para_ia.append({
+                    "precio": row["precio"],
+                    "fuente": fuente,
+                })
 
             if res["consenso"]:
                 total_consenso += 1
@@ -403,10 +576,43 @@ def ejecutar() -> dict:
                     f"({res['detalles']})"
                 )
             else:
-                no_consenso.append(res)
-                logger.warning(
-                    f"[!] {fecha} | {producto}: Sin consenso — {res['detalles']}"
-                )
+                # ── Paso 3b: Intentar con IA como desempate ──
+                if len(grupo_rows) >= 2 and _obtener_config_llm():
+                    logger.info(
+                        f"[consenso-ia] Evaluando {fecha} | {producto} "
+                        f"con Gemini (reglas fallaron)..."
+                    )
+                    res_ia = validar_con_ia(
+                        fecha, producto, precios_para_ia, res
+                    )
+                    
+                    if res_ia and res_ia.get("consenso"):
+                        # La IA confirma consenso → actualizar resultado
+                        res["precio_valido"] = res_ia["precio_valido"]
+                        res["razonamiento_ia"] = res_ia["razonamiento"]
+                        res["fuente_ia"] = "gemini"
+                        total_consenso += 1
+                        validados.append(res)
+                        no_consenso.remove(res)
+                        ia_usada += 1
+                        
+                        logger.info(
+                            f"[IA+OK] {fecha} | {producto}: Q{res['precio_valido']:.2f} "
+                            f"(reglas=no, IA=si — {res_ia['razonamiento'][:50]}...)"
+                        )
+                    else:
+                        no_consenso.append(res)
+                        logger.warning(
+                            f"[!] {fecha} | {producto}: Sin consenso — {res['detalles']}"
+                        )
+                else:
+                    no_consenso.append(res)
+                    logger.warning(
+                        f"[!] {fecha} | {producto}: Sin consenso — {res['detalles']}"
+                    )
+
+        if ia_usada > 0:
+            logger.info(f"[consenso] IA usó como desempate: {ia_usada} caso(s)")
 
         # ── Paso 4: Marcar validados y registrar alertas ──
         marcados = marcar_precios_validados(conn, validados)
@@ -427,6 +633,7 @@ def ejecutar() -> dict:
             "sin_consenso": len(no_consenso),
             "alertas_registradas": total_alertas,
             "precio_validado": marcados,
+            "ia_usada_desempate": ia_usada,
             "detalles": resultados_validacion,
         }
 
