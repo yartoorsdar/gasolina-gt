@@ -1,5 +1,5 @@
 {
-  "actualizado_at": "2026-09-23T15:23:11+00:00",
+  "actualizado_at": "2026-09-23T18:20:47+00:00",
   "precios_combustible": [
     {
       "id": 2,
@@ -7,7 +7,7 @@
       "producto": "diésel",
       "precio": 50.5,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T15:22:59-06:00"
+      "fetched_at": "2026-09-23T18:20:34-06:00"
     },
     {
       "id": 1,
@@ -15,7 +15,7 @@
       "producto": "superior",
       "precio": 45.74,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T15:22:59-06:00"
+      "fetched_at": "2026-09-23T18:20:34-06:00"
     },
     {
       "id": 4,
@@ -23,14 +23,14 @@
       "producto": "regular",
       "precio": 41.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-23T15:22:59-06:00"
+      "fetched_at": "2026-09-23T18:20:34-06:00"
     }
   ],
   "petroleo": [
     {
       "referencia": "wti",
       "fecha": "2026-09-23",
-      "usd_barril": 91.24,
+      "usd_barril": 91.84,
       "fuente": "OilPriceAPI"
     }
   ],
@@ -46,7 +46,19 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxNbWUwcHd0VWxObFJIUWN0Nkp1Ukp6ZzRWOEktYThfeGt3d3RVR05DMTdOQXFienp0U3hxd210UklMYm10aVI2R1hLeHowTko2WXkwaWhLMFJrajN4ay11RV9LZm1FcWY5cXdkQmI0RmdBeTF5VmVMeEhIcDdQd29TdU9HNXY3ZWxnWl9oTUZ1Sl9OV3NsLTZTZWRTNUJWZUN6RWVQMGRLTmZaVnUtVnNCN1czSHpnZzNsTlNXRktDWjVzSnNEeEhF?oc=5\" target=\"_blank\">Ukrainian Drones Attack Russia’s Bashkortostan, Smoke Spotted Near Ufa Oil Refinery</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UNITED24 Media</font>",
-      "fetched_at": "2026-09-23T15:23:11-06:00"
+      "fetched_at": "2026-09-23T18:20:46-06:00"
+    },
+    {
+      "id": 41,
+      "url": "https://oilprice.com/Geopolitics/International/Uzbekistan-Eyes-Caspian-and-Black-Sea-Ports-to-Break-Out-of-Central-Asia.html",
+      "titulo": "Uzbekistan Eyes Caspian and Black Sea Ports to Break Out of Central Asia",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T13:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Uzbekistan is intent on establishing logistics lily pads on the shores of the Caspian and Black Seas to advance Tashkent’s Middle Corridor trade agenda. A statement published by President Shavkat Mirziyoyev’s office on September 21 revealed that Uzbek and Georgian officials have already signed an agreement to establish Uzbek warehousing and transport facilities at the Georgian Black Sea port of Poti. A feasibility study is being planned, the statement added. Uzbek trade officials also have plans",
+      "fetched_at": "2026-09-23T18:20:46-06:00"
     },
     {
       "id": 22,
@@ -58,7 +70,55 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVDFUdnM4Tm1wMjM1QURkT0hvV29kZ0xCV2F0bVFaRkVqUEROaWMwLWNfeXk4T2JVR010NjBBLXJWWnJwQ1hEcGU0emRzTDZRUUs0ODJ6ZHlVcm9hdERaTG1pd1BaLXQtUFBJc0xrdW54QnBOUURQN0RuNzFaWWhjcEV4dmJBd1FYcXJGcXhQNVBaWlBPRGZvOU5CZzhrZHJ4bHFCN2NqTUdRaXBQcWVSaGpXeEZ0Z19G?oc=5\" target=\"_blank\">Saudi Arabia Restarts East-West Pipeline to Resume Exports Days After Drone Attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Pipeline Technology Journal</font>",
-      "fetched_at": "2026-09-23T15:23:11-06:00"
+      "fetched_at": "2026-09-23T18:20:46-06:00"
+    },
+    {
+      "id": 12,
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNQ2dicHVMSExZUGZrTDA2c1g2N3U5R0VzTFR0ZXBSMUZPei1mMEhZTlBzdDkyOUZqUmFiOEs0UGdQam9ZRkJBZVJRcTg2T3FKVlpNWFQ1dUVDUUppYno5eFVUYklGWHd1N1IyWHpBeTlTbDIwd3lFN08yYnl5Q1o5NTNBVFdZWkI4eF9XTHJsLTdDV0JHRjVxTHM1Wk85UlZHWGVpa09rS3QyQ1IxU0tSZVo2Tlg0YXpNV1lwTEtnWHVxUE53eDc5S0NQajk3ZmxPVjg1eWVzRzR6QdIB9AFBVV95cUxNU0trb004aEpTTTROUXNZdzZNenNDN3BKbUNBZGRmV1QxVUQzMFNfdXBWbnNtYm51ZXhzb3BuSFl6S2RtLV9DOEtlVkp0MXdkbUtIampjN0VpZEJPSjB6OGxBRzY3dXdvdGxDUDFTdVBrVmNnRXV4Zm04SHdzTkFGZndtc19fMHhFdEtCam1mdHJZNW5xOGU5M2ZXeGV6TTNRVlVtRUg2NmRzS0VxSXlIYXpldDY5bjRhNGI5cUtIal9MN1o1V09TcDBrYnJuUzR4T0dhdkF0YkpDX3JVU1NLUlRIWmM3d0E1Nms3Ti03Z2JFd0Zx?oc=5",
+      "titulo": "Arabia Saudí se prepara para reabrir el oleoducto Este-Oeste tras su cierre por un ataque - Infobae",
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-23T12:37:40-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxNQ2dicHVMSExZUGZrTDA2c1g2N3U5R0VzTFR0ZXBSMUZPei1mMEhZTlBzdDkyOUZqUmFiOEs0UGdQam9ZRkJBZVJRcTg2T3FKVlpNWFQ1dUVDUUppYno5eFVUYklGWHd1N1IyWHpBeTlTbDIwd3lFN08yYnl5Q1o5NTNBVFdZWkI4eF9XTHJsLTdDV0JHRjVxTHM1Wk85UlZHWGVpa09rS3QyQ1IxU0tSZVo2Tlg0YXpNV1lwTEtnWHVxUE53eDc5S0NQajk3ZmxPVjg1eWVzRzR6QdIB9AFBVV95cUxNU0trb004aEpTTTROUXNZdzZNenNDN3BKbUNBZGRmV1QxVUQzMFNfdXBWbnNtYm51ZXhzb3BuSFl6S2RtLV9DOEtlVkp0MXdkbUtIampjN0VpZEJPSjB6OGxBRzY3dXdvdGxDUDFTdVBrVm",
+      "fetched_at": "2026-09-23T18:20:46-06:00"
+    },
+    {
+      "id": 42,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Imperial-Oil-Becomes-First-Major-Alberta-Energy-Company-to-Oppose-Separatism.html",
+      "titulo": "Imperial Oil Becomes First Major Alberta Energy Company to Oppose Separatism",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T12:30:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Imperial Oil chief executive John Whelan has stated his opposition to Alberta separatism, making this the first major energy company in the province to take a public position on the movement, Financial Post reported, citing Bloomberg.  \"As a national company, we believe a united Canada is the strongest position we can take to face the challenges and opportunities ahead,\" Whelan told a Calgary conference, adding that \"Canada and Alberta work best when people, products, energy and investment can m",
+      "fetched_at": "2026-09-23T18:20:46-06:00"
+    },
+    {
+      "id": 43,
+      "url": "https://oilprice.com/Energy/Energy-General/US-Energy-Secretary-Blunt-Tool-of-Banning-Diesel-Exports-Doesnt-Work.html",
+      "titulo": "U.S. Energy Secretary: Blunt Tool of Banning Diesel Exports Doesn't Work",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T12:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "US Energy Secretary Chris Wright has publicly opposed calls for a ban on US diesel exports, arguing on Wednesday that the measure would backfire by increasing gasoline and jet fuel prices. \"The blunt tool of banning diesel exports definitely doesn't ‌work,\" Wright said at an event in New York, as reported by Reuters. Wright said restricting exports would leave refiners with excess diesel inventories, forcing them to cut refinery output. Lower refinery runs, he warned, would tighten supplies of o",
+      "fetched_at": "2026-09-23T18:20:46-06:00"
+    },
+    {
+      "id": 44,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Dangotes-Kenya-Refinery-Project-Launches-This-Week-at-Up-to-20B.html",
+      "titulo": "Dangote's Kenya Refinery Project Launches This Week at Up to $20B",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T11:30:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Kenya breaks ground September 30 on the Dangote-backed East Africa Oil Refinery in Lamu, a project priced at $17 billion by Kenyan officials and $20 billion by Aliko Dangote himself, and designed to process 700,000 barrels of crude oil a day at Lamu's deep-water port. It would serve Kenya, Uganda, South Sudan, Rwanda, Burundi and the Democratic Republic of Congo. Disclosed financing for the project totals $1.6 billion against a price tag of $17 billion to $20 billion. Tanzanian billionaire Moham",
+      "fetched_at": "2026-09-23T18:20:46-06:00"
     },
     {
       "id": 24,
@@ -70,10 +130,22 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxPd1N0cEZSOUFtN2lpV25Xel9hVGVoZTFPdUJPd2RyQTJ4QmM5dTVta3FRalllVzBVa1h2anJiRTFUTTNucjh2ZEpVMUJXellaWnEwVDZhSG04czVuRms2QmJ4NVFMUEg1MV9CLUk0VDl6dmRMSWtVT1hxNk9YcWQ3dHphRE9obUhfejV1ZkprVVJlcTBFbGZKY1BmVEtaT25lMUJvT1BYWUk?oc=5\" target=\"_blank\">Video Does Not Show Houthi Attack on Israeli Oil Pipeline</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">موقع مسبار</font>",
-      "fetched_at": "2026-09-23T15:23:11-06:00"
+      "fetched_at": "2026-09-23T18:20:46-06:00"
     },
     {
-      "id": 41,
+      "id": 45,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Glencore-Joins-Project-Vault-With-500-Million-Cobalt-Commitment.html",
+      "titulo": "Glencore Joins Project Vault With $500 Million Cobalt Commitment",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T10:30:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Glencore committed $500 million to VaultCo, the Export-Import Bank public-private partnership sourcing critical minerals for a US government stockpile, Reuters reported Wednesday. The commitment makes Glencore the fourth supplier named to Project Vault, joining Hartree Partners, Mercuria Americas and Traxys seven months after EXIM's board approved the program's underlying loan. EXIM's board approved a $10-billion direct loan for Project Vault on February 2, 2026, paired with roughly $2 billion i",
+      "fetched_at": "2026-09-23T18:20:46-06:00"
+    },
+    {
+      "id": 46,
       "url": "https://oilprice.com/Metals/Commodities/Copper-Erases-Tariff-Selloff-as-Shanghai-Stockpiles-Hit-Three-Year-Low.html",
       "titulo": "Copper Erases Tariff Selloff as Shanghai Stockpiles Hit Three-Year Low",
       "medio": "OilPrice.com",
@@ -82,79 +154,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Copper closed Tuesday a hair below its all-time high, extending its winning streak to six sessions as Chinese buyers restocked ahead of back-to-back holidays and warehouse inventories in Shanghai and London kept draining. Three-month copper on the London Metal Exchange settled at $14,783 a metric ton, up 0.8%, according to Shanghai Metals Market, leaving it $92 short of the $14,875 record set Sept. 10. Comex copper for December delivery hit $6.871 a pound in New York during the session, within 2",
-      "fetched_at": "2026-09-23T15:23:11-06:00"
-    },
-    {
-      "id": 42,
-      "url": "https://oilprice.com/Energy/Energy-General/EIA-Reports-3M-Barrel-Crude-Build-as-Distillate-Stocks-Fall-12-Below-Average.html",
-      "titulo": "EIA Reports 3M Barrel Crude Build as Distillate Stocks Fall 12% Below Average",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T09:47:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Crude oil inventories in the United States saw an increase of 3 million barrels during the week ending September 18, according to new data from the U.S. Energy Information Administration (EIA) released on Wednesday. The increase brings commercial stockpiles to 426.4 million barrels, according to government data, which is now 2% above the five-year average for this time of year. The EIA’s data release follows API’s figures that were released a day earlier, which reported that crude oil inventorie",
-      "fetched_at": "2026-09-23T15:23:11-06:00"
-    },
-    {
-      "id": 43,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/Climate-Startup-Signs-CO2-Deals-With-Three-US-Oil-Producers.html",
-      "titulo": "Climate Startup Signs CO2 Deals With Three U.S. Oil Producers",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T09:30:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Cuts to U.S. federal incentives for carbon capture projects and an uncertain regulatory environment going forward have prompted some start-ups to move from solely capturing and storing carbon dioxide to selling it to oil companies to help them boost oil recovery.   Carbon management engineering company Spiritus, for example, has recently signed preliminary agreements with three U.S. oil and gas producers to sell them the captured CO2 for enhanced oil recovery (EOR).  The injection of CO2 into re",
-      "fetched_at": "2026-09-23T15:23:11-06:00"
-    },
-    {
-      "id": 26,
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeDh3VFZGMHdYRFFGVkd4VVcyUGV1bXZTZ2NSQVNYbVJpWVNJX1lvV1VuMEpvNGowTEw5S2tDOVlpdXZIQnZvQ3l1V3R2b3ZueURCZEI3VWlTbGxaU2t3ZENyMmp1MkdhTXgzRmhXczlEeFBYZVg1Z2JkT2REVHBJRDRBRExSNmhzMTlKTjA0MEU0Y1RQdV81WDAzbWVscGo4SnAyYzlZOURTUnROOFg4ZkdFbGl1ekVFZXZoTm9aQjJCZw?oc=5",
-      "titulo": "Kuibyshev Refinery Burns into Second Day Following Ukrainian Retaliatory Drone Strikes - UNITED24 Media",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-23T09:19:03-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeDh3VFZGMHdYRFFGVkd4VVcyUGV1bXZTZ2NSQVNYbVJpWVNJX1lvV1VuMEpvNGowTEw5S2tDOVlpdXZIQnZvQ3l1V3R2b3ZueURCZEI3VWlTbGxaU2t3ZENyMmp1MkdhTXgzRmhXczlEeFBYZVg1Z2JkT2REVHBJRDRBRExSNmhzMTlKTjA0MEU0Y1RQdV81WDAzbWVscGo4SnAyYzlZOURTUnROOFg4ZkdFbGl1ekVFZXZoTm9aQjJCZw?oc=5\" target=\"_blank\">Kuibyshev Refinery Burns into Second Day Following Ukrainian Retaliatory Drone Strikes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UNITED24 Media</font>",
-      "fetched_at": "2026-09-23T15:23:11-06:00"
-    },
-    {
-      "id": 44,
-      "url": "https://oilprice.com/Geopolitics/International/Chinas-80-Grip-on-Iranian-Oil-Looms-Over-Trump-Xi-Summit.html",
-      "titulo": "China's 80% Grip on Iranian Oil Looms Over Trump-Xi Summit",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T09:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Ahead of a high-stakes US-China summit planned for September 24 at the White House, Beijing appears to be spotlighting its influence over Iran to gain leverage during negotiations with its chief geopolitical rival. Expectations for a US-China breakthrough on Iran at the upcoming summit in Washington are low. Trump has signaled a focus on economic outcomes for this meeting with Xi and the Chinese leader has reciprocated by assembling a delegation of top business executives. But in the run-up to t",
-      "fetched_at": "2026-09-23T15:23:11-06:00"
-    },
-    {
-      "id": 25,
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQLV9fYnE5WHptSjVIVU9iVjVMbjNvMXhLMENZb0tuX3RFUlFsd25qV202d3pWbEhqbUJHd3dLMHc5QjU5LXFBdzhhR3ZlLXJ5eUJ5dGpDRDE4UTZBb3dmTWxQRWNpU2xEMnpxdUxRVWRXaEV2UUNsX05HOWxTWGJxQ2MtbkxPRDhOVUJ1dW1FSVVMcnNtR1MxV0pfVWpFLV9hWGFhYlFhclJNdFdCODc0dVk5d21xM0HSAbwBQVVfeXFMT2hmejZMV0ZRRE1taTNCa2tlSlNfWkthQ3NGUE43OTZ3YldlZUxENXliamtoVlBzOEVxUThVcWh1Y3EtaUZRZk5HTlpaRkxfQUhDS2tCVmdyUnVDNXBQdmZYRVhEN0Y3Yjhud20xLXc3Q28xYTdfUWI5OVlBTnU1TllRZWV5d0NKMVk2SlNUX3paSVRNRldNaUl3ak5rVmVMQWl1UWtFMGtFdDVVSGVLTmhnQ2ZYeWZuc0ZNR3E?oc=5",
-      "titulo": "Drones attack Bashkortostan, smoke seen near Ufa Oil Refinery – media - Ukrinform",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-23T08:25:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxQLV9fYnE5WHptSjVIVU9iVjVMbjNvMXhLMENZb0tuX3RFUlFsd25qV202d3pWbEhqbUJHd3dLMHc5QjU5LXFBdzhhR3ZlLXJ5eUJ5dGpDRDE4UTZBb3dmTWxQRWNpU2xEMnpxdUxRVWRXaEV2UUNsX05HOWxTWGJxQ2MtbkxPRDhOVUJ1dW1FSVVMcnNtR1MxV0pfVWpFLV9hWGFhYlFhclJNdFdCODc0dVk5d21xM0HSAbwBQVVfeXFMT2hmejZMV0ZRRE1taTNCa2tlSlNfWkthQ3NGUE43OTZ3YldlZUxENXliamtoVlBzOEVxUThVcWh1Y3EtaUZRZk5HTlpaRkxfQUhDS2tCVmdyUnVDNXBQdmZYRVhEN0Y3Yjhud20xLXc3Q28xYTdfUWI5OVlBTnU1TllRZWV5d0NKMVk2SlNUX3paSVRNRl",
-      "fetched_at": "2026-09-23T15:23:11-06:00"
-    },
-    {
-      "id": 45,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/TotalEnergies-to-Develop-Offshore-Gas-Field-to-Boost-Nigeria-LNG-Supply.html",
-      "titulo": "TotalEnergies to Develop Offshore Gas Field to Boost Nigeria LNG Supply",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T08:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "TotalEnergies has decided to invest in the development of the Ima gas field offshore Nigeria to increase supply for the expanding Nigeria LNG export plant, the French supermajor said on Wednesday. As operator and holder of a 40% interest in the Ima gas field, TotalEnergies and its local partner AMNI, owning the remaining 60%, have taken the final investment decision (FID) for the development of the field straddling the OML 112 and 117 offshore licenses in Nigeria. The Ima gas field, which lies i",
-      "fetched_at": "2026-09-23T15:23:11-06:00"
+      "fetched_at": "2026-09-23T18:20:46-06:00"
     }
   ]
 }
