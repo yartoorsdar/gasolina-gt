@@ -1,91 +1,55 @@
 {
-  "actualizado_at": "2026-09-23T12:50:28-06:00",
+  "actualizado_at": "2026-09-23T14:05:22-06:00",
   "precios_combustible": [
     {
-      "id": 6978,
-      "fecha_observacion": "2026-09-23",
+      "id": 2,
+      "fecha": "2026-09-23",
       "producto": "diésel",
       "precio": 50.5,
-      "incluye_impuestos": 1,
-      "regimen": "normal",
-      "nota": null,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T12:50:13-06:00",
-      "url": ""
+      "fetched_at": "2026-09-23T14:05:10-06:00"
     },
     {
-      "id": 6977,
-      "fecha_observacion": "2026-09-23",
+      "id": 1,
+      "fecha": "2026-09-23",
       "producto": "superior",
       "precio": 45.74,
-      "incluye_impuestos": 1,
-      "regimen": "normal",
-      "nota": null,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T12:50:13-06:00",
-      "url": ""
+      "fetched_at": "2026-09-23T14:05:10-06:00"
     },
     {
-      "id": 6957,
-      "fecha_observacion": "2026-09-21",
-      "producto": "diessel",
-      "precio": 50.5,
-      "incluye_impuestos": 1,
-      "regimen": "normal",
-      "nota": null,
-      "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T04:46:55-06:00",
-      "url": ""
-    },
-    {
-      "id": 6954,
-      "fecha_observacion": "2026-09-21",
+      "id": 4,
+      "fecha": "2026-09-05",
       "producto": "regular",
-      "precio": 42.58,
-      "incluye_impuestos": 1,
-      "regimen": "normal",
-      "nota": null,
-      "fuente": "Ministerio de Energía y Minas",
-      "fetched_at": "2026-09-23T00:00:19-06:00",
-      "url": null
+      "precio": 41.09,
+      "fuente": "Chapin TV",
+      "fetched_at": "2026-09-23T14:05:10-06:00"
     }
   ],
   "petroleo": [
     {
-      "id": 27761,
-      "fecha": "1987-05-20",
-      "referencia": "brent",
-      "usd_barril": 18.63,
-      "fuente": "FRED_Brent",
-      "url": null,
-      "fetched_at": "2026-09-23T00:40:54.835281"
-    },
-    {
-      "id": 36848,
-      "fecha": "1986-01-02",
       "referencia": "wti",
-      "usd_barril": 25.56,
-      "fuente": "FRED_Wti",
-      "url": null,
-      "fetched_at": "2026-09-23T00:40:54.835281"
+      "fecha": "2026-09-23",
+      "usd_barril": 91.75,
+      "fuente": "OilPriceAPI"
     }
   ],
-  "noticias_count": 90,
+  "noticias_count": 66,
   "ultimas_noticias": [
     {
-      "id": 5771,
-      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNQ2dicHVMSExZUGZrTDA2c1g2N3U5R0VzTFR0ZXBSMUZPei1mMEhZTlBzdDkyOUZqUmFiOEs0UGdQam9ZRkJBZVJRcTg2T3FKVlpNWFQ1dUVDUUppYno5eFVUYklGWHd1N1IyWHpBeTlTbDIwd3lFN08yYnl5Q1o5NTNBVFdZWkI4eF9XTHJsLTdDV0JHRjVxTHM1Wk85UlZHWGVpa09rS3QyQ1IxU0tSZVo2Tlg0YXpNV1lwTEtnWHVxUE53eDc5S0NQajk3ZmxPVjg1eWVzRzR6QdIB9AFBVV95cUxNU0trb004aEpTTTROUXNZdzZNenNDN3BKbUNBZGRmV1QxVUQzMFNfdXBWbnNtYm51ZXhzb3BuSFl6S2RtLV9DOEtlVkp0MXdkbUtIampjN0VpZEJPSjB6OGxBRzY3dXdvdGxDUDFTdVBrVmNnRXV4Zm04SHdzTkFGZndtc19fMHhFdEtCam1mdHJZNW5xOGU5M2ZXeGV6TTNRVlVtRUg2NmRzS0VxSXlIYXpldDY5bjRhNGI5cUtIal9MN1o1V09TcDBrYnJuUzR4T0dhdkF0YkpDX3JVU1NLUlRIWmM3d0E1Nms3Ti03Z2JFd0Zx?oc=5",
-      "titulo": "Arabia Saudí se prepara para reabrir el oleoducto Este-Oeste tras su cierre por un ataque - Infobae",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-23T12:37:40-06:00",
+      "id": 22,
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVDFUdnM4Tm1wMjM1QURkT0hvV29kZ0xCV2F0bVFaRkVqUEROaWMwLWNfeXk4T2JVR010NjBBLXJWWnJwQ1hEcGU0emRzTDZRUUs0ODJ6ZHlVcm9hdERaTG1pd1BaLXQtUFBJc0xrdW54QnBOUURQN0RuNzFaWWhjcEV4dmJBd1FYcXJGcXhQNVBaWlBPRGZvOU5CZzhrZHJ4bHFCN2NqTUdRaXBQcWVSaGpXeEZ0Z19G?oc=5",
+      "titulo": "Saudi Arabia Restarts East-West Pipeline to Resume Exports Days After Drone Attack - Pipeline Technology Journal",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-23T12:55:02-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxNQ2dicHVMSExZUGZrTDA2c1g2N3U5R0VzTFR0ZXBSMUZPei1mMEhZTlBzdDkyOUZqUmFiOEs0UGdQam9ZRkJBZVJRcTg2T3FKVlpNWFQ1dUVDUUppYno5eFVUYklGWHd1N1IyWHpBeTlTbDIwd3lFN08yYnl5Q1o5NTNBVFdZWkI4eF9XTHJsLTdDV0JHRjVxTHM1Wk85UlZHWGVpa09rS3QyQ1IxU0tSZVo2Tlg0YXpNV1lwTEtnWHVxUE53eDc5S0NQajk3ZmxPVjg1eWVzRzR6QdIB9AFBVV95cUxNU0trb004aEpTTTROUXNZdzZNenNDN3BKbUNBZGRmV1QxVUQzMFNfdXBWbnNtYm51ZXhzb3BuSFl6S2RtLV9DOEtlVkp0MXdkbUtIampjN0VpZEJPSjB6OGxBRzY3dXdvdGxDUDFTdVBrVm",
-      "fetched_at": "2026-09-23T12:50:28-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVDFUdnM4Tm1wMjM1QURkT0hvV29kZ0xCV2F0bVFaRkVqUEROaWMwLWNfeXk4T2JVR010NjBBLXJWWnJwQ1hEcGU0emRzTDZRUUs0ODJ6ZHlVcm9hdERaTG1pd1BaLXQtUFBJc0xrdW54QnBOUURQN0RuNzFaWWhjcEV4dmJBd1FYcXJGcXhQNVBaWlBPRGZvOU5CZzhrZHJ4bHFCN2NqTUdRaXBQcWVSaGpXeEZ0Z19G?oc=5\" target=\"_blank\">Saudi Arabia Restarts East-West Pipeline to Resume Exports Days After Drone Attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Pipeline Technology Journal</font>",
+      "fetched_at": "2026-09-23T14:05:22-06:00"
     },
     {
-      "id": 5781,
+      "id": 24,
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPd1N0cEZSOUFtN2lpV25Xel9hVGVoZTFPdUJPd2RyQTJ4QmM5dTVta3FRalllVzBVa1h2anJiRTFUTTNucjh2ZEpVMUJXellaWnEwVDZhSG04czVuRms2QmJ4NVFMUEg1MV9CLUk0VDl6dmRMSWtVT1hxNk9YcWQ3dHphRE9obUhfejV1ZkprVVJlcTBFbGZKY1BmVEtaT25lMUJvT1BYWUk?oc=5",
       "titulo": "Video Does Not Show Houthi Attack on Israeli Oil Pipeline - موقع مسبار",
       "medio": "Google News EN",
@@ -94,22 +58,34 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxPd1N0cEZSOUFtN2lpV25Xel9hVGVoZTFPdUJPd2RyQTJ4QmM5dTVta3FRalllVzBVa1h2anJiRTFUTTNucjh2ZEpVMUJXellaWnEwVDZhSG04czVuRms2QmJ4NVFMUEg1MV9CLUk0VDl6dmRMSWtVT1hxNk9YcWQ3dHphRE9obUhfejV1ZkprVVJlcTBFbGZKY1BmVEtaT25lMUJvT1BYWUk?oc=5\" target=\"_blank\">Video Does Not Show Houthi Attack on Israeli Oil Pipeline</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">موقع مسبار</font>",
-      "fetched_at": "2026-09-23T12:50:28-06:00"
+      "fetched_at": "2026-09-23T14:05:22-06:00"
     },
     {
-      "id": 4970,
+      "id": 26,
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeDh3VFZGMHdYRFFGVkd4VVcyUGV1bXZTZ2NSQVNYbVJpWVNJX1lvV1VuMEpvNGowTEw5S2tDOVlpdXZIQnZvQ3l1V3R2b3ZueURCZEI3VWlTbGxaU2t3ZENyMmp1MkdhTXgzRmhXczlEeFBYZVg1Z2JkT2REVHBJRDRBRExSNmhzMTlKTjA0MEU0Y1RQdV81WDAzbWVscGo4SnAyYzlZOURTUnROOFg4ZkdFbGl1ekVFZXZoTm9aQjJCZw?oc=5",
-      "titulo": "Kuibyshev Refinery Burns into Second Day Following Ukrainian Retaliatory Drone Strikes - UNITED24 Media",
+      "titulo": "Kuibyshev Refinery Burns into Second Day Following Ukrainian Retaliatory Drone Strikes - united24media.com",
       "medio": "Google News EN",
       "publicado_at": "2026-09-23T09:19:03-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeDh3VFZGMHdYRFFGVkd4VVcyUGV1bXZTZ2NSQVNYbVJpWVNJX1lvV1VuMEpvNGowTEw5S2tDOVlpdXZIQnZvQ3l1V3R2b3ZueURCZEI3VWlTbGxaU2t3ZENyMmp1MkdhTXgzRmhXczlEeFBYZVg1Z2JkT2REVHBJRDRBRExSNmhzMTlKTjA0MEU0Y1RQdV81WDAzbWVscGo4SnAyYzlZOURTUnROOFg4ZkdFbGl1ekVFZXZoTm9aQjJCZw?oc=5\" target=\"_blank\">Kuibyshev Refinery Burns into Second Day Following Ukrainian Retaliatory Drone Strikes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UNITED24 Media</font>",
-      "fetched_at": "2026-09-23T03:58:32-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeDh3VFZGMHdYRFFGVkd4VVcyUGV1bXZTZ2NSQVNYbVJpWVNJX1lvV1VuMEpvNGowTEw5S2tDOVlpdXZIQnZvQ3l1V3R2b3ZueURCZEI3VWlTbGxaU2t3ZENyMmp1MkdhTXgzRmhXczlEeFBYZVg1Z2JkT2REVHBJRDRBRExSNmhzMTlKTjA0MEU0Y1RQdV81WDAzbWVscGo4SnAyYzlZOURTUnROOFg4ZkdFbGl1ekVFZXZoTm9aQjJCZw?oc=5\" target=\"_blank\">Kuibyshev Refinery Burns into Second Day Following Ukrainian Retaliatory Drone Strikes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">united24media.com</font>",
+      "fetched_at": "2026-09-23T14:05:22-06:00"
     },
     {
-      "id": 5412,
+      "id": 41,
+      "url": "https://oilprice.com/Geopolitics/International/Chinas-80-Grip-on-Iranian-Oil-Looms-Over-Trump-Xi-Summit.html",
+      "titulo": "China's 80% Grip on Iranian Oil Looms Over Trump-Xi Summit",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-23T09:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Ahead of a high-stakes US-China summit planned for September 24 at the White House, Beijing appears to be spotlighting its influence over Iran to gain leverage during negotiations with its chief geopolitical rival. Expectations for a US-China breakthrough on Iran at the upcoming summit in Washington are low. Trump has signaled a focus on economic outcomes for this meeting with Xi and the Chinese leader has reciprocated by assembling a delegation of top business executives. But in the run-up to t",
+      "fetched_at": "2026-09-23T14:05:22-06:00"
+    },
+    {
+      "id": 25,
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQLV9fYnE5WHptSjVIVU9iVjVMbjNvMXhLMENZb0tuX3RFUlFsd25qV202d3pWbEhqbUJHd3dLMHc5QjU5LXFBdzhhR3ZlLXJ5eUJ5dGpDRDE4UTZBb3dmTWxQRWNpU2xEMnpxdUxRVWRXaEV2UUNsX05HOWxTWGJxQ2MtbkxPRDhOVUJ1dW1FSVVMcnNtR1MxV0pfVWpFLV9hWGFhYlFhclJNdFdCODc0dVk5d21xM0HSAbwBQVVfeXFMT2hmejZMV0ZRRE1taTNCa2tlSlNfWkthQ3NGUE43OTZ3YldlZUxENXliamtoVlBzOEVxUThVcWh1Y3EtaUZRZk5HTlpaRkxfQUhDS2tCVmdyUnVDNXBQdmZYRVhEN0Y3Yjhud20xLXc3Q28xYTdfUWI5OVlBTnU1TllRZWV5d0NKMVk2SlNUX3paSVRNRldNaUl3ak5rVmVMQWl1UWtFMGtFdDVVSGVLTmhnQ2ZYeWZuc0ZNR3E?oc=5",
       "titulo": "Drones attack Bashkortostan, smoke seen near Ufa Oil Refinery – media - Ukrinform",
       "medio": "Google News EN",
@@ -118,22 +94,22 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxQLV9fYnE5WHptSjVIVU9iVjVMbjNvMXhLMENZb0tuX3RFUlFsd25qV202d3pWbEhqbUJHd3dLMHc5QjU5LXFBdzhhR3ZlLXJ5eUJ5dGpDRDE4UTZBb3dmTWxQRWNpU2xEMnpxdUxRVWRXaEV2UUNsX05HOWxTWGJxQ2MtbkxPRDhOVUJ1dW1FSVVMcnNtR1MxV0pfVWpFLV9hWGFhYlFhclJNdFdCODc0dVk5d21xM0HSAbwBQVVfeXFMT2hmejZMV0ZRRE1taTNCa2tlSlNfWkthQ3NGUE43OTZ3YldlZUxENXliamtoVlBzOEVxUThVcWh1Y3EtaUZRZk5HTlpaRkxfQUhDS2tCVmdyUnVDNXBQdmZYRVhEN0Y3Yjhud20xLXc3Q28xYTdfUWI5OVlBTnU1TllRZWV5d0NKMVk2SlNUX3paSVRNRl",
-      "fetched_at": "2026-09-23T04:21:27-06:00"
+      "fetched_at": "2026-09-23T14:05:22-06:00"
     },
     {
-      "id": 5800,
+      "id": 42,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/TotalEnergies-to-Develop-Offshore-Gas-Field-to-Boost-Nigeria-LNG-Supply.html",
       "titulo": "TotalEnergies to Develop Offshore Gas Field to Boost Nigeria LNG Supply",
       "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T07:00:00-06:00",
+      "publicado_at": "2026-09-23T08:00:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
       "resumen_es": "TotalEnergies has decided to invest in the development of the Ima gas field offshore Nigeria to increase supply for the expanding Nigeria LNG export plant, the French supermajor said on Wednesday. As operator and holder of a 40% interest in the Ima gas field, TotalEnergies and its local partner AMNI, owning the remaining 60%, have taken the final investment decision (FID) for the development of the field straddling the OML 112 and 117 offshore licenses in Nigeria. The Ima gas field, which lies i",
-      "fetched_at": "2026-09-23T12:50:28-06:00"
+      "fetched_at": "2026-09-23T14:05:22-06:00"
     },
     {
-      "id": 5801,
+      "id": 43,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/Hormuz-Traffic-Running-80-Below-Its-10-Day-Average.html",
       "titulo": "Hormuz Traffic Running 80% Below Its 10-Day Average",
       "medio": "OilPrice.com",
@@ -142,10 +118,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Only three commodity vessels moved through the Strait of Hormuz in the past day, preliminary tanker-tracking data by Kpler showed on Wednesday, as the oil market weighs the potential resumption of U.S.-Iran talks against continued disruptions in the Middle East. The three commodity vessels, which included one Panamax oil tanker, transited the Strait of Hormuz outbound, according to Kpler’s data cited by Reuters. The observable traffic on Tuesday was below Monday’s four vessels that transited Hor",
-      "fetched_at": "2026-09-23T12:50:28-06:00"
+      "fetched_at": "2026-09-23T14:05:22-06:00"
     },
     {
-      "id": 5802,
+      "id": 44,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/Asias-Crude-Imports-Hit-Highest-Level-Since-the-Iran-War-Began.html",
       "titulo": "Asia's Crude Imports Hit Highest Level Since the Iran War Began",
       "medio": "OilPrice.com",
@@ -154,22 +130,22 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Asia is set to import the highest volumes of crude oil in September since February this year, when the Iran war started, crippled supply from the Middle East, and forced buyers in Asia to slash purchases.  Asia is expected to import 23.96 million barrels per day (bpd) of crude oil this month, per data compiled by Kpler and cited by Reuters’ Asia Commodities and Energy Columnist, Clyde Russell.  The crude imports in September would be higher than the 23.38 million bpd that arrived in the region i",
-      "fetched_at": "2026-09-23T12:50:28-06:00"
+      "fetched_at": "2026-09-23T14:05:22-06:00"
     },
     {
-      "id": 4975,
+      "id": 32,
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPSWZRRGRpXzJPdVlsZTVQRjlDUWRUN25Hd1dKTzFwcGNzR0lOX2dKZzUwNnZ4UmlQa1hoNHk1cW56Si1zMERkdGhHaVZ4QnVHcVJWa1I0UDZkLVY5UGQ5TU9rWEhLdzc5QmFyN1Rqby1hTzRpYVlhSUkwQ056QS16U2tpWkhVdWVHMDJ0OHdIUzZIN3BHTDdWN2dwTVQxWks4Q2I0UlZvTHZQdEMwc2F4Tg?oc=5",
-      "titulo": "How Ukraine’s devastating attacks on Putin’s oil refineries brought the war to Russia’s doorstep - independent.co.uk",
+      "titulo": "How Ukraine’s devastating attacks on Putin’s oil refineries brought the war to Russia’s doorstep - The Independent",
       "medio": "Google News EN",
       "publicado_at": "2026-09-23T05:29:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxPSWZRRGRpXzJPdVlsZTVQRjlDUWRUN25Hd1dKTzFwcGNzR0lOX2dKZzUwNnZ4UmlQa1hoNHk1cW56Si1zMERkdGhHaVZ4QnVHcVJWa1I0UDZkLVY5UGQ5TU9rWEhLdzc5QmFyN1Rqby1hTzRpYVlhSUkwQ056QS16U2tpWkhVdWVHMDJ0OHdIUzZIN3BHTDdWN2dwTVQxWks4Q2I0UlZvTHZQdEMwc2F4Tg?oc=5\" target=\"_blank\">How Ukraine’s devastating attacks on Putin’s oil refineries brought the war to Russia’s doorstep</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">independent.co.uk</font>",
-      "fetched_at": "2026-09-23T03:58:32-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMisAFBVV95cUxPSWZRRGRpXzJPdVlsZTVQRjlDUWRUN25Hd1dKTzFwcGNzR0lOX2dKZzUwNnZ4UmlQa1hoNHk1cW56Si1zMERkdGhHaVZ4QnVHcVJWa1I0UDZkLVY5UGQ5TU9rWEhLdzc5QmFyN1Rqby1hTzRpYVlhSUkwQ056QS16U2tpWkhVdWVHMDJ0OHdIUzZIN3BHTDdWN2dwTVQxWks4Q2I0UlZvTHZQdEMwc2F4Tg?oc=5\" target=\"_blank\">How Ukraine’s devastating attacks on Putin’s oil refineries brought the war to Russia’s doorstep</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Independent</font>",
+      "fetched_at": "2026-09-23T14:05:22-06:00"
     },
     {
-      "id": 5135,
+      "id": 45,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Set-for-Longest-Losing-Streak-Since-August-2025.html",
       "titulo": "Oil Set for Longest Losing Streak Since August 2025",
       "medio": "OilPrice.com",
@@ -178,19 +154,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Oil prices fell in Asian trading on Wednesday and were on course for a sixth consecutive day of declines as the first U.S.-Iran talks in months revived hopes of a deal and eased concerns about oil supply from the Middle East.  In Wednesday trade in Asia, Brent Crude prices dipped by about 1% to $98.30, after falling on Tuesday below the $100 a barrel mark. The U.S. benchmark, WTI Crude, fell by 1.4% to below the $ 90-a-barrel threshold and traded at $89.49.   Oil prices extended the losses that ",
-      "fetched_at": "2026-09-23T04:14:12-06:00"
-    },
-    {
-      "id": 4987,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/100-Brent-Keeping-Chinas-Oil-Buying-in-Check-Goldman-Says.html",
-      "titulo": "$100 Brent Keeping China's Oil Buying in Check, Goldman Says",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T04:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "China's crude oil exports will rise only slightly in the fourth quarter from the third quarter if oil prices remain high, potentially easing the upward pressure on benchmark crude prices, Goldman Sachs says. China's crude oil imports rose for the second consecutive month in August as refiners turned to additional non-Middle Eastern supply and boosted overseas fuel shipments amid eased export restrictions. China imported 8.93 million bpd of crude oil in August, up by 6.2% compared to July, and fu",
-      "fetched_at": "2026-09-23T03:58:32-06:00"
+      "fetched_at": "2026-09-23T14:05:22-06:00"
     }
   ]
 }
