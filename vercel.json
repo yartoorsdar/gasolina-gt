@@ -1,14 +1,6 @@
 {
-  "outputDirectory": ".",
   "framework": null,
-  "routes": [
-    { "src": "/resumen\\.json$", "headers": { "Content-Type": "application/json" }, "dest": "/resumen.json" },
-    { "src": "/consolidado\\.json$", "headers": { "Content-Type": "application/json" }, "dest": "/consolidado.json" },
-    { "src": "/precios_combustible\\.json$", "headers": { "Content-Type": "application/json" }, "dest": "/precios_combustible.json" },
-    { "src": "/petroleo\\.json$", "headers": { "Content-Type": "application/json" }, "dest": "/petroleo.json" },
-    { "src": "/noticias\\.json$", "headers": { "Content-Type": "application/json" }, "dest": "/noticias.json" },
-    { "src": "/historial_precios\\.json$", "headers": { "Content-Type": "application/json" }, "dest": "/historial_precios.json" },
-    { "src": "/historial_petroleo\\.json$", "headers": { "Content-Type": "application/json" }, "dest": "/historial_petroleo.json" },
-    { "src": "/(.*)", "dest": "/$1" }
+  "builds": [
+    { "src": "**", "use": "@vercel/static" }
   ]
 }
