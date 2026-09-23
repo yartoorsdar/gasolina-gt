@@ -471,7 +471,8 @@
             <!-- Precios de combustible -->
             <div class="grid grid-2">
                 <div class="card glass-card glass-card-animated" id="glassDemoCard">
-                    <h2 style="text-align:center;">&#x26FD; Precios Combustible (Area Metropolitana)</h2>
+                    <h2 style="text-align:center;">&#x26FD; Precios Combustible</h2>
+                    <p style="text-align:center;margin:-4px 0 12px;font-size:0.9rem;color:var(--text-muted);">(Area Metropolitana)</p>
                     <div id="preciosCombustible"></div>
                     <!-- Gráfica de tendencia semanal -->
                     <div style="text-align:center;margin-top:16px;">
@@ -645,7 +646,7 @@
             });
 
             let html = '';
-            const orden = ['superior', 'regular', 'diésel'];
+            const orden = ['regular', 'superior', 'diésel'];
             const productos = { superior: 'Gasolina Superior', regular: 'Gasolina Regular', diésel: 'Diésel' };
 
             // Ordenar estable por el orden definido
