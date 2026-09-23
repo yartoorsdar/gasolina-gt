@@ -1,15 +1,16 @@
-name: Daily Update — GPP + Petróleo + Noticias
+name: Weekly Update — Precios MEM (PDF)
 
 on:
-  # Cada día a las 08:00 AM (hora Guatemala = UTC-6)
+  # Lunes y Martes a las 09:00 AM (hora Guatemala = UTC-6)
   schedule:
-    - cron: '0 14 * * *'  # 14:00 UTC = 08:00 CST
+    - cron: '0 15 * * 1'   # Lunes 09:00
+    - cron: '0 15 * * 2'   # Martes 09:00
 
   # Ejecución manual desde GitHub UI
   workflow_dispatch:
 
 jobs:
-  update-daily:
+  update-pdfs:
     runs-on: windows-latest
 
     steps:
@@ -31,13 +32,13 @@ jobs:
           New-Item -ItemType Directory -Force -Path "data\inbox\historico"
           New-Item -ItemType Directory -Force -Path "logs"
 
-      - name: Run GPP + petróleo + noticias + export JSONs
+      - name: Run PDF + historico + export JSONs
         env:
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
           OILPRICEAPI_KEY: ${{ secrets.OILPRICEAPI_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          python collector/main.py --alternos --petroleo --noticias --export
+          python collector/main.py --precios-mem --historico --export
 
       - name: Commit and push updated JSONs
         run: |
@@ -47,7 +48,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "::notice::No changes to commit."
           else
-            git commit -m "Daily update: GPP + petróleo + noticias [skip ci]"
+            git commit -m "Weekly update: precios MEM PDF [skip ci]"
             git push
             echo "::notice::✅ JSONs pushed"
           fi
