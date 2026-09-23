@@ -575,29 +575,24 @@
                 return;
             }
 
-            // Normalizar nombres de producto (diessel → diésel, etc.)
+            // Normalizar nombres de producto a forma canónica
             const normalizar = (nombre) => {
-                const map = { 'diessel': 'diésel' };
-                return map[nombre] || nombre;
+                const n = nombre.toLowerCase().trim();
+                if (n === 'diessel' || n === 'diesel') return 'diésel';
+                if (n === 'super' || n === 'superior') return 'superior';
+                if (n === 'regular' || n === 'reg') return 'regular';
+                return nombre;
             };
 
             precios.forEach(p => p.producto = normalizar(p.producto));
 
-            // Deduplicar: preferir MEM sobre otras fuentes
-            const seen = new Map();
-            for (const p of precios) {
-                const key = p.producto;
-                if (!seen.has(key)) {
-                    seen.set(key, p);
-                } else {
-                    // Preferir MEM si la nueva entrada no es MEM y la existente sí
-                    const existing = seen.get(key);
-                    if (existing.fuente !== 'Ministerio de Energía y Minas' && p.fuente === 'Ministerio de Energía y Minas') {
-                        seen.set(key, p);
-                    }
-                }
-            }
-            precios = Array.from(seen.values());
+            // Deduplicar: mantener solo el primer precio por producto
+            const vistos = new Set();
+            precios = precios.filter(p => {
+                if (vistos.has(p.producto)) return false;
+                vistos.add(p.producto);
+                return true;
+            });
 
             let html = '';
             const orden = ['superior', 'regular', 'diésel'];
@@ -628,7 +623,6 @@
             container.innerHTML = html;
 
             // ── Gráfica de barras comparativa ──
-            // Guardar datos para animación
             window.__weekData = precios;
             startWeeklyAnimation();
         }
