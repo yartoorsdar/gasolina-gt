@@ -31,8 +31,7 @@ def _default_db_path() -> str:
 def crear_tablas(conn: sqlite3.Connection) -> None:
     """Crea las tablas si no existen."""
     conn.executescript("""
-        DROP TABLE IF EXISTS precios;
-        CREATE TABLE precios (
+        CREATE TABLE IF NOT EXISTS precios (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             fecha TEXT NOT NULL,
             producto TEXT NOT NULL,
@@ -43,8 +42,7 @@ def crear_tablas(conn: sqlite3.Connection) -> None:
         CREATE UNIQUE INDEX IF NOT EXISTS idx_precios_fecha_prod
             ON precios(fecha, producto);
 
-        DROP TABLE IF EXISTS noticias;
-        CREATE TABLE noticias (
+        CREATE TABLE IF NOT EXISTS noticias (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             url TEXT NOT NULL,
             titulo TEXT NOT NULL,
@@ -59,8 +57,7 @@ def crear_tablas(conn: sqlite3.Connection) -> None:
         CREATE UNIQUE INDEX IF NOT EXISTS idx_noticias_url
             ON noticias(url);
 
-        DROP TABLE IF EXISTS ejecuciones;
-        CREATE TABLE ejecuciones (
+        CREATE TABLE IF NOT EXISTS ejecuciones (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             inicio TEXT NOT NULL,
             fin TEXT,
