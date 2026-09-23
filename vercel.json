@@ -1,5 +1,6 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/$1" }
+  "routes": [
+    { "src": "/(resumen|consolidado|precios_combustible|petroleo|noticias|historial_precios|historial_petroleo)\\.json$", "dest": "/$1.json" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
