@@ -4,6 +4,7 @@
     { "src": "web/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/$1" }
+    { "src": "/(resumen|consolidado|precios_combustible|petroleo|noticias|historial_precios|historial_petroleo)\\.json", "dest": "/web/$1.json" },
+    { "src": "/(.*)", "dest": "/web/$1" }
   ]
 }
