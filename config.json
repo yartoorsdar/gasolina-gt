@@ -39,7 +39,8 @@
     ]
   },
   "llm": {
-    "base_url": "",
-    "model": ""
+    "base_url": "https://generativelanguage.googleapis.com/v1beta",
+    "model": "gemini-3.6-flash",
+    "api_key": ""
   }
 }

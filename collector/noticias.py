@@ -188,6 +188,7 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
     llm_cfg = cfg.get("llm", {})
     base_url = llm_cfg.get("base_url", "").strip()
     model = llm_cfg.get("model", "").strip()
+    api_key = os.environ.get("GEMINI_API_KEY", llm_cfg.get("api_key", "")).strip()
 
     if not base_url or not model:
         return None
@@ -201,23 +202,40 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
     )
 
     try:
-        resp = requests.post(
-            f"{base_url}/v1/chat/completions",
-            json={
-                "model": model,
-                "messages": [
-                    {"role": "system", "content": "Eres un analista de energia. Responde solo con JSON."},
-                    {"role": "user", "content": prompt},
-                ],
-                "temperature": 0.3,
-            },
-            timeout=30,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-
-        # Extraer el contenido del response y parsear JSON
-        content = data["choices"][0]["message"]["content"]
+        # Detectar si es Gemini nativo (base_url contiene generativelanguage)
+        if "generativelanguage" in base_url:
+            resp = requests.post(
+                f"{base_url}/models/{model}:generateContent?key={api_key}",
+                json={
+                    "contents": [{
+                        "parts": [
+                            {"text": "Eres un analista de energia. Responde SOLO con JSON.\n\n" + prompt}
+                        ]
+                    }],
+                    "generationConfig": {"temperature": 0.3},
+                },
+                timeout=30,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            content = data["candidates"][0]["content"]["parts"][0]["text"]
+        else:
+            # OpenAI compatible (DeepSeek, etc.)
+            resp = requests.post(
+                f"{base_url}/v1/chat/completions",
+                json={
+                    "model": model,
+                    "messages": [
+                        {"role": "system", "content": "Eres un analista de energia. Responde solo con JSON."},
+                        {"role": "user", "content": prompt},
+                    ],
+                    "temperature": 0.3,
+                },
+                timeout=30,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            content = data["choices"][0]["message"]["content"]
 
         # Buscar JSON dentro del texto de respuesta
         import re as _re
