@@ -569,11 +569,35 @@
 
         function renderPreciosCombustible(data) {
             const container = document.getElementById('preciosCombustible');
-            const precios = data.precios_combustible || [];
+            let precios = data.precios_combustible || [];
             if (!precios || precios.length === 0) {
                 container.innerHTML = '<p style="color:var(--text-muted);">Sin datos disponibles</p>';
                 return;
             }
+
+            // Normalizar nombres de producto (diessel → diésel, etc.)
+            const normalizar = (nombre) => {
+                const map = { 'diessel': 'diésel' };
+                return map[nombre] || nombre;
+            };
+
+            precios.forEach(p => p.producto = normalizar(p.producto));
+
+            // Deduplicar: preferir MEM sobre otras fuentes
+            const seen = new Map();
+            for (const p of precios) {
+                const key = p.producto;
+                if (!seen.has(key)) {
+                    seen.set(key, p);
+                } else {
+                    // Preferir MEM si la nueva entrada no es MEM y la existente sí
+                    const existing = seen.get(key);
+                    if (existing.fuente !== 'Ministerio de Energía y Minas' && p.fuente === 'Ministerio de Energía y Minas') {
+                        seen.set(key, p);
+                    }
+                }
+            }
+            precios = Array.from(seen.values());
 
             let html = '';
             const orden = ['superior', 'regular', 'diésel'];
@@ -1962,9 +1986,6 @@
         // ──────────────────────────────────────────
 
         async function cargarDashboard() {
-            // DEBUG: escribir inmediatamente para verificar que JS corre
-            document.getElementById('loading').textContent = 'Iniciando fetch...';
-            
             const loadingEl = document.getElementById('loading');
             const errorEl = document.getElementById('error');
             const contentEl = document.getElementById('content');
