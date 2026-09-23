@@ -3,9 +3,9 @@
     {
       "referencia": "wti",
       "fecha": "2026-09-23",
-      "usd_barril": 92.0,
+      "usd_barril": 92.09,
       "fuente": "OilPriceAPI"
     }
   ],
-  "actualizado_at": "2026-09-23T14:09:13-06:00"
+  "actualizado_at": "2026-09-23T14:12:24-06:00"
 }
