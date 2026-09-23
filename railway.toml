@@ -1,0 +1,7 @@
+[build]
+builder = "DOCKERFILE"
+
+[deploy]
+healthcheckPath = "/web/index.html"
+healthcheckTimeout = 120
+restartPolicyType = "ALWAYS"

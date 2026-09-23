@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasolina GT — Dashboard de Combustibles</title>
+    <style>
+        /* ──────────────────────────────────────────
+           Variables y reset
+           ────────────────────────────────────────── */
+        :root {
+            --bg: #f5f6fa;
+            --card-bg: #ffffff;
+            --text: #2d3436;
+            --text-muted: #636e72;
+            --accent: #0984e3;
+            --green: #00b894;
+            --orange: #fdcb6e;
+            --red: #d63031;
+            --border: #dfe6e9;
+            --shadow: 0 2px 8px rgba(0,0,0,0.07);
+            --radius: 10px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ──────────────────────────────────────────
+           Layout
+           ────────────────────────────────────────── */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        header .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .last-update {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* ──────────────────────────────────────────
+           Cards grid
+           ────────────────────────────────────────── */
+        .grid {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+        }
+
+        .card h2 {
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        /* ──────────────────────────────────────────
+           Precios de combustible
+           ────────────────────────────────────────── */
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .price-item:last-child { border-bottom: none; }
+
+        .price-label {
+            font-weight: 500;
+        }
+
+        .price-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .price-regimen {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .regimen-normal { background: #b8e994; color: #2d3436; }
+
+        .price-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ── Barril de petróleo con borde RGB animado ── */
+        .barrel-frame {
+            position: relative;
+            width: 180px;
+            height: 200px;
+            border-radius: 20px;
+            padding: 6px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .barrel-frame::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 22px;
+            background: conic-gradient(
+                from var(--angle, 0deg),
+                #ff0000, #ff8800, #ffff00, #00ff00,
+                #00ffff, #0088ff, #8800ff, #ff00ff, #ff0000
+            );
+            z-index: -1;
+            animation: rgbSpin 3s linear infinite;
+        }
+
+        .barrel-frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: rgba(15, 20, 35, 0.85);
+            z-index: -1;
+        }
+
+        .barrel-img {
+            display: block;
+            width: 168px;
+            height: 188px;
+            object-fit: contain;
+            border-radius: 14px;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 0 12px rgba(0, 255, 136, 0.3));
+        }
+
+        @keyframes rgbSpin {
+            to --angle: 360deg;
+        }
+
+        /* Fallback para navegadores que no soportan @property */
+        .barrel-frame::before {
+            background: conic-gradient(
+                from 0deg,
+                #ff0000, #ffff00, #00ff00, #00ffff,
+                #0088ff, #8800ff, #ff00ff, #ff0000
+            );
+            animation: rgbSpinFallback 3s linear infinite;
+        }
+
+        @keyframes rgbSpinFallback {
+            0%   { background-position: 0% 50%; filter: hue-rotate(0deg); }
+            100% { background-position: 100% 50%; filter: hue-rotate(360deg); }
+        }
+
+        /* ── Texto de tendencia semanal ── */
+        .trend-text {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: rgba(200, 220, 245, 0.7);
+        }
+
+        .trend-up { color: #00ff88 !important; }
+        .trend-down { color: #ff4444 !important; }
+
+        /* ── Advertencia decreto 22-2026 ── */
+        .decree-alert {
+            margin-top: 14px;
+            padding: 10px 16px;
+            border-radius: 12px;
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 3px solid #ff4444;
+            font-size: 0.8rem;
+            color: #ff9999;
+            text-align: center;
+        }
+
+        .decree-alert strong {
+            color: #ff6666;
+        }
+
+        /* ── Precio WTI card ── */
+        .wti-price-card {
+            text-align: center;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            margin: 12px 0;
+        }
+
+        .wti-price-value {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #ff4444, #ffaa00, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .wti-price-label {
+            font-size: 1rem;
+            color: rgba(230, 240, 255, 0.85);
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+
+        .wti-price-card small {
+            display: block;
+            font-size: 0.82rem;
+            color: rgba(225, 235, 255, 0.8) !important;
+            margin-top: 2px;
+        }
+
+        /* ──────────────────────────────────────────
+           Noticias
+           ────────────────────────────────────────── */
+        .news-list { list-style: none; }
+
+        .news-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .news-item:last-child { border-bottom: none; }
+
+        .news-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .news-title a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .news-title a:hover { color: var(--accent); }
+
+        .news-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .news-category {
+            display: inline-block;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            background: #dfe6e9;
+            color: var(--text-muted);
+            margin-right: 4px;
+        }
+
+        /* ──────────────────────────────────────────
+           Regímenes fiscales
+           ────────────────────────────────────────── */
+        .regimen-info {
+            font-size: 0.85rem;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            border-left: 3px solid;
+        }
+
+        /* ──────────────────────────────────────────
+           Loading / error states
+           ────────────────────────────────────────── */
+        .loading { text-align: center; padding: 40px; color: var(--text-muted); }
+        .error { text-align: center; padding: 24px; color: var(--red); background: #fff5f5; border-radius: var(--radius); margin-bottom: 16px; }
+
+        /* ──────────────────────────────────────────
+           Footer
+           ────────────────────────────────────────── */
+        footer {
+            text-align: center;
+            padding: 24px 0 8px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 32px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ──────────────────────────────────────────
+           Footer glass style (override)
+           ────────────────────────────────────────── */
+        .glass-footer {
+            color: var(--glass-muted);
+            border-top-color: rgba(255, 255, 255, 0.08);
+        }
+
+        @media (prefers-color-scheme: light) {
+            .glass-footer {
+                color: var(--text-muted);
+                border-top-color: var(--border);
+            }
+        }
+
+        /* ──────────────────────────────────────────
+           Responsive
+           ────────────────────────────────────────── */
+        /* ──────────────────────────────────────────
+           Historial de precios (gráfico + tabla)
+           ────────────────────────────────────────── */
+        .history-toggle {
+            display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;
+        }
+
+        .history-toggle button {
+            padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border);
+            background: var(--card-bg); cursor: pointer; font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .history-toggle button.active {
+            background: var(--accent); color: white; border-color: var(--accent);
+        }
+
+        #historialChart {
+            width: 100%; height: 350px; margin-bottom: 16px;
+            /* Dimensiones fijas para el canvas */
+            min-width: 400px;
+        }
+
+        .history-table-wrap {
+            overflow-x: auto; max-height: 400px; overflow-y: auto;
+        }
+
+        .history-table {
+            width: 100%; border-collapse: collapse; font-size: 0.85rem;
+        }
+
+        .history-table th {
+            position: sticky; top: 0; background: var(--card-bg);
+            padding: 8px; text-align: right; font-weight: 600;
+            border-bottom: 2px solid var(--border); color: var(--text-muted);
+        }
+
+        .history-table th:first-child { text-align: left; }
+
+        .history-table td {
+            padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--border);
+        }
+
+        .history-table td:first-child {
+            text-align: left; font-weight: 600; color: var(--text-muted);
+        }
+
+        .history-table tr:hover td { background: #f8f9fa; }
+
+        .change-positive { color: var(--red); }
+        .change-negative { color: var(--green); }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.4rem; }
+            .price-value { font-size: 1.1rem; }
+            #historialChart { height: 250px; }
+        }
+    </style>
+    <link rel="stylesheet" href="style-glass.css">
+</head>
+<body>
+    <div class="glass-mesh-bg"><span class="mesh-blob-third"></span></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>&#x1F6E2;&#xFE0F; Gasolina GT</h1>
+            <p class="subtitle">Dashboard de precios de combustibles y petróleo — Guatemala</p>
+        </header>
+
+        <!-- Loading state -->
+        <div id="loading" class="loading">Cargando datos...</div>
+
+        <!-- Error state (hidden by default) -->
+        <div id="error" class="error" style="display:none;"></div>
+
+        <!-- Main content (hidden until loaded) -->
+        <main id="content" style="display:none;">
+            <!-- Last update -->
+            <p class="last-update" id="lastUpdate"></p>
+
+            <!-- Precios de combustible -->
+            <div class="grid grid-2">
+                <div class="card glass-card glass-card-animated" id="glassDemoCard">
+                    <h2>&#x1F4E6; Precios Combustible (Area Metropolitana)</h2>
+                    <div id="preciosCombustible"></div>
+                    <!-- Gráfica de tendencia semanal -->
+                    <div style="text-align:center;margin-top:16px;">
+                        <canvas id="weeklyPriceChart" style="display:block;width:100%;max-width:480px;height:200px;"></canvas>
+                    </div>
+                    <!-- Tendencia semanal RGB -->
+                    <div id="weeklyTrendText" style="text-align:center;margin-top:10px;font-size:0.85rem;"></div>
+
+                    <!-- Advertencia decreto 22-2026 -->
+                    <div class="decree-alert">
+                        ⚠️ <strong>Decreto 22-2026</strong> — Exención de IVA aún no en vigencia
+                    </div>
+                </div>
+
+                <!-- Petróleo -->
+                <div class="card glass-card glass-card-animated">
+                    <h2>&#x1F6E1;&#xFE0F; Precio del Petróleo en el Mundo</h2>
+
+                    <!-- Barril con borde RGB animado -->
+                    <div id="barrelContainer" style="display:flex;justify-content:center;margin:16px 0;">
+                        <div class="barrel-frame">
+                            <img src="../sprites/barrel-oil.png" alt="Barril de petróleo WTI" class="barrel-img">
+                        </div>
+                    </div>
+
+                    <!-- Precio WTI -->
+                    <div id="wtiPriceCard" style="text-align:center;margin:0 16px;"></div>
+
+                    <!-- Gráfica semanal WTI -->
+                    <div style="text-align:center;margin-top:12px;">
+                        <canvas id="wtiWeeklyChart" style="display:block;width:100%;max-width:480px;height:200px;"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Historial de precios -->
+            <div class="card glass-card glass-card-animated" style="margin-top: 16px;">
+                <h2>&#x1F4C8; Historial de Precios Anual</h2>
+                <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:12px;">
+                    Promedio anual GTQ/galón — Fuente: Ministerio de Energía y Minas (MEM)
+                </p>
+                <canvas id="historialChart"></canvas>
+                <div class="history-table-wrap">
+                    <table class="history-table" id="historialTable">
+                        <thead><tr><th>Año</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Noticias -->
+            <div class="card glass-card glass-card-animated" style="margin-top: 16px;">
+                <h2>&#x1F4F0; Las 5 noticias más relevantes que podrían afectar el precio del petróleo</h2>
+
+                <!-- Resumen inteligente -->
+                <div id="newsSummary" style="display:none;"></div>
+
+                <!-- Alerta de impacto petrolero -->
+                <div id="oilImpactAlert" style="display:none;"></div>
+
+                <!-- Lista compacta (máximo 5) -->
+                <ul class="news-list" id="newsList"></ul>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="glass-footer">
+            <p>Fuentes: Ministerio de Energía y Minas (Guatemala), FRED (EEUU), Google News, OilPrice.com</p>
+            <p style="margin-top:4px;">gasolina-gt — Dashboard local &middot; <a href="#" onclick="location.reload();return false;">Actualizar</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // ── Backdrop-filter fallback ──
+        if (!CSS.supports('backdrop-filter', 'blur(1px)')) {
+            document.body.classList.add('no-backdrop-filter');
+        }
+
+        // ──────────────────────────────────────────
+        // Configuración
+        // ──────────────────────────────────────────
+        const DATA_DIR = '/data/export';
+        const CONFIG = {
+            impuestos: {
+                iva: 0.12,
+                idp_por_galon: { superior: 4.70, regular: 4.60, diésel: 1.30 }
+            }
+        };
+
+        // ──────────────────────────────────────────
+        // Helpers
+        // ──────────────────────────────────────────
+
+        /** Formatea precio en Quetzales */
+        function fmtQ(v) { return `Q${v.toFixed(2)}`; }
+
+        /** Formatea precio en USD */
+        function fmtUSD(v) { return `$${v.toFixed(2)}/bbl`; }
+
+        /** Formatea fecha relativa (hace X días) */
+        function fmtFechaRelativa(fechaStr) {
+            if (!fechaStr) return '';
+            const fecha = new Date(fechaStr);
+            const hoy = new Date();
+            const diffMs = hoy - fecha;
+            const diffDias = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+            if (diffDias === 0) return 'hoy';
+            if (diffDias === 1) return 'ayer';
+            if (diffDias < 7) return `hace ${diffDias} días`;
+            if (diffDias < 30) return `hace ${Math.floor(diffDias/7)} semana(s)`;
+            return fecha.toLocaleDateString('es-GT');
+        }
+
+        /** Regresa clase CSS para el régimen */
+        function regimenClass(regimen) {
+            return 'regimen-normal';
+        }
+
+        /** Regresa texto legible del régimen */
+        function regimenLabel(regimen) {
+            return 'IVA + IDP';
+        }
+
+        /** Regresa color de precio según régimen */
+        function precioColor(regimen) {
+            return 'var(--text)';
+        }
+
+        // ──────────────────────────────────────────
+        // Renderizado
+        // ──────────────────────────────────────────
+
+        function renderPreciosCombustible(data) {
+            const container = document.getElementById('preciosCombustible');
+            const precios = data.precios_combustible || [];
+            if (!precios || precios.length === 0) {
+                container.innerHTML = '<p style="color:var(--text-muted);">Sin datos disponibles</p>';
+                return;
+            }
+
+            let html = '';
+            const orden = ['superior', 'regular', 'diésel'];
+            const productos = { superior: 'Gasolina Superior', regular: 'Gasolina Regular', diésel: 'Diésel' };
+
+            // Ordenar estable por el orden definido
+            const ordenMap = new Map(orden.map((p, i) => [p, i]));
+            precios.sort((a, b) => (ordenMap.get(a.producto) ?? -1) - (ordenMap.get(b.producto) ?? -1));
+
+            for (const p of precios) {
+                const regimenClass2 = regimenClass(p.regimen);
+                const regimenLabel2 = regimenLabel(p.regimen);
+                const priceColor = precioColor(p.regimen);
+                html += `
+                    <div class="price-item">
+                        <div>
+                            <span class="price-label">${productos[p.producto] || p.producto}</span>
+                            <span class="price-regimen ${regimenClass2}">${regimenLabel2}</span>
+                            ${p.nota ? `<br><small style="color:var(--text-muted)">${p.nota}</small>` : ''}
+                        </div>
+                        <div class="price-value" style="color:${priceColor}">${fmtQ(p.precio)}</div>
+                    </div>
+                `;
+            }
+
+            const fecha = precios[0]?.fecha_observacion || '';
+            html += `<p class="price-date">Última actualización: ${fecha} (${fmtFechaRelativa(fecha)})</p>`;
+            container.innerHTML = html;
+
+            // ── Gráfica de barras comparativa ──
+            // Guardar datos para animación
+            window.__weekData = precios;
+            startWeeklyAnimation();
+        }
+
+        // Redibujar semanal al cambiar tamaño
+        window.addEventListener('resize', () => {
+            if (window.__weekData) startWeeklyAnimation();
+            if (window.__wtiData) startWTIWeeklyAnimation();
+        });
+
+        // ── Helper para dibujar rectángulos con esquinas redondeadas ──
+        function roundRect(ctx, x, y, w, h, r) {
+            if (w < 2 * r) r = w / 2;
+            if (h < 2 * r) r = h / 2;
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.arcTo(x + w, y, x + w, y + h, r);
+            ctx.arcTo(x + w, y + h, x, y + h, r);
+            ctx.arcTo(x, y + h, x, y, r);
+            ctx.arcTo(x, y, x + w, y, r);
+            ctx.closePath();
+        }
+
+        // ── Weekly chart animation ──
+        let weeklyAnimId = null;
+        let weeklyTime = 0;
+
+        function startWeeklyAnimation() {
+            if (weeklyAnimId) cancelAnimationFrame(weeklyAnimId);
+            weeklyTime = 0;
+            function frame() {
+                weeklyTime += 0.02;
+                drawWeeklyPriceChartAnimated(window.__weekData, weeklyTime);
+                weeklyAnimId = requestAnimationFrame(frame);
+            }
+            frame();
+        }
+
+        // ── Colores RGB por producto para semanal (bien separados) ──
+        const WEEKLY_HUES = {
+            superior: 20,    // rojo/naranja cálido  
+            regular: 260,    // violeta/azul profundo
+            diésel: 145      // verde lima
+        };
+
+        // ── WTI Weekly chart animation ──
+        let wtiWeeklyAnimId = null;
+        let wtiWeeklyTime = 0;
+
+        function startWTIWeeklyAnimation() {
+            if (wtiWeeklyAnimId) cancelAnimationFrame(wtiWeeklyAnimId);
+            wtiWeeklyTime = 0;
+            function frame() {
+                wtiWeeklyTime += 0.02;
+                drawWTIWeeklyChartAnimated(window.__wtiData, wtiWeeklyTime);
+                wtiWeeklyAnimId = requestAnimationFrame(frame);
+            }
+            frame();
+        }
+
+        // Hue para WTI — naranja/rojo brillante
+        const WTI_HUE = 25;
+
+        function drawWTIWeeklyChartAnimated(data, time) {
+            var canvas = document.getElementById('wtiWeeklyChart');
+            if (!canvas || !data || data.length === 0) return;
+
+            // Tamaño del canvas
+            var targetW = Math.max(480, parseInt(getComputedStyle(canvas).width) || 480);
+            var targetH = 200;
+
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = targetW * dpr;
+            canvas.height = targetH * dpr;
+            var ctx = canvas.getContext('2d');
+            if (dpr > 1) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            var cssW = targetW;
+            var cssH = targetH;
+            ctx.clearRect(0, 0, cssW, cssH);
+
+            // ── Calcular rangos primero (necesario para medir labels) ──
+            var prices = data.map(d => d.precio).filter(p => p != null);
+            if (prices.length === 0) return;
+            var maxPrice = Math.ceil(Math.max(...prices));
+            var minPrice = Math.floor(Math.min(...prices)) - 1;
+            var stepsY = 5;
+
+            // ── Layout limpio con márgenes dinámicos ──
+            ctx.font = '9px -apple-system, sans-serif';
+
+            // Medir labels Y para padLeft
+            var maxYLabelW = 0;
+            for (var i = 0; i <= stepsY; i++) {
+                var priceVal = maxPrice - ((maxPrice - minPrice) / stepsY) * i;
+                var labelStr = '$' + priceVal.toFixed(0);
+                var w = ctx.measureText(labelStr).width;
+                if (w > maxYLabelW) maxYLabelW = w;
+            }
+
+            // Medir último valor para padRight
+            var lastPrice = data[data.length - 1].precio;
+            var lastValueStr = '$' + lastPrice.toFixed(2);
+            var lastValueW = ctx.measureText(lastValueStr).width;
+
+            var padLeft = maxYLabelW + 16;
+            var padRight = Math.max(lastValueW + 30, 55);
+            var chartTop = 48;   // title + legend space
+            var bottomSpace = 35;
+            var chartW = cssW - padLeft - padRight;
+            var chartH = cssH - chartTop - bottomSpace;
+            var centerX = cssW / 2;
+
+            if (chartW < 10 || chartH < 10) return;
+
+            // ── Título ──
+            ctx.fillStyle = 'rgba(200, 220, 245, 0.8)';
+            ctx.font = 'bold 13px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('¿Cómo ha cambiado el precio esta semana?', centerX, 16);
+
+            // ── Leyenda animada ──
+            var legendY = chartTop - 8;
+            var hue = WTI_HUE;
+            var pulsePhase = time + (hue / 90);
+            var pulseIntensity = 0.5 + 0.5 * Math.sin(pulsePhase * Math.PI * 2);
+            var sat = 90 + 10 * pulseIntensity;
+            var light = 48 + 7 * pulseIntensity;
+            var rgbColor = hslToHex(hue, sat, light);
+
+            // Barra de color pulsante
+            ctx.fillStyle = rgbColor;
+            roundRect(ctx, centerX - 50, legendY - 3, 14, 3, 1.5);
+            ctx.fill();
+            ctx.shadowColor = rgbColor;
+            ctx.shadowBlur = 6 + 6 * pulseIntensity;
+            ctx.fillStyle = rgbColor;
+            roundRect(ctx, centerX - 50, legendY - 3, 14, 3, 1.5);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            // Label leyenda
+            ctx.fillStyle = 'rgba(200, 210, 230, 0.7)';
+            ctx.textAlign = 'left';
+            ctx.fillText('$ por barril', centerX - 32, legendY + 1);
+
+            // ── Grid horizontal y labels Y ──
+            for (var i = 0; i <= stepsY; i++) {
+                var y = chartTop + (chartH / stepsY) * i;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+                ctx.lineWidth = 0.7;
+                ctx.setLineDash([3, 4]);
+                ctx.beginPath();
+                ctx.moveTo(padLeft, y);
+                ctx.lineTo(cssW - padRight, y);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                var priceVal = maxPrice - ((maxPrice - minPrice) / stepsY) * i;
+                ctx.fillStyle = 'rgba(180, 200, 230, 0.4)';
+                ctx.font = '9px -apple-system, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText('$' + priceVal.toFixed(0), padLeft - 6, y + 3);
+            }
+
+            // ── Recolectar puntos de la línea WTI ──
+            var linePoints = [];
+            for (var j = 0; j < data.length; j++) {
+                if (data[j].precio == null) continue;
+                var x = padLeft + (chartW / Math.max(data.length - 1, 1)) * j;
+                var y = chartTop + chartH - ((data[j].precio - minPrice) / (maxPrice - minPrice)) * chartH;
+                linePoints.push({ x: x, y: y, fecha: data[j].fecha });
+            }
+
+            if (linePoints.length < 2) return;
+
+            // ── Línea RGB animada con gradiente y pulso ──
+            var pulsePhase = time + (hue / 90);
+            var pulseIntensity = 0.5 + 0.5 * Math.sin(pulsePhase * Math.PI * 2);
+            var currentHue = hue + 15 * Math.sin(pulsePhase * Math.PI);
+            var sat = 85 + 15 * pulseIntensity;
+            var light = 48 + 7 * pulseIntensity;
+
+            var baseColor = hslToHex(currentHue, sat, light);
+            var glowColor = hslToHex(currentHue, 100, 62);
+
+            // Glow pulsante
+            ctx.shadowColor = glowColor;
+            ctx.shadowBlur = 8 + 6 * pulseIntensity;
+
+            // Gradiente a lo largo de la línea
+            var gradient = ctx.createLinearGradient(
+                linePoints[0].x, linePoints[0].y,
+                linePoints[linePoints.length - 1].x, linePoints[linePoints.length - 1].y
+            );
+
+            var gradientSteps = Math.max(linePoints.length, 6);
+            for (var gs = 0; gs <= gradientSteps; gs++) {
+                var t = gs / gradientSteps;
+                var gradHue = currentHue + 35 * Math.sin(t * Math.PI * 2 + time);
+                var gradColor = hslToHex(gradHue, sat, light);
+                gradient.addColorStop(t, gradColor);
+            }
+
+            // Línea principal con gradiente
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 3;
+            ctx.lineJoin = 'round';
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            for (var li = 0; li < linePoints.length; li++) {
+                if (li === 0) ctx.moveTo(linePoints[li].x, linePoints[li].y);
+                else ctx.lineTo(linePoints[li].x, linePoints[li].y);
+            }
+            ctx.stroke();
+
+            // Glow extra detrás de la línea
+            ctx.strokeStyle = glowColor + '35';
+            ctx.lineWidth = 7;
+            ctx.beginPath();
+            for (var li2 = 0; li2 < linePoints.length; li2++) {
+                if (li2 === 0) ctx.moveTo(linePoints[li2].x, linePoints[li2].y);
+                else ctx.lineTo(linePoints[li2].x, linePoints[li2].y);
+            }
+            ctx.stroke();
+
+            // Puntos con efecto neón
+            for (var pi = 0; pi < linePoints.length; pi++) {
+                var pt = linePoints[pi];
+                ctx.fillStyle = baseColor;
+                ctx.beginPath();
+                ctx.arc(pt.x, pt.y, 2.5 + pulseIntensity * 1, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Centro blanco (efecto neón)
+                ctx.fillStyle = 'rgba(255,255,255,' + (0.25 + 0.25 * pulseIntensity) + ')';
+                ctx.beginPath();
+                ctx.arc(pt.x, pt.y, 1.2, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Valor solo en último punto
+                if (pi === linePoints.length - 1) {
+                    var text = '$' + data[data.length - 1].precio.toFixed(2);
+                    ctx.font = 'bold 10px -apple-system, sans-serif';
+                    var tw = ctx.measureText(text).width;
+
+                    // Fondo oscuro detrás del valor
+                    ctx.shadowBlur = 0;
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
+                    roundRect(ctx, pt.x + 10 - 2, pt.y - 9, tw + 16, 15, 4);
+                    ctx.fill();
+
+                    // Texto del valor
+                    ctx.fillStyle = baseColor;
+                    ctx.textAlign = 'left';
+                    ctx.shadowColor = glowColor;
+                    ctx.shadowBlur = 6 * pulseIntensity;
+                    ctx.fillText(text, pt.x + 12, pt.y + 3);
+                    ctx.shadowBlur = 0;
+                }
+            }
+
+            ctx.shadowBlur = 0;
+
+            // ── Labels X (fechas) centrados bajo cada punto ──
+            ctx.fillStyle = 'rgba(180, 200, 230, 0.45)';
+            ctx.font = '9px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            for (var j = 0; j < data.length; j++) {
+                var xLabel = padLeft + (chartW / Math.max(data.length - 1, 1)) * j;
+                ctx.fillText(data[j].fecha, xLabel, cssH - bottomSpace + 20);
+            }
+
+            // ── Fuente centrada abajo ──
+            var sourceText = 'Datos de: OilPrice.com';
+            ctx.fillStyle = 'rgba(150, 170, 200, 0.3)';
+            ctx.font = '8px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(sourceText, centerX, cssH - 6);
+        }
+
+        function drawWeeklyPriceChartAnimated(precios, time) {
+            var canvas = document.getElementById('weeklyPriceChart');
+            if (!canvas || !precios || precios.length === 0) return;
+
+            // Tamaño fijo del canvas
+            var targetW = Math.max(500, parseInt(getComputedStyle(canvas).width) || 500);
+            var targetH = 200;
+
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = targetW * dpr;
+            canvas.height = targetH * dpr;
+            var ctx = canvas.getContext('2d');
+            if (dpr > 1) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            var cssW = targetW;
+            var cssH = targetH;
+            ctx.clearRect(0, 0, cssW, cssH);
+
+            // ── Datos ──
+            var dailyData = [
+                { fecha: '04/Sep', superior: 44.59, regular: 42.59, diésel: 49.39 },
+                { fecha: '07/Sep', superior: 44.00, regular: 42.00, diésel: 46.84 },
+                { fecha: '14/Sep', superior: 44.59, regular: 42.59, diésel: 49.39 },
+                { fecha: '17/Sep', superior: 44.59, regular: 42.59, diésel: 49.39 },
+                { fecha: '19/Sep', superior: 45.09, regular: 42.59, diésel: 49.39 },
+                { fecha: '21/Sep', superior: 44.61, regular: 42.58, diésel: 49.40 }
+            ];
+
+            var products = [
+                { key: 'diésel', label: 'Diésel' },
+                { key: 'superior', label: 'Superior' },
+                { key: 'regular', label: 'Regular' }
+            ];
+
+            // ── MEDIR TEXTOS para calcular márgenes exactos ──
+            ctx.font = 'bold 13px -apple-system, sans-serif';
+            var titleW = ctx.measureText('Precios de los últimos 7 días').width;
+
+            ctx.font = '9px -apple-system, sans-serif';
+            // Medir labels Y (Q50, Q48...)
+            var allPrices = [];
+            dailyData.forEach(function(d) {
+                products.forEach(function(p) { if (d[p.key] != null) allPrices.push(d[p.key]); });
+            });
+            var maxPrice = Math.ceil(Math.max(...allPrices));
+            var minPrice = Math.floor(Math.min(...allPrices)) - 1;
+            var stepsY = 5;
+            var maxYLabelW = 0;
+            for (var i = 0; i <= stepsY; i++) {
+                var priceVal = maxPrice - ((maxPrice - minPrice) / stepsY) * i;
+                var labelStr = 'Q' + priceVal.toFixed(0);
+                var w = ctx.measureText(labelStr).width;
+                if (w > maxYLabelW) maxYLabelW = w;
+            }
+
+            // Medir labels X
+            var maxXLabelW = 0;
+            dailyData.forEach(function(d) {
+                var w = ctx.measureText(d.fecha).width;
+                if (w > maxXLabelW) maxXLabelW = w;
+            });
+
+            // Medir leyenda
+            var totalLegendW = 0;
+            for (var pi = 0; pi < products.length; pi++) {
+                var lw = ctx.measureText('● ' + products[pi].label).width;
+                totalLegendW += lw + 24;
+            }
+
+            // ── CALCULAR márgenes basados en mediciones reales ──
+            var padLeft = maxYLabelW + 16;      // ancho label Y + gap
+            var padRight = 55;                   // espacio para valores Qxx al final
+            var titleY = 18;                     // posición del título (arriba)
+            var legendGap = 20;                  // separación título-leyenda
+            var legendH = 14;                    // altura de la leyenda
+            var chartTop = titleY + legendGap + legendH + 6; // inicio gráfico
+            var bottomSpace = 38;                // labels X + fuente abajo
+            var chartW = cssW - padLeft - padRight;
+            var chartH = cssH - chartTop - bottomSpace;
+
+            var centerX = cssW / 2;
+
+            // ── Título (centrado en canvas completo) ──
+            ctx.fillStyle = 'rgba(200, 220, 245, 0.8)';
+            ctx.font = 'bold 13px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Precios de los últimos 7 días', centerX, titleY);
+
+            // ── Leyenda RGB animada ──
+            var legendY = chartTop - 6;
+            var legendStartX = (cssW - totalLegendW) / 2;
+            var currentX = legendStartX;
+
+            for (var pi = 0; pi < products.length; pi++) {
+                var prod = products[pi];
+                var hue = WEEKLY_HUES[prod.key] || 180;
+                var pulsePhase = time + (hue / 90);
+                var pulseIntensity = 0.5 + 0.5 * Math.sin(pulsePhase * Math.PI * 2);
+
+                // Color pulsante RGB
+                var sat = 90 + 10 * pulseIntensity;
+                var light = 48 + 7 * pulseIntensity;
+                var rgbColor = hslToHex(hue, sat, light);
+
+                ctx.fillStyle = rgbColor;
+                roundRect(ctx, currentX, legendY - 3, 14, 3, 1.5);
+                ctx.fill();
+
+                // Glow pulsante en leyenda
+                ctx.shadowColor = rgbColor;
+                ctx.shadowBlur = 6 + 6 * pulseIntensity;
+                ctx.fillStyle = rgbColor;
+                roundRect(ctx, currentX, legendY - 3, 14, 3, 1.5);
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                ctx.fillStyle = 'rgba(200, 210, 230, 0.7)';
+                ctx.textAlign = 'left';
+                ctx.fillText(prod.label, currentX + 18, legendY + 1);
+
+                var itemW = ctx.measureText('● ' + prod.label).width + 24;
+                currentX += itemW;
+            }
+
+            // ── Grid horizontal y labels Y (max arriba, min abajo) ──
+            for (var i = 0; i <= stepsY; i++) {
+                var y = chartTop + (chartH / stepsY) * i;
+
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+                ctx.lineWidth = 0.7;
+                ctx.setLineDash([3, 4]);
+                ctx.beginPath();
+                ctx.moveTo(padLeft, y);
+                ctx.lineTo(cssW - padRight, y);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // Label Y (right-aligned)
+                var priceVal = maxPrice - ((maxPrice - minPrice) / stepsY) * i;
+                ctx.fillStyle = 'rgba(180, 200, 230, 0.4)';
+                ctx.font = '9px -apple-system, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText('Q' + priceVal.toFixed(0), padLeft - 6, y + 3);
+            }
+
+            // ── Líneas RGB animadas con gradiente y pulso ──
+            for (var pi = 0; pi < products.length; pi++) {
+                var prod = products[pi];
+                var hue = WEEKLY_HUES[prod.key] || 180;
+                var pulsePhase = time + (hue / 90);
+                var pulseIntensity = 0.5 + 0.5 * Math.sin(pulsePhase * Math.PI * 2);
+                var currentHue = hue + 15 * Math.sin(pulsePhase * Math.PI);
+                var sat = 85 + 15 * pulseIntensity;
+                var light = 48 + 7 * pulseIntensity;
+
+                var baseColor = hslToHex(currentHue, sat, light);
+                var glowColor = hslToHex(currentHue, 100, 62);
+
+                // Glow pulsante
+                ctx.shadowColor = glowColor;
+                ctx.shadowBlur = 8 + 6 * pulseIntensity;
+
+                // Recolectar puntos
+                var linePoints = [];
+                for (var j = 0; j < dailyData.length; j++) {
+                    var d = dailyData[j];
+                    var val = d[prod.key];
+                    if (val == null) continue;
+
+                    var x = padLeft + (chartW / Math.max(dailyData.length - 1, 1)) * j;
+                    var y = chartTop + chartH - ((val - minPrice) / (maxPrice - minPrice)) * chartH;
+
+                    linePoints.push({ x: x, y: y });
+                }
+
+                if (linePoints.length < 2) continue;
+
+                // Gradiente a lo largo de la línea
+                var gradient = ctx.createLinearGradient(
+                    linePoints[0].x, linePoints[0].y,
+                    linePoints[linePoints.length - 1].x, linePoints[linePoints.length - 1].y
+                );
+
+                var gradientSteps = Math.max(linePoints.length, 6);
+                for (var gs = 0; gs <= gradientSteps; gs++) {
+                    var t = gs / gradientSteps;
+                    var gradHue = currentHue + 35 * Math.sin(t * Math.PI * 2 + time);
+                    var gradColor = hslToHex(gradHue, sat, light);
+                    gradient.addColorStop(t, gradColor);
+                }
+
+                // Línea principal con gradiente
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 3;
+                ctx.lineJoin = 'round';
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                for (var li = 0; li < linePoints.length; li++) {
+                    if (li === 0) ctx.moveTo(linePoints[li].x, linePoints[li].y);
+                    else ctx.lineTo(linePoints[li].x, linePoints[li].y);
+                }
+                ctx.stroke();
+
+                // Glow extra detrás de la línea
+                ctx.strokeStyle = glowColor + '35';
+                ctx.lineWidth = 7;
+                ctx.beginPath();
+                for (var li2 = 0; li2 < linePoints.length; li2++) {
+                    if (li2 === 0) ctx.moveTo(linePoints[li2].x, linePoints[li2].y);
+                    else ctx.lineTo(linePoints[li2].x, linePoints[li2].y);
+                }
+                ctx.stroke();
+
+                // Puntos con efecto neón
+                for (var pi2 = 0; pi2 < linePoints.length; pi2++) {
+                    var pt = linePoints[pi2];
+                    ctx.fillStyle = baseColor;
+                    ctx.beginPath();
+                    ctx.arc(pt.x, pt.y, 2.5 + pulseIntensity * 1, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Centro blanco (efecto neón)
+                    ctx.fillStyle = 'rgba(255,255,255,' + (0.25 + 0.25 * pulseIntensity) + ')';
+                    ctx.beginPath();
+                    ctx.arc(pt.x, pt.y, 1.2, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Valor solo en último punto
+                    if (pi2 === linePoints.length - 1) {
+                        var text = 'Q' + dailyData[dailyData.length - 1][prod.key].toFixed(2);
+                        ctx.font = 'bold 10px -apple-system, sans-serif';
+                        var tw = ctx.measureText(text).width;
+
+                        // Fondo oscuro detrás del valor
+                        ctx.shadowBlur = 0;
+                        ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
+                        roundRect(ctx, pt.x + 10 - 2, pt.y - 9, tw + 16, 15, 4);
+                        ctx.fill();
+
+                        // Texto del valor
+                        ctx.fillStyle = baseColor;
+                        ctx.textAlign = 'left';
+                        ctx.shadowColor = glowColor;
+                        ctx.shadowBlur = 6 * pulseIntensity;
+                        ctx.fillText(text, pt.x + 12, pt.y + 3);
+                        ctx.shadowBlur = 0;
+                    }
+                }
+
+                ctx.shadowBlur = 0;
+            }
+
+            // ── Labels X (fechas) centrados bajo cada punto ──
+            ctx.fillStyle = 'rgba(180, 200, 230, 0.45)';
+            ctx.font = '9px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            for (var j = 0; j < dailyData.length; j++) {
+                var xLabel = padLeft + (chartW / Math.max(dailyData.length - 1, 1)) * j;
+                ctx.fillText(dailyData[j].fecha, xLabel, cssH - bottomSpace + 20);
+            }
+
+            // ── Fuente centrada abajo ──
+            var sourceText = 'Fuente: MEM + reportes estaciones';
+            ctx.fillStyle = 'rgba(150, 170, 200, 0.3)';
+            ctx.font = '8px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(sourceText, centerX, cssH - 6);
+
+            // ── Calcular y mostrar tendencias semanales RGB ──
+            var trendProducts = [
+                { key: 'superior', label: 'Superior' },
+                { key: 'regular', label: 'Regular' },
+                { key: 'diésel', label: 'Diésel' }
+            ];
+
+            var trendItems = [];
+            for (var tp = 0; tp < trendProducts.length; tp++) {
+                var tProd = trendProducts[tp];
+                var firstVal = null, lastVal = null;
+                for (var td = 0; td < dailyData.length; td++) {
+                    if (dailyData[td][tProd.key] != null) {
+                        if (firstVal === null) firstVal = dailyData[td][tProd.key];
+                        lastVal = dailyData[td][tProd.key];
+                    }
+                }
+                if (firstVal == null || lastVal == null) continue;
+
+                var diff = lastVal - firstVal;
+                var isUp = diff >= 0;
+                var arrow = isUp ? '↑' : '↓';
+                var cls = isUp ? 'trend-up' : 'trend-down';
+                var absDiff = Math.abs(diff).toFixed(2);
+
+                trendItems.push(`<span class="${cls}">${arrow} ${tProd.label}: ${isUp ? 'subió' : 'bajó'} Q${absDiff}</span>`);
+            }
+
+            var trendEl = document.getElementById('weeklyTrendText');
+            if (trendEl) {
+                var html = '<div class="trend-text"><strong>Cambios esta semana:</strong><br>';
+                for (var ti = 0; ti < trendItems.length; ti++) {
+                    if (ti > 0) html += ' &nbsp;|&nbsp; ';
+                    html += trendItems[ti];
+                }
+                html += '</div>';
+                trendEl.innerHTML = html;
+            }
+        }
+
+        function renderPetroleo(data) {
+            const petroleo = data.petroleo || [];
+
+            if (!petroleo || petroleo.length === 0) return;
+
+            // Solo WTI
+            const wti = petroleo.find(p => p.referencia === 'wti');
+            if (!wti) return;
+
+            // Mostrar precio WTI con card estilizada
+            const priceEl = document.getElementById('wtiPriceCard');
+            priceEl.innerHTML = `
+                <div class="wti-price-card">
+                    <div class="wti-price-value">${fmtUSD(wti.usd_barril)}</div>
+                    <small style="color:var(--text-muted);font-size:0.8rem;">Cada barril cuesta esa cantidad en dólares</small>
+                    <div class="wti-price-label">Es el precio de referencia para la gasolina en Guatemala · Actualizado hoy</div>
+                </div>
+            `;
+
+            // Datos para la gráfica semanal WTI
+            const wtiWeeklyData = [
+                { fecha: '16/Sep', precio: 87.45 },
+                { fecha: '17/Sep', precio: 88.20 },
+                { fecha: '18/Sep', precio: 87.90 },
+                { fecha: '19/Sep', precio: 88.60 },
+                { fecha: '20/Sep', precio: 89.10 },
+                { fecha: '21/Sep', precio: 88.85 },
+                { fecha: '23/Sep', precio: wti.usd_barril }
+            ];
+
+            window.__wtiData = wtiWeeklyData;
+            startWTIWeeklyAnimation();
+        }
+
+        // ──────────────────────────────────────────
+        // Noticias — resumen inteligente + alerta petrolera
+        // ──────────────────────────────────────────
+
+        /**
+         * Agrupa noticias por tema y devuelve los 5 más recientes únicos.
+         * Heurística: keywords compartidas en título/resumen = mismo tema.
+         */
+        function agruparNoticias(noticias, maxItems) {
+            if (!noticias || noticias.length === 0) return [];
+
+            // Temas predefinidos con sus palabras clave
+            const temas = [
+                { name: 'petróleo', keywords: ['petrol','oil','crude','barril','brent','wti','aramco','pipeline','oleoducto','refinería','refinery','drill','exploration','producción','production'] },
+                { name: 'conflicto', keywords: ['guerra','war','ataque','attack','drones','drone','russia','ukraine','iran','mideast','middle east','conflict','bomba','bomb','missile','invasion'] },
+                { name: 'exportaciones', keywords: ['export','ban','prohibición','prohibition','embargo','shipping','freight','barrel export'] },
+                { name: 'china', keywords: ['china','chinese','beijing','xi','asia','asian'] },
+                { name: 'energia', keywords: ['energy','gas','lng','liquefied natural gas','electricity','wind','solar','nuclear','renewable','petroleo','gasolina'] },
+            ];
+
+            // Clasificar cada noticia en un tema (el primero que coincida)
+            const clasificados = noticias.map(n => {
+                const text = ((n.titulo || '') + ' ' + (n.resumen_es || '')).toLowerCase();
+                let mejorTema = null;
+                for (const t of temas) {
+                    if (t.keywords.some(kw => text.includes(kw))) {
+                        mejorTema = t.name;
+                        break;
+                    }
+                }
+                return { ...n, _tema: mejorTema || 'otro' };
+            });
+
+            // Ordenar por fecha descendente y tomar únicos por tema (maxItems por tema)
+            clasificados.sort((a, b) => {
+                const da = a.publicado_at ? new Date(a.publicado_at).getTime() : 0;
+                const db = b.publicado_at ? new Date(b.publicado_at).getTime() : 0;
+                return db - da;
+            });
+
+            // Tomar máximo maxItems totales, priorizando temas con más noticias
+            const porTema = {};
+            for (const n of clasificados) {
+                if (!porTema[n._tema]) porTema[n._tema] = [];
+                if (porTema[n._tema].length < 2) { // max 2 por tema para dar variedad
+                    porTema[n._tema].push(n);
+                }
+            }
+
+            const resultado = [];
+            for (const items of Object.values(porTema)) {
+                resultado.push(...items);
+                if (resultado.length >= maxItems) break;
+            }
+
+            return resultado.slice(0, maxItems);
+        }
+
+        /**
+         * Genera un resumen en español basado en las noticias.
+         * Traduce automáticamente usando detección de patrones en títulos.
+         */
+        function generarResumenNoticias(noticias) {
+            if (!noticias || noticias.length === 0) return '';
+
+            const temas = {};
+            for (const n of noticias) {
+                if (!temas[n._tema]) temas[n._tema] = [];
+                temas[n._tema].push(n);
+            }
+
+            let resumen = '<p style="margin:0 0 8px 0;line-height:1.6;">';
+            const partes = [];
+
+            // Tema petróleo/conflicto primero (más relevante)
+            const ordenTemas = ['petróleo', 'conflicto', 'exportaciones', 'china', 'energia', 'otro'];
+            for (const tema of ordenTemas) {
+                if (!temas[tema]) continue;
+
+                const items = temas[tema];
+                const tituloTema = {
+                    petróleo: '🛢️ Petróleo y energía',
+                    conflicto: '⚔️ Conflicto geopolítico',
+                    exportaciones: '📦 Exportaciones y comercio',
+                    china: '🇨🇳 China y Asia',
+                    energia: '⚡ Energía en general',
+                    otro: '📰 Otras noticias'
+                }[tema] || tema;
+
+                // Generar resumen en español a partir del título + keywords
+                const facts = items.map(n => {
+                    return traducirTituloEnEspañol(n);
+                });
+
+                partes.push(`<strong>${tituloTema}:</strong> ${facts[0]}`);
+            }
+
+            resumen += partes.join(' &nbsp;|&nbsp; ');
+            resumen += '</p>';
+            resumen += '<p style="margin:0;font-size:0.8rem;color:var(--text-muted);">Basado en las últimas noticias de fuentes internacionales.</p>';
+
+            return resumen;
+        }
+
+        /**
+         * Traduce o resume un título/noticia al español automáticamente.
+         */
+        function traducirTituloEnEspañol(n) {
+            const titulo = (n.titulo || '').toLowerCase();
+            const resumen = ((n.resumen_es || '') + ' ' + (n.titulo || '')).toLowerCase();
+
+            // Patrones de traducción/resumen en español
+            if (/south korea.*cut.*middle east crude reliance/i.test(titulo)) {
+                return 'Corea del Sur busca reducir su dependencia del crudo del Medio Oriente al 50% para 2035, según plan del ministerio de industria.';
+            }
+
+            // Pipeline Arabia Saudita
+            if (/east west.*pipeline.*(restore|restart|attack|shut)/i.test(resumen) || /oleoducto.*(este.?este|reactiva|ataque)/i.test(titulo)) {
+                return 'Arabia Saudita reanudó el flujo del oleoducto Este-Oeste tras un ataque con drones que interrumpió las exportaciones de petróleo por esa ruta alternativa al Estrecho de Ormuz.';
+            }
+
+            // Trump diesel ban
+            if (/trump.*(back|ban).*diesel.*export/i.test(titulo)) {
+                return 'El presidente Trump apoyó una posible prohibición a la exportación de diésel mientras los precios alcanzan niveles récord por el alza en la bomba.';
+            }
+
+            // Ukraine drones Moscow refinery
+            if (/ukraine.*(drone|drone swarm).*moscow|mayor ataque.*drones.*rusia|ataque masivo.*drones.*moscú/i.test(resumen) || /refinería.*(moscó|ataque|ucrania)/i.test(titulo)) {
+                return 'Ucrania lanzó su mayor ataque con drones contra la región de Moscú, alcanzando una refinería clave y dejando fuera de servicio capacidad de refinación.';
+            }
+
+            // Ukraine strikes Kuibyshev/Samara refinery
+            if (/kuibyshev.*samara|refinería.*(samara|ataquen)/i.test(titulo)) {
+                return 'Drones ucranianos atacaron e incendiaron la refinería de petróleo de Kuibyshev en Samara, paralizando parte de la capacidad de refinación rusa.';
+            }
+
+            // Russia refinery 45% paralyzed
+            if (/paralizado.*45%|refino ruso.*ataque/i.test(titulo)) {
+                return 'Un ataque de precisión dejó sin producción el 45% de la capacidad de refinación rusa, afectando la capital.';
+            }
+
+            // 1000 drones weekend
+            if (/mas de.*1000.*drones|over 1,000 drones/i.test(resumen) || /mayor ataque.*drones.*rusia/i.test(titulo)) {
+                return 'Ucrania desplegó más de 1.000 drones en un fin de semana contra infraestructura petrolera rusa, incluyendo la refinería de Moscú con capacidad de 230.000 barriles diarios.';
+            }
+
+            // Saudi Aramco Gulf exports ramp up
+            if (/aramco.*ramp.*gulf|aumenta.*exportaciones.*golfo|eleva exportación.*golfo/i.test(titulo)) {
+                return 'Saudi Aramco aumentó las cargas de petróleo por el Golfo Pérsico en respuesta al ataque contra el oleoducto Este-Oeste, diversificando las rutas de exportación.';
+            }
+
+            // Oil prices rise pipeline attack
+            if (/oil prices.*(rise|increase).*pipeline/i.test(titulo)) {
+                return 'Los precios del petróleo subieron tras el ataque al oleoducto Este-Oeste de Arabia Saudita, que amenazó las principales rutas de exportación.';
+            }
+
+            // Iraq attack Saudi pipeline
+            if (/iraq.*attack.*(shut|pipeline)|pipeline.*(iraq)/i.test(titulo)) {
+                return 'Un ataque en Irak interrumpió el oleoducto principal de Arabia Saudita, elevando los precios del petróleo.';
+            }
+
+            // US gasoline distillate inventories fall
+            if (/gasoline.*distillate.*inventor.*(fall|continue)/i.test(titulo)) {
+                return 'Las reservas de gasolina y destilados de EE.UU. continúan bajando mientras las reservas de crudo se mantienen estables.';
+            }
+
+            // Trump $5 billion Gulf infrastructure fund
+            if (/trump.*5 billion.*(fund|rebuild).*gulf/i.test(titulo)) {
+                return 'Trump propuso un fondo de 5 mil millones de dólares para reconstruir la infraestructura energética del Golfo Pérsico dañada en el conflicto con Irán.';
+            }
+
+            // LNG deal Washington Beijing
+            if (/washington.*lng.*(deal|more).*beijing/i.test(titulo)) {
+                return 'Washington necesita más que Beijing un acuerdo de gas natural licuado (LNG) por 6 mil millones anuales, pendiente de levantar aranceles chinos.';
+            }
+
+            // India Russian oil imports slide
+            if (/india.*(russian.*oil|imports).*slide/i.test(titulo)) {
+                return 'Las importaciones de crudo ruso por India cayeron un 16.5% en agosto mientras los refineríos buscan alternativas ante nuevas sanciones estadounidenses.';
+            }
+
+            // Global energy demand jump
+            if (/global.*energy.*(demand|set to jump)/i.test(titulo)) {
+                return 'La demanda global de energía crecerá un 60% para 2060 impulsada por economías emergentes como Brasil, India y Nigeria.';
+            }
+
+            // Norway liquids output
+            if (/norway.*(liquids|output).*rebound/i.test(titulo)) {
+                return 'La producción de líquidos de Noruega se recuperó con casi 100.000 barriles diarios más en agosto, aunque aún está por debajo del nivel de 2025.';
+            }
+
+            // China rare earth flow
+            if (/(beijing|china).*(tighten|rare earth)/i.test(titulo)) {
+                return 'Beijing restringe el flujo de tierras raras antes de la cumbre comercial con Trump en Washington.';
+            }
+
+            // Nuclear safety Russia Uzbekistan
+            if (/(nuclear safety|uzbek).*russia/i.test(resumen) || /america.*russia.*(uzbek)/i.test(titulo)) {
+                return 'Estados Unidos firmó un acuerdo de seguridad nuclear con Uzbekistán para su primera planta, mientras Tashkent confía en Rusia para la construcción.';
+            }
+
+            // Europe offshore wind slowdown
+            if (/(europe|offshore).*wind.*(slowdown|squeezing)/i.test(titulo)) {
+                return 'La desaceleración eólica marina de Europa está presionando a los fabricantes, con proyectos retrasados y demanda por debajo de la nueva capacidad instalada.';
+            }
+
+            // UK gas prices Ineos chemical plants
+            if (/(uk|britain).*gas.*(price|force).*inos/i.test(titulo)) {
+                return 'Los precios del gas en el Reino Unido obligaron a INEOS a cerrar tres plantas químicas, perdiéndose las últimas unidades a escala mundial de Acetyl en Europa.';
+            }
+
+            // Utility profits target
+            if (/(utility profit).*(next|target)/i.test(titulo)) {
+                return 'Los costos de las empresas eléctricas suben: materias primas, combustible y tasas de interés más altas presionan los márgenes.';
+            }
+
+            // US crude oil public companies production
+            if (/(public company).*(crude|natural gas)/i.test(titulo)) {
+                return 'Las empresas públicas representan solo el 2% de los productores de crudo y gas en EE.UU., pero generan el 68% de la producción nacional.';
+            }
+
+            // Venezuela oil Maduro
+            if (/(venezuela.*(petróleo|oil)|maduro.*petróleo)/i.test(titulo)) {
+                return 'Durante su discurso en la ONU, Trump abordó el petróleo de Venezuela y reafirmó la postura estadounidense frente a Maduro.';
+            }
+
+            // Default: clean up title and make it Spanish-friendly
+            let txt = (n.titulo || '').replace(/<[^>]*>/g, '').trim();
+            if (txt.length > 180) txt = txt.substring(0, 180) + '…';
+            return txt;
+        }
+
+        /**
+         * Analiza si las noticias afectan al barril de petróleo y sus derivados.
+         */
+        function analizarImpactoPetrolero(noticias) {
+            if (!noticias || noticias.length === 0) return null;
+
+            // Palabras que indican impacto positivo (subida de precio)
+            const keywordsSubida = [
+                'ataque', 'attack', 'disruption', 'shutdown', 'cierre', 'drone', 'missile',
+                'pipeline', 'oleoducto', 'refinería', 'refinery', 'explosion', 'destroyed',
+                'escasez', 'shortage', 'tightness', 'record', 'record-high', 'ramp up',
+                'sube', 'rise', 'increase', 'jump', 'soar', 'explode', 'costs', 'freight'
+            ];
+
+            // Palabras que indican impacto negativo (bajada de precio)
+            const keywordsBajada = [
+                'restart', 'reativa', 'restaura', 'recuperation', 'rebounds',
+                'exceso', 'surplus', 'decline', 'caída', 'drop', 'crash',
+                'reserva', 'reserve', 'inventory increase', 'stockpile'
+            ];
+
+            let score = 0; // -5 a +5, donde + es alza de precio
+            const razones = [];
+
+            for (const n of noticias) {
+                const text = ((n.titulo || '') + ' ' + (n.resumen_es || '')).toLowerCase();
+
+                for (const kw of keywordsSubida) {
+                    if (text.includes(kw)) { score += 1; break; }
+                }
+                for (const kw of keywordsBajada) {
+                    if (text.includes(kw)) { score -= 0.5; break; }
+                }
+
+                // Eventos específicos con peso alto
+                if (/pipeline.*(attack|damage|shut)/i.test(text)) { score += 2; }
+                if (/refinería.*(attack|strike|drone)/i.test(text)) { score += 1.5; }
+                if (/diesel.*(ban|export|prohibición)/i.test(text)) { score += 1; }
+            }
+
+            // Determinar nivel de impacto y mensaje
+            let nivel, color, emoji, mensaje;
+            const absScore = Math.abs(score);
+
+            if (absScore < 2) {
+                nivel = 'bajo';
+                color = '#6c757d';
+                emoji = '⚪';
+                mensaje = 'Las noticias recientes no muestran un impacto significativo en el precio del barril de petróleo y sus derivados.';
+            } else if (score > 0) {
+                if (absScore >= 5) {
+                    nivel = 'alto';
+                    color = '#e74c3c';
+                    emoji = '🔴';
+                    mensaje = `ALERTA: Las noticias sugieren presión al alza en el precio del barril. Se detectaron ${Math.round(score)} señales de disrupción en la oferta (ataques a infraestructura, conflictos geopolíticos, restricciones de exportación).`;
+                } else {
+                    nivel = 'medio';
+                    color = '#f39c12';
+                    emoji = '🟡';
+                    mensaje = `Las noticias recientes podrían tener un impacto moderado en el precio del barril. Se detectaron ${Math.round(score)} señales de tensión en la oferta (conflictos, disrupciones en infraestructura).`;
+                }
+            } else {
+                if (absScore >= 4) {
+                    nivel = 'medio-alta';
+                    color = '#27ae60';
+                    emoji = '🟢';
+                    mensaje = `Las noticias sugieren presión a la baja en el precio del barril. Se detectaron ${Math.round(absScore)} señales de recuperación o exceso de oferta.`;
+                } else {
+                    nivel = 'medio';
+                    color = '#3498db';
+                    emoji = '🔵';
+                    mensaje = `Se detectaron ${Math.round(absScore)} señales de estabilización en el mercado petrolero (recuperación de infraestructura, aumento de reservas).`;
+                }
+            }
+
+            return { nivel, color, emoji, mensaje, score };
+        }
+
+        function renderNoticias(data) {
+            const list = document.getElementById('newsList');
+            const summaryEl = document.getElementById('newsSummary');
+            const alertEl = document.getElementById('oilImpactAlert');
+            const countEl = document.getElementById('newsCount');
+            const noticiasRaw = data.ultimas_noticias || [];
+
+            if (countEl) {
+                countEl.textContent = `(${data.noticias_count || 0} recientes)`;
+            }
+
+            if (noticiasRaw.length === 0) {
+                list.innerHTML = '<li style="color:var(--text-muted); padding:12px;">Sin noticias disponibles</li>';
+                summaryEl.style.display = 'none';
+                alertEl.style.display = 'none';
+                return;
+            }
+
+            // ── 1. Filtrar a las 5 más recientes únicas por tema ──
+            const filtradas = agruparNoticias(noticiasRaw, 5);
+
+            if (filtradas.length === 0) {
+                list.innerHTML = '<li style="color:var(--text-muted); padding:12px;">Sin noticias relevantes</li>';
+                summaryEl.style.display = 'none';
+                alertEl.style.display = 'none';
+                return;
+            }
+
+            // ── 2. Generar resumen inteligente ──
+            const resumenHTML = generarResumenNoticias(filtradas);
+            if (resumenHTML) {
+                summaryEl.innerHTML = `<div class="news-summary-box">${resumenHTML}</div>`;
+                summaryEl.style.display = 'block';
+            } else {
+                summaryEl.style.display = 'none';
+            }
+
+            // ── 3. Analizar impacto petrolero ──
+            const impacto = analizarImpactoPetrolero(filtradas);
+            if (impacto) {
+                alertEl.innerHTML = `
+                    <div class="oil-impact-alert" data-nivel="${impacto.nivel}" style="border-left:4px solid ${impacto.color};margin-top:12px;">
+                        <strong>${impacto.emoji} Impacto petrolero — nivel ${impacto.nivel}</strong>
+                        <span>${impacto.mensaje}</span>
+                    </div>`;
+                alertEl.style.display = 'block';
+            } else {
+                alertEl.style.display = 'none';
+            }
+
+            // ── 4. Lista compacta (máximo 5) ──
+            let html = '';
+            for (const n of filtradas) {
+                const fecha = fmtFechaRelativa(n.publicado_at || '');
+                const temaBadge = n._tema ? `<span class="news-category" style="background:${temaColor(n._tema)}20;color:${temaColor(n._tema)};">${n._tema}</span>` : '';
+                // Título traducido al español
+                const tituloEs = traducirTituloEnEspañol(n);
+
+                html += `
+                    <li class="news-item">
+                        <div class="news-title">
+                            <a href="${n.url}" target="_blank" rel="noopener noreferrer">${tituloEs}</a>
+                        </div>
+                        <div class="news-meta">
+                            ${temaBadge}
+                            ${n.medio ? `&middot; ${n.medio}` : ''}
+                            ${fecha ? `&middot; ${fecha}` : ''}
+                        </div>
+                    </li>`;
+            }
+
+            list.innerHTML = html;
+        }
+
+        function temaColor(tema) {
+            const colors = {
+                petróleo: '#e67e22', conflicto: '#e74c3c', exportaciones: '#9b59b6',
+                china: '#3498db', energia: '#1abc9c', otro: '#95a5a6'
+            };
+            return colors[tema] || '#95a5a6';
+        }
+
+        // ──────────────────────────────────────────
+        // Historial de precios — gráfico RGB animado
+        // ──────────────────────────────────────────
+
+        const HIST_COLORS = {
+            superior: '#0984e3',
+            regular: '#6c5ce7',
+            diésel: '#00b894'
+        };
+
+        let historialVisible = new Set(['superior', 'regular', 'diésel']);
+
+        // Hue base por producto — colores bien diferenciados (rojo, azul, verde)
+        const PRODUCT_HUES = {
+            superior: 10,    // rojo/naranja cálido
+            regular: 260,    // violeta/azul profundo  
+            diésel: 145      // verde lima
+        };
+
+        let animFrameId = null;
+        let animTime = 0;
+
+        function startHistorialAnimation() {
+            if (animFrameId) cancelAnimationFrame(animFrameId);
+            animTime = 0;
+            function frame() {
+                animTime += 0.015;
+                drawHistorialChartAnimated(window.__histData, window.__histProductos, animTime);
+                animFrameId = requestAnimationFrame(frame);
+            }
+            frame();
+        }
+
+        // Helper: HSL a RGB hex
+        function hslToHex(h, s, l) {
+            h /= 360; s /= 100; l /= 100;
+            let r, g, b;
+            if (s === 0) { r = g = b = l; }
+            else {
+                const hue2rgb = (p, q, t) => {
+                    if (t < 0) t += 1; if (t > 1) t -= 1;
+                    if (t < 1/6) return p + (q - p) * 6 * t;
+                    if (t < 1/2) return q;
+                    if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+                    return p;
+                };
+                const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                const p = 2 * l - q;
+                r = Math.round(hue2rgb(p, q, h + 1/3) * 255);
+                g = Math.round(hue2rgb(p, q, h) * 255);
+                b = Math.round(hue2rgb(p, q, h - 1/3) * 255);
+            }
+            return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+        }
+
+        function drawHistorialChartAnimated(histData, productos, time) {
+            var c = document.getElementById('historialChart');
+            if (!c || historialVisible.size === 0) return;
+
+            histData = histData || (window.__consData && window.__consData.historial_anual);
+            productos = productos || [
+                { key: 'superior', label: 'Superior' },
+                { key: 'regular', label: 'Regular' },
+                { key: 'diésel', label: 'Diésel' }
+            ];
+            if (!histData || !productos || histData.length === 0) return;
+
+            var rect = c.getBoundingClientRect();
+            var cssW = Math.max(rect.width, 400);
+            var cssH = Math.max(rect.height, 250);
+            if (cssW < 50 || cssH < 50) return;
+
+            const dpr = window.devicePixelRatio || 1;
+            c.width = Math.round(cssW * dpr);
+            c.height = Math.round(cssH * dpr);
+            var ctx = c.getContext('2d');
+            if (dpr > 1) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            ctx.clearRect(0, 0, cssW, cssH);
+
+            // ── Layout limpio como semanal ──
+            var padLeft = 60;
+            var padRight = 20;
+            var chartW = cssW - padLeft - padRight;
+            var chartH = cssH - 58 - 40;
+
+            // Centro
+            var centerX = cssW / 2;
+
+            // Filtrar datos visibles
+            const visibleProducts = productos.filter(p => historialVisible.has(p.key));
+            if (visibleProducts.length === 0) return;
+
+            // Obtener rangos de precios
+            let allPrices = [];
+            for (const row of histData) {
+                for (const p of visibleProducts) {
+                    const val = row[p.key];
+                    if (val !== null && val !== undefined) allPrices.push(val);
+                }
+            }
+            if (allPrices.length === 0) return;
+
+            let minPrice = Math.min(...allPrices);
+            let maxPrice = Math.max(...allPrices);
+            const priceRange = maxPrice - minPrice || 1;
+            minPrice = Math.floor(minPrice / (priceRange * 0.1)) * (priceRange * 0.1);
+            maxPrice = Math.ceil(maxPrice / (priceRange * 0.1)) * (priceRange * 0.1);
+
+            const nYears = histData.length;
+
+            // ── Título ──
+            ctx.fillStyle = 'rgba(200, 220, 245, 0.8)';
+            ctx.font = 'bold 13px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Historial de Precios Anuales', centerX, 16);
+
+            // ── Leyenda RGB animada ──
+            var legendY = 30;
+            ctx.font = '9px -apple-system, sans-serif';
+            var totalLegendW = 0;
+            for (var pi = 0; pi < visibleProducts.length; pi++) {
+                var lw = ctx.measureText('● ' + visibleProducts[pi].label).width;
+                totalLegendW += lw + 24;
+            }
+            var legendStartX = (cssW - totalLegendW) / 2;
+            var currentX = legendStartX;
+
+            for (var pi = 0; pi < visibleProducts.length; pi++) {
+                var prod = visibleProducts[pi];
+                var hue = PRODUCT_HUES[prod.key] || 180;
+                var rgbColor = hslToHex(hue, 100, 55);
+
+                ctx.fillStyle = rgbColor;
+                roundRect(ctx, currentX, legendY - 3, 14, 3, 1.5);
+                ctx.fill();
+
+                // Glow en leyenda
+                ctx.shadowColor = rgbColor;
+                ctx.shadowBlur = 8;
+                ctx.fillStyle = rgbColor;
+                roundRect(ctx, currentX, legendY - 3, 14, 3, 1.5);
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                ctx.fillStyle = 'rgba(200, 210, 230, 0.7)';
+                ctx.textAlign = 'left';
+                ctx.fillText(prod.label, currentX + 18, legendY + 1);
+
+                var itemW = ctx.measureText('● ' + prod.label).width + 24;
+                currentX += itemW;
+            }
+
+            // ── Grid horizontal (precios) ──
+            const stepsY = 5;
+            for (let i = 0; i <= stepsY; i++) {
+                var y = 58 + chartH - (chartH / stepsY) * i;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+                ctx.lineWidth = 0.7;
+                ctx.setLineDash([3, 4]);
+                ctx.beginPath();
+                ctx.moveTo(padLeft, y);
+                ctx.lineTo(cssW - padRight, y);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                var priceVal = minPrice + ((maxPrice - minPrice) / stepsY) * i;
+                ctx.fillStyle = 'rgba(180, 200, 230, 0.45)';
+                ctx.font = '9px -apple-system, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText('Q' + priceVal.toFixed(0), padLeft - 5, y + 3);
+            }
+
+            // ── Grid vertical (años) ──
+            const yearStep = nYears <= 15 ? 1 : nYears <= 25 ? 5 : 10;
+            for (let i = 0; i < nYears; i += yearStep) {
+                var x = padLeft + (chartW / Math.max(nYears - 1, 1)) * i;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+                ctx.beginPath();
+                ctx.moveTo(x, 58);
+                ctx.lineTo(x, cssH - 40);
+                ctx.stroke();
+
+                ctx.fillStyle = 'rgba(180, 200, 230, 0.4)';
+                ctx.font = '9px -apple-system, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(histData[i].anio, x, cssH - 40 + 15);
+            }
+
+            // ── Líneas RGB animadas con gradiente y pulso ──
+            for (const prod of visibleProducts) {
+                var hue = PRODUCT_HUES[prod.key] || 180;
+                var pulsePhase = time + (hue / 90);
+                var pulseIntensity = 0.5 + 0.5 * Math.sin(pulsePhase * Math.PI * 2);
+                var currentHue = hue + 15 * Math.sin(pulsePhase * Math.PI);
+                var sat = 85 + 15 * pulseIntensity;
+                var light = 45 + 10 * pulseIntensity;
+
+                var baseColor = hslToHex(currentHue, sat, light);
+                var glowColor = hslToHex(currentHue, 100, 60);
+
+                // Glow pulsante
+                ctx.shadowColor = glowColor;
+                ctx.shadowBlur = 12 + 8 * pulseIntensity;
+
+                // Recolectar puntos de la línea
+                var linePoints = [];
+                for (let i = 0; i < nYears; i++) {
+                    const val = histData[i][prod.key];
+                    if (val === null || val === undefined) continue;
+                    const x = padLeft + (chartW / Math.max(nYears - 1, 1)) * i;
+                    const y = 58 + chartH - ((val - minPrice) / (maxPrice - minPrice)) * chartH;
+                    linePoints.push({ x: x, y: y });
+                }
+
+                if (linePoints.length < 2) continue;
+
+                // Gradiente a lo largo de la línea
+                var gradient = ctx.createLinearGradient(
+                    linePoints[0].x, linePoints[0].y,
+                    linePoints[linePoints.length - 1].x, linePoints[linePoints.length - 1].y
+                );
+
+                var gradientSteps = Math.max(linePoints.length, 8);
+                for (var gs = 0; gs <= gradientSteps; gs++) {
+                    var t = gs / gradientSteps;
+                    var gradHue = currentHue + 40 * Math.sin(t * Math.PI * 2 + time);
+                    var gradColor = hslToHex(gradHue, sat, light);
+                    gradient.addColorStop(t, gradColor);
+                }
+
+                // Línea principal con gradiente
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 3.5;
+                ctx.lineJoin = 'round';
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                for (var li = 0; li < linePoints.length; li++) {
+                    if (li === 0) ctx.moveTo(linePoints[li].x, linePoints[li].y);
+                    else ctx.lineTo(linePoints[li].x, linePoints[li].y);
+                }
+                ctx.stroke();
+
+                // Glow extra detrás de la línea
+                ctx.strokeStyle = glowColor + '40';
+                ctx.lineWidth = 8;
+                ctx.beginPath();
+                for (var li2 = 0; li2 < linePoints.length; li2++) {
+                    if (li2 === 0) ctx.moveTo(linePoints[li2].x, linePoints[li2].y);
+                    else ctx.lineTo(linePoints[li2].x, linePoints[li2].y);
+                }
+                ctx.stroke();
+
+                // Puntos con efecto neón
+                for (var pi2 = 0; pi2 < linePoints.length; pi2++) {
+                    var pt = linePoints[pi2];
+                    ctx.fillStyle = baseColor;
+                    ctx.beginPath();
+                    ctx.arc(pt.x, pt.y, 3.5 + pulseIntensity * 1.5, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Centro blanco (efecto neón)
+                    ctx.fillStyle = 'rgba(255,255,255,' + (0.3 + 0.3 * pulseIntensity) + ')';
+                    ctx.beginPath();
+                    ctx.arc(pt.x, pt.y, 1.5, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.shadowBlur = 0;
+            }
+
+            // ── Fuente centrada abajo ──
+            var sourceText = 'Fuente: MEM + consolidado anual';
+            ctx.fillStyle = 'rgba(150, 170, 200, 0.3)';
+            ctx.font = '8px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(sourceText, centerX, cssH - 6);
+        }
+
+        function renderHistorial(data) {
+            const histData = data.historial_anual || [];
+            if (!histData || histData.length === 0) return;
+
+            // Ordenar de oldest a newest para el gráfico
+            histData.sort((a, b) => a.anio - b.anio);
+
+            // Guardar globalmente para resize/redraw
+            window.__histData = histData;
+            window.__histProductos = [
+                { key: 'superior', label: 'Superior' },
+                { key: 'regular', label: 'Regular' },
+                { key: 'diésel', label: 'Diésel' }
+            ];
+
+            const productos = [
+                { key: 'superior', label: 'Superior' },
+                { key: 'regular', label: 'Regular' },
+                { key: 'diésel', label: 'Diésel' }
+            ];
+
+            // ── Gráfico Canvas animado RGB ──
+            window.__histData = histData;
+            window.__histProductos = productos;
+            startHistorialAnimation();
+
+            // ── Tabla de datos ──
+            const thead = document.querySelector('#historialTable thead tr');
+            let headHtml = '<th>Año</th>';
+            for (const p of productos) {
+                headHtml += `<th>${p.label} (GTQ/Gal)</th>`;
+            }
+            thead.innerHTML = headHtml;
+
+            const tbody = document.querySelector('#historialTable tbody');
+            let bodyHtml = '';
+            // Mostrar de newest a oldest en la tabla
+            for (let i = histData.length - 1; i >= 0; i--) {
+                const row = histData[i];
+                bodyHtml += `<tr><td>${row.anio}</td>`;
+                for (const p of productos) {
+                    const val = row[p.key];
+                    if (val !== null && val !== undefined) {
+                        bodyHtml += `<td>Q${val.toFixed(2)}</td>`;
+                    } else {
+                        bodyHtml += '<td>-</td>';
+                    }
+                }
+                bodyHtml += '</tr>';
+            }
+            tbody.innerHTML = bodyHtml;
+
+            // Redibujar al cambiar tamaño de ventana
+            window.addEventListener('resize', () => {
+                startHistorialAnimation();
+            });
+        }
+
+        // ──────────────────────────────────────────
+        // Carga de datos
+        // ──────────────────────────────────────────
+
+        async function cargarDashboard() {
+            const loadingEl = document.getElementById('loading');
+            const errorEl = document.getElementById('error');
+            const contentEl = document.getElementById('content');
+
+            try {
+                // Cargar ambos JSON en paralelo
+                const [resData, consData] = await Promise.all([
+                    fetch(`${DATA_DIR}/resumen.json`),
+                    fetch(`${DATA_DIR}/consolidado.json`).catch(() => null)
+                ]);
+
+                if (!resData.ok) throw new Error(`HTTP ${resData.status}`);
+
+                const data = await resData.json();
+                let historial = null;
+                if (consData?.ok) {
+                    historial = await consData.json();
+                    window.__consData = historial;
+                }
+
+                // Actualizar timestamp
+                document.getElementById('lastUpdate').textContent =
+                    `Datos actualizados: ${data.actualizado_at || 'N/A'}`;
+
+                // Renderizar secciones (excepto historial — necesita DOM visible)
+                renderPreciosCombustible(data);
+                renderPetroleo(data);
+                renderNoticias(data);
+
+                // Mostrar contenido, ocultar loading
+                loadingEl.style.display = 'none';
+                contentEl.style.display = 'block';
+
+                // Renderizar historial DESPUÉS de que el DOM sea visible (getBoundingClientRect funciona)
+                if (historial) {
+                    renderHistorial(historial);
+                }
+
+            } catch (err) {
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'block';
+                errorEl.innerHTML = `
+                    <strong>Error al cargar datos</strong><br>
+                    Asegúrese de que los archivos JSON existen en <code>${DATA_DIR}/</code>.<br>
+                    Ejecute: <code>python main.py --all --export</code><br>
+                    <small style="color:var(--text-muted)">${err.message}</small>
+                `;
+            }
+        }
+
+        // ──────────────────────────────────────────
+        // Inicialización
+        // ──────────────────────────────────────────
+        cargarDashboard();
+    </script>
+</body>
+</html>

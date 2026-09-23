@@ -1,0 +1,403 @@
+"""Coleccionador de noticias relacionadas con petróleo y energía.
+
+Fuentes RSS configuradas en config.json → noticias.feeds:
+  - Google News ES (petróleo, refinería, oleoducto, ataque)
+  - Google News EN (oil, refinery, pipeline, OPEC)
+  - oilprice.com (principal)
+  - EIA todayinenergy.xml
+
+El módulo parsea cada feed RSS y guarda las noticias en la DB.
+Opcionalmente usa un LLM local para clasificar y resumir en español
+(si config.json → llm.base_url y model están configurados).
+"""
+
+import os
+import json
+from datetime import datetime
+from pathlib import Path
+
+import requests
+from dotenv import load_dotenv
+
+# Cargar .env del root del proyecto (si existe)
+_project_root = Path(__file__).resolve().parent.parent
+_dotenv_path = _project_root / ".env"
+if _dotenv_path.exists():
+    load_dotenv(_dotenv_path)
+
+# Asegurar imports relativos cuando se ejecuta como __main__
+if __name__ == "__main__":
+    _root = Path(__file__).resolve().parent.parent
+    if str(_root) not in os.sys.path:
+        os.sys.path.insert(0, str(_root))
+
+
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/128.0.0.0 Safari/537.36"
+    ),
+}
+
+
+# ──────────────────────────────────────────────
+# Fetch de feeds RSS
+# ──────────────────────────────────────────────
+
+def fetch_feed_rss(url: str, timeout: int = 30) -> dict | None:
+    """Descarga y parsea un feed RSS.
+
+    Args:
+        url: URL del feed RSS.
+        timeout: Timeout en segundos.
+
+    Returns:
+        Dict con keys: title, link, published, summary (o None si falla).
+    """
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=timeout)
+        resp.raise_for_status()
+    except requests.RequestException as exc:
+        print(f"[noticias] Error al fetchear feed '{url}': {exc}")
+        return None
+
+    # Intentar parsear con feedparser primero (más robusto para RSS)
+    try:
+        import feedparser
+    except ImportError:
+        # Fallback a parsing manual si feedparser no está disponible
+        from xml.etree import ElementTree as ET
+        return _parse_feed_fallback(resp.text, url)
+
+    try:
+        feed = feedparser.parse(resp.text)
+        if not feed.get("entries"):
+            print(f"[noticias] Feed '{url}' sin entries")
+            return None
+
+        resultados = []
+        for entry in feed.entries[:20]:  # máximo 20 por feed
+            item = {
+                "title": entry.get("title", "").strip(),
+                "link": entry.get("link", "").strip(),
+                "published": entry.get("published", entry.get("updated", "")),
+                "summary": entry.get("summary", "").strip()[:500],
+                "source_url": url,
+            }
+            if item["title"] and item["link"]:
+                resultados.append(item)
+
+        return {"feed_url": url, "entries": resultados}
+
+    except Exception as exc:
+        print(f"[noticias] Error parseando feed '{url}': {exc}")
+        return None
+
+
+def _parse_feed_fallback(xml_text: str, source_url: str) -> dict | None:
+    """Parseo manual de RSS como fallback (sin feedparser)."""
+    try:
+        root = ElementTree.fromstring(xml_text)
+
+        # Buscar items en diferentes formatos de feed
+        items = []
+        for item_elem in root.iter("item"):
+            title = _get_text(item_elem, "title")
+            link = _get_text(item_elem, "link")
+            published = (
+                _get_text(item_elem, "pubDate")
+                or _get_text(item_elem, "published", ns="http://purl.org/dc/elements/1.1/")
+            )
+            summary = _get_text(item_elem, "description")
+
+            if title and link:
+                items.append({
+                    "title": title.strip(),
+                    "link": link.strip(),
+                    "published": published or "",
+                    "summary": (summary or "")[:500].strip(),
+                    "source_url": source_url,
+                })
+
+        return {"feed_url": source_url, "entries": items} if items else None
+
+    except Exception:
+        return None
+
+
+def _get_text(elem, tag, ns=""):
+    """Extrae texto de un elemento XML."""
+    if ns:
+        tag = f"{{{ns}}}{tag}"
+    child = elem.find(tag)
+    if child is not None and child.text:
+        return child.text.strip()
+    return ""
+
+
+# ──────────────────────────────────────────────
+# Clasificación con LLM local (opcional)
+# ──────────────────────────────────────────────
+
+def _llm_available(cfg: dict = None) -> bool:
+    """Verifica si el LLM local está configurado."""
+    if cfg is None:
+        config_path = _project_root / "config.json"
+        try:
+            with open(config_path, "r", encoding="utf-8") as f:
+                cfg = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            return False
+
+    llm_cfg = cfg.get("llm", {})
+    base_url = llm_cfg.get("base_url", "").strip()
+    model = llm_cfg.get("model", "").strip()
+
+    if not base_url or not model:
+        return False
+
+    # Verificar que el endpoint responde
+    try:
+        import json as _json
+        resp = requests.get(f"{base_url}/v1/models", timeout=5)
+        if resp.status_code == 200:
+            return True
+    except Exception:
+        pass
+
+    return False
+
+
+def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict | None:
+    """Usa el LLM local para clasificar y resumir una noticia.
+
+    Args:
+        titulo: Título de la noticia.
+        resumen: Resumen/contenido de la noticia.
+        cfg: Configuración del LLM (opcional).
+
+    Returns:
+        Dict con categoria, relevancia (1-5), resumen_es, o None si falla.
+    """
+    if cfg is None:
+        config_path = _project_root / "config.json"
+        with open(config_path, "r", encoding="utf-8") as f:
+            cfg = json.load(f)
+
+    llm_cfg = cfg.get("llm", {})
+    base_url = llm_cfg.get("base_url", "").strip()
+    model = llm_cfg.get("model", "").strip()
+
+    if not base_url or not model:
+        return None
+
+    prompt = (
+        "Analiza esta noticia sobre energia/petroleo y responde en formato JSON con estas keys:\n"
+        "- categoria: 'oferta', 'demanda', 'geopolitica', 'precios', 'infraestructura', 'otro'\n"
+        "- relevancia: entero de 1 a 5 (5 = mas relevante para Guatemala)\n"
+        "- resumen_es: resumen en español maximo 2 lineas\n\n"
+        f"TITULO: {titulo}\nRESUMEN: {resumen}"
+    )
+
+    try:
+        resp = requests.post(
+            f"{base_url}/v1/chat/completions",
+            json={
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": "Eres un analista de energia. Responde solo con JSON."},
+                    {"role": "user", "content": prompt},
+                ],
+                "temperature": 0.3,
+            },
+            timeout=30,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+
+        # Extraer el contenido del response y parsear JSON
+        content = data["choices"][0]["message"]["content"]
+
+        # Buscar JSON dentro del texto de respuesta
+        import re as _re
+        json_match = _re.search(r"\{[^}]*categoria[^}]*relevancia[^}]*resumen_es[^}]*\}", content, _re.DOTALL)
+        if json_match:
+            parsed = json.loads(json_match.group())
+            return {
+                "categoria": parsed.get("categoria", "otro"),
+                "relevancia": min(5, max(1, int(parsed.get("relevancia", 3)))),
+                "resumen_es": parsed.get("resumen_es", resumen[:200]),
+            }
+    except Exception as exc:
+        print(f"[noticias] Error LLM: {exc}")
+
+    return None
+
+
+# ──────────────────────────────────────────────
+# Integración con DB y orquestador
+# ──────────────────────────────────────────────
+
+def guardar_noticias(items: list[dict], cfg: dict = None) -> int:
+    """Guarda noticias en la base de datos.
+
+    Args:
+        items: Lista de dicts con keys: title, link, published, summary, source_url.
+        cfg: Configuración (opcional).
+
+    Returns:
+        Número de registros insertados exitosamente.
+    """
+    if cfg is None:
+        config_path = _project_root / "config.json"
+        with open(config_path, "r", encoding="utf-8") as f:
+            cfg = json.load(f)
+
+    from collector.db import conectar, insertar_noticia
+    conn = conectar()
+
+    inserted = 0
+    for item in items:
+        try:
+            published_at = _normalizar_fecha_publicacion(item.get("published", ""))
+
+            row_id = insertar_noticia(
+                conn=conn,
+                url=item["link"],
+                titulo=item["title"],
+                medio=_extraer_medio(item.get("source_url", "")),
+                publicado_at=published_at,
+                resumen_es=item.get("summary", "")[:500],
+            )
+            if row_id is not None:
+                inserted += 1
+        except Exception as exc:
+            print(f"[noticias] Error guardando '{item.get('title', '?')}': {exc}")
+
+    conn.close()
+    return inserted
+
+
+def _normalizar_fecha_publicacion(pub_str: str) -> str | None:
+    """Normaliza una fecha de feed RSS a ISO 8601."""
+    if not pub_str:
+        return None
+
+    # feedparser ya normaliza a algo como 'Mon, 22 Sep 2026 14:30:00 GMT'
+    try:
+        from email.utils import parsedate_to_datetime
+        dt = parsedate_to_datetime(pub_str)
+        return dt.strftime("%Y-%m-%dT%H:%M:%S-06:00")
+    except (ValueError, TypeError):
+        pass
+
+    # Intentar formatos comunes
+    for fmt in [
+        "%a, %d %b %Y %H:%M:%S %Z",
+        "%a, %d %b %Y %H:%M:%S %z",
+        "%Y-%m-%dT%H:%M:%SZ",
+        "%Y-%m-%d %H:%M:%S",
+    ]:
+        try:
+            dt = datetime.strptime(pub_str.strip(), fmt)
+            return dt.strftime("%Y-%m-%dT%H:%M:%S-06:00")
+        except ValueError:
+            continue
+
+    return None
+
+
+def _extraer_medio(url: str) -> str:
+    """Extrae el nombre del medio desde la URL del feed."""
+    if "google.com" in url:
+        if "hl=es" in url or "hl=es-419" in url:
+            return "Google News ES"
+        return "Google News EN"
+    elif "oilprice.com" in url:
+        return "OilPrice.com"
+    elif "eia.gov" in url:
+        return "EIA Today in Energy"
+    else:
+        # Intentar extraer dominio
+        try:
+            from urllib.parse import urlparse
+            domain = urlparse(url).netloc
+            return domain.replace("www.", "")
+        except Exception:
+            return url
+
+
+def ejecutar(cfg: dict = None) -> dict:
+    """Orquesta el flujo completo de obtención de noticias.
+
+    Args:
+        cfg: Configuración cargada desde config.json (opcional).
+
+    Returns:
+        Dict con resumen de la ejecución.
+    """
+    if cfg is None:
+        import json as _json
+        config_path = _project_root / "config.json"
+        with open(config_path, "r", encoding="utf-8") as f:
+            cfg = _json.load(f)
+
+    feeds = cfg.get("noticias", {}).get("feeds", [])
+
+    resultados = {
+        "fuente": "",
+        "feeds_procesados": 0,
+        "total_encontrados": 0,
+        "insertados": 0,
+        "errores": [],
+    }
+
+    all_items = []
+
+    for feed_url in feeds:
+        print(f"[noticias] Fetching feed: {feed_url[:60]}...")
+        data = fetch_feed_rss(feed_url)
+        if data and data.get("entries"):
+            resultados["feeds_procesados"] += 1
+            all_items.extend(data["entries"])
+            print(f"  -> {len(data['entries'])} noticias encontradas")
+
+    if not all_items:
+        resultados["fuente"] = "vacio"
+        return resultados
+
+    resultados["total_encontrados"] = len(all_items)
+
+    # Clasificación con LLM si está disponible
+    if _llm_available(cfg):
+        print("[noticias] Clasificando con LLM local...")
+        for item in all_items:
+            classification = clasificar_noticia_llm(
+                item["title"], item.get("summary", ""), cfg
+            )
+            if classification:
+                item.update(classification)
+
+    # Guardar en DB
+    inserted = guardar_noticias(all_items, cfg)
+    resultados["insertados"] = inserted
+    resultados["fuente"] = "rss_feeds"
+
+    return resultados
+
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("Coleccionador de noticias — gasolina-gt")
+    print("=" * 60)
+
+    resultado = ejecutar()
+
+    print(f"\nFuente: {resultado['fuente']}")
+    print(f"Feeds procesados: {resultado.get('feeds_procesados', 0)}")
+    print(f"Noticias encontradas: {resultado.get('total_encontrados', 0)}")
+    print(f"Insertadas en DB: {resultado.get('insertados', 0)}")
+    if resultado.get("errores"):
+        for e in resultado["errores"]:
+            print(f"  ERROR: {e}")
