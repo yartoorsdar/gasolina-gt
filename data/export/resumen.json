@@ -1,5 +1,5 @@
 {
-  "actualizado_at": "2026-09-23T12:31:13-06:00",
+  "actualizado_at": "2026-09-23T12:38:20-06:00",
   "precios_combustible": [
     {
       "id": 6971,
@@ -52,26 +52,50 @@
   ],
   "petroleo": [
     {
-      "id": 46352,
-      "fecha": "2026-09-23",
+      "id": 27761,
+      "fecha": "1987-05-20",
       "referencia": "brent",
-      "usd_barril": 98.5,
-      "fuente": "OilPriceAPI",
+      "usd_barril": 18.63,
+      "fuente": "FRED_Brent",
       "url": null,
-      "fetched_at": "2026-09-23T00:43:53.413436"
+      "fetched_at": "2026-09-23T00:40:54.835281"
     },
     {
-      "id": 46353,
-      "fecha": "2026-09-23",
+      "id": 36848,
+      "fecha": "1986-01-02",
       "referencia": "wti",
-      "usd_barril": 89.37,
-      "fuente": "OilPriceAPI",
+      "usd_barril": 25.56,
+      "fuente": "FRED_Wti",
       "url": null,
-      "fetched_at": "2026-09-23T00:43:53.414121"
+      "fetched_at": "2026-09-23T00:40:54.835281"
     }
   ],
-  "noticias_count": 88,
+  "noticias_count": 90,
   "ultimas_noticias": [
+    {
+      "id": 5771,
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNQ2dicHVMSExZUGZrTDA2c1g2N3U5R0VzTFR0ZXBSMUZPei1mMEhZTlBzdDkyOUZqUmFiOEs0UGdQam9ZRkJBZVJRcTg2T3FKVlpNWFQ1dUVDUUppYno5eFVUYklGWHd1N1IyWHpBeTlTbDIwd3lFN08yYnl5Q1o5NTNBVFdZWkI4eF9XTHJsLTdDV0JHRjVxTHM1Wk85UlZHWGVpa09rS3QyQ1IxU0tSZVo2Tlg0YXpNV1lwTEtnWHVxUE53eDc5S0NQajk3ZmxPVjg1eWVzRzR6QdIB9AFBVV95cUxNU0trb004aEpTTTROUXNZdzZNenNDN3BKbUNBZGRmV1QxVUQzMFNfdXBWbnNtYm51ZXhzb3BuSFl6S2RtLV9DOEtlVkp0MXdkbUtIampjN0VpZEJPSjB6OGxBRzY3dXdvdGxDUDFTdVBrVmNnRXV4Zm04SHdzTkFGZndtc19fMHhFdEtCam1mdHJZNW5xOGU5M2ZXeGV6TTNRVlVtRUg2NmRzS0VxSXlIYXpldDY5bjRhNGI5cUtIal9MN1o1V09TcDBrYnJuUzR4T0dhdkF0YkpDX3JVU1NLUlRIWmM3d0E1Nms3Ti03Z2JFd0Zx?oc=5",
+      "titulo": "Arabia Saudí se prepara para reabrir el oleoducto Este-Oeste tras su cierre por un ataque - Infobae",
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-23T12:37:40-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxNQ2dicHVMSExZUGZrTDA2c1g2N3U5R0VzTFR0ZXBSMUZPei1mMEhZTlBzdDkyOUZqUmFiOEs0UGdQam9ZRkJBZVJRcTg2T3FKVlpNWFQ1dUVDUUppYno5eFVUYklGWHd1N1IyWHpBeTlTbDIwd3lFN08yYnl5Q1o5NTNBVFdZWkI4eF9XTHJsLTdDV0JHRjVxTHM1Wk85UlZHWGVpa09rS3QyQ1IxU0tSZVo2Tlg0YXpNV1lwTEtnWHVxUE53eDc5S0NQajk3ZmxPVjg1eWVzRzR6QdIB9AFBVV95cUxNU0trb004aEpTTTROUXNZdzZNenNDN3BKbUNBZGRmV1QxVUQzMFNfdXBWbnNtYm51ZXhzb3BuSFl6S2RtLV9DOEtlVkp0MXdkbUtIampjN0VpZEJPSjB6OGxBRzY3dXdvdGxDUDFTdVBrVm",
+      "fetched_at": "2026-09-23T12:38:20-06:00"
+    },
+    {
+      "id": 5781,
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPd1N0cEZSOUFtN2lpV25Xel9hVGVoZTFPdUJPd2RyQTJ4QmM5dTVta3FRalllVzBVa1h2anJiRTFUTTNucjh2ZEpVMUJXellaWnEwVDZhSG04czVuRms2QmJ4NVFMUEg1MV9CLUk0VDl6dmRMSWtVT1hxNk9YcWQ3dHphRE9obUhfejV1ZkprVVJlcTBFbGZKY1BmVEtaT25lMUJvT1BYWUk?oc=5",
+      "titulo": "Video Does Not Show Houthi Attack on Israeli Oil Pipeline - موقع مسبار",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-23T11:14:01-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxPd1N0cEZSOUFtN2lpV25Xel9hVGVoZTFPdUJPd2RyQTJ4QmM5dTVta3FRalllVzBVa1h2anJiRTFUTTNucjh2ZEpVMUJXellaWnEwVDZhSG04czVuRms2QmJ4NVFMUEg1MV9CLUk0VDl6dmRMSWtVT1hxNk9YcWQ3dHphRE9obUhfejV1ZkprVVJlcTBFbGZKY1BmVEtaT25lMUJvT1BYWUk?oc=5\" target=\"_blank\">Video Does Not Show Houthi Attack on Israeli Oil Pipeline</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">موقع مسبار</font>",
+      "fetched_at": "2026-09-23T12:38:20-06:00"
+    },
     {
       "id": 4970,
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPeDh3VFZGMHdYRFFGVkd4VVcyUGV1bXZTZ2NSQVNYbVJpWVNJX1lvV1VuMEpvNGowTEw5S2tDOVlpdXZIQnZvQ3l1V3R2b3ZueURCZEI3VWlTbGxaU2t3ZENyMmp1MkdhTXgzRmhXczlEeFBYZVg1Z2JkT2REVHBJRDRBRExSNmhzMTlKTjA0MEU0Y1RQdV81WDAzbWVscGo4SnAyYzlZOURTUnROOFg4ZkdFbGl1ekVFZXZoTm9aQjJCZw?oc=5",
@@ -106,7 +130,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "TotalEnergies has decided to invest in the development of the Ima gas field offshore Nigeria to increase supply for the expanding Nigeria LNG export plant, the French supermajor said on Wednesday. As operator and holder of a 40% interest in the Ima gas field, TotalEnergies and its local partner AMNI, owning the remaining 60%, have taken the final investment decision (FID) for the development of the field straddling the OML 112 and 117 offshore licenses in Nigeria. The Ima gas field, which lies i",
-      "fetched_at": "2026-09-23T12:31:13-06:00"
+      "fetched_at": "2026-09-23T12:38:20-06:00"
     },
     {
       "id": 5801,
@@ -118,7 +142,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Only three commodity vessels moved through the Strait of Hormuz in the past day, preliminary tanker-tracking data by Kpler showed on Wednesday, as the oil market weighs the potential resumption of U.S.-Iran talks against continued disruptions in the Middle East. The three commodity vessels, which included one Panamax oil tanker, transited the Strait of Hormuz outbound, according to Kpler’s data cited by Reuters. The observable traffic on Tuesday was below Monday’s four vessels that transited Hor",
-      "fetched_at": "2026-09-23T12:31:13-06:00"
+      "fetched_at": "2026-09-23T12:38:20-06:00"
     },
     {
       "id": 5802,
@@ -130,7 +154,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Asia is set to import the highest volumes of crude oil in September since February this year, when the Iran war started, crippled supply from the Middle East, and forced buyers in Asia to slash purchases.  Asia is expected to import 23.96 million barrels per day (bpd) of crude oil this month, per data compiled by Kpler and cited by Reuters’ Asia Commodities and Energy Columnist, Clyde Russell.  The crude imports in September would be higher than the 23.38 million bpd that arrived in the region i",
-      "fetched_at": "2026-09-23T12:31:13-06:00"
+      "fetched_at": "2026-09-23T12:38:20-06:00"
     },
     {
       "id": 4975,
@@ -167,30 +191,6 @@
       "relevancia": null,
       "resumen_es": "China's crude oil exports will rise only slightly in the fourth quarter from the third quarter if oil prices remain high, potentially easing the upward pressure on benchmark crude prices, Goldman Sachs says. China's crude oil imports rose for the second consecutive month in August as refiners turned to additional non-Middle Eastern supply and boosted overseas fuel shipments amid eased export restrictions. China imported 8.93 million bpd of crude oil in August, up by 6.2% compared to July, and fu",
       "fetched_at": "2026-09-23T03:58:32-06:00"
-    },
-    {
-      "id": 4173,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/Michigan-Judge-Tosses-States-Antitrust-Suit-Against-Big-Oil.html",
-      "titulo": "Michigan Judge Tosses State's Antitrust Suit Against Big Oil",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T03:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "A district judge in Grand Rapids has dismissed a lawsuit brought against several oil supermajors that accused the companies of conspiring to interfere with competition in alternative energy and electric cars. The lawsuit was filed by Michigan Attorney General Dan Nessel, alleging Exxon, Chevron, Shell, BP, and the American Petroleum Institute colluded to try to “restrain the emergence of electric vehicles and ‌renewable primary energy technologies in the United States,” as quoted by Reuters. Acc",
-      "fetched_at": "2026-09-23T02:01:06-06:00"
-    },
-    {
-      "id": 1514,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/South-Korea-Aims-to-Cut-Middle-East-Crude-Reliance-to-50-by-2035.html",
-      "titulo": "South Korea Aims to Cut Middle East Crude Reliance to 50% by 2035",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T01:29:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "South Korea will try to cut its reliance on Middle East crude imports to 50% by 2035, Reuters has reported, citing the country’s industry ministry. The ministry has drafted a 10-year natural resource security plan, which envisages a “fundamental shift” in the way South Korea sources its imports. The plan also calls for a boost in oil reserves by some 20 million barrels by 2030. South Korea imports as much as 70% of its crude oil from Middle Eastern producers, and most of it must pass through the",
-      "fetched_at": "2026-09-23T00:33:33-06:00"
     }
   ]
 }
