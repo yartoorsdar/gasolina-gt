@@ -11,6 +11,8 @@ on:
 
 jobs:
   update-pdfs:
+    permissions:
+      contents: write
     runs-on: windows-latest
 
     steps:

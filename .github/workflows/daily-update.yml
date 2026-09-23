@@ -10,6 +10,8 @@ on:
 
 jobs:
   update-daily:
+    permissions:
+      contents: write
     runs-on: windows-latest
 
     steps:
