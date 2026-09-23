@@ -1,16 +1,28 @@
 {
-  "actualizado_at": "2026-09-23T12:38:20-06:00",
+  "actualizado_at": "2026-09-23T12:50:28-06:00",
   "precios_combustible": [
     {
-      "id": 6971,
-      "fecha_observacion": "2026-09-21",
+      "id": 6978,
+      "fecha_observacion": "2026-09-23",
       "producto": "diésel",
       "precio": 50.5,
       "incluye_impuestos": 1,
       "regimen": "normal",
       "nota": null,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T04:48:41-06:00",
+      "fetched_at": "2026-09-23T12:50:13-06:00",
+      "url": ""
+    },
+    {
+      "id": 6977,
+      "fecha_observacion": "2026-09-23",
+      "producto": "superior",
+      "precio": 45.74,
+      "incluye_impuestos": 1,
+      "regimen": "normal",
+      "nota": null,
+      "fuente": "GlobalPetrolPrices",
+      "fetched_at": "2026-09-23T12:50:13-06:00",
       "url": ""
     },
     {
@@ -18,18 +30,6 @@
       "fecha_observacion": "2026-09-21",
       "producto": "diessel",
       "precio": 50.5,
-      "incluye_impuestos": 1,
-      "regimen": "normal",
-      "nota": null,
-      "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T04:46:55-06:00",
-      "url": ""
-    },
-    {
-      "id": 6956,
-      "fecha_observacion": "2026-09-21",
-      "producto": "superior",
-      "precio": 45.74,
       "incluye_impuestos": 1,
       "regimen": "normal",
       "nota": null,
@@ -82,7 +82,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxNQ2dicHVMSExZUGZrTDA2c1g2N3U5R0VzTFR0ZXBSMUZPei1mMEhZTlBzdDkyOUZqUmFiOEs0UGdQam9ZRkJBZVJRcTg2T3FKVlpNWFQ1dUVDUUppYno5eFVUYklGWHd1N1IyWHpBeTlTbDIwd3lFN08yYnl5Q1o5NTNBVFdZWkI4eF9XTHJsLTdDV0JHRjVxTHM1Wk85UlZHWGVpa09rS3QyQ1IxU0tSZVo2Tlg0YXpNV1lwTEtnWHVxUE53eDc5S0NQajk3ZmxPVjg1eWVzRzR6QdIB9AFBVV95cUxNU0trb004aEpTTTROUXNZdzZNenNDN3BKbUNBZGRmV1QxVUQzMFNfdXBWbnNtYm51ZXhzb3BuSFl6S2RtLV9DOEtlVkp0MXdkbUtIampjN0VpZEJPSjB6OGxBRzY3dXdvdGxDUDFTdVBrVm",
-      "fetched_at": "2026-09-23T12:38:20-06:00"
+      "fetched_at": "2026-09-23T12:50:28-06:00"
     },
     {
       "id": 5781,
@@ -94,7 +94,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxPd1N0cEZSOUFtN2lpV25Xel9hVGVoZTFPdUJPd2RyQTJ4QmM5dTVta3FRalllVzBVa1h2anJiRTFUTTNucjh2ZEpVMUJXellaWnEwVDZhSG04czVuRms2QmJ4NVFMUEg1MV9CLUk0VDl6dmRMSWtVT1hxNk9YcWQ3dHphRE9obUhfejV1ZkprVVJlcTBFbGZKY1BmVEtaT25lMUJvT1BYWUk?oc=5\" target=\"_blank\">Video Does Not Show Houthi Attack on Israeli Oil Pipeline</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">موقع مسبار</font>",
-      "fetched_at": "2026-09-23T12:38:20-06:00"
+      "fetched_at": "2026-09-23T12:50:28-06:00"
     },
     {
       "id": 4970,
@@ -130,7 +130,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "TotalEnergies has decided to invest in the development of the Ima gas field offshore Nigeria to increase supply for the expanding Nigeria LNG export plant, the French supermajor said on Wednesday. As operator and holder of a 40% interest in the Ima gas field, TotalEnergies and its local partner AMNI, owning the remaining 60%, have taken the final investment decision (FID) for the development of the field straddling the OML 112 and 117 offshore licenses in Nigeria. The Ima gas field, which lies i",
-      "fetched_at": "2026-09-23T12:38:20-06:00"
+      "fetched_at": "2026-09-23T12:50:28-06:00"
     },
     {
       "id": 5801,
@@ -142,7 +142,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Only three commodity vessels moved through the Strait of Hormuz in the past day, preliminary tanker-tracking data by Kpler showed on Wednesday, as the oil market weighs the potential resumption of U.S.-Iran talks against continued disruptions in the Middle East. The three commodity vessels, which included one Panamax oil tanker, transited the Strait of Hormuz outbound, according to Kpler’s data cited by Reuters. The observable traffic on Tuesday was below Monday’s four vessels that transited Hor",
-      "fetched_at": "2026-09-23T12:38:20-06:00"
+      "fetched_at": "2026-09-23T12:50:28-06:00"
     },
     {
       "id": 5802,
@@ -154,7 +154,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Asia is set to import the highest volumes of crude oil in September since February this year, when the Iran war started, crippled supply from the Middle East, and forced buyers in Asia to slash purchases.  Asia is expected to import 23.96 million barrels per day (bpd) of crude oil this month, per data compiled by Kpler and cited by Reuters’ Asia Commodities and Energy Columnist, Clyde Russell.  The crude imports in September would be higher than the 23.38 million bpd that arrived in the region i",
-      "fetched_at": "2026-09-23T12:38:20-06:00"
+      "fetched_at": "2026-09-23T12:50:28-06:00"
     },
     {
       "id": 4975,

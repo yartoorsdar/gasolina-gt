@@ -1,15 +1,27 @@
 {
   "precios": [
     {
-      "id": 6971,
-      "fecha_observacion": "2026-09-21",
+      "id": 6978,
+      "fecha_observacion": "2026-09-23",
       "producto": "diésel",
       "precio": 50.5,
       "incluye_impuestos": 1,
       "regimen": "normal",
       "nota": null,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T04:48:41-06:00",
+      "fetched_at": "2026-09-23T12:50:13-06:00",
+      "url": ""
+    },
+    {
+      "id": 6977,
+      "fecha_observacion": "2026-09-23",
+      "producto": "superior",
+      "precio": 45.74,
+      "incluye_impuestos": 1,
+      "regimen": "normal",
+      "nota": null,
+      "fuente": "GlobalPetrolPrices",
+      "fetched_at": "2026-09-23T12:50:13-06:00",
       "url": ""
     },
     {
@@ -17,18 +29,6 @@
       "fecha_observacion": "2026-09-21",
       "producto": "diessel",
       "precio": 50.5,
-      "incluye_impuestos": 1,
-      "regimen": "normal",
-      "nota": null,
-      "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T04:46:55-06:00",
-      "url": ""
-    },
-    {
-      "id": 6956,
-      "fecha_observacion": "2026-09-21",
-      "producto": "superior",
-      "precio": 45.74,
       "incluye_impuestos": 1,
       "regimen": "normal",
       "nota": null,
@@ -49,5 +49,5 @@
       "url": null
     }
   ],
-  "actualizado_at": "2026-09-23T12:38:20-06:00"
+  "actualizado_at": "2026-09-23T12:50:28-06:00"
 }
