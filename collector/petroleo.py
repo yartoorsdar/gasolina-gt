@@ -142,7 +142,11 @@ def fetch_precios_petroleo(codes: dict = None, api_key: str = "") -> list[dict]:
 # ──────────────────────────────────────────────
 
 def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
-    """Guarda precios de petróleo en la DB (idempotente)."""
+    """Guarda precios de petróleo en la DB (idempotente).
+    
+    Borra entradas previas de OilPriceAPI para las mismas fechas antes
+    de insertar, asegurando que los datos nuevos reemplacen a los viejos.
+    """
     if cfg is None:
         import json
         config_path = _project_root / "config.json"
@@ -155,8 +159,14 @@ def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
     inserted = 0
     for p in precios:
         try:
+            # Borrar entrada previa de OilPriceAPI para esta fecha+referencia
+            conn.execute(
+                "DELETE FROM precios_petroleo WHERE referencia=? AND fecha=? AND fuente='OilPriceAPI'",
+                (p["referencia"], p["fecha"]),
+            )
+            
             cursor = conn.execute("""
-                INSERT OR IGNORE INTO precios_petroleo (fecha, referencia, usd_barril, fuente, fetched_at)
+                INSERT INTO precios_petroleo (fecha, referencia, usd_barril, fuente, fetched_at)
                 VALUES (?, ?, ?, 'OilPriceAPI', ?)
             """, (p["fecha"], p["referencia"], p["usd_barril"], datetime.now().isoformat()))
             if cursor.lastrowid:

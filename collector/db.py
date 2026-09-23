@@ -309,19 +309,28 @@ def obtener_historial_precios(
 def obtener_petroleo_actual(conn: sqlite3.Connection) -> list[sqlite3.Row]:
     """Obtiene el precio más reciente de cada referencia.
     
-    Prioriza OilPriceAPI (tiempo real), luego FRED, luego cualquier otra fuente.
+    Prioriza EIA sobre OilPriceAPI cuando ambas tienen la misma fecha,
+    usando MAX(id) dentro de cada grupo (fecha, referencia).
     """
     rows = conn.execute(
         """SELECT pp.* FROM precios_petroleo pp
            INNER JOIN (
-               SELECT referencia, MAX(id) as max_id
+               SELECT referencia, fecha, MAX(id) as max_id
                FROM precios_petroleo
                WHERE referencia IN ('brent', 'wti')
-               GROUP BY referencia
+               GROUP BY referencia, fecha
            ) latest ON pp.id = latest.max_id
            ORDER BY pp.referencia"""
     ).fetchall()
-    return rows
+    
+    # Si hay múltiples fechas por referencia, tomar la más reciente
+    seen = set()
+    result = []
+    for row in rows:
+        if row["referencia"] not in seen:
+            seen.add(row["referencia"])
+            result.append(row)
+    return result
 
 
 def obtener_ultimo_petroleo(
