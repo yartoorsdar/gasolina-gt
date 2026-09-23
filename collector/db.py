@@ -1,10 +1,9 @@
 """Capa de acceso a base de datos (SQLite) para gasolina-gt.
 
-Una sola tabla: precios
-  - id, fecha, producto, precio, fuente, fetched_at
-
-Productos: 'superior', 'regular', 'diésel' (combustible GTQ/Gal)
-           'wti' (petróleo USD/Bbl)
+Tablas:
+  - precios        — todo: R, S, D, wti (GTQ/Gal o USD/Bbl)
+  - noticias       — headlines RSS clasificados
+  - ejecuciones    — log de runs de colectores
 
 Insert or ignore para ser idempotente.
 """
@@ -26,11 +25,11 @@ def _default_db_path() -> str:
 
 
 # ──────────────────────────────────────────────
-# Creación de tablas — UNA SOLA TABLA
+# Creación de tablas
 # ──────────────────────────────────────────────
 
 def crear_tablas(conn: sqlite3.Connection) -> None:
-    """Crea la única tabla si no existe."""
+    """Crea las tablas si no existen."""
     conn.executescript("""
         DROP TABLE IF EXISTS precios;
         CREATE TABLE precios (
@@ -43,6 +42,32 @@ def crear_tablas(conn: sqlite3.Connection) -> None:
         );
         CREATE UNIQUE INDEX IF NOT EXISTS idx_precios_fecha_prod
             ON precios(fecha, producto);
+
+        DROP TABLE IF EXISTS noticias;
+        CREATE TABLE noticias (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            url TEXT NOT NULL,
+            titulo TEXT NOT NULL,
+            medio TEXT NOT NULL,
+            publicado_at TEXT,
+            categoria TEXT,
+            pais TEXT,
+            relevancia INTEGER CHECK(relevancia BETWEEN 1 AND 5),
+            resumen_es TEXT,
+            fetched_at TEXT NOT NULL
+        );
+        CREATE UNIQUE INDEX IF NOT EXISTS idx_noticias_url
+            ON noticias(url);
+
+        DROP TABLE IF EXISTS ejecuciones;
+        CREATE TABLE ejecuciones (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            inicio TEXT NOT NULL,
+            fin TEXT,
+            modulo TEXT NOT NULL,
+            ok INTEGER DEFAULT 1,
+            mensaje TEXT
+        );
     """)
 
 
@@ -69,7 +94,7 @@ def conectar_temporal() -> sqlite3.Connection:
 
 
 # ──────────────────────────────────────────────
-# Inserciones (insert or ignore — idempotentes)
+# Inserciones — precios (insert or ignore — idempotentes)
 # ──────────────────────────────────────────────
 
 def insertar_precio(
@@ -94,8 +119,56 @@ def insertar_precio(
     return row["id"] if row else None
 
 
+def insertar_noticia(
+    conn: sqlite3.Connection,
+    url: str,
+    titulo: str,
+    medio: str,
+    publicado_at: str = None,
+    categoria: str = None,
+    pais: str = None,
+    relevancia: int = None,
+    resumen_es: str = None,
+) -> int | None:
+    """Inserta o ignora una noticia.
+
+    Returns:
+        id del registro insertado, o None si ya existía por URL duplicada.
+    """
+    fetched_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
+    cursor = conn.execute(
+        "INSERT OR IGNORE INTO noticias (url, titulo, medio, publicado_at, categoria, pais, relevancia, resumen_es, fetched_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        (url, titulo, medio, publicado_at, categoria, pais, relevancia, resumen_es, fetched_at),
+    )
+    conn.commit()
+    return cursor.lastrowid if cursor.rowcount > 0 else None
+
+
+def insertar_ejecucion(
+    conn: sqlite3.Connection,
+    modulo: str,
+    ok: int = 1,
+    mensaje: str = "",
+) -> int:
+    """Registra una ejecución del colector."""
+    inicio = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
+    cursor = conn.execute(
+        "INSERT INTO ejecuciones (inicio, modulo, ok, mensaje) VALUES (?, ?, ?, ?)",
+        (inicio, modulo, ok, mensaje),
+    )
+    conn.commit()
+    exec_id = cursor.lastrowid
+    # Actualizar fin después
+    conn.execute(
+        "UPDATE ejecuciones SET fin = ? WHERE id = ?",
+        (datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00"), exec_id),
+    )
+    conn.commit()
+    return exec_id
+
+
 # ──────────────────────────────────────────────
-# Consultas
+# Consultas — precios
 # ──────────────────────────────────────────────
 
 def obtener_precios_actuales(conn: sqlite3.Connection) -> list[sqlite3.Row]:
@@ -154,3 +227,45 @@ def obtener_precio(conn: sqlite3.Connection, fecha: str, producto: str) -> sqlit
         (fecha, producto),
     ).fetchone()
     return row
+
+
+# ──────────────────────────────────────────────
+# Consultas — noticias
+# ──────────────────────────────────────────────
+
+def obtener_noticias(
+    conn: sqlite3.Connection, dias: int = 30, categoria: str = None
+) -> list[sqlite3.Row]:
+    """Obtiene noticias relevantes de los últimos N días."""
+    query = "SELECT * FROM noticias WHERE publicado_at >= date('now', ?)"
+    params: list = [f"-{dias} days"]
+
+    if categoria:
+        query += " AND categoria = ?"
+        params.append(categoria)
+
+    query += " ORDER BY publicado_at DESC"
+    rows = conn.execute(query, params).fetchall()
+    return rows
+
+
+def obtener_noticia_por_url(conn: sqlite3.Connection, url: str) -> sqlite3.Row | None:
+    """Verifica si una noticia ya existe por URL."""
+    row = conn.execute(
+        "SELECT * FROM noticias WHERE url = ?", (url,)
+    ).fetchone()
+    return row
+
+
+# ──────────────────────────────────────────────
+# Consultas — ejecuciones
+# ──────────────────────────────────────────────
+
+def obtener_ultimas_ejecuciones(
+    conn: sqlite3.Connection, limite: int = 10
+) -> list[sqlite3.Row]:
+    """Obtiene las últimas N ejecuciones."""
+    rows = conn.execute(
+        "SELECT * FROM ejecuciones ORDER BY inicio DESC LIMIT ?", (limite,)
+    ).fetchall()
+    return rows
