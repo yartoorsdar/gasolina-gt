@@ -1,5 +1,5 @@
 {
-  "actualizado_at": "2026-09-24T17:57:33+00:00",
+  "actualizado_at": "2026-09-24T18:21:30+00:00",
   "precios_combustible": [
     {
       "id": 2,
@@ -7,7 +7,7 @@
       "producto": "diésel",
       "precio": 50.5,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T17:57:20-06:00"
+      "fetched_at": "2026-09-24T12:21:16-06:00"
     },
     {
       "id": 1,
@@ -15,7 +15,7 @@
       "producto": "superior",
       "precio": 45.74,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T17:57:20-06:00"
+      "fetched_at": "2026-09-24T12:21:16-06:00"
     },
     {
       "id": 4,
@@ -23,138 +23,138 @@
       "producto": "regular",
       "precio": 41.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T17:57:20-06:00"
+      "fetched_at": "2026-09-24T12:21:16-06:00"
     }
   ],
   "petroleo": [
     {
       "referencia": "wti",
       "fecha": "2026-09-24",
-      "usd_barril": 95.3,
+      "usd_barril": 95.13,
       "fuente": "OilPriceAPI"
     }
   ],
   "noticias_count": 65,
   "ultimas_noticias": [
     {
-      "id": 26,
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPRllab01RVkk3OXBfcXhrNjVIZEpIN25SdFJaclhZOE1pN0lmbWV6cHF6dHB3QmNvbXNyd1FYWjFITURLM1ExNTlzdUZLYWRaRll0QlQxU1ltZXZtcFVDM0pHVWthZlBSS1ZTWUQxRC1mcmhkMG1KMnZGQ1lZYVkxZkVuRHF1amZOVHNnd2xPa3dyRjR6VmFRSHdGbWlFelV4WGZraVdkbDZvQzZ0Qlhlc2xRTQ?oc=5",
-      "titulo": "Saudi tanker transits through Hormuz hit war-time high after pipeline attack - lloydslist.com",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-24T16:32:37-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxPRllab01RVkk3OXBfcXhrNjVIZEpIN25SdFJaclhZOE1pN0lmbWV6cHF6dHB3QmNvbXNyd1FYWjFITURLM1ExNTlzdUZLYWRaRll0QlQxU1ltZXZtcFVDM0pHVWthZlBSS1ZTWUQxRC1mcmhkMG1KMnZGQ1lZYVkxZkVuRHF1amZOVHNnd2xPa3dyRjR6VmFRSHdGbWlFelV4WGZraVdkbDZvQzZ0Qlhlc2xRTQ?oc=5\" target=\"_blank\">Saudi tanker transits through Hormuz hit war-time high after pipeline attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">lloydslist.com</font>",
-      "fetched_at": "2026-09-24T17:57:32-06:00"
-    },
-    {
       "id": 41,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/Vitol-Scoops-Up-25-Million-Barrels-of-Discounted-Iraqi-Crude.html",
-      "titulo": "Vitol Scoops Up 25 Million Barrels of Discounted Iraqi Crude",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T12:30:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Vitol has bought at least 25 million barrels of Iraqi crude for September loading, making the world’s largest independent oil trader Iraq’s second-biggest buyer behind ADNOC as Baghdad pays steep discounts to keep barrels moving through the Strait of Hormuz. Iraq’s SOMO offered September crude at discounts of $15 to $20.80 per barrel to its official selling prices, according to a tender document reviewed by Reuters. Trading sources said some cargoes sold at even larger discounts. The discount bu",
-      "fetched_at": "2026-09-24T17:57:32-06:00"
-    },
-    {
-      "id": 42,
-      "url": "https://oilprice.com/Energy/Energy-General/Iran-Warns-US-Strikes-Could-Push-War-Into-Indian-Ocean.html",
-      "titulo": "Iran Warns U.S. Strikes Could Push War Into Indian Ocean",
+      "url": "https://oilprice.com/Energy/Energy-General/Why-Are-Diesel-Prices-So-High.html",
+      "titulo": "Why Are Diesel Prices So High?",
       "medio": "OilPrice.com",
       "publicado_at": "2026-09-24T12:00:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "It was just this month that saw the Iran conflict spill over into a renewed fight between the Saudi coalition and Yemen's Houthi rebels. Now Iran is threatening to expand the fight further, even into the Indian Ocean. Yahya Rahim Safavi, an adviser to Iran’s Supreme Leader Mojtaba Khamenei, warned Thursday of another significant expansion of the war if the Islamic Republic suffers an attack again. \"Since the conflict has spread from the Persian Gulf and Strait of Hormuz to the Red Sea, it is pos",
-      "fetched_at": "2026-09-24T17:57:32-06:00"
+      "resumen_es": "Some claims making the rounds on social media start with an observation that is basically correct: crude oil was more expensive after Russia invaded Ukraine in 2022 than it is today, yet diesel prices are now higher. The conclusion often attached to that comparison is that refiners must be gouging consumers. It sounds plausible because crude oil is the main raw material used to make diesel. But it leaves out the critical part of the market that has become the real bottleneck: refining. As of Sep",
+      "fetched_at": "2026-09-24T12:21:29-06:00"
+    },
+    {
+      "id": 42,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Vitol-Scoops-Up-25-Million-Barrels-of-Discounted-Iraqi-Crude.html",
+      "titulo": "Vitol Scoops Up 25 Million Barrels of Discounted Iraqi Crude",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T11:30:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Vitol has bought at least 25 million barrels of Iraqi crude for September loading, making the world’s largest independent oil trader Iraq’s second-biggest buyer behind ADNOC as Baghdad pays steep discounts to keep barrels moving through the Strait of Hormuz. Iraq’s SOMO offered September crude at discounts of $15 to $20.80 per barrel to its official selling prices, according to a tender document reviewed by Reuters. Trading sources said some cargoes sold at even larger discounts. The discount bu",
+      "fetched_at": "2026-09-24T12:21:29-06:00"
     },
     {
       "id": 43,
-      "url": "https://oilprice.com/Geopolitics/International/US-Invites-Putin-To-G20-Summit-In-Miami.html",
-      "titulo": "U.S. Invites Putin To G20 Summit In Miami",
+      "url": "https://oilprice.com/Energy/Energy-General/Iran-Warns-US-Strikes-Could-Push-War-Into-Indian-Ocean.html",
+      "titulo": "Iran Warns U.S. Strikes Could Push War Into Indian Ocean",
       "medio": "OilPrice.com",
       "publicado_at": "2026-09-24T11:00:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "The United States has invited Russian President Vladimir Putin to attend the Group of 20 summit in Miami in December, Secretary of State Marco Rubio said on September 23, as the Trump administration is seeking steps to reduce fighting in Ukraine. “We've invited President Putin to the G20,\" Rubio told reporters after meeting Russian Foreign Minister Sergei Lavrov on the sidelines of the UN General Assembly in New York. \"We think it's an opportunity for him to engage not just with the president bu",
-      "fetched_at": "2026-09-24T17:57:32-06:00"
+      "resumen_es": "It was just this month that saw the Iran conflict spill over into a renewed fight between the Saudi coalition and Yemen's Houthi rebels. Now Iran is threatening to expand the fight further, even into the Indian Ocean. Yahya Rahim Safavi, an adviser to Iran’s Supreme Leader Mojtaba Khamenei, warned Thursday of another significant expansion of the war if the Islamic Republic suffers an attack again. \"Since the conflict has spread from the Persian Gulf and Strait of Hormuz to the Red Sea, it is pos",
+      "fetched_at": "2026-09-24T12:21:29-06:00"
     },
     {
-      "id": 44,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/Russia-Begins-Oil-Exports-From-Its-Giant-Vostok-Arctic-Project.html",
-      "titulo": "Russia Begins Oil Exports From Its Giant Vostok Arctic Project",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T10:35:00-06:00",
+      "id": 26,
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPRllab01RVkk3OXBfcXhrNjVIZEpIN25SdFJaclhZOE1pN0lmbWV6cHF6dHB3QmNvbXNyd1FYWjFITURLM1ExNTlzdUZLYWRaRll0QlQxU1ltZXZtcFVDM0pHVWthZlBSS1ZTWUQxRC1mcmhkMG1KMnZGQ1lZYVkxZkVuRHF1amZOVHNnd2xPa3dyRjR6VmFRSHdGbWlFelV4WGZraVdkbDZvQzZ0Qlhlc2xRTQ?oc=5",
+      "titulo": "Saudi tanker transits through Hormuz hit war-time high after pipeline attack - lloydslist.com",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-24T10:32:37-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "Russia has begun commercial crude exports from Rosneft’s Vostok Oil project, putting barrels on the water from its new Arctic terminal after years of sanctions, investor exits, and construction delays. Three ice-class tankers loaded about 250,000 metric tons of crude from the Bukhta Sever terminal on the Taimyr Peninsula in September. Two carried the oil to Murmansk for ship-to-ship transfer. A third headed for Asia through the Northern Sea Route. A fourth tanker is waiting to load. Industry sou",
-      "fetched_at": "2026-09-24T17:57:32-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxPRllab01RVkk3OXBfcXhrNjVIZEpIN25SdFJaclhZOE1pN0lmbWV6cHF6dHB3QmNvbXNyd1FYWjFITURLM1ExNTlzdUZLYWRaRll0QlQxU1ltZXZtcFVDM0pHVWthZlBSS1ZTWUQxRC1mcmhkMG1KMnZGQ1lZYVkxZkVuRHF1amZOVHNnd2xPa3dyRjR6VmFRSHdGbWlFelV4WGZraVdkbDZvQzZ0Qlhlc2xRTQ?oc=5\" target=\"_blank\">Saudi tanker transits through Hormuz hit war-time high after pipeline attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">lloydslist.com</font>",
+      "fetched_at": "2026-09-24T12:21:29-06:00"
     },
     {
-      "id": 45,
-      "url": "https://oilprice.com/Energy/Energy-General/China-Could-Cut-Fuel-Exports-in-October-as-Inventories-Plunge.html",
-      "titulo": "China Could Cut Fuel Exports in October as Inventories Plunge",
+      "id": 44,
+      "url": "https://oilprice.com/Geopolitics/International/US-Invites-Putin-To-G20-Summit-In-Miami.html",
+      "titulo": "U.S. Invites Putin To G20 Summit In Miami",
       "medio": "OilPrice.com",
       "publicado_at": "2026-09-24T10:00:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "China could lower its fuel exports again in October, potentially tightening the global fuel market further, as domestic gasoline and diesel inventories have slumped to multi-year lows. China’s fuel exports recovered in August as refiners exported 6.01 million tons of petroleum products, up by 12.7% from a year earlier, after Beijing removed in mid-July restrictions on fuel exports that were in place at the peak of the Strait of Hormuz blockage.   The total volume of Chinese fuel exports exceeded",
-      "fetched_at": "2026-09-24T17:57:32-06:00"
+      "resumen_es": "The United States has invited Russian President Vladimir Putin to attend the Group of 20 summit in Miami in December, Secretary of State Marco Rubio said on September 23, as the Trump administration is seeking steps to reduce fighting in Ukraine. “We've invited President Putin to the G20,\" Rubio told reporters after meeting Russian Foreign Minister Sergei Lavrov on the sidelines of the UN General Assembly in New York. \"We think it's an opportunity for him to engage not just with the president bu",
+      "fetched_at": "2026-09-24T12:21:29-06:00"
     },
     {
-      "id": 21,
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOa002SlQwdjRkZTJfNWtycjdSSmhMbmlZanRKQm10YzhLMDJSNnBtZW94YWYxX0ZCSWQ3OWJtTDdjTDY0VlpnclNreHFxQ0ZXM2JZSlpjZ2pDYVlEcVd6aVNQSlVPSDVPNHh0cW5KcVY0UWYzc0ZqSGhsdGhEd253SGx3ZGZPa25tR3o5UGRBY191dHU1NG5PMm5KRFVHb20zMU9hMUFma080bk1rN1AtWllZbU1BYVJxREJ6WlR5MDVldVZZVlZZ?oc=5",
-      "titulo": "Saudi Oil Loaded from Port at Yanbu after Pipeline Attack - Industrial Info Resources",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-24T09:53:23-06:00",
+      "id": 45,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Russia-Begins-Oil-Exports-From-Its-Giant-Vostok-Arctic-Project.html",
+      "titulo": "Russia Begins Oil Exports From Its Giant Vostok Arctic Project",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T09:35:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxOa002SlQwdjRkZTJfNWtycjdSSmhMbmlZanRKQm10YzhLMDJSNnBtZW94YWYxX0ZCSWQ3OWJtTDdjTDY0VlpnclNreHFxQ0ZXM2JZSlpjZ2pDYVlEcVd6aVNQSlVPSDVPNHh0cW5KcVY0UWYzc0ZqSGhsdGhEd253SGx3ZGZPa25tR3o5UGRBY191dHU1NG5PMm5KRFVHb20zMU9hMUFma080bk1rN1AtWllZbU1BYVJxREJ6WlR5MDVldVZZVlZZ?oc=5\" target=\"_blank\">Saudi Oil Loaded from Port at Yanbu after Pipeline Attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Industrial Info Resources</font>",
-      "fetched_at": "2026-09-24T17:57:32-06:00"
+      "resumen_es": "Russia has begun commercial crude exports from Rosneft’s Vostok Oil project, putting barrels on the water from its new Arctic terminal after years of sanctions, investor exits, and construction delays. Three ice-class tankers loaded about 250,000 metric tons of crude from the Bukhta Sever terminal on the Taimyr Peninsula in September. Two carried the oil to Murmansk for ship-to-ship transfer. A third headed for Asia through the Northern Sea Route. A fourth tanker is waiting to load. Industry sou",
+      "fetched_at": "2026-09-24T12:21:29-06:00"
     },
     {
       "id": 46,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/Record-Fuel-Prices-Send-European-EV-Sales-Soaring.html",
-      "titulo": "Record Fuel Prices Send European EV Sales Soaring",
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T09:15:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Record-high gasoline and diesel prices in many European markets did what European policymakers couldn’t do in years - shift consumer choice to low-emission vehicles. Battery electric vehicle sales in Europe, including the UK, Switzerland, and Norway, surged by 52.2% in August from a year earlier as record-high gasoline and diesel prices prompted drivers to flock to battery and hybrid vehicles, data by the European Automobile Manufacturers’ Association, ACEA, showed on Thursday.  BEV sales in Ger",
-      "fetched_at": "2026-09-24T17:57:32-06:00"
-    },
-    {
-      "id": 30,
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9JVTRYWEF1NWM1T3Bzd1UzUnF5YVE0WjJ5dHZPUFBKR2ZWM3hYU1kwMllRNGNJcmVrWktMWVZoWWYyZThQTzB2c2traw?oc=5",
-      "titulo": "Fire Breaks Out as Drones Hit Russian Oil Facilities in Two Southern Regions - kyivpost.com",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-24T09:12:40-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiS0FVX3lxTE9JVTRYWEF1NWM1T3Bzd1UzUnF5YVE0WjJ5dHZPUFBKR2ZWM3hYU1kwMllRNGNJcmVrWktMWVZoWWYyZThQTzB2c2traw?oc=5\" target=\"_blank\">Fire Breaks Out as Drones Hit Russian Oil Facilities in Two Southern Regions</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">kyivpost.com</font>",
-      "fetched_at": "2026-09-24T17:57:32-06:00"
-    },
-    {
-      "id": 47,
-      "url": "https://oilprice.com/Energy/Natural-Gas/South-Korea-Follows-Japans-Playbook-With-223-Billion-Texas-Gas-Bet.html",
-      "titulo": "South Korea Follows Japan's Playbook With $22.3 Billion Texas Gas Bet",
+      "url": "https://oilprice.com/Energy/Energy-General/China-Could-Cut-Fuel-Exports-in-October-as-Inventories-Plunge.html",
+      "titulo": "China Could Cut Fuel Exports in October as Inventories Plunge",
       "medio": "OilPrice.com",
       "publicado_at": "2026-09-24T09:00:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
+      "resumen_es": "China could lower its fuel exports again in October, potentially tightening the global fuel market further, as domestic gasoline and diesel inventories have slumped to multi-year lows. China’s fuel exports recovered in August as refiners exported 6.01 million tons of petroleum products, up by 12.7% from a year earlier, after Beijing removed in mid-July restrictions on fuel exports that were in place at the peak of the Strait of Hormuz blockage.   The total volume of Chinese fuel exports exceeded",
+      "fetched_at": "2026-09-24T12:21:29-06:00"
+    },
+    {
+      "id": 47,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Record-Fuel-Prices-Send-European-EV-Sales-Soaring.html",
+      "titulo": "Record Fuel Prices Send European EV Sales Soaring",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T08:15:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Record-high gasoline and diesel prices in many European markets did what European policymakers couldn’t do in years - shift consumer choice to low-emission vehicles. Battery electric vehicle sales in Europe, including the UK, Switzerland, and Norway, surged by 52.2% in August from a year earlier as record-high gasoline and diesel prices prompted drivers to flock to battery and hybrid vehicles, data by the European Automobile Manufacturers’ Association, ACEA, showed on Thursday.  BEV sales in Ger",
+      "fetched_at": "2026-09-24T12:21:29-06:00"
+    },
+    {
+      "id": 48,
+      "url": "https://oilprice.com/Energy/Natural-Gas/South-Korea-Follows-Japans-Playbook-With-223-Billion-Texas-Gas-Bet.html",
+      "titulo": "South Korea Follows Japan's Playbook With $22.3 Billion Texas Gas Bet",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T08:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
       "resumen_es": "Ten months, one tariff threat and several \"sleepless nights\" later, South Korea has finally found somewhere to put the first piece of the $350 billion it promised to invest in America. The winner is a gas-fired power complex in Encinal, Texas (population 540, where real estate is about to go ballistic), and it is built to feed the one thing Washington can never get enough of: electricity for data centers and chip fabs. According to the FT, Seoul this week chose the proposed $22.3 billion, 6.3-gi",
-      "fetched_at": "2026-09-24T17:57:32-06:00"
+      "fetched_at": "2026-09-24T12:21:29-06:00"
+    },
+    {
+      "id": 49,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Arabia-Sells-100-Million-Barrels-of-Crude-to-Asia-via-Hormuz.html",
+      "titulo": "Saudi Arabia Sells 100 Million Barrels of Crude to Asia via Hormuz",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T07:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Saudi Arabia has sold almost 100 million barrels of crude to Asian buyers via the Strait of Hormuz since the middle of last week, when it pivoted to the chokepoint it wanted to avoid with the East-West pipeline to the Red Sea. With the pipeline out of service, the Kingdom has sold 100 million barrels of crude, which is roughly one day of total global oil demand, to Asian buyers for October and November delivery through the Strait of Hormuz, trade sources with knowledge of the deals told Bloomber",
+      "fetched_at": "2026-09-24T12:21:29-06:00"
     }
   ]
 }
