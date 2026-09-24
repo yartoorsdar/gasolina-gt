@@ -1,21 +1,21 @@
 {
-  "actualizado_at": "2026-09-23T18:20:47+00:00",
+  "actualizado_at": "2026-09-24T17:57:33+00:00",
   "precios_combustible": [
     {
       "id": 2,
-      "fecha": "2026-09-23",
+      "fecha": "2026-09-24",
       "producto": "diésel",
       "precio": 50.5,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T18:20:34-06:00"
+      "fetched_at": "2026-09-24T17:57:20-06:00"
     },
     {
       "id": 1,
-      "fecha": "2026-09-23",
+      "fecha": "2026-09-24",
       "producto": "superior",
       "precio": 45.74,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-23T18:20:34-06:00"
+      "fetched_at": "2026-09-24T17:57:20-06:00"
     },
     {
       "id": 4,
@@ -23,138 +23,138 @@
       "producto": "regular",
       "precio": 41.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-23T18:20:34-06:00"
+      "fetched_at": "2026-09-24T17:57:20-06:00"
     }
   ],
   "petroleo": [
     {
       "referencia": "wti",
-      "fecha": "2026-09-23",
-      "usd_barril": 91.84,
+      "fecha": "2026-09-24",
+      "usd_barril": 95.3,
       "fuente": "OilPriceAPI"
     }
   ],
-  "noticias_count": 66,
+  "noticias_count": 65,
   "ultimas_noticias": [
     {
-      "id": 35,
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNbWUwcHd0VWxObFJIUWN0Nkp1Ukp6ZzRWOEktYThfeGt3d3RVR05DMTdOQXFienp0U3hxd210UklMYm10aVI2R1hLeHowTko2WXkwaWhLMFJrajN4ay11RV9LZm1FcWY5cXdkQmI0RmdBeTF5VmVMeEhIcDdQd29TdU9HNXY3ZWxnWl9oTUZ1Sl9OV3NsLTZTZWRTNUJWZUN6RWVQMGRLTmZaVnUtVnNCN1czSHpnZzNsTlNXRktDWjVzSnNEeEhF?oc=5",
-      "titulo": "Ukrainian Drones Attack Russia’s Bashkortostan, Smoke Spotted Near Ufa Oil Refinery - UNITED24 Media",
+      "id": 26,
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPRllab01RVkk3OXBfcXhrNjVIZEpIN25SdFJaclhZOE1pN0lmbWV6cHF6dHB3QmNvbXNyd1FYWjFITURLM1ExNTlzdUZLYWRaRll0QlQxU1ltZXZtcFVDM0pHVWthZlBSS1ZTWUQxRC1mcmhkMG1KMnZGQ1lZYVkxZkVuRHF1amZOVHNnd2xPa3dyRjR6VmFRSHdGbWlFelV4WGZraVdkbDZvQzZ0Qlhlc2xRTQ?oc=5",
+      "titulo": "Saudi tanker transits through Hormuz hit war-time high after pipeline attack - lloydslist.com",
       "medio": "Google News EN",
-      "publicado_at": "2026-09-23T14:30:55-06:00",
+      "publicado_at": "2026-09-24T16:32:37-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxNbWUwcHd0VWxObFJIUWN0Nkp1Ukp6ZzRWOEktYThfeGt3d3RVR05DMTdOQXFienp0U3hxd210UklMYm10aVI2R1hLeHowTko2WXkwaWhLMFJrajN4ay11RV9LZm1FcWY5cXdkQmI0RmdBeTF5VmVMeEhIcDdQd29TdU9HNXY3ZWxnWl9oTUZ1Sl9OV3NsLTZTZWRTNUJWZUN6RWVQMGRLTmZaVnUtVnNCN1czSHpnZzNsTlNXRktDWjVzSnNEeEhF?oc=5\" target=\"_blank\">Ukrainian Drones Attack Russia’s Bashkortostan, Smoke Spotted Near Ufa Oil Refinery</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UNITED24 Media</font>",
-      "fetched_at": "2026-09-23T18:20:46-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxPRllab01RVkk3OXBfcXhrNjVIZEpIN25SdFJaclhZOE1pN0lmbWV6cHF6dHB3QmNvbXNyd1FYWjFITURLM1ExNTlzdUZLYWRaRll0QlQxU1ltZXZtcFVDM0pHVWthZlBSS1ZTWUQxRC1mcmhkMG1KMnZGQ1lZYVkxZkVuRHF1amZOVHNnd2xPa3dyRjR6VmFRSHdGbWlFelV4WGZraVdkbDZvQzZ0Qlhlc2xRTQ?oc=5\" target=\"_blank\">Saudi tanker transits through Hormuz hit war-time high after pipeline attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">lloydslist.com</font>",
+      "fetched_at": "2026-09-24T17:57:32-06:00"
     },
     {
       "id": 41,
-      "url": "https://oilprice.com/Geopolitics/International/Uzbekistan-Eyes-Caspian-and-Black-Sea-Ports-to-Break-Out-of-Central-Asia.html",
-      "titulo": "Uzbekistan Eyes Caspian and Black Sea Ports to Break Out of Central Asia",
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Vitol-Scoops-Up-25-Million-Barrels-of-Discounted-Iraqi-Crude.html",
+      "titulo": "Vitol Scoops Up 25 Million Barrels of Discounted Iraqi Crude",
       "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T13:00:00-06:00",
+      "publicado_at": "2026-09-24T12:30:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "Uzbekistan is intent on establishing logistics lily pads on the shores of the Caspian and Black Seas to advance Tashkent’s Middle Corridor trade agenda. A statement published by President Shavkat Mirziyoyev’s office on September 21 revealed that Uzbek and Georgian officials have already signed an agreement to establish Uzbek warehousing and transport facilities at the Georgian Black Sea port of Poti. A feasibility study is being planned, the statement added. Uzbek trade officials also have plans",
-      "fetched_at": "2026-09-23T18:20:46-06:00"
-    },
-    {
-      "id": 22,
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVDFUdnM4Tm1wMjM1QURkT0hvV29kZ0xCV2F0bVFaRkVqUEROaWMwLWNfeXk4T2JVR010NjBBLXJWWnJwQ1hEcGU0emRzTDZRUUs0ODJ6ZHlVcm9hdERaTG1pd1BaLXQtUFBJc0xrdW54QnBOUURQN0RuNzFaWWhjcEV4dmJBd1FYcXJGcXhQNVBaWlBPRGZvOU5CZzhrZHJ4bHFCN2NqTUdRaXBQcWVSaGpXeEZ0Z19G?oc=5",
-      "titulo": "Saudi Arabia Restarts East-West Pipeline to Resume Exports Days After Drone Attack - Pipeline Technology Journal",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-23T12:55:02-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiuAFBVV95cUxPVDFUdnM4Tm1wMjM1QURkT0hvV29kZ0xCV2F0bVFaRkVqUEROaWMwLWNfeXk4T2JVR010NjBBLXJWWnJwQ1hEcGU0emRzTDZRUUs0ODJ6ZHlVcm9hdERaTG1pd1BaLXQtUFBJc0xrdW54QnBOUURQN0RuNzFaWWhjcEV4dmJBd1FYcXJGcXhQNVBaWlBPRGZvOU5CZzhrZHJ4bHFCN2NqTUdRaXBQcWVSaGpXeEZ0Z19G?oc=5\" target=\"_blank\">Saudi Arabia Restarts East-West Pipeline to Resume Exports Days After Drone Attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Pipeline Technology Journal</font>",
-      "fetched_at": "2026-09-23T18:20:46-06:00"
-    },
-    {
-      "id": 12,
-      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNQ2dicHVMSExZUGZrTDA2c1g2N3U5R0VzTFR0ZXBSMUZPei1mMEhZTlBzdDkyOUZqUmFiOEs0UGdQam9ZRkJBZVJRcTg2T3FKVlpNWFQ1dUVDUUppYno5eFVUYklGWHd1N1IyWHpBeTlTbDIwd3lFN08yYnl5Q1o5NTNBVFdZWkI4eF9XTHJsLTdDV0JHRjVxTHM1Wk85UlZHWGVpa09rS3QyQ1IxU0tSZVo2Tlg0YXpNV1lwTEtnWHVxUE53eDc5S0NQajk3ZmxPVjg1eWVzRzR6QdIB9AFBVV95cUxNU0trb004aEpTTTROUXNZdzZNenNDN3BKbUNBZGRmV1QxVUQzMFNfdXBWbnNtYm51ZXhzb3BuSFl6S2RtLV9DOEtlVkp0MXdkbUtIampjN0VpZEJPSjB6OGxBRzY3dXdvdGxDUDFTdVBrVmNnRXV4Zm04SHdzTkFGZndtc19fMHhFdEtCam1mdHJZNW5xOGU5M2ZXeGV6TTNRVlVtRUg2NmRzS0VxSXlIYXpldDY5bjRhNGI5cUtIal9MN1o1V09TcDBrYnJuUzR4T0dhdkF0YkpDX3JVU1NLUlRIWmM3d0E1Nms3Ti03Z2JFd0Zx?oc=5",
-      "titulo": "Arabia Saudí se prepara para reabrir el oleoducto Este-Oeste tras su cierre por un ataque - Infobae",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-23T12:37:40-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxNQ2dicHVMSExZUGZrTDA2c1g2N3U5R0VzTFR0ZXBSMUZPei1mMEhZTlBzdDkyOUZqUmFiOEs0UGdQam9ZRkJBZVJRcTg2T3FKVlpNWFQ1dUVDUUppYno5eFVUYklGWHd1N1IyWHpBeTlTbDIwd3lFN08yYnl5Q1o5NTNBVFdZWkI4eF9XTHJsLTdDV0JHRjVxTHM1Wk85UlZHWGVpa09rS3QyQ1IxU0tSZVo2Tlg0YXpNV1lwTEtnWHVxUE53eDc5S0NQajk3ZmxPVjg1eWVzRzR6QdIB9AFBVV95cUxNU0trb004aEpTTTROUXNZdzZNenNDN3BKbUNBZGRmV1QxVUQzMFNfdXBWbnNtYm51ZXhzb3BuSFl6S2RtLV9DOEtlVkp0MXdkbUtIampjN0VpZEJPSjB6OGxBRzY3dXdvdGxDUDFTdVBrVm",
-      "fetched_at": "2026-09-23T18:20:46-06:00"
+      "resumen_es": "Vitol has bought at least 25 million barrels of Iraqi crude for September loading, making the world’s largest independent oil trader Iraq’s second-biggest buyer behind ADNOC as Baghdad pays steep discounts to keep barrels moving through the Strait of Hormuz. Iraq’s SOMO offered September crude at discounts of $15 to $20.80 per barrel to its official selling prices, according to a tender document reviewed by Reuters. Trading sources said some cargoes sold at even larger discounts. The discount bu",
+      "fetched_at": "2026-09-24T17:57:32-06:00"
     },
     {
       "id": 42,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/Imperial-Oil-Becomes-First-Major-Alberta-Energy-Company-to-Oppose-Separatism.html",
-      "titulo": "Imperial Oil Becomes First Major Alberta Energy Company to Oppose Separatism",
+      "url": "https://oilprice.com/Energy/Energy-General/Iran-Warns-US-Strikes-Could-Push-War-Into-Indian-Ocean.html",
+      "titulo": "Iran Warns U.S. Strikes Could Push War Into Indian Ocean",
       "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T12:30:00-06:00",
+      "publicado_at": "2026-09-24T12:00:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "Imperial Oil chief executive John Whelan has stated his opposition to Alberta separatism, making this the first major energy company in the province to take a public position on the movement, Financial Post reported, citing Bloomberg.  \"As a national company, we believe a united Canada is the strongest position we can take to face the challenges and opportunities ahead,\" Whelan told a Calgary conference, adding that \"Canada and Alberta work best when people, products, energy and investment can m",
-      "fetched_at": "2026-09-23T18:20:46-06:00"
+      "resumen_es": "It was just this month that saw the Iran conflict spill over into a renewed fight between the Saudi coalition and Yemen's Houthi rebels. Now Iran is threatening to expand the fight further, even into the Indian Ocean. Yahya Rahim Safavi, an adviser to Iran’s Supreme Leader Mojtaba Khamenei, warned Thursday of another significant expansion of the war if the Islamic Republic suffers an attack again. \"Since the conflict has spread from the Persian Gulf and Strait of Hormuz to the Red Sea, it is pos",
+      "fetched_at": "2026-09-24T17:57:32-06:00"
     },
     {
       "id": 43,
-      "url": "https://oilprice.com/Energy/Energy-General/US-Energy-Secretary-Blunt-Tool-of-Banning-Diesel-Exports-Doesnt-Work.html",
-      "titulo": "U.S. Energy Secretary: Blunt Tool of Banning Diesel Exports Doesn't Work",
+      "url": "https://oilprice.com/Geopolitics/International/US-Invites-Putin-To-G20-Summit-In-Miami.html",
+      "titulo": "U.S. Invites Putin To G20 Summit In Miami",
       "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T12:00:00-06:00",
+      "publicado_at": "2026-09-24T11:00:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "US Energy Secretary Chris Wright has publicly opposed calls for a ban on US diesel exports, arguing on Wednesday that the measure would backfire by increasing gasoline and jet fuel prices. \"The blunt tool of banning diesel exports definitely doesn't ‌work,\" Wright said at an event in New York, as reported by Reuters. Wright said restricting exports would leave refiners with excess diesel inventories, forcing them to cut refinery output. Lower refinery runs, he warned, would tighten supplies of o",
-      "fetched_at": "2026-09-23T18:20:46-06:00"
+      "resumen_es": "The United States has invited Russian President Vladimir Putin to attend the Group of 20 summit in Miami in December, Secretary of State Marco Rubio said on September 23, as the Trump administration is seeking steps to reduce fighting in Ukraine. “We've invited President Putin to the G20,\" Rubio told reporters after meeting Russian Foreign Minister Sergei Lavrov on the sidelines of the UN General Assembly in New York. \"We think it's an opportunity for him to engage not just with the president bu",
+      "fetched_at": "2026-09-24T17:57:32-06:00"
     },
     {
       "id": 44,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/Dangotes-Kenya-Refinery-Project-Launches-This-Week-at-Up-to-20B.html",
-      "titulo": "Dangote's Kenya Refinery Project Launches This Week at Up to $20B",
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Russia-Begins-Oil-Exports-From-Its-Giant-Vostok-Arctic-Project.html",
+      "titulo": "Russia Begins Oil Exports From Its Giant Vostok Arctic Project",
       "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T11:30:00-06:00",
+      "publicado_at": "2026-09-24T10:35:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "Kenya breaks ground September 30 on the Dangote-backed East Africa Oil Refinery in Lamu, a project priced at $17 billion by Kenyan officials and $20 billion by Aliko Dangote himself, and designed to process 700,000 barrels of crude oil a day at Lamu's deep-water port. It would serve Kenya, Uganda, South Sudan, Rwanda, Burundi and the Democratic Republic of Congo. Disclosed financing for the project totals $1.6 billion against a price tag of $17 billion to $20 billion. Tanzanian billionaire Moham",
-      "fetched_at": "2026-09-23T18:20:46-06:00"
-    },
-    {
-      "id": 24,
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPd1N0cEZSOUFtN2lpV25Xel9hVGVoZTFPdUJPd2RyQTJ4QmM5dTVta3FRalllVzBVa1h2anJiRTFUTTNucjh2ZEpVMUJXellaWnEwVDZhSG04czVuRms2QmJ4NVFMUEg1MV9CLUk0VDl6dmRMSWtVT1hxNk9YcWQ3dHphRE9obUhfejV1ZkprVVJlcTBFbGZKY1BmVEtaT25lMUJvT1BYWUk?oc=5",
-      "titulo": "Video Does Not Show Houthi Attack on Israeli Oil Pipeline - موقع مسبار",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-23T11:14:01-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxPd1N0cEZSOUFtN2lpV25Xel9hVGVoZTFPdUJPd2RyQTJ4QmM5dTVta3FRalllVzBVa1h2anJiRTFUTTNucjh2ZEpVMUJXellaWnEwVDZhSG04czVuRms2QmJ4NVFMUEg1MV9CLUk0VDl6dmRMSWtVT1hxNk9YcWQ3dHphRE9obUhfejV1ZkprVVJlcTBFbGZKY1BmVEtaT25lMUJvT1BYWUk?oc=5\" target=\"_blank\">Video Does Not Show Houthi Attack on Israeli Oil Pipeline</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">موقع مسبار</font>",
-      "fetched_at": "2026-09-23T18:20:46-06:00"
+      "resumen_es": "Russia has begun commercial crude exports from Rosneft’s Vostok Oil project, putting barrels on the water from its new Arctic terminal after years of sanctions, investor exits, and construction delays. Three ice-class tankers loaded about 250,000 metric tons of crude from the Bukhta Sever terminal on the Taimyr Peninsula in September. Two carried the oil to Murmansk for ship-to-ship transfer. A third headed for Asia through the Northern Sea Route. A fourth tanker is waiting to load. Industry sou",
+      "fetched_at": "2026-09-24T17:57:32-06:00"
     },
     {
       "id": 45,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/Glencore-Joins-Project-Vault-With-500-Million-Cobalt-Commitment.html",
-      "titulo": "Glencore Joins Project Vault With $500 Million Cobalt Commitment",
+      "url": "https://oilprice.com/Energy/Energy-General/China-Could-Cut-Fuel-Exports-in-October-as-Inventories-Plunge.html",
+      "titulo": "China Could Cut Fuel Exports in October as Inventories Plunge",
       "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T10:30:00-06:00",
+      "publicado_at": "2026-09-24T10:00:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "Glencore committed $500 million to VaultCo, the Export-Import Bank public-private partnership sourcing critical minerals for a US government stockpile, Reuters reported Wednesday. The commitment makes Glencore the fourth supplier named to Project Vault, joining Hartree Partners, Mercuria Americas and Traxys seven months after EXIM's board approved the program's underlying loan. EXIM's board approved a $10-billion direct loan for Project Vault on February 2, 2026, paired with roughly $2 billion i",
-      "fetched_at": "2026-09-23T18:20:46-06:00"
+      "resumen_es": "China could lower its fuel exports again in October, potentially tightening the global fuel market further, as domestic gasoline and diesel inventories have slumped to multi-year lows. China’s fuel exports recovered in August as refiners exported 6.01 million tons of petroleum products, up by 12.7% from a year earlier, after Beijing removed in mid-July restrictions on fuel exports that were in place at the peak of the Strait of Hormuz blockage.   The total volume of Chinese fuel exports exceeded",
+      "fetched_at": "2026-09-24T17:57:32-06:00"
+    },
+    {
+      "id": 21,
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOa002SlQwdjRkZTJfNWtycjdSSmhMbmlZanRKQm10YzhLMDJSNnBtZW94YWYxX0ZCSWQ3OWJtTDdjTDY0VlpnclNreHFxQ0ZXM2JZSlpjZ2pDYVlEcVd6aVNQSlVPSDVPNHh0cW5KcVY0UWYzc0ZqSGhsdGhEd253SGx3ZGZPa25tR3o5UGRBY191dHU1NG5PMm5KRFVHb20zMU9hMUFma080bk1rN1AtWllZbU1BYVJxREJ6WlR5MDVldVZZVlZZ?oc=5",
+      "titulo": "Saudi Oil Loaded from Port at Yanbu after Pipeline Attack - Industrial Info Resources",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-24T09:53:23-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxOa002SlQwdjRkZTJfNWtycjdSSmhMbmlZanRKQm10YzhLMDJSNnBtZW94YWYxX0ZCSWQ3OWJtTDdjTDY0VlpnclNreHFxQ0ZXM2JZSlpjZ2pDYVlEcVd6aVNQSlVPSDVPNHh0cW5KcVY0UWYzc0ZqSGhsdGhEd253SGx3ZGZPa25tR3o5UGRBY191dHU1NG5PMm5KRFVHb20zMU9hMUFma080bk1rN1AtWllZbU1BYVJxREJ6WlR5MDVldVZZVlZZ?oc=5\" target=\"_blank\">Saudi Oil Loaded from Port at Yanbu after Pipeline Attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Industrial Info Resources</font>",
+      "fetched_at": "2026-09-24T17:57:32-06:00"
     },
     {
       "id": 46,
-      "url": "https://oilprice.com/Metals/Commodities/Copper-Erases-Tariff-Selloff-as-Shanghai-Stockpiles-Hit-Three-Year-Low.html",
-      "titulo": "Copper Erases Tariff Selloff as Shanghai Stockpiles Hit Three-Year Low",
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Record-Fuel-Prices-Send-European-EV-Sales-Soaring.html",
+      "titulo": "Record Fuel Prices Send European EV Sales Soaring",
       "medio": "OilPrice.com",
-      "publicado_at": "2026-09-23T10:00:00-06:00",
+      "publicado_at": "2026-09-24T09:15:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "Copper closed Tuesday a hair below its all-time high, extending its winning streak to six sessions as Chinese buyers restocked ahead of back-to-back holidays and warehouse inventories in Shanghai and London kept draining. Three-month copper on the London Metal Exchange settled at $14,783 a metric ton, up 0.8%, according to Shanghai Metals Market, leaving it $92 short of the $14,875 record set Sept. 10. Comex copper for December delivery hit $6.871 a pound in New York during the session, within 2",
-      "fetched_at": "2026-09-23T18:20:46-06:00"
+      "resumen_es": "Record-high gasoline and diesel prices in many European markets did what European policymakers couldn’t do in years - shift consumer choice to low-emission vehicles. Battery electric vehicle sales in Europe, including the UK, Switzerland, and Norway, surged by 52.2% in August from a year earlier as record-high gasoline and diesel prices prompted drivers to flock to battery and hybrid vehicles, data by the European Automobile Manufacturers’ Association, ACEA, showed on Thursday.  BEV sales in Ger",
+      "fetched_at": "2026-09-24T17:57:32-06:00"
+    },
+    {
+      "id": 30,
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9JVTRYWEF1NWM1T3Bzd1UzUnF5YVE0WjJ5dHZPUFBKR2ZWM3hYU1kwMllRNGNJcmVrWktMWVZoWWYyZThQTzB2c2traw?oc=5",
+      "titulo": "Fire Breaks Out as Drones Hit Russian Oil Facilities in Two Southern Regions - kyivpost.com",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-24T09:12:40-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiS0FVX3lxTE9JVTRYWEF1NWM1T3Bzd1UzUnF5YVE0WjJ5dHZPUFBKR2ZWM3hYU1kwMllRNGNJcmVrWktMWVZoWWYyZThQTzB2c2traw?oc=5\" target=\"_blank\">Fire Breaks Out as Drones Hit Russian Oil Facilities in Two Southern Regions</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">kyivpost.com</font>",
+      "fetched_at": "2026-09-24T17:57:32-06:00"
+    },
+    {
+      "id": 47,
+      "url": "https://oilprice.com/Energy/Natural-Gas/South-Korea-Follows-Japans-Playbook-With-223-Billion-Texas-Gas-Bet.html",
+      "titulo": "South Korea Follows Japan's Playbook With $22.3 Billion Texas Gas Bet",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T09:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Ten months, one tariff threat and several \"sleepless nights\" later, South Korea has finally found somewhere to put the first piece of the $350 billion it promised to invest in America. The winner is a gas-fired power complex in Encinal, Texas (population 540, where real estate is about to go ballistic), and it is built to feed the one thing Washington can never get enough of: electricity for data centers and chip fabs. According to the FT, Seoul this week chose the proposed $22.3 billion, 6.3-gi",
+      "fetched_at": "2026-09-24T17:57:32-06:00"
     }
   ]
 }
