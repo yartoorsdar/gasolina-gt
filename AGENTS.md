@@ -56,6 +56,8 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 ## Dashboard data contract (`web/index.html`)
 - **Reads from GitHub raw** (not local files): `https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export/resumen.json`
 - JSON properties: `precios_combustible`, `petroleo`, `ultimas_noticias`, `noticias_count`, `actualizado_at` — NOT `data.precios`
+- `ultimas_noticias[]` trae `categoria`/`relevancia` (1-5, impacto GT)/`resumen_es` del LLM Gemini cuando hay `GEMINI_API_KEY`; si no, `relevancia` es null y el dashboard ordena por fecha. Top 5 = `relevancia` desc, luego fecha desc (`agruparNoticias`).
+- Semáforo (`analizarImpactoPetrolero`): el mensaje siempre cierra con `Motivo: <noticia de mayor peso>` (fundamento en pocas palabras).
 - **Product names**: `'superior'`, `'regular'`, `'diésel'` (single s, accent on e). Dashboard normalizes `'diessel'` → `'diésel'`. Collectors/tests use `'diessel'` without accent — known inconsistency.
 - **Sort order**: R, S, D via `Map` (NOT `indexOf()` which is unstable in V8 on Windows).
 - **Chart rendering**: `renderHistorial()` MUST be called AFTER `contentEl.style.display = 'block'`. While container is hidden (`display:none`), `getBoundingClientRect()` returns 0×0 and canvas draws at wrong size.

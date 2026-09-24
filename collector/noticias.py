@@ -141,7 +141,10 @@ def _get_text(elem, tag, ns=""):
 # ──────────────────────────────────────────────
 
 def _llm_available(cfg: dict = None) -> bool:
-    """Verifica si el LLM local está configurado."""
+    """Verifica si el LLM está configurado y responde.
+
+    Soporta Gemini nativo (generativelanguage) y endpoints OpenAI-compatibles.
+    """
     if cfg is None:
         config_path = _project_root / "config.json"
         try:
@@ -151,16 +154,19 @@ def _llm_available(cfg: dict = None) -> bool:
             return False
 
     llm_cfg = cfg.get("llm", {})
-    base_url = llm_cfg.get("base_url", "").strip()
+    base_url = llm_cfg.get("base_url", "").strip().rstrip("/")
     model = llm_cfg.get("model", "").strip()
+    api_key = os.environ.get("GEMINI_API_KEY", llm_cfg.get("api_key", "")).strip()
 
-    if not base_url or not model:
+    if not base_url or not model or not api_key:
         return False
 
-    # Verificar que el endpoint responde
+    # Verificar que el endpoint responde (ping liviano según proveedor)
     try:
-        import json as _json
-        resp = requests.get(f"{base_url}/v1/models", timeout=5)
+        if "generativelanguage" in base_url:
+            resp = requests.get(f"{base_url}/models/{model}?key={api_key}", timeout=10)
+        else:
+            resp = requests.get(f"{base_url}/v1/models", timeout=10)
         if resp.status_code == 200:
             return True
     except Exception:
@@ -194,10 +200,15 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
         return None
 
     prompt = (
-        "Analiza esta noticia sobre energia/petroleo y responde en formato JSON con estas keys:\n"
-        "- categoria: 'oferta', 'demanda', 'geopolitica', 'precios', 'infraestructura', 'otro'\n"
-        "- relevancia: entero de 1 a 5 (5 = mas relevante para Guatemala)\n"
-        "- resumen_es: resumen en español maximo 2 lineas\n\n"
+        "Eres un analista de energía para Guatemala (país que IMPORTA todos sus "
+        "combustibles: gasolina superior/regular y diésel). Analiza la noticia y "
+        "responde en formato JSON con estas keys:\n"
+        "- categoria: 'oferta', 'demanda', 'geopolitica', 'precios', 'infraestructura', 'finanzas', 'diplomacia', 'otro'\n"
+        "- relevancia: entero 1-5. 5 = afecta directo el precio o abastecimiento de "
+        "combustibles en Guatemala (ataques a refinerías/oleoductos, sanciones, OPEP, "
+        "guerras en zonas petroleras, crisis del diésel). 1 = sin relación.\n"
+        "- resumen_es: resumen en ESPAÑOL, máximo 2 líneas, enfocado en qué pasó y "
+        "por qué importa para el precio del combustible\n\n"
         f"TITULO: {titulo}\nRESUMEN: {resumen}"
     )
 
@@ -237,16 +248,21 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
             data = resp.json()
             content = data["choices"][0]["message"]["content"]
 
-        # Buscar JSON dentro del texto de respuesta
+        # Buscar JSON dentro del texto de respuesta (del primer { al último })
         import re as _re
-        json_match = _re.search(r"\{[^}]*categoria[^}]*relevancia[^}]*resumen_es[^}]*\}", content, _re.DOTALL)
-        if json_match:
-            parsed = json.loads(json_match.group())
-            return {
-                "categoria": parsed.get("categoria", "otro"),
-                "relevancia": min(5, max(1, int(parsed.get("relevancia", 3)))),
-                "resumen_es": parsed.get("resumen_es", resumen[:200]),
-            }
+        start = content.find("{")
+        end = content.rfind("}")
+        if start != -1 and end > start:
+            try:
+                parsed = json.loads(content[start:end + 1])
+            except json.JSONDecodeError:
+                parsed = None
+            if isinstance(parsed, dict) and "categoria" in parsed:
+                return {
+                    "categoria": parsed.get("categoria", "otro"),
+                    "relevancia": min(5, max(1, int(parsed.get("relevancia", 3)))),
+                    "resumen_es": parsed.get("resumen_es", resumen[:200]),
+                }
     except Exception as exc:
         print(f"[noticias] Error LLM: {exc}")
 
@@ -280,13 +296,17 @@ def guardar_noticias(items: list[dict], cfg: dict = None) -> int:
         try:
             published_at = _normalizar_fecha_publicacion(item.get("published", ""))
 
+            # Preferir el resumen/categoría del LLM cuando exista
+            resumen_es = (item.get("resumen_es") or item.get("summary", ""))[:500]
             row_id = insertar_noticia(
                 conn=conn,
                 url=item["link"],
                 titulo=item["title"],
                 medio=_extraer_medio(item.get("source_url", "")),
                 publicado_at=published_at,
-                resumen_es=item.get("summary", "")[:500],
+                categoria=item.get("categoria"),
+                relevancia=item.get("relevancia"),
+                resumen_es=resumen_es,
             )
             if row_id is not None:
                 inserted += 1
@@ -395,10 +415,11 @@ def ejecutar(cfg: dict = None) -> dict:
 
     resultados["total_encontrados"] = len(all_items)
 
-    # Clasificación con LLM si está disponible
+    # Clasificación con LLM si está disponible (solo las 15 más recientes
+    # para acotar tiempo/costo en CI; el resto se guarda sin clasificar)
     if _llm_available(cfg):
-        print("[noticias] Clasificando con LLM local...")
-        for item in all_items:
+        print("[noticias] Clasificando top 15 con LLM...")
+        for item in all_items[:15]:
             classification = clasificar_noticia_llm(
                 item["title"], item.get("summary", ""), cfg
             )

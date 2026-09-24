@@ -33,6 +33,8 @@
     "feeds": [
       "https://news.google.com/rss/search?q=petr%C3%B3leo+OR+refiner%C3%ADa+OR+oleoducto+ataque&hl=es-419&gl=US&ceid=US:es-419",
       "https://news.google.com/rss/search?q=oil+refinery+OR+pipeline+attack+OR+OPEC&hl=en-US&gl=US&ceid=US:en",
+      "https://news.google.com/rss/search?q=oil+sanctions+OR+war+Middle+East+OR+Strait+of+Hormuz+OR+Russia+Ukraine+oil&hl=en-US&gl=US&ceid=US:en",
+      "https://news.google.com/rss/search?q=precio+petr%C3%B3leo+OR+OPEP+OR+combustibles+Guatemala+OR+importaci%C3%B3n+combustible&hl=es-419&gl=GT&ceid=GT:es-419",
       "https://oilprice.com/rss/main",
       "https://www.eia.gov/rss/todayinenergy.xml"
     ]

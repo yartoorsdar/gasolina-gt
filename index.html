@@ -278,7 +278,21 @@
         /* ──────────────────────────────────────────
            Noticias
            ────────────────────────────────────────── */
+        .news-section-title {
+            text-align: center;
+            font-size: 1.2rem;
+            letter-spacing: 0.8px;
+            line-height: 1.45;
+        }
+
         .news-list { list-style: none; }
+
+        .news-snippet {
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: var(--text-muted);
+            margin: 6px 0 4px 0;
+        }
 
         .news-item {
             padding: 12px 0;
@@ -518,15 +532,15 @@
 
             <!-- Noticias -->
             <div class="card glass-card glass-card-animated" style="margin-top: 16px;">
-                <h2>&#x1F4F0; Las 5 noticias más relevantes que podrían afectar el precio del petróleo</h2>
+                <h2 class="news-section-title">&#x1F4F0; Top 5: noticias que pueden mover el precio del combustible</h2>
 
-                <!-- Resumen inteligente -->
-                <div id="newsSummary" style="display:none;"></div>
-
-                <!-- Alerta de impacto petrolero -->
+                <!-- Semáforo de impacto petrolero (con motivo) -->
                 <div id="oilImpactAlert" style="display:none;"></div>
 
-                <!-- Lista compacta (máximo 5) -->
+                <!-- Mini-resumen por temas -->
+                <div id="newsSummary" style="display:none;"></div>
+
+                <!-- Lista top 5: título + mini-resumen -->
                 <ul class="news-list" id="newsList"></ul>
             </div>
         </main>
@@ -1372,8 +1386,12 @@
                 return { ...n, _tema: mejorTema || 'otro' };
             });
 
-            // Ordenar por fecha descendente y tomar únicos por tema (maxItems por tema)
+            // Ordenar por relevancia (LLM) primero y fecha después;
+            // sin relevancia todo vale 0 y queda por fecha como antes
             clasificados.sort((a, b) => {
+                const ra = a.relevancia || 0;
+                const rb = b.relevancia || 0;
+                if (rb !== ra) return rb - ra;
                 const da = a.publicado_at ? new Date(a.publicado_at).getTime() : 0;
                 const db = b.publicado_at ? new Date(b.publicado_at).getTime() : 0;
                 return db - da;
@@ -1594,21 +1612,29 @@
 
             let score = 0; // -5 a +5, donde + es alza de precio
             const razones = [];
+            let topNoticia = null;
+            let topContrib = 0;
 
             for (const n of noticias) {
                 const text = ((n.titulo || '') + ' ' + (n.resumen_es || '')).toLowerCase();
 
+                let contrib = 0;
                 for (const kw of keywordsSubida) {
-                    if (text.includes(kw)) { score += 1; break; }
+                    if (text.includes(kw)) { score += 1; contrib += 1; break; }
                 }
                 for (const kw of keywordsBajada) {
-                    if (text.includes(kw)) { score -= 0.5; break; }
+                    if (text.includes(kw)) { score -= 0.5; contrib -= 0.5; break; }
                 }
 
                 // Eventos específicos con peso alto
-                if (/pipeline.*(attack|damage|shut)/i.test(text)) { score += 2; }
-                if (/refinería.*(attack|strike|drone)/i.test(text)) { score += 1.5; }
-                if (/diesel.*(ban|export|prohibición)/i.test(text)) { score += 1; }
+                if (/pipeline.*(attack|damage|shut)/i.test(text)) { score += 2; contrib += 2; }
+                if (/refinería.*(attack|strike|drone)/i.test(text)) { score += 1.5; contrib += 1.5; }
+                if (/diesel.*(ban|export|prohibición)/i.test(text)) { score += 1; contrib += 1; }
+
+                if (Math.abs(contrib) > Math.abs(topContrib)) {
+                    topContrib = contrib;
+                    topNoticia = n;
+                }
             }
 
             // Determinar nivel de impacto y mensaje
@@ -1645,6 +1671,15 @@
                     mensaje = `Se detectaron ${Math.round(absScore)} señales de estabilización en el mercado petrolero (recuperación de infraestructura, aumento de reservas).`;
                 }
             }
+
+            // Fundamento: la noticia que más pesó en el semáforo, en pocas palabras
+            let fundamento = '';
+            if (topNoticia) {
+                let motivo = traducirTituloEnEspañol(topNoticia).replace(/<[^>]*>/g, '').trim();
+                if (motivo.length > 110) motivo = motivo.substring(0, 110) + '…';
+                fundamento = ` Motivo: ${motivo}`;
+            }
+            mensaje += fundamento;
 
             return { nivel, color, emoji, mensaje, score };
         }
@@ -1699,19 +1734,25 @@
                 alertEl.style.display = 'none';
             }
 
-            // ── 4. Lista compacta (máximo 5) ──
+            // ── 4. Lista top 5: título + mini-resumen en español ──
             let html = '';
             for (const n of filtradas) {
                 const fecha = fmtFechaRelativa(n.publicado_at || '');
                 const temaBadge = n._tema ? `<span class="news-category" style="background:${temaColor(n._tema)}20;color:${temaColor(n._tema)};">${n._tema}</span>` : '';
                 // Título traducido al español
                 const tituloEs = traducirTituloEnEspañol(n);
+                // Mini-resumen del backend (LLM) o del feed, sin HTML.
+                // Si es idéntico al título mostrado, se omite para no duplicar.
+                let snippet = (n.resumen_es || '').replace(/<[^>]*>/g, '').trim();
+                if (snippet === tituloEs.replace(/<[^>]*>/g, '').trim()) snippet = '';
+                if (snippet.length > 220) snippet = snippet.substring(0, 220) + '…';
 
                 html += `
                     <li class="news-item">
                         <div class="news-title">
                             <a href="${n.url}" target="_blank" rel="noopener noreferrer">${tituloEs}</a>
                         </div>
+                        ${snippet ? `<div class="news-snippet">${snippet}</div>` : ''}
                         <div class="news-meta">
                             ${temaBadge}
                             ${n.medio ? `&middot; ${n.medio}` : ''}
