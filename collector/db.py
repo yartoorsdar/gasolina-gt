@@ -9,7 +9,22 @@ Insert or ignore para ser idempotente.
 """
 
 import sqlite3
-from datetime import date, datetime
+from datetime import date, datetime, timezone, timedelta
+
+# Guatemala = UTC-6 todo el año (sin horario de verano).
+# Usar SIEMPRE hora GT tz-aware: el runner (GitHub Actions) tiene reloj UTC,
+# y datetime.now() ingenuo etiquetado "-06:00" queda 6h adelantado.
+_GT = timezone(timedelta(hours=-6))
+
+
+def ahora_gt_iso() -> str:
+    """Timestamp actual en hora de Guatemala, ISO 8601 con offset -06:00."""
+    return datetime.now(_GT).strftime("%Y-%m-%dT%H:%M:%S-06:00")
+
+
+def hoy_gt() -> str:
+    """Fecha actual en Guatemala (YYYY-MM-DD)."""
+    return datetime.now(_GT).strftime("%Y-%m-%d")
 from pathlib import Path
 
 
@@ -106,7 +121,7 @@ def insertar_precio(
     Returns:
         id del registro insertado, o None si ya existía (duplicado).
     """
-    fetched_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
+    fetched_at = ahora_gt_iso()
     cursor = conn.execute(
         "INSERT OR IGNORE INTO precios (fecha, producto, precio, fuente, fetched_at) VALUES (?, ?, ?, ?, ?)",
         (fecha, producto, precio, fuente, fetched_at),
@@ -147,7 +162,7 @@ def insertar_noticia(
     Returns:
         id del registro insertado, o None si ya existía por URL duplicada.
     """
-    fetched_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
+    fetched_at = ahora_gt_iso()
     cursor = conn.execute(
         "INSERT OR IGNORE INTO noticias (url, titulo, medio, publicado_at, categoria, pais, relevancia, resumen_es, fetched_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
         (url, titulo, medio, publicado_at, categoria, pais, relevancia, resumen_es, fetched_at),
@@ -163,7 +178,7 @@ def insertar_ejecucion(
     mensaje: str = "",
 ) -> int:
     """Registra una ejecución del colector."""
-    inicio = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
+    inicio = ahora_gt_iso()
     cursor = conn.execute(
         "INSERT INTO ejecuciones (inicio, modulo, ok, mensaje) VALUES (?, ?, ?, ?)",
         (inicio, modulo, ok, mensaje),
@@ -173,7 +188,7 @@ def insertar_ejecucion(
     # Actualizar fin después
     conn.execute(
         "UPDATE ejecuciones SET fin = ? WHERE id = ?",
-        (datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00"), exec_id),
+        (ahora_gt_iso(), exec_id),
     )
     conn.commit()
     return exec_id

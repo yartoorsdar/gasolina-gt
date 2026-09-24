@@ -43,7 +43,7 @@ import json
 import logging
 import sqlite3
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 # Setup de path para ejecución como __main__
@@ -588,7 +588,6 @@ def ejecutar() -> dict:
                         res["fuente_ia"] = "gemini"
                         total_consenso += 1
                         validados.append(res)
-                        no_consenso.remove(res)
                         ia_usada += 1
                         
                         logger.info(
@@ -686,7 +685,7 @@ def ejecutar_con_reintentos(
         historial.append({
             "intento": intento,
             "resultado": resultado,
-            "timestamp": datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00"),
+            "timestamp": datetime.now(timezone(timedelta(hours=-6))).strftime("%Y-%m-%dT%H:%M:%S-06:00"),
         })
 
         # Verificar si se logró consenso

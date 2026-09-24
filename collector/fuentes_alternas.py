@@ -16,7 +16,7 @@ Version Tracking:
 
 import re
 import sys
-from datetime import date, datetime
+from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
 
 # Agregar al path si se ejecuta como __main__
@@ -279,7 +279,7 @@ def extraer_precios_chapintv(html: str, url_label: str = "") -> dict | None:
 
     # Si solo encontramos algunos, usar fecha de hoy como fallback
     if not fecha_str:
-        fecha_str = date.today().strftime("%Y-%m-%d")
+        fecha_str = datetime.now(timezone(timedelta(hours=-6))).strftime("%Y-%m-%d")
 
     return {
         "fecha": fecha_str,
@@ -371,7 +371,7 @@ def ejecutar() -> dict:
     # Convertir GPP a formato DB (por galón) — usar fecha de hoy siempre
     if gpp_data:
         GALON_LITROS = 3.78541
-        hoy = datetime.now().strftime("%Y-%m-%d")
+        hoy = datetime.now(timezone(timedelta(hours=-6))).strftime("%Y-%m-%d")
         gpp_precios_db = [
             {
                 "fecha": hoy,

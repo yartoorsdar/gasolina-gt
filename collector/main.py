@@ -57,6 +57,14 @@ logging.basicConfig(
 
 logger = logging.getLogger("main")
 
+# Guatemala = UTC-6 (sin horario de verano). Ver collector/db.py.
+_GT = timezone(timedelta(hours=-6))
+
+
+def _ahora_gt_iso() -> str:
+    """Timestamp actual en hora de Guatemala, ISO 8601 con offset -06:00."""
+    return datetime.now(_GT).strftime("%Y-%m-%dT%H:%M:%S-06:00")
+
 
 # ──────────────────────────────────────────────
 # Carga de configuración
@@ -81,7 +89,7 @@ def _ejecutar_modulo(nombre: str, funcion) -> dict:
     conn = conectar()
 
     try:
-        inicio = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
+        inicio = _ahora_gt_iso()
         exec_id = insertar_ejecucion(conn, modulo=nombre, ok=1, mensaje="iniciado")
 
         resultado = funcion()
@@ -89,7 +97,7 @@ def _ejecutar_modulo(nombre: str, funcion) -> dict:
         conn.execute(
             "UPDATE ejecuciones SET fin = ?, mensaje = ? WHERE id = ?",
             (
-                datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00"),
+                _ahora_gt_iso(),
                 f"completado — {resultado.get('fuente', 'desconocido')}",
                 exec_id,
             ),
@@ -104,7 +112,7 @@ def _ejecutar_modulo(nombre: str, funcion) -> dict:
             "UPDATE ejecuciones SET fin = ?, ok = 0, mensaje = ? WHERE id IN "
             "(SELECT id FROM ejecuciones WHERE modulo = ? ORDER BY inicio DESC LIMIT 1)",
             (
-                datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00"),
+                _ahora_gt_iso(),
                 f"error: {exc}",
                 nombre,
             ),

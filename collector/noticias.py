@@ -98,7 +98,7 @@ def fetch_feed_rss(url: str, timeout: int = 30) -> dict | None:
 def _parse_feed_fallback(xml_text: str, source_url: str) -> dict | None:
     """Parseo manual de RSS como fallback (sin feedparser)."""
     try:
-        root = ElementTree.fromstring(xml_text)
+        root = ET.fromstring(xml_text)
 
         # Buscar items en diferentes formatos de feed
         items = []
@@ -304,13 +304,17 @@ def _normalizar_fecha_publicacion(pub_str: str) -> str | None:
 
     # feedparser ya normaliza a algo como 'Mon, 22 Sep 2026 14:30:00 GMT'
     try:
+        from datetime import timezone, timedelta
         from email.utils import parsedate_to_datetime
+        _GT = timezone(timedelta(hours=-6))
         dt = parsedate_to_datetime(pub_str)
-        return dt.strftime("%Y-%m-%dT%H:%M:%S-06:00")
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(_GT).strftime("%Y-%m-%dT%H:%M:%S-06:00")
     except (ValueError, TypeError):
         pass
 
-    # Intentar formatos comunes
+    # Intentar formatos comunes (naive se asume UTC → convertir a GT)
     for fmt in [
         "%a, %d %b %Y %H:%M:%S %Z",
         "%a, %d %b %Y %H:%M:%S %z",
@@ -318,8 +322,12 @@ def _normalizar_fecha_publicacion(pub_str: str) -> str | None:
         "%Y-%m-%d %H:%M:%S",
     ]:
         try:
+            from datetime import timezone, timedelta
+            _GT = timezone(timedelta(hours=-6))
             dt = datetime.strptime(pub_str.strip(), fmt)
-            return dt.strftime("%Y-%m-%dT%H:%M:%S-06:00")
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            return dt.astimezone(_GT).strftime("%Y-%m-%dT%H:%M:%S-06:00")
         except ValueError:
             continue
 

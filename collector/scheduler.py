@@ -104,6 +104,7 @@ def run_all(export: bool = True) -> dict:
 
 def _scheduler_loop(interval_seconds: int):
     """Loop principal del programador."""
+    global _running
     logger.info(f"Programador activo — cada {interval_seconds}s ({interval_seconds/60:.1f} min)")
     run_count = 0
 
@@ -186,7 +187,7 @@ def export_task_xml(
 <Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>
     <Description>Actualiza precios de combustible y petrolero — {task_name}</Description>
-    <URI>\\{{5BDA7795-31B7-497E-9DB7-9C6D0F0421DC}}\\{task_name}</URI>
+    <URI>\\{task_name}</URI>
   </RegistrationInfo>
   <Triggers>
     <CalendarTrigger>
@@ -207,7 +208,7 @@ def export_task_xml(
   </Principals>
   <Settings>
     <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
-    <DisallowStartIfOnBatteries>false</DisallowStartIfBatteries>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
     <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
     <AllowHardTerminate>true</AllowHardTerminate>
     <StartWhenAvailable>true</StartWhenAvailable>

@@ -6,7 +6,7 @@ Endpoint: /v1/prices/latest?by_code=WTI_CRUDE_USD
 El dashboard siempre muestra el precio más reciente de OilPriceAPI (hoy).
 """
 import os
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 # Asegurar que el root del proyecto esté en sys.path
@@ -112,7 +112,7 @@ def fetch_precio_petroleo(code: str, api_key: str) -> dict | None:
             fecha_normalizada = created_at[:10]
 
     return {
-        "fecha": fecha_normalizada or datetime.now().strftime("%Y-%m-%d"),
+        "fecha": fecha_normalizada or datetime.now(timezone(timedelta(hours=-6))).strftime("%Y-%m-%d"),
         "usd_barril": round(float(precio), 2),
         "referencia": referencia,
     }
@@ -150,7 +150,7 @@ def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
     from collector.db import conectar, insertar_precio
     conn = conectar()
 
-    hoy = datetime.now().strftime("%Y-%m-%d")
+    hoy = datetime.now(timezone(timedelta(hours=-6))).strftime("%Y-%m-%d")
     
     # Borrar HOY para no duplicar (conserva historial de días anteriores)
     conn.execute("DELETE FROM precios WHERE fecha=? AND producto='wti'", (hoy,))
@@ -214,9 +214,9 @@ def ejecutar(cfg: dict = None) -> dict:
         print(f"[petroleo] {msg}")
         resultados["fuente"] = "sin_api_key"
 
-        # Fallback: traer lo que haya en DB
-        import sqlite3
-        conn = sqlite3.connect("data/historial.db")
+        # Fallback: traer lo que haya en DB (vía conectar: ruta absoluta + Row)
+        from collector.db import conectar
+        conn = conectar()
         resultados["datos"] = obtener_petroleo_actual(conn)
         conn.close()
         return resultados
