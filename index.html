@@ -152,7 +152,8 @@
         @media (prefers-reduced-motion: reduce) {
             .price-value-main,
             .price-value-exempt,
-            .barrel-frame::before {
+            .barrel-frame::before,
+            .lamp {
                 animation: none !important;
             }
         }
@@ -332,11 +333,11 @@
             margin-top: 2px;
         }
 
-        /* ── Semáforo de impacto ── */
+        /* ── Semáforo de impacto (vertical, estilo neón) ── */
         .oil-impact-alert.semaforo {
             display: flex;
-            gap: 12px;
-            align-items: flex-start;
+            gap: 14px;
+            align-items: center;
             border-radius: 12px;
             padding: 12px 14px;
             background: rgba(255, 255, 255, 0.03);
@@ -345,27 +346,55 @@
         .semaforo-lamps {
             flex: 0 0 auto;
             display: flex;
-            gap: 6px;
-            background: rgba(0, 0, 0, 0.35);
-            border-radius: 12px;
-            padding: 7px 9px;
+            flex-direction: column;
+            gap: 7px;
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 20px;
+            padding: 9px 8px;
         }
 
         .lamp {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: #555;
             opacity: 0.25;
         }
 
-        .lamp.on-red { background: #e74c3c; opacity: 1; box-shadow: 0 0 10px #e74c3c; }
-        .lamp.on-yellow { background: #f39c12; opacity: 1; box-shadow: 0 0 10px #f39c12; }
-        .lamp.on-green { background: #27ae60; opacity: 1; box-shadow: 0 0 10px #27ae60; }
+        /* Neón: brillo radial + halo. La luz activa además pulsa con
+           softPulse (solo opacity = GPU, sin repintado, móvil seguro) */
+        .lamp.on-red {
+            background: radial-gradient(circle at 35% 35%, #ffb3ab, #e74c3c 60%);
+            opacity: 1;
+            box-shadow: 0 0 12px #e74c3c, 0 0 30px rgba(231, 76, 60, 0.55);
+            animation: softPulse 2.2s ease-in-out infinite;
+        }
+        .lamp.on-yellow {
+            background: radial-gradient(circle at 35% 35%, #ffe6b3, #f39c12 60%);
+            opacity: 1;
+            box-shadow: 0 0 12px #f39c12, 0 0 30px rgba(243, 156, 18, 0.55);
+            animation: softPulse 2.2s ease-in-out infinite;
+        }
+        .lamp.on-green {
+            background: radial-gradient(circle at 35% 35%, #b3f0d1, #27ae60 60%);
+            opacity: 1;
+            box-shadow: 0 0 12px #27ae60, 0 0 30px rgba(39, 174, 96, 0.55);
+            animation: softPulse 2.2s ease-in-out infinite;
+        }
 
         .news-summary-box {
             font-size: 0.87rem;
             line-height: 1.6;
+        }
+
+        .news-topic-line { margin-bottom: 8px; }
+        .news-topic-line:last-child { margin-bottom: 0; }
+
+        .news-legend {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin: -2px 0 12px 0;
         }
 
         .news-item {
@@ -607,6 +636,7 @@
             <!-- Noticias -->
             <div class="card glass-card glass-card-animated" style="margin-top: 16px;">
                 <h2 class="news-section-title">&#x1F4F0; Top 5: noticias que pueden mover el precio del combustible</h2>
+                <p class="news-legend">★★★★★ = mayor impacto estimado en el precio y abastecimiento en Guatemala</p>
 
                 <!-- Semáforo de impacto petrolero (con motivo) -->
                 <div id="oilImpactAlert" style="display:none;"></div>
@@ -1502,7 +1532,7 @@
                 temas[n._tema].push(n);
             }
 
-            let resumen = '<p style="margin:0 0 8px 0;line-height:1.6;">';
+            let resumen = '<div style="margin:0 0 10px 0;line-height:1.6;">';
             const partes = [];
 
             // Tema petróleo/conflicto primero (más relevante)
@@ -1525,11 +1555,11 @@
                     return n.titulo_es || traducirTituloEnEspañol(n);
                 });
 
-                partes.push(`<strong>${tituloTema}:</strong> ${facts[0]}`);
+                partes.push(`<div class="news-topic-line"><strong>${tituloTema}:</strong> ${facts[0]}</div>`);
             }
 
-            resumen += partes.join(' &nbsp;|&nbsp; ');
-            resumen += '</p>';
+            resumen += partes.join('');
+            resumen += '</div>';
             resumen += '<p style="margin:0;font-size:0.8rem;color:var(--text-muted);">Basado en las últimas noticias de fuentes internacionales.</p>';
 
             return resumen;
@@ -1827,8 +1857,8 @@
                 const temaBadge = n._tema ? `<span class="news-category" style="background:${tColor}20;color:${tColor};">${n._tema}</span>` : '';
                 // Título en español (LLM) o traducido por patrones
                 const tituloEs = n.titulo_es || traducirTituloEnEspañol(n);
-                // Estrellas de relevancia LLM (1-5)
-                const stars = n.relevancia ? `<div class="news-stars">${'★'.repeat(n.relevancia)}${'☆'.repeat(5 - n.relevancia)}</div>` : '';
+                // Estrellas de relevancia LLM (1-5 = impacto en Guatemala)
+                const stars = n.relevancia ? `<div class="news-stars" title="Impacto estimado en Guatemala: ${n.relevancia}/5">${'★'.repeat(n.relevancia)}${'☆'.repeat(5 - n.relevancia)}</div>` : '';
                 // Mini-resumen del backend (LLM) o del feed, sin HTML.
                 // Si es idéntico al título mostrado, se omite para no duplicar.
                 let snippet = (n.resumen_es || '').replace(/<[^>]*>/g, '').trim();
