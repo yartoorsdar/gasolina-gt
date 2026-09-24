@@ -214,40 +214,9 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
     )
 
     try:
-        # Detectar si es Gemini nativo (base_url contiene generativelanguage)
-        if "generativelanguage" in base_url:
-            resp = requests.post(
-                f"{base_url}/models/{model}:generateContent?key={api_key}",
-                json={
-                    "contents": [{
-                        "parts": [
-                            {"text": "Eres un analista de energia. Responde SOLO con JSON.\n\n" + prompt}
-                        ]
-                    }],
-                    "generationConfig": {"temperature": 0.3},
-                },
-                timeout=30,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            content = data["candidates"][0]["content"]["parts"][0]["text"]
-        else:
-            # OpenAI compatible (DeepSeek, etc.)
-            resp = requests.post(
-                f"{base_url}/v1/chat/completions",
-                json={
-                    "model": model,
-                    "messages": [
-                        {"role": "system", "content": "Eres un analista de energia. Responde solo con JSON."},
-                        {"role": "user", "content": prompt},
-                    ],
-                    "temperature": 0.3,
-                },
-                timeout=30,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            content = data["choices"][0]["message"]["content"]
+        content = _llm_post(prompt, base_url, model, api_key)
+        if not content:
+            return None
 
         # Buscar JSON dentro del texto de respuesta (del primer { al último })
         import re as _re
@@ -270,6 +239,129 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
         print(f"[noticias] Error LLM: {exc}")
 
     return None
+
+
+# ──────────────────────────────────────────────
+# LLM en lote (1 request para N noticias) + selección rotativa
+# ──────────────────────────────────────────────
+
+def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | None:
+    """Un request al LLM. Soporta Gemini nativo y OpenAI-compatible."""
+    try:
+        if "generativelanguage" in base_url:
+            resp = requests.post(
+                f"{base_url}/models/{model}:generateContent?key={api_key}",
+                json={
+                    "contents": [{
+                        "parts": [
+                            {"text": "Eres un analista de energia. Responde SOLO con JSON.\n\n" + prompt}
+                        ]
+                    }],
+                    "generationConfig": {"temperature": 0.3},
+                },
+                timeout=60,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            return data["candidates"][0]["content"]["parts"][0]["text"]
+        # OpenAI compatible (DeepSeek, etc.)
+        resp = requests.post(
+            f"{base_url}/v1/chat/completions",
+            json={
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": "Eres un analista de energia. Responde solo con JSON."},
+                    {"role": "user", "content": prompt},
+                ],
+                "temperature": 0.3,
+            },
+            timeout=60,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        return data["choices"][0]["message"]["content"]
+    except Exception as exc:
+        print(f"[noticias] Error LLM: {exc}")
+        return None
+
+
+def _seleccion_rotativa(items: list[dict], por_feed: int = 3, max_total: int = 15) -> list[dict]:
+    """Round-robin por feed: hasta `por_feed` items de cada fuente.
+
+    Evita que el primer feed (ES) acapare todo el lote LLM y deje fuera
+    a OilPrice/EN. Preserva el orden original dentro de cada feed.
+    """
+    por_fuente: dict[str, list[dict]] = {}
+    for it in items:
+        por_fuente.setdefault(it.get("source_url", ""), []).append(it)
+    salida: list[dict] = []
+    for i in range(por_feed):
+        for fuente in por_fuente:
+            if len(salida) >= max_total:
+                return salida
+            if i < len(por_fuente[fuente]):
+                salida.append(por_fuente[fuente][i])
+    return salida[:max_total]
+
+
+def clasificar_lote_llm(items: list[dict], cfg: dict = None) -> list[dict | None]:
+    """Clasifica N noticias en UN request. Retorna lista paralela (dict o None)."""
+    if not items:
+        return []
+    if cfg is None:
+        config_path = _project_root / "config.json"
+        with open(config_path, "r", encoding="utf-8") as f:
+            cfg = json.load(f)
+
+    llm_cfg = cfg.get("llm", {})
+    base_url = llm_cfg.get("base_url", "").strip()
+    model = llm_cfg.get("model", "").strip()
+    api_key = os.environ.get("GEMINI_API_KEY", llm_cfg.get("api_key", "")).strip()
+    if not base_url or not model or not api_key:
+        return [None] * len(items)
+
+    lineas = "\n".join(
+        f'[{i}] TITULO: {it.get("title", "")[:200]} | RESUMEN: {(it.get("summary", "") or "")[:300]}'
+        for i, it in enumerate(items)
+    )
+    prompt = (
+        "Eres un analista de energía para Guatemala (país que IMPORTA todos sus "
+        "combustibles). Clasifica CADA noticia y responde SOLO con un array JSON, "
+        "un objeto por noticia con su índice:\n"
+        '[{"i":0,"categoria":"...","relevancia":1-5,"resumen_es":"...","titulo_es":"..."}, ...]\n'
+        "- categoria: 'oferta','demanda','geopolitica','precios','infraestructura','finanzas','diplomacia','otro'\n"
+        "- relevancia 5 = afecta directo precio/abastecimiento en Guatemala "
+        "(refinerías, oleoductos, sanciones, OPEP, guerras petroleras, diésel)\n"
+        "- resumen_es: ESPAÑOL, máx 2 líneas (qué pasó + por qué importa)\n"
+        "- titulo_es: titular ESPAÑOL, máx 90 caracteres\n\n"
+        f"NOTICIAS:\n{lineas}"
+    )
+
+    content = _llm_post(prompt, base_url, model, api_key)
+    if not content:
+        return [None] * len(items)
+
+    try:
+        start = content.find("[")
+        end = content.rfind("]")
+        arr = json.loads(content[start:end + 1]) if start != -1 and end > start else []
+    except (json.JSONDecodeError, ValueError):
+        return [None] * len(items)
+
+    por_i = {o.get("i"): o for o in arr if isinstance(o, dict)}
+    salida: list[dict | None] = []
+    for i, it in enumerate(items):
+        o = por_i.get(i)
+        if not o or "categoria" not in o:
+            salida.append(None)
+            continue
+        salida.append({
+            "categoria": o.get("categoria", "otro"),
+            "relevancia": min(5, max(1, int(o.get("relevancia", 3)))),
+            "resumen_es": o.get("resumen_es") or it.get("summary", "")[:200],
+            "titulo_es": ((o.get("titulo_es") or "").strip()[:120]) or None,
+        })
+    return salida
 
 
 # ──────────────────────────────────────────────
@@ -419,16 +511,26 @@ def ejecutar(cfg: dict = None) -> dict:
 
     resultados["total_encontrados"] = len(all_items)
 
-    # Clasificación con LLM si está disponible (solo las 15 más recientes
-    # para acotar tiempo/costo en CI; el resto se guarda sin clasificar)
+    # Clasificación con LLM si está disponible. Selección rotativa entre feeds
+    # (3 por feed) para que todos los idiomas/fuentes entren al lote; el resto
+    # se guarda sin clasificar. Un solo request en lote (no 15 sueltos).
     if _llm_available(cfg):
-        print("[noticias] Clasificando top 15 con LLM...")
-        for item in all_items[:15]:
-            classification = clasificar_noticia_llm(
-                item["title"], item.get("summary", ""), cfg
-            )
-            if classification:
-                item.update(classification)
+        candidatos = _seleccion_rotativa(all_items, por_feed=3, max_total=15)
+        print(f"[noticias] Clasificando lote de {len(candidatos)} con LLM...")
+        lote = clasificar_lote_llm(candidatos, cfg)
+        if lote:
+            for item, cls in zip(candidatos, lote):
+                if cls:
+                    item.update(cls)
+        else:
+            # Fallback: uno por uno (máximo 8 para no alargar el CI)
+            print("[noticias] Lote falló, reintentando uno por uno...")
+            for item in candidatos[:8]:
+                classification = clasificar_noticia_llm(
+                    item["title"], item.get("summary", ""), cfg
+                )
+                if classification:
+                    item.update(classification)
 
     # Guardar en DB
     inserted = guardar_noticias(all_items, cfg)
