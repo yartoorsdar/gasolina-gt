@@ -1,5 +1,5 @@
 {
-  "actualizado_at": "2026-09-24T18:45:41+00:00",
+  "actualizado_at": "2026-09-24T19:08:57+00:00",
   "precios_combustible": [
     {
       "id": 2,
@@ -7,7 +7,7 @@
       "producto": "diésel",
       "precio": 50.5,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T12:44:35-06:00"
+      "fetched_at": "2026-09-24T13:08:39-06:00"
     },
     {
       "id": 1,
@@ -15,7 +15,7 @@
       "producto": "superior",
       "precio": 45.74,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T12:44:35-06:00"
+      "fetched_at": "2026-09-24T13:08:39-06:00"
     },
     {
       "id": 4,
@@ -23,60 +23,34 @@
       "producto": "regular",
       "precio": 41.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T12:44:35-06:00"
+      "fetched_at": "2026-09-24T13:08:39-06:00"
     }
   ],
   "petroleo": [
     {
       "referencia": "wti",
       "fecha": "2026-09-24",
-      "usd_barril": 94.35,
+      "usd_barril": 94.41,
       "fuente": "OilPriceAPI"
     }
   ],
   "noticias_count": 105,
   "ultimas_noticias": [
     {
-      "id": 12,
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE4xQmkxNG5GS2E1cDZ1c3dmY1E3TGpXaVdKeUFyTENrZWFGcWU0RW9FYmFaaWpWcTd2SFN2OHVzSms0NVJCcVNuaTRoRXZnczBSUElFWHB6VjhOM1VoM1hBSkxCRXIzZzdNMER4bzBLUEk2V2J6MjFv?oc=5",
-      "titulo": "Arabia Saudita eleva exportación de petróleo por el golfo Pérsico tras ataque a oleoducto: datos - TradingView",
-      "titulo_es": "Arabia Saudita ajusta exportaciones de crudo tras ataque a oleoducto",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-21T11:57:03-06:00",
-      "categoria": "geopolitica",
-      "pais": null,
-      "relevancia": 5,
-      "resumen_es": "Arabia Saudita elevó sus exportaciones por el golfo Pérsico tras un ataque a su infraestructura. Las tensiones logísticas en Medio Oriente generan volatilidad e impulsan al alza los precios de importación de combustibles.",
-      "fetched_at": "2026-09-24T12:45:41-06:00"
-    },
-    {
-      "id": 3,
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQVHpKSWNnc0xsTF9DYUZoX0gxQjJpb1BYanAwbWhWTUdxVTJmMDk1aXIzalRuemNfOE93STR2ekdBU3N6ZGNlaU1kOVdxVkxMQWprRjhnb2FQQUJlUmFOb18xbDNTQlZZT09zelltYzllXzJBSzR4b1J1eFdaQ0ZmeDE1LVVndmlmWjJYdG1yQW9jZEtGVC1QZ09ZZlpEMVgtc0lMTERuX2MzNjFYMkdMcHpXbnlXMmdVWFlfWFlzc0FaM25NdWZPRWxtdWU5ODhDekg4cTl2R1E?oc=5",
-      "titulo": "Irak dice que ataques a oleoducto saudí salieron de su territorio y otras noticias de Oriente Medio - Chicago Tribune",
-      "titulo_es": "Irak confirma que ataques a oleoducto saudí salieron de su territorio",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-12T01:00:00-06:00",
-      "categoria": "geopolitica",
-      "pais": null,
-      "relevancia": 5,
-      "resumen_es": "Irak admitió que los ataques contra un oleoducto saudí se originaron en su territorio, elevando la tensión en Oriente Medio y presionando al alza los precios internacionales de los combustibles que importa Guatemala.",
-      "fetched_at": "2026-09-24T12:45:41-06:00"
-    },
-    {
-      "id": 9,
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOVG1IYkdKNFg3WEhEMEZnQTNZeXpXcjNwMlpiM183bWdQaURSSEdHdHY4aHVlRTRFb1gybzZSdDNLQ1NGMUZZRWFMSkNXdlZOWm56bW1hWVlhLUZ4QTFYYzl6T2JVb0UyamhsVUo3ZDBqRTAyR3hYRW1xek9uRU9PZk1DR1E5WG1DZEZpQjlUdHRLUGRxWnl4ZWktWmx1RWd5eVc2Z9IBpAFBVV95cUxQTDVuTlE2WUU1bS1BZ1M2SGZSUXRqNHZNZU5MWVhSU2d2RzBJMGpqUEJ5UV9nejRhM1pZWlNZNC1fNFpnOVZJYkdYak5BTDY1U2NQeUttWWRhQjZMZjFMNlNrcU1DRHU3UFhtOVlLMThhS3dYc1o1c3hlOGtwOUk5ajZfNFhBRVNrTFBpbW44ZWhDSXZObzNSSXJNVDRKVzF4SXFtag?oc=5",
-      "titulo": "Arabia Saudita cierra oleoducto Este-Oeste tras ataques - dw.com",
-      "titulo_es": "Arabia Saudita cierra oleoducto clave tras ataques e impulsa precios del crudo",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-11T01:00:00-06:00",
-      "categoria": "geopolitica",
-      "pais": null,
-      "relevancia": 5,
-      "resumen_es": "El cierre del oleoducto Este-Oeste tras ataques en Arabia Saudita interrumpe el flujo de crudo global, lo que encarecerá de inmediato las importaciones de gasolina y diésel en Guatemala.",
-      "fetched_at": "2026-09-24T12:45:41-06:00"
-    },
-    {
       "id": 81,
+      "url": "https://oilprice.com/Alternative-Energy/Nuclear-Power/Italy-Returns-to-Nuclear-After-40-Year-Hiatus.html",
+      "titulo": "Italy Returns to Nuclear After 40-Year Hiatus",
+      "titulo_es": null,
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T13:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "For the first time in nearly four decades, Italy is considering nuclear power as part of its energy calculus. The Italian Senate on Wednesday gave final approval to a government plan to restart nuclear power generation, Reuters said, almost 40 years after a referendum led to the closure of Italy’s reactors: The government aims to deploy advanced modular reactors to help decarbonise industry and strengthen energy security, arguing that technological and safety advances have rendered the 1987 anti",
+      "fetched_at": "2026-09-24T13:08:57-06:00"
+    },
+    {
+      "id": 82,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Oil-Export-Costs-Surge-as-Red-Sea-Risks-Mount.html",
       "titulo": "Saudi Oil Export Costs Surge as Red Sea Risks Mount",
       "titulo_es": null,
@@ -86,10 +60,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Saudi Arabia’s workaround for the Strait of Hormuz now carries a war-risk insurance bill nearly as expensive as sending tankers through Hormuz itself. Quoted premiums for Saudi-linked tankers calling at the Red Sea port of Yanbu have tripled to around 3% of a vessel’s value from less than 1% in early July, according to Reuters. At Saudi ports farther south, including Jizan, quoted premiums can reach 7%. Hormuz voyages are running between 6% and 9%. That adds millions of dollars to every cargo. A",
-      "fetched_at": "2026-09-24T12:45:41-06:00"
+      "fetched_at": "2026-09-24T13:08:57-06:00"
     },
     {
-      "id": 82,
+      "id": 83,
       "url": "https://oilprice.com/Energy/Energy-General/Why-Are-Diesel-Prices-So-High.html",
       "titulo": "Why Are Diesel Prices So High?",
       "titulo_es": null,
@@ -99,10 +73,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Some claims making the rounds on social media start with an observation that is basically correct: crude oil was more expensive after Russia invaded Ukraine in 2022 than it is today, yet diesel prices are now higher. The conclusion often attached to that comparison is that refiners must be gouging consumers. It sounds plausible because crude oil is the main raw material used to make diesel. But it leaves out the critical part of the market that has become the real bottleneck: refining. As of Sep",
-      "fetched_at": "2026-09-24T12:45:41-06:00"
+      "fetched_at": "2026-09-24T13:08:57-06:00"
     },
     {
-      "id": 83,
+      "id": 84,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/Vitol-Scoops-Up-25-Million-Barrels-of-Discounted-Iraqi-Crude.html",
       "titulo": "Vitol Scoops Up 25 Million Barrels of Discounted Iraqi Crude",
       "titulo_es": null,
@@ -112,10 +86,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Vitol has bought at least 25 million barrels of Iraqi crude for September loading, making the world’s largest independent oil trader Iraq’s second-biggest buyer behind ADNOC as Baghdad pays steep discounts to keep barrels moving through the Strait of Hormuz. Iraq’s SOMO offered September crude at discounts of $15 to $20.80 per barrel to its official selling prices, according to a tender document reviewed by Reuters. Trading sources said some cargoes sold at even larger discounts. The discount bu",
-      "fetched_at": "2026-09-24T12:45:41-06:00"
+      "fetched_at": "2026-09-24T13:08:57-06:00"
     },
     {
-      "id": 84,
+      "id": 85,
       "url": "https://oilprice.com/Energy/Energy-General/Iran-Warns-US-Strikes-Could-Push-War-Into-Indian-Ocean.html",
       "titulo": "Iran Warns U.S. Strikes Could Push War Into Indian Ocean",
       "titulo_es": null,
@@ -125,23 +99,23 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "It was just this month that saw the Iran conflict spill over into a renewed fight between the Saudi coalition and Yemen's Houthi rebels. Now Iran is threatening to expand the fight further, even into the Indian Ocean. Yahya Rahim Safavi, an adviser to Iran’s Supreme Leader Mojtaba Khamenei, warned Thursday of another significant expansion of the war if the Islamic Republic suffers an attack again. \"Since the conflict has spread from the Persian Gulf and Strait of Hormuz to the Red Sea, it is pos",
-      "fetched_at": "2026-09-24T12:45:41-06:00"
+      "fetched_at": "2026-09-24T13:08:57-06:00"
     },
     {
       "id": 26,
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPRllab01RVkk3OXBfcXhrNjVIZEpIN25SdFJaclhZOE1pN0lmbWV6cHF6dHB3QmNvbXNyd1FYWjFITURLM1ExNTlzdUZLYWRaRll0QlQxU1ltZXZtcFVDM0pHVWthZlBSS1ZTWUQxRC1mcmhkMG1KMnZGQ1lZYVkxZkVuRHF1amZOVHNnd2xPa3dyRjR6VmFRSHdGbWlFelV4WGZraVdkbDZvQzZ0Qlhlc2xRTQ?oc=5",
-      "titulo": "Saudi tanker transits through Hormuz hit war-time high after pipeline attack - lloydslist.com",
+      "titulo": "Saudi tanker transits through Hormuz hit war-time high after pipeline attack - Lloyd's List",
       "titulo_es": null,
       "medio": "Google News EN",
       "publicado_at": "2026-09-24T10:32:37-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxPRllab01RVkk3OXBfcXhrNjVIZEpIN25SdFJaclhZOE1pN0lmbWV6cHF6dHB3QmNvbXNyd1FYWjFITURLM1ExNTlzdUZLYWRaRll0QlQxU1ltZXZtcFVDM0pHVWthZlBSS1ZTWUQxRC1mcmhkMG1KMnZGQ1lZYVkxZkVuRHF1amZOVHNnd2xPa3dyRjR6VmFRSHdGbWlFelV4WGZraVdkbDZvQzZ0Qlhlc2xRTQ?oc=5\" target=\"_blank\">Saudi tanker transits through Hormuz hit war-time high after pipeline attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">lloydslist.com</font>",
-      "fetched_at": "2026-09-24T12:45:41-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxPRllab01RVkk3OXBfcXhrNjVIZEpIN25SdFJaclhZOE1pN0lmbWV6cHF6dHB3QmNvbXNyd1FYWjFITURLM1ExNTlzdUZLYWRaRll0QlQxU1ltZXZtcFVDM0pHVWthZlBSS1ZTWUQxRC1mcmhkMG1KMnZGQ1lZYVkxZkVuRHF1amZOVHNnd2xPa3dyRjR6VmFRSHdGbWlFelV4WGZraVdkbDZvQzZ0Qlhlc2xRTQ?oc=5\" target=\"_blank\">Saudi tanker transits through Hormuz hit war-time high after pipeline attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Lloyd's List</font>",
+      "fetched_at": "2026-09-24T13:08:57-06:00"
     },
     {
-      "id": 85,
+      "id": 86,
       "url": "https://oilprice.com/Geopolitics/International/US-Invites-Putin-To-G20-Summit-In-Miami.html",
       "titulo": "U.S. Invites Putin To G20 Summit In Miami",
       "titulo_es": null,
@@ -151,10 +125,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "The United States has invited Russian President Vladimir Putin to attend the Group of 20 summit in Miami in December, Secretary of State Marco Rubio said on September 23, as the Trump administration is seeking steps to reduce fighting in Ukraine. “We've invited President Putin to the G20,\" Rubio told reporters after meeting Russian Foreign Minister Sergei Lavrov on the sidelines of the UN General Assembly in New York. \"We think it's an opportunity for him to engage not just with the president bu",
-      "fetched_at": "2026-09-24T12:45:41-06:00"
+      "fetched_at": "2026-09-24T13:08:57-06:00"
     },
     {
-      "id": 86,
+      "id": 87,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/Russia-Begins-Oil-Exports-From-Its-Giant-Vostok-Arctic-Project.html",
       "titulo": "Russia Begins Oil Exports From Its Giant Vostok Arctic Project",
       "titulo_es": null,
@@ -164,7 +138,33 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Russia has begun commercial crude exports from Rosneft’s Vostok Oil project, putting barrels on the water from its new Arctic terminal after years of sanctions, investor exits, and construction delays. Three ice-class tankers loaded about 250,000 metric tons of crude from the Bukhta Sever terminal on the Taimyr Peninsula in September. Two carried the oil to Murmansk for ship-to-ship transfer. A third headed for Asia through the Northern Sea Route. A fourth tanker is waiting to load. Industry sou",
-      "fetched_at": "2026-09-24T12:45:41-06:00"
+      "fetched_at": "2026-09-24T13:08:57-06:00"
+    },
+    {
+      "id": 88,
+      "url": "https://oilprice.com/Energy/Energy-General/China-Could-Cut-Fuel-Exports-in-October-as-Inventories-Plunge.html",
+      "titulo": "China Could Cut Fuel Exports in October as Inventories Plunge",
+      "titulo_es": null,
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T09:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "China could lower its fuel exports again in October, potentially tightening the global fuel market further, as domestic gasoline and diesel inventories have slumped to multi-year lows. China’s fuel exports recovered in August as refiners exported 6.01 million tons of petroleum products, up by 12.7% from a year earlier, after Beijing removed in mid-July restrictions on fuel exports that were in place at the peak of the Strait of Hormuz blockage.   The total volume of Chinese fuel exports exceeded",
+      "fetched_at": "2026-09-24T13:08:57-06:00"
+    },
+    {
+      "id": 41,
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNVkJpTUpITnhiaE85OS1NQk8yRjFuQ2VCVzlYQlpzb0h5LTNqbGVNdVFudE1qbWh3MG94WmxON0wyUTA4ZjBZdi0zbnNtNW45RW5UbnI3WGtfc2FtRzBzc010QlM4bGNFUHM2anVRWE5fYVBTSWhvbHd0LTFRTHB1cXpMYXRvcUQ5MUU0bW93?oc=5",
+      "titulo": "Oil Rises as Iran Threat to Widen War Dims Hormuz Deal Hopes - Military.com",
+      "titulo_es": null,
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-24T08:44:08-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxNVkJpTUpITnhiaE85OS1NQk8yRjFuQ2VCVzlYQlpzb0h5LTNqbGVNdVFudE1qbWh3MG94WmxON0wyUTA4ZjBZdi0zbnNtNW45RW5UbnI3WGtfc2FtRzBzc010QlM4bGNFUHM2anVRWE5fYVBTSWhvbHd0LTFRTHB1cXpMYXRvcUQ5MUU0bW93?oc=5\" target=\"_blank\">Oil Rises as Iran Threat to Widen War Dims Hormuz Deal Hopes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Military.com</font>",
+      "fetched_at": "2026-09-24T13:08:57-06:00"
     }
   ]
 }
