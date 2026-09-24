@@ -157,6 +157,22 @@
     }
 }
 
+/* ── Móvil: fondo y bordes estáticos ──
+   Los blobs de 60vmax con blur(80-100px) animados + el shimmer con
+   mask-composite en cada card repintan áreas enormes por frame. En GPUs
+   móviles eso se ve como parpadeo y drena batería. En táctil/móvil todo
+   queda estático; en desktop se conserva la animación. */
+@media (max-width: 768px), (pointer: coarse) {
+    .glass-mesh-bg::before,
+    .glass-mesh-bg::after,
+    .mesh-blob-third {
+        animation: none !important;
+    }
+    .glass-card-animated::after {
+        animation: none !important;
+    }
+}
+
 /* ── Glass card base ── */
 .glass-card {
     background: var(--glass-bg);

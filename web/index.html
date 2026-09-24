@@ -117,30 +117,30 @@
             gap: 1px;
         }
 
-        /* ── Precio con impuestos → fuego rojo animado ── */
-        @keyframes fireFlicker {
-            0%, 100% { color: #ff4500; text-shadow: 0 0 6px rgba(255,69,0,0.7), 0 0 12px rgba(255,69,0,0.3); }
-            25% { color: #ff6347; text-shadow: 0 0 10px rgba(255,99,71,0.8), 0 0 20px rgba(255,69,0,0.5); }
-            50% { color: #ff2a00; text-shadow: 0 0 4px rgba(255,42,0,0.6), 0 0 8px rgba(255,69,0,0.3); }
-            75% { color: #ff7020; text-shadow: 0 0 14px rgba(255,112,32,0.9), 0 0 28px rgba(255,69,0,0.4); }
-        }
-
+        /* ── Precio con impuestos → rojo fuego (estático: la animación
+           infinita de text-shadow repinta cada frame y parpadea en móvil) ── */
         .price-value-main {
             font-size: 1.3rem;
             font-weight: 700;
-            animation: fireFlicker 2s ease-in-out infinite;
+            color: #ff4500;
+            text-shadow: 0 0 6px rgba(255,69,0,0.7), 0 0 12px rgba(255,69,0,0.3);
         }
 
-        /* ── Precio sin impuestos → dinero verde animado ── */
-        @keyframes moneyGlow {
-            0%, 100% { color: #4ade8a; text-shadow: 0 0 6px rgba(74,222,138,0.5); transform: scale(1); }
-            50% { color: #86efac; text-shadow: 0 0 12px rgba(74,222,138,0.9), 0 0 20px rgba(34,197,94,0.4); transform: scale(1.03); }
-        }
-
+        /* ── Precio sin impuestos → verde dinero (estático: el scale()
+           infinito fuerza re-layout constante en móvil) ── */
         .price-value-exempt {
             font-size: 1rem;
             font-weight: 600;
-            animation: moneyGlow 2s ease-in-out infinite;
+            color: #4ade8a;
+            text-shadow: 0 0 6px rgba(74,222,138,0.5);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .price-value-main,
+            .price-value-exempt,
+            .barrel-frame::before {
+                animation: none !important;
+            }
         }
 
         .price-regimen {
@@ -174,12 +174,13 @@
             inset: -3px;
             border-radius: 22px;
             background: conic-gradient(
-                from var(--angle, 0deg),
-                #ff0000, #ff8800, #ffff00, #00ff00,
-                #00ffff, #0088ff, #8800ff, #ff00ff, #ff0000
+                from 0deg,
+                #ff0000, #ffff00, #00ff00, #00ffff,
+                #0088ff, #8800ff, #ff00ff, #ff0000
             );
             z-index: -1;
-            animation: rgbSpin 3s linear infinite;
+            /* Sin animación infinita: hue-rotate repinta el elemento cada
+               frame y en móvil se ve como parpadeo + drena batería */
         }
 
         .barrel-frame::after {
@@ -200,25 +201,6 @@
             position: relative;
             z-index: 1;
             filter: drop-shadow(0 0 12px rgba(0, 255, 136, 0.3));
-        }
-
-        @keyframes rgbSpin {
-            to --angle: 360deg;
-        }
-
-        /* Fallback para navegadores que no soportan @property */
-        .barrel-frame::before {
-            background: conic-gradient(
-                from 0deg,
-                #ff0000, #ffff00, #00ff00, #00ffff,
-                #0088ff, #8800ff, #ff00ff, #ff0000
-            );
-            animation: rgbSpinFallback 3s linear infinite;
-        }
-
-        @keyframes rgbSpinFallback {
-            0%   { background-position: 0% 50%; filter: hue-rotate(0deg); }
-            100% { background-position: 100% 50%; filter: hue-rotate(360deg); }
         }
 
         /* ── Texto de tendencia semanal ── */
@@ -704,10 +686,19 @@
             startWeeklyAnimation();
         }
 
-        // Redibujar semanal al cambiar tamaño
+        // Redibujar en estado final al cambiar tamaño (debounce 250ms).
+        // Sin debounce, en móvil cada scroll (la barra del navegador
+        // muestra/oculta = resize) reinicia las animaciones de 1.5-2s y los
+        // charts se redibujan sin parar = parpadeo. Listener único: también
+        // cubre el historial (antes se registraba uno nuevo en cada render).
+        let resizeTimer = null;
         window.addEventListener('resize', () => {
-            if (window.__weekData) startWeeklyAnimation();
-            if (window.__wtiData) startWTIWeeklyAnimation();
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (window.__weekData) drawWeeklyPriceChartAnimated(window.__weekData, WEEKLY_ANIM_DURATION);
+                if (window.__wtiData) drawWTIWeeklyChartAnimated(window.__wtiData, WTI_WEEKLY_ANIM_DURATION);
+                if (window.__histData) drawHistorialChartAnimated(window.__histData, window.__histProductos, HIST_ANIM_DURATION);
+            }, 250);
         });
 
         // ── Helper para dibujar rectángulos con esquinas redondeadas ──
@@ -2064,11 +2055,6 @@
                 bodyHtml += '</tr>';
             }
             tbody.innerHTML = bodyHtml;
-
-            // Redibujar al cambiar tamaño de ventana
-            window.addEventListener('resize', () => {
-                startHistorialAnimation();
-            });
         }
 
         // ──────────────────────────────────────────
