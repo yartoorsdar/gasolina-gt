@@ -411,12 +411,17 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
 
     # ── 6. Resumen para dashboard web ──
     combustibles = [p for p in precios_actuales if p.get("producto") in ("superior", "regular", "diésel")]
+    # Top 10: primero por relevancia LLM (impacto GT), luego por fecha.
+    # Sin este orden, las clasificadas (pocas, y no siempre las más nuevas)
+    # quedarían fuera del corte y el dashboard nunca las vería.
+    top_noticias = sorted(noticias, key=lambda n: n.get("publicado_at") or "", reverse=True)
+    top_noticias = sorted(top_noticias, key=lambda n: n.get("relevancia") or 0, reverse=True)
     resumen = {
         "actualizado_at": ahora,
         "precios_combustible": combustibles,
         "petroleo": petroleo_actual,
         "noticias_count": len(noticias),
-        "ultimas_noticias": noticias[:10],  # top 10 más recientes
+        "ultimas_noticias": top_noticias[:10],  # top 10 por relevancia + fecha
     }
 
     path_resumen = export_dir / "resumen.json"
