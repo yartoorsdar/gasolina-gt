@@ -294,6 +294,80 @@
             margin: 6px 0 4px 0;
         }
 
+        /* ── Tarjetas top 5: ranking + cuerpo ── */
+        .news-item.news-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .news-item.news-card:last-child { border-bottom: 1px solid var(--border); }
+
+        .news-card-body { flex: 1; min-width: 0; }
+
+        .news-rank {
+            flex: 0 0 auto;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: #0b1220;
+            background: linear-gradient(135deg, #ffd166, #f4a261);
+        }
+
+        .news-stars {
+            color: #ffd166;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-top: 2px;
+        }
+
+        /* ── Semáforo de impacto ── */
+        .oil-impact-alert.semaforo {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            border-radius: 12px;
+            padding: 12px 14px;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .semaforo-lamps {
+            flex: 0 0 auto;
+            display: flex;
+            gap: 6px;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 12px;
+            padding: 7px 9px;
+        }
+
+        .lamp {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #555;
+            opacity: 0.25;
+        }
+
+        .lamp.on-red { background: #e74c3c; opacity: 1; box-shadow: 0 0 10px #e74c3c; }
+        .lamp.on-yellow { background: #f39c12; opacity: 1; box-shadow: 0 0 10px #f39c12; }
+        .lamp.on-green { background: #27ae60; opacity: 1; box-shadow: 0 0 10px #27ae60; }
+
+        .news-summary-box {
+            font-size: 0.87rem;
+            line-height: 1.6;
+        }
+
         .news-item {
             padding: 12px 0;
             border-bottom: 1px solid var(--border);
@@ -1721,26 +1795,40 @@
                 summaryEl.style.display = 'none';
             }
 
-            // ── 3. Analizar impacto petrolero ──
+            // ── 3. Analizar impacto petrolero (semáforo con motivo) ──
             const impacto = analizarImpactoPetrolero(filtradas);
             if (impacto) {
+                const lamp = impacto.nivel === 'alto' ? 'red'
+                    : (impacto.color === '#f39c12' ? 'yellow'
+                    : (impacto.nivel === 'bajo' ? '' : 'green'));
                 alertEl.innerHTML = `
-                    <div class="oil-impact-alert" data-nivel="${impacto.nivel}" style="border-left:4px solid ${impacto.color};margin-top:12px;">
-                        <strong>${impacto.emoji} Impacto petrolero — nivel ${impacto.nivel}</strong>
-                        <span>${impacto.mensaje}</span>
+                    <div class="oil-impact-alert semaforo" data-nivel="${impacto.nivel}" style="border-left:4px solid ${impacto.color};margin-top:12px;">
+                        <div class="semaforo-lamps">
+                            <span class="lamp ${lamp === 'red' ? 'on-red' : ''}"></span>
+                            <span class="lamp ${lamp === 'yellow' ? 'on-yellow' : ''}"></span>
+                            <span class="lamp ${lamp === 'green' ? 'on-green' : ''}"></span>
+                        </div>
+                        <div>
+                            <strong>${impacto.emoji} Impacto petrolero — nivel ${impacto.nivel}</strong>
+                            <br><span>${impacto.mensaje}</span>
+                        </div>
                     </div>`;
                 alertEl.style.display = 'block';
             } else {
                 alertEl.style.display = 'none';
             }
 
-            // ── 4. Lista top 5: título + mini-resumen en español ──
+            // ── 4. Lista top 5: tarjetas con ranking + estrellas + mini-resumen ──
             let html = '';
-            for (const n of filtradas) {
+            for (let idx = 0; idx < filtradas.length; idx++) {
+                const n = filtradas[idx];
                 const fecha = fmtFechaRelativa(n.publicado_at || '');
-                const temaBadge = n._tema ? `<span class="news-category" style="background:${temaColor(n._tema)}20;color:${temaColor(n._tema)};">${n._tema}</span>` : '';
+                const tColor = temaColor(n._tema);
+                const temaBadge = n._tema ? `<span class="news-category" style="background:${tColor}20;color:${tColor};">${n._tema}</span>` : '';
                 // Título en español (LLM) o traducido por patrones
                 const tituloEs = n.titulo_es || traducirTituloEnEspañol(n);
+                // Estrellas de relevancia LLM (1-5)
+                const stars = n.relevancia ? `<div class="news-stars">${'★'.repeat(n.relevancia)}${'☆'.repeat(5 - n.relevancia)}</div>` : '';
                 // Mini-resumen del backend (LLM) o del feed, sin HTML.
                 // Si es idéntico al título mostrado, se omite para no duplicar.
                 let snippet = (n.resumen_es || '').replace(/<[^>]*>/g, '').trim();
@@ -1748,15 +1836,19 @@
                 if (snippet.length > 220) snippet = snippet.substring(0, 220) + '…';
 
                 html += `
-                    <li class="news-item">
-                        <div class="news-title">
-                            <a href="${n.url}" target="_blank" rel="noopener noreferrer">${tituloEs}</a>
-                        </div>
-                        ${snippet ? `<div class="news-snippet">${snippet}</div>` : ''}
-                        <div class="news-meta">
-                            ${temaBadge}
-                            ${n.medio ? `&middot; ${n.medio}` : ''}
-                            ${fecha ? `&middot; ${fecha}` : ''}
+                    <li class="news-item news-card" style="border-left-color:${tColor}">
+                        <div class="news-rank">${idx + 1}</div>
+                        <div class="news-card-body">
+                            <div class="news-title">
+                                <a href="${n.url}" target="_blank" rel="noopener noreferrer">${tituloEs}</a>
+                            </div>
+                            ${stars}
+                            ${snippet ? `<div class="news-snippet">${snippet}</div>` : ''}
+                            <div class="news-meta">
+                                ${temaBadge}
+                                ${n.medio ? `&middot; ${n.medio}` : ''}
+                                ${fecha ? `&middot; ${fecha}` : ''}
+                            </div>
                         </div>
                     </li>`;
             }
