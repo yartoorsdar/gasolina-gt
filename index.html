@@ -135,6 +135,20 @@
             text-shadow: 0 0 6px rgba(74,222,138,0.5);
         }
 
+        /* ── Pulso suave solo con opacity (lo compone la GPU sin repintar:
+           nada de text-shadow/color animados = sin parpadeo en móvil) ── */
+        @keyframes softPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .price-value-main,
+            .price-value-exempt {
+                animation: softPulse 2.6s ease-in-out infinite;
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
             .price-value-main,
             .price-value-exempt,
@@ -648,8 +662,6 @@
                 // Base = lo que queda despues de quitar IVA e IDP del precioFinal
                 const baseSinImpuestos = Math.max(0, precioFinal - ivamonto - idp);
 
-                const priceColor = precioColor(p.regimen);
-
                 html += `
                     <div class="price-item">
                         <div>
@@ -657,7 +669,7 @@
                             ${p.nota ? `<br><small style="color:var(--text-muted)">${p.nota}</small>` : ''}
                         </div>
                         <div class="price-values">
-                            <span class="price-value-main" style="color:${priceColor}"><span style="font-size:0.75em;font-weight:400;margin-right:6px;">Con IVA+IDP</span>${fmtQ(precioFinal)}</span>
+                            <span class="price-value-main"><span style="font-size:0.75em;font-weight:400;margin-right:6px;">Con IVA+IDP</span>${fmtQ(precioFinal)}</span>
                             <span class="price-value-exempt"><span style="font-size:0.85em;font-weight:400;margin-right:4px;">Sin IVA+IDP:</span>${fmtQ(baseSinImpuestos)}</span>
                         </div>
                     </div>
