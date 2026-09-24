@@ -1448,7 +1448,7 @@
 
                 // Generar resumen en español a partir del título + keywords
                 const facts = items.map(n => {
-                    return traducirTituloEnEspañol(n);
+                    return n.titulo_es || traducirTituloEnEspañol(n);
                 });
 
                 partes.push(`<strong>${tituloTema}:</strong> ${facts[0]}`);
@@ -1675,7 +1675,7 @@
             // Fundamento: la noticia que más pesó en el semáforo, en pocas palabras
             let fundamento = '';
             if (topNoticia) {
-                let motivo = traducirTituloEnEspañol(topNoticia).replace(/<[^>]*>/g, '').trim();
+                let motivo = (topNoticia.titulo_es || traducirTituloEnEspañol(topNoticia)).replace(/<[^>]*>/g, '').trim();
                 if (motivo.length > 110) motivo = motivo.substring(0, 110) + '…';
                 fundamento = ` Motivo: ${motivo}`;
             }
@@ -1739,8 +1739,8 @@
             for (const n of filtradas) {
                 const fecha = fmtFechaRelativa(n.publicado_at || '');
                 const temaBadge = n._tema ? `<span class="news-category" style="background:${temaColor(n._tema)}20;color:${temaColor(n._tema)};">${n._tema}</span>` : '';
-                // Título traducido al español
-                const tituloEs = traducirTituloEnEspañol(n);
+                // Título en español (LLM) o traducido por patrones
+                const tituloEs = n.titulo_es || traducirTituloEnEspañol(n);
                 // Mini-resumen del backend (LLM) o del feed, sin HTML.
                 // Si es idéntico al título mostrado, se omite para no duplicar.
                 let snippet = (n.resumen_es || '').replace(/<[^>]*>/g, '').trim();

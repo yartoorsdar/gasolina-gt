@@ -61,6 +61,7 @@ def crear_tablas(conn: sqlite3.Connection) -> None:
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             url TEXT NOT NULL,
             titulo TEXT NOT NULL,
+            titulo_es TEXT,
             medio TEXT NOT NULL,
             publicado_at TEXT,
             categoria TEXT,
@@ -81,6 +82,11 @@ def crear_tablas(conn: sqlite3.Connection) -> None:
             mensaje TEXT
         );
     """)
+    # Migración para DBs existentes (CREATE IF NOT EXISTS no agrega columnas)
+    cols = [r[1] for r in conn.execute("PRAGMA table_info(noticias)").fetchall()]
+    if "titulo_es" not in cols:
+        conn.execute("ALTER TABLE noticias ADD COLUMN titulo_es TEXT")
+        conn.commit()
 
 
 # ──────────────────────────────────────────────
@@ -156,6 +162,7 @@ def insertar_noticia(
     pais: str = None,
     relevancia: int = None,
     resumen_es: str = None,
+    titulo_es: str = None,
 ) -> int | None:
     """Inserta o ignora una noticia.
 
@@ -164,8 +171,8 @@ def insertar_noticia(
     """
     fetched_at = ahora_gt_iso()
     cursor = conn.execute(
-        "INSERT OR IGNORE INTO noticias (url, titulo, medio, publicado_at, categoria, pais, relevancia, resumen_es, fetched_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-        (url, titulo, medio, publicado_at, categoria, pais, relevancia, resumen_es, fetched_at),
+        "INSERT OR IGNORE INTO noticias (url, titulo, titulo_es, medio, publicado_at, categoria, pais, relevancia, resumen_es, fetched_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        (url, titulo, titulo_es, medio, publicado_at, categoria, pais, relevancia, resumen_es, fetched_at),
     )
     conn.commit()
     return cursor.lastrowid if cursor.rowcount > 0 else None

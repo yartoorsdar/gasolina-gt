@@ -208,7 +208,8 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
         "combustibles en Guatemala (ataques a refinerías/oleoductos, sanciones, OPEP, "
         "guerras en zonas petroleras, crisis del diésel). 1 = sin relación.\n"
         "- resumen_es: resumen en ESPAÑOL, máximo 2 líneas, enfocado en qué pasó y "
-        "por qué importa para el precio del combustible\n\n"
+        "por qué importa para el precio del combustible\n"
+        "- titulo_es: titular en ESPAÑOL, máximo 90 caracteres, directo y periodístico\n\n"
         f"TITULO: {titulo}\nRESUMEN: {resumen}"
     )
 
@@ -258,10 +259,12 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
             except json.JSONDecodeError:
                 parsed = None
             if isinstance(parsed, dict) and "categoria" in parsed:
+                titulo_es = (parsed.get("titulo_es") or "").strip()[:120] or None
                 return {
                     "categoria": parsed.get("categoria", "otro"),
                     "relevancia": min(5, max(1, int(parsed.get("relevancia", 3)))),
                     "resumen_es": parsed.get("resumen_es", resumen[:200]),
+                    "titulo_es": titulo_es,
                 }
     except Exception as exc:
         print(f"[noticias] Error LLM: {exc}")
@@ -302,6 +305,7 @@ def guardar_noticias(items: list[dict], cfg: dict = None) -> int:
                 conn=conn,
                 url=item["link"],
                 titulo=item["title"],
+                titulo_es=item.get("titulo_es"),
                 medio=_extraer_medio(item.get("source_url", "")),
                 publicado_at=published_at,
                 categoria=item.get("categoria"),
