@@ -42,6 +42,12 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 - Key vía `OILPRICEAPI_KEY` (secreto GitHub + `.env`, ver `.env.example`)
 - La doc vieja de "EIA API v2 / DCOILWTICO / EIA_API_KEY" ya no aplica al código actual
 
+## LLM noticias (Groq, OpenAI-compatible)
+- `config.json → llm`: `base_url https://api.groq.com/openai`, `model llama-3.3-70b-versatile`
+- Key: secreto `GROK_API_KEY` (fallback `GEMINI_API_KEY`, luego `llm.api_key`) vía `collector/noticias.py:_obtener_api_key`
+- Auto-detecta proveedor por `base_url` (Gemini nativo vs OpenAI-compatible con Bearer)
+- Lote de 15 (round-robin por feed) + fallback 3×10s; `_sanear_error` quita `key=***` del diagnóstico público
+
 ## PDF parser (precios_mem.py)
 - Uses `pdfplumber.extract_words()` + Y-position grouping (NOT `extract_text()`)
 - Extracts AutoServicio and Servicio Completo for superior/regular/diésel

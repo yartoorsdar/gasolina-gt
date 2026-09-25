@@ -50,6 +50,7 @@ jobs:
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
           OILPRICEAPI_KEY: ${{ secrets.OILPRICEAPI_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
         run: |
           python -c "from datetime import datetime, timezone, timedelta; now_utc = datetime.utcnow().strftime('%H:%M'); now_gt = datetime.now(timezone(timedelta(hours=-6))).strftime('%H:%M'); print(f'UTC={now_utc} GT={now_gt}'); f=open('data/export/.debug_time.txt','w'); f.write(f'{now_utc}|{now_gt}')"
           python collector/main.py --alternos --petroleo --noticias --export

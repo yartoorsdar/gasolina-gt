@@ -41,6 +41,18 @@ HEADERS = {
 }
 
 
+# Proveedores LLM soportados (auto-detectado por base_url):
+# - Gemini nativo (generativelanguage) con GEMINI_API_KEY
+# - OpenAI-compatible (Groq, DeepSeek...) con GROK_API_KEY (Groq) u otra
+def _obtener_api_key(llm_cfg: dict) -> str:
+    """API key desde secrets (.env/CI) con fallback a config."""
+    for var in ("GROK_API_KEY", "GEMINI_API_KEY"):
+        val = os.environ.get(var, "").strip()
+        if val:
+            return val
+    return (llm_cfg.get("api_key", "") or "").strip()
+
+
 # ──────────────────────────────────────────────
 # Fetch de feeds RSS
 # ──────────────────────────────────────────────
@@ -156,19 +168,24 @@ def _llm_available(cfg: dict = None) -> bool:
     llm_cfg = cfg.get("llm", {})
     base_url = llm_cfg.get("base_url", "").strip().rstrip("/")
     model = llm_cfg.get("model", "").strip()
-    api_key = os.environ.get("GEMINI_API_KEY", llm_cfg.get("api_key", "")).strip()
+    api_key = _obtener_api_key(llm_cfg)
 
     if not base_url or not model or not api_key:
         return False
 
-    # Verificar que el endpoint responde (ping liviano según proveedor)
+    # Verificar que el endpoint responde (ping liviano según proveedor).
+    # OJO: Groq/OpenAI exigen auth incluso en /v1/models → mandar Bearer.
     try:
         if "generativelanguage" in base_url:
             resp = requests.get(f"{base_url}/models/{model}?key={api_key}", timeout=10)
         else:
-            resp = requests.get(f"{base_url}/v1/models", timeout=10)
+            resp = requests.get(
+                f"{base_url}/v1/models", timeout=10,
+                headers={"Authorization": f"Bearer {api_key}"},
+            )
         if resp.status_code == 200:
             return True
+        print(f"[noticias] LLM ping={resp.status_code} (revisar key/modelo)")
     except Exception:
         pass
 
@@ -194,7 +211,7 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
     llm_cfg = cfg.get("llm", {})
     base_url = llm_cfg.get("base_url", "").strip()
     model = llm_cfg.get("model", "").strip()
-    api_key = os.environ.get("GEMINI_API_KEY", llm_cfg.get("api_key", "")).strip()
+    api_key = _obtener_api_key(llm_cfg)
 
     if not base_url or not model:
         return None
@@ -336,7 +353,7 @@ def clasificar_lote_llm(items: list[dict], cfg: dict = None) -> list[dict | None
     llm_cfg = cfg.get("llm", {})
     base_url = llm_cfg.get("base_url", "").strip()
     model = llm_cfg.get("model", "").strip()
-    api_key = os.environ.get("GEMINI_API_KEY", llm_cfg.get("api_key", "")).strip()
+    api_key = _obtener_api_key(llm_cfg)
     if not base_url or not model or not api_key:
         return [None] * len(items)
 
