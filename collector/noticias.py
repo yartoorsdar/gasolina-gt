@@ -157,6 +157,7 @@ def _llm_available(cfg: dict = None) -> bool:
 
     Soporta Gemini nativo (generativelanguage) y endpoints OpenAI-compatibles.
     """
+    global _last_llm_error
     if cfg is None:
         config_path = _project_root / "config.json"
         try:
@@ -170,7 +171,11 @@ def _llm_available(cfg: dict = None) -> bool:
     model = llm_cfg.get("model", "").strip()
     api_key = _obtener_api_key(llm_cfg)
 
-    if not base_url or not model or not api_key:
+    if not base_url or not model:
+        return False
+    if not api_key:
+        _last_llm_error = "sin API key (revisar secreto GROK_API_KEY/GEMINI_API_KEY)"
+        print(f"[noticias] {_last_llm_error}")
         return False
 
     # Verificar que el endpoint responde (ping liviano según proveedor).
@@ -185,9 +190,11 @@ def _llm_available(cfg: dict = None) -> bool:
             )
         if resp.status_code == 200:
             return True
-        print(f"[noticias] LLM ping={resp.status_code} (revisar key/modelo)")
-    except Exception:
-        pass
+        _last_llm_error = f"LLM ping={resp.status_code} (revisar key/modelo)"
+        print(f"[noticias] {_last_llm_error}")
+    except Exception as exc:
+        _last_llm_error = _sanear_error(exc)
+        print(f"[noticias] ping LLM falló: {exc}")
 
     return False
 
