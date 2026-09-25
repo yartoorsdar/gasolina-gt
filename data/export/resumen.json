@@ -1,5 +1,5 @@
 {
-  "actualizado_at": "2026-09-25T00:48:38-06:00",
+  "actualizado_at": "2026-09-25T00:54:35-06:00",
   "precios_combustible": [
     {
       "id": 2,
@@ -7,7 +7,7 @@
       "producto": "diésel",
       "precio": 50.5,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-25T00:47:50-06:00"
+      "fetched_at": "2026-09-25T00:53:47-06:00"
     },
     {
       "id": 1,
@@ -15,7 +15,7 @@
       "producto": "superior",
       "precio": 45.74,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-25T00:47:50-06:00"
+      "fetched_at": "2026-09-25T00:53:47-06:00"
     },
     {
       "id": 4,
@@ -23,7 +23,7 @@
       "producto": "regular",
       "precio": 41.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-25T00:47:50-06:00"
+      "fetched_at": "2026-09-25T00:53:47-06:00"
     }
   ],
   "precios_actualizados": true,
@@ -32,7 +32,7 @@
     {
       "referencia": "wti",
       "fecha": "2026-09-25",
-      "usd_barril": 93.0,
+      "usd_barril": 92.85,
       "fuente": "OilPriceAPI"
     }
   ],
@@ -48,134 +48,134 @@
   },
   "ultimas_noticias": [
     {
-      "id": 81,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/VLCC-Rates-Hit-Record-127-Million-a-Day-as-Oman-Transfer-Capacity-Maxes-Out.html",
-      "titulo": "VLCC Rates Hit Record $1.27 Million a Day as Oman Transfer Capacity Maxes Out",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-25T00:17:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Capacity for ship-to-ship transfers of crude oil off the coast of Oman has reached its limits after Saudi Arabia diverted its flows from the port of Yanbu amid Houthi attacks, Reuters has reported, citing unnamed trading sources and analysts. The report said Saudi Arabia has sold some 60 million barrels of crude, to be shipped from the Gulf of Oman after being transferred from smaller carriers to supertankers, for delivery this month and in October. This has tightened an already tight very large",
-      "fetched_at": "2026-09-25T00:48:38-06:00"
-    },
-    {
-      "id": 124,
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPczljd09LSXRVU3VtZTFyLVpzVVVtejZtSUx5RW9QSnAyYXJLNnhWU2FVc2RwUW9xWWxsQ3hEX1hSTjZOb3M2RjEzOUpKbUlWMFlnRVkxcTNZcEg5WkNIM2xFNE9HNmJIdDhHV25BcUIwV3FEdHp4cWQ3Ulp4TXJuMWRlMWpTRlRCeDJlVE9QTzEzR0EtcEU0TlZObw?oc=5",
-      "titulo": "Festines a costillas de nuestros impuestos - Prensa Libre",
-      "titulo_es": null,
+      "id": 6,
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOaUN2YjZDc19JWGtHUGUtcElvZ2VfT3lpazlKQXJaWXpWMkJ1ZVlfNjZaVW8ydmgyekZiNE5TTTJDNW5yME5vc3hZdGRIQmRleTdxVTR6Y2xYOXdGa1lCMFk3d2x6bFFKbDNac1BPTVZhYWVIenpwdTBtOVZlX0ZYQ3pzQmRURzg4bXlHd3RGcG55bXNQWnlVbTRDZDRJV0gtSjkxTGRiNWY?oc=5",
+      "titulo": "Ataque masivo con drones contra Moscú alcanza Refinería y deja víctimas - Noticia Zavaleta",
+      "titulo_es": "Ataque masivo con drones contra Moscú alcanza Refinería y deja víctimas - Noticia Zavaleta",
       "medio": "Google News ES",
-      "publicado_at": "2026-09-25T00:02:00-06:00",
-      "categoria": null,
+      "publicado_at": "2026-09-21T08:57:09-06:00",
+      "categoria": "otro",
       "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMimwFBVV95cUxPczljd09LSXRVU3VtZTFyLVpzVVVtejZtSUx5RW9QSnAyYXJLNnhWU2FVc2RwUW9xWWxsQ3hEX1hSTjZOb3M2RjEzOUpKbUlWMFlnRVkxcTNZcEg5WkNIM2xFNE9HNmJIdDhHV25BcUIwV3FEdHp4cWQ3Ulp4TXJuMWRlMWpTRlRCeDJlVE9QTzEzR0EtcEU0TlZObw?oc=5\" target=\"_blank\">Festines a costillas de nuestros impuestos</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Prensa Libre</font>",
-      "fetched_at": "2026-09-25T00:48:38-06:00"
+      "relevancia": 5,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxOaUN2YjZDc19JWGtHUGUtcElvZ2VfT3lpazlKQXJaWXpWMkJ1ZVlfNjZaVW8ydmgyekZiNE5TTTJDNW5yME5vc3hZdGRIQmRleTdxVTR6Y2xYOXdGa1lCMFk3d2x6bFFKbDNac1BPTVZhYWVIenpwdTBtOVZlX0ZYQ3pzQmRURzg4bXlHd3RGcG55bXNQWnlVbTRDZDRJV0gtSjkxTGRiNWY?oc=5\" target=\"_blank\">Ataque masivo con drones contra Moscú alcanza Refinería y deja víctimas</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Noticia Zavaleta</font>",
+      "fetched_at": "2026-09-25T00:54:35-06:00"
     },
     {
-      "id": 121,
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOOVNwUjN3TE12TUs4R0dTRnNJX3R4QTRpcU1WM09yWVVaajVPZ1ZpdXEydDVWd0RXNmIzWURIQ2p0N09KQlFSZ3FMY2pRQ2xIUTZWUy1wSzRHbUNzN0FhNUI4V2hNN1h6dGExZVNITE5udml4MXRINzNZTUg5WmktaEZ6R2V1UW12M2lEYllOMWJzWDg?oc=5",
-      "titulo": "Oportunistas medran en la ignorancia - Prensa Libre",
-      "titulo_es": null,
+      "id": 5,
+      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNNURRYjZjLU5EWmJSb2ZMeGNGRjFuLXY4Tk85WjJmMUJ3WXhockZvTVUtbzRyTHpoeEh0NGZBMGFUNzB4TzV3ZExCWlJPTzk2Zm9ZWWpKUmlQdGMyNWZZMFRTM250WDRfblg0RVNXckZya0tYU1k5TEpKVE9MdTV3RktOaWNjdDkwMllDSnY3V2lCMnVDVlRmUklkcFk5Ums5LXotbWxHRF9vbEF2RUZMR253eG5ZcnREWUYxYXdzbEgwZWtHRmZ3cjI0aWxZXzBER3kyQ1N6dHZCQkE0Q2RaZUtuT1ptQTI3MVByOTBPQTNVVnNV?oc=5",
+      "titulo": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con las autoridades de ese país, los dispositivos impactaron la principal refinería de petróleo de la capital y un edificio residencial. El alcalde Sergei Sobyanin d - facebook.com",
+      "titulo_es": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con las autoridades de ese",
       "medio": "Google News ES",
-      "publicado_at": "2026-09-25T00:00:00-06:00",
-      "categoria": null,
+      "publicado_at": "2026-09-21T08:15:23-06:00",
+      "categoria": "otro",
       "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMikwFBVV95cUxOOVNwUjN3TE12TUs4R0dTRnNJX3R4QTRpcU1WM09yWVVaajVPZ1ZpdXEydDVWd0RXNmIzWURIQ2p0N09KQlFSZ3FMY2pRQ2xIUTZWUy1wSzRHbUNzN0FhNUI4V2hNN1h6dGExZVNITE5udml4MXRINzNZTUg5WmktaEZ6R2V1UW12M2lEYllOMWJzWDg?oc=5\" target=\"_blank\">Oportunistas medran en la ignorancia</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Prensa Libre</font>",
-      "fetched_at": "2026-09-25T00:48:38-06:00"
+      "relevancia": 5,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi9AFBVV95cUxNNURRYjZjLU5EWmJSb2ZMeGNGRjFuLXY4Tk85WjJmMUJ3WXhockZvTVUtbzRyTHpoeEh0NGZBMGFUNzB4TzV3ZExCWlJPTzk2Zm9ZWWpKUmlQdGMyNWZZMFRTM250WDRfblg0RVNXckZya0tYU1k5TEpKVE9MdTV3RktOaWNjdDkwMllDSnY3V2lCMnVDVlRmUklkcFk5Ums5LXotbWxHRF9vbEF2RUZMR253eG5ZcnREWUYxYXdzbEgwZWtHRmZ3cjI0aWxZXzBER3kyQ1N6dHZCQkE0Q2RaZUtuT1ptQTI3MVByOTBPQTNVVnNV?oc=5\" target=\"_blank\">Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con l",
+      "fetched_at": "2026-09-25T00:54:35-06:00"
     },
     {
-      "id": 32,
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPSTZUMjRiOGJmTlZhYkpYSFdNNFhYc0Z6Rk1od09OWm9VekJ5bFZ2SmxSZGZmTjhLd3ltRlNReHJ2ZGQzdkVUcVdVZ0dPSmc1cmtFaEctR0VMRE1MOGo5dlBLNV9oZmxiZC1RLUxmOFBFc013ZUhxR3ZkV1dzRFVDY1MyUlk2RFpoVU1wazg0Yl9TcE5sVllrbQ?oc=5",
-      "titulo": "Novoshakhtinsk oil refinery suspends operations after drone attack - Caliber.Az",
-      "titulo_es": null,
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-24T23:23:16-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxPSTZUMjRiOGJmTlZhYkpYSFdNNFhYc0Z6Rk1od09OWm9VekJ5bFZ2SmxSZGZmTjhLd3ltRlNReHJ2ZGQzdkVUcVdVZ0dPSmc1cmtFaEctR0VMRE1MOGo5dlBLNV9oZmxiZC1RLUxmOFBFc013ZUhxR3ZkV1dzRFVDY1MyUlk2RFpoVU1wazg0Yl9TcE5sVllrbQ?oc=5\" target=\"_blank\">Novoshakhtinsk oil refinery suspends operations after drone attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Caliber.Az</font>",
-      "fetched_at": "2026-09-25T00:48:38-06:00"
-    },
-    {
-      "id": 82,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/Brent-Set-for-Weekly-Gain-as-Houthi-Attacks-Rattle-Saudi-Oil-Supply.html",
-      "titulo": "Brent Set for Weekly Gain as Houthi Attacks Rattle Saudi Oil Supply",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T23:04:32-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Crude oil prices dipped from Thursday's close earlier today but Brent crude was on track for a weekly gain on continued concern about the security of supply from the Middle East. The concern persists despite reports about a possible deal between the United States and Iran, as well as estimates of oil flows out of the Strait of Hormuz. At the time of writing, Brent crude was trading at $105.65 per barrel, up from around $102 per barrel on Monday. West Texas Intermediate, on the other hand, is end",
-      "fetched_at": "2026-09-25T00:48:38-06:00"
-    },
-    {
-      "id": 30,
-      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPV3ZrUHlqNkk1S2l5N0g3YS0zNHl5bEpJcE5ieXFfRXNhY1poMUhqR0VBWGdzSzAxRTB2Sk5FQUxxQzNEVzBFMEsybHJHUjF2dW5xZnpiSG9fcTh5U09WM01WVmZ4dEJRWXR0cHBTUjhvZy0xLVM0Y3NVcTVTQ3FTSHZiRW9oeldLODBHLXpzaUhwNVcwZlBMT1dMZW16NDkzQ095ekVpZFhIUkVId0o0OVV6RUQtZ0FUTlp6eTU0dG1LUmlEc2xtWk1HNGxzem9Oa3lXelRYWW1vUQ?oc=5",
-      "titulo": "Russia's Novoshakhtinsk oil refinery suspends operations after drone attack, governor says - marketscreener.com",
-      "titulo_es": null,
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-24T22:37:33-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxPV3ZrUHlqNkk1S2l5N0g3YS0zNHl5bEpJcE5ieXFfRXNhY1poMUhqR0VBWGdzSzAxRTB2Sk5FQUxxQzNEVzBFMEsybHJHUjF2dW5xZnpiSG9fcTh5U09WM01WVmZ4dEJRWXR0cHBTUjhvZy0xLVM0Y3NVcTVTQ3FTSHZiRW9oeldLODBHLXpzaUhwNVcwZlBMT1dMZW16NDkzQ095ekVpZFhIUkVId0o0OVV6RUQtZ0FUTlp6eTU0dG1LUmlEc2xtWk1HNGxzem9Oa3lXelRYWW1vUQ?oc=5\" target=\"_blank\">Russia's Novoshakhtinsk oil refinery suspends operations after drone attack, governor says</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">marke",
-      "fetched_at": "2026-09-25T00:48:38-06:00"
-    },
-    {
-      "id": 23,
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNeFd0akhaaFhCeVNSaUh5Y0N2UDd0UldJQmQ4aXl0UkFNWjhxMm82blVmMXNIVG8tVUpKQUhUSFFabUd1a2Iza2FXUWU2RTBrdEJwakg4aTBsZVZKUmVZQkh0Wl9heEdkaEZ0cHQ0WnJQaE1OejMyMEpudzk3X1I4bnVBcnpzMmV3LWh1UTVuOUcxNERKRTJHaHdmZWJJZGNBaEtOTlBkVU1XeklpV0FNUWJ5bW83eWY2dUFnMGExcEpwcXJvOF9XLWxSNGxzZw?oc=5",
-      "titulo": "Ukrainian forces reportedly strike oil refinery 1,500 kilometers from border, Russian electronics factory - The Kyiv Independent",
-      "titulo_es": null,
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-24T20:28:28-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxNeFd0akhaaFhCeVNSaUh5Y0N2UDd0UldJQmQ4aXl0UkFNWjhxMm82blVmMXNIVG8tVUpKQUhUSFFabUd1a2Iza2FXUWU2RTBrdEJwakg4aTBsZVZKUmVZQkh0Wl9heEdkaEZ0cHQ0WnJQaE1OejMyMEpudzk3X1I4bnVBcnpzMmV3LWh1UTVuOUcxNERKRTJHaHdmZWJJZGNBaEtOTlBkVU1XeklpV0FNUWJ5bW83eWY2dUFnMGExcEpwcXJvOF9XLWxSNGxzZw?oc=5\" target=\"_blank\">Ukrainian forces reportedly strike oil refinery 1,500 kilometers from border, Russian electronics factory</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Ky",
-      "fetched_at": "2026-09-25T00:48:38-06:00"
-    },
-    {
-      "id": 83,
-      "url": "https://oilprice.com/Energy/Crude-Oil/5-Energy-Stocks-Positioned-for-a-Prolonged-Iran-War.html",
-      "titulo": "5 Energy Stocks Positioned for a Prolonged Iran War",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T18:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "For the first time since the Iran war began, JPMorgan says it no longer has a clear baseline for how the oil market gets out of it. The bank had previously worked on the assumption that rising oil prices and the economic damage they caused would eventually put limits on how far the conflict could go. Six months into the war, JPMorgan says many of those thresholds have already been crossed without producing a clear exit. Roughly 10 million barrels per day of oil supply has been disrupted, while t",
-      "fetched_at": "2026-09-25T00:48:38-06:00"
-    },
-    {
-      "id": 61,
-      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOeXR1bW9EYlJQUWFIZUxvZnprNHpNUFZQNTJDQ2NXZmVzRFQ4N2Y1OWZIZnNxVS1xQzB3X2VuVG5GZFB6S0l0ZlNseTRRSFk1OHp2dHdVa2JCaXB5Vm9XT2FuWE9ETzlKcjlCYWRZOXhpcXlOcENueTRISE5uTE50V0JBZHRoZmY4R0FMZkV6UV9GdjEwOTV1S2xHZnduSDlKMnFhYnllM0hEbmlrMW9Jek4xWW1wLTlzYTU0MGE1ZWZReFFNeTFnQ1dnMjVlWkUzVk9scjVHVHNzenEwMGZLRVk2aG56STY5U2R4dnJVM2xWRGgxbHNlZ2tPWVR6cHpS0gGbAkFVX3lxTE8yZ0YtWFpnYl9PNjdKVjlVNXgwLVE5S3BRQkNXQVFYU0hFdHN1VllWQmdHQXpEM0haVlctdEcxRm4tMDR3eTFmc0NrWWRJSnN0cmU4WDFEaVFuMGN6T04xTl9ES2lYNHpBYnJ0eUpyV2dORTNZWWdGQ3JWckp6YTdGY09nNGdiNHBqUk8xS1Z4X2t4OVhtZWRqaFZvbVhubGpYQjloSWdwV29pbE1uWUdydmVpM090MDlHTXFJRXpDcURFcDFodzBONTA4X3loRE4wN2ZRLUN4SWhpSUV0WFRDa1pXYXRWSUIzOF8zMmpUS18zS0kxV3pFTmlYZjVpQ0ZnWnRUUXpId1l0Z1JUU01jSFZlV1N4Z2R5UWs?oc=5",
-      "titulo": "El Congreso de Guatemala despeja el camino para que Arévalo decida entre dos mecanismos de control de precios de combustibles - Infobae",
-      "titulo_es": null,
+      "id": 10,
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPYmNHVmRmVGtuc1Jzd21CdG1YaW1SQ3FGcTN6X2VEcmpRMnVPYW5RRVBCQi1UalpsbGstc3hlSzdhalRvWk5tMklYMS00Z0hiNzB1SVZucHEybG13Z0otM3o3Q0xRUFFicnkzWi00MjZPdTNKSUJBdVdSLVhIUnBucFUxek9iS3pWQUZGQXpVcGFjaFcwUms5ODJPRDZhRXc?oc=5",
+      "titulo": "El petróleo de Texas sube un 2,7% tras ataques contra objetivos militares en Arabia Saudí - Banca y Negocios",
+      "titulo_es": "El petróleo de Texas sube un 2,7% tras ataques contra objetivos militares en Arabia Saudí - Banca y Negocios",
       "medio": "Google News ES",
-      "publicado_at": "2026-09-24T17:56:00-06:00",
-      "categoria": null,
+      "publicado_at": "2026-09-24T14:18:04-06:00",
+      "categoria": "otro",
       "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMigAJBVV95cUxOeXR1bW9EYlJQUWFIZUxvZnprNHpNUFZQNTJDQ2NXZmVzRFQ4N2Y1OWZIZnNxVS1xQzB3X2VuVG5GZFB6S0l0ZlNseTRRSFk1OHp2dHdVa2JCaXB5Vm9XT2FuWE9ETzlKcjlCYWRZOXhpcXlOcENueTRISE5uTE50V0JBZHRoZmY4R0FMZkV6UV9GdjEwOTV1S2xHZnduSDlKMnFhYnllM0hEbmlrMW9Jek4xWW1wLTlzYTU0MGE1ZWZReFFNeTFnQ1dnMjVlWkUzVk9scjVHVHNzenEwMGZLRVk2aG56STY5U2R4dnJVM2xWRGgxbHNlZ2tPWVR6cHpS0gGbAkFVX3lxTE8yZ0YtWFpnYl9PNjdKVjlVNXgwLVE5S3BRQkNXQVFYU0hFdHN1VllWQmdHQXpEM0haVlctdEcxRm4tMDR3eTFmc0NrWW",
-      "fetched_at": "2026-09-25T00:48:38-06:00"
+      "relevancia": 4,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxPYmNHVmRmVGtuc1Jzd21CdG1YaW1SQ3FGcTN6X2VEcmpRMnVPYW5RRVBCQi1UalpsbGstc3hlSzdhalRvWk5tMklYMS00Z0hiNzB1SVZucHEybG13Z0otM3o3Q0xRUFFicnkzWi00MjZPdTNKSUJBdVdSLVhIUnBucFUxek9iS3pWQUZGQXpVcGFjaFcwUms5ODJPRDZhRXc?oc=5\" target=\"_blank\">El petróleo de Texas sube un 2,7% tras ataques contra objetivos militares en Arabia Saudí</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Banca y Negocios</font>",
+      "fetched_at": "2026-09-25T00:54:35-06:00"
     },
     {
-      "id": 133,
-      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPM0Z1N25nRmRjQmhiRXJDMXFTaHgzVHhDSDZmUkdHX0F0MWR1aDZuZ1ZMUTBPZGl1WENRSElvVGJQMW9KMmRqLWcyQ25uY1hHNWNwRFVvb1JUbUY2QVliUlVqRzBrVEctaDFseEd4aVd2MXdLLS1BcElRRnBkdFhjMDQ0Wk9NSWhBZnk5YWh6NkJwMFVQVEhWakZMSmNMLTF4bFllNHd1N1NkZlFjX3Bla2FpWUZ4X2pJWWZpRHJ1SWhxMFBwQ3RuSmRuOVlzeXZ2T2swT3ItXzZPcWpFS2JIRw?oc=5",
-      "titulo": "Xavi y Klopp debutan con empate en la Liga de Naciones: resultados de la jornada - Prensa Libre",
-      "titulo_es": null,
+      "id": 12,
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQZTh1ZGdBLXZDbEZKb015REhqSXNIWnRuaFVTUko0bUEwc3dWWEp5ZkxLLTFOUmNsUzNuR1ZtZmFDUEdaWV9QWTNXZFJXZzJxb2ZpNlNqc1pVUVVpNmZheVZQbFNIcmRkNEdzVHpGdTVXaXRiV1BRdzkxWDdHTzU2MHlIZzRLZm5wWXBzOUhaV1dJT0VKU2k5aDlBdVkzWXVIRG9wdldXOThPS0E2cncxWV9EWFotN1BtT2w1MWNJYXpaY2lIVlh3X3FQUHNGeHVqUlAtUlM2OUdmMUE1ZG94UFh2NA?oc=5",
+      "titulo": "Arabia Saudita aumenta las exportaciones de petróleo a través del Golfo tras ataque a oleoducto - IDNFinancials",
+      "titulo_es": "Arabia Saudita aumenta las exportaciones de petróleo a través del Golfo tras ataque a oleoducto - IDNFinancials",
       "medio": "Google News ES",
-      "publicado_at": "2026-09-24T17:00:43-06:00",
-      "categoria": null,
+      "publicado_at": "2026-09-22T05:20:00-06:00",
+      "categoria": "otro",
       "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxPM0Z1N25nRmRjQmhiRXJDMXFTaHgzVHhDSDZmUkdHX0F0MWR1aDZuZ1ZMUTBPZGl1WENRSElvVGJQMW9KMmRqLWcyQ25uY1hHNWNwRFVvb1JUbUY2QVliUlVqRzBrVEctaDFseEd4aVd2MXdLLS1BcElRRnBkdFhjMDQ0Wk9NSWhBZnk5YWh6NkJwMFVQVEhWakZMSmNMLTF4bFllNHd1N1NkZlFjX3Bla2FpWUZ4X2pJWWZpRHJ1SWhxMFBwQ3RuSmRuOVlzeXZ2T2swT3ItXzZPcWpFS2JIRw?oc=5\" target=\"_blank\">Xavi y Klopp debutan con empate en la Liga de Naciones: resultados de la jornada</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Prensa ",
-      "fetched_at": "2026-09-25T00:48:38-06:00"
+      "relevancia": 4,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi4wFBVV95cUxQZTh1ZGdBLXZDbEZKb015REhqSXNIWnRuaFVTUko0bUEwc3dWWEp5ZkxLLTFOUmNsUzNuR1ZtZmFDUEdaWV9QWTNXZFJXZzJxb2ZpNlNqc1pVUVVpNmZheVZQbFNIcmRkNEdzVHpGdTVXaXRiV1BRdzkxWDdHTzU2MHlIZzRLZm5wWXBzOUhaV1dJT0VKU2k5aDlBdVkzWXVIRG9wdldXOThPS0E2cncxWV9EWFotN1BtT2w1MWNJYXpaY2lIVlh3X3FQUHNGeHVqUlAtUlM2OUdmMUE1ZG94UFh2NA?oc=5\" target=\"_blank\">Arabia Saudita aumenta las exportaciones de petróleo a través del Golfo tras ataque a oleoducto</a>&nbsp;&nbsp;<font colo",
+      "fetched_at": "2026-09-25T00:54:35-06:00"
+    },
+    {
+      "id": 15,
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxObHZYa0xwOFQ4OUFVVWpCMVJVQXlibFBnN1ZDa01BZklCMkdGNkdaZ2dOcGdpZGc4aUh5RWNHN1pWTkYtaEZMdFA2aFk1ZlFrRW92dE83R1RPMzYxS21LbEc3YnhvV1FUdlAxRWdla2F4azVXMFh5eFJTYVh2Z0NyV2pQd0I0TG5xMXh1bVJwY2RtSHFVMVFF?oc=5",
+      "titulo": "Arabia Saudita reactiva oleoducto Este-Oeste para reanudar las exportaciones desde Yanbu: fuentes - Yahoo",
+      "titulo_es": "Arabia Saudita reactiva oleoducto Este-Oeste para reanudar las exportaciones desde Yanbu: fuentes - Yahoo",
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-22T04:33:00-06:00",
+      "categoria": "otro",
+      "pais": null,
+      "relevancia": 4,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxObHZYa0xwOFQ4OUFVVWpCMVJVQXlibFBnN1ZDa01BZklCMkdGNkdaZ2dOcGdpZGc4aUh5RWNHN1pWTkYtaEZMdFA2aFk1ZlFrRW92dE83R1RPMzYxS21LbEc3YnhvV1FUdlAxRWdla2F4azVXMFh5eFJTYVh2Z0NyV2pQd0I0TG5xMXh1bVJwY2RtSHFVMVFF?oc=5\" target=\"_blank\">Arabia Saudita reactiva oleoducto Este-Oeste para reanudar las exportaciones desde Yanbu: fuentes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo</font>",
+      "fetched_at": "2026-09-25T00:54:35-06:00"
+    },
+    {
+      "id": 1,
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNcnJqNEJNOEgxaC1YcXNtNzljeWxKdlJmM0pMMUM0UlpoMklBR1ZSWFI0REVjWlVZMWxlV2FxRWlMLXpvWXBqTVpjTHNVVDVYZXRhWEZ1ZVFlVHJXcTBHaGMtY3ZtOC16N0lubjFxZzByT1hmX0NiTzBwN3Z2SVBURXQ2cE55d21kSmRxRklCaFg2X3hQMXliQUJBZTQ?oc=5",
+      "titulo": "Arde en llamas una refinería de petróleo de Moscú tras un ataque ucraniano, según un vídeo publicado por Zelensky - CNN en Español",
+      "titulo_es": "Arde en llamas una refinería de petróleo de Moscú tras un ataque ucraniano, según un vídeo publicado por Zelensky - CNN ",
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-20T07:02:54-06:00",
+      "categoria": "otro",
+      "pais": null,
+      "relevancia": 4,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxNcnJqNEJNOEgxaC1YcXNtNzljeWxKdlJmM0pMMUM0UlpoMklBR1ZSWFI0REVjWlVZMWxlV2FxRWlMLXpvWXBqTVpjTHNVVDVYZXRhWEZ1ZVFlVHJXcTBHaGMtY3ZtOC16N0lubjFxZzByT1hmX0NiTzBwN3Z2SVBURXQ2cE55d21kSmRxRklCaFg2X3hQMXliQUJBZTQ?oc=5\" target=\"_blank\">Arde en llamas una refinería de petróleo de Moscú tras un ataque ucraniano, según un vídeo publicado por Zelensky</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CNN en Español</font>",
+      "fetched_at": "2026-09-25T00:54:35-06:00"
+    },
+    {
+      "id": 3,
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5CY0dINlhhc09NdHhscF9LV0s5UEdPeldGQ0RCbmduUmQ2aUpNN21iMVNwWHdnMlZ4NFFEZEt3SWxRbkhQM2pPbjBIaml4U0pyZnNaOHlnai0ydFNt0gFiQVVfeXFMT0ZMOWFHLXVfTnRRZEo5ZVpZMjh3bjI0OUtpMFVXX21vNlJUVjYySEp6VGJaQTd2WVc3Q0xuM0Z1QU9rQlo1ZkozX2NFZFNpTmMwTEJLQWlwZFZFQTBTYjkyZkE?oc=5",
+      "titulo": "Ucrania golpea Moscú con unos 450 drones en el mayor ataque contra la capital rusa hasta la fecha - BBC",
+      "titulo_es": "Ucrania golpea Moscú con unos 450 drones en el mayor ataque contra la capital rusa hasta la fecha - BBC",
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-20T06:58:45-06:00",
+      "categoria": "otro",
+      "pais": null,
+      "relevancia": 4,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE5CY0dINlhhc09NdHhscF9LV0s5UEdPeldGQ0RCbmduUmQ2aUpNN21iMVNwWHdnMlZ4NFFEZEt3SWxRbkhQM2pPbjBIaml4U0pyZnNaOHlnai0ydFNt0gFiQVVfeXFMT0ZMOWFHLXVfTnRRZEo5ZVpZMjh3bjI0OUtpMFVXX21vNlJUVjYySEp6VGJaQTd2WVc3Q0xuM0Z1QU9rQlo1ZkozX2NFZFNpTmMwTEJLQWlwZFZFQTBTYjkyZkE?oc=5\" target=\"_blank\">Ucrania golpea Moscú con unos 450 drones en el mayor ataque contra la capital rusa hasta la fecha</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>",
+      "fetched_at": "2026-09-25T00:54:35-06:00"
+    },
+    {
+      "id": 13,
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOUHIxakVjNjVyWVI2YTY1bURpLWRxbHNtSTB5QlRUekNGX1FFdWduc3Bjb29WRFZhdnZhdk9SLUJGa3JyZF9TdWVrY3dzcFRxTEp2RG1oc3Q5X09qbmpVa3g3X1FXNE85dHlfd0tDMjRTeHNORXZjYm1ZcER6WnpxclZJTUpGdw?oc=5",
+      "titulo": "Moscú, blanco del mayor ataque con drones de Ucrania en el último día de las elecciones de Rusia - CNN en Español",
+      "titulo_es": "Moscú, blanco del mayor ataque con drones de Ucrania en el último día de las elecciones de Rusia - CNN en Español",
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-20T06:19:00-06:00",
+      "categoria": "otro",
+      "pais": null,
+      "relevancia": 4,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMihgFBVV95cUxOUHIxakVjNjVyWVI2YTY1bURpLWRxbHNtSTB5QlRUekNGX1FFdWduc3Bjb29WRFZhdnZhdk9SLUJGa3JyZF9TdWVrY3dzcFRxTEp2RG1oc3Q5X09qbmpVa3g3X1FXNE85dHlfd0tDMjRTeHNORXZjYm1ZcER6WnpxclZJTUpGdw?oc=5\" target=\"_blank\">Moscú, blanco del mayor ataque con drones de Ucrania en el último día de las elecciones de Rusia</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CNN en Español</font>",
+      "fetched_at": "2026-09-25T00:54:35-06:00"
+    },
+    {
+      "id": 4,
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQVHpKSWNnc0xsTF9DYUZoX0gxQjJpb1BYanAwbWhWTUdxVTJmMDk1aXIzalRuemNfOE93STR2ekdBU3N6ZGNlaU1kOVdxVkxMQWprRjhnb2FQQUJlUmFOb18xbDNTQlZZT09zelltYzllXzJBSzR4b1J1eFdaQ0ZmeDE1LVVndmlmWjJYdG1yQW9jZEtGVC1QZ09ZZlpEMVgtc0lMTERuX2MzNjFYMkdMcHpXbnlXMmdVWFlfWFlzc0FaM25NdWZPRWxtdWU5ODhDekg4cTl2R1E?oc=5",
+      "titulo": "Irak dice que ataques a oleoducto saudí salieron de su territorio y otras noticias de Oriente Medio - chicagotribune.com",
+      "titulo_es": "Irak dice que ataques a oleoducto saudí salieron de su territorio y otras noticias de Oriente Medio - chicagotribune.com",
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-12T01:00:00-06:00",
+      "categoria": "otro",
+      "pais": null,
+      "relevancia": 4,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi2AFBVV95cUxQVHpKSWNnc0xsTF9DYUZoX0gxQjJpb1BYanAwbWhWTUdxVTJmMDk1aXIzalRuemNfOE93STR2ekdBU3N6ZGNlaU1kOVdxVkxMQWprRjhnb2FQQUJlUmFOb18xbDNTQlZZT09zelltYzllXzJBSzR4b1J1eFdaQ0ZmeDE1LVVndmlmWjJYdG1yQW9jZEtGVC1QZ09ZZlpEMVgtc0lMTERuX2MzNjFYMkdMcHpXbnlXMmdVWFlfWFlzc0FaM25NdWZPRWxtdWU5ODhDekg4cTl2R1E?oc=5\" target=\"_blank\">Irak dice que ataques a oleoducto saudí salieron de su territorio y otras noticias de Oriente Medio</a>&nbsp;&nbsp;<font color=\"#6f6f6f\"",
+      "fetched_at": "2026-09-25T00:54:35-06:00"
+    },
+    {
+      "id": 8,
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxORmJ0elJsNERtZHBGTEpxdnotOXRHVmVrVjAyTG5HdlRoSGphU1FtZThjNkY1WW5IaHBjazFLRy1rNWNEZW5KTHVpR3Uxa1hDQjhZRHVkUmdCak1VbkZoM1lHNENLUi03WThRRER6cGRsaGNhZmpPTTVNZHhUVTJoVHlDYks3b1ZtS3d4U211Ny16VG1MN1NScw?oc=5",
+      "titulo": "El Gobierno iraquí condena ataque contra oleoducto de Arabia Saudita e inicia investigación - Yahoo",
+      "titulo_es": "El Gobierno iraquí condena ataque contra oleoducto de Arabia Saudita e inicia investigación - Yahoo",
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-12T01:00:00-06:00",
+      "categoria": "otro",
+      "pais": null,
+      "relevancia": 4,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxORmJ0elJsNERtZHBGTEpxdnotOXRHVmVrVjAyTG5HdlRoSGphU1FtZThjNkY1WW5IaHBjazFLRy1rNWNEZW5KTHVpR3Uxa1hDQjhZRHVkUmdCak1VbkZoM1lHNENLUi03WThRRER6cGRsaGNhZmpPTTVNZHhUVTJoVHlDYks3b1ZtS3d4U211Ny16VG1MN1NScw?oc=5\" target=\"_blank\">El Gobierno iraquí condena ataque contra oleoducto de Arabia Saudita e inicia investigación</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo</font>",
+      "fetched_at": "2026-09-25T00:54:35-06:00"
     }
   ]
 }
