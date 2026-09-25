@@ -368,29 +368,17 @@ def ejecutar() -> dict:
     # ── Guardar en DB ────────────────────────────────────
     print("[alternas] 3. Guardando precios en base de datos...")
     
-    # Convertir GPP a formato DB (por galón) — usar fecha de hoy siempre
+    # GPP NO se guarda en `precios`: publica la serie de SERVICIO COMPLETO
+    # (ej. 45.74 = MEM SC superior) con días de atraso, y antes se grababa con
+    # fecha de HOY → pisaba el precio actual de autoservicio del dashboard.
+    # Solo se registra; entrará al consejo de precios como observación SC.
     if gpp_data:
         GALON_LITROS = 3.78541
-        hoy = datetime.now(timezone(timedelta(hours=-6))).strftime("%Y-%m-%d")
-        gpp_precios_db = [
-            {
-                "fecha": hoy,
-                "producto": "superior",
-                "precio": round(gpp_data["gasolina_gtq_liter"] * GALON_LITROS, 2),
-                "fuente": "GlobalPetrolPrices",
-                "tipo": "nacional_promedio",
-            },
-            {
-                "fecha": hoy,
-                "producto": "diésel",  # Corregido: con acento como espera el dashboard
-                "precio": round(gpp_data["diesel_gtq_liter"] * GALON_LITROS, 2),
-                "fuente": "GlobalPetrolPrices",
-                "tipo": "nacional_promedio",
-            },
-        ]
-        
-        insertados_gpp = guardar_precios_en_db(gpp_precios_db)
-        print(f"[alternas]   GPP: {insertados_gpp} registros guardados")
+        print(
+            f"[alternas]   GPP (solo referencia, no se guarda): {gpp_data.get('fecha')} | "
+            f"Gasolina Q{gpp_data['gasolina_gtq_liter'] * GALON_LITROS:.2f}/gal, "
+            f"Diesel Q{gpp_data['diesel_gtq_liter'] * GALON_LITROS:.2f}/gal"
+        )
     
     # Convertir Chapin TV a formato DB
     chapintv_precios_db = []

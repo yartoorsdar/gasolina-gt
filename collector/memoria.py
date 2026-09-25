@@ -63,7 +63,7 @@ def exportar_memoria(conn=None, carpeta: Path | None = None) -> dict[str, int]:
 
     if propia:
         conn.close()
-    print(f"[memoria] Exportado → {carpeta}: "
+    print(f"[memoria] Exportado a {carpeta}: "
           + ", ".join(f"{p}={n}" for p, n in escritas.items()))
     return escritas
 
@@ -98,7 +98,7 @@ def importar_memoria(conn=None, carpeta: Path | None = None) -> dict[str, int]:
 
     if propia:
         conn.close()
-    print(f"[memoria] Importado ← {carpeta}: "
+    print(f"[memoria] Importado desde {carpeta}: "
           + ", ".join(f"{p}={n}" for p, n in insertadas.items()))
     return insertadas
 

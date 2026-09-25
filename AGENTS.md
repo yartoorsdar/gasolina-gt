@@ -91,6 +91,8 @@ La DB es efímera en CI → sin memoria, cada run "reiniciaba" el historial a la
 - **daily-update**: cron `0 14 * * *` (nominal 08:00 GT; en la práctica GitHub gratis lo ejecuta ~18:2x UTC), push a main, manual dispatch. Runner `windows-latest`, Python 3.11. Runs `python collector/main.py --memoria --alternos --petroleo --noticias --export`. El paso de push commitea `data/export/consolidado.json` **y** `data/db/*.csv` (memoria persistente: sin los CSV cada run nacería con DB vacía y perdería el historial).
 - **test-apis** (solo `workflow_dispatch`): corre `scripts/test_apis.py` contra el LLM primario de config.json (prompt mínimo), Groq secundario y MyMemory — sin DB ni export ni push. Mismo runner que daily-update: si la API responde ahí, responde en el run diario. Job rojo = ningún LLM completó el prompt (contrato del script).
 - `concurrency: daily-update-global` (sin cancel) serializa schedule+push+dispatch.
+- **Consola cp1252**: el runner windows-latest escribe la consola en cp1252; un `print()` con un carácter fuera de cp1252 (`→`, `←`, `✓`…) lanza UnicodeEncodeError y tumba el job (pasó 2 veces el 2026-09-25). Defensa doble: `env` a nivel de job `PYTHONIOENCODING: utf-8` + `PYTHONUTF8: '1'`, y `tests/test_consola.py` falla si un print/logger de `collector/` o `scripts/` trae esos caracteres.
+- Actions en `@v7` (checkout y setup-python, node24).
 - Push step: orden add → diff → **commit → pull --rebase → push HEAD:main**, SIN `|| true` (un rechazo queda rojo, no se pierde en silencio).
 - `[skip ci]` en commits de docs/UI para no disparar runs. Sin `[skip ci]` el push dispara el workflow (útil para validar cambios de colectores).
 - Regla: ningún workflow hace export parcial + push (con DB efímera eso sobrescribe el dashboard con datos viejos).
