@@ -668,41 +668,65 @@
         .history-table-wrap::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 4px; }
         .history-table-wrap::-webkit-scrollbar-track { background: transparent; }
 
-        /* ── Semáforo: las 3 luces siempre visibles; las apagadas con su color
-           pero opacas, la encendida brillante con aro RGB (estático: sin
-           animación de color, que parpadea en móvil; solo el pulso de opacity) ── */
+        /* ── Semáforo: las 3 luces siempre visibles y del MISMO tamaño.
+           Apagadas: vidrio de su color, opaco. Encendida: luz realista —
+           núcleo casi blanco, degradado del color hacia el borde, sombra
+           interna de volumen, reflejo especular del vidrio y resplandor
+           (bloom) en capas que se difumina alrededor. Todo estático: solo el
+           pulso de opacity ya existente (sin parpadeo en móvil). ── */
         .semaforo-lamps { position: relative; z-index: 0; }
-        .semaforo-lamps .lamp { position: relative; opacity: 0.4; box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6); }
-        .semaforo-lamps .lamp:nth-child(1) { background: #8e2b22; }
-        .semaforo-lamps .lamp:nth-child(2) { background: #8a6112; }
-        .semaforo-lamps .lamp:nth-child(3) { background: #1e6b40; }
+        .semaforo-lamps .lamp {
+            position: relative;
+            opacity: 0.45;
+            box-shadow: inset 0 -2px 3px rgba(0, 0, 0, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.12);
+        }
+        .semaforo-lamps .lamp:nth-child(1) { background: radial-gradient(circle at 35% 30%, #b5463c, #6e1a13 70%); }
+        .semaforo-lamps .lamp:nth-child(2) { background: radial-gradient(circle at 35% 30%, #b58a2c, #6a4608 70%); }
+        .semaforo-lamps .lamp:nth-child(3) { background: radial-gradient(circle at 35% 30%, #3f9a66, #124a2a 70%); }
+        /* Reflejo especular (vidrio): elipse blanca arriba a la izquierda */
+        .semaforo-lamps .lamp::after {
+            content: '';
+            position: absolute;
+            top: 14%;
+            left: 20%;
+            width: 38%;
+            height: 26%;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0) 70%);
+            opacity: 0.35;
+        }
         .semaforo-lamps .lamp.on-red,
         .semaforo-lamps .lamp.on-yellow,
         .semaforo-lamps .lamp.on-green { opacity: 1; }
-        /* Aro RGB = borde con degradado cónico (border-box) y la luz por dentro
-           (padding-box). Con ::before el pulso de opacity lo pintaba ENCIMA. */
-        .semaforo-lamps .lamp.on-red,
-        .semaforo-lamps .lamp.on-yellow,
-        .semaforo-lamps .lamp.on-green { width: 12px; height: 12px; border: 2px solid transparent; }
+        .semaforo-lamps .lamp.on-red::after,
+        .semaforo-lamps .lamp.on-yellow::after,
+        .semaforo-lamps .lamp.on-green::after { opacity: 0.95; }
         .semaforo-lamps .lamp.on-red {
-            background: radial-gradient(circle at 35% 35%, #ffd0ca, #ff3b2f 60%) padding-box,
-                        conic-gradient(#ff0000, #ffff00, #00ff00, #00ffff, #0088ff, #8800ff, #ff00ff, #ff0000) border-box;
-            box-shadow: 0 0 10px #ff3b2f, 0 0 22px #ff3b2f, 0 0 36px rgba(255, 59, 47, 0.6);
+            background: radial-gradient(circle at 42% 38%, #ffffff 0%, #ffe3de 12%, #ff8a7a 30%, #ff3b2f 55%, #c4170c 82%, #7a0b05 100%);
+            box-shadow:
+                inset 0 -2px 3px rgba(90, 0, 0, 0.45),
+                0 0 3px 1px rgba(255, 200, 190, 0.95),
+                0 0 9px 3px rgba(255, 70, 55, 0.85),
+                0 0 20px 7px rgba(255, 59, 47, 0.5),
+                0 0 40px 14px rgba(255, 59, 47, 0.22);
         }
         .semaforo-lamps .lamp.on-yellow {
-            background: radial-gradient(circle at 35% 35%, #fff1c9, #ffb300 60%) padding-box,
-                        conic-gradient(#ff0000, #ffff00, #00ff00, #00ffff, #0088ff, #8800ff, #ff00ff, #ff0000) border-box;
-            box-shadow: 0 0 10px #ffb300, 0 0 22px #ffb300, 0 0 36px rgba(255, 179, 0, 0.6);
+            background: radial-gradient(circle at 42% 38%, #ffffff 0%, #fff6d8 12%, #ffd46b 30%, #ffb300 55%, #c98400 82%, #7a4f00 100%);
+            box-shadow:
+                inset 0 -2px 3px rgba(90, 50, 0, 0.45),
+                0 0 3px 1px rgba(255, 240, 200, 0.95),
+                0 0 9px 3px rgba(255, 190, 40, 0.85),
+                0 0 20px 7px rgba(255, 179, 0, 0.5),
+                0 0 40px 14px rgba(255, 179, 0, 0.22);
         }
         .semaforo-lamps .lamp.on-green {
-            background: radial-gradient(circle at 35% 35%, #d2ffe6, #19d26b 60%) padding-box,
-                        conic-gradient(#ff0000, #ffff00, #00ff00, #00ffff, #0088ff, #8800ff, #ff00ff, #ff0000) border-box;
-            box-shadow: 0 0 10px #19d26b, 0 0 22px #19d26b, 0 0 36px rgba(25, 210, 107, 0.6);
-        }
-        @media (max-width: 768px) {
-            .semaforo-lamps .lamp.on-red,
-            .semaforo-lamps .lamp.on-yellow,
-            .semaforo-lamps .lamp.on-green { width: 7px; height: 7px; }
+            background: radial-gradient(circle at 42% 38%, #ffffff 0%, #dcffec 12%, #6ff0a8 30%, #19d26b 55%, #0e9a4c 82%, #065229 100%);
+            box-shadow:
+                inset 0 -2px 3px rgba(0, 60, 25, 0.45),
+                0 0 3px 1px rgba(210, 255, 230, 0.95),
+                0 0 9px 3px rgba(40, 220, 120, 0.85),
+                0 0 20px 7px rgba(25, 210, 107, 0.5),
+                0 0 40px 14px rgba(25, 210, 107, 0.22);
         }
 
         /* ── Rectángulos de noticias más angostos: se separan del borde de la
