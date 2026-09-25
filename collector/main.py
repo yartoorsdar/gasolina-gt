@@ -453,7 +453,8 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
         "petroleo": petroleo_actual,
         "noticias_count": len(noticias),
         "noticias_llm": {"titulos_es_hoy": _es_hoy, "total_hoy": _tot_hoy,
-                         "error": getattr(_noticias_mod, "_last_llm_error", None)},
+                         "error": getattr(_noticias_mod, "_last_llm_error", None),
+                         "key_fp": getattr(_noticias_mod, "_llm_key_fp", None)},
         "ultimas_noticias": top_noticias[:10],  # top 10 por relevancia + fecha
     }
 

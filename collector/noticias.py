@@ -178,6 +178,12 @@ def _llm_available(cfg: dict = None) -> bool:
         print(f"[noticias] {_last_llm_error}")
         return False
 
+    # Huella no sensible: confirma QUÉ key está usando CI sin exponerla
+    # (prefijo + longitud; una key truncada o con comillas se delata aquí)
+    global _llm_key_fp
+    _llm_key_fp = f"{api_key[:4]}*** len={len(api_key)}"
+    print(f"[noticias] LLM key: {_llm_key_fp}")
+
     # Verificar que el endpoint responde (ping liviano según proveedor).
     # OJO: Groq/OpenAI exigen auth incluso en /v1/models → mandar Bearer.
     try:
@@ -272,6 +278,8 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
 # Último error del LLM (diagnóstico exportado a resumen.json).
 # NUNCA incluir la API key: se sanea antes de guardar.
 _last_llm_error: str | None = None
+# Huella no sensible de la key usada (prefijo + longitud)
+_llm_key_fp: str | None = None
 
 
 def _sanear_error(exc: Exception) -> str:
