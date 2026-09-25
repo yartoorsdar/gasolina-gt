@@ -75,3 +75,15 @@ def test_dashboard_modalidades_y_confianza():
         for pieza in ("precios_modalidades", "badgeConfianza", "fuentesConsejo",
                       "'Servicio completo'", ".confianza-alta", "escHtml("):
             assert pieza in html, f"{archivo}: falta {pieza}"
+
+
+def test_ajustes_visuales_legibilidad():
+    """Gris legible en tema oscuro, historial con scroll, semáforo con 3 luces."""
+    from pathlib import Path
+    raiz = Path(__file__).resolve().parent.parent
+    for archivo in ("index.html", "web/index.html"):
+        html = (raiz / archivo).read_text(encoding="utf-8")
+        # el bloque de ajustes va DESPUÉS de style-glass.css (si no, esa hoja lo anula)
+        assert html.index("--text-muted: #b9c3d1") > html.index('href="style-glass.css"'), archivo
+        assert "overflow-y: auto;" in html, f"{archivo}: historial sin scroll vertical"
+        assert ".semaforo-lamps .lamp:nth-child(2)" in html, f"{archivo}: luces apagadas sin color"

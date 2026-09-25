@@ -643,6 +643,88 @@
         }
     </style>
     <link rel="stylesheet" href="style-glass.css">
+    <!-- Ajustes visuales DESPUÉS de style-glass.css (si no, esa hoja los anula) -->
+    <style>
+        /* ── Legibilidad: el gris "atenuado" (#636e72) era para fondo blanco; sobre
+           el fondo oscuro no se leía. Blanco suave, menos fuerte que el título. ── */
+        @media (prefers-color-scheme: dark), (prefers-color-scheme: no-preference) {
+            :root { --text-muted: #b9c3d1; }
+            /* Encabezado fijo OPACO: el de style-glass (rgba 0.1) dejaba ver las
+               filas al hacer scroll */
+            .glass-card .history-table th { background: #1b2436; color: #d6dde8; }
+            .history-table tr:hover td { background: rgba(255, 255, 255, 0.05); }
+        }
+        /* Sobre el fondo de color del semáforo el gris desaparecía */
+        .oil-impact-alert .semaforo-motivo { color: rgba(255, 255, 255, 0.88); }
+
+        /* ── Historial anual: scroll vertical (antes overflow-y:hidden cortaba en
+           2017 y no se podían ver los años anteriores) ── */
+        .history-table-wrap {
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+        }
+        .history-table-wrap::-webkit-scrollbar { width: 8px; height: 8px; }
+        .history-table-wrap::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 4px; }
+        .history-table-wrap::-webkit-scrollbar-track { background: transparent; }
+
+        /* ── Semáforo: las 3 luces siempre visibles; las apagadas con su color
+           pero opacas, la encendida brillante con aro RGB (estático: sin
+           animación de color, que parpadea en móvil; solo el pulso de opacity) ── */
+        .semaforo-lamps { position: relative; z-index: 0; }
+        .semaforo-lamps .lamp { position: relative; opacity: 0.4; box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6); }
+        .semaforo-lamps .lamp:nth-child(1) { background: #8e2b22; }
+        .semaforo-lamps .lamp:nth-child(2) { background: #8a6112; }
+        .semaforo-lamps .lamp:nth-child(3) { background: #1e6b40; }
+        .semaforo-lamps .lamp.on-red,
+        .semaforo-lamps .lamp.on-yellow,
+        .semaforo-lamps .lamp.on-green { opacity: 1; }
+        /* Aro RGB = borde con degradado cónico (border-box) y la luz por dentro
+           (padding-box). Con ::before el pulso de opacity lo pintaba ENCIMA. */
+        .semaforo-lamps .lamp.on-red,
+        .semaforo-lamps .lamp.on-yellow,
+        .semaforo-lamps .lamp.on-green { width: 12px; height: 12px; border: 2px solid transparent; }
+        .semaforo-lamps .lamp.on-red {
+            background: radial-gradient(circle at 35% 35%, #ffd0ca, #ff3b2f 60%) padding-box,
+                        conic-gradient(#ff0000, #ffff00, #00ff00, #00ffff, #0088ff, #8800ff, #ff00ff, #ff0000) border-box;
+            box-shadow: 0 0 10px #ff3b2f, 0 0 22px #ff3b2f, 0 0 36px rgba(255, 59, 47, 0.6);
+        }
+        .semaforo-lamps .lamp.on-yellow {
+            background: radial-gradient(circle at 35% 35%, #fff1c9, #ffb300 60%) padding-box,
+                        conic-gradient(#ff0000, #ffff00, #00ff00, #00ffff, #0088ff, #8800ff, #ff00ff, #ff0000) border-box;
+            box-shadow: 0 0 10px #ffb300, 0 0 22px #ffb300, 0 0 36px rgba(255, 179, 0, 0.6);
+        }
+        .semaforo-lamps .lamp.on-green {
+            background: radial-gradient(circle at 35% 35%, #d2ffe6, #19d26b 60%) padding-box,
+                        conic-gradient(#ff0000, #ffff00, #00ff00, #00ffff, #0088ff, #8800ff, #ff00ff, #ff0000) border-box;
+            box-shadow: 0 0 10px #19d26b, 0 0 22px #19d26b, 0 0 36px rgba(25, 210, 107, 0.6);
+        }
+        @media (max-width: 768px) {
+            .semaforo-lamps .lamp.on-red,
+            .semaforo-lamps .lamp.on-yellow,
+            .semaforo-lamps .lamp.on-green { width: 7px; height: 7px; }
+        }
+
+        /* ── Rectángulos de noticias más angostos: se separan del borde de la
+           tarjeta y entre sí ── */
+        .oil-impact-alert.semaforo,
+        .news-summary-box,
+        .news-item.news-card {
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+        .oil-impact-alert.semaforo { margin-bottom: 14px; }
+        .news-summary-box { margin-bottom: 14px; }
+        .news-item.news-card { margin-bottom: 12px; }
+        @media (max-width: 768px) {
+            .oil-impact-alert.semaforo,
+            .news-summary-box,
+            .news-item.news-card {
+                margin-left: 6px;
+                margin-right: 6px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="glass-mesh-bg"><span class="mesh-blob-third"></span></div>
@@ -1118,7 +1200,7 @@
                 ctx.setLineDash([]);
 
                 var priceVal = maxPrice - ((maxPrice - minPrice) / stepsY) * i;
-                ctx.fillStyle = 'rgba(180, 200, 230, 0.4)';
+                ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
                 ctx.font = '9px -apple-system, sans-serif';
                 ctx.textAlign = 'right';
                 ctx.fillText('$' + priceVal.toFixed(0), padLeft - 6, y + 3);
@@ -1224,7 +1306,7 @@
             ctx.shadowBlur = 0;
 
             // ── Labels X (fechas) centrados bajo cada punto ──
-            ctx.fillStyle = 'rgba(180, 200, 230, 0.45)';
+            ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
             ctx.font = '9px -apple-system, sans-serif';
             ctx.textAlign = 'center';
             for (var j = 0; j < data.length; j++) {
@@ -1234,7 +1316,7 @@
 
             // ── Fuente centrada abajo ──
             var sourceText = 'Datos de: OilPrice.com';
-            ctx.fillStyle = 'rgba(150, 170, 200, 0.3)';
+            ctx.fillStyle = 'rgba(185, 195, 209, 0.7)';
             ctx.font = '8px -apple-system, sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText(sourceText, centerX, cssH - 6);
@@ -1373,7 +1455,7 @@
 
                 // Label Y (right-aligned)
                 var priceVal = maxPrice - ((maxPrice - minPrice) / stepsY) * i;
-                ctx.fillStyle = 'rgba(180, 200, 230, 0.4)';
+                ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
                 ctx.font = '9px -apple-system, sans-serif';
                 ctx.textAlign = 'right';
                 ctx.fillText('Q' + priceVal.toFixed(0), padLeft - 6, y + 3);
@@ -1487,7 +1569,7 @@
             }
 
             // ── Labels X (fechas) centrados bajo cada punto ──
-            ctx.fillStyle = 'rgba(180, 200, 230, 0.45)';
+            ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
             ctx.font = '9px -apple-system, sans-serif';
             ctx.textAlign = 'center';
             for (var j = 0; j < dailyData.length; j++) {
@@ -1497,7 +1579,7 @@
 
             // ── Fuente centrada abajo ──
             var sourceText = 'Fuente: MEM + reportes estaciones';
-            ctx.fillStyle = 'rgba(150, 170, 200, 0.3)';
+            ctx.fillStyle = 'rgba(185, 195, 209, 0.7)';
             ctx.font = '8px -apple-system, sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText(sourceText, centerX, cssH - 6);
@@ -2087,7 +2169,7 @@
                 ctx.setLineDash([]);
 
                 var priceVal = minPrice + ((maxPrice - minPrice) / stepsY) * i;
-                ctx.fillStyle = 'rgba(180, 200, 230, 0.45)';
+                ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
                 ctx.font = '9px -apple-system, sans-serif';
                 ctx.textAlign = 'right';
                 ctx.fillText('Q' + priceVal.toFixed(0), padLeft - 5, y + 3);
@@ -2103,7 +2185,7 @@
                 ctx.lineTo(x, cssH - 40);
                 ctx.stroke();
 
-                ctx.fillStyle = 'rgba(180, 200, 230, 0.4)';
+                ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
                 ctx.font = '9px -apple-system, sans-serif';
                 ctx.textAlign = 'center';
                 ctx.fillText(histData[i].anio, x, cssH - 40 + 15);
@@ -2193,7 +2275,7 @@
 
             // ── Fuente centrada abajo ──
             var sourceText = 'Fuente: MEM + consolidado anual';
-            ctx.fillStyle = 'rgba(150, 170, 200, 0.3)';
+            ctx.fillStyle = 'rgba(185, 195, 209, 0.7)';
             ctx.font = '8px -apple-system, sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText(sourceText, centerX, cssH - 6);
