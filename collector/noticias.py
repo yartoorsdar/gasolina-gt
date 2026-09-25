@@ -458,6 +458,115 @@ def clasificar_lote_llm(items: list[dict], cfg: dict = None) -> list[dict | None
 
 
 # ──────────────────────────────────────────────
+# Fallback determinístico sin LLM (traductor libre + keywords)
+# Garantiza títulos/resúmenes en español aunque el LLM falle (401/429).
+# ──────────────────────────────────────────────
+
+_FB_SUBIDA = [
+    'ataque', 'attack', 'drone', 'missile', 'misil', 'pipeline', 'oleoducto',
+    'refinería', 'refinery', 'explos', 'incendio', 'fire', 'destroyed',
+    'destruido', 'escasez', 'shortage', 'sanción', 'sanciones', 'sanction',
+    'embargo', 'guerra', 'war', 'opec', 'opep', 'recorte', 'bloqueo',
+    'alza', 'récord', 'record', 'arancel', 'huelga', 'strike', 'export',
+    'sube', 'suben', 'rise', 'increase', 'jump', 'soar',
+]
+_FB_BAJADA = [
+    'restart', 'reativa', 'restaura', 'exceso', 'surplus', 'decline',
+    'caída', 'caen', 'bajan', 'drop', 'crash', 'reserva', 'acuerdo',
+    'deal', 'tregua', 'ceasefire', 'reapertura', 'excedente',
+]
+
+
+def _relevancia_keywords(titulo: str, resumen: str) -> int:
+    """Relevancia 1-5 determinística (réplica del semáforo del dashboard)."""
+    text = f"{titulo or ''} {resumen or ''}".lower()
+    score = sum(1 for kw in _FB_SUBIDA if kw in text)
+    score -= 0.5 * sum(1 for kw in _FB_BAJADA if kw in text)
+    import re as _re
+    if _re.search(r"pipeline.*(attack|damage|shut)", text):
+        score += 2
+    if _re.search(r"refinería.*(attack|strike|drone)", text):
+        score += 1.5
+    if score >= 4:
+        return 5
+    if score >= 2:
+        return 4
+    if score >= 1:
+        return 3
+    if score > -1:
+        return 2
+    return 1
+
+
+def _traducir_fallback(items: list[dict]) -> int:
+    """Traduce al español lo que el LLM no alcanzó (MyMemory, sin API key).
+
+    Presupuesto anónimo ~5000 caracteres/día: primero títulos (baratos),
+    luego resúmenes solo mientras quede cuota. Titulares ya-español
+    (feeds ES) se omiten para no gastar cuota.
+    """
+    ok = 0
+    gasto = 0
+    for it in items:
+        if it.get("titulo_es"):
+            continue
+        titulo = (it.get("title") or "").strip()
+        if not titulo or _ya_es(titulo, it.get("source_url", "")):
+            if titulo:
+                it["titulo_es"] = titulo[:120]
+            continue
+        try:
+            import time as _time
+            es = _mymemory(titulo[:450])
+            if not es:
+                break  # cuota agotada o red caída: no insistir
+            gasto += len(titulo)
+            it["titulo_es"] = es[:120]
+            summ = (it.get("summary") or "")[:400].strip()
+            if summ and not it.get("resumen_es") and gasto < 3000:
+                _time.sleep(1)
+                es_s = _mymemory(summ)
+                if es_s:
+                    gasto += len(summ)
+                    it["resumen_es"] = es_s[:500]
+            it.setdefault("categoria", "otro")
+            it["relevancia"] = _relevancia_keywords(it.get("title", ""), it.get("summary", ""))
+            ok += 1
+            _time.sleep(1)
+        except Exception as exc:
+            print(f"[noticias] Trad fallback falló, continúo sin él: {exc}")
+            break
+    return ok
+
+
+def _ya_es(titulo: str, source_url: str) -> bool:
+    """Heurística: titular ya en español (feed ES)."""
+    if "hl=es" in (source_url or ""):
+        return True
+    import re as _re
+    return bool(_re.search(r"[áéíóúñ¿¡]", titulo))
+
+
+def _mymemory(texto: str) -> str:
+    """Una traducción EN→ES vía MyMemory (sin key). Vacío si falla/cuota."""
+    try:
+        resp = requests.get(
+            "https://api.mymemory.translated.net/get",
+            params={"q": texto, "langpair": "en|es"},
+            timeout=20,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        if data.get("quotaFinished"):
+            print("[noticias] MyMemory: cuota diaria agotada")
+            return ""
+        return ((data.get("responseData") or {}).get("translatedText") or "").strip()
+    except Exception as exc:
+        print(f"[noticias] MyMemory falló: {exc}")
+        return ""
+
+
+# ──────────────────────────────────────────────
 # Integración con DB y orquestador
 # ──────────────────────────────────────────────
 
@@ -644,6 +753,12 @@ def ejecutar(cfg: dict = None) -> dict:
                     item.update(classification)
                     ok += 1
             print(f"[noticias] Fallback OK: {ok} clasificadas")
+
+    # Fallback determinístico (sin API key): traduce lo que el LLM no alcanzó
+    pendientes = [it for it in all_items if not it.get("titulo_es")]
+    if pendientes:
+        n_tr = _traducir_fallback(pendientes[:15])
+        print(f"[noticias] Traductor fallback: {n_tr} traducidas")
 
     # Guardar en DB
     inserted = guardar_noticias(all_items, cfg)
