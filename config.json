@@ -45,5 +45,16 @@
     "base_url": "https://api.groq.com/openai",
     "model": "openai/gpt-oss-120b",
     "api_key": ""
+  },
+  "consejo": {
+    "_doc": "Consejo multifuente de precios (collector/consenso_precios.py): Bing News RSS -> notas -> LLM extrae precios -> veredicto con confianza.",
+    "consultas": [
+      "precio gasolina superior regular diésel Guatemala",
+      "precios combustibles Guatemala galón autoservicio",
+      "precio combustibles Guatemala hoy MEM"
+    ],
+    "dias_articulo": 10,
+    "max_articulos_llm": 8,
+    "pausa_llm_seg": 20
   }
 }

@@ -140,7 +140,7 @@ class TestExportJson:
         assert c["precios_actualizados"] is True
         assert list(c["productos"]) == ["regular", "superior", "diésel", "wti"]
         for codigo, prod in c["productos"].items():
-            assert set(prod) == {"nombre", "categoria", "unidad", "orden", "actual", "historial", "mensual", "anual"}
+            assert set(prod) == {"nombre", "categoria", "unidad", "orden", "actual", "historial", "mensual", "anual", "modalidades"}
             assert prod["actual"]["fecha"] == hoy
         assert c["productos"]["diésel"]["historial"] == [
             {"fecha": ayer, "precio": 37.0}, {"fecha": hoy, "precio": 37.0}

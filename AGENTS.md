@@ -13,14 +13,18 @@ python serve.py                             # dashboard at http://localhost:8089
 - `web/index.html` — single-file dashboard (CSS+JS vanilla, no build step)
 - `index.html` — copy of web/index.html at repo root (Vercel serves this at `/`)
 - `data/export/consolidado.json` — ÚNICO archivo exportado (`main.py:exportar_json` → `construir_consolidado`). Los viejos resumen/precios_combustible/petroleo/historial_*/noticias.json y las copias en raíz y `web/` se eliminaron (2026-09-25).
-- `data/db/<archivo>.csv` — historial persistente de cada producto, en git (`regular.csv`, `superior.csv`, `diesel.csv`, `wti.csv`; columnas `fecha,precio,fuente`) + `mensual.csv` (promedios mensuales oficiales MEM 2020-01→, autoservicio) + `anual_semilla.csv` (2002–2019, sin fuente verificada). Procedencia de cada tramo en `data/db/FUENTES.md`. Serie = precio promedio MONITOREADO autoservicio Ciudad Capital; NO mezclar con "precios de referencia" semanales del MEM (otra serie). `collector/memoria.py` los importa/exporta. Reemplaza a `data/memory/precios.csv`.
+- `data/db/<archivo>.csv` — historial persistente de cada producto, en git (`regular.csv`, `superior.csv`, `diesel.csv`, `wti.csv`; columnas `fecha,modalidad,precio,fuente` — un CSV viejo sin `modalidad` se lee como la principal) + `observaciones.csv`, `articulos.csv`, `consenso.csv` (tablas del consejo, `memoria.TABLAS_MEMORIA`) + `mensual.csv` (promedios mensuales oficiales MEM 2020-01→, autoservicio) + `anual_semilla.csv` (2002–2019, sin fuente verificada). Procedencia de cada tramo en `data/db/FUENTES.md`. Serie = precio promedio MONITOREADO autoservicio Ciudad Capital; NO mezclar con "precios de referencia" semanales del MEM (otra serie). `collector/memoria.py` los importa/exporta. Reemplaza a `data/memory/precios.csv`.
 - `data/historial.db` — SQLite, NOT in git (ephemeral in CI): `productos`, `precios`, vistas `historial_<archivo>`, `noticias`, `ejecuciones`
 
 ## DB schema (single-table)
 ```sql
 CREATE TABLE productos (codigo PK, nombre, categoria, unidad, archivo, orden);  -- catálogo = db.PRODUCTOS
-CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, fetched_at TEXT);
--- UNIQUE(fecha, producto) via CREATE UNIQUE INDEX (inline UNIQUE broken on Windows/SQLite)
+CREATE TABLE precios (id, fecha, producto, precio, fuente, fetched_at, modalidad);
+-- UNIQUE(fecha, producto, modalidad) = idx_precios_clave (inline UNIQUE broken on Windows/SQLite)
+-- modalidad: combustibles 'autoservicio' (PRINCIPAL) | 'servicio_completo'; wti 'spot'. db.PRODUCTOS[p]['modalidades'][0] = principal
+CREATE TABLE observaciones (fecha, producto, modalidad, precio, tipo, medio, url, cita, extractor, fetched_at);  -- insumo del consejo
+CREATE TABLE articulos (url PK, medio, titulo, publicado, procesado_at, extractor, n_obs, error);            -- notas ya leídas
+CREATE TABLE consenso (fecha, producto, modalidad, precio, confianza, n_coinciden, n_fuentes, fuentes JSON); -- veredicto
 -- Vistas historial_regular / historial_superior / historial_diesel / historial_wti (generadas del catálogo)
 -- Products: 'regular', 'superior', 'diésel' (combustible), 'wti' (petróleo). Otro producto (ej. bunker) = inválido.
 ```
@@ -45,9 +49,15 @@ La DB es efímera en CI → sin memoria, cada run "reiniciaba" el historial a la
 ## Collector gotchas
 - **SQLite Row**: `conn.row_factory = sqlite3.Row`. Rows support `row["col"]` but NOT `.get()`. Use direct indexing: `e["mensaje"]`, not `e.get("mensaje")`.
 - **Import when run as __main__**: Modules that import from other collector modules add parent to sys.path via `os.sys.path.insert(0, str(_root))` inside `if __name__ == "__main__":`.
-- **Una sola vía de escritura**: todo colector usa `db.guardar_precios(conn, filas, fuente)` (upsert por producto+fecha). Re-ejecutar = actualizar; NO borrar antes de insertar. Conflicto entre fuentes el mismo día: gana mayor `prioridad_fuente` (MEM/OilPriceAPI 3 > manual 2 > alternas 1). `sobrescribir=False` = solo sembrar (lo usa `importar_memoria`). Borrar: `borrar_precios(conn, producto, desde, hasta, fuente)`; leer: `leer_historial` / `leer_ultimo` / `leer_actuales` — mismos filtros en todas.
+- **Una sola vía de escritura**: todo colector usa `db.guardar_precios(conn, filas, fuente)` (upsert por producto+modalidad+fecha; fila sin `modalidad` = la principal). Lecturas (`leer_historial/leer_ultimo/leer_actuales`) devuelven la modalidad PRINCIPAL salvo `modalidad=` o `todas=True`. Re-ejecutar = actualizar; NO borrar antes de insertar. Conflicto entre fuentes el mismo día: gana mayor `prioridad_fuente` (MEM/OilPriceAPI 3 > manual 2 > alternas 1). `sobrescribir=False` = solo sembrar (lo usa `importar_memoria`). Borrar: `borrar_precios(conn, producto, desde, hasta, fuente)`; leer: `leer_historial` / `leer_ultimo` / `leer_actuales` — mismos filtros en todas.
 - **Fuentes canónicas**: `canon_fuente()` normaliza (`Ministerio de Energía y Minas`/`MEM HTML`/… → `MEM`). Fuente nueva: agregarla a `db._FUENTES` con su prioridad.
 - **Commit before close**: `_ejecutar_modulo` in main.py calls `conn.commit()` before `close()` to flush to disk.
+
+## Consejo de precios (`collector/consenso_precios.py`, flag `--consenso`, en el workflow diario)
+- Descubre notas con **Bing News RSS** (`config.json → consejo.consultas`; enlaces directos al medio) + GlobalPetrolPrices. Notas ya leídas (`articulos`) no se reprocesan.
+- Extrae cada precio con **LLM (Groq)**: producto, modalidad, tipo (monitoreado/referencia/estimado/historico/otro_pais/maximo_legal), fecha del precio y cita. Solo `monitoreado`/`referencia` con modalidad conocida y fecha coherente entran como `observaciones`. Máx. 8 notas/run con pausa 20 s (Groq free: 8K tokens/min). Sin LLM → `extraer_regex`: conservador (una modalidad por oración, producto/precio alternados sin ambigüedad, sin fechas explícitas ni "estimado/pasó de/US$/otro país").
+- Veredicto por producto×modalidad: ventana 7 días, bloque de los últimos 3; de cada medio su dato más reciente + el oficial MEM (tabla precios). Peso = precisión del medio (1/(1+2·error medio vs MEM), 0.2–1; sin historial 0.5) × 0.85^días. Grupo ganador ±Q0.20, precio = mediana ponderada. Confianza alta (≥3 coinciden y ≥60 %, o MEM+otra) / media (2, o solo MEM) / baja (1 no oficial o desacuerdo — NO se escribe en `precios`). Fuente `Consejo` prioridad 2: el MEM siempre gana.
+- Serie AS vs SC: GPP "gasoline" = Superior **servicio completo** del MEM (45.74 = SC 21-sep). Nunca mezclar series: los "precios de referencia" semanales del MEM (con subsidio may-jul 2026) son otra cosa.
 
 ## Petróleo (OilPriceAPI — solo WTI)
 - Endpoint: `https://api.oilpriceapi.com/v1/prices/latest?by_code=WTI_CRUDE_USD` (precio de hoy)
@@ -72,7 +82,7 @@ La DB es efímera en CI → sin memoria, cada run "reiniciaba" el historial a la
 
 ## Dashboard data contract (`web/index.html`)
 - **Reads from GitHub raw** (not local files): `https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export/consolidado.json` (`PRIMARY_DATA_URL`)
-- Forma v2: `{version, actualizado_at, precios_actualizados, max_fecha_precios, productos:{<codigo>:{nombre, categoria, unidad, orden, actual:{fecha,precio,fuente,fetched_at}|null, historial:[{fecha,precio}] (365 días), mensual:[{anio,mes,promedio}], anual:[{anio,promedio,dias,meses,fuente}]}}, noticias:{total, top[10], llm}}`. `anual.fuente` = `diario` (≥300 días), `MEM mensual` (promedio de meses oficiales) o `consolidado histórico` (semilla).
+- Forma v3 (v2 + `modalidades` + `consejo`): `productos.<codigo>.modalidades.<modalidad> = {nombre, actual, consenso:{fecha,precio,confianza,n_coinciden,n_fuentes,fuentes[]}, historial (30 días)}`; `consejo = {precision_fuentes:{medio:{error_medio,n,peso}}, observaciones_7d, notas_leidas, medios}`. El dashboard es compatible con v2 (sin modalidades → solo autoservicio). Resto igual que v2: `{version, actualizado_at, precios_actualizados, max_fecha_precios, productos:{<codigo>:{nombre, categoria, unidad, orden, actual:{fecha,precio,fuente,fetched_at}|null, historial:[{fecha,precio}] (365 días), mensual:[{anio,mes,promedio}], anual:[{anio,promedio,dias,meses,fuente}]}}, noticias:{total, top[10], llm}}`. `anual.fuente` = `diario` (≥300 días), `MEM mensual` (promedio de meses oficiales) o `consolidado histórico` (semilla).
 - `adaptarConsolidado()` en el JS lleva esa forma a lo que usan los renderers (`precios_combustible`, `petroleo`, `wti_historial`, `combustibles_historial`, `ultimas_noticias`, `historial_anual`). Las gráficas semanales (combustibles y WTI) usan los últimos 7 días REALES del historial — nunca arrays escritos a mano (test_web lo vigila).
 - `noticias.llm: {titulos_es_hoy, total_hoy}` — diagnóstico del pipeline LLM (ground truth desde DB). Si `titulos_es_hoy` es 0 tras un run, leer el log del job en Actions (`[noticias] Lote OK/Fallback OK/Error LLM`).
 - `noticias.top[]` trae `titulo_es`/`categoria`/`relevancia` (1-5, impacto GT)/`resumen_es` del LLM cuando hay key; si no, `relevancia` es null y el dashboard ordena por fecha. Top 5 = `relevancia` desc, luego fecha desc (`agruparNoticias`).
@@ -109,7 +119,7 @@ python scheduler.py --export-task NOMBRE --interval-min N  # genera XML (ver --i
 
 ## Testing
 - **`tests/conftest.py` aísla TODO test**: redirige `db._default_db_path` y las rutas de `memoria` a tmp. Sin eso, tests con APIs simuladas escribían en `data/historial.db` real (así entró el WTI falso 71.45). No quitarlo.
-- Suite principal: `pytest tests/ -q -p no:cacheprovider`
+- Suite principal: `pytest tests/ -q -p no:cacheprovider` — **0 fallas** desde la Etapa 1 (158+).
 - Single test file: `pytest tests/test_module.py -v`
 - Tests use `conectar_temporal()` for isolated in-memory DB operations.
 - `test_db.py`, `test_memoria.py` y `TestExportJson` cubren el esquema genérico. Partes de `test_consenso.py`/`test_petroleo.py` aún referencian el esquema viejo (dos tablas `precios_combustible`/`precios_petroleo`, `fecha_observacion`, producto `brent`) — pendientes de migrar al esquema tabla-única. No reescribir asserts existentes sin migrar el setup.

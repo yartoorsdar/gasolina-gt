@@ -1,356 +1,165 @@
-"""Tests unitarios para collector/consenso_precios.py."""
+"""Tests del consejo de precios (collector/consenso_precios.py).
+
+Las oraciones de prueba son textuales de notas reales del 15-23 sep 2026.
+"""
+
+import json
+from unittest.mock import patch
 
 import pytest
 
+from collector.consenso_precios import (
+    MEDIO_OFICIAL,
+    consejo,
+    extraer_llm,
+    extraer_regex,
+    normalizar_observaciones,
+    precision_fuentes,
+)
+from collector.db import conectar_temporal, guardar_observaciones, guardar_precios
 
-# ──────────────────────────────────────────────
-# 1. Constantes y configuración
-# ──────────────────────────────────────────────
-
-class TestConstantes:
-    def test_productos_obligatorios(self):
-        from collector.consenso_precios import PRODUCTOS_OBLIGATORIOS
-        assert PRODUCTOS_OBLIGATORIOS == ["superior", "regular", "diessel"]
-
-    def test_tolerancia_y_min_fuentes(self):
-        from collector.consenso_precios import TOLERANCIA_QUETLES, MIN_FUENTES_CONSENSO
-        assert TOLERANCIA_QUETLES == 0.20
-        assert MIN_FUENTES_CONSENSO == 2
+HOY = "2026-09-24"
 
 
 # ──────────────────────────────────────────────
-# 2. Función validar_consenso_grupo (sin DB)
+# Extracción por patrones (respaldo sin LLM)
 # ──────────────────────────────────────────────
 
-class FakeRow(dict):
-    """Simula sqlite3.Row con keys() y acceso por nombre."""
-    def keys(self):
-        return self.__dict__.keys()
+class TestExtraerRegex:
+    def _precios(self, texto):
+        return {(o["producto"], o["modalidad"], o["precio"]) for o in extraer_regex(texto, HOY)}
+
+    def test_producto_antes_del_precio(self):
+        t = ("De acuerdo con los precios observados, en la modalidad de autoservicio, el galón de "
+             "gasolina regular se cotiza en Q43.29, mientras que la gasolina súper alcanza los Q45.29.")
+        assert self._precios(t) == {("regular", "autoservicio", 43.29), ("superior", "autoservicio", 45.29)}
+
+    def test_precio_antes_del_producto(self):
+        """Antes se emparejaba corrido: la regular recibía el precio del diésel."""
+        t = ("En la modalidad de servicio completo, los precios observados alcanzan Q45.69 para la "
+             "gasolina superior, Q43.69 para la regular y Q50.49 para el diésel.")
+        assert self._precios(t) == {("superior", "servicio_completo", 45.69),
+                                    ("regular", "servicio_completo", 43.69),
+                                    ("diésel", "servicio_completo", 50.49)}
+
+    def test_descarta_estimados_historicos_y_fechas(self):
+        for t in (
+            "Gasolina Superior en autoservicio: Precio actual: Q44.00 Nuevo precio estimado: Q34.41.",
+            "En autoservicio, el diésel pasó de Q25.12 a Q37.64.",
+            "El MEM reportó que, entre el 31 de agosto y el 7 de septiembre, en autoservicio, la superior Q40.58.",
+            "En autoservicio el galón de regular cuesta US$5.89 (Q44.98) en El Salvador.",
+        ):
+            assert self._precios(t) == set(), t
+
+    def test_sin_modalidad_o_ambigua(self):
+        assert self._precios("La gasolina regular está en Q43.29.") == set()
+        assert self._precios("En autoservicio y servicio completo la regular está en Q43.29.") == set()
 
 
-def make_row(fuente: str, precio: float):
-    """Helper para crear rows simuladas."""
-    row = FakeRow({"fuente": fuente, "precio": precio})
-    return row
+class TestNormalizar:
+    NOTA = {"url": "https://m/1", "medio": "m", "publicado": "2026-09-23"}
 
-
-class TestValidarConsensoGrupo:
-    def test_consenso_2_fuentes_iguales(self):
-        from collector.consenso_precios import validar_consenso_grupo
-
-        grupo = [
-            make_row("MEM PDF", 44.61),
-            make_row("MEM HTML", 44.61),
+    def test_filtra_tipos_y_modalidad(self):
+        crudas = [
+            {"producto": "superior", "modalidad": "autoservicio", "precio": 45.29, "tipo": "monitoreado"},
+            {"producto": "superior", "modalidad": "autoservicio", "precio": 34.41, "tipo": "estimado"},
+            {"producto": "regular", "modalidad": "desconocida", "precio": 43.29, "tipo": "monitoreado"},
+            {"producto": "diesel", "modalidad": "autoservicio", "precio": 25.12, "tipo": "historico",
+             "fecha": "2026-01-01"},
         ]
-        res = validar_consenso_grupo(grupo, "superior", "2026-09-23")
+        obs = normalizar_observaciones(crudas, self.NOTA, "llm")
+        assert [(o["producto"], o["precio"], o["fecha"]) for o in obs] == [("superior", 45.29, "2026-09-23")]
 
-        assert res["consenso"] is True
-        assert res["precio_valido"] == 44.61
-        assert res["fuentes_coinciden"] == 2
+    def test_fecha_fuera_de_rango_se_descarta(self):
+        crudas = [{"producto": "regular", "modalidad": "autoservicio", "precio": 43.0,
+                   "tipo": "monitoreado", "fecha": "2026-08-01"}]
+        assert normalizar_observaciones(crudas, self.NOTA, "llm") == []
 
-    def test_consenso_2_fuentes_dentro_tolerancia(self):
-        from collector.consenso_precios import validar_consenso_grupo
 
-        grupo = [
-            make_row("MEM PDF", 44.61),
-            make_row("MEM HTML", 44.75),  # diff Q0.14 < Q0.20
-        ]
-        res = validar_consenso_grupo(grupo, "superior", "2026-09-23")
+class TestExtraerLlm:
+    def test_parsea_json_con_cercas(self):
+        salida = '```json\n{"observaciones": [{"producto": "superior", "precio": 45.29}]}\n```'
+        with patch("collector.noticias._llm_post", return_value=salida):
+            obs = extraer_llm("texto", HOY, {"llm": {"base_url": "https://x", "model": "m"}})
+        assert obs == [{"producto": "superior", "precio": 45.29}]
 
-        assert res["consenso"] is True
-        assert res["fuentes_coinciden"] == 2
-
-    def test_sin_consensо_diferencia_mayor(self):
-        from collector.consenso_precios import validar_consenso_grupo
-
-        grupo = [
-            make_row("MEM PDF", 44.61),
-            make_row("Prensa Libre", 45.00),  # diff Q0.39 > Q0.20
-        ]
-        res = validar_consenso_grupo(grupo, "superior", "2026-09-23")
-
-        assert res["consenso"] is False
-        assert res["precio_valido"] is None
-
-    def test_solo_1_fuente(self):
-        from collector.consenso_precios import validar_consenso_grupo
-
-        grupo = [make_row("MEM PDF", 44.61)]
-        res = validar_consenso_grupo(grupo, "regular", "2026-09-23")
-
-        assert res["consenso"] is False
-        assert res["fuentes_coinciden"] == 1
-
-    def test_3_fuentes_con_2_dentro_tolerancia(self):
-        from collector.consenso_precios import validar_consenso_grupo
-
-        # MEM PDF y HTML coinciden, Prensa Libre está fuera
-        grupo = [
-            make_row("MEM PDF", 44.61),
-            make_row("MEM HTML", 44.65),  # diff Q0.04
-            make_row("Prensa Libre", 45.20),  # lejos de los otros dos
-        ]
-        res = validar_consenso_grupo(grupo, "diessel", "2026-09-23")
-
-        assert res["consenso"] is True       # 2 fuentes dentro tolerancia
-        assert res["fuentes_coinciden"] == 2
-        assert len(res["precios_observados"]) == 3
-
-    def test_3_fuentes_todas_dentro_tolerancia(self):
-        from collector.consenso_precios import validar_consenso_grupo
-
-        grupo = [
-            make_row("MEM PDF", 49.40),
-            make_row("MEM HTML", 49.38),
-            make_row("Prensa Libre", 49.45),
-        ]
-        res = validar_consenso_grupo(grupo, "diessel", "2026-09-23")
-
-        assert res["consenso"] is True
-        assert res["fuentes_coinciden"] == 3
+    def test_llm_caido_devuelve_none(self):
+        with patch("collector.noticias._llm_post", return_value=None):
+            assert extraer_llm("texto", HOY, {"llm": {"base_url": "https://x", "model": "m"}}) is None
 
 
 # ──────────────────────────────────────────────
-# 3. Función agrupar_precios
+# Veredicto del consejo
 # ──────────────────────────────────────────────
 
-class TestAgruparPrecios:
-    def test_agrupa_por_fecha_y_producto(self):
-        from collector.consenso_precios import agrupar_precios
-
-        rows = [
-            FakeRow({"fecha_observacion": "2026-09-23", "producto": "superior"}),
-            FakeRow({"fecha_observacion": "2026-09-23", "producto": "regular"}),
-            FakeRow({"fecha_observacion": "2026-09-22", "producto": "superior"}),
-        ]
-
-        grupos = agrupar_precios(rows)
-        assert len(grupos) == 3
-
-    def test_misma_fecha_diferente_producto(self):
-        from collector.consenso_precios import agrupar_precios
-
-        rows = [
-            FakeRow({"fecha_observacion": "2026-09-23", "producto": "superior"}),
-            FakeRow({"fecha_observacion": "2026-09-23", "producto": "regular"}),
-        ]
-
-        grupos = agrupar_precios(rows)
-        assert len(grupos) == 2  # separados por producto
+def _obs(medio, precio, fecha=HOY, producto="superior", modalidad="autoservicio"):
+    return {"fecha": fecha, "producto": producto, "modalidad": modalidad, "precio": precio,
+            "tipo": "monitoreado", "medio": medio, "url": f"https://{medio}/n", "extractor": "llm"}
 
 
-# ──────────────────────────────────────────────
-# 4. Ejecución completa (con DB temporal)
-# ──────────────────────────────────────────────
-
-class TestEjecutarConsenso:
-    def test_ejecutar_con_datos_validados(self, tmp_path):
-        """Con datos en la DB que coinciden, valida correctamente."""
-        from collector.db import conectar_temporal, crear_tablas
-        from datetime import datetime
-
-        # Crear DB temporal con datos válidos
-        conn = conectar_temporal()
-        crear_tablas(conn)
-
-        ahora = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
-        hoy = datetime.now().strftime("%Y-%m-%d")
-
-        # Insertar precios de 2 fuentes que coinciden (dentro tolerancia)
-        conn.execute(
-            """INSERT INTO precios_combustible
-               (fecha_observacion, producto, precio, incluye_impuestos, regimen, fuente, fetched_at)
-               VALUES (?, 'superior', 44.61, 1, 'normal', 'MEM PDF', ?)""",
-            (hoy, ahora),
-        )
-        conn.execute(
-            """INSERT INTO precios_combustible
-               (fecha_observacion, producto, precio, incluye_impuestos, regimen, fuente, fetched_at)
-               VALUES (?, 'superior', 44.65, 1, 'normal', 'MEM HTML', ?)""",
-            (hoy, ahora),
-        )
-
-        # Insertar regular sin consenso (diferencia > Q0.20)
-        conn.execute(
-            """INSERT INTO precios_combustible
-               (fecha_observacion, producto, precio, incluye_impuestos, regimen, fuente, fetched_at)
-               VALUES (?, 'regular', 42.58, 1, 'normal', 'MEM PDF', ?)""",
-            (hoy, ahora),
-        )
-
-        conn.commit()
-
-        # Patch collector.db.conectar porque ejecutar() importa desde ahí directamente
-        import collector.db as db_mod
-        original_conectar = getattr(db_mod, "conectar", None)
-        
-        # Crear una versión mock que usa nuestra DB temporal
-        def mock_conectar(path=None):
-            return conn
-        
-        db_mod.conectar = mock_conectar  # type: ignore[attr-defined]
-
-        try:
-            import collector.consenso_precios as mod
-            resultado = mod.ejecutar()
-
-            assert resultado["fuente"] == "consenso_validador"
-            assert resultado["total_consultados"] > 0
-            assert resultado["con_senso_alcanzado"] >= 1  # superior tiene consenso
-        finally:
-            if original_conectar:
-                db_mod.conectar = original_conectar
-            else:
-                delattr(db_mod, "conectar")
-            conn.close()
-
-    def test_ejecutar_sin_datos(self, tmp_path):
-        """Si no hay precios en la DB, retorna sin errores."""
-        from collector.db import conectar_temporal, crear_tablas
-
-        conn = conectar_temporal()
-        crear_tablas(conn)
-        conn.close()
-
-        # Patch collector.db.conectar porque ejecutar() importa desde ahí directamente
-        import collector.db as db_mod
-        original_conectar = getattr(db_mod, "conectar", None)
-        
-        def mock_conectar(path=None):
-            return conn
-        
-        db_mod.conectar = mock_conectar  # type: ignore[attr-defined]
-
-        try:
-            import collector.consenso_precios as mod
-            resultado = mod.ejecutar()
-
-            assert resultado["fuente"] == "consenso_validador"
-            assert resultado["total_consultados"] == 0
-            assert resultado["con_senso_alcanzado"] == 0
-        finally:
-            if original_conectar:
-                db_mod.conectar = original_conectar
-            else:
-                delattr(db_mod, "conectar")
-            conn.close()
+@pytest.fixture()
+def conn():
+    return conectar_temporal()
 
 
-# ──────────────────────────────────────────────
-# 5. Modo retry (ejecutar_con_reintentos)
-# ──────────────────────────────────────────────
+class TestConsejo:
+    def test_tres_fuentes_coinciden_alta(self, conn):
+        guardar_observaciones(conn, [_obs("a", 45.29), _obs("b", 45.30), _obs("c", 45.25), _obs("d", 47.00)])
+        v = consejo(conn, "superior", "autoservicio", HOY, {})
+        assert v["confianza"] == "alta" and v["n_coinciden"] == 3 and v["n_fuentes"] == 4
+        assert v["precio"] == 45.29
+        assert [f["medio"] for f in v["fuentes"] if not f["coincide"]] == ["d"]
 
-class TestEjecutarConReintentos:
-    def test_retry_logra_consensо_despues_de_2_intentos(self, tmp_path):
-        """El modo retry reintenta hasta lograr consenso."""
-        from collector.db import conectar_temporal, crear_tablas
-        from datetime import datetime
+    def test_oficial_mas_una_fuente_alta(self, conn):
+        guardar_precios(conn, [{"producto": "superior", "fecha": HOY, "precio": 45.29}], "MEM")
+        guardar_observaciones(conn, [_obs("a", 45.29)])
+        v = consejo(conn, "superior", "autoservicio", HOY, precision_fuentes(conn))
+        assert v["confianza"] == "alta"
+        assert MEDIO_OFICIAL in {f["medio"] for f in v["fuentes"] if f["coincide"]}
 
-        # Crear DB temporal con datos válidos
-        conn = conectar_temporal()
-        crear_tablas(conn)
+    def test_una_sola_fuente_no_oficial_baja(self, conn):
+        guardar_observaciones(conn, [_obs("a", 45.29)])
+        assert consejo(conn, "superior", "autoservicio", HOY, {})["confianza"] == "baja"
 
-        ahora = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
-        hoy = datetime.now().strftime("%Y-%m-%d")
+    def test_desacuerdo_no_es_alta(self, conn):
+        guardar_observaciones(conn, [_obs("a", 45.29), _obs("b", 46.50), _obs("c", 47.90)])
+        assert consejo(conn, "superior", "autoservicio", HOY, {})["confianza"] == "baja"
 
-        # Insertar precios que SÍ tienen consenso (dentro Q0.20)
-        conn.execute(
-            """INSERT INTO precios_combustible
-               (fecha_observacion, producto, precio, incluye_impuestos, regimen, fuente, fetched_at)
-               VALUES (?, 'superior', 44.61, 1, 'normal', 'MEM PDF', ?)""",
-            (hoy, ahora),
-        )
-        conn.execute(
-            """INSERT INTO precios_combustible
-               (fecha_observacion, producto, precio, incluye_impuestos, regimen, fuente, fetched_at)
-               VALUES (?, 'superior', 44.65, 1, 'normal', 'MEM HTML', ?)""",
-            (hoy, ahora),
-        )
+    def test_modalidades_no_se_mezclan(self, conn):
+        guardar_observaciones(conn, [_obs("a", 45.29), _obs("b", 45.74, modalidad="servicio_completo")])
+        assert consejo(conn, "superior", "autoservicio", HOY, {})["n_fuentes"] == 1
 
-        conn.commit()
+    def test_dato_mas_reciente_gana_empate(self, conn):
+        """Dos medios dentro de tolerancia: la mediana favorece el más nuevo."""
+        guardar_observaciones(conn, [
+            _obs("viejo", 50.36, "2026-09-19", "diésel", "servicio_completo"),
+            _obs("nuevo", 50.49, "2026-09-21", "diésel", "servicio_completo"),
+        ])
+        v = consejo(conn, "diésel", "servicio_completo", HOY, {})
+        assert v["precio"] == 50.49 and v["fecha"] == "2026-09-21"
 
-        # Patch collector.db.conectar
-        import collector.db as db_mod
-        original_conectar = getattr(db_mod, "conectar", None)
-        
-        def mock_conectar(path=None):
-            return conn
-        
-        db_mod.conectar = mock_conectar  # type: ignore[attr-defined]
+    def test_ignora_observaciones_viejas(self, conn):
+        guardar_observaciones(conn, [_obs("a", 40.0, "2026-09-01")])
+        assert consejo(conn, "superior", "autoservicio", HOY, {}) is None
 
-        try:
-            import collector.consenso_precios as mod
-            
-            resultado = mod.ejecutar_con_reintentos(
-                intervalo_segundos=0,       # sin espera para test rápido
-                max_reintentos=2,
-                exportar_json=False,        # no probar exportación aquí
-            )
 
-            assert resultado["fuente"] == "consenso_validador"
-            assert resultado.get("modo_retry") is True
-            assert resultado.get("intento_logrado") is not None  # logró consenso
-            assert resultado.get("total_intentos", 0) >= 1
-        finally:
-            if original_conectar:
-                db_mod.conectar = original_conectar
-            else:
-                delattr(db_mod, "conectar")
-            conn.close()
+class TestPrecision:
+    def test_error_contra_oficial(self, conn):
+        guardar_precios(conn, [{"producto": "superior", "fecha": HOY, "precio": 45.29}], "MEM")
+        guardar_observaciones(conn, [_obs("exacto", 45.29), _obs("errado", 46.29)])
+        p = precision_fuentes(conn)
+        assert p["exacto"]["error_medio"] == 0 and p["exacto"]["peso"] == 1.0
+        assert p["errado"]["error_medio"] == 1.0 and p["errado"]["peso"] < p["exacto"]["peso"]
+        assert p[MEDIO_OFICIAL]["peso"] == 1.0
 
-    def test_retry_agota_intentos_sin_consensо(self, tmp_path):
-        """Si no hay consenso, agota los intentos y retorna sin éxito."""
-        from collector.db import conectar_temporal, crear_tablas
-        from datetime import datetime
 
-        # Crear DB temporal con datos que NO tienen consenso (diff > Q0.20)
-        conn = conectar_temporal()
-        crear_tablas(conn)
-
-        ahora = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
-        hoy = datetime.now().strftime("%Y-%m-%d")
-
-        # Insertar precios con diferencia > Q0.20 entre fuentes
-        conn.execute(
-            """INSERT INTO precios_combustible
-               (fecha_observacion, producto, precio, incluye_impuestos, regimen, fuente, fetched_at)
-               VALUES (?, 'superior', 44.61, 1, 'normal', 'MEM PDF', ?)""",
-            (hoy, ahora),
-        )
-        conn.execute(
-            """INSERT INTO precios_combustible
-               (fecha_observacion, producto, precio, incluye_impuestos, regimen, fuente, fetched_at)
-               VALUES (?, 'superior', 45.00, 1, 'normal', 'MEM HTML', ?)""",
-            (hoy, ahora),
-        )
-
-        conn.commit()
-
-        # Patch collector.db.conectar
-        import collector.db as db_mod
-        original_conectar = getattr(db_mod, "conectar", None)
-        
-        def mock_conectar(path=None):
-            return conn
-        
-        db_mod.conectar = mock_conectar  # type: ignore[attr-defined]
-
-        try:
-            import collector.consenso_precios as mod
-            
-            resultado = mod.ejecutar_con_reintentos(
-                intervalo_segundos=0,       # sin espera para test rápido
-                max_reintentos=2,
-                exportar_json=False,
-            )
-
-            assert resultado["fuente"] == "consenso_validador"
-            assert resultado.get("modo_retry") is True
-            assert resultado.get("intento_logrado") is None  # NO logró consenso
-            assert resultado.get("total_intentos", 0) == 2   # agotó los 2 intentos
-        finally:
-            if original_conectar:
-                db_mod.conectar = original_conectar
-            else:
-                delattr(db_mod, "conectar")
-            conn.close()
+class TestGuardarObservaciones:
+    def test_validacion(self, conn):
+        c = guardar_observaciones(conn, [
+            _obs("a", 45.29),
+            _obs("a", 45.29),                                    # duplicada
+            {**_obs("b", 45.0), "producto": "wti"},              # no es combustible
+            {**_obs("b", 45.0), "tipo": "estimado"},             # tipo no comparable
+            _obs("b", 5.0),                                      # precio implausible
+        ])
+        assert c == {"insertadas": 1, "duplicadas": 1, "invalidas": 3}

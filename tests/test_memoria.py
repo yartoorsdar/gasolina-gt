@@ -23,13 +23,44 @@ def _db_con_filas():
 
 
 def _filas(conn):
-    return sorted(tuple(r) for r in conn.execute("SELECT fecha, producto, precio, fuente FROM precios"))
+    return sorted(tuple(r) for r in conn.execute("SELECT fecha, producto, modalidad, precio, fuente FROM precios"))
 
 
 def test_un_csv_por_producto(tmp_path):
+    from collector.memoria import TABLAS_MEMORIA
     exportar_memoria(conn=_db_con_filas(), carpeta=tmp_path)
-    assert sorted(p.name for p in tmp_path.iterdir()) == sorted(f"{d['archivo']}.csv" for d in PRODUCTOS.values())
-    assert (tmp_path / "diesel.csv").read_text(encoding="utf-8") == "fecha,precio,fuente\n2026-09-16,49.4,MEM\n"
+    esperados = [f"{d['archivo']}.csv" for d in PRODUCTOS.values()] + [f"{t}.csv" for t in TABLAS_MEMORIA]
+    assert sorted(p.name for p in tmp_path.iterdir()) == sorted(esperados)
+    assert (tmp_path / "diesel.csv").read_text(encoding="utf-8") == (
+        "fecha,modalidad,precio,fuente\n2026-09-16,autoservicio,49.4,MEM\n")
+    assert (tmp_path / "wti.csv").read_text(encoding="utf-8").splitlines()[1].startswith("2026-09-24,spot,")
+
+
+def test_csv_formato_anterior_sin_modalidad(tmp_path):
+    """Los CSV commitados antes de las modalidades se leen como la principal."""
+    (tmp_path / "superior.csv").write_text("fecha,precio,fuente\n2026-09-16,44.66,MEM\n", encoding="utf-8")
+    conn = conectar_temporal()
+    importar_memoria(conn=conn, carpeta=tmp_path)
+    assert tuple(conn.execute("SELECT modalidad, precio FROM precios").fetchone()) == ("autoservicio", 44.66)
+
+
+def test_modalidades_y_tablas_del_consejo_round_trip(tmp_path):
+    from collector.db import guardar_consenso, guardar_observaciones
+    conn = _db_con_filas()
+    guardar_precios(conn, [{"producto": "superior", "modalidad": "servicio_completo",
+                            "fecha": "2026-09-16", "precio": 45.68}], "MEM")
+    guardar_observaciones(conn, [{"fecha": "2026-09-16", "producto": "superior", "modalidad": "autoservicio",
+                                  "precio": 44.66, "tipo": "monitoreado", "medio": "m", "url": "https://m/1",
+                                  "extractor": "llm", "cita": "súper Q44.66"}])
+    guardar_consenso(conn, {"fecha": "2026-09-16", "producto": "superior", "modalidad": "autoservicio",
+                            "precio": 44.66, "confianza": "alta", "n_coinciden": 2, "n_fuentes": 2,
+                            "fuentes": [{"medio": "m", "precio": 44.66}]})
+    exportar_memoria(conn=conn, carpeta=tmp_path)
+    vacia = conectar_temporal()
+    n = importar_memoria(conn=vacia, carpeta=tmp_path)
+    assert n["observaciones"] == 1 and n["consenso"] == 1
+    assert _filas(vacia) == _filas(conn)
+    assert vacia.execute("SELECT confianza FROM consenso").fetchone()[0] == "alta"
 
 
 def test_round_trip(tmp_path):

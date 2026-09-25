@@ -1,815 +1,487 @@
-"""Validador de consenso multifuente para precios de combustible — Gasolina GT.
+"""Consejo de precios de combustible: varias fuentes → un precio con confianza.
 
-Algoritmo de validación por consenso:
-  1. Consulta todos los precios recientes (últimos 7 días) desde la DB.
-  2. Agrupa por fecha + producto.
-  3. Para cada grupo, verifica si ≥2 fuentes reportan precio con diferencia ≤ Q0.20.
-  4. Si hay consenso → marca como válido y actualiza campo "validado".
-  5. Si no hay consenso → alerta en log + registro en tabla ejecuciones (ok=0).
+Flujo (`ejecutar`):
+  1. DESCUBRIR notas recientes sobre precios de combustible en Guatemala
+     (Bing News RSS: enlaces directos a Prensa Libre, Publinews, La Hora,
+     Emisoras Unidas, AGN…) + GlobalPetrolPrices.
+  2. EXTRAER de cada nota nueva los precios con su contexto: producto,
+     modalidad (autoservicio / servicio completo), tipo, fecha y cita textual.
+     LLM (Groq) primero — distingue estimados, precios de otros países,
+     comparaciones históricas —; si no hay LLM, regex conservador.
+  3. GUARDAR cada precio como `observacion` (tabla propia; nunca pisa precios).
+  4. DECIDIR por producto y modalidad (`consejo`): agrupa las fuentes que
+     coinciden dentro de ±TOLERANCIA, pondera cada fuente por su precisión
+     histórica contra el dato oficial del MEM y emite precio + confianza.
 
-Modo retry: si se activa, reintentará cada 45 min hasta lograr consenso.
-  Útil para cron diario a las 3AM que espera datos actualizados de fuentes.
-
-Productos obligatorios (spelling exacta): 'superior', 'regular', 'diessel'.
-Tolerancia máxima entre fuentes: Q0.20 por galón.
-
-Fuentes soportadas (extensible):
-  - "MEM HTML"   → mem_html.py (Playwright)
-  - "Prensa Libre" → futuro colector de prensa libre
-  - "GNews GT"   → futuro colector de GNews Guatemala
-
-Version Tracking:
-  v1.0.0 — 2026-09-23 — Creación del módulo de consenso multifuente
-         — Consenso ≥2 fuentes, tolerancia Q0.20
-         — Alerta automática en log + tabla ejecuciones
-  v1.1.0 — 2026-09-23 — Modo retry: reintentos cada 45 min hasta consenso
-         — Actualización automática de dashboard al lograr consenso
-  v1.2.0 — 2026-09-23 — Integración Gemini AI para validación inteligente
-         — Gemini evalúa contexto entre fuentes (nacional vs metro)
-         — Confirma o rechaza consenso con razonamiento
-
-Uso:
-  python collector/main.py --consenso            # valida una vez
-  python collector/main.py --consenso --retry    # modo retry (45min interval)
-  python collector/consenso_precios.py           # ejecución directa
+Solo combustibles (superior, regular, diésel). El WTI ya viene de una API.
 """
 
-# ──────────────────────────────────────────────
-# Imports y configuración de logging
-# ──────────────────────────────────────────────
-
 import json
-import logging
-import sqlite3
-import sys
-from datetime import datetime, timedelta, timezone
+import re
+import time
+from datetime import datetime, timedelta
+from email.utils import parsedate_to_datetime
 from pathlib import Path
+from urllib.parse import parse_qs, quote_plus, urlparse
 
-# Setup de path para ejecución como __main__
 if __name__ == "__main__":
+    import sys
     _root = Path(__file__).resolve().parent.parent
     if str(_root) not in sys.path:
         sys.path.insert(0, str(_root))
 
+import requests
 
-LOG_DIR = Path(__file__).resolve().parent.parent / "logs"
-LOG_DIR.mkdir(parents=True, exist_ok=True)
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(name)s] %(levelname)s: %(message)s",
-    handlers=[
-        logging.FileHandler(
-            LOG_DIR / f"consenso_{datetime.now().strftime('%Y%m%d')}.log",
-            encoding="utf-8",
-        ),
-        logging.StreamHandler(sys.stdout),
-    ],
-)
-logger = logging.getLogger("consenso")
+_project_root = Path(__file__).resolve().parent.parent
 
 # ──────────────────────────────────────────────
-# Constantes de negocio
+# Parámetros (config.json → "consejo" puede sobrescribirlos)
 # ──────────────────────────────────────────────
 
-PRODUCTOS_OBLIGATORIOS = ["superior", "regular", "diessel"]
-TOLERANCIA_QUETLES = 0.20          # diferencia máxima entre fuentes para consenso
-MIN_FUENTES_CONSENSO = 2           # mínimo de fuentes que deben coincidir
-DIAS_RECENTES = 7                  # consultar precios de los últimos N días
+CONSULTAS = [
+    "precio gasolina superior regular diésel Guatemala",
+    "precios combustibles Guatemala galón autoservicio",
+    "precio combustibles Guatemala hoy MEM",
+]
+DIAS_ARTICULO = 10        # antigüedad máxima de una nota para leerla
+MAX_ARTICULOS_LLM = 8     # notas nuevas por run con LLM (Groq: 8K tokens/min)
+MAX_CHARS_TEXTO = 6000    # texto de la nota que se envía al LLM
+PAUSA_LLM_SEG = 20        # entre requests (cuida el límite de tokens/minuto)
+TOLERANCIA = 0.20         # Q/galón: dos fuentes "coinciden" si difieren menos
+DIAS_VENTANA = 7          # observaciones consideradas para el veredicto
+DIAS_BLOQUE = 3           # dentro de la ventana, solo lo más reciente (±3 días)
+DECAIMIENTO_DIA = 0.85    # peso × 0.85 por cada día de antigüedad dentro del bloque
+MEDIO_OFICIAL = "MEM (oficial)"
 
-# Fuentes consideradas válidas (debe coincidir con el campo "fuente" en DB)
-FUENTES_VALIDAS = {
-    "MEM HTML",
-    "Prensa Libre",
-    "GNews GT",
-    "GlobalPetrolPrices",
-    "Chapin TV",
-}
+UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+      "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
 
-# ──────────────────────────────────────────────
-# Configuración de retry (modo diario 3AM + reintentos)
-# ──────────────────────────────────────────────
-
-RETRY_INTERVAL_SEGUNDOS = 2700       # 45 minutos entre reintentos
-MAX_REINTENTOS = 8                   # máximo de intentos antes de rendirse
-                                  # (8 × 45min = 6 horas, suficiente para que
-                                  #  las fuentes actualicen sus datos)
+_last_llm_error: str | None = None
 
 
-# ──────────────────────────────────────────────
-# Consulta de precios recientes desde la DB
-# ──────────────────────────────────────────────
-
-def obtener_precios_recentes(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    """Obtiene todos los precios de combustible de los últimos N días."""
-    query = """
-        SELECT * FROM precios
-        WHERE fecha >= date('now', ?)
-          AND producto IN ('superior', 'regular', 'diésel')
-          AND fuente IN (
-              'MEM', 'Prensa Libre', 'GNews GT', 'GlobalPetrolPrices', 'Chapin TV'
-          )
-        ORDER BY fecha, producto, fuente
-    """
-    rows = conn.execute(query, (f"-{DIAS_RECENTES} days",)).fetchall()
-    return rows
-
-
-# ──────────────────────────────────────────────
-# Agrupación por fecha + producto
-# ──────────────────────────────────────────────
-
-def agrupar_precios(rows: list[sqlite3.Row]) -> dict:
-    """Agrupa precios por (fecha, producto) → {('2026-09-21', 'superior'): [row, row]}."""
-    grupos: dict[tuple[str, str], list[sqlite3.Row]] = {}
-
-    for row in rows:
-        fecha = row["fecha"]
-        producto = row["producto"]
-        clave = (fecha, producto)
-
-        if clave not in grupos:
-            grupos[clave] = []
-        grupos[clave].append(row)
-
-    return grupos
-
-
-# ──────────────────────────────────────────────
-# Algoritmo de consenso principal
-# ──────────────────────────────────────────────
-
-def validar_consenso_grupo(
-    grupo_rows: list[sqlite3.Row], producto: str, fecha: str
-) -> dict:
-    """Evalúa si un grupo de precios tiene consenso.
-
-    Regla: al menos MIN_FUENTES_CONSENSO fuentes deben reportar precio
-    con diferencia máxima de TOLERANCIA_QUETLES entre sí.
-
-    Args:
-        grupo_rows: Lista de rows SQLite para esta fecha+producto.
-        producto: Nombre del producto (ej: 'superior').
-        fecha: Fecha observación (ej: '2026-09-21').
-
-    Returns:
-        Dict con resultado de la validación:
-          {
-            "fecha": str,
-            "producto": str,
-            "consenso": bool,
-            "precio_valido": float | None,
-            "fuentes_coinciden": int,
-            "precios_observados": list[float],
-            "detalles": str,
-          }
-    """
-    if len(grupo_rows) < MIN_FUENTES_CONSENSO:
-        precios = [r["precio"] for r in grupo_rows]
-        return {
-            "fecha": fecha,
-            "producto": producto,
-            "consenso": False,
-            "precio_valido": None,
-            "fuentes_coinciden": len(grupo_rows),
-            "precios_observados": precios,
-            "detalles": (
-                f"Solo {len(grupo_rows)} fuente(s) para {producto} "
-                f"(requiere {MIN_FUENTES_CONSENSO})"
-            ),
-        }
-
-    # Extraer precios únicos (redondeados a 2 decimales)
-    precios_unicos = set()
-    for row in grupo_rows:
-        precios_unicos.add(round(row["precio"], 2))
-
-    precios_list = sorted(precios_unicos)
-
-    if not precios_list:
-        return {
-            "fecha": fecha,
-            "producto": producto,
-            "consenso": False,
-            "precio_valido": None,
-            "fuentes_coinciden": 0,
-            "precios_observados": [],
-            "detalles": "Sin precios para validar",
-        }
-
-    # Buscar clusters de precios dentro de la tolerancia
-    # Estrategia: agrupar precios donde cada uno está dentro de tolerancia
-    # del anterior (cadena), luego verificar cuántas fuentes caen en el mejor cluster.
-    
-    mejor_cluster = [precios_list[0]]
-    cluster_actual = [precios_list[0]]
-
-    for precio in precios_list[1:]:
-        # Verificar si el nuevo precio está dentro de tolerancia del anterior en la cadena
-        diff_con_anterior = precio - cluster_actual[-1]
-        
-        if diff_con_anterior <= TOLERANCIA_QUETLES:
-            cluster_actual.append(precio)
-        else:
-            # Guardar cluster actual si es el mejor encontrado hasta ahora
-            if len(cluster_actual) > len(mejor_cluster):
-                mejor_cluster = list(cluster_actual)
-            cluster_actual = [precio]
-
-    # Verificar último cluster
-    if len(cluster_actual) > len(mejor_cluster):
-        mejor_cluster = list(cluster_actual)
-
-    # Contar cuántas fuentes reportan precios dentro del mejor cluster
-    # IMPORTANTE: contar filas (fuentes), no valores únicos
-    fuentes_en_cluster = 0
-    precio_valido = None
-
-    for row in grupo_rows:
-        # Verificar si este precio está dentro de tolerancia de AL MENOS UN
-        # precio en el mejor cluster
-        esta_en_cluster = any(
-            abs(row["precio"] - c) <= TOLERANCIA_QUETLES 
-            for c in mejor_cluster
-        )
-        if esta_en_cluster:
-            fuentes_en_cluster += 1
-            precio_valido = round(row["precio"], 2)
-
-    consenso_alcanzado = fuentes_en_cluster >= MIN_FUENTES_CONSENSO
-    
-    # Solo asignar precio_valido si se alcanzó consenso
-    if not consenso_alcanzado:
-        precio_valido = None
-
-    return {
-        "fecha": fecha,
-        "producto": producto,
-        "consenso": consenso_alcanzado,
-        "precio_valido": precio_valido,
-        "fuentes_coinciden": fuentes_en_cluster,
-        "precios_observados": precios_list,
-        "detalles": (
-            f"{fuentes_en_cluster}/{len(grupo_rows)} fuentes dentro de tolerancia. "
-            f"Cluster: {mejor_cluster}" if mejor_cluster else "Sin cluster válido"
-        ),
+def _cfg_consejo(cfg: dict | None) -> dict:
+    base = {
+        "consultas": CONSULTAS, "dias_articulo": DIAS_ARTICULO,
+        "max_articulos_llm": MAX_ARTICULOS_LLM, "pausa_llm_seg": PAUSA_LLM_SEG,
     }
+    base.update((cfg or {}).get("consejo", {}))
+    return base
+
+
+def _medio(url: str) -> str:
+    return urlparse(url).netloc.lower().removeprefix("www.")
 
 
 # ──────────────────────────────────────────────
-# Validación con IA (Gemini) — Consenso inteligente
+# 1. Descubrir notas
 # ──────────────────────────────────────────────
 
-def _obtener_config_llm() -> dict | None:
-    """Carga la config del LLM desde config.json."""
-    import json as _json
-    
-    config_path = Path(__file__).resolve().parent.parent / "config.json"
-    try:
-        with open(config_path, "r", encoding="utf-8") as f:
-            cfg = _json.load(f)
-        llm_cfg = cfg.get("llm", {})
-        if llm_cfg.get("base_url") and llm_cfg.get("model"):
-            return llm_cfg
-    except Exception:
-        pass
-    return None
-
-
-def validar_con_ia(
-    fecha: str,
-    producto: str,
-    precios_observados: list[dict],
-    resultado_reglas: dict,
-) -> dict | None:
-    """Usa Gemini para evaluar si los precios de múltiples fuentes son consistentes.
-
-    Esta función es un validador INTELIGENTE que complementa las reglas básicas:
-      - Considera el contexto de cada fuente (nacional vs metro)
-      - Evalúa si diferencias > Q0.20 son razonables dado el origen
-      - Proporciona razonamiento humano-legible
-
-    Args:
-        fecha: Fecha de observación (YYYY-MM-DD).
-        producto: Nombre del producto ('superior', 'regular', 'diessel').
-        precios_observados: Lista de dicts con {precio, fuente, tipo}.
-        resultado_reglas: Resultado de validar_consenso_grupo (reglas básicas).
+def descubrir_articulos(consultas: list[str], dias: int = DIAS_ARTICULO) -> list[dict]:
+    """Notas recientes de Bing News RSS (enlace directo al medio).
 
     Returns:
-        Dict con {consenso, precio_valido, razonamiento} o None si falla.
+        [{url, medio, titulo, publicado (YYYY-MM-DD)}] sin duplicados.
     """
-    llm_cfg = _obtener_config_llm()
-    if not llm_cfg:
-        return None
+    import xml.etree.ElementTree as ET
+    from collector.db import hace_dias_gt
 
-    import os as _os
-    
-    base_url = llm_cfg.get("base_url", "").strip()
-    model = llm_cfg.get("model", "").strip()
-    api_key = _os.environ.get("GEMINI_API_KEY", llm_cfg.get("api_key", "")).strip()
-
-    if not base_url or not model:
-        return None
-
-    # Construir prompt con contexto de fuentes
-    fuente_descripcion = {
-        "MEM HTML": "Precios oficiales MEM via web (Ciudad de Guatemala)",
-        "GlobalPetrolPrices": "Promedio nacional Guatemala (no solo capital)",
-        "Chapin TV": "Sondeo en estaciones de servicio (área metropolitana)",
-        "Prensa Libre": "Reporte de prensa (área metropolitana)",
-    }
-
-    precios_text = "\n".join(
-        f"- Q{p['precio']:.2f} via {p.get('fuente', 'desconocida')} ({fuente_descripcion.get(p.get('fuente', ''), 'fuente externa')})"
-        for p in precios_observados
-    )
-
-    contexto = (
-        f"Eres un analista de precios de combustible en Guatemala.\n\n"
-        f"FECHA: {fecha}\nPRODUCTO: {producto}\n\n"
-        f"Precios observados de diferentes fuentes:\n{precios_text}\n\n"
-        f"Reglas de negocio:\n"
-        f"- MEM reporta precios para Ciudad de Guatemala (área metropolitana)\n"
-        f"- GlobalPetrolPrices reporta promedio nacional (puede diferir +/- Q1.00)\n"
-        f"- Chapin TV/Prensa Libre son sondeos en estaciones (variación natural)\n"
-        f"- Tolerancia esperada entre fuentes similares: Q0.20\n"
-        f"- Diferencia MEM vs Nacional promedio: hasta Q1.50 es razonable\n\n"
-        f"EVALUA:\n"
-        f"1. ¿Los precios son consistentes? (si/parcial/no)\n"
-        f"2. ¿Cuál es el precio más confiable para usar?\n"
-        f"3. ¿Hay alguna fuente que deba descartarse?\n\n"
-        f"RESPONDE SOLO EN JSON con estas keys:\n"
-        f"- consenso: 'si', 'parcial' o 'no'\n"
-        f"- precio_recomendado: numero (el mas confiable)\n"
-        f"- razonamiento: texto corto explicando tu decision\n"
-    )
-
-    try:
-        import requests as _requests
-        
-        if "generativelanguage" in base_url:
-            resp = _requests.post(
-                f"{base_url}/models/{model}:generateContent?key={api_key}",
-                json={
-                    "contents": [{
-                        "parts": [
-                            {"text": contexto}
-                        ]
-                    }],
-                    "generationConfig": {"temperature": 0.2},
-                },
-                timeout=30,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            content = data["candidates"][0]["content"]["parts"][0]["text"]
-        else:
-            # OpenAI compatible
-            resp = _requests.post(
-                f"{base_url}/v1/chat/completions",
-                json={
-                    "model": model,
-                    "messages": [
-                        {"role": "system", "content": "Eres un analista de precios de combustible en Guatemala. Responde solo con JSON."},
-                        {"role": "user", "content": contexto},
-                    ],
-                    "temperature": 0.2,
-                },
-                timeout=30,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            content = data["choices"][0]["message"]["content"]
-
-        # Parsear JSON de respuesta
-        import re as _re
-        json_match = _re.search(
-            r"\{[^}]*consenso[^}]*precio_recomendado[^}]*razonamiento[^}]*\}",
-            content, _re.DOTALL
-        )
-        if json_match:
-            parsed = _json.loads(json_match.group())
-            
-            consenso_str = str(parsed.get("consenso", "")).lower()
-            consenso = consenso_str in ("si", "sí") or consenso_str == "parcial"
-            
-            # Si es "parcial", usar precio_reglas si existe
-            if consenso_str == "parcial" and resultado_reglas.get("precio_valido"):
-                precio_reco = resultado_reglas["precio_valido"]
-            else:
-                try:
-                    precio_reco = float(parsed.get("precio_recomendado"))
-                except (ValueError, TypeError):
-                    precio_reco = resultado_reglas.get("precio_valido")
-
-            return {
-                "consenso": consenso,
-                "precio_valido": round(precio_reco, 2) if precio_reco else None,
-                "razonamiento": parsed.get("razonamiento", ""),
-                "fuente_ia": "gemini",
-            }
-
-    except Exception as exc:
-        logger.warning(f"[consenso-ia] Error Gemini: {exc}")
-
-    return None
-
-
-# ──────────────────────────────────────────────
-# Actualización de estado en DB (validado / no validado)
-# ──────────────────────────────────────────────
-
-def marcar_precios_validados(
-    conn: sqlite3.Connection,
-    resultados: list[dict],
-) -> int:
-    """Marca los precios válidos en la tabla ejecuciones como confirmación.
-
-    Nota: No modificamos la tabla precios_combustible directamente porque
-    no tiene campo "validado". En su lugar, registramos cada validación
-    como una entrada en una tabla temporal o en el log de ejecuciones.
-
-    Returns:
-        Número de precios marcados como válidos.
-    """
-    marcados = 0
-
-    for res in resultados:
-        if res["consenso"]:
-            # Registrar validación exitosa
-            try:
-                from collector.db import insertar_ejecucion
-
-                exec_id = insertar_ejecucion(
-                    conn=conn,
-                    modulo="consenso",
-                    ok=1,
-                    mensaje=(
-                        f"VALIDADO — {res['producto']} "
-                        f"{res['fecha']} = Q{res['precio_valido']:.2f} "
-                        f"({res['fuentes_coinciden']} fuentes)"
-                    ),
-                )
-                marcados += 1
-            except Exception as exc:
-                logger.warning(f"Error marcando validación: {exc}")
-
-    return marcados
-
-
-# ──────────────────────────────────────────────
-# Alerta de no consenso
-# ──────────────────────────────────────────────
-
-def registrar_alerta_no_consenso(
-    conn: sqlite3.Connection, fallidos: list[dict]
-) -> int:
-    """Registra en DB y log cada caso donde NO se alcanzó consenso.
-
-    Returns:
-        Número de alertas registradas.
-    """
-    if not fallidos:
-        return 0
-
-    from collector.db import insertar_ejecucion
-
-    alertas = 0
-    for fallo in fallidos:
-        mensaje_alerta = (
-            f"ALERTA CONSENSO — {fallo['producto']} "
-            f"{fallo['fecha']}: "
-            f"fuentes={fallo['fuentes_coinciden']}, "
-            f"precios={fallo['precios_observados']}"
-        )
-
+    limite = hace_dias_gt(dias)
+    vistos, notas = set(), []
+    for q in consultas:
+        rss = f"https://www.bing.com/news/search?q={quote_plus(q)}&format=rss&setlang=es"
         try:
-            insertar_ejecucion(
-                conn=conn,
-                modulo="consenso_alerta",
-                ok=0,
-                mensaje=mensaje_alerta,
-            )
-            alertas += 1
-            logger.warning(mensaje_alerta)
+            resp = requests.get(rss, headers={"User-Agent": UA}, timeout=20)
+            resp.raise_for_status()
+            items = ET.fromstring(resp.content).findall(".//item")
         except Exception as exc:
-            logger.error(f"Error registrando alerta: {exc}")
+            print(f"[consejo] Bing '{q}': {exc}")
+            continue
+        for it in items:
+            link = it.findtext("link") or ""
+            url = parse_qs(urlparse(link).query).get("url", [link])[0]
+            try:
+                publicado = parsedate_to_datetime(it.findtext("pubDate") or "").strftime("%Y-%m-%d")
+            except (TypeError, ValueError):
+                continue
+            if not url.startswith("http") or url in vistos or publicado < limite:
+                continue
+            vistos.add(url)
+            notas.append({"url": url, "medio": _medio(url),
+                          "titulo": (it.findtext("title") or "").strip(), "publicado": publicado})
+    notas.sort(key=lambda n: n["publicado"], reverse=True)
+    return notas
 
-    return alertas
+
+def texto_articulo(url: str) -> str:
+    """Texto legible de la nota (párrafos, listas y tablas)."""
+    from bs4 import BeautifulSoup
+
+    resp = requests.get(url, headers={"User-Agent": UA}, timeout=25)
+    resp.raise_for_status()
+    soup = BeautifulSoup(resp.text, "html.parser")
+    for tag in soup(["script", "style", "nav", "footer", "aside", "form"]):
+        tag.decompose()
+    partes = [el.get_text(" ", strip=True) for el in soup.find_all(["h1", "h2", "p", "li", "td"])]
+    texto = "\n".join(p for p in partes if len(p) > 20)
+    return re.sub(r"[ \t]+", " ", texto)
 
 
 # ──────────────────────────────────────────────
-# Orquestador principal — EJECUTAR()
+# 2. Extraer precios de una nota
 # ──────────────────────────────────────────────
 
-def ejecutar() -> dict:
-    """Función principal que main.py llama para validar consenso.
+_PROMPT = """Extrae los precios de combustible AL CONSUMIDOR EN GUATEMALA (quetzales por galón) \
+del siguiente artículo, publicado el {publicado}.
 
-    Returns:
-        Dict con resumen de la ejecución, siempre incluye key "fuente".
-    """
-    resultados_validacion = []
-    total_precios = 0
-    total_consenso = 0
-    total_alertas = 0
+Responde SOLO este JSON:
+{{"observaciones": [{{"producto": "superior|regular|diesel", \
+"modalidad": "autoservicio|servicio_completo|desconocida", "precio": 45.29, \
+"fecha": "YYYY-MM-DD", "tipo": "monitoreado|referencia|estimado|historico|otro_pais|maximo_legal", \
+"cita": "frase textual breve de donde sale el precio"}}]}}
 
+Reglas:
+- monitoreado: promedio observado en gasolineras (MEM o monitoreo del propio medio).
+- referencia: "precio de referencia" publicado por el MEM.
+- estimado: proyección o precio "si se aplica" una medida (exención, subsidio).
+- historico: precio de una fecha pasada citado como comparación (usa SU fecha).
+- otro_pais: precios de otros países. maximo_legal: topes o precios máximos.
+- fecha: la fecha a la que corresponde el precio ("al 21 de septiembre" → esa); \
+si no se indica, la de publicación.
+- modalidad "desconocida" si el texto no dice autoservicio ni servicio completo.
+- NO inventes ni calcules: si el texto no da el número, omítelo. Coma decimal → punto.
+- Si no hay precios de Guatemala: {{"observaciones": []}}
+
+ARTÍCULO:
+{texto}"""
+
+
+def extraer_llm(texto: str, publicado: str, cfg: dict) -> list[dict] | None:
+    """Observaciones vía LLM (None si el LLM falla; [] si la nota no trae precios)."""
+    global _last_llm_error
+    from collector import noticias as _n
+
+    llm = cfg.get("llm", {})
+    base_url = llm.get("base_url", "").strip().rstrip("/")
+    api_key = _n._obtener_api_key(llm, base_url)
+    prompt = _PROMPT.format(publicado=publicado, texto=texto[:MAX_CHARS_TEXTO])
+    raw = _n._llm_post(prompt, base_url, llm.get("model", ""), api_key)
+    if raw is None:
+        _last_llm_error = _n._last_llm_error
+        return None
+    raw = re.sub(r"^```(?:json)?|```$", "", raw.strip(), flags=re.MULTILINE).strip()
     try:
-        # ── Paso 1: Conectar DB y obtener precios recientes ──
-        from collector.db import conectar
-
-        conn = conectar()
-        rows = obtener_precios_recentes(conn)
-        total_precios = len(rows)
-
-        if not rows:
-            logger.info("[consenso] No hay precios recientes para validar.")
-            conn.close()
-            return {
-                "fuente": "consenso_validador",
-                "total_consultados": 0,
-                "con_senso_alcanzado": 0,
-                "alertas": 0,
-                "detalles": [],
-            }
-
-        logger.info(
-            f"[consenso] Consultando {total_precios} precios de los últimos "
-            f"{DIAS_RECENTES} días..."
-        )
-
-        # ── Paso 2: Agrupar por fecha + producto ──
-        grupos = agrupar_precios(rows)
-        logger.info(f"[consenso] {len(grupos)} grupos (fecha × producto) encontrados.")
-
-        # ── Paso 3: Validar consenso para cada grupo (reglas básicas) ──
-        validados = []
-        no_consenso = []
-        ia_usada = 0
-
-        for (fecha, producto), grupo_rows in sorted(grupos.items()):
-            res = validar_consenso_grupo(grupo_rows, producto, fecha)
-            resultados_validacion.append(res)
-
-            # Extraer precios con sus fuentes para la IA
-            precios_para_ia = []
-            for row in grupo_rows:
-                fuente = row["fuente"] if "fuente" in row.keys() else "desconocida"
-                precios_para_ia.append({
-                    "precio": row["precio"],
-                    "fuente": fuente,
-                })
-
-            if res["consenso"]:
-                total_consenso += 1
-                validados.append(res)
-                logger.info(
-                    f"[OK] {fecha} | {producto}: Q{res['precio_valido']:.2f} "
-                    f"({res['detalles']})"
-                )
-            else:
-                # ── Paso 3b: Intentar con IA como desempate ──
-                if len(grupo_rows) >= 2 and _obtener_config_llm():
-                    logger.info(
-                        f"[consenso-ia] Evaluando {fecha} | {producto} "
-                        f"con Gemini (reglas fallaron)..."
-                    )
-                    res_ia = validar_con_ia(
-                        fecha, producto, precios_para_ia, res
-                    )
-                    
-                    if res_ia and res_ia.get("consenso"):
-                        # La IA confirma consenso → actualizar resultado
-                        res["precio_valido"] = res_ia["precio_valido"]
-                        res["razonamiento_ia"] = res_ia["razonamiento"]
-                        res["fuente_ia"] = "gemini"
-                        total_consenso += 1
-                        validados.append(res)
-                        ia_usada += 1
-                        
-                        logger.info(
-                            f"[IA+OK] {fecha} | {producto}: Q{res['precio_valido']:.2f} "
-                            f"(reglas=no, IA=si — {res_ia['razonamiento'][:50]}...)"
-                        )
-                    else:
-                        no_consenso.append(res)
-                        logger.warning(
-                            f"[!] {fecha} | {producto}: Sin consenso — {res['detalles']}"
-                        )
-                else:
-                    no_consenso.append(res)
-                    logger.warning(
-                        f"[!] {fecha} | {producto}: Sin consenso — {res['detalles']}"
-                    )
-
-        if ia_usada > 0:
-            logger.info(f"[consenso] IA usó como desempate: {ia_usada} caso(s)")
-
-        # ── Paso 4: Marcar validados y registrar alertas ──
-        marcados = marcar_precios_validados(conn, validados)
-        total_alertas = registrar_alerta_no_consenso(conn, no_consenso)
-
-        conn.close()
-
-        logger.info(
-            f"[consenso] Resumen: {total_consenso}/{len(grupos)} con consenso. "
-            f"{total_alertas} alerta(s)."
-        )
-
-        return {
-            "fuente": "consenso_validador",
-            "total_consultados": total_precios,
-            "grupos_evaluados": len(grupos),
-            "con_senso_alcanzado": total_consenso,
-            "sin_consenso": len(no_consenso),
-            "alertas_registradas": total_alertas,
-            "precio_validado": marcados,
-            "ia_usada_desempate": ia_usada,
-            "detalles": resultados_validacion,
-        }
-
-    except Exception as exc:
-        logger.error(f"[consenso] Error fatal: {exc}")
-        return {
-            "fuente": "consenso_validador",
-            "error": str(exc),
-            "total_consultados": 0,
-            "con_senso_alcanzado": 0,
-            "alertas": 0,
-            "detalles": [],
-        }
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        m = re.search(r"\{.*\}", raw, re.DOTALL)
+        try:
+            data = json.loads(m.group(0)) if m else {}
+        except json.JSONDecodeError:
+            _last_llm_error = "respuesta LLM no es JSON"
+            return None
+    obs = data.get("observaciones", []) if isinstance(data, dict) else []
+    return [o for o in obs if isinstance(o, dict)]
 
 
-# ──────────────────────────────────────────────
-# Ejecución con reintentos (modo diario 3AM)
-# ──────────────────────────────────────────────
+# Frases que indican que el precio de esa oración NO es el vigente en Guatemala
+_NO_VIGENTE = re.compile(
+    r"estimad|nuevo precio|quedar[íi]a|pas[óo] de|pasaron de|subi[óo] de|baj[óo] de|"
+    r"us\$|usd|d[óo]lares|el salvador|honduras|costa rica|nicaragua|panam[áa]|m[ée]xico|"
+    r"estados unidos|ee\.? ?uu|tope|m[áa]ximo|anterior|semana pasada|hace un|en enero|en 202[0-5]|"
+    # Fechas o rangos explícitos: sin LLM no se sabe a qué día corresponde
+    # el precio ("entre el 31 de agosto y el 7…", "monitoreados al 21 de…").
+    r"\bentre el\b|\b(?:al|del|el) \d{1,2} de\b",
+    re.IGNORECASE,
+)
+_TOKEN = re.compile(
+    r"(?P<prod>superior|s[uú]per|regular|di[eé]sel)|Q\s?(?P<precio>\d{2}[.,]\d{2})\b", re.IGNORECASE,
+)
 
-def ejecutar_con_reintentos(
-    intervalo_segundos: int = RETRY_INTERVAL_SEGUNDOS,
-    max_reintentos: int = MAX_REINTENTOS,
-    exportar_json: bool = True,
-) -> dict:
-    """Ejecuta validación de consenso con reintentos automáticos.
 
-    Modo operativo para cron diario a las 3AM:
-      1. Ejecutar consenso una vez
-      2. Si NO hay consenso → esperar 45 min y reintentar
-      3. Repetir hasta lograr consenso o alcanzar max_reintentos
-      4. Cuando se logra consenso → exportar JSON para actualizar dashboard
+def _producto_de(palabra: str) -> str:
+    p = palabra.lower()
+    return "superior" if p.startswith(("sup", "súp")) else ("regular" if p == "regular" else "diésel")
 
-    Args:
-        intervalo_segundos: Segundos entre reintentos (default: 2700 = 45 min).
-        max_reintentos: Máximo de intentos antes de rendirse (default: 8).
-        exportar_json: Si True, exporta JSON al lograr consenso.
 
-    Returns:
-        Dict con resumen final incluyendo historial de intentos.
+def extraer_regex(texto: str, publicado: str) -> list[dict]:
+    """Respaldo sin LLM, a propósito conservador. Una oración aporta precios solo si:
+    - nombra UNA modalidad (autoservicio o servicio completo);
+    - no trae señales de estimado / histórico / otro país / fecha explícita;
+    - productos y precios se ALTERNAN sin ambigüedad (producto→precio o
+      precio→producto): "regular Q43.29 … súper Q45.29" o
+      "Q45.69 para la superior, Q43.69 para la regular". Si no, se descarta
+      (antes emparejaba corrido y asignaba el precio del diésel a la regular).
     """
-    import time as _time
+    obs = []
+    for oracion in re.split(r"(?<=[.!?;])\s+(?=[A-ZÁÉÍÓÚÑ¿])|\n", texto):
+        low = oracion.lower()
+        if _NO_VIGENTE.search(low):
+            continue
+        if "servicio completo" in low and "autoservicio" not in low:
+            modalidad = "servicio_completo"
+        elif "autoservicio" in low and "servicio completo" not in low:
+            modalidad = "autoservicio"
+        else:
+            continue
+        tokens = [("prod", m.group("prod")) if m.group("prod") else ("precio", m.group("precio"))
+                  for m in _TOKEN.finditer(oracion)]
+        # Colapsar menciones repetidas del mismo producto seguidas ("gasolina súper … súper")
+        seq = [t for i, t in enumerate(tokens) if not (i and t == tokens[i - 1])]
+        if len(seq) < 2 or len(seq) % 2 or any(seq[i][0] == seq[i + 1][0] for i in range(len(seq) - 1)):
+            continue
+        for a, b in zip(seq[0::2], seq[1::2]):
+            prod, precio = (a[1], b[1]) if a[0] == "prod" else (b[1], a[1])
+            obs.append({"producto": _producto_de(prod), "modalidad": modalidad,
+                        "precio": float(precio.replace(",", ".")), "fecha": publicado,
+                        "tipo": "monitoreado", "cita": oracion.strip()[:300]})
+    return obs
 
-    logger.info(
-        f"[consenso-retry] Iniciando modo retry: "
-        f"intervalo={intervalo_segundos}s, max_intentos={max_reintentos}"
-    )
 
-    historial = []
-    consenso_logrado = False
-
-    for intento in range(1, max_reintentos + 1):
-        logger.info(f"[consenso-retry] Intento {intento}/{max_reintentos}...")
-
-        resultado = ejecutar()
-        historial.append({
-            "intento": intento,
-            "resultado": resultado,
-            "timestamp": datetime.now(timezone(timedelta(hours=-6))).strftime("%Y-%m-%dT%H:%M:%S-06:00"),
+def normalizar_observaciones(crudas: list[dict], nota: dict, extractor: str) -> list[dict]:
+    """Filtra a lo comparable: Guatemala, modalidad conocida, tipo vigente y fecha
+    coherente con la publicación (hasta 10 días antes, nunca después)."""
+    pub = datetime.strptime(nota["publicado"], "%Y-%m-%d")
+    salida = []
+    for o in crudas:
+        tipo = str(o.get("tipo", "")).lower()
+        modalidad = str(o.get("modalidad", "")).lower()
+        if tipo not in ("monitoreado", "referencia") or modalidad not in ("autoservicio", "servicio_completo"):
+            continue
+        fecha = str(o.get("fecha") or nota["publicado"])[:10]
+        try:
+            f = datetime.strptime(fecha, "%Y-%m-%d")
+        except ValueError:
+            fecha, f = nota["publicado"], pub
+        if not (pub - timedelta(days=10) <= f <= pub + timedelta(days=1)):
+            continue
+        salida.append({
+            "fecha": fecha, "producto": o.get("producto"), "modalidad": modalidad,
+            "precio": o.get("precio"), "tipo": tipo, "medio": nota["medio"], "url": nota["url"],
+            "cita": o.get("cita"), "extractor": extractor,
         })
+    return salida
 
-        # Verificar si se logró consenso
-        if resultado.get("con_senso_alcanzado", 0) > 0:
-            consenso_logrado = True
-            logger.info(
-                f"[consenso-retry] [OK] Consenso logrado en intento {intento}! "
-                f"{resultado['con_senso_alcanzado']} productos validados."
-            )
 
-            # Exportar JSON para actualizar dashboard con precios de hoy
-            if exportar_json:
-                try:
-                    from collector.main import exportar_json as _exportar
-                    cfg = None
-                    try:
-                        from collector.main import cargar_config
-                        cfg = cargar_config()
-                    except Exception:
-                        pass
+def observaciones_gpp() -> list[dict]:
+    """GlobalPetrolPrices: su 'gasoline' coincide con la Superior de SERVICIO
+    COMPLETO del MEM (45.74 = SC 21-sep-2026), igual el diésel."""
+    from collector.fuentes_alternas import GPP_URL, _fetch, extraer_precios_gpp
 
-                    _result_export = _exportar(cfg=cfg)
-                    logger.info(
-                        f"[consenso-retry] Dashboard actualizado con "
-                        f"{_result_export.get('total_registros', 0)} registros."
-                    )
-                except Exception as exc:
-                    logger.error(f"[consenso-retry] Error exportando JSON: {exc}")
+    html = _fetch(GPP_URL, timeout=30) or _fetch(GPP_URL, timeout=30)  # 1 reintento (timeouts esporádicos)
+    datos = extraer_precios_gpp(html) if html else None
+    if not datos:
+        return []
+    galon = 3.78541
+    base = {"fecha": datos["fecha"], "modalidad": "servicio_completo", "tipo": "monitoreado",
+            "medio": "globalpetrolprices.com", "url": GPP_URL, "extractor": "api"}
+    return [
+        {**base, "producto": "superior", "precio": round(datos["gasolina_gtq_liter"] * galon, 2),
+         "cita": f"Gasoline {datos['gasolina_gtq_liter']} GTQ/L"},
+        {**base, "producto": "diésel", "precio": round(datos["diesel_gtq_liter"] * galon, 2),
+         "cita": f"Diesel {datos['diesel_gtq_liter']} GTQ/L"},
+    ]
 
-            # Construir resultado final con historial
-            return {
-                "fuente": "consenso_validador",
-                "modo_retry": True,
-                "intento_logrado": intento,
-                "total_intentos": len(historial),
-                "con_senso_alcanzado": resultado["con_senso_alcanzado"],
-                "alertas_registradas": resultado.get("alertas_registradas", 0),
-                "exportado_json": exportar_json,
-                "historial": historial,
-            }
 
-        # Si no hay consenso y quedan intentos, esperar antes de reintentar
-        if intento < max_reintentos:
-            logger.info(
-                f"[consenso-retry] Sin consenso aún. Esperando "
-                f"{intervalo_segundos}s ({intervalo_segundos/60:.0f} min)..."
-            )
-            _time.sleep(intervalo_segundos)
+# ──────────────────────────────────────────────
+# 3-4. Precisión por fuente y veredicto del consejo
+# ──────────────────────────────────────────────
 
-    # Si llegamos aquí, se acabaron los intentos sin consenso
-    logger.warning(
-        f"[consenso-retry] Agotados {max_reintentos} intentos sin consenso. "
-        "Se necesitará intervención manual o espera a la próxima ejecución."
-    )
+def precision_fuentes(conn) -> dict[str, dict]:
+    """Error de cada medio contra el precio OFICIAL del MEM del mismo día,
+    producto y modalidad. peso = 1 / (1 + 2·error medio), entre 0.2 y 1.
+
+    Medio sin días comparables → peso neutro 0.5.
+    """
+    rows = conn.execute("""
+        SELECT o.medio, ABS(o.precio - p.precio) AS err
+        FROM observaciones o
+        JOIN precios p ON p.fecha = o.fecha AND p.producto = o.producto
+                      AND p.modalidad = o.modalidad AND p.fuente = 'MEM'
+    """).fetchall()
+    errores: dict[str, list[float]] = {}
+    for medio, err in rows:
+        errores.setdefault(medio, []).append(err)
+    res = {}
+    for medio, errs in errores.items():
+        mae = sum(errs) / len(errs)
+        res[medio] = {"error_medio": round(mae, 3), "n": len(errs),
+                      "peso": round(min(1.0, max(0.2, 1 / (1 + 2 * mae))), 3)}
+    res[MEDIO_OFICIAL] = {"error_medio": 0.0, "n": None, "peso": 1.0}
+    return res
+
+
+def _peso(medio: str, precision: dict) -> float:
+    return precision.get(medio, {}).get("peso", 0.5)
+
+
+def _peso_efectivo(voto: dict, precision: dict, ultima: str) -> float:
+    """Precisión histórica del medio × recencia (el dato más nuevo pesa más)."""
+    dias = (datetime.strptime(ultima, "%Y-%m-%d") - datetime.strptime(voto["fecha"], "%Y-%m-%d")).days
+    return _peso(voto["medio"], precision) * DECAIMIENTO_DIA ** max(0, dias)
+
+
+def _mediana_ponderada(pares: list[tuple[float, float]]) -> float:
+    pares = sorted(pares)
+    total = sum(w for _, w in pares)
+    acum = 0.0
+    for valor, w in pares:
+        acum += w
+        if acum >= total / 2:
+            return round(valor, 2)
+    return round(pares[-1][0], 2)
+
+
+def consejo(conn, producto: str, modalidad: str, hoy: str, precision: dict) -> dict | None:
+    """Veredicto para un producto/modalidad con lo observado en los últimos días.
+
+    - Candidatos: observaciones monitoreado/referencia + el dato oficial MEM
+      (tabla precios) de la ventana; de cada medio, su dato más reciente.
+    - Solo el bloque más reciente (DIAS_BLOQUE) para no mezclar semanas.
+    - Peso de cada voto = precisión histórica del medio × 0.85^días de antigüedad.
+    - Grupo ganador: el de mayor peso total dentro de ±TOLERANCIA; precio =
+      mediana ponderada del grupo.
+    - Confianza: alta (≥3 medios coinciden y son ≥60 %, o el MEM + otro),
+      media (2 coinciden, o solo el MEM), baja (una sola fuente no oficial o
+      fuentes en desacuerdo).
+    """
+    desde = (datetime.strptime(hoy, "%Y-%m-%d") - timedelta(days=DIAS_VENTANA)).strftime("%Y-%m-%d")
+    cand = [dict(r) for r in conn.execute(
+        "SELECT fecha, precio, medio, url, tipo FROM observaciones "
+        "WHERE producto = ? AND modalidad = ? AND fecha >= ? AND fecha <= ?",
+        (producto, modalidad, desde, hoy),
+    )]
+    cand += [{"fecha": r[0], "precio": r[1], "medio": MEDIO_OFICIAL, "url": "https://mem.gob.gt/", "tipo": "oficial"}
+             for r in conn.execute(
+                 "SELECT fecha, precio FROM precios WHERE producto = ? AND modalidad = ? "
+                 "AND fuente = 'MEM' AND fecha >= ? AND fecha <= ?",
+                 (producto, modalidad, desde, hoy))]
+    if not cand:
+        return None
+
+    ultima = max(c["fecha"] for c in cand)
+    corte = (datetime.strptime(ultima, "%Y-%m-%d") - timedelta(days=DIAS_BLOQUE)).strftime("%Y-%m-%d")
+    por_medio: dict[str, dict] = {}
+    for c in sorted((c for c in cand if c["fecha"] >= corte), key=lambda c: c["fecha"]):
+        por_medio[c["medio"]] = c  # queda el más reciente de cada medio
+    votos = list(por_medio.values())
+
+    mejor = None
+    for centro in votos:
+        grupo = [v for v in votos if abs(v["precio"] - centro["precio"]) <= TOLERANCIA + 1e-9]
+        clave = (sum(_peso_efectivo(v, precision, ultima) for v in grupo), len(grupo),
+                 max(v["fecha"] for v in grupo))
+        if mejor is None or clave > mejor[0]:
+            mejor = (clave, grupo)
+    grupo = mejor[1]
+    medios_grupo = {v["medio"] for v in grupo}
+
+    n_c, n_t = len(grupo), len(votos)
+    oficial = MEDIO_OFICIAL in medios_grupo
+    if (n_c >= 3 and n_c / n_t >= 0.6) or (oficial and n_c >= 2):
+        confianza = "alta"
+    elif n_c >= 2 or oficial:
+        confianza = "media"
+    else:
+        confianza = "baja"
 
     return {
-        "fuente": "consenso_validador",
-        "modo_retry": True,
-        "intento_logrado": None,
-        "total_intentos": len(historial),
-        "con_senso_alcanzado": historial[-1]["resultado"].get("con_senso_alcanzado", 0) if historial else 0,
-        "alertas_registradas": historial[-1]["resultado"].get("alertas_registradas", 0) if historial else 0,
-        "exportado_json": False,
-        "historial": historial,
+        "fecha": max(v["fecha"] for v in grupo),
+        "producto": producto,
+        "modalidad": modalidad,
+        "precio": _mediana_ponderada([(v["precio"], _peso_efectivo(v, precision, ultima)) for v in grupo]),
+        "confianza": confianza,
+        "n_coinciden": n_c,
+        "n_fuentes": n_t,
+        "fuentes": sorted(
+            ({"medio": v["medio"], "precio": v["precio"], "fecha": v["fecha"], "url": v["url"],
+              "coincide": v["medio"] in medios_grupo, "peso": _peso(v["medio"], precision)}
+             for v in votos),
+            key=lambda f: (not f["coincide"], -f["peso"], f["medio"]),
+        ),
     }
 
 
 # ──────────────────────────────────────────────
-# Entry point para ejecución directa
+# Orquestación
 # ──────────────────────────────────────────────
+
+def ejecutar(cfg: dict = None) -> dict:
+    """Descubre → extrae → guarda observaciones → emite veredictos."""
+    global _last_llm_error
+    _last_llm_error = None
+    if cfg is None:
+        with open(_project_root / "config.json", "r", encoding="utf-8") as f:
+            cfg = json.load(f)
+    params = _cfg_consejo(cfg)
+
+    from collector import noticias as _n
+    from collector.db import (
+        COMBUSTIBLES, PRODUCTOS, articulo_procesado, conectar, guardar_consenso,
+        guardar_observaciones, guardar_precios, hoy_gt, registrar_articulo,
+    )
+
+    conn = conectar()
+    res = {"fuente": "consejo", "notas_descubiertas": 0, "notas_leidas": 0,
+           "observaciones_nuevas": 0, "extractor": None, "veredictos": {}, "llm_error": None}
+
+    # 1-3. Notas nuevas → observaciones
+    notas = [n for n in descubrir_articulos(params["consultas"], params["dias_articulo"])
+             if not articulo_procesado(conn, n["url"])]
+    res["notas_descubiertas"] = len(notas)
+    usar_llm = _n._llm_available(cfg)
+    res["extractor"] = "llm" if usar_llm else "regex"
+    print(f"[consejo] {len(notas)} notas nuevas | extractor: {res['extractor']}")
+
+    for i, nota in enumerate(notas[: params["max_articulos_llm"] if usar_llm else None]):
+        extractor, error, obs = res["extractor"], None, []
+        try:
+            texto = texto_articulo(nota["url"])
+            if usar_llm:
+                if i:
+                    time.sleep(params["pausa_llm_seg"])
+                crudas = extraer_llm(texto, nota["publicado"], cfg)
+                if crudas is None and "429" in (_last_llm_error or ""):
+                    time.sleep(60)
+                    crudas = extraer_llm(texto, nota["publicado"], cfg)
+                if crudas is None:  # LLM falló en esta nota → respaldo regex
+                    extractor, crudas = "regex", extraer_regex(texto, nota["publicado"])
+            else:
+                crudas = extraer_regex(texto, nota["publicado"])
+            obs = normalizar_observaciones(crudas, nota, extractor)
+            res["observaciones_nuevas"] += guardar_observaciones(conn, obs)["insertadas"]
+        except Exception as exc:
+            error = str(exc)[:200]
+        registrar_articulo(conn, nota["url"], nota["medio"], nota["titulo"], nota["publicado"],
+                           extractor, len(obs), error)
+        res["notas_leidas"] += 1
+        print(f"[consejo]   {nota['medio']} ({nota['publicado']}): {len(obs)} precios"
+              + (f" | error: {error}" if error else ""))
+
+    try:
+        res["observaciones_nuevas"] += guardar_observaciones(conn, observaciones_gpp())["insertadas"]
+    except Exception as exc:
+        print(f"[consejo] GPP: {exc}")
+
+    # 4. Veredictos
+    precision = precision_fuentes(conn)
+    hoy = hoy_gt()
+    for producto in COMBUSTIBLES:
+        for modalidad in PRODUCTOS[producto]["modalidades"]:
+            v = consejo(conn, producto, modalidad, hoy, precision)
+            if not v:
+                continue
+            guardar_consenso(conn, v)
+            if v["confianza"] != "baja":  # una sola fuente no oficial no entra al historial
+                guardar_precios(conn, [{"producto": producto, "modalidad": modalidad,
+                                        "fecha": v["fecha"], "precio": v["precio"]}], fuente="Consejo")
+            res["veredictos"][f"{producto}/{modalidad}"] = (
+                f"Q{v['precio']:.2f} {v['confianza']} ({v['n_coinciden']}/{v['n_fuentes']})")
+            print(f"[consejo] {producto:9s} {modalidad:17s} Q{v['precio']:.2f} "
+                  f"confianza {v['confianza']} ({v['n_coinciden']}/{v['n_fuentes']} fuentes)")
+
+    res["llm_error"] = _last_llm_error
+    conn.close()
+    return res
+
 
 if __name__ == "__main__":
-    import argparse as _argparse
-
-    parser = _argparse.ArgumentParser(
-        description="Gasolina GT — Validador de consenso multifuente",
-        formatter_class=_argparse.RawDescriptionHelpFormatter,
-        epilog="""\
-Ejemplos:
-  python collector/consenso_precios.py              # Valida una vez
-  python collector/consenso_precios.py --retry      # Modo retry (45min interval)
-  python collector/main.py --consenso                # Desde orchestrador
-  python collector/main.py --consenso --retry        # Con reintentos
-        """,
-    )
-
-    parser.add_argument(
-        "--retry", action="store_true",
-        help="Modo retry: reintentar cada 45 min hasta lograr consenso",
-    )
-    parser.add_argument(
-        "--interval-min", type=int, default=45,
-        help="Intervalo en minutos entre reintentos (default: 45)",
-    )
-
-    args = parser.parse_args()
-
-    print("=" * 60)
-    print("Validador de Consenso Multifuente — Gasolina GT")
-    print(f"Tolerancia: Q{TOLERANCIA_QUETLES:.2f} | "
-          f"Fuentes mínimas: {MIN_FUENTES_CONSENSO}")
-    if args.retry:
-        print(f"Modo RETRY: intervalo={args.interval_min}min, "
-              f"max_intentos={MAX_REINTENTOS}")
-    print("=" * 60)
-
-    if args.retry:
-        intervalo_seg = args.interval_min * 60
-        resultado = ejecutar_con_reintentos(
-            intervalo_segundos=intervalo_seg,
-            max_reintentos=MAX_REINTENTOS,
-            exportar_json=True,
-        )
-    else:
-        resultado = ejecutar()
-
-    print(f"\nFuente: {resultado['fuente']}")
-    if resultado.get("modo_retry"):
-        intento = resultado.get("intento_logrado")
-        total = resultado.get("total_intentos", 0)
-        print(f"Modo retry: consenso en intento {intento}/{total}"
-              if intento else f"Modo retry: sin consenso después de {total} intentos")
-    else:
-        print(
-            f"Con consenso: {resultado.get('con_senso_alcanzado', 0)}/"
-            f"{resultado.get('grupos_evaluados', 0)}"
-        )
-    print(f"Alertas: {resultado.get('alertas_registradas', 0)}")
-
-    if resultado.get("error"):
-        print(f"Error: {resultado['error']}")
+    print(json.dumps(ejecutar(), ensure_ascii=False, indent=2))

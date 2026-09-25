@@ -135,25 +135,10 @@ def ejecutar_fuentes_alternas(cfg: dict = None) -> dict:
 
 
 def ejecutar_consenso(cfg: dict = None) -> dict:
-    """Wrapper para consenso_precios.ejecutar (validación multifuente)."""
+    """Wrapper para consenso_precios.ejecutar (consejo multifuente de precios)."""
     from collector.consenso_precios import ejecutar as _ejecutar
 
-    return _ejecutar()
-
-
-def ejecutar_consenso_retry(cfg: dict = None) -> dict:
-    """Wrapper para consenso_precios.ejecutar_con_reintentos (modo retry)."""
-    from collector.consenso_precios import (
-        MAX_REINTENTOS,
-        RETRY_INTERVAL_SEGUNDOS,
-        ejecutar_con_reintentos as _ejecutar,
-    )
-
-    return _ejecutar(
-        intervalo_segundos=RETRY_INTERVAL_SEGUNDOS,
-        max_reintentos=MAX_REINTENTOS,
-        exportar_json=True,
-    )
+    return _ejecutar(cfg=cfg)
 
 
 def ejecutar_historico(cfg: dict = None) -> dict:
@@ -292,12 +277,18 @@ def construir_consolidado(conn: sqlite3.Connection, dias_historial: int = 365) -
                           actual: {fecha, precio, fuente, fetched_at} | null,
                           historial: [{fecha, precio}]  (últimos N días),
                           mensual: [{anio, mes, promedio}]  (oficial MEM),
-                          anual: [{anio, promedio, dias, meses, fuente}]}
+                          anual: [{anio, promedio, dias, meses, fuente}],
+                          modalidades: {<modalidad>: {nombre, actual, consenso, historial (30 días)}}}
+
+    `actual`/`historial` de primer nivel = modalidad principal (autoservicio / spot).
+    consenso = veredicto del consejo multifuente {fecha, precio, confianza,
+    n_coinciden, n_fuentes, fuentes:[{medio, precio, fecha, url, coincide, peso}]}.
     """
     from collector import noticias as _noticias_mod
+    from collector.consenso_precios import precision_fuentes
     from collector.db import (
-        COMBUSTIBLES, PRODUCTOS, ahora_gt_iso, hace_dias_gt, hoy_gt,
-        leer_historial, leer_ultimo, obtener_noticias,
+        COMBUSTIBLES, MODALIDADES, PRODUCTOS, ahora_gt_iso, hace_dias_gt, hoy_gt,
+        leer_consenso, leer_historial, leer_ultimo, obtener_noticias,
     )
     from collector.memoria import leer_mensual, leer_semilla_anual
 
@@ -306,6 +297,18 @@ def construir_consolidado(conn: sqlite3.Connection, dias_historial: int = 365) -
     semilla = leer_semilla_anual()
     mensual = leer_mensual()
 
+    def _actual(row):
+        return {"fecha": row["fecha"], "precio": row["precio"], "fuente": row["fuente"],
+                "fetched_at": row["fetched_at"]} if row else None
+
+    def _consenso(row):
+        if not row:
+            return None
+        return {"fecha": row["fecha"], "precio": row["precio"], "confianza": row["confianza"],
+                "n_coinciden": row["n_coinciden"], "n_fuentes": row["n_fuentes"],
+                "fuentes": json.loads(row["fuentes"])}
+
+    desde_mod = hace_dias_gt(30)
     productos = {}
     for codigo, meta in sorted(PRODUCTOS.items(), key=lambda kv: kv[1]["orden"]):
         ultimo = leer_ultimo(conn, codigo)
@@ -329,6 +332,18 @@ def construir_consolidado(conn: sqlite3.Connection, dias_historial: int = 365) -
                 for m in mensual if m["producto"] == codigo
             ],
             "anual": _promedios_anuales(conn, codigo, semilla, mensual),
+            "modalidades": {
+                mod: {
+                    "nombre": MODALIDADES[mod],
+                    "actual": _actual(leer_ultimo(conn, codigo, mod)),
+                    "consenso": _consenso(leer_consenso(conn, codigo, mod)),
+                    "historial": [
+                        {"fecha": r["fecha"], "precio": r["precio"]}
+                        for r in leer_historial(conn, codigo, desde=desde_mod, modalidad=mod)
+                    ],
+                }
+                for mod in meta["modalidades"]
+            },
         }
 
     # Guardia de frescura (solo combustibles: un WTI de hoy no vuelve
@@ -370,12 +385,21 @@ def construir_consolidado(conn: sqlite3.Connection, dias_historial: int = 365) -
         (hoy,),
     ).fetchone()[0]
 
+    consejo = {
+        "precision_fuentes": precision_fuentes(conn),
+        "observaciones_7d": conn.execute(
+            "SELECT COUNT(*) FROM observaciones WHERE fecha >= ?", (hace_dias_gt(7),)).fetchone()[0],
+        "notas_leidas": conn.execute("SELECT COUNT(*) FROM articulos").fetchone()[0],
+        "medios": sorted({r[0] for r in conn.execute("SELECT DISTINCT medio FROM observaciones")}),
+    }
+
     return {
-        "version": 2,
+        "version": 3,
         "actualizado_at": ahora_gt_iso(),
         "precios_actualizados": frescos,
         "max_fecha_precios": max_fecha,
         "productos": productos,
+        "consejo": consejo,
         "noticias": {
             "total": len(noticias),
             "top": top,
@@ -462,10 +486,6 @@ Ejemplos:
         "--consenso", action="store_true",
         help="Validación por consenso multifuente (Q0.20 tolerancia)",
     )
-    parser.add_argument(
-        "--consenso-retry", action="store_true",
-        help="Consenso con reintentos: 45min hasta lograr consenso + exportar JSON",
-    )
     parser.add_argument("--historico", action="store_true", help="Importar histórico (XLSX)")
     parser.add_argument("--petroleo", action="store_true", help="WTI (OilPriceAPI)")
     parser.add_argument("--noticias", action="store_true", help="Feeds RSS")
@@ -486,7 +506,7 @@ Ejemplos:
 
     # Si no se especifica nada, ejecutar todo por defecto
     if not any([args.all, args.mem_html, args.consenso,
-                args.consenso_retry, args.historico, args.petroleo, args.noticias,
+                args.historico, args.petroleo, args.noticias,
                 args.alternos, args.memoria]):
         args.all = True
 
@@ -507,10 +527,7 @@ Ejemplos:
         modulos_activas.append(("mem_html", ejecutar_mem_html))
     if args.all or args.alternos:
         modulos_activas.append(("fuentes_alternas", ejecutar_fuentes_alternas))
-    if args.all or args.consenso_retry:
-        # --consenso-retry ejecuta el modo retry (reemplaza a consenso normal)
-        modulos_activas.append(("consenso_retry", ejecutar_consenso_retry))
-    elif args.all or args.consenso:
+    if args.all or args.consenso:
         modulos_activas.append(("consenso_precios", ejecutar_consenso))
     if args.all or args.historico:
         modulos_activas.append(("historico", ejecutar_historico))

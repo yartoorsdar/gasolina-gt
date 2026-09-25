@@ -180,6 +180,38 @@
             margin-top: 4px;
         }
 
+        /* ── Modalidades (autoservicio / servicio completo) + consejo ── */
+        .modalidad-bloque { margin-bottom: 14px; }
+        .modalidad-titulo {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 6px 0 4px;
+            border-bottom: 2px solid var(--border);
+        }
+        .confianza {
+            display: inline-block;
+            margin-top: 3px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 1px 7px;
+            border-radius: 999px;
+            border: 1px solid currentColor;
+            white-space: nowrap;
+        }
+        .confianza-alta { color: #22c55e; }
+        .confianza-media { color: #f59e0b; }
+        .confianza-baja { color: #ef4444; }
+        .consejo-fuentes { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
+        .consejo-fuentes summary { cursor: pointer; }
+        .consejo-fuentes ul { margin: 6px 0 0; padding-left: 16px; }
+        .consejo-fuentes li { margin-bottom: 4px; }
+        .consejo-fuentes a { color: inherit; }
+        .consejo-fuentes a.coincide { color: #22c55e; }
+        .consejo-fuentes a.difiere { text-decoration: line-through; opacity: 0.7; }
+
         /* ── Barril de petróleo con borde RGB animado ── */
         .barrel-frame {
             position: relative;
@@ -771,6 +803,31 @@
         // Renderizado
         // ──────────────────────────────────────────
 
+        function escHtml(s) {
+            return String(s ?? '').replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+        }
+
+        // Etiqueta de confianza del consejo multifuente (verde/ámbar/rojo)
+        function badgeConfianza(c) {
+            if (!c) return '';
+            const titulo = `${c.n_coinciden} de ${c.n_fuentes} fuentes coinciden (±Q0.20) · dato del ${c.fecha}`;
+            return `<br><span class="confianza confianza-${escHtml(c.confianza)}" title="${escHtml(titulo)}">`
+                 + `Confianza ${escHtml(c.confianza)} · ${c.n_coinciden}/${c.n_fuentes} fuentes</span>`;
+        }
+
+        // "Ver fuentes consultadas": qué dijo cada medio y si coincide con el veredicto
+        function fuentesConsejo(filas, etiquetas) {
+            const con = filas.filter(p => p.consenso && (p.consenso.fuentes || []).length);
+            if (!con.length) return '';
+            const items = con.map(p => {
+                const fuentes = p.consenso.fuentes.map(f =>
+                    `<a href="${escHtml(f.url)}" target="_blank" rel="noopener noreferrer" class="${f.coincide ? 'coincide' : 'difiere'}"`
+                    + ` title="${escHtml(f.fecha)}">${escHtml(f.medio)} Q${Number(f.precio).toFixed(2)}</a>`).join(', ');
+                return `<li><strong>${escHtml(etiquetas[p.producto] || p.producto)}:</strong> ${fuentes}</li>`;
+            }).join('');
+            return `<details class="consejo-fuentes"><summary>Ver fuentes consultadas</summary><ul>${items}</ul></details>`;
+        }
+
         function renderPreciosCombustible(data) {
             const container = document.getElementById('preciosCombustible');
             let precios = data.precios_combustible || [];
@@ -821,7 +878,7 @@
             // ── Constantes de impuestos (Decreto 38-92 + IVA) ──
             const IDP = { superior: 4.70, regular: 4.60, diésel: 1.30 };
 
-            for (const p of precios) {
+            const filaPrecio = (p) => {
                 const producto = p.producto || 'superior';
                 const idp = IDP[producto] ?? 4.60;
                 const precioFinal = p.precio;
@@ -831,11 +888,11 @@
                 // Base = lo que queda despues de quitar IVA e IDP del precioFinal
                 const baseSinImpuestos = Math.max(0, precioFinal - ivamonto - idp);
 
-                html += `
+                return `
                     <div class="price-item">
                         <div>
                             <span class="price-label">${productos[producto] || producto}</span>
-                            ${p.nota ? `<br><small style="color:var(--text-muted)">${p.nota}</small>` : ''}
+                            ${badgeConfianza(p.consenso)}
                         </div>
                         <div class="price-values">
                             <span class="price-value-main"><span style="font-size:0.75em;font-weight:400;margin-right:6px;">Con IVA+IDP</span>${fmtQ(precioFinal)}</span>
@@ -843,6 +900,22 @@
                         </div>
                     </div>
                 `;
+            };
+
+            // Un bloque por modalidad: autoservicio primero, luego servicio completo.
+            // Consolidado anterior (sin modalidades) → solo autoservicio.
+            const porModalidad = data.precios_modalidades || { autoservicio: precios };
+            const NOMBRE_MOD = { autoservicio: 'Autoservicio', servicio_completo: 'Servicio completo' };
+            for (const mod of ['autoservicio', 'servicio_completo']) {
+                const filas = (porModalidad[mod] || [])
+                    .map(p => ({ ...p, producto: normalizar(p.producto) }))
+                    .filter(p => combustiblesPermitidos.has(p.producto) && typeof p.precio === 'number' && isFinite(p.precio))
+                    .sort((a, b) => (ordenMap.get(a.producto) ?? -1) - (ordenMap.get(b.producto) ?? -1));
+                if (!filas.length) continue;
+                html += `<div class="modalidad-bloque"><div class="modalidad-titulo">${NOMBRE_MOD[mod]}</div>`
+                      + filas.map(filaPrecio).join('')
+                      + fuentesConsejo(filas, productos)
+                      + '</div>';
             }
 
             const fecha = precios.length ? new Date(Math.max(...precios.map(p => new Date(p.fecha)))).toISOString().slice(0,10) : '';
@@ -2195,9 +2268,21 @@
 
         function adaptarConsolidado(c) {
             const P = c.productos || {};
+            const consensoDe = (p, mod) => (p.modalidades && p.modalidades[mod] && p.modalidades[mod].consenso) || null;
             const combustibles = Object.entries(P)
                 .filter(([, p]) => p.categoria === 'combustible' && p.actual)
-                .map(([codigo, p]) => ({ producto: codigo, ...p.actual }));
+                .map(([codigo, p]) => ({ producto: codigo, ...p.actual, consenso: consensoDe(p, 'autoservicio') }));
+            // Precios por modalidad (consolidado v3); v2 no trae `modalidades`
+            let preciosModalidades = null;
+            for (const [codigo, p] of Object.entries(P)) {
+                if (p.categoria !== 'combustible' || !p.modalidades) continue;
+                preciosModalidades = preciosModalidades || {};
+                for (const [mod, m] of Object.entries(p.modalidades)) {
+                    if (!m.actual) continue;
+                    (preciosModalidades[mod] = preciosModalidades[mod] || [])
+                        .push({ producto: codigo, ...m.actual, consenso: m.consenso || null });
+                }
+            }
             const wti = P.wti || {};
             const anios = new Map();
             for (const [codigo, p] of Object.entries(P)) {
@@ -2221,6 +2306,7 @@
                 resumen: {
                     actualizado_at: c.actualizado_at,
                     precios_combustible: combustibles,
+                    precios_modalidades: preciosModalidades,
                     petroleo: wti.actual ? [{
                         referencia: 'wti', fecha: wti.actual.fecha,
                         usd_barril: wti.actual.precio, fuente: wti.actual.fuente

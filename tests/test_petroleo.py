@@ -54,7 +54,9 @@ class TestFetchPrecioPetroleo:
             }
         }
 
-    def test_brent_con_api_key(self):
+    def test_referencia_siempre_wti(self):
+        """El proyecto usa solo WTI (Brent se retiró): aunque se pida otro código,
+        la referencia guardada es 'wti'."""
         from collector.petroleo import fetch_precio_petroleo
 
         mock_resp = MagicMock()
@@ -71,7 +73,7 @@ class TestFetchPrecioPetroleo:
         assert result is not None
         assert "fecha" in result
         assert abs(result["usd_barril"] - 71.45) < 0.01
-        assert result["referencia"] == "brent"
+        assert result["referencia"] == "wti"
 
     def test_wti_con_api_key(self):
         from collector.petroleo import fetch_precio_petroleo

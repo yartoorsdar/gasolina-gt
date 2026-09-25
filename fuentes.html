@@ -76,7 +76,7 @@
         </li>
         <li>
             <div class="t">Informe ejecutivo de precios — 23 de marzo de 2026 <span class="tag ok">usado</span></div>
-            <div class="d">Puntos semanales 23-feb → 23-mar-2026 (autoservicio).</div>
+            <div class="d">Puntos semanales 23-feb → 23-mar-2026 (autoservicio) y servicio completo del 19 y 23-mar.</div>
             <div class="links">
                 <a href="https://mem.gob.gt/wp-content/uploads/2026/03/INFORME-EJECUTIVO-DE-PRECIOS-DE-LOS-COMBUSTIBLES-AREA-METROPOLITANA-2026-03-23.pdf" target="_blank" rel="noopener">Original MEM</a>
                 <a href="https://web.archive.org/web/20260406024156/https://mem.gob.gt/wp-content/uploads/2026/03/INFORME-EJECUTIVO-DE-PRECIOS-DE-LOS-COMBUSTIBLES-AREA-METROPOLITANA-2026-03-23.pdf" target="_blank" rel="noopener">Copia Internet Archive</a>
@@ -85,7 +85,7 @@
         </li>
         <li>
             <div class="t">Informe ejecutivo de precios — 21 de septiembre de 2026 <span class="tag ok">usado</span></div>
-            <div class="d">Puntos semanales 17-ago → 21-sep-2026 (autoservicio).</div>
+            <div class="d">Puntos semanales 17-ago → 21-sep-2026 (autoservicio) y servicio completo del 16 y 21-sep.</div>
             <div class="links">
                 <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/raw/INFORME-EJECUTIVO-DE-PRECIOS-DE-LOS-COMBUSTIBLES-2026-09-21.pdf" target="_blank" rel="noopener">Copia en el repositorio</a>
             </div>
@@ -117,11 +117,48 @@
         </li>
     </ul>
 
-    <h2>2. Otras fuentes de precios de combustible</h2>
+    <h2>2. Consejo de precios (varias fuentes → un precio con confianza)</h2>
     <ul>
         <li>
-            <div class="t">GlobalPetrolPrices — Guatemala <span class="tag ok">colector diario</span></div>
-            <div class="d">Fuente alterna de prioridad baja: nunca reemplaza un dato del MEM.</div>
+            <div class="t">Cómo funciona <span class="tag ok">diario</span></div>
+            <div class="d">Cada día se buscan notas recientes sobre precios de combustible en Guatemala, se extrae cada precio
+                con su modalidad (autoservicio / servicio completo), fecha y cita textual, y se comparan las fuentes: coinciden
+                si difieren menos de Q0.20. Cada fuente pesa según su error histórico contra el dato oficial del MEM.
+                Confianza <strong class="ok">alta</strong>: 3+ fuentes coinciden (o el MEM + otra);
+                <strong class="warn">media</strong>: 2 coinciden o solo el MEM; <strong class="bad">baja</strong>: una sola fuente
+                no oficial o desacuerdo (no entra al historial). Se descartan precios estimados, históricos, de otros países y topes.</div>
+            <div class="links">
+                <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/db/observaciones.csv" target="_blank" rel="noopener">Cada precio encontrado (observaciones.csv)</a>
+                <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/db/consenso.csv" target="_blank" rel="noopener">Veredictos diarios (consenso.csv)</a>
+                <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/db/articulos.csv" target="_blank" rel="noopener">Notas leídas (articulos.csv)</a>
+            </div>
+        </li>
+        <li>
+            <div class="t">Buscador de notas: Bing News (RSS)</div>
+            <div class="d">Entrega enlaces directos a cada medio. Consultas configuradas en <code>config.json → consejo.consultas</code>.</div>
+            <div class="links"><a href="https://www.bing.com/news/search?q=precio+gasolina+superior+regular+di%C3%A9sel+Guatemala" target="_blank" rel="noopener">Ver búsqueda</a></div>
+        </li>
+        <li>
+            <div class="t">Medios consultados</div>
+            <div class="d">Se agregan solos cuando publican notas de precios. Extracción con LLM (Groq) y respaldo por patrones.</div>
+            <div class="links">
+                <a href="https://www.prensalibre.com/economia/" target="_blank" rel="noopener">Prensa Libre</a>
+                <a href="https://www.publinews.gt/" target="_blank" rel="noopener">Publinews</a>
+                <a href="https://emisorasunidas.com/" target="_blank" rel="noopener">Emisoras Unidas</a>
+                <a href="https://lahora.gt/" target="_blank" rel="noopener">La Hora</a>
+                <a href="https://agn.gt/" target="_blank" rel="noopener">AGN</a>
+                <a href="https://lared1061.com/" target="_blank" rel="noopener">La Red 106.1</a>
+                <a href="https://www.guatemala.com/noticias/" target="_blank" rel="noopener">Guatemala.com</a>
+                <a href="https://www.infobae.com/" target="_blank" rel="noopener">Infobae</a>
+            </div>
+        </li>
+    </ul>
+
+    <h2>3. Otras fuentes de precios de combustible</h2>
+    <ul>
+        <li>
+            <div class="t">GlobalPetrolPrices — Guatemala <span class="tag ok">consejo (servicio completo)</span></div>
+            <div class="d">Su "gasoline" coincide con la Superior de servicio completo del MEM (Q45.74 el 21-sep-2026). Entra al consejo como observación de servicio completo; nunca reemplaza un dato del MEM.</div>
             <div class="links"><a href="https://globalpetrolprices.com/Guatemala/" target="_blank" rel="noopener">globalpetrolprices.com/Guatemala</a></div>
         </li>
         <li>
@@ -141,7 +178,7 @@
         </li>
     </ul>
 
-    <h2>3. Petróleo (WTI)</h2>
+    <h2>4. Petróleo (WTI)</h2>
     <ul>
         <li>
             <div class="t">OilPriceAPI <span class="tag ok">usado</span></div>
@@ -155,7 +192,7 @@
         </li>
     </ul>
 
-    <h2>4. Noticias (feeds RSS)</h2>
+    <h2>5. Noticias (feeds RSS)</h2>
     <ul>
         <li>
             <div class="t">Google News (búsquedas temáticas)</div>
@@ -177,7 +214,7 @@
         </li>
     </ul>
 
-    <h2>5. Datos del proyecto</h2>
+    <h2>6. Datos del proyecto</h2>
     <ul>
         <li>
             <div class="t">Historial por producto y consolidado</div>

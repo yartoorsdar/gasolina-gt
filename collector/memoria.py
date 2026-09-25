@@ -5,11 +5,14 @@ verdad del historial entre runs:
 
   data/db/
     regular.csv       ← historial diario de cada producto del catálogo
-    superior.csv         (mismas columnas en todos: fecha,precio,fuente)
+    superior.csv         (mismas columnas en todos: fecha,modalidad,precio,fuente)
     diesel.csv
     wti.csv
     mensual.csv       ← promedios mensuales oficiales MEM (autoservicio,
                          Ciudad Capital) 2020-01 → (anio,mes,producto,promedio,fuente)
+    observaciones.csv ← precios encontrados por fuente (insumo del consejo)
+    articulos.csv     ← notas ya leídas (no se reprocesan)
+    consenso.csv      ← veredicto diario del consejo (precio + confianza)
     anual_semilla.csv ← promedios anuales de años SIN datos diarios ni mensuales
                          (anio,producto,promedio,fuente)
 
@@ -30,7 +33,25 @@ MEMORIA_DIR = Path(__file__).resolve().parent.parent / "data" / "db"
 SEMILLA_ANUAL_CSV = MEMORIA_DIR / "anual_semilla.csv"
 MENSUAL_CSV = MEMORIA_DIR / "mensual.csv"
 
-_COLUMNAS = ("fecha", "precio", "fuente")
+_COLUMNAS = ("fecha", "modalidad", "precio", "fuente")
+
+# Tablas del consejo que también persisten en git (misma forma genérica:
+# columnas fijas, orden fijo → archivo determinista). Se omiten ids y
+# timestamps de cálculo para no generar diffs sin cambios reales.
+TABLAS_MEMORIA = {
+    "observaciones": {
+        "columnas": ("fecha", "producto", "modalidad", "precio", "tipo", "medio", "url", "cita", "extractor", "fetched_at"),
+        "orden": "fecha, producto, modalidad, medio, url, tipo",
+    },
+    "articulos": {
+        "columnas": ("url", "medio", "titulo", "publicado", "procesado_at", "extractor", "n_obs", "error"),
+        "orden": "url",
+    },
+    "consenso": {
+        "columnas": ("fecha", "producto", "modalidad", "precio", "confianza", "n_coinciden", "n_fuentes", "fuentes"),
+        "orden": "fecha, producto, modalidad",
+    },
+}
 
 
 def _ruta(producto: str, carpeta: Path) -> Path:
@@ -39,10 +60,11 @@ def _ruta(producto: str, carpeta: Path) -> Path:
 
 
 def exportar_memoria(conn=None, carpeta: Path | None = None) -> dict[str, int]:
-    """Vuelca el historial de cada producto a su CSV (sobrescribe).
+    """Vuelca el historial de cada producto (todas sus modalidades) a su CSV y
+    las tablas del consejo a <tabla>.csv (sobrescribe).
 
     Returns:
-        {producto: filas escritas}
+        {producto|tabla: filas escritas}
     """
     from collector.db import PRODUCTOS, conectar, leer_historial  # perezoso: runnable directo
 
@@ -53,13 +75,22 @@ def exportar_memoria(conn=None, carpeta: Path | None = None) -> dict[str, int]:
 
     escritas = {}
     for producto in PRODUCTOS:
-        rows = leer_historial(conn, producto)
+        rows = leer_historial(conn, producto, todas=True)
         with open(_ruta(producto, carpeta), "w", encoding="utf-8", newline="") as f:
             writer = csv.writer(f, lineterminator="\n")
             writer.writerow(_COLUMNAS)
             for r in rows:
-                writer.writerow([r["fecha"], repr(float(r["precio"])), r["fuente"]])
+                writer.writerow([r["fecha"], r["modalidad"], repr(float(r["precio"])), r["fuente"]])
         escritas[producto] = len(rows)
+
+    for tabla, meta in TABLAS_MEMORIA.items():
+        cols = meta["columnas"]
+        rows = conn.execute(f"SELECT {', '.join(cols)} FROM {tabla} ORDER BY {meta['orden']}").fetchall()
+        with open(carpeta / f"{tabla}.csv", "w", encoding="utf-8", newline="") as f:
+            writer = csv.writer(f, lineterminator="\n")
+            writer.writerow(cols)
+            writer.writerows([["" if v is None else v for v in r] for r in rows])
+        escritas[tabla] = len(rows)
 
     if propia:
         conn.close()
@@ -69,15 +100,16 @@ def exportar_memoria(conn=None, carpeta: Path | None = None) -> dict[str, int]:
 
 
 def importar_memoria(conn=None, carpeta: Path | None = None) -> dict[str, int]:
-    """Siembra la tabla precios desde los CSV de cada producto.
+    """Siembra precios (por producto) y tablas del consejo desde los CSV.
 
-    No pisa filas existentes (sobrescribir=False): lo de hoy lo definen
-    después los colectores. Producto sin CSV = primer ciclo, se omite.
+    No pisa filas existentes: lo de hoy lo definen después los colectores.
+    Archivo ausente = primer ciclo, se omite. CSV de precios sin columna
+    `modalidad` (formato anterior) = modalidad principal del producto.
 
     Returns:
-        {producto: filas insertadas}
+        {producto|tabla: filas insertadas}
     """
-    from collector.db import PRODUCTOS, conectar, guardar_precios  # perezoso: runnable directo
+    from collector.db import PRODUCTOS, ahora_gt_iso, conectar, guardar_precios  # perezoso
 
     carpeta = carpeta or MEMORIA_DIR
     propia = conn is None
@@ -95,6 +127,26 @@ def importar_memoria(conn=None, carpeta: Path | None = None) -> dict[str, int]:
         insertadas[producto] = conteo["insertados"]
         if conteo["invalidos"]:
             print(f"[memoria] {path.name}: {conteo['invalidos']} fila(s) inválida(s) omitida(s)")
+
+    for tabla, meta in TABLAS_MEMORIA.items():
+        path = carpeta / f"{tabla}.csv"
+        if not path.exists():
+            insertadas[tabla] = 0
+            continue
+        with open(path, "r", encoding="utf-8") as f:
+            filas = [{k: (v if v != "" else None) for k, v in r.items()} for r in csv.DictReader(f)]
+        cols = list(meta["columnas"])
+        if tabla == "consenso":
+            cols.append("calculado_at")
+            for r in filas:
+                r["calculado_at"] = ahora_gt_iso()
+        antes = conn.execute(f"SELECT COUNT(*) FROM {tabla}").fetchone()[0]
+        conn.executemany(
+            f"INSERT OR IGNORE INTO {tabla} ({', '.join(cols)}) VALUES ({', '.join('?' * len(cols))})",
+            [[r.get(c) for c in cols] for r in filas],
+        )
+        conn.commit()
+        insertadas[tabla] = conn.execute(f"SELECT COUNT(*) FROM {tabla}").fetchone()[0] - antes
 
     if propia:
         conn.close()
