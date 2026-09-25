@@ -88,7 +88,7 @@
         .card h2 {
             font-size: 1.12rem;
             font-weight: 800;
-            color: var(--text);
+            color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 1.2px;
             text-align: center;
@@ -350,14 +350,35 @@
             background: rgba(255, 255, 255, 0.03);
         }
 
+        .oil-impact-alert.semaforo > div:last-child {
+            flex: 1;
+            min-width: 0;
+        }
+
         .semaforo-lamps {
             flex: 0 0 auto;
+            align-self: center;
             display: flex;
             flex-direction: column;
             gap: 7px;
             background: rgba(0, 0, 0, 0.45);
             border-radius: 20px;
             padding: 9px 8px;
+        }
+
+        @media (max-width: 480px) {
+            .oil-impact-alert.semaforo {
+                gap: 10px;
+                padding: 10px 12px;
+            }
+            .semaforo-lamps {
+                gap: 6px;
+                padding: 8px 7px;
+            }
+            .lamp {
+                width: 14px;
+                height: 14px;
+            }
         }
 
         .lamp {
@@ -397,13 +418,6 @@
         .news-topic-line { margin-bottom: 8px; }
         .news-topic-line:last-child { margin-bottom: 0; }
 
-        .news-legend {
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin: -2px 0 12px 0;
-        }
-
         .news-item {
             padding: 12px 0;
             border-bottom: 1px solid var(--border);
@@ -412,12 +426,12 @@
         .news-item:last-child { border-bottom: none; }
 
         .news-title {
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 4px;
         }
 
         .news-title a {
-            color: var(--text);
+            color: #ffffff;
             text-decoration: none;
         }
 
@@ -643,7 +657,6 @@
             <!-- Noticias -->
             <div class="card glass-card glass-card-animated" style="margin-top: 16px;">
                 <h2 class="news-section-title">&#x1F4F0; Top 5: noticias que pueden mover el precio del combustible</h2>
-                <p class="news-legend">★★★★★ = mayor impacto estimado en el precio y abastecimiento en Guatemala</p>
 
                 <!-- Semáforo de impacto petrolero (con motivo) -->
                 <div id="oilImpactAlert" style="display:none;"></div>

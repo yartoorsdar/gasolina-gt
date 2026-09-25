@@ -430,6 +430,7 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
     # Guardia de frescura: si lo más nuevo que hay es viejo (ej. un run parcial
     # solo-MEM con DB efímera), se marca para no presentar 2024 como "actual".
     from collector.db import hoy_gt as _hoy_gt
+    from collector import noticias as _noticias_mod
     _hoy = _hoy_gt()
     _max_fecha = max((p.get("fecha") or "" for p in precios_actuales), default="")
     try:
@@ -451,7 +452,8 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
         "max_fecha_precios": _max_fecha,
         "petroleo": petroleo_actual,
         "noticias_count": len(noticias),
-        "noticias_llm": {"titulos_es_hoy": _es_hoy, "total_hoy": _tot_hoy},
+        "noticias_llm": {"titulos_es_hoy": _es_hoy, "total_hoy": _tot_hoy,
+                         "error": getattr(_noticias_mod, "_last_llm_error", None)},
         "ultimas_noticias": top_noticias[:10],  # top 10 por relevancia + fecha
     }
 

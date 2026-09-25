@@ -245,6 +245,10 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
 # LLM en lote (1 request para N noticias) + selección rotativa
 # ──────────────────────────────────────────────
 
+# Último error del LLM (diagnóstico exportado a resumen.json)
+_last_llm_error: str | None = None
+
+
 def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | None:
     """Un request al LLM (una sola tentativa, modo plano).
 
@@ -286,6 +290,8 @@ def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | Non
         data = resp.json()
         return data["choices"][0]["message"]["content"]
     except Exception as exc:
+        global _last_llm_error
+        _last_llm_error = str(exc)[:160]
         print(f"[noticias] Error LLM: {exc}")
         return None
 
@@ -514,6 +520,9 @@ def ejecutar(cfg: dict = None) -> dict:
 
     feeds = cfg.get("noticias", {}).get("feeds", [])
 
+    global _last_llm_error
+    _last_llm_error = None
+
     resultados = {
         "fuente": "",
         "feeds_procesados": 0,
@@ -573,6 +582,7 @@ def ejecutar(cfg: dict = None) -> dict:
     inserted = guardar_noticias(all_items, cfg)
     resultados["insertados"] = inserted
     resultados["fuente"] = "rss_feeds"
+    resultados["llm_error"] = _last_llm_error
 
     return resultados
 
