@@ -1,4 +1,11 @@
 {
-  "precios": [],
-  "actualizado_at": "2026-09-25T03:33:23+00:00"
+  "precios": [
+    {
+      "referencia": "wti",
+      "fecha": "2026-09-24",
+      "usd_barril": 93.06,
+      "fuente": "OilPriceAPI"
+    }
+  ],
+  "actualizado_at": "2026-09-25T03:56:14+00:00"
 }

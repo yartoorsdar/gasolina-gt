@@ -1,6 +1,76 @@
 {
-  "datos": [],
-  "productos": [],
-  "total_registros": 0,
-  "actualizado_at": "2026-09-25T03:33:23+00:00"
+  "datos": [
+    {
+      "id": 6,
+      "fecha": "2026-03-05",
+      "producto": "superior",
+      "precio": 30.54,
+      "fuente": "Chapin TV",
+      "fetched_at": "2026-09-24T21:55:22-06:00"
+    },
+    {
+      "id": 3,
+      "fecha": "2026-09-05",
+      "producto": "superior",
+      "precio": 43.09,
+      "fuente": "Chapin TV",
+      "fetched_at": "2026-09-24T21:55:22-06:00"
+    },
+    {
+      "id": 1,
+      "fecha": "2026-09-24",
+      "producto": "superior",
+      "precio": 45.74,
+      "fuente": "GlobalPetrolPrices",
+      "fetched_at": "2026-09-24T21:55:22-06:00"
+    },
+    {
+      "id": 7,
+      "fecha": "2026-03-05",
+      "producto": "regular",
+      "precio": 29.53,
+      "fuente": "Chapin TV",
+      "fetched_at": "2026-09-24T21:55:22-06:00"
+    },
+    {
+      "id": 4,
+      "fecha": "2026-09-05",
+      "producto": "regular",
+      "precio": 41.09,
+      "fuente": "Chapin TV",
+      "fetched_at": "2026-09-24T21:55:22-06:00"
+    },
+    {
+      "id": 5,
+      "fecha": "2026-09-05",
+      "producto": "diésel",
+      "precio": 46.39,
+      "fuente": "Chapin TV",
+      "fetched_at": "2026-09-24T21:55:22-06:00"
+    },
+    {
+      "id": 2,
+      "fecha": "2026-09-24",
+      "producto": "diésel",
+      "precio": 50.5,
+      "fuente": "GlobalPetrolPrices",
+      "fetched_at": "2026-09-24T21:55:22-06:00"
+    },
+    {
+      "id": 8,
+      "fecha": "2026-09-24",
+      "producto": "wti",
+      "precio": 93.06,
+      "fuente": "OilPriceAPI",
+      "fetched_at": "2026-09-24T21:55:23-06:00"
+    }
+  ],
+  "productos": [
+    "superior",
+    "regular",
+    "diésel",
+    "wti"
+  ],
+  "total_registros": 8,
+  "actualizado_at": "2026-09-25T03:56:14+00:00"
 }

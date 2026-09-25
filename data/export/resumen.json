@@ -1,28 +1,176 @@
 {
-  "actualizado_at": "2026-09-25T03:33:23+00:00",
+  "actualizado_at": "2026-09-25T03:56:14+00:00",
   "precios_combustible": [
     {
-      "id": 958,
-      "fecha": "2024-10-27",
-      "producto": "regular",
-      "precio": 28.62,
-      "fuente": "Ministerio de Energía y Minas",
-      "fetched_at": "2026-09-24T21:33:19-06:00"
+      "id": 2,
+      "fecha": "2026-09-24",
+      "producto": "diésel",
+      "precio": 50.5,
+      "fuente": "GlobalPetrolPrices",
+      "fetched_at": "2026-09-24T21:55:22-06:00"
     },
     {
-      "id": 957,
-      "fecha": "2024-10-27",
+      "id": 1,
+      "fecha": "2026-09-24",
       "producto": "superior",
-      "precio": 30.11,
-      "fuente": "Ministerio de Energía y Minas",
-      "fetched_at": "2026-09-24T21:33:19-06:00"
+      "precio": 45.74,
+      "fuente": "GlobalPetrolPrices",
+      "fetched_at": "2026-09-24T21:55:22-06:00"
+    },
+    {
+      "id": 4,
+      "fecha": "2026-09-05",
+      "producto": "regular",
+      "precio": 41.09,
+      "fuente": "Chapin TV",
+      "fetched_at": "2026-09-24T21:55:22-06:00"
     }
   ],
-  "petroleo": [],
-  "noticias_count": 0,
+  "precios_actualizados": true,
+  "max_fecha_precios": "2026-09-24",
+  "petroleo": [
+    {
+      "referencia": "wti",
+      "fecha": "2026-09-24",
+      "usd_barril": 93.06,
+      "fuente": "OilPriceAPI"
+    }
+  ],
+  "noticias_count": 143,
   "noticias_llm": {
     "titulos_es_hoy": 0,
-    "total_hoy": 0
+    "total_hoy": 153
   },
-  "ultimas_noticias": []
+  "ultimas_noticias": [
+    {
+      "id": 31,
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNeFd0akhaaFhCeVNSaUh5Y0N2UDd0UldJQmQ4aXl0UkFNWjhxMm82blVmMXNIVG8tVUpKQUhUSFFabUd1a2Iza2FXUWU2RTBrdEJwakg4aTBsZVZKUmVZQkh0Wl9heEdkaEZ0cHQ0WnJQaE1OejMyMEpudzk3X1I4bnVBcnpzMmV3LWh1UTVuOUcxNERKRTJHaHdmZWJJZGNBaEtOTlBkVU1XeklpV0FNUWJ5bW83eWY2dUFnMGExcEpwcXJvOF9XLWxSNGxzZw?oc=5",
+      "titulo": "Ukrainian forces reportedly strike oil refinery 1,500 kilometers from border, Russian electronics factory - The Kyiv Independent",
+      "titulo_es": null,
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-24T20:28:28-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxNeFd0akhaaFhCeVNSaUh5Y0N2UDd0UldJQmQ4aXl0UkFNWjhxMm82blVmMXNIVG8tVUpKQUhUSFFabUd1a2Iza2FXUWU2RTBrdEJwakg4aTBsZVZKUmVZQkh0Wl9heEdkaEZ0cHQ0WnJQaE1OejMyMEpudzk3X1I4bnVBcnpzMmV3LWh1UTVuOUcxNERKRTJHaHdmZWJJZGNBaEtOTlBkVU1XeklpV0FNUWJ5bW83eWY2dUFnMGExcEpwcXJvOF9XLWxSNGxzZw?oc=5\" target=\"_blank\">Ukrainian forces reportedly strike oil refinery 1,500 kilometers from border, Russian electronics factory</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Ky",
+      "fetched_at": "2026-09-24T21:56:14-06:00"
+    },
+    {
+      "id": 81,
+      "url": "https://oilprice.com/Energy/Crude-Oil/5-Energy-Stocks-Positioned-for-a-Prolonged-Iran-War.html",
+      "titulo": "5 Energy Stocks Positioned for a Prolonged Iran War",
+      "titulo_es": null,
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T18:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "For the first time since the Iran war began, JPMorgan says it no longer has a clear baseline for how the oil market gets out of it. The bank had previously worked on the assumption that rising oil prices and the economic damage they caused would eventually put limits on how far the conflict could go. Six months into the war, JPMorgan says many of those thresholds have already been crossed without producing a clear exit. Roughly 10 million barrels per day of oil supply has been disrupted, while t",
+      "fetched_at": "2026-09-24T21:56:14-06:00"
+    },
+    {
+      "id": 61,
+      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOeXR1bW9EYlJQUWFIZUxvZnprNHpNUFZQNTJDQ2NXZmVzRFQ4N2Y1OWZIZnNxVS1xQzB3X2VuVG5GZFB6S0l0ZlNseTRRSFk1OHp2dHdVa2JCaXB5Vm9XT2FuWE9ETzlKcjlCYWRZOXhpcXlOcENueTRISE5uTE50V0JBZHRoZmY4R0FMZkV6UV9GdjEwOTV1S2xHZnduSDlKMnFhYnllM0hEbmlrMW9Jek4xWW1wLTlzYTU0MGE1ZWZReFFNeTFnQ1dnMjVlWkUzVk9scjVHVHNzenEwMGZLRVk2aG56STY5U2R4dnJVM2xWRGgxbHNlZ2tPWVR6cHpS0gGbAkFVX3lxTE8yZ0YtWFpnYl9PNjdKVjlVNXgwLVE5S3BRQkNXQVFYU0hFdHN1VllWQmdHQXpEM0haVlctdEcxRm4tMDR3eTFmc0NrWWRJSnN0cmU4WDFEaVFuMGN6T04xTl9ES2lYNHpBYnJ0eUpyV2dORTNZWWdGQ3JWckp6YTdGY09nNGdiNHBqUk8xS1Z4X2t4OVhtZWRqaFZvbVhubGpYQjloSWdwV29pbE1uWUdydmVpM090MDlHTXFJRXpDcURFcDFodzBONTA4X3loRE4wN2ZRLUN4SWhpSUV0WFRDa1pXYXRWSUIzOF8zMmpUS18zS0kxV3pFTmlYZjVpQ0ZnWnRUUXpId1l0Z1JUU01jSFZlV1N4Z2R5UWs?oc=5",
+      "titulo": "El Congreso de Guatemala despeja el camino para que Arévalo decida entre dos mecanismos de control de precios de combustibles - Infobae",
+      "titulo_es": null,
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-24T17:56:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMigAJBVV95cUxOeXR1bW9EYlJQUWFIZUxvZnprNHpNUFZQNTJDQ2NXZmVzRFQ4N2Y1OWZIZnNxVS1xQzB3X2VuVG5GZFB6S0l0ZlNseTRRSFk1OHp2dHdVa2JCaXB5Vm9XT2FuWE9ETzlKcjlCYWRZOXhpcXlOcENueTRISE5uTE50V0JBZHRoZmY4R0FMZkV6UV9GdjEwOTV1S2xHZnduSDlKMnFhYnllM0hEbmlrMW9Jek4xWW1wLTlzYTU0MGE1ZWZReFFNeTFnQ1dnMjVlWkUzVk9scjVHVHNzenEwMGZLRVk2aG56STY5U2R4dnJVM2xWRGgxbHNlZ2tPWVR6cHpS0gGbAkFVX3lxTE8yZ0YtWFpnYl9PNjdKVjlVNXgwLVE5S3BRQkNXQVFYU0hFdHN1VllWQmdHQXpEM0haVlctdEcxRm4tMDR3eTFmc0NrWW",
+      "fetched_at": "2026-09-24T21:56:14-06:00"
+    },
+    {
+      "id": 82,
+      "url": "https://oilprice.com/Energy/Crude-Oil/Soaring-Freight-Costs-Make-Japans-Crude-Imports-the-Worlds-Most-Expensive.html",
+      "titulo": "Soaring Freight Costs Make Japan’s Crude Imports the World’s Most Expensive",
+      "titulo_es": null,
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T17:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Oil is increasingly getting more expensive before it even reaches a refinery. Freight now accounts for roughly a fifth of the cost of a crude cargo, turning the tanker market into a major driver of the price buyers pay. At the center of the squeeze is the very large crude carrier, or VLCC, the supertanker that can move about 2 million barrels in a single voyage. Amidst stranded Gulf and Red Sea supplies, these vessels are spending more time at sea as refiners search farther afield for supplies. ",
+      "fetched_at": "2026-09-24T21:56:14-06:00"
+    },
+    {
+      "id": 137,
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1iS2FyM2tvTTlYcFMwWkNBa1BJYzh5T1d0UC1kZXRka0JBUUxqcncweEJDYVBMQV9mQkRYOUVsRjlLNlBkUHQ3bXNqZVZXSkc4R3FoUE83T2twZGpv0gFiQVVfeXFMT1ZrVWF6d2hJb3MtWHRtc1ZRNkdKbVRJWVN4dlZOMmsyNTBkWFlSVTBVZWJuekN5YzYzS0p0R2Q3UmIwTFRCVktjMGRSUWpTSVZObVB6a0tNNmZwdGl1QlJtaEE?oc=5",
+      "titulo": "En video: decenas de delegados abandonan la Asamblea General de la ONU durante la intervención de Netanyahu - BBC",
+      "titulo_es": null,
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-24T16:16:29-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE1iS2FyM2tvTTlYcFMwWkNBa1BJYzh5T1d0UC1kZXRka0JBUUxqcncweEJDYVBMQV9mQkRYOUVsRjlLNlBkUHQ3bXNqZVZXSkc4R3FoUE83T2twZGpv0gFiQVVfeXFMT1ZrVWF6d2hJb3MtWHRtc1ZRNkdKbVRJWVN4dlZOMmsyNTBkWFlSVTBVZWJuekN5YzYzS0p0R2Q3UmIwTFRCVktjMGRSUWpTSVZObVB6a0tNNmZwdGl1QlJtaEE?oc=5\" target=\"_blank\">En video: decenas de delegados abandonan la Asamblea General de la ONU durante la intervención de Netanyahu</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>",
+      "fetched_at": "2026-09-24T21:56:14-06:00"
+    },
+    {
+      "id": 83,
+      "url": "https://oilprice.com/Energy/Energy-General/Why-a-US-Diesel-Export-Ban-Wont-Lower-Fuel-Prices.html",
+      "titulo": "Why a U.S. Diesel Export Ban Won’t Lower Fuel Prices",
+      "titulo_es": null,
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T16:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "As the national average diesel price soared to a record $6.52 per gallon, the Trump Administration sent mixed signals this week about restricting U.S. diesel exports.  The White House has denied that an export ban is in the works, even if President Donald Trump and Treasury Secretary Scott Bessent had hinted at the possibility hours earlier.  Rumors and reports of a diesel ban sparked vehement opposition from the U.S. energy and manufacturing industries, while analysts say restricting exports wo",
+      "fetched_at": "2026-09-24T21:56:14-06:00"
+    },
+    {
+      "id": 2,
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPSTJMTUpOdnRremU0Nm1HcVlQSEliNjJsM1kzWGZMUzVZbURqYzVKeUdha3NxZk1GajA4eG4zdjdfSUNPT08zbUkzbzNwLUVZNXRWdG5DS0Q2Nk1uNGxjTHpWTXVJcG81NXlORklrN2xRb2htOHFob0NCUEZMY2tGUmJuQm9neHgwWWNncE1ER0Z4ME42STZPaVp4RzUtT1NGQ2RjU3Z0R1NCSFlOM1VrcFVmdW0xdlBaVHloVmlFSmV6WDNjVmkxQ2x1N0pZZ9IB6AFBVV95cUxQQUR2SC14dUl3akhBNzRJa1lacE9oeHdXWHE4QV9HcGFJOUlyNTNPOGdHRW1KZmhNdjRUd2Q1bkpuZlVpTVJ0RWNJcVhHcm9Ud0JPdi13bnEzbUFpTUxDWTlNRHlyTl80c05hUk4wNHh3YWdUenl5X29FRllxMnlLd2o4b3NVY2VHUmJJblc0elFKanR6Um5JTkFadXM2dEZqWm1WWGpZa1A2UmdSLVpiRzBGTWJ0OENBbHlDa25VLWhOWGZSZXZvYXcwN1NHdEVCaGxJaVlaZW5jbnE2d2w0OHNnRUFvWmU0?oc=5",
+      "titulo": "El petróleo volvió a subir tras un nuevo ataque de los hutíes contra Arabia Saudita - Infobae",
+      "titulo_es": null,
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-24T15:34:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxPSTJMTUpOdnRremU0Nm1HcVlQSEliNjJsM1kzWGZMUzVZbURqYzVKeUdha3NxZk1GajA4eG4zdjdfSUNPT08zbUkzbzNwLUVZNXRWdG5DS0Q2Nk1uNGxjTHpWTXVJcG81NXlORklrN2xRb2htOHFob0NCUEZMY2tGUmJuQm9neHgwWWNncE1ER0Z4ME42STZPaVp4RzUtT1NGQ2RjU3Z0R1NCSFlOM1VrcFVmdW0xdlBaVHloVmlFSmV6WDNjVmkxQ2x1N0pZZ9IB6AFBVV95cUxQQUR2SC14dUl3akhBNzRJa1lacE9oeHdXWHE4QV9HcGFJOUlyNTNPOGdHRW1KZmhNdjRUd2Q1bkpuZlVpTVJ0RWNJcVhHcm9Ud0JPdi13bnEzbUFpTUxDWTlNRHlyTl80c05hUk4wNHh3YWdUenl5X29FRllxMn",
+      "fetched_at": "2026-09-24T21:56:14-06:00"
+    },
+    {
+      "id": 84,
+      "url": "https://oilprice.com/Energy/Energy-General/Can-the-World-Hit-35-Electrification-by-2035.html",
+      "titulo": "Can the World Hit 35% Electrification by 2035?",
+      "titulo_es": null,
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T15:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "The energy crisis caused by the United States and Israel’s war in Iran could be just what the world needed to achieve 35 percent electrification by 2035. This goal, “35 by ‘35” has emerged as a key platform of the upcoming COP31 United Nations climate conference, to be held in Antalya, Türkiye, from November 9 to 20, 2026. And experts say that a number of factors, including volatile oil and gas markets stemming from the prolonged closure of the Strait of Hormuz, have put that goal within “striki",
+      "fetched_at": "2026-09-24T21:56:14-06:00"
+    },
+    {
+      "id": 11,
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPYmNHVmRmVGtuc1Jzd21CdG1YaW1SQ3FGcTN6X2VEcmpRMnVPYW5RRVBCQi1UalpsbGstc3hlSzdhalRvWk5tMklYMS00Z0hiNzB1SVZucHEybG13Z0otM3o3Q0xRUFFicnkzWi00MjZPdTNKSUJBdVdSLVhIUnBucFUxek9iS3pWQUZGQXpVcGFjaFcwUms5ODJPRDZhRXc?oc=5",
+      "titulo": "El petróleo de Texas sube un 2,7% tras ataques contra objetivos militares en Arabia Saudí - bancaynegocios.com",
+      "titulo_es": null,
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-24T14:18:04-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxPYmNHVmRmVGtuc1Jzd21CdG1YaW1SQ3FGcTN6X2VEcmpRMnVPYW5RRVBCQi1UalpsbGstc3hlSzdhalRvWk5tMklYMS00Z0hiNzB1SVZucHEybG13Z0otM3o3Q0xRUFFicnkzWi00MjZPdTNKSUJBdVdSLVhIUnBucFUxek9iS3pWQUZGQXpVcGFjaFcwUms5ODJPRDZhRXc?oc=5\" target=\"_blank\">El petróleo de Texas sube un 2,7% tras ataques contra objetivos militares en Arabia Saudí</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">bancaynegocios.com</font>",
+      "fetched_at": "2026-09-24T21:56:14-06:00"
+    },
+    {
+      "id": 85,
+      "url": "https://oilprice.com/Alternative-Energy/Biofuels/Global-Biofuels-Output-Could-Surge-70-Amid-Energy-Crisis.html",
+      "titulo": "Global Biofuels Output Could Surge 70% Amid Energy Crisis",
+      "titulo_es": null,
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T14:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Global biofuels production is projected to surge by nearly 70% by 2030 as major producing countries raise their fuel-blending mandates in response to the energy crisis triggered by the Middle East conflict, a study co-authored by British think tank Chatham House and Forest Stewardship Council has found.  Biofuels like ethanol, which typically originate from food crops or animal feed and are mixed with gasoline or diesel, become more cost-competitive as crude oil and gasoline prices spike. Severa",
+      "fetched_at": "2026-09-24T21:56:14-06:00"
+    }
+  ]
 }
