@@ -505,7 +505,7 @@ _FB_BAJADA = [
 # ──────────────────────────────────────────────
 
 DIAS_MAX_NOTICIA = 15   # antigüedad máxima (días) de una noticia publicable
-NOTICIAS_MINIMAS = 5    # el dashboard debe tener al menos estas en español
+NOTICIAS_MINIMAS = 10   # el dashboard debe tener al menos estas en español
 
 _RE_PETROLEO = re.compile(
     r"\b(petr[oó]le\w*|crudo|barril\w*|wti|brent|opep|opec|refiner\w*|refino|refinaci\w*|"
@@ -552,6 +552,97 @@ def es_relevante(titulo: str, resumen: str = "") -> bool:
     return bool(_RE_CONFLICTO.search(texto) and _RE_REGION.search(texto))
 
 
+# ──────────────────────────────────────────────
+# Duplicados: la misma historia contada por varios medios (o en otro idioma)
+# se muestra UNA vez. Comparar palabras no basta ("Guatemala exonera impuestos
+# … protestas" vs "Dos policías heridos … protesta" se parecen igual que dos
+# versiones del mismo hecho), así que el LLM agrupa por HECHO; sin LLM, un
+# respaldo léxico estricto que solo une casi-copias.
+# ──────────────────────────────────────────────
+
+DUP_MAX_CANDIDATOS = 40   # titulares que se envían al LLM para agrupar
+DUP_JACCARD_MIN = 0.5     # respaldo sin LLM: palabras en común / palabras totales
+
+_STOP_DUP = set(
+    "para como pero sobre tras entre desde hasta ante segun este esta estos estas "
+    "that this with from after over into amid says said will their than they have "
+    "been more what when were about could would".split()
+)
+
+
+def _firma_titulo(titulo: str) -> set[str]:
+    """Raíces (6 letras) de las palabras significativas, sin acentos ni medio."""
+    import unicodedata
+    t = re.sub(r"\s+-\s+[^-]+$", "", titulo or "")  # quitar " - Medio" final
+    t = unicodedata.normalize("NFKD", t.lower())
+    t = "".join(ch for ch in t if not unicodedata.combining(ch))
+    return {w[:6] for w in re.findall(r"[a-z0-9]+", t) if len(w) >= 4 and w not in _STOP_DUP}
+
+
+def _parecidos_lexico(a: str, b: str) -> bool:
+    fa, fb = _firma_titulo(a), _firma_titulo(b)
+    return bool(fa and fb) and len(fa & fb) / len(fa | fb) >= DUP_JACCARD_MIN
+
+
+def _titulo_de(it: dict) -> str:
+    return it.get("titulo_es") or it.get("title") or it.get("titulo") or ""
+
+
+def _grupos_duplicados_llm(titulos: list[str], cfg: dict) -> list[list[int]] | None:
+    """Una sola consulta al LLM: grupos de índices que cuentan el MISMO hecho.
+
+    None si el LLM falla (el llamador usa el respaldo léxico).
+    """
+    llm_cfg = cfg.get("llm", {})
+    base_url = llm_cfg.get("base_url", "").strip().rstrip("/")
+    lista = "\n".join(f"[{i}] {re.sub(r'\s+-\s+[^-]+$', '', t)[:160]}" for i, t in enumerate(titulos))
+    prompt = (
+        "Estos son titulares de noticias (pueden estar en distintos idiomas). Agrupa SOLO los que "
+        "informan sobre el MISMO hecho concreto (mismo evento, mismo lugar, mismos días). Noticias del "
+        "mismo tema pero de hechos distintos NO se agrupan. Responde SOLO JSON "
+        '{"grupos": [[0, 4], [2, 7, 9]]} con los índices; omite las que no tengan duplicado '
+        '(si no hay ninguno: {"grupos": []}).\n\n' + lista
+    )
+    raw = _llm_post(prompt, base_url, llm_cfg.get("model", ""), _obtener_api_key(llm_cfg, base_url))
+    if raw is None:
+        return None
+    raw = re.sub(r"^```(?:json)?|```$", "", raw.strip(), flags=re.MULTILINE).strip()
+    try:
+        grupos = json.loads(raw).get("grupos", [])
+    except (json.JSONDecodeError, AttributeError):
+        return None
+    vistos, limpios = set(), []
+    for g in grupos if isinstance(grupos, list) else []:
+        idx = sorted({i for i in g if isinstance(i, int) and 0 <= i < len(titulos)} - vistos)
+        if len(idx) >= 2:
+            limpios.append(idx)
+            vistos.update(idx)
+    return limpios
+
+
+def quitar_duplicados(items: list[dict], cfg: dict = None, usar_llm: bool = False) -> list[dict]:
+    """Deja una noticia por hecho. `items` debe venir YA ordenado por prioridad:
+    de cada grupo de duplicados sobrevive la primera (la mejor rankeada)."""
+    cabeza, resto = items[:DUP_MAX_CANDIDATOS], items[DUP_MAX_CANDIDATOS:]
+    grupos = _grupos_duplicados_llm([_titulo_de(it) for it in cabeza], cfg or {}) if usar_llm else None
+    if grupos is None:  # respaldo léxico estricto
+        grupos, asignado = [], set()
+        for i in range(len(cabeza)):
+            if i in asignado:
+                continue
+            g = [j for j in range(i + 1, len(cabeza))
+                 if j not in asignado and _parecidos_lexico(_titulo_de(cabeza[i]), _titulo_de(cabeza[j]))]
+            if g:
+                grupos.append([i, *g])
+                asignado.update(g)
+    fuera = {i for g in grupos for i in sorted(g)[1:]}
+    unicos = [it for i, it in enumerate(cabeza) if i not in fuera]
+    for it in resto:  # fuera del lote del LLM: solo el filtro léxico
+        if not any(_parecidos_lexico(_titulo_de(it), _titulo_de(u)) for u in unicos):
+            unicos.append(it)
+    return unicos
+
+
 def _dentro_de_ventana(it: dict, dias: int = DIAS_MAX_NOTICIA) -> bool:
     """Publicada en los últimos `dias` (sin fecha verificable = fuera)."""
     from collector.db import hace_dias_gt
@@ -590,7 +681,7 @@ def _relevancia_keywords(titulo: str, resumen: str) -> int:
 # descripción sin defectos. Lo que falla se descarta y se pasa a la siguiente.
 # ──────────────────────────────────────────────
 
-NOTICIAS_EXCELENTES = 5
+NOTICIAS_EXCELENTES = 10
 
 
 def _limpiar_texto(txt) -> str:
@@ -726,6 +817,11 @@ def _traducir_fallback(items: list[dict], objetivo: int = 0) -> int:
             continue
         if _ya_es(titulo, it.get("source_url", "")):
             it["titulo_es"] = titulo[:120]
+            # Su resumen YA está en español: sin esto la validación (exige
+            # descripción si la nota trae cuerpo) rechazaba todas las ES y
+            # MyMemory las "traducía" ES→ES gastando la cuota diaria.
+            if not it.get("resumen_es"):
+                it["resumen_es"] = (it.get("summary") or "")[:500]
             # Categoria + relevancia SOLO si pasa calidad: un item defectuoso no
             # debe aparecer en el top-10 (con nulls) ni faltarle el semáforo.
             if aceptado(it):
@@ -734,6 +830,7 @@ def _traducir_fallback(items: list[dict], objetivo: int = 0) -> int:
                 ok += 1
             else:
                 it["titulo_es"] = None
+                it["resumen_es"] = None
 
     # Pasada 2: EN vía MyMemory; cuota agotada o red caída → detenerse sin
     # afectar lo ya etiquetado en la pasada 1. Con objetivo, parar al lograrlo.
@@ -973,18 +1070,29 @@ def ejecutar(cfg: dict = None) -> dict:
     print(f"[noticias] {len(all_items)} recibidas -> {len(validos)} válidas -> "
           f"{len(recientes)} de los últimos {DIAS_MAX_NOTICIA} días -> "
           f"{len(candidatos)} relevantes (petróleo / Guatemala-energía / conflicto en zona petrolera)")
+
+    # 2b. UNA noticia por hecho: varios medios (o idiomas) contando lo mismo
+    # ocupaban varios lugares del top. Antes de traducir, para que el lote del
+    # LLM traduzca 15 historias distintas.
+    usar_llm = _llm_available(cfg)
+    antes = len(candidatos)
+    candidatos = quitar_duplicados(candidatos, cfg, usar_llm)
+    print(f"[noticias] Duplicados: {antes} -> {len(candidatos)} historias distintas "
+          f"({'LLM' if usar_llm else 'respaldo léxico'})")
     if len(candidatos) < NOTICIAS_MINIMAS:
         print(f"[noticias] AVISO: solo {len(candidatos)} relevantes (< {NOTICIAS_MINIMAS})")
 
     excelentes: list[dict] = []  # items que superan TODA la validación de calidad
 
     LOTE_MAX = 15
-    if _llm_available(cfg):
+    if usar_llm:
         # 3. TRADUCIR (último paso): lote único del top rankeado, un solo request.
         candidatos_llm = candidatos[:LOTE_MAX]
         print(f"[noticias] Clasificando lote de {len(candidatos_llm)} con LLM...")
         import time as _time
-        _time.sleep(2)  # respirar antes del lote (anti rate-limit)
+        # Pausa anti rate-limit: justo antes corrieron el consejo de precios y la
+        # agrupación de duplicados (Groq free: 8K tokens/minuto).
+        _time.sleep(20)
 
         def fusionar_lote(lote):
             """Aplica solo lo que pasa calidad; devuelve cuántas fichas quedaron OK."""

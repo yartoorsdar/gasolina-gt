@@ -334,7 +334,7 @@
             margin: 6px 0 4px 0;
         }
 
-        /* ── Tarjetas top 5: ranking + cuerpo ── */
+        /* ── Tarjetas top 10: ranking + cuerpo ── */
         .news-item.news-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
@@ -719,7 +719,7 @@
 
             <!-- Noticias -->
             <div class="card glass-card glass-card-animated" style="margin-top: 16px;">
-                <h2 class="news-section-title">&#x1F4F0; Top 5: noticias que pueden mover el precio del combustible</h2>
+                <h2 class="news-section-title">&#x1F4F0; Top 10: noticias que pueden mover el precio del combustible</h2>
 
                 <!-- Semáforo de impacto petrolero (con motivo) -->
                 <div id="oilImpactAlert" style="display:none;"></div>
@@ -727,7 +727,7 @@
                 <!-- Mini-resumen por temas -->
                 <div id="newsSummary" style="display:none;"></div>
 
-                <!-- Lista top 5: título + mini-resumen -->
+                <!-- Lista top 10: título + mini-resumen -->
                 <ul class="news-list" id="newsList"></ul>
             </div>
         </main>
@@ -1576,7 +1576,7 @@
         // ──────────────────────────────────────────
 
         /**
-         * Agrupa noticias por tema y devuelve los 5 más recientes únicos.
+         * Agrupa noticias por tema y devuelve las `maxItems` mejores (variedad de temas primero).
          * Heurística: keywords compartidas en título/resumen = mismo tema.
          */
         function agruparNoticias(noticias, maxItems) {
@@ -1825,8 +1825,8 @@
                 return;
             }
 
-            // ── 1. Filtrar a las 5 más recientes únicas por tema ──
-            const filtradas = agruparNoticias(noticiasRaw, 5);
+            // ── 1. Top 10 (el backend ya dejó una noticia por hecho) ──
+            const filtradas = agruparNoticias(noticiasRaw, 10);
 
             if (filtradas.length === 0) {
                 list.innerHTML = '<li style="color:var(--text-muted); padding:12px;">Sin noticias relevantes</li>';
@@ -1868,7 +1868,7 @@
                 alertEl.style.display = 'none';
             }
 
-            // ── 4. Lista top 5: tarjetas con ranking + estrellas + mini-resumen ──
+            // ── 4. Lista top 10: tarjetas con ranking + estrellas + mini-resumen ──
             let html = '';
             for (let idx = 0; idx < filtradas.length; idx++) {
                 const n = filtradas[idx];

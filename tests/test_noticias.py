@@ -388,3 +388,69 @@ def test_guatemala_combustible_prioritaria():
     gt = _relevancia_keywords("Combustibles en Guatemala: el diésel casi duplica su precio", "")
     ataque = _relevancia_keywords("Drone attack hits oil refinery", "")
     assert gt == 5 and gt >= ataque
+
+
+# ──────────────────────────────────────────────
+# Duplicados: una noticia por hecho (titulares reales del 2026-09-25)
+# ──────────────────────────────────────────────
+
+class TestDuplicados:
+    def _it(self, t):
+        return {"title": t, "link": "https://x/" + str(abs(hash(t)))}
+
+    def test_lexico_une_casi_copias(self):
+        from collector.noticias import _parecidos_lexico
+        assert _parecidos_lexico(
+            "Arabia Saudita eleva exportación de petróleo por el golfo Pérsico tras ataque a oleoducto - DW",
+            "Arabia Saudita aumenta las exportaciones de petróleo a través del Golfo tras ataque - Yahoo")
+
+    def test_lexico_no_une_hechos_distintos(self):
+        from collector.noticias import _parecidos_lexico
+        assert not _parecidos_lexico(
+            "Guatemala exonera impuestos al combustible ante las protestas por el alza de precios",
+            "Dos policías heridos de bala durante una protesta por el alza de precios de los combustibles en Guatemala")
+        assert not _parecidos_lexico("Why Are Diesel Prices So High?", "India Says It Will Keep Exporting Diesel")
+
+    def test_queda_la_mejor_rankeada(self):
+        from collector.noticias import quitar_duplicados
+        items = [self._it("Arabia Saudita eleva exportación de petróleo por el golfo Pérsico tras ataque"),
+                 self._it("OPEP recorta producción en noviembre"),
+                 self._it("Arabia Saudita aumenta las exportaciones de petróleo a través del Golfo tras ataque")]
+        assert [i["title"] for i in quitar_duplicados(items)] == [items[0]["title"], items[1]["title"]]
+
+    def test_llm_agrupa_entre_idiomas(self):
+        from unittest.mock import patch
+        from collector.noticias import quitar_duplicados
+        items = [self._it("Saudi Arabia ramps up Gulf oil exports after pipeline attack - Reuters"),
+                 self._it("Guatemala exonera impuestos al combustible"),
+                 self._it("Arabia Saudita aumenta las exportaciones de petróleo tras el ataque - DW")]
+        with patch("collector.noticias._llm_post", return_value='{"grupos": [[0, 2]]}'):
+            res = quitar_duplicados(items, {"llm": {"base_url": "https://x", "model": "m"}}, usar_llm=True)
+        assert [i["title"] for i in res] == [items[0]["title"], items[1]["title"]]
+
+    def test_llm_caido_usa_respaldo(self):
+        from unittest.mock import patch
+        from collector.noticias import quitar_duplicados
+        items = [self._it("OPEP recorta producción en noviembre"), self._it("Brent sube por tensión en Ormuz")]
+        with patch("collector.noticias._llm_post", return_value=None):
+            assert len(quitar_duplicados(items, {"llm": {}}, usar_llm=True)) == 2
+
+    def test_llm_indices_invalidos_se_ignoran(self):
+        from unittest.mock import patch
+        from collector.noticias import quitar_duplicados
+        items = [self._it("OPEP recorta producción"), self._it("Brent sube por Ormuz")]
+        with patch("collector.noticias._llm_post", return_value='{"grupos": [[0, 7], ["a", 1]]}'):
+            assert len(quitar_duplicados(items, {"llm": {}}, usar_llm=True)) == 2
+
+
+def test_fallback_acepta_titulares_en_espanol_sin_gastar_cuota():
+    """Pasada 1: nota ES con resumen → aceptada gratis (antes se rechazaba y
+    MyMemory la 'traducía' ES→ES gastando la cuota diaria)."""
+    from unittest.mock import patch
+    from collector.noticias import _traducir_fallback
+    it = {"title": "Guatemala exonera impuestos al combustible ante protestas",
+          "summary": "El Congreso aprobó la exoneración del IDP y del IVA a los combustibles hasta diciembre.",
+          "source_url": "https://news.google.com/rss/search?q=x&hl=es-419", "link": "https://x/1"}
+    with patch("collector.noticias._mymemory", side_effect=AssertionError("no debe llamarse")):
+        assert _traducir_fallback([it], objetivo=1) == 1
+    assert it["titulo_es"] and it["resumen_es"].startswith("El Congreso")
