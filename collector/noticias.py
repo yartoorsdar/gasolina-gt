@@ -246,54 +246,48 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
 # ──────────────────────────────────────────────
 
 def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | None:
-    """Un request al LLM. Soporta Gemini nativo y OpenAI-compatible.
+    """Un request al LLM (una sola tentativa, modo plano).
 
-    Intenta primero en modo JSON estricto y, si falla, reintenta plano.
+    A propósito SIN reintento inmediato ni JSON-mode: los reintentos pegados
+    disparan 429 (rate-limit) y dejan todo el lote en cero. El modo plano ya
+    funcionó en producción; la limpieza de cercas la hace el parser.
     """
-    for json_mode in (True, False):
-        try:
-            if "generativelanguage" in base_url:
-                gen_cfg: dict = {"temperature": 0.3}
-                if json_mode:
-                    gen_cfg["responseMimeType"] = "application/json"
-                resp = requests.post(
-                    f"{base_url}/models/{model}:generateContent?key={api_key}",
-                    json={
-                        "contents": [{
-                            "parts": [
-                                {"text": "Eres un analista de energia. Responde SOLO con JSON.\n\n" + prompt}
-                            ]
-                        }],
-                        "generationConfig": gen_cfg,
-                    },
-                    timeout=60,
-                )
-                resp.raise_for_status()
-                data = resp.json()
-                return data["candidates"][0]["content"]["parts"][0]["text"]
-            # OpenAI compatible (DeepSeek, etc.)
-            body: dict = {
+    try:
+        if "generativelanguage" in base_url:
+            resp = requests.post(
+                f"{base_url}/models/{model}:generateContent?key={api_key}",
+                json={
+                    "contents": [{
+                        "parts": [
+                            {"text": "Eres un analista de energia. Responde SOLO con JSON.\n\n" + prompt}
+                        ]
+                    }],
+                    "generationConfig": {"temperature": 0.3},
+                },
+                timeout=60,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            return data["candidates"][0]["content"]["parts"][0]["text"]
+        # OpenAI compatible (DeepSeek, etc.)
+        resp = requests.post(
+            f"{base_url}/v1/chat/completions",
+            json={
                 "model": model,
                 "messages": [
                     {"role": "system", "content": "Eres un analista de energia. Responde solo con JSON."},
                     {"role": "user", "content": prompt},
                 ],
                 "temperature": 0.3,
-            }
-            if json_mode:
-                body["response_format"] = {"type": "json_object"}
-            resp = requests.post(
-                f"{base_url}/v1/chat/completions",
-                json=body,
-                timeout=60,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            return data["choices"][0]["message"]["content"]
-        except Exception as exc:
-            print(f"[noticias] Error LLM (json_mode={json_mode}): {exc}")
-            continue
-    return None
+            },
+            timeout=60,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        return data["choices"][0]["message"]["content"]
+    except Exception as exc:
+        print(f"[noticias] Error LLM: {exc}")
+        return None
 
 
 def _seleccion_rotativa(items: list[dict], por_feed: int = 3, max_total: int = 15) -> list[dict]:
@@ -560,18 +554,19 @@ def ejecutar(cfg: dict = None) -> dict:
                 if cls:
                     item.update(cls)
         else:
-            # Fallback: uno por uno (máximo 8, con pausa anti rate-limit)
+            # Fallback: uno por uno (máximo 5, con pausa anti rate-limit).
+            # Sin reintentos pegados: a 5s por llamada quedamos en ~12 RPM.
             import time as _time
             print("[noticias] Lote falló, reintentando uno por uno...")
             ok = 0
-            for item in candidatos[:8]:
+            for item in candidatos[:5]:
+                _time.sleep(5)
                 classification = clasificar_noticia_llm(
                     item["title"], item.get("summary", ""), cfg
                 )
                 if classification:
                     item.update(classification)
                     ok += 1
-                _time.sleep(4)
             print(f"[noticias] Fallback OK: {ok} clasificadas")
 
     # Guardar en DB
