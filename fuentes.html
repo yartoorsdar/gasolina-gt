@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuentes consultadas — Gasolinasogt.com</title>
+    <link rel="icon" href="iconos/favicon.ico" sizes="any">
+    <style>
+        :root {
+            --bg: #0f172a; --card: #1e293b; --border: #334155;
+            --text: #e2e8f0; --muted: #94a3b8; --accent: #38bdf8; --tag: #0ea5e9;
+            --ok: #22c55e; --warn: #f59e0b; --bad: #ef4444;
+        }
+        @media (prefers-color-scheme: light) {
+            :root { --bg: #f8fafc; --card: #ffffff; --border: #e2e8f0;
+                    --text: #0f172a; --muted: #475569; --accent: #0369a1; --tag: #0284c7; }
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--bg); color: var(--text);
+               font: 15px/1.55 -apple-system, "Segoe UI", Roboto, sans-serif; }
+        main { max-width: 920px; margin: 0 auto; padding: 24px 16px 48px; }
+        h1 { font-size: 1.6rem; margin: 0 0 4px; }
+        h2 { font-size: 1.1rem; margin: 32px 0 10px; color: var(--accent); }
+        p.lead { color: var(--muted); margin: 0 0 8px; }
+        a { color: var(--accent); word-break: break-word; }
+        .volver { display: inline-block; margin-bottom: 16px; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        li { background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+             padding: 12px 14px; margin-bottom: 8px; }
+        li .t { font-weight: 600; }
+        li .d { color: var(--muted); font-size: 0.9rem; margin-top: 2px; }
+        li .links { font-size: 0.88rem; margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+        .tag { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 1px 7px;
+               border-radius: 999px; margin-left: 6px; vertical-align: middle;
+               border: 1px solid currentColor; }
+        .ok { color: var(--ok); } .warn { color: var(--warn); } .bad { color: var(--bad); }
+        footer { margin-top: 36px; color: var(--muted); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+<main>
+    <a class="volver" href="index.html">← Volver al dashboard</a>
+    <h1>Fuentes consultadas</h1>
+    <p class="lead">Todos los documentos, archivos y sitios de donde salen (o se contrastaron) los datos del dashboard.
+        Serie de combustibles: <strong>precio promedio monitoreado en Ciudad Capital, modalidad autoservicio</strong> (MEM).
+        El detalle por tramo de fechas está en
+        <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/db/FUENTES.md" target="_blank" rel="noopener">data/db/FUENTES.md</a>.</p>
+
+    <h2>1. Precios de combustibles — Ministerio de Energía y Minas (oficial)</h2>
+    <ul>
+        <li>
+            <div class="t">Precios promedio nacionales diarios 2021 → mar-2026 <span class="tag ok">usado</span></div>
+            <div class="d">Serie diaria oficial (Superior, Regular, Diésel). Base del historial 2021-01-01 → 2026-03-17.</div>
+            <div class="links">
+                <a href="https://mem.gob.gt/wp-content/uploads/2026/03/Precios-Promedio-Nacionales-Diarios-2026-1-1.xlsx" target="_blank" rel="noopener">Original MEM</a>
+                <a href="https://web.archive.org/web/20260406125332/https://mem.gob.gt/wp-content/uploads/2026/03/Precios-Promedio-Nacionales-Diarios-2026-1-1.xlsx" target="_blank" rel="noopener">Copia Internet Archive (2026-04-06)</a>
+                <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/inbox/historico/Precios-Promedio-Nacionales-Diarios-2026-1-1.xlsx" target="_blank" rel="noopener">Copia en el repositorio</a>
+            </div>
+        </li>
+        <li>
+            <div class="t">Precios promedio nacionales diarios (versión ene-2026) <span class="tag ok">contraste</span></div>
+            <div class="d">Versión anterior del mismo archivo: 5,553 valores idénticos.</div>
+            <div class="links">
+                <a href="https://mem.gob.gt/wp-content/uploads/2026/01/Precios-Promedio-Nacionales-Diarios-2025-3.xlsx" target="_blank" rel="noopener">Original MEM</a>
+                <a href="https://web.archive.org/web/20260122080613/https://mem.gob.gt/wp-content/uploads/2026/01/Precios-Promedio-Nacionales-Diarios-2025-3.xlsx" target="_blank" rel="noopener">Copia Internet Archive (2026-01-22)</a>
+            </div>
+        </li>
+        <li>
+            <div class="t">WEB-PRECIOS-DIARIOS-2024 (2021 → 2024) <span class="tag ok">contraste</span></div>
+            <div class="d">Primera fuente histórica del proyecto. El MEM corrigió luego Regular 30-sep → 6-oct-2024 (Q25.00 → Q28.00).</div>
+            <div class="links">
+                <a href="https://mem.gob.gt/wp-content/uploads/2024/10/WEB-PRECIOS-DIARIOS-2024.xlsx" target="_blank" rel="noopener">Original MEM</a>
+                <a href="https://web.archive.org/web/20241102030333/https://mem.gob.gt/wp-content/uploads/2024/10/WEB-PRECIOS-DIARIOS-2024-1.xlsx" target="_blank" rel="noopener">Copia Internet Archive (2024-11-02)</a>
+                <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/inbox/historico/WEB-PRECIOS-DIARIOS-2024.xlsx" target="_blank" rel="noopener">Copia en el repositorio</a>
+            </div>
+        </li>
+        <li>
+            <div class="t">Informe ejecutivo de precios — 23 de marzo de 2026 <span class="tag ok">usado</span></div>
+            <div class="d">Puntos semanales 23-feb → 23-mar-2026 (autoservicio).</div>
+            <div class="links">
+                <a href="https://mem.gob.gt/wp-content/uploads/2026/03/INFORME-EJECUTIVO-DE-PRECIOS-DE-LOS-COMBUSTIBLES-AREA-METROPOLITANA-2026-03-23.pdf" target="_blank" rel="noopener">Original MEM</a>
+                <a href="https://web.archive.org/web/20260406024156/https://mem.gob.gt/wp-content/uploads/2026/03/INFORME-EJECUTIVO-DE-PRECIOS-DE-LOS-COMBUSTIBLES-AREA-METROPOLITANA-2026-03-23.pdf" target="_blank" rel="noopener">Copia Internet Archive</a>
+                <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/raw/INFORME-EJECUTIVO-DE-PRECIOS-DE-LOS-COMBUSTIBLES-AREA-METROPOLITANA-2026-03-23.pdf" target="_blank" rel="noopener">Copia en el repositorio</a>
+            </div>
+        </li>
+        <li>
+            <div class="t">Informe ejecutivo de precios — 21 de septiembre de 2026 <span class="tag ok">usado</span></div>
+            <div class="d">Puntos semanales 17-ago → 21-sep-2026 (autoservicio).</div>
+            <div class="links">
+                <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/raw/INFORME-EJECUTIVO-DE-PRECIOS-DE-LOS-COMBUSTIBLES-2026-09-21.pdf" target="_blank" rel="noopener">Copia en el repositorio</a>
+            </div>
+        </li>
+        <li>
+            <div class="t">Precios promedio mensuales monitoreados en Ciudad Capital (2020 → jul-2026) <span class="tag ok">usado</span></div>
+            <div class="d">Promedios mensuales oficiales; base del promedio anual 2020 y 2026.</div>
+            <div class="links">
+                <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/raw/PRECIOS-PROMEDIO-MENSUAL-CONSUMIDOR-FINAL-EN-CIUDAD-CAPITAL-2026-07.pdf" target="_blank" rel="noopener">Copia en el repositorio (PDF)</a>
+                <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/db/mensual.csv" target="_blank" rel="noopener">Transcripción (mensual.csv)</a>
+            </div>
+        </li>
+        <li>
+            <div class="t">Precios semanales Ciudad de Guatemala — agosto 2024 (servicio completo)</div>
+            <div class="d">Documento de referencia del proyecto.</div>
+            <div class="links">
+                <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/raw/PRECIOS-SEMANALES-CIUDAD-DE-GUATEMALA-AGOSTO-2024-SC.pdf" target="_blank" rel="noopener">Copia en el repositorio</a>
+            </div>
+        </li>
+        <li>
+            <div class="t">Páginas del MEM <span class="tag warn">bloquean descargas automáticas</span></div>
+            <div class="d">Portales de donde provienen los archivos anteriores; tienen verificación anti-bots, por eso se usaron copias del Internet Archive.</div>
+            <div class="links">
+                <a href="https://mem.gob.gt/historico-precios-nacionales/" target="_blank" rel="noopener">Histórico precios nacionales</a>
+                <a href="https://mem.gob.gt/que-hacemos/hidrocarburos/comercializacion-downstream/precios-combustible-nacionales/" target="_blank" rel="noopener">Precios combustible nacionales</a>
+                <a href="https://mem.gob.gt/precios-petroleo-combustibles/" target="_blank" rel="noopener">Precios de petróleo y combustibles</a>
+                <a href="https://web.archive.org/web/2026*/mem.gob.gt/wp-content/uploads/2026/*" target="_blank" rel="noopener">Índice de archivos MEM en Internet Archive</a>
+            </div>
+        </li>
+    </ul>
+
+    <h2>2. Otras fuentes de precios de combustible</h2>
+    <ul>
+        <li>
+            <div class="t">GlobalPetrolPrices — Guatemala <span class="tag ok">colector diario</span></div>
+            <div class="d">Fuente alterna de prioridad baja: nunca reemplaza un dato del MEM.</div>
+            <div class="links"><a href="https://globalpetrolprices.com/Guatemala/" target="_blank" rel="noopener">globalpetrolprices.com/Guatemala</a></div>
+        </li>
+        <li>
+            <div class="t">Chapin TV — notas de precios <span class="tag ok">usado (1 punto: 5-sep-2026)</span></div>
+            <div class="links">
+                <a href="https://www.chapintv.com/noticia/gasolina-aumenta-un-quetzal-por-galon-este-5-de-septiembre-asi-estan-los-precios" target="_blank" rel="noopener">Gasolina sube Q1 — 5 sep 2026</a>
+                <a href="https://www.chapintv.com/noticia/gasolina-superior-regular-y-diesel-estos-son-los-precios-actualizados-en-guatemala" target="_blank" rel="noopener">Precios actualizados — marzo 2026</a>
+            </div>
+        </li>
+        <li>
+            <div class="t">Notas de prensa revisadas <span class="tag bad">descartadas</span></div>
+            <div class="d">Reportan "precios de referencia" (con subsidio may–jul 2026) o monitoreos propios: son otra serie y no se mezclan con la del MEM.</div>
+            <div class="links">
+                <a href="https://www.soy502.com/articulo/precios-combustibles-aumentan-hasta-59-siete-meses-102052" target="_blank" rel="noopener">Soy502 — aumento en siete meses</a>
+                <a href="https://www.prensalibre.com/economia/estos-son-los-precios-promedio-del-combustible-en-guatemala-tras-el-fin-del-subsidio-del-mem/" target="_blank" rel="noopener">Prensa Libre — tras el fin del subsidio</a>
+            </div>
+        </li>
+    </ul>
+
+    <h2>3. Petróleo (WTI)</h2>
+    <ul>
+        <li>
+            <div class="t">OilPriceAPI <span class="tag ok">usado</span></div>
+            <div class="d">Precio de hoy (<code>/v1/prices/latest</code>) e historial diario de días de mercado (<code>/v1/prices/historical</code>), 2024-10-23 → hoy.</div>
+            <div class="links"><a href="https://www.oilpriceapi.com/" target="_blank" rel="noopener">oilpriceapi.com</a></div>
+        </li>
+        <li>
+            <div class="t">Trading Economics — Crude Oil <span class="tag ok">contraste</span></div>
+            <div class="d">Cierre del 24-sep-2026 ≈ $94.76, consistente con el promedio diario de OilPriceAPI ($93.30).</div>
+            <div class="links"><a href="https://tradingeconomics.com/commodity/crude-oil" target="_blank" rel="noopener">tradingeconomics.com/commodity/crude-oil</a></div>
+        </li>
+    </ul>
+
+    <h2>4. Noticias (feeds RSS)</h2>
+    <ul>
+        <li>
+            <div class="t">Google News (búsquedas temáticas)</div>
+            <div class="links">
+                <a href="https://news.google.com/rss/search?q=petr%C3%B3leo+OR+refiner%C3%ADa+OR+oleoducto+ataque&hl=es-419&gl=US&ceid=US:es-419" target="_blank" rel="noopener">Petróleo / refinerías (ES)</a>
+                <a href="https://news.google.com/rss/search?q=oil+refinery+OR+pipeline+attack+OR+OPEC&hl=en-US&gl=US&ceid=US:en" target="_blank" rel="noopener">Oil / OPEC (EN)</a>
+                <a href="https://news.google.com/rss/search?q=oil+sanctions+OR+war+Middle+East+OR+Strait+of+Hormuz+OR+Russia+Ukraine+oil&hl=en-US&gl=US&ceid=US:en" target="_blank" rel="noopener">Sanciones / Medio Oriente (EN)</a>
+                <a href="https://news.google.com/rss/search?q=precio+petr%C3%B3leo+OR+OPEP+OR+combustibles+Guatemala+OR+importaci%C3%B3n+combustible&hl=es-419&gl=GT&ceid=GT:es-419" target="_blank" rel="noopener">Combustibles Guatemala (ES)</a>
+                <a href="https://news.google.com/rss/search?q=site:prensalibre.com+combustibles+OR+gasolina+OR+di%C3%A9sel+OR+petr%C3%B3leo&hl=es-419&gl=GT&ceid=GT:es-419" target="_blank" rel="noopener">Prensa Libre</a>
+                <a href="https://news.google.com/rss/search?q=site:bbc.com/mundo+petr%C3%B3leo+OR+guerra+OR+sanciones&hl=es-419&gl=US&ceid=US:es-419" target="_blank" rel="noopener">BBC Mundo</a>
+            </div>
+        </li>
+        <li>
+            <div class="t">OilPrice.com y EIA</div>
+            <div class="links">
+                <a href="https://oilprice.com/rss/main" target="_blank" rel="noopener">OilPrice.com RSS</a>
+                <a href="https://www.eia.gov/rss/todayinenergy.xml" target="_blank" rel="noopener">EIA Today in Energy RSS</a>
+            </div>
+        </li>
+    </ul>
+
+    <h2>5. Datos del proyecto</h2>
+    <ul>
+        <li>
+            <div class="t">Historial por producto y consolidado</div>
+            <div class="links">
+                <a href="https://github.com/yartoorsdar/gasolina-gt/tree/main/data/db" target="_blank" rel="noopener">data/db/ (CSV por producto)</a>
+                <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/export/consolidado.json" target="_blank" rel="noopener">consolidado.json</a>
+                <a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/db/FUENTES.md" target="_blank" rel="noopener">FUENTES.md (procedencia por tramo)</a>
+            </div>
+        </li>
+        <li>
+            <div class="t">Promedios anuales 2002–2019 <span class="tag warn">sin verificar</span></div>
+            <div class="d">Heredados de una versión anterior del consolidado; procedencia original desconocida.</div>
+            <div class="links"><a href="https://github.com/yartoorsdar/gasolina-gt/blob/main/data/db/anual_semilla.csv" target="_blank" rel="noopener">anual_semilla.csv</a></div>
+        </li>
+    </ul>
+
+    <footer>Huecos conocidos: 24-mar → 16-ago-2026 sin dato diario/semanal oficial accesible (solo promedios mensuales).</footer>
+</main>
+</body>
+</html>

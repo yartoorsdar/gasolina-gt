@@ -702,7 +702,7 @@
 
         <!-- Footer -->
         <footer class="glass-footer">
-            <p>Fuentes: Ministerio de Energía y Minas (Guatemala), FRED (EEUU), Google News, OilPrice.com</p>
+            <p>Fuentes: Ministerio de Energía y Minas (Guatemala), OilPriceAPI, Google News, OilPrice.com &middot; <a href="fuentes.html">Fuentes consultadas</a></p>
             <p style="margin-top:4px;">gasolina-gt — Dashboard local &middot; <a href="#" onclick="location.reload();return false;">Actualizar</a></p>
         </footer>
     </div>
@@ -719,7 +719,7 @@
         const DATA_DIR = './';  // JSONs en web/ junto con index.html
         const GITHUB_RAW = 'https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export';
         // Usar GitHub raw como fuente principal (evita cache de Vercel)
-        const PRIMARY_DATA_URL = `${GITHUB_RAW}/resumen.json`;
+        const PRIMARY_DATA_URL = `${GITHUB_RAW}/consolidado.json`;
         const CONFIG = {
             impuestos: {
                 iva: 0.12,
@@ -864,6 +864,7 @@
 
             // ── Gráfica de barras comparativa ──
             window.__weekData = precios;
+            window.__weekHist = data.combustibles_historial || [];
             startWeeklyAnimation();
         }
 
@@ -1184,15 +1185,9 @@
             var cssH = targetH;
             ctx.clearRect(0, 0, cssW, cssH);
 
-            // ── Datos ──
-            var dailyData = [
-                { fecha: '04/Sep', superior: 44.59, regular: 42.59, diésel: 49.39 },
-                { fecha: '07/Sep', superior: 44.00, regular: 42.00, diésel: 46.84 },
-                { fecha: '14/Sep', superior: 44.59, regular: 42.59, diésel: 49.39 },
-                { fecha: '17/Sep', superior: 44.59, regular: 42.59, diésel: 49.39 },
-                { fecha: '19/Sep', superior: 45.09, regular: 42.59, diésel: 49.39 },
-                { fecha: '21/Sep', superior: 44.61, regular: 42.58, diésel: 49.40 }
-            ];
+            // ── Datos: últimos 7 días REALES del historial (consolidado.json) ──
+            var dailyData = window.__weekHist || [];
+            if (dailyData.length === 0) return;
 
             var products = [
                 { key: 'diésel', label: 'Diésel' },
@@ -1338,7 +1333,7 @@
                     var x = padLeft + (chartW / Math.max(dailyData.length - 1, 1)) * j;
                     var y = chartTop + chartH - ((val - minPrice) / (maxPrice - minPrice)) * chartH;
 
-                    linePoints.push({ x: x, y: y });
+                    linePoints.push({ x: x, y: y, val: val });
                 }
 
                 if (linePoints.length < 2) continue;
@@ -1395,7 +1390,7 @@
 
                     // Valor solo en último punto
                     if (pi2 === linePoints.length - 1) {
-                        var text = 'Q' + dailyData[dailyData.length - 1][prod.key].toFixed(2);
+                        var text = 'Q' + pt.val.toFixed(2);
                         ctx.font = 'bold 10px -apple-system, sans-serif';
                         var tw = ctx.measureText(text).width;
 
@@ -1493,16 +1488,11 @@
                 </div>
             `;
 
-            // Datos para la gráfica semanal WTI
-            const wtiWeeklyData = [
-                { fecha: '16/Sep', precio: 87.45 },
-                { fecha: '17/Sep', precio: 88.20 },
-                { fecha: '18/Sep', precio: 87.90 },
-                { fecha: '19/Sep', precio: 88.60 },
-                { fecha: '20/Sep', precio: 89.10 },
-                { fecha: '21/Sep', precio: 88.85 },
-                { fecha: '23/Sep', precio: wti.usd_barril }
-            ];
+            // Gráfica semanal WTI: últimos 7 días REALES del historial (consolidado.json)
+            const wtiWeeklyData = (data.wti_historial || []).map(h => ({
+                fecha: fmtDiaMes(h.fecha),
+                precio: h.precio
+            }));
 
             window.__wtiData = wtiWeeklyData;
             startWTIWeeklyAnimation();
@@ -2301,6 +2291,57 @@
         // Carga de datos
         // ──────────────────────────────────────────
 
+        // consolidado.json (v2) trae la MISMA forma para cada producto:
+        //   productos.<codigo> = {categoria, actual:{fecha,precio,fuente,fetched_at},
+        //                         historial:[{fecha,precio}], anual:[{anio,promedio}]}
+        // Este adaptador la lleva a lo que esperan los renderers.
+        const MESES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+        // 'YYYY-MM-DD' → 'DD/Mes' (sin new Date(): evita corrimientos de zona horaria)
+        function fmtDiaMes(fecha) {
+            return `${fecha.slice(8, 10)}/${MESES[parseInt(fecha.slice(5, 7), 10) - 1]}`;
+        }
+
+        function adaptarConsolidado(c) {
+            const P = c.productos || {};
+            const combustibles = Object.entries(P)
+                .filter(([, p]) => p.categoria === 'combustible' && p.actual)
+                .map(([codigo, p]) => ({ producto: codigo, ...p.actual }));
+            const wti = P.wti || {};
+            const anios = new Map();
+            for (const [codigo, p] of Object.entries(P)) {
+                if (p.categoria !== 'combustible') continue;
+                for (const a of p.anual || []) {
+                    if (!anios.has(a.anio)) anios.set(a.anio, { anio: a.anio });
+                    anios.get(a.anio)[codigo] = a.promedio;
+                }
+            }
+            // Últimos 7 días con dato de algún combustible: [{fecha, superior, regular, diésel}]
+            const dias = new Map();
+            for (const [codigo, p] of Object.entries(P)) {
+                if (p.categoria !== 'combustible') continue;
+                for (const h of p.historial || []) {
+                    if (!dias.has(h.fecha)) dias.set(h.fecha, { fecha: fmtDiaMes(h.fecha) });
+                    dias.get(h.fecha)[codigo] = h.precio;
+                }
+            }
+            const combustiblesHistorial = [...dias.keys()].sort().slice(-7).map(f => dias.get(f));
+            return {
+                resumen: {
+                    actualizado_at: c.actualizado_at,
+                    precios_combustible: combustibles,
+                    petroleo: wti.actual ? [{
+                        referencia: 'wti', fecha: wti.actual.fecha,
+                        usd_barril: wti.actual.precio, fuente: wti.actual.fuente
+                    }] : [],
+                    wti_historial: (wti.historial || []).slice(-7),
+                    combustibles_historial: combustiblesHistorial,
+                    ultimas_noticias: (c.noticias && c.noticias.top) || [],
+                    noticias_count: (c.noticias && c.noticias.total) || 0
+                },
+                historial: { historial_anual: [...anios.values()] }
+            };
+        }
+
         async function cargarDashboard() {
             const loadingEl = document.getElementById('loading');
             const errorEl = document.getElementById('error');
@@ -2308,29 +2349,17 @@
             const CACHE_BUST = Date.now();
 
             // URL única: GitHub raw (siempre funciona, CORS OK)
-            const resumenUrl = `${GITHUB_RAW}/resumen.json?t=${CACHE_BUST}`;
-            const consolidadoUrl = `${GITHUB_RAW}/consolidado.json?t=${CACHE_BUST}`;
-
-            let resData, consData = null;
+            let resData;
             try {
-                resData = await fetch(resumenUrl);
+                resData = await fetch(`${PRIMARY_DATA_URL}?t=${CACHE_BUST}`);
                 if (!resData.ok) throw new Error(`HTTP ${resData.status}`);
             } catch (err) {
-                throw new Error('No se pudo cargar resumen.json: ' + err.message);
+                throw new Error('No se pudo cargar consolidado.json: ' + err.message);
             }
 
             try {
-                const r = await fetch(consolidadoUrl).catch(() => null);
-                if (r?.ok) consData = r;
-            } catch {}
-
-            try {
-                const data = await resData.json();
-                let historial = null;
-                if (consData?.ok) {
-                    historial = await consData.json();
-                    window.__consData = historial;
-                }
+                const { resumen: data, historial } = adaptarConsolidado(await resData.json());
+                window.__consData = historial;
 
                 // Renderizar secciones (excepto historial — necesita DOM visible)
                 renderPreciosCombustible(data);
@@ -2342,9 +2371,7 @@
                 contentEl.style.display = 'block';
 
                 // Renderizar historial DESPUÉS de que el DOM sea visible (getBoundingClientRect funciona)
-                if (historial) {
-                    renderHistorial(historial);
-                }
+                renderHistorial(historial);
             } catch (err) {
                 loadingEl.style.display = 'none';
                 errorEl.style.display = 'block';

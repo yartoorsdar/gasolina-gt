@@ -435,37 +435,18 @@ def ejecutar() -> dict:
 
 
 def guardar_precios_en_db(precios: list[dict]) -> int:
-    """Guarda precios de fuentes alternas en la base de datos.
-    
-    Borra primero los precios de hoy de la misma fuente para evitar duplicados.
+    """Guarda precios de fuentes alternas (upsert: re-ejecutar = actualizar).
+
+    Returns:
+        Filas insertadas o actualizadas.
     """
-    from collector.db import conectar, insertar_precio, borrar_precios_hoy
-    
+    from collector.db import conectar, guardar_precios
+
     conn = conectar()
-    inserted = 0
-    
-    # Borrar precios de hoy de esta fuente antes de insertar nuevo
-    fuente = precios[0].get("fuente", "fuentes_alternas") if precios else ""
-    borrados = borrar_precios_hoy(conn, fuente)
-    if borrados > 0:
-        print(f"[alternas]   Borrado(s): {borrados} precio(s) de hoy ({fuente})")
-    
-    for p in precios:
-        try:
-            row_id = insertar_precio(
-                conn=conn,
-                fecha=p["fecha"],
-                producto=p["producto"],
-                precio=p["precio"],
-                fuente=p.get("fuente", "fuentes_alternas"),
-            )
-            if row_id is not None:
-                inserted += 1
-        except Exception as exc:
-            print(f"[alternas-db] Error guardando {p['producto']} Q{p['precio']}: {exc}")
-    
+    conteo = guardar_precios(conn, precios, fuente="fuentes_alternas")
     conn.close()
-    return inserted
+    print(f"[alternas-db] {conteo}")
+    return conteo["insertados"] + conteo["actualizados"]
 
 
 # ──────────────────────────────────────────────

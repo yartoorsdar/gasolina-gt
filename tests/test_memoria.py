@@ -1,151 +1,92 @@
-"""Tests del sistema de memoria persistente de precios (collector/memoria.py).
+"""Tests de la memoria persistente (collector/memoria.py): un CSV por producto.
 
 Semántica que debe mantenerse:
-  - Round-trip exportar→importar reproduce la tabla (1 fila por fecha+producto).
+  - Round-trip exportar→importar reproduce la tabla.
+  - Un archivo por producto del catálogo, mismas columnas en todos.
   - Determinismo: mismo contenido = archivo byte-idéntico (git sin diff).
-  - Re-ejecutar un día ACTUALIZA, no duplica (UNIQUE fecha+producto + upserts).
+  - Importar siembra: no pisa filas existentes.
 """
 
+from collector.db import PRODUCTOS, conectar_temporal, guardar_precios
+from collector.memoria import exportar_memoria, importar_memoria, leer_mensual, leer_semilla_anual
 
-class TestMemoria:
-    def _db_con_filas(self):
-        from collector.db import conectar_temporal
 
-        conn = conectar_temporal()
-        conn.execute(
-            "INSERT INTO precios (fecha, producto, precio, fuente, fetched_at) VALUES (?, ?, ?, ?, ?)",
-            ("2026-09-16", "superior", 44.66, "MEM", "2026-09-16T08:00:00-06:00"),
-        )
-        conn.execute(
-            "INSERT INTO precios (fecha, producto, precio, fuente, fetched_at) VALUES (?, ?, ?, ?, ?)",
-            ("2026-09-16", "regular", 42.58, "MEM", "2026-09-16T08:00:00-06:00"),
-        )
-        conn.execute(
-            "INSERT INTO precios (fecha, producto, precio, fuente, fetched_at) VALUES (?, ?, ?, ?, ?)",
-            ("2026-09-24", "wti", 93.56, "OilPriceAPI", "2026-09-25T08:00:00-06:00"),
-        )
-        conn.commit()
-        return conn
+def _db_con_filas():
+    conn = conectar_temporal()
+    guardar_precios(conn, [
+        {"producto": "superior", "fecha": "2026-09-16", "precio": 44.66},
+        {"producto": "regular", "fecha": "2026-09-16", "precio": 42.58},
+        {"producto": "diésel", "fecha": "2026-09-16", "precio": 49.4},
+    ], "MEM")
+    guardar_precios(conn, [{"producto": "wti", "fecha": "2026-09-24", "precio": 93.56}], "OilPriceAPI")
+    return conn
 
-    def test_round_trip(self):
-        """Exportar y re-importar en DB vacía reproduce las filas exactas."""
-        from pathlib import Path
-        from tempfile import TemporaryDirectory
 
-        from collector.db import conectar_temporal
-        from collector.memoria import exportar_memoria, importar_memoria
+def _filas(conn):
+    return sorted(tuple(r) for r in conn.execute("SELECT fecha, producto, precio, fuente FROM precios"))
 
-        conn = self._db_con_filas()
-        with TemporaryDirectory() as tmp:
-            path = Path(tmp) / "mem.csv"
-            exportar_memoria(conn=conn, path=path)
-            assert path.exists()
 
-            vacia = conectar_temporal()
-            n = importar_memoria(path=path, conn=vacia)
-            filas = vacia.execute(
-                "SELECT fecha, producto, precio FROM precios ORDER BY fecha, producto"
-            ).fetchall()
+def test_un_csv_por_producto(tmp_path):
+    exportar_memoria(conn=_db_con_filas(), carpeta=tmp_path)
+    assert sorted(p.name for p in tmp_path.iterdir()) == sorted(f"{d['archivo']}.csv" for d in PRODUCTOS.values())
+    assert (tmp_path / "diesel.csv").read_text(encoding="utf-8") == "fecha,precio,fuente\n2026-09-16,49.4,MEM\n"
 
-        assert n == 3
-        assert [(f["fecha"], f["producto"], f["precio"]) for f in filas] == [
-            ("2026-09-16", "regular", 42.58),
-            ("2026-09-16", "superior", 44.66),
-            ("2026-09-24", "wti", 93.56),
-        ]
 
-    def test_determinismo_bytes(self):
-        """Dos exports del mismo contenido producen bytes idénticos (cero diff)."""
-        from pathlib import Path
-        from tempfile import TemporaryDirectory
+def test_round_trip(tmp_path):
+    conn = _db_con_filas()
+    exportar_memoria(conn=conn, carpeta=tmp_path)
+    vacia = conectar_temporal()
+    insertadas = importar_memoria(conn=vacia, carpeta=tmp_path)
+    assert sum(insertadas.values()) == 4
+    assert _filas(vacia) == _filas(conn)
 
-        from collector.memoria import exportar_memoria
 
-        conn = self._db_con_filas()
-        with TemporaryDirectory() as tmp:
-            p1, p2 = Path(tmp) / "a.csv", Path(tmp) / "b.csv"
-            exportar_memoria(conn=conn, path=p1)
-            exportar_memoria(conn=self._db_con_filas(), path=p2)
-            bytes_1, bytes_2 = p1.read_bytes(), p2.read_bytes()
+def test_determinista(tmp_path):
+    a, b = tmp_path / "a", tmp_path / "b"
+    exportar_memoria(conn=_db_con_filas(), carpeta=a)
+    exportar_memoria(conn=_db_con_filas(), carpeta=b)
+    for p in a.iterdir():
+        assert p.read_bytes() == (b / p.name).read_bytes()
 
-        assert bytes_1 == bytes_2  # mismo contenido → byte-idéntico (cero diff git)
 
-    def test_sin_archivo_no_explota(self):
-        """Primer ciclo (sin CSV todavía): importar devuelve 0 y no lanza."""
-        from pathlib import Path
+def test_sin_archivos_es_primer_ciclo(tmp_path):
+    assert sum(importar_memoria(conn=conectar_temporal(), carpeta=tmp_path).values()) == 0
 
-        from collector.db import conectar_temporal
-        from collector.memoria import importar_memoria
 
-        conn = conectar_temporal()
-        n = importar_memoria(path=Path("c:\\tmp\\no_existe_xyz.csv"), conn=conn)
-        assert n == 0
+def test_importar_no_pisa_existente(tmp_path):
+    exportar_memoria(conn=_db_con_filas(), carpeta=tmp_path)  # superior 16-sep = 44.66
+    otra = conectar_temporal()
+    guardar_precios(otra, [{"producto": "superior", "fecha": "2026-09-16", "precio": 45.0}], "MEM")
+    importar_memoria(conn=otra, carpeta=tmp_path)
+    assert otra.execute(
+        "SELECT precio FROM precios WHERE fecha='2026-09-16' AND producto='superior'"
+    ).fetchone()[0] == 45.0
 
-    def test_deduplica_grafias_por_fecha(self):
-        """'diessel' y 'diésel' del mismo día → UNA fila, la más recién importada."""
-        from pathlib import Path
-        from tempfile import TemporaryDirectory
 
-        from collector.db import conectar_temporal
-        from collector.memoria import exportar_memoria, importar_memoria
+def test_semilla_anual(tmp_path):
+    path = tmp_path / "anual_semilla.csv"
+    path.write_text("anio,producto,promedio,fuente\n2020,regular,21.24,consolidado histórico\n", encoding="utf-8")
+    assert leer_semilla_anual(path) == [
+        {"anio": 2020, "producto": "regular", "promedio": 21.24, "fuente": "consolidado histórico"}
+    ]
+    assert leer_semilla_anual(tmp_path / "no_existe.csv") == []
 
-        conn = conectar_temporal()
-        conn.execute(
-            "INSERT INTO precios (fecha, producto, precio, fuente, fetched_at) VALUES (?, ?, ?, ?, ?)",
-            ("2024-01-01", "diessel", 29.47, "Ministerio de Energía y Minas", "2026-09-24T12:00:00-06:00"),
-        )
-        conn.execute(
-            "INSERT INTO precios (fecha, producto, precio, fuente, fetched_at) VALUES (?, ?, ?, ?, ?)",
-            ("2024-01-01", "diésel", 30.0, "Ministerio de Energía y Minas", "2026-09-24T23:00:00-06:00"),
-        )
-        conn.commit()
 
-        with TemporaryDirectory() as tmp:
-            path = Path(tmp) / "mem.csv"
-            exportar_memoria(conn=conn, path=path)
+def test_mensual(tmp_path):
+    path = tmp_path / "mensual.csv"
+    path.write_text("anio,mes,producto,promedio,fuente\n2026,7,diésel,37.59,MEM mensual\n", encoding="utf-8")
+    assert leer_mensual(path) == [
+        {"anio": 2026, "mes": 7, "producto": "diésel", "promedio": 37.59, "fuente": "MEM mensual"}
+    ]
+    assert leer_mensual(tmp_path / "no_existe.csv") == []
 
-            # El CSV debe tener UNA sola fila para 2024-01-01/diésel (la nueva).
-            contenido = path.read_text(encoding="utf-8")
-            lineas_diesel_2024 = [
-                l for l in contenido.splitlines() if l.startswith("2024-01-01,diésel,")
-            ]
-            assert len(lineas_diesel_2024) == 1
-            assert "30.0" in lineas_diesel_2024[0]  # la de fetched_at más reciente
 
-            # Y el round-trip completo no duplica: 1 fila resultante para ese día.
-            vacia = conectar_temporal()
-            importar_memoria(path=path, conn=vacia)
-            total = vacia.execute(
-                "SELECT COUNT(*) FROM precios WHERE fecha='2024-01-01'"
-            ).fetchone()[0]
-
-        assert total == 1
-
-    def test_importar_no_pisa_valor_distinto(self):
-        """Insert-or-ignore: una fila existente con otro valor se conserva."""
-        from pathlib import Path
-        from tempfile import TemporaryDirectory
-
-        from collector.db import conectar_temporal, insertar_precio
-        from collector.memoria import exportar_memoria, importar_memoria
-
-        # DB con un valor manual más reciente para el mismo par (fecha, producto)
-        conn = conectar_temporal()
-        insertar_precio(conn, "2026-09-16", "superior", 45.0, "MEM")
-        with TemporaryDirectory() as tmp:
-            path = Path(tmp) / "mem.csv"
-            exportar_memoria(conn=conn, path=path)
-
-            otra = conectar_temporal()
-            # La memoria trae 45.0 (del volcado) → coincide; probemos con valor distinto:
-            otra.execute(
-                "INSERT INTO precios (fecha, producto, precio, fuente, fetched_at) VALUES (?, ?, ?, ?, ?)",
-                ("2026-09-16", "superior", 44.0, "otro", "2026-09-01T00:00:00-06:00"),
-            )
-            otra.commit()
-            importar_memoria(path=path, conn=otra)
-
-        # OR IGNORE: la fila preexistente (44.0) no se pisa con la del CSV (45.0).
-        assert otra.execute(
-            "SELECT precio FROM precios WHERE fecha='2026-09-16' AND producto='superior'"
-        ).fetchone()[0] == 44.0
+def test_mensual_real_valido():
+    """El mensual.csv commitado: productos del catálogo, meses 1-12, sin duplicados."""
+    from pathlib import Path
+    real =Path(__file__).resolve().parent.parent / "data" / "db" / "mensual.csv"
+    filas = leer_mensual(real)
+    assert filas, "mensual.csv vacío"
+    claves = [(f["anio"], f["mes"], f["producto"]) for f in filas]
+    assert len(claves) == len(set(claves))
+    assert all(f["producto"] in PRODUCTOS and 1 <= f["mes"] <= 12 and 5 < f["promedio"] < 100 for f in filas)

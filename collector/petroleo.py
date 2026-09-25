@@ -30,6 +30,7 @@ if _dotenv_path.exists():
 
 DEFAULT_API_KEY_ENV = "OILPRICEAPI_KEY"
 BASE_URL = "https://api.oilpriceapi.com/v1/prices/latest"
+HISTORICAL_URL = "https://api.oilpriceapi.com/v1/prices/historical"
 
 CODES = {
     "wti":   "WTI_CRUDE_USD",
@@ -147,31 +148,55 @@ def guardar_precios_petroleo(precios: list[dict], cfg: dict = None) -> int:
         with open(config_path, "r", encoding="utf-8") as f:
             cfg = json.load(f)
 
-    from collector.db import conectar, insertar_precio
+    from collector.db import conectar, guardar_precios, hoy_gt
     conn = conectar()
 
-    hoy = datetime.now(timezone(timedelta(hours=-6))).strftime("%Y-%m-%d")
-    
-    # Borrar HOY para no duplicar (conserva historial de días anteriores)
-    conn.execute("DELETE FROM precios WHERE fecha=? AND producto='wti'", (hoy,))
-
-    inserted = 0
-    for p in precios:
-        try:
-            row_id = insertar_precio(
-                conn=conn,
-                fecha=hoy,
-                producto="wti",
-                precio=p["usd_barril"],
-                fuente="OilPriceAPI",
-            )
-            if row_id is not None:
-                inserted += 1
-        except Exception as exc:
-            print(f"[petroleo] Error guardando {p}: {exc}")
-
+    # Upsert: re-ejecutar hoy ACTUALIZA el WTI del día (historial intacto)
+    hoy = hoy_gt()
+    filas = [{"producto": "wti", "fecha": hoy, "precio": p["usd_barril"]} for p in precios]
+    conteo = guardar_precios(conn, filas, fuente="OilPriceAPI")
     conn.close()
-    return inserted
+    return conteo["insertados"] + conteo["actualizados"]
+
+
+def fetch_historial_wti(api_key: str, period: str = "past_month") -> list[dict]:
+    """Serie diaria de WTI (promedio diario, solo días de mercado).
+
+    period: past_week | past_month | past_year (past_year ≈ 500 días).
+
+    Returns:
+        [{fecha, usd_barril}] ordenada por fecha; [] si la API falla.
+    """
+    session = crear_session(api_key)
+    url = f"{HISTORICAL_URL}?by_code=WTI_USD&period={period}&interval=daily"
+    try:
+        resp = session.get(url, timeout=60)
+        resp.raise_for_status()
+        data = resp.json()
+    except (requests.RequestException, ValueError) as exc:
+        print(f"[petroleo] Error historial WTI: {exc}")
+        return []
+    if data.get("status") != "success":
+        print(f"[petroleo] Historial WTI sin éxito: {data.get('message', '')}")
+        return []
+
+    serie = {}
+    for p in (data.get("data") or {}).get("prices") or []:
+        fecha = (p.get("created_at") or "")[:10]
+        precio = p.get("price")
+        if fecha and precio is not None and not p.get("synthetic"):
+            serie[fecha] = round(float(precio), 2)
+    return [{"fecha": f, "usd_barril": v} for f, v in sorted(serie.items())]
+
+
+def guardar_serie_petroleo(serie: list[dict]) -> int:
+    """Guarda una serie diaria de WTI con SUS fechas (upsert)."""
+    from collector.db import conectar, guardar_precios
+    conn = conectar()
+    filas = [{"producto": "wti", "fecha": p["fecha"], "precio": p["usd_barril"]} for p in serie]
+    conteo = guardar_precios(conn, filas, fuente="OilPriceAPI")
+    conn.close()
+    return conteo["insertados"] + conteo["actualizados"]
 
 
 def obtener_petroleo_actual(conn) -> list[dict]:
@@ -232,8 +257,15 @@ def ejecutar(cfg: dict = None) -> dict:
     resultados["precios_encontrados"] = len(precios)
     resultados["datos"] = precios
 
-    # Guardar en DB (idempotente — INSERT OR IGNORE)
+    # Guardar en DB (upsert idempotente)
     inserted = guardar_precios_petroleo(precios, cfg)
+
+    # Autocorrección: la serie diaria del último mes (días de mercado ya
+    # cerrados) pisa huecos o valores malos de días anteriores.
+    serie = fetch_historial_wti(api_key)
+    if serie:
+        inserted += guardar_serie_petroleo(serie)
+    resultados["historial_dias"] = len(serie)
     resultados["insertados"] = inserted
 
     return resultados

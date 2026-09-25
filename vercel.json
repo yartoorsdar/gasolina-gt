@@ -5,7 +5,7 @@
   ],
   "headers": [
     {
-      "source": "/(resumen|consolidado|precios_combustible|petroleo|noticias|historial_precios|historial_petroleo)\\.json",
+      "source": "/consolidado\\.json",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=60, s-maxage=60, stale-while-revalidate=300" }
       ]

@@ -1,169 +1,5299 @@
 {
-  "ultima_actualizacion": "2026-09-23",
-  "precios_recientes": {
-    "diésel": {
-      "precio": 49.4,
-      "fecha": "2026-09-21"
-    },
+  "version": 2,
+  "actualizado_at": "2026-09-25T03:04:23-06:00",
+  "precios_actualizados": true,
+  "max_fecha_precios": "2026-09-24",
+  "productos": {
     "regular": {
-      "precio": 42.58,
-      "fecha": "2026-09-21"
+      "nombre": "Regular",
+      "categoria": "combustible",
+      "unidad": "GTQ/galón",
+      "orden": 1,
+      "actual": {
+        "fecha": "2026-09-24",
+        "precio": 43.29,
+        "fuente": "MEM",
+        "fetched_at": "2026-09-25T01:59:56-06:00"
+      },
+      "historial": [
+        {
+          "fecha": "2025-09-25",
+          "precio": 28.45
+        },
+        {
+          "fecha": "2025-09-26",
+          "precio": 28.45
+        },
+        {
+          "fecha": "2025-09-27",
+          "precio": 28.45
+        },
+        {
+          "fecha": "2025-09-28",
+          "precio": 28.45
+        },
+        {
+          "fecha": "2025-09-29",
+          "precio": 28.45
+        },
+        {
+          "fecha": "2025-09-30",
+          "precio": 28.45
+        },
+        {
+          "fecha": "2025-10-01",
+          "precio": 28.45
+        },
+        {
+          "fecha": "2025-10-02",
+          "precio": 28.45
+        },
+        {
+          "fecha": "2025-10-03",
+          "precio": 28.45
+        },
+        {
+          "fecha": "2025-10-04",
+          "precio": 28.45
+        },
+        {
+          "fecha": "2025-10-05",
+          "precio": 28.45
+        },
+        {
+          "fecha": "2025-10-06",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-10-07",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-10-08",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-10-09",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-10-10",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-10-11",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-10-12",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-10-13",
+          "precio": 28.05
+        },
+        {
+          "fecha": "2025-10-14",
+          "precio": 28.05
+        },
+        {
+          "fecha": "2025-10-15",
+          "precio": 28.05
+        },
+        {
+          "fecha": "2025-10-16",
+          "precio": 28.05
+        },
+        {
+          "fecha": "2025-10-17",
+          "precio": 28.05
+        },
+        {
+          "fecha": "2025-10-18",
+          "precio": 28.05
+        },
+        {
+          "fecha": "2025-10-19",
+          "precio": 28.05
+        },
+        {
+          "fecha": "2025-10-20",
+          "precio": 28.05
+        },
+        {
+          "fecha": "2025-10-21",
+          "precio": 27.58
+        },
+        {
+          "fecha": "2025-10-22",
+          "precio": 27.58
+        },
+        {
+          "fecha": "2025-10-23",
+          "precio": 27.58
+        },
+        {
+          "fecha": "2025-10-24",
+          "precio": 27.58
+        },
+        {
+          "fecha": "2025-10-25",
+          "precio": 27.58
+        },
+        {
+          "fecha": "2025-10-26",
+          "precio": 27.58
+        },
+        {
+          "fecha": "2025-10-27",
+          "precio": 26.83
+        },
+        {
+          "fecha": "2025-10-28",
+          "precio": 26.83
+        },
+        {
+          "fecha": "2025-10-29",
+          "precio": 26.83
+        },
+        {
+          "fecha": "2025-10-30",
+          "precio": 26.83
+        },
+        {
+          "fecha": "2025-10-31",
+          "precio": 26.83
+        },
+        {
+          "fecha": "2025-11-01",
+          "precio": 26.83
+        },
+        {
+          "fecha": "2025-11-02",
+          "precio": 26.83
+        },
+        {
+          "fecha": "2025-11-03",
+          "precio": 26.69
+        },
+        {
+          "fecha": "2025-11-04",
+          "precio": 26.69
+        },
+        {
+          "fecha": "2025-11-05",
+          "precio": 26.69
+        },
+        {
+          "fecha": "2025-11-06",
+          "precio": 26.69
+        },
+        {
+          "fecha": "2025-11-07",
+          "precio": 26.69
+        },
+        {
+          "fecha": "2025-11-08",
+          "precio": 26.69
+        },
+        {
+          "fecha": "2025-11-09",
+          "precio": 26.69
+        },
+        {
+          "fecha": "2025-11-10",
+          "precio": 27.45
+        },
+        {
+          "fecha": "2025-11-11",
+          "precio": 27.45
+        },
+        {
+          "fecha": "2025-11-12",
+          "precio": 27.45
+        },
+        {
+          "fecha": "2025-11-13",
+          "precio": 27.45
+        },
+        {
+          "fecha": "2025-11-14",
+          "precio": 27.45
+        },
+        {
+          "fecha": "2025-11-15",
+          "precio": 27.45
+        },
+        {
+          "fecha": "2025-11-16",
+          "precio": 27.45
+        },
+        {
+          "fecha": "2025-11-17",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-11-18",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-11-19",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-11-20",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-11-21",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-11-22",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-11-23",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-11-24",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-11-25",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-11-26",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-11-27",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-11-28",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-11-29",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-11-30",
+          "precio": 28.42
+        },
+        {
+          "fecha": "2025-12-01",
+          "precio": 27.54
+        },
+        {
+          "fecha": "2025-12-02",
+          "precio": 27.54
+        },
+        {
+          "fecha": "2025-12-03",
+          "precio": 27.54
+        },
+        {
+          "fecha": "2025-12-04",
+          "precio": 27.54
+        },
+        {
+          "fecha": "2025-12-05",
+          "precio": 27.54
+        },
+        {
+          "fecha": "2025-12-06",
+          "precio": 27.54
+        },
+        {
+          "fecha": "2025-12-07",
+          "precio": 27.54
+        },
+        {
+          "fecha": "2025-12-08",
+          "precio": 27.42
+        },
+        {
+          "fecha": "2025-12-09",
+          "precio": 27.42
+        },
+        {
+          "fecha": "2025-12-10",
+          "precio": 27.42
+        },
+        {
+          "fecha": "2025-12-11",
+          "precio": 27.42
+        },
+        {
+          "fecha": "2025-12-12",
+          "precio": 27.42
+        },
+        {
+          "fecha": "2025-12-13",
+          "precio": 27.42
+        },
+        {
+          "fecha": "2025-12-14",
+          "precio": 27.42
+        },
+        {
+          "fecha": "2025-12-15",
+          "precio": 27.22
+        },
+        {
+          "fecha": "2025-12-16",
+          "precio": 27.22
+        },
+        {
+          "fecha": "2025-12-17",
+          "precio": 27.22
+        },
+        {
+          "fecha": "2025-12-18",
+          "precio": 27.22
+        },
+        {
+          "fecha": "2025-12-19",
+          "precio": 27.22
+        },
+        {
+          "fecha": "2025-12-20",
+          "precio": 27.22
+        },
+        {
+          "fecha": "2025-12-21",
+          "precio": 27.22
+        },
+        {
+          "fecha": "2025-12-22",
+          "precio": 26.51
+        },
+        {
+          "fecha": "2025-12-23",
+          "precio": 26.51
+        },
+        {
+          "fecha": "2025-12-24",
+          "precio": 26.51
+        },
+        {
+          "fecha": "2025-12-25",
+          "precio": 26.51
+        },
+        {
+          "fecha": "2025-12-26",
+          "precio": 26.51
+        },
+        {
+          "fecha": "2025-12-27",
+          "precio": 26.51
+        },
+        {
+          "fecha": "2025-12-28",
+          "precio": 26.51
+        },
+        {
+          "fecha": "2025-12-29",
+          "precio": 26.3
+        },
+        {
+          "fecha": "2025-12-30",
+          "precio": 26.3
+        },
+        {
+          "fecha": "2025-12-31",
+          "precio": 26.3
+        },
+        {
+          "fecha": "2026-01-01",
+          "precio": 26.3
+        },
+        {
+          "fecha": "2026-01-02",
+          "precio": 26.3
+        },
+        {
+          "fecha": "2026-01-03",
+          "precio": 26.3
+        },
+        {
+          "fecha": "2026-01-04",
+          "precio": 26.3
+        },
+        {
+          "fecha": "2026-01-05",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-06",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-07",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-08",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-09",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-10",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-11",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-12",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-13",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-14",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-15",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-16",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-17",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-18",
+          "precio": 26.29
+        },
+        {
+          "fecha": "2026-01-19",
+          "precio": 26.53
+        },
+        {
+          "fecha": "2026-01-20",
+          "precio": 26.53
+        },
+        {
+          "fecha": "2026-01-21",
+          "precio": 26.53
+        },
+        {
+          "fecha": "2026-01-22",
+          "precio": 26.53
+        },
+        {
+          "fecha": "2026-01-23",
+          "precio": 26.53
+        },
+        {
+          "fecha": "2026-01-24",
+          "precio": 26.53
+        },
+        {
+          "fecha": "2026-01-25",
+          "precio": 26.53
+        },
+        {
+          "fecha": "2026-01-26",
+          "precio": 27.0
+        },
+        {
+          "fecha": "2026-01-27",
+          "precio": 27.0
+        },
+        {
+          "fecha": "2026-01-28",
+          "precio": 27.0
+        },
+        {
+          "fecha": "2026-01-29",
+          "precio": 27.0
+        },
+        {
+          "fecha": "2026-01-30",
+          "precio": 27.0
+        },
+        {
+          "fecha": "2026-01-31",
+          "precio": 27.0
+        },
+        {
+          "fecha": "2026-02-01",
+          "precio": 27.0
+        },
+        {
+          "fecha": "2026-02-02",
+          "precio": 28.04
+        },
+        {
+          "fecha": "2026-02-03",
+          "precio": 28.04
+        },
+        {
+          "fecha": "2026-02-04",
+          "precio": 28.04
+        },
+        {
+          "fecha": "2026-02-05",
+          "precio": 28.04
+        },
+        {
+          "fecha": "2026-02-06",
+          "precio": 28.04
+        },
+        {
+          "fecha": "2026-02-07",
+          "precio": 28.04
+        },
+        {
+          "fecha": "2026-02-08",
+          "precio": 28.04
+        },
+        {
+          "fecha": "2026-02-09",
+          "precio": 28.08
+        },
+        {
+          "fecha": "2026-02-10",
+          "precio": 28.08
+        },
+        {
+          "fecha": "2026-02-11",
+          "precio": 28.08
+        },
+        {
+          "fecha": "2026-02-12",
+          "precio": 28.08
+        },
+        {
+          "fecha": "2026-02-13",
+          "precio": 28.08
+        },
+        {
+          "fecha": "2026-02-14",
+          "precio": 28.08
+        },
+        {
+          "fecha": "2026-02-15",
+          "precio": 28.08
+        },
+        {
+          "fecha": "2026-02-16",
+          "precio": 28.1
+        },
+        {
+          "fecha": "2026-02-17",
+          "precio": 28.1
+        },
+        {
+          "fecha": "2026-02-18",
+          "precio": 28.1
+        },
+        {
+          "fecha": "2026-02-19",
+          "precio": 28.1
+        },
+        {
+          "fecha": "2026-02-20",
+          "precio": 28.1
+        },
+        {
+          "fecha": "2026-02-21",
+          "precio": 28.1
+        },
+        {
+          "fecha": "2026-02-22",
+          "precio": 28.1
+        },
+        {
+          "fecha": "2026-02-23",
+          "precio": 28.57
+        },
+        {
+          "fecha": "2026-02-24",
+          "precio": 28.57
+        },
+        {
+          "fecha": "2026-02-25",
+          "precio": 28.57
+        },
+        {
+          "fecha": "2026-02-26",
+          "precio": 28.57
+        },
+        {
+          "fecha": "2026-02-27",
+          "precio": 28.57
+        },
+        {
+          "fecha": "2026-02-28",
+          "precio": 28.57
+        },
+        {
+          "fecha": "2026-03-01",
+          "precio": 28.57
+        },
+        {
+          "fecha": "2026-03-02",
+          "precio": 29.53
+        },
+        {
+          "fecha": "2026-03-03",
+          "precio": 29.53
+        },
+        {
+          "fecha": "2026-03-04",
+          "precio": 29.53
+        },
+        {
+          "fecha": "2026-03-05",
+          "precio": 29.53
+        },
+        {
+          "fecha": "2026-03-06",
+          "precio": 29.53
+        },
+        {
+          "fecha": "2026-03-07",
+          "precio": 29.53
+        },
+        {
+          "fecha": "2026-03-08",
+          "precio": 29.53
+        },
+        {
+          "fecha": "2026-03-09",
+          "precio": 31.88
+        },
+        {
+          "fecha": "2026-03-10",
+          "precio": 31.88
+        },
+        {
+          "fecha": "2026-03-11",
+          "precio": 31.88
+        },
+        {
+          "fecha": "2026-03-12",
+          "precio": 33.97
+        },
+        {
+          "fecha": "2026-03-13",
+          "precio": 33.97
+        },
+        {
+          "fecha": "2026-03-14",
+          "precio": 33.97
+        },
+        {
+          "fecha": "2026-03-15",
+          "precio": 33.97
+        },
+        {
+          "fecha": "2026-03-16",
+          "precio": 35.47
+        },
+        {
+          "fecha": "2026-03-17",
+          "precio": 35.47
+        },
+        {
+          "fecha": "2026-03-19",
+          "precio": 36.48
+        },
+        {
+          "fecha": "2026-03-23",
+          "precio": 38.47
+        },
+        {
+          "fecha": "2026-08-17",
+          "precio": 38.91
+        },
+        {
+          "fecha": "2026-08-24",
+          "precio": 39.23
+        },
+        {
+          "fecha": "2026-08-28",
+          "precio": 38.76
+        },
+        {
+          "fecha": "2026-08-31",
+          "precio": 38.64
+        },
+        {
+          "fecha": "2026-09-05",
+          "precio": 41.09
+        },
+        {
+          "fecha": "2026-09-07",
+          "precio": 40.93
+        },
+        {
+          "fecha": "2026-09-15",
+          "precio": 42.0
+        },
+        {
+          "fecha": "2026-09-16",
+          "precio": 42.58
+        },
+        {
+          "fecha": "2026-09-17",
+          "precio": 42.58
+        },
+        {
+          "fecha": "2026-09-18",
+          "precio": 42.58
+        },
+        {
+          "fecha": "2026-09-19",
+          "precio": 42.58
+        },
+        {
+          "fecha": "2026-09-20",
+          "precio": 42.58
+        },
+        {
+          "fecha": "2026-09-21",
+          "precio": 42.58
+        },
+        {
+          "fecha": "2026-09-22",
+          "precio": 42.58
+        },
+        {
+          "fecha": "2026-09-23",
+          "precio": 43.29
+        },
+        {
+          "fecha": "2026-09-24",
+          "precio": 43.29
+        }
+      ],
+      "mensual": [
+        {
+          "anio": 2020,
+          "mes": 1,
+          "promedio": 23.74
+        },
+        {
+          "anio": 2020,
+          "mes": 2,
+          "promedio": 22.65
+        },
+        {
+          "anio": 2020,
+          "mes": 3,
+          "promedio": 21.62
+        },
+        {
+          "anio": 2020,
+          "mes": 4,
+          "promedio": 16.87
+        },
+        {
+          "anio": 2020,
+          "mes": 5,
+          "promedio": 16.66
+        },
+        {
+          "anio": 2020,
+          "mes": 6,
+          "promedio": 19.18
+        },
+        {
+          "anio": 2020,
+          "mes": 7,
+          "promedio": 20.7
+        },
+        {
+          "anio": 2020,
+          "mes": 8,
+          "promedio": 20.4
+        },
+        {
+          "anio": 2020,
+          "mes": 9,
+          "promedio": 20.28
+        },
+        {
+          "anio": 2020,
+          "mes": 10,
+          "promedio": 20.35
+        },
+        {
+          "anio": 2020,
+          "mes": 11,
+          "promedio": 19.31
+        },
+        {
+          "anio": 2020,
+          "mes": 12,
+          "promedio": 20.81
+        },
+        {
+          "anio": 2021,
+          "mes": 1,
+          "promedio": 21.94
+        },
+        {
+          "anio": 2021,
+          "mes": 2,
+          "promedio": 23.65
+        },
+        {
+          "anio": 2021,
+          "mes": 3,
+          "promedio": 25.82
+        },
+        {
+          "anio": 2021,
+          "mes": 4,
+          "promedio": 26.13
+        },
+        {
+          "anio": 2021,
+          "mes": 5,
+          "promedio": 26.99
+        },
+        {
+          "anio": 2021,
+          "mes": 6,
+          "promedio": 27.07
+        },
+        {
+          "anio": 2021,
+          "mes": 7,
+          "promedio": 27.66
+        },
+        {
+          "anio": 2021,
+          "mes": 8,
+          "promedio": 28.11
+        },
+        {
+          "anio": 2021,
+          "mes": 9,
+          "promedio": 28.49
+        },
+        {
+          "anio": 2021,
+          "mes": 10,
+          "promedio": 29.29
+        },
+        {
+          "anio": 2021,
+          "mes": 11,
+          "promedio": 29.78
+        },
+        {
+          "anio": 2021,
+          "mes": 12,
+          "promedio": 28.03
+        },
+        {
+          "anio": 2022,
+          "mes": 1,
+          "promedio": 29.58
+        },
+        {
+          "anio": 2022,
+          "mes": 2,
+          "promedio": 32.2
+        },
+        {
+          "anio": 2022,
+          "mes": 3,
+          "promedio": 37.64
+        },
+        {
+          "anio": 2022,
+          "mes": 4,
+          "promedio": 34.84
+        },
+        {
+          "anio": 2022,
+          "mes": 5,
+          "promedio": 38.53
+        },
+        {
+          "anio": 2022,
+          "mes": 6,
+          "promedio": 39.32
+        },
+        {
+          "anio": 2022,
+          "mes": 7,
+          "promedio": 34.57
+        },
+        {
+          "anio": 2022,
+          "mes": 8,
+          "promedio": 34.19
+        },
+        {
+          "anio": 2022,
+          "mes": 9,
+          "promedio": 33.33
+        },
+        {
+          "anio": 2022,
+          "mes": 10,
+          "promedio": 35.44
+        },
+        {
+          "anio": 2022,
+          "mes": 11,
+          "promedio": 34.9
+        },
+        {
+          "anio": 2022,
+          "mes": 12,
+          "promedio": 32.06
+        },
+        {
+          "anio": 2023,
+          "mes": 1,
+          "promedio": 32.7
+        },
+        {
+          "anio": 2023,
+          "mes": 2,
+          "promedio": 32.58
+        },
+        {
+          "anio": 2023,
+          "mes": 3,
+          "promedio": 31.83
+        },
+        {
+          "anio": 2023,
+          "mes": 4,
+          "promedio": 33.73
+        },
+        {
+          "anio": 2023,
+          "mes": 5,
+          "promedio": 32.44
+        },
+        {
+          "anio": 2023,
+          "mes": 6,
+          "promedio": 32.05
+        },
+        {
+          "anio": 2023,
+          "mes": 7,
+          "promedio": 32.87
+        },
+        {
+          "anio": 2023,
+          "mes": 8,
+          "promedio": 35.84
+        },
+        {
+          "anio": 2023,
+          "mes": 9,
+          "promedio": 35.6
+        },
+        {
+          "anio": 2023,
+          "mes": 10,
+          "promedio": 34.07
+        },
+        {
+          "anio": 2023,
+          "mes": 11,
+          "promedio": 29.54
+        },
+        {
+          "anio": 2023,
+          "mes": 12,
+          "promedio": 28.06
+        },
+        {
+          "anio": 2024,
+          "mes": 1,
+          "promedio": 29.12
+        },
+        {
+          "anio": 2024,
+          "mes": 2,
+          "promedio": 30.34
+        },
+        {
+          "anio": 2024,
+          "mes": 3,
+          "promedio": 32.43
+        },
+        {
+          "anio": 2024,
+          "mes": 4,
+          "promedio": 33.71
+        },
+        {
+          "anio": 2024,
+          "mes": 5,
+          "promedio": 31.92
+        },
+        {
+          "anio": 2024,
+          "mes": 6,
+          "promedio": 30.92
+        },
+        {
+          "anio": 2024,
+          "mes": 7,
+          "promedio": 31.3
+        },
+        {
+          "anio": 2024,
+          "mes": 8,
+          "promedio": 31.2
+        },
+        {
+          "anio": 2024,
+          "mes": 9,
+          "promedio": 28.88
+        },
+        {
+          "anio": 2024,
+          "mes": 10,
+          "promedio": 28.44
+        },
+        {
+          "anio": 2024,
+          "mes": 11,
+          "promedio": 27.42
+        },
+        {
+          "anio": 2024,
+          "mes": 12,
+          "promedio": 27.45
+        },
+        {
+          "anio": 2025,
+          "mes": 1,
+          "promedio": 28.73
+        },
+        {
+          "anio": 2025,
+          "mes": 2,
+          "promedio": 29.07
+        },
+        {
+          "anio": 2025,
+          "mes": 3,
+          "promedio": 28.75
+        },
+        {
+          "anio": 2025,
+          "mes": 4,
+          "promedio": 29.0
+        },
+        {
+          "anio": 2025,
+          "mes": 5,
+          "promedio": 28.46
+        },
+        {
+          "anio": 2025,
+          "mes": 6,
+          "promedio": 28.75
+        },
+        {
+          "anio": 2025,
+          "mes": 7,
+          "promedio": 30.13
+        },
+        {
+          "anio": 2025,
+          "mes": 8,
+          "promedio": 28.77
+        },
+        {
+          "anio": 2025,
+          "mes": 9,
+          "promedio": 28.5
+        },
+        {
+          "anio": 2025,
+          "mes": 10,
+          "promedio": 27.73
+        },
+        {
+          "anio": 2025,
+          "mes": 11,
+          "promedio": 27.75
+        },
+        {
+          "anio": 2025,
+          "mes": 12,
+          "promedio": 27.0
+        },
+        {
+          "anio": 2026,
+          "mes": 1,
+          "promedio": 26.53
+        },
+        {
+          "anio": 2026,
+          "mes": 2,
+          "promedio": 28.2
+        },
+        {
+          "anio": 2026,
+          "mes": 3,
+          "promedio": 35.35
+        },
+        {
+          "anio": 2026,
+          "mes": 4,
+          "promedio": 38.63
+        },
+        {
+          "anio": 2026,
+          "mes": 5,
+          "promedio": 37.22
+        },
+        {
+          "anio": 2026,
+          "mes": 6,
+          "promedio": 32.5
+        },
+        {
+          "anio": 2026,
+          "mes": 7,
+          "promedio": 37.47
+        }
+      ],
+      "anual": [
+        {
+          "anio": 2002,
+          "promedio": 14.33,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2003,
+          "promedio": 16.6,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2004,
+          "promedio": 18.33,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2005,
+          "promedio": 22.07,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2006,
+          "promedio": 24.37,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2007,
+          "promedio": 25.82,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2008,
+          "promedio": 30.58,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2009,
+          "promedio": 23.51,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2010,
+          "promedio": 27.75,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2011,
+          "promedio": 33.5,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2012,
+          "promedio": 34.68,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2013,
+          "promedio": 33.4,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2014,
+          "promedio": 31.63,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2015,
+          "promedio": 22.76,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2016,
+          "promedio": 20.79,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2017,
+          "promedio": 22.82,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2018,
+          "promedio": 25.79,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2019,
+          "promedio": 24.71,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2020,
+          "promedio": 20.21,
+          "dias": null,
+          "meses": 12,
+          "fuente": "MEM mensual"
+        },
+        {
+          "anio": 2021,
+          "promedio": 26.9,
+          "dias": 365,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2022,
+          "promedio": 34.68,
+          "dias": 365,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2023,
+          "promedio": 32.63,
+          "dias": 365,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2024,
+          "promedio": 30.26,
+          "dias": 366,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2025,
+          "promedio": 28.46,
+          "dias": 365,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2026,
+          "promedio": 33.7,
+          "dias": null,
+          "meses": 7,
+          "fuente": "MEM mensual"
+        }
+      ]
     },
     "superior": {
-      "precio": 44.61,
-      "fecha": "2026-09-21"
+      "nombre": "Superior",
+      "categoria": "combustible",
+      "unidad": "GTQ/galón",
+      "orden": 2,
+      "actual": {
+        "fecha": "2026-09-24",
+        "precio": 45.29,
+        "fuente": "MEM",
+        "fetched_at": "2026-09-25T01:59:56-06:00"
+      },
+      "historial": [
+        {
+          "fecha": "2025-09-25",
+          "precio": 29.94
+        },
+        {
+          "fecha": "2025-09-26",
+          "precio": 29.94
+        },
+        {
+          "fecha": "2025-09-27",
+          "precio": 29.94
+        },
+        {
+          "fecha": "2025-09-28",
+          "precio": 29.94
+        },
+        {
+          "fecha": "2025-09-29",
+          "precio": 29.95
+        },
+        {
+          "fecha": "2025-09-30",
+          "precio": 29.95
+        },
+        {
+          "fecha": "2025-10-01",
+          "precio": 29.95
+        },
+        {
+          "fecha": "2025-10-02",
+          "precio": 29.95
+        },
+        {
+          "fecha": "2025-10-03",
+          "precio": 29.95
+        },
+        {
+          "fecha": "2025-10-04",
+          "precio": 29.95
+        },
+        {
+          "fecha": "2025-10-05",
+          "precio": 29.95
+        },
+        {
+          "fecha": "2025-10-06",
+          "precio": 29.96
+        },
+        {
+          "fecha": "2025-10-07",
+          "precio": 29.96
+        },
+        {
+          "fecha": "2025-10-08",
+          "precio": 29.96
+        },
+        {
+          "fecha": "2025-10-09",
+          "precio": 29.96
+        },
+        {
+          "fecha": "2025-10-10",
+          "precio": 29.96
+        },
+        {
+          "fecha": "2025-10-11",
+          "precio": 29.96
+        },
+        {
+          "fecha": "2025-10-12",
+          "precio": 29.96
+        },
+        {
+          "fecha": "2025-10-13",
+          "precio": 29.55
+        },
+        {
+          "fecha": "2025-10-14",
+          "precio": 29.55
+        },
+        {
+          "fecha": "2025-10-15",
+          "precio": 29.55
+        },
+        {
+          "fecha": "2025-10-16",
+          "precio": 29.55
+        },
+        {
+          "fecha": "2025-10-17",
+          "precio": 29.55
+        },
+        {
+          "fecha": "2025-10-18",
+          "precio": 29.55
+        },
+        {
+          "fecha": "2025-10-19",
+          "precio": 29.55
+        },
+        {
+          "fecha": "2025-10-20",
+          "precio": 29.55
+        },
+        {
+          "fecha": "2025-10-21",
+          "precio": 29.09
+        },
+        {
+          "fecha": "2025-10-22",
+          "precio": 29.09
+        },
+        {
+          "fecha": "2025-10-23",
+          "precio": 29.09
+        },
+        {
+          "fecha": "2025-10-24",
+          "precio": 29.09
+        },
+        {
+          "fecha": "2025-10-25",
+          "precio": 29.09
+        },
+        {
+          "fecha": "2025-10-26",
+          "precio": 29.09
+        },
+        {
+          "fecha": "2025-10-27",
+          "precio": 28.32
+        },
+        {
+          "fecha": "2025-10-28",
+          "precio": 28.32
+        },
+        {
+          "fecha": "2025-10-29",
+          "precio": 28.32
+        },
+        {
+          "fecha": "2025-10-30",
+          "precio": 28.32
+        },
+        {
+          "fecha": "2025-10-31",
+          "precio": 28.32
+        },
+        {
+          "fecha": "2025-11-01",
+          "precio": 28.32
+        },
+        {
+          "fecha": "2025-11-02",
+          "precio": 28.32
+        },
+        {
+          "fecha": "2025-11-03",
+          "precio": 28.2
+        },
+        {
+          "fecha": "2025-11-04",
+          "precio": 28.2
+        },
+        {
+          "fecha": "2025-11-05",
+          "precio": 28.2
+        },
+        {
+          "fecha": "2025-11-06",
+          "precio": 28.2
+        },
+        {
+          "fecha": "2025-11-07",
+          "precio": 28.2
+        },
+        {
+          "fecha": "2025-11-08",
+          "precio": 28.2
+        },
+        {
+          "fecha": "2025-11-09",
+          "precio": 28.2
+        },
+        {
+          "fecha": "2025-11-10",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-11-11",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-11-12",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-11-13",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-11-14",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-11-15",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-11-16",
+          "precio": 28.46
+        },
+        {
+          "fecha": "2025-11-17",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-11-18",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-11-19",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-11-20",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-11-21",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-11-22",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-11-23",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-11-24",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-11-25",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-11-26",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-11-27",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-11-28",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-11-29",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-11-30",
+          "precio": 29.43
+        },
+        {
+          "fecha": "2025-12-01",
+          "precio": 28.55
+        },
+        {
+          "fecha": "2025-12-02",
+          "precio": 28.55
+        },
+        {
+          "fecha": "2025-12-03",
+          "precio": 28.55
+        },
+        {
+          "fecha": "2025-12-04",
+          "precio": 28.55
+        },
+        {
+          "fecha": "2025-12-05",
+          "precio": 28.55
+        },
+        {
+          "fecha": "2025-12-06",
+          "precio": 28.55
+        },
+        {
+          "fecha": "2025-12-07",
+          "precio": 28.55
+        },
+        {
+          "fecha": "2025-12-08",
+          "precio": 28.41
+        },
+        {
+          "fecha": "2025-12-09",
+          "precio": 28.41
+        },
+        {
+          "fecha": "2025-12-10",
+          "precio": 28.41
+        },
+        {
+          "fecha": "2025-12-11",
+          "precio": 28.41
+        },
+        {
+          "fecha": "2025-12-12",
+          "precio": 28.41
+        },
+        {
+          "fecha": "2025-12-13",
+          "precio": 28.41
+        },
+        {
+          "fecha": "2025-12-14",
+          "precio": 28.41
+        },
+        {
+          "fecha": "2025-12-15",
+          "precio": 28.22
+        },
+        {
+          "fecha": "2025-12-16",
+          "precio": 28.22
+        },
+        {
+          "fecha": "2025-12-17",
+          "precio": 28.22
+        },
+        {
+          "fecha": "2025-12-18",
+          "precio": 28.22
+        },
+        {
+          "fecha": "2025-12-19",
+          "precio": 28.22
+        },
+        {
+          "fecha": "2025-12-20",
+          "precio": 28.22
+        },
+        {
+          "fecha": "2025-12-21",
+          "precio": 28.22
+        },
+        {
+          "fecha": "2025-12-22",
+          "precio": 27.51
+        },
+        {
+          "fecha": "2025-12-23",
+          "precio": 27.51
+        },
+        {
+          "fecha": "2025-12-24",
+          "precio": 27.51
+        },
+        {
+          "fecha": "2025-12-25",
+          "precio": 27.51
+        },
+        {
+          "fecha": "2025-12-26",
+          "precio": 27.51
+        },
+        {
+          "fecha": "2025-12-27",
+          "precio": 27.51
+        },
+        {
+          "fecha": "2025-12-28",
+          "precio": 27.51
+        },
+        {
+          "fecha": "2025-12-29",
+          "precio": 27.3
+        },
+        {
+          "fecha": "2025-12-30",
+          "precio": 27.3
+        },
+        {
+          "fecha": "2025-12-31",
+          "precio": 27.3
+        },
+        {
+          "fecha": "2026-01-01",
+          "precio": 27.3
+        },
+        {
+          "fecha": "2026-01-02",
+          "precio": 27.3
+        },
+        {
+          "fecha": "2026-01-03",
+          "precio": 27.3
+        },
+        {
+          "fecha": "2026-01-04",
+          "precio": 27.3
+        },
+        {
+          "fecha": "2026-01-05",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-06",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-07",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-08",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-09",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-10",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-11",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-12",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-13",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-14",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-15",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-16",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-17",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-18",
+          "precio": 27.29
+        },
+        {
+          "fecha": "2026-01-19",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2026-01-20",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2026-01-21",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2026-01-22",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2026-01-23",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2026-01-24",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2026-01-25",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2026-01-26",
+          "precio": 28.0
+        },
+        {
+          "fecha": "2026-01-27",
+          "precio": 28.0
+        },
+        {
+          "fecha": "2026-01-28",
+          "precio": 28.0
+        },
+        {
+          "fecha": "2026-01-29",
+          "precio": 28.0
+        },
+        {
+          "fecha": "2026-01-30",
+          "precio": 28.0
+        },
+        {
+          "fecha": "2026-01-31",
+          "precio": 28.0
+        },
+        {
+          "fecha": "2026-02-01",
+          "precio": 28.0
+        },
+        {
+          "fecha": "2026-02-02",
+          "precio": 29.04
+        },
+        {
+          "fecha": "2026-02-03",
+          "precio": 29.04
+        },
+        {
+          "fecha": "2026-02-04",
+          "precio": 29.04
+        },
+        {
+          "fecha": "2026-02-05",
+          "precio": 29.04
+        },
+        {
+          "fecha": "2026-02-06",
+          "precio": 29.04
+        },
+        {
+          "fecha": "2026-02-07",
+          "precio": 29.04
+        },
+        {
+          "fecha": "2026-02-08",
+          "precio": 29.04
+        },
+        {
+          "fecha": "2026-02-09",
+          "precio": 29.08
+        },
+        {
+          "fecha": "2026-02-10",
+          "precio": 29.08
+        },
+        {
+          "fecha": "2026-02-11",
+          "precio": 29.08
+        },
+        {
+          "fecha": "2026-02-12",
+          "precio": 29.08
+        },
+        {
+          "fecha": "2026-02-13",
+          "precio": 29.08
+        },
+        {
+          "fecha": "2026-02-14",
+          "precio": 29.08
+        },
+        {
+          "fecha": "2026-02-15",
+          "precio": 29.08
+        },
+        {
+          "fecha": "2026-02-16",
+          "precio": 29.1
+        },
+        {
+          "fecha": "2026-02-17",
+          "precio": 29.1
+        },
+        {
+          "fecha": "2026-02-18",
+          "precio": 29.1
+        },
+        {
+          "fecha": "2026-02-19",
+          "precio": 29.1
+        },
+        {
+          "fecha": "2026-02-20",
+          "precio": 29.1
+        },
+        {
+          "fecha": "2026-02-21",
+          "precio": 29.1
+        },
+        {
+          "fecha": "2026-02-22",
+          "precio": 29.1
+        },
+        {
+          "fecha": "2026-02-23",
+          "precio": 29.57
+        },
+        {
+          "fecha": "2026-02-24",
+          "precio": 29.57
+        },
+        {
+          "fecha": "2026-02-25",
+          "precio": 29.57
+        },
+        {
+          "fecha": "2026-02-26",
+          "precio": 29.57
+        },
+        {
+          "fecha": "2026-02-27",
+          "precio": 29.57
+        },
+        {
+          "fecha": "2026-02-28",
+          "precio": 29.57
+        },
+        {
+          "fecha": "2026-03-01",
+          "precio": 29.57
+        },
+        {
+          "fecha": "2026-03-02",
+          "precio": 30.54
+        },
+        {
+          "fecha": "2026-03-03",
+          "precio": 30.54
+        },
+        {
+          "fecha": "2026-03-04",
+          "precio": 30.54
+        },
+        {
+          "fecha": "2026-03-05",
+          "precio": 30.54
+        },
+        {
+          "fecha": "2026-03-06",
+          "precio": 30.54
+        },
+        {
+          "fecha": "2026-03-07",
+          "precio": 30.54
+        },
+        {
+          "fecha": "2026-03-08",
+          "precio": 30.54
+        },
+        {
+          "fecha": "2026-03-09",
+          "precio": 33.0
+        },
+        {
+          "fecha": "2026-03-10",
+          "precio": 33.0
+        },
+        {
+          "fecha": "2026-03-11",
+          "precio": 33.0
+        },
+        {
+          "fecha": "2026-03-12",
+          "precio": 34.92
+        },
+        {
+          "fecha": "2026-03-13",
+          "precio": 34.92
+        },
+        {
+          "fecha": "2026-03-14",
+          "precio": 34.92
+        },
+        {
+          "fecha": "2026-03-15",
+          "precio": 34.92
+        },
+        {
+          "fecha": "2026-03-16",
+          "precio": 36.48
+        },
+        {
+          "fecha": "2026-03-17",
+          "precio": 36.48
+        },
+        {
+          "fecha": "2026-03-19",
+          "precio": 37.48
+        },
+        {
+          "fecha": "2026-03-23",
+          "precio": 39.47
+        },
+        {
+          "fecha": "2026-08-17",
+          "precio": 39.91
+        },
+        {
+          "fecha": "2026-08-24",
+          "precio": 40.56
+        },
+        {
+          "fecha": "2026-08-28",
+          "precio": 40.58
+        },
+        {
+          "fecha": "2026-08-31",
+          "precio": 40.58
+        },
+        {
+          "fecha": "2026-09-05",
+          "precio": 43.09
+        },
+        {
+          "fecha": "2026-09-07",
+          "precio": 43.06
+        },
+        {
+          "fecha": "2026-09-15",
+          "precio": 44.0
+        },
+        {
+          "fecha": "2026-09-16",
+          "precio": 44.66
+        },
+        {
+          "fecha": "2026-09-17",
+          "precio": 44.66
+        },
+        {
+          "fecha": "2026-09-18",
+          "precio": 44.66
+        },
+        {
+          "fecha": "2026-09-19",
+          "precio": 44.66
+        },
+        {
+          "fecha": "2026-09-20",
+          "precio": 44.66
+        },
+        {
+          "fecha": "2026-09-21",
+          "precio": 44.61
+        },
+        {
+          "fecha": "2026-09-22",
+          "precio": 44.61
+        },
+        {
+          "fecha": "2026-09-23",
+          "precio": 45.29
+        },
+        {
+          "fecha": "2026-09-24",
+          "precio": 45.29
+        }
+      ],
+      "mensual": [
+        {
+          "anio": 2020,
+          "mes": 1,
+          "promedio": 24.75
+        },
+        {
+          "anio": 2020,
+          "mes": 2,
+          "promedio": 23.67
+        },
+        {
+          "anio": 2020,
+          "mes": 3,
+          "promedio": 22.62
+        },
+        {
+          "anio": 2020,
+          "mes": 4,
+          "promedio": 17.89
+        },
+        {
+          "anio": 2020,
+          "mes": 5,
+          "promedio": 17.67
+        },
+        {
+          "anio": 2020,
+          "mes": 6,
+          "promedio": 20.04
+        },
+        {
+          "anio": 2020,
+          "mes": 7,
+          "promedio": 21.5
+        },
+        {
+          "anio": 2020,
+          "mes": 8,
+          "promedio": 21.21
+        },
+        {
+          "anio": 2020,
+          "mes": 9,
+          "promedio": 21.08
+        },
+        {
+          "anio": 2020,
+          "mes": 10,
+          "promedio": 21.15
+        },
+        {
+          "anio": 2020,
+          "mes": 11,
+          "promedio": 20.11
+        },
+        {
+          "anio": 2020,
+          "mes": 12,
+          "promedio": 21.61
+        },
+        {
+          "anio": 2021,
+          "mes": 1,
+          "promedio": 22.74
+        },
+        {
+          "anio": 2021,
+          "mes": 2,
+          "promedio": 24.45
+        },
+        {
+          "anio": 2021,
+          "mes": 3,
+          "promedio": 26.62
+        },
+        {
+          "anio": 2021,
+          "mes": 4,
+          "promedio": 26.92
+        },
+        {
+          "anio": 2021,
+          "mes": 5,
+          "promedio": 27.8
+        },
+        {
+          "anio": 2021,
+          "mes": 6,
+          "promedio": 27.87
+        },
+        {
+          "anio": 2021,
+          "mes": 7,
+          "promedio": 28.46
+        },
+        {
+          "anio": 2021,
+          "mes": 8,
+          "promedio": 28.91
+        },
+        {
+          "anio": 2021,
+          "mes": 9,
+          "promedio": 29.19
+        },
+        {
+          "anio": 2021,
+          "mes": 10,
+          "promedio": 29.99
+        },
+        {
+          "anio": 2021,
+          "mes": 11,
+          "promedio": 30.48
+        },
+        {
+          "anio": 2021,
+          "mes": 12,
+          "promedio": 28.77
+        },
+        {
+          "anio": 2022,
+          "mes": 1,
+          "promedio": 30.38
+        },
+        {
+          "anio": 2022,
+          "mes": 2,
+          "promedio": 32.95
+        },
+        {
+          "anio": 2022,
+          "mes": 3,
+          "promedio": 38.25
+        },
+        {
+          "anio": 2022,
+          "mes": 4,
+          "promedio": 37.86
+        },
+        {
+          "anio": 2022,
+          "mes": 5,
+          "promedio": 41.25
+        },
+        {
+          "anio": 2022,
+          "mes": 6,
+          "promedio": 40.32
+        },
+        {
+          "anio": 2022,
+          "mes": 7,
+          "promedio": 35.52
+        },
+        {
+          "anio": 2022,
+          "mes": 8,
+          "promedio": 35.28
+        },
+        {
+          "anio": 2022,
+          "mes": 9,
+          "promedio": 34.24
+        },
+        {
+          "anio": 2022,
+          "mes": 10,
+          "promedio": 36.35
+        },
+        {
+          "anio": 2022,
+          "mes": 11,
+          "promedio": 34.9
+        },
+        {
+          "anio": 2022,
+          "mes": 12,
+          "promedio": 33.63
+        },
+        {
+          "anio": 2023,
+          "mes": 1,
+          "promedio": 34.1
+        },
+        {
+          "anio": 2023,
+          "mes": 2,
+          "promedio": 34.06
+        },
+        {
+          "anio": 2023,
+          "mes": 3,
+          "promedio": 33.4
+        },
+        {
+          "anio": 2023,
+          "mes": 4,
+          "promedio": 35.34
+        },
+        {
+          "anio": 2023,
+          "mes": 5,
+          "promedio": 33.91
+        },
+        {
+          "anio": 2023,
+          "mes": 6,
+          "promedio": 33.41
+        },
+        {
+          "anio": 2023,
+          "mes": 7,
+          "promedio": 34.37
+        },
+        {
+          "anio": 2023,
+          "mes": 8,
+          "promedio": 37.34
+        },
+        {
+          "anio": 2023,
+          "mes": 9,
+          "promedio": 37.1
+        },
+        {
+          "anio": 2023,
+          "mes": 10,
+          "promedio": 35.58
+        },
+        {
+          "anio": 2023,
+          "mes": 11,
+          "promedio": 31.03
+        },
+        {
+          "anio": 2023,
+          "mes": 12,
+          "promedio": 29.55
+        },
+        {
+          "anio": 2024,
+          "mes": 1,
+          "promedio": 30.62
+        },
+        {
+          "anio": 2024,
+          "mes": 2,
+          "promedio": 31.84
+        },
+        {
+          "anio": 2024,
+          "mes": 3,
+          "promedio": 33.93
+        },
+        {
+          "anio": 2024,
+          "mes": 4,
+          "promedio": 35.2
+        },
+        {
+          "anio": 2024,
+          "mes": 5,
+          "promedio": 33.42
+        },
+        {
+          "anio": 2024,
+          "mes": 6,
+          "promedio": 32.42
+        },
+        {
+          "anio": 2024,
+          "mes": 7,
+          "promedio": 32.8
+        },
+        {
+          "anio": 2024,
+          "mes": 8,
+          "promedio": 32.7
+        },
+        {
+          "anio": 2024,
+          "mes": 9,
+          "promedio": 30.38
+        },
+        {
+          "anio": 2024,
+          "mes": 10,
+          "promedio": 29.93
+        },
+        {
+          "anio": 2024,
+          "mes": 11,
+          "promedio": 28.92
+        },
+        {
+          "anio": 2024,
+          "mes": 12,
+          "promedio": 28.95
+        },
+        {
+          "anio": 2025,
+          "mes": 1,
+          "promedio": 30.24
+        },
+        {
+          "anio": 2025,
+          "mes": 2,
+          "promedio": 30.57
+        },
+        {
+          "anio": 2025,
+          "mes": 3,
+          "promedio": 30.24
+        },
+        {
+          "anio": 2025,
+          "mes": 4,
+          "promedio": 30.51
+        },
+        {
+          "anio": 2025,
+          "mes": 5,
+          "promedio": 29.96
+        },
+        {
+          "anio": 2025,
+          "mes": 6,
+          "promedio": 30.27
+        },
+        {
+          "anio": 2025,
+          "mes": 7,
+          "promedio": 31.65
+        },
+        {
+          "anio": 2025,
+          "mes": 8,
+          "promedio": 30.27
+        },
+        {
+          "anio": 2025,
+          "mes": 9,
+          "promedio": 29.99
+        },
+        {
+          "anio": 2025,
+          "mes": 10,
+          "promedio": 29.23
+        },
+        {
+          "anio": 2025,
+          "mes": 11,
+          "promedio": 28.88
+        },
+        {
+          "anio": 2025,
+          "mes": 12,
+          "promedio": 28.0
+        },
+        {
+          "anio": 2026,
+          "mes": 1,
+          "promedio": 27.51
+        },
+        {
+          "anio": 2026,
+          "mes": 2,
+          "promedio": 29.2
+        },
+        {
+          "anio": 2026,
+          "mes": 3,
+          "promedio": 36.36
+        },
+        {
+          "anio": 2026,
+          "mes": 4,
+          "promedio": 39.69
+        },
+        {
+          "anio": 2026,
+          "mes": 5,
+          "promedio": 38.22
+        },
+        {
+          "anio": 2026,
+          "mes": 6,
+          "promedio": 33.5
+        },
+        {
+          "anio": 2026,
+          "mes": 7,
+          "promedio": 38.47
+        }
+      ],
+      "anual": [
+        {
+          "anio": 2002,
+          "promedio": 15.91,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2003,
+          "promedio": 17.78,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2004,
+          "promedio": 20.28,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2005,
+          "promedio": 24.12,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2006,
+          "promedio": 26.44,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2007,
+          "promedio": 27.74,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2008,
+          "promedio": 32.39,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2009,
+          "promedio": 25.19,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2010,
+          "promedio": 29.33,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2011,
+          "promedio": 34.39,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2012,
+          "promedio": 35.38,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2013,
+          "promedio": 34.68,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2014,
+          "promedio": 33.4,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2015,
+          "promedio": 25.76,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2016,
+          "promedio": 23.84,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2017,
+          "promedio": 25.26,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2018,
+          "promedio": 27.46,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2019,
+          "promedio": 26.38,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2020,
+          "promedio": 21.11,
+          "dias": null,
+          "meses": 12,
+          "fuente": "MEM mensual"
+        },
+        {
+          "anio": 2021,
+          "promedio": 27.67,
+          "dias": 365,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2022,
+          "promedio": 36.04,
+          "dias": 365,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2023,
+          "promedio": 34.11,
+          "dias": 365,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2024,
+          "promedio": 31.76,
+          "dias": 366,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2025,
+          "promedio": 29.91,
+          "dias": 365,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2026,
+          "promedio": 34.71,
+          "dias": null,
+          "meses": 7,
+          "fuente": "MEM mensual"
+        }
+      ]
+    },
+    "diésel": {
+      "nombre": "Diésel",
+      "categoria": "combustible",
+      "unidad": "GTQ/galón",
+      "orden": 3,
+      "actual": {
+        "fecha": "2026-09-24",
+        "precio": 49.4,
+        "fuente": "MEM",
+        "fetched_at": "2026-09-25T01:59:56-06:00"
+      },
+      "historial": [
+        {
+          "fecha": "2025-09-25",
+          "precio": 26.39
+        },
+        {
+          "fecha": "2025-09-26",
+          "precio": 26.39
+        },
+        {
+          "fecha": "2025-09-27",
+          "precio": 26.39
+        },
+        {
+          "fecha": "2025-09-28",
+          "precio": 26.39
+        },
+        {
+          "fecha": "2025-09-29",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-09-30",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-10-01",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-10-02",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-10-03",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-10-04",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-10-05",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-10-06",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-10-07",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-10-08",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-10-09",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-10-10",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-10-11",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-10-12",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-10-13",
+          "precio": 25.97
+        },
+        {
+          "fecha": "2025-10-14",
+          "precio": 25.97
+        },
+        {
+          "fecha": "2025-10-15",
+          "precio": 25.97
+        },
+        {
+          "fecha": "2025-10-16",
+          "precio": 25.97
+        },
+        {
+          "fecha": "2025-10-17",
+          "precio": 25.97
+        },
+        {
+          "fecha": "2025-10-18",
+          "precio": 25.97
+        },
+        {
+          "fecha": "2025-10-19",
+          "precio": 25.97
+        },
+        {
+          "fecha": "2025-10-20",
+          "precio": 25.97
+        },
+        {
+          "fecha": "2025-10-21",
+          "precio": 25.89
+        },
+        {
+          "fecha": "2025-10-22",
+          "precio": 25.89
+        },
+        {
+          "fecha": "2025-10-23",
+          "precio": 25.89
+        },
+        {
+          "fecha": "2025-10-24",
+          "precio": 25.89
+        },
+        {
+          "fecha": "2025-10-25",
+          "precio": 25.89
+        },
+        {
+          "fecha": "2025-10-26",
+          "precio": 25.89
+        },
+        {
+          "fecha": "2025-10-27",
+          "precio": 25.36
+        },
+        {
+          "fecha": "2025-10-28",
+          "precio": 25.36
+        },
+        {
+          "fecha": "2025-10-29",
+          "precio": 25.36
+        },
+        {
+          "fecha": "2025-10-30",
+          "precio": 25.36
+        },
+        {
+          "fecha": "2025-10-31",
+          "precio": 25.36
+        },
+        {
+          "fecha": "2025-11-01",
+          "precio": 25.36
+        },
+        {
+          "fecha": "2025-11-02",
+          "precio": 25.36
+        },
+        {
+          "fecha": "2025-11-03",
+          "precio": 26.21
+        },
+        {
+          "fecha": "2025-11-04",
+          "precio": 26.21
+        },
+        {
+          "fecha": "2025-11-05",
+          "precio": 26.21
+        },
+        {
+          "fecha": "2025-11-06",
+          "precio": 26.21
+        },
+        {
+          "fecha": "2025-11-07",
+          "precio": 26.21
+        },
+        {
+          "fecha": "2025-11-08",
+          "precio": 26.21
+        },
+        {
+          "fecha": "2025-11-09",
+          "precio": 26.21
+        },
+        {
+          "fecha": "2025-11-10",
+          "precio": 26.96
+        },
+        {
+          "fecha": "2025-11-11",
+          "precio": 26.96
+        },
+        {
+          "fecha": "2025-11-12",
+          "precio": 26.96
+        },
+        {
+          "fecha": "2025-11-13",
+          "precio": 26.96
+        },
+        {
+          "fecha": "2025-11-14",
+          "precio": 26.96
+        },
+        {
+          "fecha": "2025-11-15",
+          "precio": 26.96
+        },
+        {
+          "fecha": "2025-11-16",
+          "precio": 26.96
+        },
+        {
+          "fecha": "2025-11-17",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2025-11-18",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2025-11-19",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2025-11-20",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2025-11-21",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2025-11-22",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2025-11-23",
+          "precio": 27.49
+        },
+        {
+          "fecha": "2025-11-24",
+          "precio": 27.43
+        },
+        {
+          "fecha": "2025-11-25",
+          "precio": 27.43
+        },
+        {
+          "fecha": "2025-11-26",
+          "precio": 27.43
+        },
+        {
+          "fecha": "2025-11-27",
+          "precio": 27.43
+        },
+        {
+          "fecha": "2025-11-28",
+          "precio": 27.43
+        },
+        {
+          "fecha": "2025-11-29",
+          "precio": 27.43
+        },
+        {
+          "fecha": "2025-11-30",
+          "precio": 27.43
+        },
+        {
+          "fecha": "2025-12-01",
+          "precio": 26.99
+        },
+        {
+          "fecha": "2025-12-02",
+          "precio": 26.99
+        },
+        {
+          "fecha": "2025-12-03",
+          "precio": 26.99
+        },
+        {
+          "fecha": "2025-12-04",
+          "precio": 26.99
+        },
+        {
+          "fecha": "2025-12-05",
+          "precio": 26.99
+        },
+        {
+          "fecha": "2025-12-06",
+          "precio": 26.99
+        },
+        {
+          "fecha": "2025-12-07",
+          "precio": 26.99
+        },
+        {
+          "fecha": "2025-12-08",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-12-09",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-12-10",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-12-11",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-12-12",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-12-13",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-12-14",
+          "precio": 26.38
+        },
+        {
+          "fecha": "2025-12-15",
+          "precio": 25.85
+        },
+        {
+          "fecha": "2025-12-16",
+          "precio": 25.85
+        },
+        {
+          "fecha": "2025-12-17",
+          "precio": 25.85
+        },
+        {
+          "fecha": "2025-12-18",
+          "precio": 25.85
+        },
+        {
+          "fecha": "2025-12-19",
+          "precio": 25.85
+        },
+        {
+          "fecha": "2025-12-20",
+          "precio": 25.85
+        },
+        {
+          "fecha": "2025-12-21",
+          "precio": 25.85
+        },
+        {
+          "fecha": "2025-12-22",
+          "precio": 25.41
+        },
+        {
+          "fecha": "2025-12-23",
+          "precio": 25.41
+        },
+        {
+          "fecha": "2025-12-24",
+          "precio": 25.41
+        },
+        {
+          "fecha": "2025-12-25",
+          "precio": 25.41
+        },
+        {
+          "fecha": "2025-12-26",
+          "precio": 25.41
+        },
+        {
+          "fecha": "2025-12-27",
+          "precio": 25.41
+        },
+        {
+          "fecha": "2025-12-28",
+          "precio": 25.41
+        },
+        {
+          "fecha": "2025-12-29",
+          "precio": 24.92
+        },
+        {
+          "fecha": "2025-12-30",
+          "precio": 24.92
+        },
+        {
+          "fecha": "2025-12-31",
+          "precio": 24.92
+        },
+        {
+          "fecha": "2026-01-01",
+          "precio": 24.92
+        },
+        {
+          "fecha": "2026-01-02",
+          "precio": 24.92
+        },
+        {
+          "fecha": "2026-01-03",
+          "precio": 24.92
+        },
+        {
+          "fecha": "2026-01-04",
+          "precio": 24.92
+        },
+        {
+          "fecha": "2026-01-05",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-06",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-07",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-08",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-09",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-10",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-11",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-12",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-13",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-14",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-15",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-16",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-17",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-18",
+          "precio": 24.89
+        },
+        {
+          "fecha": "2026-01-19",
+          "precio": 25.1
+        },
+        {
+          "fecha": "2026-01-20",
+          "precio": 25.1
+        },
+        {
+          "fecha": "2026-01-21",
+          "precio": 25.1
+        },
+        {
+          "fecha": "2026-01-22",
+          "precio": 25.1
+        },
+        {
+          "fecha": "2026-01-23",
+          "precio": 25.1
+        },
+        {
+          "fecha": "2026-01-24",
+          "precio": 25.1
+        },
+        {
+          "fecha": "2026-01-25",
+          "precio": 25.1
+        },
+        {
+          "fecha": "2026-01-26",
+          "precio": 25.59
+        },
+        {
+          "fecha": "2026-01-27",
+          "precio": 25.59
+        },
+        {
+          "fecha": "2026-01-28",
+          "precio": 25.59
+        },
+        {
+          "fecha": "2026-01-29",
+          "precio": 25.59
+        },
+        {
+          "fecha": "2026-01-30",
+          "precio": 25.59
+        },
+        {
+          "fecha": "2026-01-31",
+          "precio": 25.59
+        },
+        {
+          "fecha": "2026-02-01",
+          "precio": 25.59
+        },
+        {
+          "fecha": "2026-02-02",
+          "precio": 26.74
+        },
+        {
+          "fecha": "2026-02-03",
+          "precio": 26.74
+        },
+        {
+          "fecha": "2026-02-04",
+          "precio": 26.74
+        },
+        {
+          "fecha": "2026-02-05",
+          "precio": 26.74
+        },
+        {
+          "fecha": "2026-02-06",
+          "precio": 26.74
+        },
+        {
+          "fecha": "2026-02-07",
+          "precio": 26.74
+        },
+        {
+          "fecha": "2026-02-08",
+          "precio": 26.74
+        },
+        {
+          "fecha": "2026-02-09",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-10",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-11",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-12",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-13",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-14",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-15",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-16",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-17",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-18",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-19",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-20",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-21",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-22",
+          "precio": 26.8
+        },
+        {
+          "fecha": "2026-02-23",
+          "precio": 27.75
+        },
+        {
+          "fecha": "2026-02-24",
+          "precio": 27.75
+        },
+        {
+          "fecha": "2026-02-25",
+          "precio": 27.75
+        },
+        {
+          "fecha": "2026-02-26",
+          "precio": 27.75
+        },
+        {
+          "fecha": "2026-02-27",
+          "precio": 27.75
+        },
+        {
+          "fecha": "2026-02-28",
+          "precio": 27.75
+        },
+        {
+          "fecha": "2026-03-01",
+          "precio": 27.75
+        },
+        {
+          "fecha": "2026-03-02",
+          "precio": 28.28
+        },
+        {
+          "fecha": "2026-03-03",
+          "precio": 28.28
+        },
+        {
+          "fecha": "2026-03-04",
+          "precio": 28.28
+        },
+        {
+          "fecha": "2026-03-05",
+          "precio": 28.28
+        },
+        {
+          "fecha": "2026-03-06",
+          "precio": 28.28
+        },
+        {
+          "fecha": "2026-03-07",
+          "precio": 28.28
+        },
+        {
+          "fecha": "2026-03-08",
+          "precio": 28.28
+        },
+        {
+          "fecha": "2026-03-09",
+          "precio": 31.81
+        },
+        {
+          "fecha": "2026-03-10",
+          "precio": 31.81
+        },
+        {
+          "fecha": "2026-03-11",
+          "precio": 31.81
+        },
+        {
+          "fecha": "2026-03-12",
+          "precio": 35.16
+        },
+        {
+          "fecha": "2026-03-13",
+          "precio": 35.16
+        },
+        {
+          "fecha": "2026-03-14",
+          "precio": 35.16
+        },
+        {
+          "fecha": "2026-03-15",
+          "precio": 35.16
+        },
+        {
+          "fecha": "2026-03-16",
+          "precio": 37.3
+        },
+        {
+          "fecha": "2026-03-17",
+          "precio": 37.3
+        },
+        {
+          "fecha": "2026-03-19",
+          "precio": 39.5
+        },
+        {
+          "fecha": "2026-03-23",
+          "precio": 41.48
+        },
+        {
+          "fecha": "2026-08-17",
+          "precio": 43.92
+        },
+        {
+          "fecha": "2026-08-24",
+          "precio": 45.33
+        },
+        {
+          "fecha": "2026-08-28",
+          "precio": 45.37
+        },
+        {
+          "fecha": "2026-08-31",
+          "precio": 44.71
+        },
+        {
+          "fecha": "2026-09-05",
+          "precio": 46.39
+        },
+        {
+          "fecha": "2026-09-07",
+          "precio": 46.37
+        },
+        {
+          "fecha": "2026-09-16",
+          "precio": 49.36
+        },
+        {
+          "fecha": "2026-09-17",
+          "precio": 49.36
+        },
+        {
+          "fecha": "2026-09-18",
+          "precio": 49.36
+        },
+        {
+          "fecha": "2026-09-19",
+          "precio": 49.36
+        },
+        {
+          "fecha": "2026-09-20",
+          "precio": 49.36
+        },
+        {
+          "fecha": "2026-09-21",
+          "precio": 49.4
+        },
+        {
+          "fecha": "2026-09-22",
+          "precio": 49.4
+        },
+        {
+          "fecha": "2026-09-23",
+          "precio": 49.4
+        },
+        {
+          "fecha": "2026-09-24",
+          "precio": 49.4
+        }
+      ],
+      "mensual": [
+        {
+          "anio": 2020,
+          "mes": 1,
+          "promedio": 21.09
+        },
+        {
+          "anio": 2020,
+          "mes": 2,
+          "promedio": 18.74
+        },
+        {
+          "anio": 2020,
+          "mes": 3,
+          "promedio": 17.11
+        },
+        {
+          "anio": 2020,
+          "mes": 4,
+          "promedio": 14.91
+        },
+        {
+          "anio": 2020,
+          "mes": 5,
+          "promedio": 14.09
+        },
+        {
+          "anio": 2020,
+          "mes": 6,
+          "promedio": 15.34
+        },
+        {
+          "anio": 2020,
+          "mes": 7,
+          "promedio": 16.34
+        },
+        {
+          "anio": 2020,
+          "mes": 8,
+          "promedio": 16.62
+        },
+        {
+          "anio": 2020,
+          "mes": 9,
+          "promedio": 15.45
+        },
+        {
+          "anio": 2020,
+          "mes": 10,
+          "promedio": 15.01
+        },
+        {
+          "anio": 2020,
+          "mes": 11,
+          "promedio": 15.07
+        },
+        {
+          "anio": 2020,
+          "mes": 12,
+          "promedio": 17.23
+        },
+        {
+          "anio": 2021,
+          "mes": 1,
+          "promedio": 18.02
+        },
+        {
+          "anio": 2021,
+          "mes": 2,
+          "promedio": 19.46
+        },
+        {
+          "anio": 2021,
+          "mes": 3,
+          "promedio": 21.21
+        },
+        {
+          "anio": 2021,
+          "mes": 4,
+          "promedio": 20.65
+        },
+        {
+          "anio": 2021,
+          "mes": 5,
+          "promedio": 21.75
+        },
+        {
+          "anio": 2021,
+          "mes": 6,
+          "promedio": 22.26
+        },
+        {
+          "anio": 2021,
+          "mes": 7,
+          "promedio": 22.61
+        },
+        {
+          "anio": 2021,
+          "mes": 8,
+          "promedio": 22.91
+        },
+        {
+          "anio": 2021,
+          "mes": 9,
+          "promedio": 23.56
+        },
+        {
+          "anio": 2021,
+          "mes": 10,
+          "promedio": 25.46
+        },
+        {
+          "anio": 2021,
+          "mes": 11,
+          "promedio": 26.02
+        },
+        {
+          "anio": 2021,
+          "mes": 12,
+          "promedio": 24.36
+        },
+        {
+          "anio": 2022,
+          "mes": 1,
+          "promedio": 26.4
+        },
+        {
+          "anio": 2022,
+          "mes": 2,
+          "promedio": 29.29
+        },
+        {
+          "anio": 2022,
+          "mes": 3,
+          "promedio": 36.21
+        },
+        {
+          "anio": 2022,
+          "mes": 4,
+          "promedio": 32.95
+        },
+        {
+          "anio": 2022,
+          "mes": 5,
+          "promedio": 34.83
+        },
+        {
+          "anio": 2022,
+          "mes": 6,
+          "promedio": 35.4
+        },
+        {
+          "anio": 2022,
+          "mes": 7,
+          "promedio": 31.52
+        },
+        {
+          "anio": 2022,
+          "mes": 8,
+          "promedio": 33.89
+        },
+        {
+          "anio": 2022,
+          "mes": 9,
+          "promedio": 30.7
+        },
+        {
+          "anio": 2022,
+          "mes": 10,
+          "promedio": 38.33
+        },
+        {
+          "anio": 2022,
+          "mes": 11,
+          "promedio": 38.89
+        },
+        {
+          "anio": 2022,
+          "mes": 12,
+          "promedio": 34.52
+        },
+        {
+          "anio": 2023,
+          "mes": 1,
+          "promedio": 35.79
+        },
+        {
+          "anio": 2023,
+          "mes": 2,
+          "promedio": 33.02
+        },
+        {
+          "anio": 2023,
+          "mes": 3,
+          "promedio": 30.67
+        },
+        {
+          "anio": 2023,
+          "mes": 4,
+          "promedio": 29.78
+        },
+        {
+          "anio": 2023,
+          "mes": 5,
+          "promedio": 27.43
+        },
+        {
+          "anio": 2023,
+          "mes": 6,
+          "promedio": 26.53
+        },
+        {
+          "anio": 2023,
+          "mes": 7,
+          "promedio": 27.91
+        },
+        {
+          "anio": 2023,
+          "mes": 8,
+          "promedio": 31.85
+        },
+        {
+          "anio": 2023,
+          "mes": 9,
+          "promedio": 33.46
+        },
+        {
+          "anio": 2023,
+          "mes": 10,
+          "promedio": 33.72
+        },
+        {
+          "anio": 2023,
+          "mes": 11,
+          "promedio": 31.12
+        },
+        {
+          "anio": 2023,
+          "mes": 12,
+          "promedio": 29.29
+        },
+        {
+          "anio": 2024,
+          "mes": 1,
+          "promedio": 29.16
+        },
+        {
+          "anio": 2024,
+          "mes": 2,
+          "promedio": 30.72
+        },
+        {
+          "anio": 2024,
+          "mes": 3,
+          "promedio": 29.97
+        },
+        {
+          "anio": 2024,
+          "mes": 4,
+          "promedio": 29.78
+        },
+        {
+          "anio": 2024,
+          "mes": 5,
+          "promedio": 28.17
+        },
+        {
+          "anio": 2024,
+          "mes": 6,
+          "promedio": 27.43
+        },
+        {
+          "anio": 2024,
+          "mes": 7,
+          "promedio": 28.25
+        },
+        {
+          "anio": 2024,
+          "mes": 8,
+          "promedio": 27.42
+        },
+        {
+          "anio": 2024,
+          "mes": 9,
+          "promedio": 26.22
+        },
+        {
+          "anio": 2024,
+          "mes": 10,
+          "promedio": 26.22
+        },
+        {
+          "anio": 2024,
+          "mes": 11,
+          "promedio": 25.61
+        },
+        {
+          "anio": 2024,
+          "mes": 12,
+          "promedio": 25.47
+        },
+        {
+          "anio": 2025,
+          "mes": 1,
+          "promedio": 27.1
+        },
+        {
+          "anio": 2025,
+          "mes": 2,
+          "promedio": 27.51
+        },
+        {
+          "anio": 2025,
+          "mes": 3,
+          "promedio": 26.41
+        },
+        {
+          "anio": 2025,
+          "mes": 4,
+          "promedio": 25.64
+        },
+        {
+          "anio": 2025,
+          "mes": 5,
+          "promedio": 25.09
+        },
+        {
+          "anio": 2025,
+          "mes": 6,
+          "promedio": 25.52
+        },
+        {
+          "anio": 2025,
+          "mes": 7,
+          "promedio": 28.21
+        },
+        {
+          "anio": 2025,
+          "mes": 8,
+          "promedio": 26.74
+        },
+        {
+          "anio": 2025,
+          "mes": 9,
+          "promedio": 26.16
+        },
+        {
+          "anio": 2025,
+          "mes": 10,
+          "promedio": 25.9
+        },
+        {
+          "anio": 2025,
+          "mes": 11,
+          "promedio": 27.02
+        },
+        {
+          "anio": 2025,
+          "mes": 12,
+          "promedio": 25.91
+        },
+        {
+          "anio": 2026,
+          "mes": 1,
+          "promedio": 25.12
+        },
+        {
+          "anio": 2026,
+          "mes": 2,
+          "promedio": 27.03
+        },
+        {
+          "anio": 2026,
+          "mes": 3,
+          "promedio": 37.18
+        },
+        {
+          "anio": 2026,
+          "mes": 4,
+          "promedio": 41.44
+        },
+        {
+          "anio": 2026,
+          "mes": 5,
+          "promedio": 34.25
+        },
+        {
+          "anio": 2026,
+          "mes": 6,
+          "promedio": 30.12
+        },
+        {
+          "anio": 2026,
+          "mes": 7,
+          "promedio": 37.59
+        }
+      ],
+      "anual": [
+        {
+          "anio": 2002,
+          "promedio": 10.39,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2003,
+          "promedio": 11.18,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2004,
+          "promedio": 13.68,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2005,
+          "promedio": 18.13,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2006,
+          "promedio": 19.99,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2007,
+          "promedio": 21.5,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2008,
+          "promedio": 30.12,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2009,
+          "promedio": 20.49,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2010,
+          "promedio": 24.42,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2011,
+          "promedio": 31.05,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2012,
+          "promedio": 31.93,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2013,
+          "promedio": 31.14,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2014,
+          "promedio": 29.81,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2015,
+          "promedio": 19.63,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2016,
+          "promedio": 16.81,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2017,
+          "promedio": 18.88,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2018,
+          "promedio": 22.69,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2019,
+          "promedio": 21.93,
+          "dias": null,
+          "meses": null,
+          "fuente": "consolidado histórico"
+        },
+        {
+          "anio": 2020,
+          "promedio": 16.42,
+          "dias": null,
+          "meses": 12,
+          "fuente": "MEM mensual"
+        },
+        {
+          "anio": 2021,
+          "promedio": 22.35,
+          "dias": 365,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2022,
+          "promedio": 33.65,
+          "dias": 365,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2023,
+          "promedio": 30.91,
+          "dias": 365,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2024,
+          "promedio": 27.87,
+          "dias": 366,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2025,
+          "promedio": 26.36,
+          "dias": 365,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2026,
+          "promedio": 33.25,
+          "dias": null,
+          "meses": 7,
+          "fuente": "MEM mensual"
+        }
+      ]
+    },
+    "wti": {
+      "nombre": "WTI",
+      "categoria": "petroleo",
+      "unidad": "USD/barril",
+      "orden": 4,
+      "actual": {
+        "fecha": "2026-09-25",
+        "precio": 93.2,
+        "fuente": "OilPriceAPI",
+        "fetched_at": "2026-09-25T02:53:51-06:00"
+      },
+      "historial": [
+        {
+          "fecha": "2025-09-25",
+          "precio": 64.79
+        },
+        {
+          "fecha": "2025-09-26",
+          "precio": 65.37
+        },
+        {
+          "fecha": "2025-09-29",
+          "precio": 64.24
+        },
+        {
+          "fecha": "2025-09-30",
+          "precio": 62.77
+        },
+        {
+          "fecha": "2025-10-01",
+          "precio": 62.12
+        },
+        {
+          "fecha": "2025-10-02",
+          "precio": 61.34
+        },
+        {
+          "fecha": "2025-10-03",
+          "precio": 60.9
+        },
+        {
+          "fecha": "2025-10-06",
+          "precio": 61.71
+        },
+        {
+          "fecha": "2025-10-07",
+          "precio": 61.77
+        },
+        {
+          "fecha": "2025-10-08",
+          "precio": 62.4
+        },
+        {
+          "fecha": "2025-10-09",
+          "precio": 62.04
+        },
+        {
+          "fecha": "2025-10-10",
+          "precio": 60.22
+        },
+        {
+          "fecha": "2025-10-13",
+          "precio": 59.74
+        },
+        {
+          "fecha": "2025-10-14",
+          "precio": 58.85
+        },
+        {
+          "fecha": "2025-10-15",
+          "precio": 58.67
+        },
+        {
+          "fecha": "2025-10-16",
+          "precio": 58.41
+        },
+        {
+          "fecha": "2025-10-17",
+          "precio": 57.43
+        },
+        {
+          "fecha": "2025-10-20",
+          "precio": 57.01
+        },
+        {
+          "fecha": "2025-10-21",
+          "precio": 57.31
+        },
+        {
+          "fecha": "2025-10-22",
+          "precio": 58.54
+        },
+        {
+          "fecha": "2025-10-23",
+          "precio": 61.17
+        },
+        {
+          "fecha": "2025-10-24",
+          "precio": 61.7
+        },
+        {
+          "fecha": "2025-10-27",
+          "precio": 61.53
+        },
+        {
+          "fecha": "2025-10-28",
+          "precio": 60.61
+        },
+        {
+          "fecha": "2025-10-29",
+          "precio": 60.32
+        },
+        {
+          "fecha": "2025-10-30",
+          "precio": 60.25
+        },
+        {
+          "fecha": "2025-10-31",
+          "precio": 60.55
+        },
+        {
+          "fecha": "2025-11-03",
+          "precio": 61.1
+        },
+        {
+          "fecha": "2025-11-04",
+          "precio": 60.58
+        },
+        {
+          "fecha": "2025-11-05",
+          "precio": 60.23
+        },
+        {
+          "fecha": "2025-11-06",
+          "precio": 59.68
+        },
+        {
+          "fecha": "2025-11-07",
+          "precio": 59.85
+        },
+        {
+          "fecha": "2025-11-10",
+          "precio": 60.06
+        },
+        {
+          "fecha": "2025-11-11",
+          "precio": 60.49
+        },
+        {
+          "fecha": "2025-11-12",
+          "precio": 59.79
+        },
+        {
+          "fecha": "2025-11-13",
+          "precio": 58.64
+        },
+        {
+          "fecha": "2025-11-14",
+          "precio": 59.86
+        },
+        {
+          "fecha": "2025-11-17",
+          "precio": 59.73
+        },
+        {
+          "fecha": "2025-11-18",
+          "precio": 59.91
+        },
+        {
+          "fecha": "2025-11-19",
+          "precio": 59.83
+        },
+        {
+          "fecha": "2025-11-20",
+          "precio": 59.42
+        },
+        {
+          "fecha": "2025-11-21",
+          "precio": 58.02
+        },
+        {
+          "fecha": "2025-11-24",
+          "precio": 58.24
+        },
+        {
+          "fecha": "2025-11-25",
+          "precio": 58.22
+        },
+        {
+          "fecha": "2025-11-26",
+          "precio": 58.14
+        },
+        {
+          "fecha": "2025-11-27",
+          "precio": 58.74
+        },
+        {
+          "fecha": "2025-11-28",
+          "precio": 59.0
+        },
+        {
+          "fecha": "2025-12-01",
+          "precio": 59.46
+        },
+        {
+          "fecha": "2025-12-02",
+          "precio": 59.13
+        },
+        {
+          "fecha": "2025-12-03",
+          "precio": 59.03
+        },
+        {
+          "fecha": "2025-12-04",
+          "precio": 59.4
+        },
+        {
+          "fecha": "2025-12-05",
+          "precio": 59.78
+        },
+        {
+          "fecha": "2025-12-08",
+          "precio": 59.58
+        },
+        {
+          "fecha": "2025-12-09",
+          "precio": 58.62
+        },
+        {
+          "fecha": "2025-12-10",
+          "precio": 58.4
+        },
+        {
+          "fecha": "2025-12-11",
+          "precio": 57.94
+        },
+        {
+          "fecha": "2025-12-12",
+          "precio": 57.71
+        },
+        {
+          "fecha": "2025-12-15",
+          "precio": 57.14
+        },
+        {
+          "fecha": "2025-12-16",
+          "precio": 55.78
+        },
+        {
+          "fecha": "2025-12-17",
+          "precio": 56.15
+        },
+        {
+          "fecha": "2025-12-18",
+          "precio": 56.26
+        },
+        {
+          "fecha": "2025-12-19",
+          "precio": 56.21
+        },
+        {
+          "fecha": "2025-12-22",
+          "precio": 57.48
+        },
+        {
+          "fecha": "2025-12-23",
+          "precio": 58.03
+        },
+        {
+          "fecha": "2025-12-24",
+          "precio": 58.48
+        },
+        {
+          "fecha": "2025-12-25",
+          "precio": 58.36
+        },
+        {
+          "fecha": "2025-12-26",
+          "precio": 57.98
+        },
+        {
+          "fecha": "2025-12-29",
+          "precio": 57.73
+        },
+        {
+          "fecha": "2025-12-30",
+          "precio": 58.11
+        },
+        {
+          "fecha": "2025-12-31",
+          "precio": 57.89
+        },
+        {
+          "fecha": "2026-01-01",
+          "precio": 57.43
+        },
+        {
+          "fecha": "2026-01-02",
+          "precio": 57.33
+        },
+        {
+          "fecha": "2026-01-05",
+          "precio": 57.71
+        },
+        {
+          "fecha": "2026-01-06",
+          "precio": 58.03
+        },
+        {
+          "fecha": "2026-01-07",
+          "precio": 56.4
+        },
+        {
+          "fecha": "2026-01-08",
+          "precio": 56.91
+        },
+        {
+          "fecha": "2026-01-09",
+          "precio": 58.55
+        },
+        {
+          "fecha": "2026-01-12",
+          "precio": 59.13
+        },
+        {
+          "fecha": "2026-01-13",
+          "precio": 60.54
+        },
+        {
+          "fecha": "2026-01-14",
+          "precio": 61.22
+        },
+        {
+          "fecha": "2026-01-15",
+          "precio": 59.68
+        },
+        {
+          "fecha": "2026-01-16",
+          "precio": 59.15
+        },
+        {
+          "fecha": "2026-01-19",
+          "precio": 59.21
+        },
+        {
+          "fecha": "2026-01-20",
+          "precio": 59.72
+        },
+        {
+          "fecha": "2026-01-21",
+          "precio": 60.12
+        },
+        {
+          "fecha": "2026-01-22",
+          "precio": 59.96
+        },
+        {
+          "fecha": "2026-01-23",
+          "precio": 60.39
+        },
+        {
+          "fecha": "2026-01-26",
+          "precio": 60.96
+        },
+        {
+          "fecha": "2026-01-27",
+          "precio": 61.22
+        },
+        {
+          "fecha": "2026-01-28",
+          "precio": 62.79
+        },
+        {
+          "fecha": "2026-01-29",
+          "precio": 64.76
+        },
+        {
+          "fecha": "2026-01-30",
+          "precio": 65.04
+        },
+        {
+          "fecha": "2026-02-02",
+          "precio": 62.05
+        },
+        {
+          "fecha": "2026-02-03",
+          "precio": 62.52
+        },
+        {
+          "fecha": "2026-02-04",
+          "precio": 63.86
+        },
+        {
+          "fecha": "2026-02-05",
+          "precio": 63.73
+        },
+        {
+          "fecha": "2026-02-06",
+          "precio": 63.59
+        },
+        {
+          "fecha": "2026-02-09",
+          "precio": 63.6
+        },
+        {
+          "fecha": "2026-02-10",
+          "precio": 64.25
+        },
+        {
+          "fecha": "2026-02-11",
+          "precio": 64.82
+        },
+        {
+          "fecha": "2026-02-12",
+          "precio": 64.09
+        },
+        {
+          "fecha": "2026-02-13",
+          "precio": 62.82
+        },
+        {
+          "fecha": "2026-02-16",
+          "precio": 62.98
+        },
+        {
+          "fecha": "2026-02-17",
+          "precio": 62.97
+        },
+        {
+          "fecha": "2026-02-18",
+          "precio": 63.62
+        },
+        {
+          "fecha": "2026-02-19",
+          "precio": 65.98
+        },
+        {
+          "fecha": "2026-02-20",
+          "precio": 66.37
+        },
+        {
+          "fecha": "2026-02-23",
+          "precio": 66.18
+        },
+        {
+          "fecha": "2026-02-24",
+          "precio": 66.46
+        },
+        {
+          "fecha": "2026-02-25",
+          "precio": 65.83
+        },
+        {
+          "fecha": "2026-02-26",
+          "precio": 65.33
+        },
+        {
+          "fecha": "2026-02-27",
+          "precio": 66.3
+        },
+        {
+          "fecha": "2026-03-02",
+          "precio": 71.55
+        },
+        {
+          "fecha": "2026-03-03",
+          "precio": 74.41
+        },
+        {
+          "fecha": "2026-03-04",
+          "precio": 75.32
+        },
+        {
+          "fecha": "2026-03-05",
+          "precio": 77.82
+        },
+        {
+          "fecha": "2026-03-06",
+          "precio": 84.31
+        },
+        {
+          "fecha": "2026-03-09",
+          "precio": 102.82
+        },
+        {
+          "fecha": "2026-03-10",
+          "precio": 86.63
+        },
+        {
+          "fecha": "2026-03-11",
+          "precio": 86.29
+        },
+        {
+          "fecha": "2026-03-12",
+          "precio": 93.38
+        },
+        {
+          "fecha": "2026-03-13",
+          "precio": 95.74
+        },
+        {
+          "fecha": "2026-03-16",
+          "precio": 96.34
+        },
+        {
+          "fecha": "2026-03-17",
+          "precio": 95.56
+        },
+        {
+          "fecha": "2026-03-18",
+          "precio": 95.92
+        },
+        {
+          "fecha": "2026-03-19",
+          "precio": 96.9
+        },
+        {
+          "fecha": "2026-03-20",
+          "precio": 96.01
+        },
+        {
+          "fecha": "2026-03-23",
+          "precio": 92.71
+        },
+        {
+          "fecha": "2026-03-24",
+          "precio": 91.15
+        },
+        {
+          "fecha": "2026-03-25",
+          "precio": 88.98
+        },
+        {
+          "fecha": "2026-03-26",
+          "precio": 93.55
+        },
+        {
+          "fecha": "2026-03-27",
+          "precio": 96.8
+        },
+        {
+          "fecha": "2026-03-30",
+          "precio": 101.92
+        },
+        {
+          "fecha": "2026-03-31",
+          "precio": 102.97
+        },
+        {
+          "fecha": "2026-04-01",
+          "precio": 99.87
+        },
+        {
+          "fecha": "2026-04-02",
+          "precio": 108.75
+        },
+        {
+          "fecha": "2026-04-03",
+          "precio": 111.54
+        },
+        {
+          "fecha": "2026-04-06",
+          "precio": 111.67
+        },
+        {
+          "fecha": "2026-04-07",
+          "precio": 114.07
+        },
+        {
+          "fecha": "2026-04-08",
+          "precio": 95.13
+        },
+        {
+          "fecha": "2026-04-09",
+          "precio": 98.53
+        },
+        {
+          "fecha": "2026-04-10",
+          "precio": 98.19
+        },
+        {
+          "fecha": "2026-04-13",
+          "precio": 100.59
+        },
+        {
+          "fecha": "2026-04-14",
+          "precio": 95.07
+        },
+        {
+          "fecha": "2026-04-15",
+          "precio": 91.54
+        },
+        {
+          "fecha": "2026-04-16",
+          "precio": 92.85
+        },
+        {
+          "fecha": "2026-04-17",
+          "precio": 89.11
+        },
+        {
+          "fecha": "2026-04-20",
+          "precio": 88.61
+        },
+        {
+          "fecha": "2026-04-21",
+          "precio": 88.98
+        },
+        {
+          "fecha": "2026-04-22",
+          "precio": 91.05
+        },
+        {
+          "fecha": "2026-04-23",
+          "precio": 94.6
+        },
+        {
+          "fecha": "2026-04-24",
+          "precio": 95.51
+        },
+        {
+          "fecha": "2026-04-27",
+          "precio": 96.23
+        },
+        {
+          "fecha": "2026-04-28",
+          "precio": 99.43
+        },
+        {
+          "fecha": "2026-04-29",
+          "precio": 104.13
+        },
+        {
+          "fecha": "2026-04-30",
+          "precio": 106.19
+        },
+        {
+          "fecha": "2026-05-01",
+          "precio": 103.48
+        },
+        {
+          "fecha": "2026-05-04",
+          "precio": 103.69
+        },
+        {
+          "fecha": "2026-05-05",
+          "precio": 103.16
+        },
+        {
+          "fecha": "2026-05-06",
+          "precio": 96.09
+        },
+        {
+          "fecha": "2026-05-07",
+          "precio": 93.83
+        },
+        {
+          "fecha": "2026-05-08",
+          "precio": 95.23
+        },
+        {
+          "fecha": "2026-05-11",
+          "precio": 98.28
+        },
+        {
+          "fecha": "2026-05-12",
+          "precio": 101.15
+        },
+        {
+          "fecha": "2026-05-13",
+          "precio": 101.67
+        },
+        {
+          "fecha": "2026-05-14",
+          "precio": 101.2
+        },
+        {
+          "fecha": "2026-05-15",
+          "precio": 104.2
+        },
+        {
+          "fecha": "2026-05-18",
+          "precio": 104.63
+        },
+        {
+          "fecha": "2026-05-19",
+          "precio": 104.84
+        },
+        {
+          "fecha": "2026-05-20",
+          "precio": 101.03
+        },
+        {
+          "fecha": "2026-05-21",
+          "precio": 99.46
+        },
+        {
+          "fecha": "2026-05-22",
+          "precio": 97.63
+        },
+        {
+          "fecha": "2026-05-25",
+          "precio": 91.18
+        },
+        {
+          "fecha": "2026-05-26",
+          "precio": 93.09
+        },
+        {
+          "fecha": "2026-05-27",
+          "precio": 90.35
+        },
+        {
+          "fecha": "2026-05-28",
+          "precio": 90.22
+        },
+        {
+          "fecha": "2026-05-29",
+          "precio": 87.67
+        },
+        {
+          "fecha": "2026-06-01",
+          "precio": 91.42
+        },
+        {
+          "fecha": "2026-06-02",
+          "precio": 91.94
+        },
+        {
+          "fecha": "2026-06-03",
+          "precio": 95.72
+        },
+        {
+          "fecha": "2026-06-04",
+          "precio": 93.82
+        },
+        {
+          "fecha": "2026-06-05",
+          "precio": 92.01
+        },
+        {
+          "fecha": "2026-06-08",
+          "precio": 92.66
+        },
+        {
+          "fecha": "2026-06-09",
+          "precio": 88.92
+        },
+        {
+          "fecha": "2026-06-10",
+          "precio": 89.78
+        },
+        {
+          "fecha": "2026-06-11",
+          "precio": 89.55
+        },
+        {
+          "fecha": "2026-06-12",
+          "precio": 85.16
+        },
+        {
+          "fecha": "2026-06-15",
+          "precio": 80.67
+        },
+        {
+          "fecha": "2026-06-16",
+          "precio": 78.19
+        },
+        {
+          "fecha": "2026-06-17",
+          "precio": 76.25
+        },
+        {
+          "fecha": "2026-06-18",
+          "precio": 75.37
+        },
+        {
+          "fecha": "2026-06-19",
+          "precio": 76.45
+        },
+        {
+          "fecha": "2026-06-22",
+          "precio": 74.78
+        },
+        {
+          "fecha": "2026-06-23",
+          "precio": 73.36
+        },
+        {
+          "fecha": "2026-06-24",
+          "precio": 71.2
+        },
+        {
+          "fecha": "2026-06-25",
+          "precio": 70.25
+        },
+        {
+          "fecha": "2026-06-26",
+          "precio": 69.95
+        },
+        {
+          "fecha": "2026-06-29",
+          "precio": 70.21
+        },
+        {
+          "fecha": "2026-06-30",
+          "precio": 70.36
+        },
+        {
+          "fecha": "2026-07-01",
+          "precio": 68.83
+        },
+        {
+          "fecha": "2026-07-02",
+          "precio": 67.86
+        },
+        {
+          "fecha": "2026-07-03",
+          "precio": 68.72
+        },
+        {
+          "fecha": "2026-07-06",
+          "precio": 68.61
+        },
+        {
+          "fecha": "2026-07-07",
+          "precio": 69.95
+        },
+        {
+          "fecha": "2026-07-08",
+          "precio": 74.02
+        },
+        {
+          "fecha": "2026-07-09",
+          "precio": 72.87
+        },
+        {
+          "fecha": "2026-07-10",
+          "precio": 71.92
+        },
+        {
+          "fecha": "2026-07-13",
+          "precio": 75.24
+        },
+        {
+          "fecha": "2026-07-14",
+          "precio": 79.83
+        },
+        {
+          "fecha": "2026-07-15",
+          "precio": 79.89
+        },
+        {
+          "fecha": "2026-07-16",
+          "precio": 79.51
+        },
+        {
+          "fecha": "2026-07-17",
+          "precio": 80.36
+        },
+        {
+          "fecha": "2026-07-20",
+          "precio": 82.33
+        },
+        {
+          "fecha": "2026-07-21",
+          "precio": 83.1
+        },
+        {
+          "fecha": "2026-07-22",
+          "precio": 86.32
+        },
+        {
+          "fecha": "2026-07-23",
+          "precio": 91.09
+        },
+        {
+          "fecha": "2026-07-24",
+          "precio": 90.49
+        },
+        {
+          "fecha": "2026-07-27",
+          "precio": 83.5
+        },
+        {
+          "fecha": "2026-07-28",
+          "precio": 80.85
+        },
+        {
+          "fecha": "2026-07-29",
+          "precio": 83.41
+        },
+        {
+          "fecha": "2026-07-30",
+          "precio": 84.1
+        },
+        {
+          "fecha": "2026-07-31",
+          "precio": 82.81
+        },
+        {
+          "fecha": "2026-08-03",
+          "precio": 79.88
+        },
+        {
+          "fecha": "2026-08-04",
+          "precio": 79.46
+        },
+        {
+          "fecha": "2026-08-05",
+          "precio": 75.43
+        },
+        {
+          "fecha": "2026-08-06",
+          "precio": 76.56
+        },
+        {
+          "fecha": "2026-08-07",
+          "precio": 77.96
+        },
+        {
+          "fecha": "2026-08-10",
+          "precio": 79.92
+        },
+        {
+          "fecha": "2026-08-11",
+          "precio": 82.73
+        },
+        {
+          "fecha": "2026-08-12",
+          "precio": 83.4
+        },
+        {
+          "fecha": "2026-08-13",
+          "precio": 81.4
+        },
+        {
+          "fecha": "2026-08-14",
+          "precio": 81.74
+        },
+        {
+          "fecha": "2026-08-17",
+          "precio": 83.47
+        },
+        {
+          "fecha": "2026-08-18",
+          "precio": 84.25
+        },
+        {
+          "fecha": "2026-08-19",
+          "precio": 84.66
+        },
+        {
+          "fecha": "2026-08-20",
+          "precio": 85.4
+        },
+        {
+          "fecha": "2026-08-21",
+          "precio": 86.62
+        },
+        {
+          "fecha": "2026-08-24",
+          "precio": 85.09
+        },
+        {
+          "fecha": "2026-08-25",
+          "precio": 83.68
+        },
+        {
+          "fecha": "2026-08-26",
+          "precio": 81.08
+        },
+        {
+          "fecha": "2026-08-27",
+          "precio": 82.35
+        },
+        {
+          "fecha": "2026-08-28",
+          "precio": 83.15
+        },
+        {
+          "fecha": "2026-08-31",
+          "precio": 85.77
+        },
+        {
+          "fecha": "2026-09-01",
+          "precio": 88.25
+        },
+        {
+          "fecha": "2026-09-02",
+          "precio": 90.62
+        },
+        {
+          "fecha": "2026-09-03",
+          "precio": 91.34
+        },
+        {
+          "fecha": "2026-09-04",
+          "precio": 91.02
+        },
+        {
+          "fecha": "2026-09-07",
+          "precio": 92.32
+        },
+        {
+          "fecha": "2026-09-08",
+          "precio": 93.45
+        },
+        {
+          "fecha": "2026-09-09",
+          "precio": 95.14
+        },
+        {
+          "fecha": "2026-09-10",
+          "precio": 98.86
+        },
+        {
+          "fecha": "2026-09-11",
+          "precio": 100.72
+        },
+        {
+          "fecha": "2026-09-14",
+          "precio": 102.5
+        },
+        {
+          "fecha": "2026-09-15",
+          "precio": 103.81
+        },
+        {
+          "fecha": "2026-09-16",
+          "precio": 103.72
+        },
+        {
+          "fecha": "2026-09-17",
+          "precio": 101.43
+        },
+        {
+          "fecha": "2026-09-18",
+          "precio": 100.87
+        },
+        {
+          "fecha": "2026-09-21",
+          "precio": 93.36
+        },
+        {
+          "fecha": "2026-09-22",
+          "precio": 91.77
+        },
+        {
+          "fecha": "2026-09-23",
+          "precio": 90.7
+        },
+        {
+          "fecha": "2026-09-24",
+          "precio": 93.3
+        },
+        {
+          "fecha": "2026-09-25",
+          "precio": 93.2
+        }
+      ],
+      "mensual": [],
+      "anual": [
+        {
+          "anio": 2024,
+          "promedio": 69.64,
+          "dias": 50,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2025,
+          "promedio": 64.84,
+          "dias": 259,
+          "meses": null,
+          "fuente": "diario"
+        },
+        {
+          "anio": 2026,
+          "promedio": 83.22,
+          "dias": 192,
+          "meses": null,
+          "fuente": "diario"
+        }
+      ]
     }
   },
-  "historial_anual": [
-    {
-      "anio": 2026,
-      "superior": 44.61,
-      "regular": 42.58,
-      "diésel": 49.4
-    },
-    {
-      "anio": 2025,
-      "superior": 29.96,
-      "regular": 29.64,
-      "diésel": 28.74
-    },
-    {
-      "anio": 2024,
-      "superior": 32.37,
-      "regular": 30.8,
-      "diésel": 28.38
-    },
-    {
-      "anio": 2023,
-      "superior": 34.11,
-      "regular": 32.63,
-      "diésel": 30.91
-    },
-    {
-      "anio": 2022,
-      "superior": 36.04,
-      "regular": 34.68,
-      "diésel": 33.65
-    },
-    {
-      "anio": 2021,
-      "superior": 27.67,
-      "regular": 26.9,
-      "diésel": 23.0
-    },
-    {
-      "anio": 2020,
-      "superior": 22.64,
-      "regular": 21.24,
-      "diésel": 18.52
-    },
-    {
-      "anio": 2019,
-      "superior": 26.38,
-      "regular": 24.71,
-      "diésel": 21.93
-    },
-    {
-      "anio": 2018,
-      "superior": 27.46,
-      "regular": 25.79,
-      "diésel": 22.69
-    },
-    {
-      "anio": 2017,
-      "superior": 25.26,
-      "regular": 22.82,
-      "diésel": 18.88
-    },
-    {
-      "anio": 2016,
-      "superior": 23.84,
-      "regular": 20.79,
-      "diésel": 16.81
-    },
-    {
-      "anio": 2015,
-      "superior": 25.76,
-      "regular": 22.76,
-      "diésel": 19.63
-    },
-    {
-      "anio": 2014,
-      "superior": 33.4,
-      "regular": 31.63,
-      "diésel": 29.81
-    },
-    {
-      "anio": 2013,
-      "superior": 34.68,
-      "regular": 33.4,
-      "diésel": 31.14
-    },
-    {
-      "anio": 2012,
-      "superior": 35.38,
-      "regular": 34.68,
-      "diésel": 31.93
-    },
-    {
-      "anio": 2011,
-      "superior": 34.39,
-      "regular": 33.5,
-      "diésel": 31.05
-    },
-    {
-      "anio": 2010,
-      "superior": 29.33,
-      "regular": 27.75,
-      "diésel": 24.42
-    },
-    {
-      "anio": 2009,
-      "superior": 25.19,
-      "regular": 23.51,
-      "diésel": 20.49
-    },
-    {
-      "anio": 2008,
-      "superior": 32.39,
-      "regular": 30.58,
-      "diésel": 30.12
-    },
-    {
-      "anio": 2007,
-      "superior": 27.74,
-      "regular": 25.82,
-      "diésel": 21.5
-    },
-    {
-      "anio": 2006,
-      "superior": 26.44,
-      "regular": 24.37,
-      "diésel": 19.99
-    },
-    {
-      "anio": 2005,
-      "superior": 24.12,
-      "regular": 22.07,
-      "diésel": 18.13
-    },
-    {
-      "anio": 2004,
-      "superior": 20.28,
-      "regular": 18.33,
-      "diésel": 13.68
-    },
-    {
-      "anio": 2003,
-      "superior": 17.78,
-      "regular": 16.6,
-      "diésel": 11.18
-    },
-    {
-      "anio": 2002,
-      "superior": 15.91,
-      "regular": 14.33,
-      "diésel": 10.39
+  "noticias": {
+    "total": 185,
+    "top": [
+      {
+        "id": 1105,
+        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNZVhxYTZWLU9MNmQ0YktBdXB4WWVWWW5CdlZQMW9XN2twZE9KOFV6QWVDZkZqSDhhZjBFWlM0cFZJRzRCbEpZTVNkX21wQXdhZVlCN1JUV0xVQzhNSHhRYWhRNjBFdjFMcmpiYW1QU3A4cHJLQkE0SFZSZmdqS3dlT19VN0VHODlvek10cUpUNVgwUnRTQ0FoQlV5VTE0ekZ6LXRCVg?oc=5",
+        "titulo": "Ukrainian Drones Attack One of Russia’s Largest Oil Refineries in Perm - Мілітарний",
+        "medio": "Google News EN",
+        "publicado_at": "2026-09-25T02:19:32-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Ukrainian Drones Attack One of Russia’s Largest Oil Refineries in Perm Мілітарний",
+        "fetched_at": "2026-09-25T02:28:23-06:00",
+        "titulo_es": null
+      },
+      {
+        "id": 1075,
+        "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNWVIwYkp0R281ZXpZSkNOMDhJT1p1SXgyNFpsaVc0VE9KMXZXNjFac19EbWJtallxMFFwYjJMR09iZGVLZi02U2JSSlV6dFMxOTQ5MzBwVVN5MlVCVVRfYm9EZDNIbFhrZTRXa3VHYkdQU2NqbGVPMllUMzFPZGFZd25KTHN6RGlkTnNrUDNzRGxSMEdYWFd2WlNsVWdpTWRjWi03ano4d0lVTXF4X2Z2bXhlVXJHQ3pkcEMwbjJPZ2NEMTRaYmJLTTdPei14TFM1a0g1azhOeEl3RzNhbnpCXzQ4QQ?oc=5",
+        "titulo": "Atacan con drones una importante refinería de la petrolera rusa LUKOIL por segunda vez desde agosto - UNITED24 Media",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-25T02:09:09-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Atacan con drones una importante refinería de la petrolera rusa LUKOIL por segunda vez desde agosto <font",
+        "fetched_at": "2026-09-25T02:28:23-06:00",
+        "titulo_es": null
+      },
+      {
+        "id": 1100,
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOMTBGZ1ZLTjN1aDZsWlQ5NzZuTUNLRU5uaEtNdXhBWEphU1lab2JacC1wRUVSeDl5RmlhamhEbTZCVDFnaVo0ZWtvNW1XNnB3OVVhd29kOF8wWjFnVGpCcGpid08zNThPZHRGUURrZE83UFNDcXZqUjc1Tk92RkVHU0NLdU5YUmVJYlFWODBkTWtTNl9GTlJlblg3RlFVeEpzTEY2d3d3TjR4MTFjc1V0UjRGbmRkY2hGMWszck5n?oc=5",
+        "titulo": "Major Russian LUKOIL Refinery Targeted in Second Drone Attack Since August - UNITED24 Media",
+        "medio": "Google News EN",
+        "publicado_at": "2026-09-25T02:09:09-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Major Russian LUKOIL Refinery Targeted in Second Drone Attack Since August UNITED24 Media",
+        "fetched_at": "2026-09-25T02:28:23-06:00",
+        "titulo_es": null
+      },
+      {
+        "id": 1256,
+        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQWVZ4NThfejlpaE9oaDZZSzRIU3RZc3NpbWJJMWZ4cFpzcHA0U2t6Y1Q0Q1JHV25YMnlnTi1Kd3dLMG12S0ltcWpwUkgzNEc1S3ZyaVJFMWF6TUczTjFscjUxVC1vY0VBZEhUOC1zRkZ2S0o4NktFZWR6MHhhUEpUOXhPUmZYTmR6NnZHZFF5NVN6VUNRTV9Zb2lKclc?oc=5",
+        "titulo": "Russia’s Novoshakhtinsk Oil Refinery Halts After Drone Attack - Global Banking & Finance Review",
+        "medio": "Google News EN",
+        "publicado_at": "2026-09-25T02:03:45-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Russia’s Novoshakhtinsk Oil Refinery Halts After Drone Attack Global Banking & Finance Review",
+        "fetched_at": "2026-09-25T02:37:43-06:00",
+        "titulo_es": null
+      },
+      {
+        "id": 1095,
+        "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOWmJrZWtQT3Z3cktEN05uUGFFOVRmQkdQaTFSMk1TQ1c5Z2h6MkJHb3JzZVMycUx4aEU2RzhMTlJMTmRORW9nVXJrdmJzX1dyaEVrdDg1VDdEdVd4d3lSRFk5OHRKS2pLRkRfaEVTSlNyc2cxaW1GaGNOUkR6OWFEOHFxWEE0Wk0wd05CRFN5Wm1GNFVEa3RvQkpQNzJ3alIyakN3RVZCRWMtZTloSElMYkQ3WTNxNEtrRi1oZmhXbmE?oc=5",
+        "titulo": "Russia's Novoshakhtinsk oil refinery suspends operations after drone attack, governor says - Reuters",
+        "medio": "Google News EN",
+        "publicado_at": "2026-09-25T01:54:02-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Russia's Novoshakhtinsk oil refinery suspends operations after drone attack, governor says Reuters",
+        "fetched_at": "2026-09-25T02:28:23-06:00",
+        "titulo_es": null
+      },
+      {
+        "id": 1001,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Hormuz-Tanker-Transits-Crash-to-Single-Digits-as-Crisis-Deepens.html",
+        "titulo": "Hormuz Tanker Transits Crash to Single Digits as Crisis Deepens",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-25T01:30:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Only nine commodity carriers passed through the Strait of Hormuz on Thursday, eight of them exiting the waterway, Reuters reported in its now regular update on tanker numbers in the strait. The Thursday total is a further decline on already depressed numbers that have now gone from double to single digits, with the 10-day average at 18. The nine tankers that passed through Hormuz yesterday included one very large crude carrier, several Panamaxes and Supramaxes, short- and medium-range smaller ca",
+        "fetched_at": "2026-09-25T01:46:56-06:00",
+        "titulo_es": null
+      },
+      {
+        "id": 536,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/VLCC-Rates-Hit-Record-127-Million-a-Day-as-Oman-Transfer-Capacity-Maxes-Out.html",
+        "titulo": "VLCC Rates Hit Record $1.27 Million a Day as Oman Transfer Capacity Maxes Out",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-25T00:17:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Capacity for ship-to-ship transfers of crude oil off the coast of Oman has reached its limits after Saudi Arabia diverted its flows from the port of Yanbu amid Houthi attacks, Reuters has reported, citing unnamed trading sources and analysts. The report said Saudi Arabia has sold some 60 million barrels of crude, to be shipped from the Gulf of Oman after being transferred from smaller carriers to supertankers, for delivery this month and in October. This has tightened an already tight very large",
+        "fetched_at": "2026-09-25T00:42:16-06:00",
+        "titulo_es": null
+      },
+      {
+        "id": 797,
+        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOd2M1c3hSSkxrQWNrZ2hUUWFvTXhic0MtOVU2UkV3ZWFRUEN3VTNRMl9PUjgtU044NjhfUjFIaWdZeVpMSlJ5MU81MWdTSEhxSG1DdTZLWE84aGJORzRPWF9BcG5kY2NJc3RMREdod3ltMnFKcU9DZ2tCb2MtV0VyUWZqY2tUSUZ3YldLdU56V1VCZ2ttMmZicDdPYUdvVGJkMUZ2ZnJoeWlfem1Ya1RGNUtJZ2FGOGgwaXZZOGJpTmxMcnlBcnhv0gHGAUFVX3lxTE91LXM2YVVTSzRjTGJheTk2aEV6cmNtVXI1TWxqdDFtSEFQWjJKaVVsdlVfZHN6cFJIbUNIUllxaFlqNlBIM1dvanZZUlBRVGROeXFmRjRKclR4WlBJWEJ2cVM4Z0dwbHlUY25oTno4ZnlMcW8wOENWQ09TUGxfRFhhV0ZlQkVlMEY5SUV1Yk5wN1Ixd0FBSTQzT0dJalBmcHczTU90QmZOaHcwU0dkSEZFVS1DUURzUmZOSDVaNmhaT1NuSmp2dw?oc=5",
+        "titulo": "Russia reported a nighttime drone attack on an oil refinery and enterprises in four regions — what is known - Українські Національні Новини (УНН)",
+        "medio": "Google News EN",
+        "publicado_at": "2026-09-25T00:05:50-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxOd2M1c3hSSkxrQWNrZ2hUUWFvTXhic0MtOVU2UkV3ZWFRUEN3VTNRMl9PUjgtU044NjhfUjFIaWdZeVpMSlJ5MU81MWdTSEhxSG1DdTZLWE84aGJORzRPWF9BcG5kY2NJc3RMREdod3ltMnFKcU9DZ2tCb2MtV0VyUWZqY2tUSUZ3YldLdU56V1VCZ2ttMmZicDdPYUdvVGJkMUZ2ZnJoeWlfem1Ya1RGNUtJZ2FGOGgwaXZZOGJpTmxMcnlBcnhv0gHGAUFVX3lxTE91LXM2YVVTSzRjTGJheTk2aEV6cmNtVXI1TWxqdDFtSEFQWjJKaVVsdlVfZHN6cFJIbUNIUllxaFlqNlBIM1dvanZZUlBRVGROeXFmRjRKclR4WlBJWEJ2cVM4Z0dwbHlUY25oTno4ZnlMcW8wOENWQ09TUGxfRFhhV0ZlQk",
+        "fetched_at": "2026-09-25T01:17:05-06:00",
+        "titulo_es": null
+      },
+      {
+        "id": 579,
+        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPczljd09LSXRVU3VtZTFyLVpzVVVtejZtSUx5RW9QSnAyYXJLNnhWU2FVc2RwUW9xWWxsQ3hEX1hSTjZOb3M2RjEzOUpKbUlWMFlnRVkxcTNZcEg5WkNIM2xFNE9HNmJIdDhHV25BcUIwV3FEdHp4cWQ3Ulp4TXJuMWRlMWpTRlRCeDJlVE9QTzEzR0EtcEU0TlZObw?oc=5",
+        "titulo": "Festines a costillas de nuestros impuestos - Prensa Libre",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-25T00:02:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMimwFBVV95cUxPczljd09LSXRVU3VtZTFyLVpzVVVtejZtSUx5RW9QSnAyYXJLNnhWU2FVc2RwUW9xWWxsQ3hEX1hSTjZOb3M2RjEzOUpKbUlWMFlnRVkxcTNZcEg5WkNIM2xFNE9HNmJIdDhHV25BcUIwV3FEdHp4cWQ3Ulp4TXJuMWRlMWpTRlRCeDJlVE9QTzEzR0EtcEU0TlZObw?oc=5\" target=\"_blank\">Festines a costillas de nuestros impuestos</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Prensa Libre</font>",
+        "fetched_at": "2026-09-25T00:42:16-06:00",
+        "titulo_es": null
+      },
+      {
+        "id": 576,
+        "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOOVNwUjN3TE12TUs4R0dTRnNJX3R4QTRpcU1WM09yWVVaajVPZ1ZpdXEydDVWd0RXNmIzWURIQ2p0N09KQlFSZ3FMY2pRQ2xIUTZWUy1wSzRHbUNzN0FhNUI4V2hNN1h6dGExZVNITE5udml4MXRINzNZTUg5WmktaEZ6R2V1UW12M2lEYllOMWJzWDg?oc=5",
+        "titulo": "Oportunistas medran en la ignorancia - Prensa Libre",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-25T00:00:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMikwFBVV95cUxOOVNwUjN3TE12TUs4R0dTRnNJX3R4QTRpcU1WM09yWVVaajVPZ1ZpdXEydDVWd0RXNmIzWURIQ2p0N09KQlFSZ3FMY2pRQ2xIUTZWUy1wSzRHbUNzN0FhNUI4V2hNN1h6dGExZVNITE5udml4MXRINzNZTUg5WmktaEZ6R2V1UW12M2lEYllOMWJzWDg?oc=5\" target=\"_blank\">Oportunistas medran en la ignorancia</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Prensa Libre</font>",
+        "fetched_at": "2026-09-25T00:42:16-06:00",
+        "titulo_es": null
+      }
+    ],
+    "llm": {
+      "titulos_es_hoy": 0,
+      "total_hoy": 25,
+      "error": null,
+      "key_fp": null
     }
-  ]
+  }
 }

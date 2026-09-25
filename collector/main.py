@@ -7,7 +7,8 @@ Ejecuta todos los collectors en secuencia:
   4. petroleo       → WTI (API OilPriceAPI)
   5. noticias       → feeds RSS clasificados
 
-También exporta la DB a archivos JSON para uso externo o web.
+Exporta la DB a data/export/consolidado.json (único archivo del dashboard) y,
+con --memoria, el historial de cada producto a data/db/<producto>.csv.
 
 Uso:
   python main.py --all              # ejecuta todo
@@ -24,7 +25,7 @@ import json
 import logging
 import sqlite3
 import sys
-from datetime import datetime, timezone, timedelta
+from datetime import datetime
 from pathlib import Path
 
 # Asegurar que el root del proyecto esté en sys.path para imports relativos
@@ -55,15 +56,6 @@ logging.basicConfig(
 
 logger = logging.getLogger("main")
 
-# Guatemala = UTC-6 (sin horario de verano). Ver collector/db.py.
-_GT = timezone(timedelta(hours=-6))
-
-
-def _ahora_gt_iso() -> str:
-    """Timestamp actual en hora de Guatemala, ISO 8601 con offset -06:00."""
-    return datetime.now(_GT).strftime("%Y-%m-%dT%H:%M:%S-06:00")
-
-
 # ──────────────────────────────────────────────
 # Carga de configuración
 # ──────────────────────────────────────────────
@@ -81,13 +73,13 @@ def cargar_config() -> dict:
 
 def _ejecutar_modulo(nombre: str, funcion) -> dict:
     """Ejecuta un módulo y registra éxito/fracaso en DB + logging."""
-    from collector.db import conectar, insertar_ejecucion
+    from collector.db import ahora_gt_iso, conectar, insertar_ejecucion
 
     logger.info(f"=== Iniciando modulo: {nombre} ===")
     conn = conectar()
 
     try:
-        inicio = _ahora_gt_iso()
+        inicio = ahora_gt_iso()
         exec_id = insertar_ejecucion(conn, modulo=nombre, ok=1, mensaje="iniciado")
 
         resultado = funcion()
@@ -95,7 +87,7 @@ def _ejecutar_modulo(nombre: str, funcion) -> dict:
         conn.execute(
             "UPDATE ejecuciones SET fin = ?, mensaje = ? WHERE id = ?",
             (
-                _ahora_gt_iso(),
+                ahora_gt_iso(),
                 f"completado — {resultado.get('fuente', 'desconocido')}",
                 exec_id,
             ),
@@ -110,7 +102,7 @@ def _ejecutar_modulo(nombre: str, funcion) -> dict:
             "UPDATE ejecuciones SET fin = ?, ok = 0, mensaje = ? WHERE id IN "
             "(SELECT id FROM ejecuciones WHERE modulo = ? ORDER BY inicio DESC LIMIT 1)",
             (
-                _ahora_gt_iso(),
+                ahora_gt_iso(),
                 f"error: {exc}",
                 nombre,
             ),
@@ -247,207 +239,180 @@ def ejecutar_todo(cfg: dict = None, exportar: bool = False) -> list[dict]:
 # Exportación a JSON
 # ──────────────────────────────────────────────
 
-def _fila_a_dict(fila, columns=None):
-    """Convierte una fila SQLite (sqlite3.Row o tuple) a dict serializable."""
-    if fila is None:
-        return {}
+# Un año se promedia con datos diarios solo si están casi completos; si no
+# (ej. 2026 con huecos), el promedio de los meses oficiales es más fiel.
+DIAS_MIN_ANUAL_DIARIO = 300
 
-    # sqlite3.Row tiene keys() y funciona como dict
-    if hasattr(fila, "keys"):
-        data = {}
-        for key in fila.keys():
-            val = fila[key]
-            # Convertir tipos no-serializables a str
-            if isinstance(val, (datetime,)):
-                data[key] = val.isoformat()
-            elif val is None:
-                data[key] = None
-            else:
-                data[key] = val
-        return data
 
-    # Tuple o list — usar columns si se proporcionan
-    if columns:
-        return {col: (val if val is not None else None) for col, val in zip(columns, fila)}
+def _promedios_anuales(
+    conn: sqlite3.Connection, producto: str, semilla: list[dict], mensual: list[dict] = ()
+) -> list[dict]:
+    """Promedio por año, por prioridad de fuente:
 
-    return dict(enumerate(fila))
+    1. diario   — si el año tiene >= DIAS_MIN_ANUAL_DIARIO días con dato
+    2. mensual  — promedio de los meses oficiales disponibles del año
+    3. semilla  — valor anual histórico (años sin diarios ni mensuales)
+    4. diario parcial — último recurso si no hay nada mejor
+    """
+    diario = {
+        int(r[0]): {"anio": int(r[0]), "promedio": round(r[1], 2), "dias": r[2], "meses": None, "fuente": "diario"}
+        for r in conn.execute(
+            "SELECT substr(fecha, 1, 4), avg(precio), count(*) FROM precios "
+            "WHERE producto = ? GROUP BY 1",
+            (producto,),
+        )
+    }
+    meses: dict[int, list[float]] = {}
+    fuente_mensual = {}
+    for m in mensual:
+        if m["producto"] == producto:
+            meses.setdefault(m["anio"], []).append(m["promedio"])
+            fuente_mensual[m["anio"]] = m["fuente"]
+
+    anual = {}
+    for anio in set(diario) | set(meses) | {s["anio"] for s in semilla if s["producto"] == producto}:
+        if anio in diario and diario[anio]["dias"] >= DIAS_MIN_ANUAL_DIARIO:
+            anual[anio] = diario[anio]
+        elif anio in meses:
+            v = meses[anio]
+            anual[anio] = {"anio": anio, "promedio": round(sum(v) / len(v), 2), "dias": None,
+                           "meses": len(v), "fuente": fuente_mensual[anio]}
+        elif any(s["producto"] == producto and s["anio"] == anio for s in semilla):
+            s = next(s for s in semilla if s["producto"] == producto and s["anio"] == anio)
+            anual[anio] = {"anio": anio, "promedio": s["promedio"], "dias": None, "meses": None, "fuente": s["fuente"]}
+        else:
+            anual[anio] = diario[anio]
+    return [anual[a] for a in sorted(anual)]
+
+
+def construir_consolidado(conn: sqlite3.Connection, dias_historial: int = 365) -> dict:
+    """Arma el JSON único del dashboard. Misma forma para todos los productos:
+
+    productos.<codigo> = {nombre, categoria, unidad, orden,
+                          actual: {fecha, precio, fuente, fetched_at} | null,
+                          historial: [{fecha, precio}]  (últimos N días),
+                          mensual: [{anio, mes, promedio}]  (oficial MEM),
+                          anual: [{anio, promedio, dias, meses, fuente}]}
+    """
+    from collector import noticias as _noticias_mod
+    from collector.db import (
+        COMBUSTIBLES, PRODUCTOS, ahora_gt_iso, hace_dias_gt, hoy_gt,
+        leer_historial, leer_ultimo, obtener_noticias,
+    )
+    from collector.memoria import leer_mensual, leer_semilla_anual
+
+    hoy = hoy_gt()
+    desde = hace_dias_gt(dias_historial)
+    semilla = leer_semilla_anual()
+    mensual = leer_mensual()
+
+    productos = {}
+    for codigo, meta in sorted(PRODUCTOS.items(), key=lambda kv: kv[1]["orden"]):
+        ultimo = leer_ultimo(conn, codigo)
+        productos[codigo] = {
+            "nombre": meta["nombre"],
+            "categoria": meta["categoria"],
+            "unidad": meta["unidad"],
+            "orden": meta["orden"],
+            "actual": {
+                "fecha": ultimo["fecha"],
+                "precio": ultimo["precio"],
+                "fuente": ultimo["fuente"],
+                "fetched_at": ultimo["fetched_at"],
+            } if ultimo else None,
+            "historial": [
+                {"fecha": r["fecha"], "precio": r["precio"]}
+                for r in leer_historial(conn, codigo, desde=desde)
+            ],
+            "mensual": [
+                {"anio": m["anio"], "mes": m["mes"], "promedio": m["promedio"]}
+                for m in mensual if m["producto"] == codigo
+            ],
+            "anual": _promedios_anuales(conn, codigo, semilla, mensual),
+        }
+
+    # Guardia de frescura (solo combustibles: un WTI de hoy no vuelve
+    # "frescos" a precios de 2024).
+    max_fecha = max(
+        (productos[c]["actual"]["fecha"] for c in COMBUSTIBLES if productos[c]["actual"]),
+        default="",
+    )
+    try:
+        dias = (datetime.strptime(hoy, "%Y-%m-%d") - datetime.strptime(max_fecha, "%Y-%m-%d")).days
+    except ValueError:
+        dias = 999
+    frescos = dias <= 30
+    if not frescos:
+        logger.warning(
+            f"[export] PRECIOS DESACTUALIZADOS: max fecha '{max_fecha}' "
+            f"(hace {dias}d, hoy {hoy}). Revisar colectores."
+        )
+
+    # Noticias: top 10 por relevancia LLM (impacto GT), luego por fecha.
+    noticias = [dict(r) for r in obtener_noticias(conn, dias=30)]
+    top = sorted(noticias, key=lambda n: n.get("publicado_at") or "", reverse=True)
+    top = sorted(top, key=lambda n: n.get("relevancia") or 0, reverse=True)[:10]
+    # Diagnóstico LLM (ground truth desde DB: cuántas de hoy traen español).
+    total_hoy = conn.execute(
+        "SELECT COUNT(*) FROM noticias WHERE substr(fetched_at,1,10)=?", (hoy,)
+    ).fetchone()[0]
+    es_hoy = conn.execute(
+        "SELECT COUNT(*) FROM noticias WHERE substr(fetched_at,1,10)=? AND titulo_es IS NOT NULL",
+        (hoy,),
+    ).fetchone()[0]
+
+    return {
+        "version": 2,
+        "actualizado_at": ahora_gt_iso(),
+        "precios_actualizados": frescos,
+        "max_fecha_precios": max_fecha,
+        "productos": productos,
+        "noticias": {
+            "total": len(noticias),
+            "top": top,
+            "llm": {
+                "titulos_es_hoy": es_hoy,
+                "total_hoy": total_hoy,
+                "error": getattr(_noticias_mod, "_last_llm_error", None),
+                "key_fp": getattr(_noticias_mod, "_llm_key_fp", None),
+            },
+        },
+    }
 
 
 def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Connection = None) -> dict:
-    """Exporta toda la base de datos a archivos JSON.
-
-    Archivos generados en data/export/:
-      - precios_combustible.json  (todos los precios con regimen y impuestos)
-      - petroleo.json             (WTI históricos)
-      - noticias.json             (noticias RSS clasificadas)
-      - resumen.json              (resumen para dashboard web)
+    """Exporta la DB a data/export/consolidado.json (único archivo del dashboard).
 
     Args:
-        cfg: Configuración cargada desde config.json (opcional).
+        cfg: se acepta por compatibilidad de llamadas; no se usa.
         output_dir: Directorio de salida (default: data/export/).
         conn: Conexión DB existente (para tests, None = crea conexión propia).
 
     Returns:
-        Dict con rutas de archivos generados y conteos.
+        Dict con ruta del archivo generado y conteo de registros.
     """
-    if cfg is None:
-        cfg = cargar_config()
+    from collector.db import conectar
 
     export_dir = output_dir or Path(__file__).resolve().parent.parent / "data" / "export"
     export_dir.mkdir(parents=True, exist_ok=True)
 
-    from collector.db import (
-        conectar,
-        obtener_precios_actuales,
-        obtener_historial_precios,
-        obtener_ultimo_precio,
-        obtener_noticias,
-        ahora_gt_iso,
-    )
-
     if conn is None:
         conn = conectar()
 
-    # Hora actual de Guatemala (UTC-6, sin DST) vía helper tz-aware de db.py.
-    # Determinista y sin red: worldtimeapi.org fallaba en CI y dejaba UTC (+00:00).
-    ahora = ahora_gt_iso()
-
-    resultados_export = {
-        "archivos": {},
-        "total_registros": 0,
-        "generado_at": ahora,
-    }
-
-    # ── 1. Precios actuales de combustible y petróleo ──
-    precios_actuales_rows = obtener_precios_actuales(conn)
-    precios_actuales = [_fila_a_dict(r) for r in precios_actuales_rows]
-    path_precios = export_dir / "precios_combustible.json"
-    _write_json(path_precios, {"precios": precios_actuales, "actualizado_at": ahora})
-    resultados_export["archivos"]["precios_combustible"] = str(path_precios)
-    resultados_export["total_registros"] += len(precios_actuales)
-
-    # ── 2. Historial de precios (combustible + petróleo, últimos 365 días) ──
-    historial = []
-    for producto in ["superior", "regular", "diésel", "wti"]:
-        rows = obtener_historial_precios(conn, producto=producto, dias=365)
-        historial.extend(_fila_a_dict(r) for r in rows)
-
-    path_historico = export_dir / "historial_precios.json"
-    _write_json(
-        path_historico,
-        {
-            "datos": historial,
-            "productos": list(set(d.get("producto") for d in historial if d)),
-            "total_registros": len(historial),
-            "actualizado_at": ahora,
-        },
-    )
-    resultados_export["archivos"]["historial_precios"] = str(path_historico)
-    resultados_export["total_registros"] += len(historial)
-
-    # ── 3. Petróleo actual (wti desde la única tabla) ──
-    petroleo_actual = []
-    row = obtener_ultimo_precio(conn, "wti")
-    if row:
-        petroleo_actual.append({
-            "referencia": "wti",
-            "fecha": row["fecha"],
-            "usd_barril": row["precio"],
-            "fuente": row["fuente"],
-        })
-    path_petroleo = export_dir / "petroleo.json"
-    _write_json(
-        path_petroleo, {"precios": petroleo_actual, "actualizado_at": ahora}
-    )
-    resultados_export["archivos"]["petroleo"] = str(path_petroleo)
-    resultados_export["total_registros"] += len(petroleo_actual)
-
-    # ── 4. Historial de petróleo (últimos 90 días, solo wti) ──
-    hist_petroleo = []
-    rows = obtener_historial_precios(conn, producto="wti", dias=90)
-    hist_petroleo.extend(_fila_a_dict(r) for r in rows)
-
-    path_hist_petroleo = export_dir / "historial_petroleo.json"
-    _write_json(
-        path_hist_petroleo,
-        {
-            "datos": hist_petroleo,
-            "total_registros": len(hist_petroleo),
-            "actualizado_at": ahora,
-        },
-    )
-    resultados_export["archivos"]["historial_petroleo"] = str(path_hist_petroleo)
-    resultados_export["total_registros"] += len(hist_petroleo)
-
-    # ── 5. Noticias recientes (últimos 30 días) ──
-    noticias_rows = obtener_noticias(conn, dias=30)
-    noticias = [_fila_a_dict(r) for r in noticias_rows]
-    # Diagnóstico LLM (ground truth desde DB: cuántas de hoy traen español).
-    # Visible en resumen.json → permite validar el pipeline sin leer logs de CI.
-    from collector.db import hoy_gt as _hoy_gt
-    _hoy = _hoy_gt()
-    _tot_hoy = conn.execute(
-        "SELECT COUNT(*) FROM noticias WHERE substr(fetched_at,1,10)=?", (_hoy,)
-    ).fetchone()[0]
-    _es_hoy = conn.execute(
-        "SELECT COUNT(*) FROM noticias WHERE substr(fetched_at,1,10)=? AND titulo_es IS NOT NULL",
-        (_hoy,),
-    ).fetchone()[0]
-    path_noticias = export_dir / "noticias.json"
-    _write_json(
-        path_noticias, {"noticias": noticias, "total_registros": len(noticias)}
-    )
-    resultados_export["archivos"]["noticias"] = str(path_noticias)
-    resultados_export["total_registros"] += len(noticias)
-
-    # ── 6. Resumen para dashboard web ──
-    combustibles = [p for p in precios_actuales if p.get("producto") in ("superior", "regular", "diésel")]
-    # Top 10: primero por relevancia LLM (impacto GT), luego por fecha.
-    # Sin este orden, las clasificadas (pocas, y no siempre las más nuevas)
-    # quedarían fuera del corte y el dashboard nunca las vería.
-    top_noticias = sorted(noticias, key=lambda n: n.get("publicado_at") or "", reverse=True)
-    top_noticias = sorted(top_noticias, key=lambda n: n.get("relevancia") or 0, reverse=True)
-    # Guardia de frescura: si lo más nuevo que hay es viejo (ej. un run parcial
-    # solo-MEM con DB efímera), se marca para no presentar 2024 como "actual".
-    from collector.db import hoy_gt as _hoy_gt
-    from collector import noticias as _noticias_mod
-    _hoy = _hoy_gt()
-    _max_fecha = max((p.get("fecha") or "" for p in precios_actuales), default="")
-    try:
-        _dias = (
-            datetime.strptime(_hoy, "%Y-%m-%d") - datetime.strptime(_max_fecha, "%Y-%m-%d")
-        ).days
-    except ValueError:
-        _dias = 999
-    _frescos = bool(precios_actuales) and _dias <= 30
-    if not _frescos:
-        logger.warning(
-            f"[export] PRECIOS DESACTUALIZADOS: max fecha {_max_fecha} "
-            f"(hace {_dias}d, hoy {_hoy}). Revisar colectores."
-        )
-    resumen = {
-        "actualizado_at": ahora,
-        "precios_combustible": combustibles,
-        "precios_actualizados": _frescos,
-        "max_fecha_precios": _max_fecha,
-        "petroleo": petroleo_actual,
-        "noticias_count": len(noticias),
-        "noticias_llm": {"titulos_es_hoy": _es_hoy, "total_hoy": _tot_hoy,
-                         "error": getattr(_noticias_mod, "_last_llm_error", None),
-                         "key_fp": getattr(_noticias_mod, "_llm_key_fp", None)},
-        "ultimas_noticias": top_noticias[:10],  # top 10 por relevancia + fecha
-    }
-
-    path_resumen = export_dir / "resumen.json"
-    _write_json(path_resumen, resumen)
-    resultados_export["archivos"]["resumen"] = str(path_resumen)
-
+    consolidado = construir_consolidado(conn)
     conn.close()
 
-    logger.info(
-        f"Exportación completada: {resultados_export['total_registros']} registros -> {export_dir}"
-    )
-    return resultados_export
+    path = export_dir / "consolidado.json"
+    _write_json(path, consolidado)
+
+    total = sum(len(p["historial"]) for p in consolidado["productos"].values())
+    total += consolidado["noticias"]["total"]
+    logger.info(f"Exportación completada: {total} registros -> {path}")
+    return {
+        "archivos": {"consolidado": str(path)},
+        "total_registros": total,
+        "generado_at": consolidado["actualizado_at"],
+    }
 
 
 def _write_json(path: Path, data: dict) -> None:
@@ -504,7 +469,7 @@ Ejemplos:
     )
     parser.add_argument(
         "--memoria", action="store_true",
-        help="Memoria persistente: importar data/memory/precios.csv al inicio "
+        help="Memoria persistente: importar data/db/<producto>.csv al inicio "
              "y re-exportarlo al final (la CI nace con DB vacía; así no se reinicia el historial)",
     )
 

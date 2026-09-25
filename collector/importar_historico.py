@@ -307,44 +307,19 @@ def importar_historico(precios: list[dict], cfg: dict = None) -> dict:
         with open(config_path, "r", encoding="utf-8") as f:
             cfg = json.load(f)
 
-    from collector.db import conectar, insertar_precio, borrar_precios_hoy
+    from collector.db import canon_producto, conectar, guardar_precios
     conn = conectar()
 
-    inserted = 0
-    skipped = 0
-    dates_seen = set()
-    products_counted = {}
-
-    # Borrar precios de hoy de esta fuente antes de insertar nuevo
-    fuente = precios[0].get("fuente", "Ministerio de Energía y Minas") if precios else ""
-    borrados = borrar_precios_hoy(conn, fuente)
-    if borrados > 0:
-        print(f"[historico]   Borrado(s): {borrados} precio(s) de hoy ({fuente})")
-
-    for p in precios:
-        fecha_obs = p["fecha"]
-        producto = p["producto"]
-        precio = p["precio"]
-
-        try:
-            row_id = insertar_precio(
-                conn=conn,
-                fecha=fecha_obs,
-                producto=producto,
-                precio=precio,
-                fuente=fuente,
-            )
-            if row_id is not None:
-                inserted += 1
-                dates_seen.add(fecha_obs)
-                products_counted[producto] = products_counted.get(producto, 0) + 1
-            else:
-                skipped += 1
-
-        except Exception as exc:
-            print(f"[historico] Error guardando {p}: {exc}")
-
+    conteo = guardar_precios(conn, precios, fuente="MEM")
     conn.close()
+
+    inserted = conteo["insertados"] + conteo["actualizados"]
+    skipped = conteo["sin_cambio"] + conteo["descartados"] + conteo["invalidos"]
+    dates_seen = {p["fecha"] for p in precios}
+    products_counted = {}
+    for p in precios:
+        prod = canon_producto(p["producto"])
+        products_counted[prod] = products_counted.get(prod, 0) + 1
 
     min_date = min(dates_seen) if dates_seen else "N/A"
     max_date = max(dates_seen) if dates_seen else "N/A"

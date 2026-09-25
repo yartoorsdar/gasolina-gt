@@ -3,8 +3,8 @@
 ## Quick start
 ```powershell
 cd C:\Users\manue\Documents\proyectos\web\Gasolina
-python -m pytest tests/ -q -p no:cacheprovider --ignore=tests/test_db.py   # suite principal (test_db.py pendiente de migrar al esquema tabla-única)
-python collector/main.py --alternos --petroleo --noticias --export   # run collectors + export JSONs to data/export/
+python -m pytest tests/ -q -p no:cacheprovider   # suite completa (6 fallas preexistentes: consenso/petroleo con esquema viejo)
+python collector/main.py --memoria --alternos --petroleo --noticias --export   # CSV→DB, colectores, consolidado.json + CSV
 python serve.py                             # dashboard at http://localhost:8089/web/index.html
 ```
 
@@ -12,14 +12,17 @@ python serve.py                             # dashboard at http://localhost:8089
 - `collector/*.py` — `db.py` (schema + `ahora_gt_iso()`/`hoy_gt()` + `canon_producto()`), `impuestos.py`, `mem_html.py`, `fuentes_alternas.py`, `consenso_precios.py`, `importar_historico.py`, `petroleo.py`, `noticias.py`, `memoria.py`, `main.py`, `scheduler.py` (`precios_mem.py` eliminado)
 - `web/index.html` — single-file dashboard (CSS+JS vanilla, no build step)
 - `index.html` — copy of web/index.html at repo root (Vercel serves this at `/`)
-- `data/export/*.json` — `main.py:exportar_json` genera 6 (NO genera `consolidado.json`; el archivo en repo está congelado): `resumen.json`, `precios_combustible.json`, `petroleo.json`, `historial_precios.json`, `historial_petroleo.json`, `noticias.json`
-- `data/historial.db` — SQLite, NOT in git (ephemeral in CI): `precios`, `noticias`, `ejecuciones`
+- `data/export/consolidado.json` — ÚNICO archivo exportado (`main.py:exportar_json` → `construir_consolidado`). Los viejos resumen/precios_combustible/petroleo/historial_*/noticias.json y las copias en raíz y `web/` se eliminaron (2026-09-25).
+- `data/db/<archivo>.csv` — historial persistente de cada producto, en git (`regular.csv`, `superior.csv`, `diesel.csv`, `wti.csv`; columnas `fecha,precio,fuente`) + `mensual.csv` (promedios mensuales oficiales MEM 2020-01→, autoservicio) + `anual_semilla.csv` (2002–2019, sin fuente verificada). Procedencia de cada tramo en `data/db/FUENTES.md`. Serie = precio promedio MONITOREADO autoservicio Ciudad Capital; NO mezclar con "precios de referencia" semanales del MEM (otra serie). `collector/memoria.py` los importa/exporta. Reemplaza a `data/memory/precios.csv`.
+- `data/historial.db` — SQLite, NOT in git (ephemeral in CI): `productos`, `precios`, vistas `historial_<archivo>`, `noticias`, `ejecuciones`
 
 ## DB schema (single-table)
 ```sql
+CREATE TABLE productos (codigo PK, nombre, categoria, unidad, archivo, orden);  -- catálogo = db.PRODUCTOS
 CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, fetched_at TEXT);
 -- UNIQUE(fecha, producto) via CREATE UNIQUE INDEX (inline UNIQUE broken on Windows/SQLite)
--- Products: 'superior', 'regular', 'diésel' (combustible), 'wti' (petróleo)
+-- Vistas historial_regular / historial_superior / historial_diesel / historial_wti (generadas del catálogo)
+-- Products: 'regular', 'superior', 'diésel' (combustible), 'wti' (petróleo). Otro producto (ej. bunker) = inválido.
 ```
 
 ## Memoria persistente de precios (`collector/memoria.py`)
@@ -42,11 +45,13 @@ La DB es efímera en CI → sin memoria, cada run "reiniciaba" el historial a la
 ## Collector gotchas
 - **SQLite Row**: `conn.row_factory = sqlite3.Row`. Rows support `row["col"]` but NOT `.get()`. Use direct indexing: `e["mensaje"]`, not `e.get("mensaje")`.
 - **Import when run as __main__**: Modules that import from other collector modules add parent to sys.path via `os.sys.path.insert(0, str(_root))` inside `if __name__ == "__main__":`.
-- **Delete-before-insert**: Each collector deletes today's prices by source before inserting new ones (idempotent).
+- **Una sola vía de escritura**: todo colector usa `db.guardar_precios(conn, filas, fuente)` (upsert por producto+fecha). Re-ejecutar = actualizar; NO borrar antes de insertar. Conflicto entre fuentes el mismo día: gana mayor `prioridad_fuente` (MEM/OilPriceAPI 3 > manual 2 > alternas 1). `sobrescribir=False` = solo sembrar (lo usa `importar_memoria`). Borrar: `borrar_precios(conn, producto, desde, hasta, fuente)`; leer: `leer_historial` / `leer_ultimo` / `leer_actuales` — mismos filtros en todas.
+- **Fuentes canónicas**: `canon_fuente()` normaliza (`Ministerio de Energía y Minas`/`MEM HTML`/… → `MEM`). Fuente nueva: agregarla a `db._FUENTES` con su prioridad.
 - **Commit before close**: `_ejecutar_modulo` in main.py calls `conn.commit()` before `close()` to flush to disk.
 
 ## Petróleo (OilPriceAPI — solo WTI)
-- Endpoint: `https://api.oilpriceapi.com/v1/prices/latest?by_code=WTI_CRUDE_USD`
+- Endpoint: `https://api.oilpriceapi.com/v1/prices/latest?by_code=WTI_CRUDE_USD` (precio de hoy)
+- Historial: `/v1/prices/historical?by_code=WTI_USD&period=past_month&interval=daily` (promedio diario, solo días de mercado). `ejecutar()` lo rellena en cada run → autocorrige días previos. `period=past_year` ≈ 500 días.
 - Key vía `OILPRICEAPI_KEY` (secreto GitHub + `.env`, ver `.env.example`)
 - OJO: `config.json → petroleo.series.wti = "DCOILWTICO"` es resto de la era EIA, nadie lo lee — no revivir EIA
 
@@ -64,10 +69,11 @@ La DB es efímera en CI → sin memoria, cada run "reiniciaba" el historial a la
 - Idempotent via insert-or-ignore in DB
 
 ## Dashboard data contract (`web/index.html`)
-- **Reads from GitHub raw** (not local files): `https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export/resumen.json`
-- JSON properties: `precios_combustible`, `petroleo`, `ultimas_noticias`, `noticias_count`, `actualizado_at` — NOT `data.precios`
-- `noticias_llm: {titulos_es_hoy, total_hoy}` — diagnóstico del pipeline LLM (ground truth desde DB). Si `titulos_es_hoy` es 0 tras un run, leer el log del job en Actions (`[noticias] Lote OK/Fallback OK/Error LLM`).
-- `ultimas_noticias[]` trae `titulo_es`/`categoria`/`relevancia` (1-5, impacto GT)/`resumen_es` del LLM cuando hay key; si no, `relevancia` es null y el dashboard ordena por fecha. Top 5 = `relevancia` desc, luego fecha desc (`agruparNoticias`).
+- **Reads from GitHub raw** (not local files): `https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export/consolidado.json` (`PRIMARY_DATA_URL`)
+- Forma v2: `{version, actualizado_at, precios_actualizados, max_fecha_precios, productos:{<codigo>:{nombre, categoria, unidad, orden, actual:{fecha,precio,fuente,fetched_at}|null, historial:[{fecha,precio}] (365 días), mensual:[{anio,mes,promedio}], anual:[{anio,promedio,dias,meses,fuente}]}}, noticias:{total, top[10], llm}}`. `anual.fuente` = `diario` (≥300 días), `MEM mensual` (promedio de meses oficiales) o `consolidado histórico` (semilla).
+- `adaptarConsolidado()` en el JS lleva esa forma a lo que usan los renderers (`precios_combustible`, `petroleo`, `wti_historial`, `combustibles_historial`, `ultimas_noticias`, `historial_anual`). Las gráficas semanales (combustibles y WTI) usan los últimos 7 días REALES del historial — nunca arrays escritos a mano (test_web lo vigila).
+- `noticias.llm: {titulos_es_hoy, total_hoy}` — diagnóstico del pipeline LLM (ground truth desde DB). Si `titulos_es_hoy` es 0 tras un run, leer el log del job en Actions (`[noticias] Lote OK/Fallback OK/Error LLM`).
+- `noticias.top[]` trae `titulo_es`/`categoria`/`relevancia` (1-5, impacto GT)/`resumen_es` del LLM cuando hay key; si no, `relevancia` es null y el dashboard ordena por fecha. Top 5 = `relevancia` desc, luego fecha desc (`agruparNoticias`).
 - Semáforo (`analizarImpactoPetrolero`): devuelve `motivo` SEPARADO de `mensaje`; el card lo renderiza como línea aparte (`.semaforo-motivo`: "Motivo: <noticia de mayor peso>"). En móvil/tablet (≤768px) el mensaje se clava a 3 líneas y el motivo a 2 (`-webkit-line-clamp`) para que el rectángulo no ocupe media pantalla.
 - **Product names**: canónicos `'superior'`, `'regular'`, `'diésel'`, `'wti'`. `db.canon_producto()` normaliza al insertar (`diessel`/`diesel`→`diésel`, `super`→`superior`). Dashboard también normaliza por si acaso.
 - **Sort order**: R, S, D via `Map` (NOT `indexOf()` which is unstable in V8 on Windows).
@@ -77,18 +83,18 @@ La DB es efímera en CI → sin memoria, cada run "reiniciaba" el historial a la
 - **Anti-flicker móvil**: cero animaciones `infinite` en el `<style>` inline (precios y borde del barril son estáticos; pulso permitido solo vía `opacity`). En `style-glass.css` el fondo mesh y `border-shimmer` se apagan con `@media (max-width:768px),(pointer:coarse)`. Resize con debounce 250ms que redibuja charts en estado final — NUNCA reiniciar `start*Animation` en resize (en móvil cada scroll = resize por la barra del navegador). Un solo listener global, no uno por render.
 
 ## Vercel deployment
-- `vercel.json`: static build with cache headers for JSON files (max-age=60) and HTML (max-age=300). OJO: esos headers casi no aplican — el dashboard lee de `raw.githubusercontent.com` (`GITHUB_RAW` en el JS), no de Vercel.
+- `vercel.json`: static build with cache headers for `consolidado.json` (max-age=60) and HTML (max-age=300). OJO: esos headers casi no aplican — el dashboard lee de `raw.githubusercontent.com` (`GITHUB_RAW` en el JS), no de Vercel.
 - `_redirects` (`/* /web/index.html 200`) es sintaxis Netlify — Vercel lo ignora. `_routes.json` (sintaxis Azure SWA) también es muerto en Vercel.
 - **Two index.html**: `web/index.html` (source of truth), `index.html` at root (copy for Vercel `/`). Always keep them in sync. La copia raíz usa `sprites/barrel-oil.png` y `iconos/favicon.*` (relativas a raíz); la de `web/` usa `../sprites/`, `../iconos/`.
 
 ## GitHub Actions (`daily-update.yml` produce datos; `test-apis.yml` solo diagnostica)
-- **daily-update**: cron `0 14 * * *` (nominal 08:00 GT; en la práctica GitHub gratis lo ejecuta ~18:2x UTC), push a main, manual dispatch. Runner `windows-latest`, Python 3.11. Runs `python collector/main.py --memoria --alternos --petroleo --noticias --export`. El paso de push commitea `data/export/*.json` **y** `data/memory/precios.csv` (memoria persistente: sin el CSV cada run nacería con DB vacía y Vercel reiniciaría el historial).
+- **daily-update**: cron `0 14 * * *` (nominal 08:00 GT; en la práctica GitHub gratis lo ejecuta ~18:2x UTC), push a main, manual dispatch. Runner `windows-latest`, Python 3.11. Runs `python collector/main.py --memoria --alternos --petroleo --noticias --export`. El paso de push commitea `data/export/consolidado.json` **y** `data/db/*.csv` (memoria persistente: sin los CSV cada run nacería con DB vacía y perdería el historial).
 - **test-apis** (solo `workflow_dispatch`): corre `scripts/test_apis.py` contra el LLM primario de config.json (prompt mínimo), Groq secundario y MyMemory — sin DB ni export ni push. Mismo runner que daily-update: si la API responde ahí, responde en el run diario. Job rojo = ningún LLM completó el prompt (contrato del script).
 - `concurrency: daily-update-global` (sin cancel) serializa schedule+push+dispatch.
 - Push step: orden add → diff → **commit → pull --rebase → push HEAD:main**, SIN `|| true` (un rechazo queda rojo, no se pierde en silencio).
 - `[skip ci]` en commits de docs/UI para no disparar runs. Sin `[skip ci]` el push dispara el workflow (útil para validar cambios de colectores).
 - Regla: ningún workflow hace export parcial + push (con DB efímera eso sobrescribe el dashboard con datos viejos).
-- `resumen.json` trae `precios_actualizados` (bool) + `max_fecha_precios`: guardia de frescura (stale si max fecha > 30 días). Si es false tras un run, revisar colectores.
+- `consolidado.json` trae `precios_actualizados` (bool) + `max_fecha_precios`: guardia de frescura calculada SOLO sobre combustibles (stale si max fecha > 30 días; un WTI de hoy ya no enmascara precios viejos). Si es false tras un run, revisar colectores.
 
 ## Scheduler (`collector/scheduler.py`)
 ```powershell
@@ -98,10 +104,11 @@ python scheduler.py --export-task NOMBRE --interval-min N  # genera XML (ver --i
 ```
 
 ## Testing
-- Suite principal: `pytest tests/ -q -p no:cacheprovider --ignore=tests/test_db.py`
+- **`tests/conftest.py` aísla TODO test**: redirige `db._default_db_path` y las rutas de `memoria` a tmp. Sin eso, tests con APIs simuladas escribían en `data/historial.db` real (así entró el WTI falso 71.45). No quitarlo.
+- Suite principal: `pytest tests/ -q -p no:cacheprovider`
 - Single test file: `pytest tests/test_module.py -v`
 - Tests use `conectar_temporal()` for isolated in-memory DB operations.
-- `tests/test_db.py`, partes de `test_main.py`/`test_consenso.py`/`test_petroleo.py` aún referencian el esquema viejo (dos tablas `precios_combustible`/`precios_petroleo`, `fecha_observacion`, producto `brent`) — pendientes de migrar al esquema tabla-única. No reescribir asserts existentes sin migrar el setup.
+- `test_db.py`, `test_memoria.py` y `TestExportJson` cubren el esquema genérico. Partes de `test_consenso.py`/`test_petroleo.py` aún referencian el esquema viejo (dos tablas `precios_combustible`/`precios_petroleo`, `fecha_observacion`, producto `brent`) — pendientes de migrar al esquema tabla-única. No reescribir asserts existentes sin migrar el setup.
 - SQLite UNIQUE bug: inline `UNIQUE(...)` in `executescript()` doesn't work on Windows — explicit `CREATE UNIQUE INDEX` required (handled in db.py).
 
 ## Key files to read first when debugging

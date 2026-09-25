@@ -1,127 +1,132 @@
-"""Memoria persistente de precios (CSV commitado en git).
+"""Memoria persistente de precios: un CSV por producto, commitado en git.
 
-La DB de CI es efímera: cada run nace vacía y regenera los JSONs solo con lo
-que recolectó ese día — el historial se "reiniciaba" a la vista de Vercel.
+La DB de CI es efímera (cada run nace vacía). Esta carpeta es la fuente de
+verdad del historial entre runs:
 
-Este módulo rompe el ciclo:
-  1. `importar_memoria()` al INICIO del run: restaura toda la tabla precios
-     desde data/memory/precios.csv (lo que runs anteriores acumularon).
-  2. Los colectores agregan/actualizan el día de hoy (sus patrones
-     delete-hoy-antes-de-insertar ya lo garantizan: re-ejecutar un mismo
-     día ACTUALIZA el precio, no inserta ni duplica).
-  3. `exportar_memoria()` al FINAL: vuelca la tabla completa de vuelta al
-     CSV → se commitea junto con los JSONs y el próximo run parte de ahí.
+  data/db/
+    regular.csv       ← historial diario de cada producto del catálogo
+    superior.csv         (mismas columnas en todos: fecha,precio,fuente)
+    diesel.csv
+    wti.csv
+    mensual.csv       ← promedios mensuales oficiales MEM (autoservicio,
+                         Ciudad Capital) 2020-01 → (anio,mes,producto,promedio,fuente)
+    anual_semilla.csv ← promedios anuales de años SIN datos diarios ni mensuales
+                         (anio,producto,promedio,fuente)
 
-El archivo es determinista (orden fijo por fecha+producto, sin timestamps):
-si nada cambió, sale byte-idéntico y git no genera diff.
+Ciclo:
+  1. `importar_memoria()` al INICIO del run: siembra la tabla precios desde
+     los CSV (sin pisar filas existentes).
+  2. Los colectores insertan/actualizan con `db.guardar_precios` (upsert).
+  3. `exportar_memoria()` al FINAL: vuelca cada producto a su CSV.
+
+Archivos deterministas (orden por fecha, sin timestamps): si nada cambió,
+salen byte-idénticos y git no genera diff.
 """
 
 import csv
 from pathlib import Path
 
-_MEMORIA_DIR = Path(__file__).resolve().parent.parent / "data" / "memory"
-MEMORIA_CSV = _MEMORIA_DIR / "precios.csv"
+MEMORIA_DIR = Path(__file__).resolve().parent.parent / "data" / "db"
+SEMILLA_ANUAL_CSV = MEMORIA_DIR / "anual_semilla.csv"
+MENSUAL_CSV = MEMORIA_DIR / "mensual.csv"
 
-_COLUMNAS = ("fecha", "producto", "precio", "fuente")
+_COLUMNAS = ("fecha", "precio", "fuente")
 
 
-def exportar_memoria(conn=None, path: Path | None = None) -> Path:
-    """Vuelca la tabla `precios` completa al CSV (sobrescribe).
+def _ruta(producto: str, carpeta: Path) -> Path:
+    from collector.db import PRODUCTOS
+    return carpeta / f"{PRODUCTOS[producto]['archivo']}.csv"
 
-    Determinista: orden fijo + sin fetched_at → mismo contenido = mismos bytes.
-    Devuelve la ruta del archivo escrito.
+
+def exportar_memoria(conn=None, carpeta: Path | None = None) -> dict[str, int]:
+    """Vuelca el historial de cada producto a su CSV (sobrescribe).
+
+    Returns:
+        {producto: filas escritas}
     """
-    path = path or MEMORIA_CSV
-    from collector.db import canon_producto, conectar  # perezoso: runnable directo
+    from collector.db import PRODUCTOS, conectar, leer_historial  # perezoso: runnable directo
 
-    if conn is None:
-        conn = conectar()
-        propia = True
-    else:
-        propia = False
+    carpeta = carpeta or MEMORIA_DIR
+    carpeta.mkdir(parents=True, exist_ok=True)
+    propia = conn is None
+    conn = conn or conectar()
 
-    rows = conn.execute(
-        "SELECT fecha, producto, precio, fuente, fetched_at FROM precios"
-    ).fetchall()
-
-    # Deduplicar por (fecha, canónico): la tabla puede guardar dos grafías del
-    # mismo día ('diessel' de un import antiguo + 'diésel' de uno nuevo). La
-    # memoria conserva UNA fila: la más recién importada (fetched_at ISO con el
-    # mismo offset → comparación lexicográfica = cronológica).
-    mejor = {}
-    for r in rows:
-        clave = (r["fecha"], canon_producto(r["producto"]))
-        prev = mejor.get(clave)
-        if prev is None or r["fetched_at"] > prev["fetched_at"]:
-            mejor[clave] = r
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w", encoding="utf-8", newline="") as f:
-        writer = csv.writer(f, lineterminator="\n", quoting=csv.QUOTE_MINIMAL)
-        writer.writerow(_COLUMNAS)
-        for clave in sorted(mejor):
-            r = mejor[clave]
-            # Productos canónicos en el archivo (diessel→diésel): la memoria y
-            # el dashboard hablan el mismo idioma; sin esto las grafías
-            # duplicadas crearían pares repetidos al re-importar.
-            writer.writerow(
-                [r["fecha"], canon_producto(r["producto"]), repr(float(r["precio"])), r["fuente"]]
-            )
+    escritas = {}
+    for producto in PRODUCTOS:
+        rows = leer_historial(conn, producto)
+        with open(_ruta(producto, carpeta), "w", encoding="utf-8", newline="") as f:
+            writer = csv.writer(f, lineterminator="\n")
+            writer.writerow(_COLUMNAS)
+            for r in rows:
+                writer.writerow([r["fecha"], repr(float(r["precio"])), r["fuente"]])
+        escritas[producto] = len(rows)
 
     if propia:
         conn.close()
-    n_dup = len(rows) - len(mejor)
-    print(f"[memoria] Exportadas {len(mejor)} filas únicas"
-          + (f" ({n_dup} grafías duplicadas deduplicadas)" if n_dup else "")
-          + f" → {path}")
-    return path
+    print(f"[memoria] Exportado → {carpeta}: "
+          + ", ".join(f"{p}={n}" for p, n in escritas.items()))
+    return escritas
 
 
-def importar_memoria(path: Path | None = None, conn=None) -> int:
-    """Restaura la tabla `precios` desde el CSV (insert-or-ignore).
+def importar_memoria(conn=None, carpeta: Path | None = None) -> dict[str, int]:
+    """Siembra la tabla precios desde los CSV de cada producto.
 
-    Semántica: la memoria SIEMBRA el historial; los valores del día de hoy los
-    definen después los colectores. Si una fila ya existe con otro valor
-    (edición manual local), se conserva — no se pisa trabajo nuevo.
+    No pisa filas existentes (sobrescribir=False): lo de hoy lo definen
+    después los colectores. Producto sin CSV = primer ciclo, se omite.
 
-    Devuelve cuántas filas se insertaron (0 si no hay archivo: primer ciclo).
+    Returns:
+        {producto: filas insertadas}
     """
-    path = path or MEMORIA_CSV
-    from collector.db import canon_producto, conectar, insertar_precio  # perezoso: runnable directo
+    from collector.db import PRODUCTOS, conectar, guardar_precios  # perezoso: runnable directo
 
-    if not path.exists():
-        print(f"[memoria] Sin archivo {path.name} (primer ciclo) — nada que importar")
-        return 0
+    carpeta = carpeta or MEMORIA_DIR
+    propia = conn is None
+    conn = conn or conectar()
 
-    if conn is None:
-        conn = conectar()
-        propia = True
-    else:
-        propia = False
-
-    insertadas = 0
-    malas = 0
-    with open(path, "r", encoding="utf-8") as f:
-        for row in csv.DictReader(f):
-            try:
-                fecha = (row.get("fecha") or "").strip()
-                producto = canon_producto((row.get("producto") or "").strip())
-                precio = float(row.get("precio"))
-                fuente = (row.get("fuente") or "memoria").strip()
-                if not fecha or not producto:
-                    raise ValueError(f"fila incompleta: {row}")
-                row_id = insertar_precio(conn, fecha, producto, precio, fuente)
-                if row_id is not None:
-                    insertadas += 1
-            except Exception as exc:
-                malas += 1
-                print(f"[memoria] Fila malformada (se omite): {exc}")
+    insertadas = {}
+    for producto in PRODUCTOS:
+        path = _ruta(producto, carpeta)
+        if not path.exists():
+            insertadas[producto] = 0
+            continue
+        with open(path, "r", encoding="utf-8") as f:
+            filas = [dict(r, producto=producto) for r in csv.DictReader(f)]
+        conteo = guardar_precios(conn, filas, sobrescribir=False)
+        insertadas[producto] = conteo["insertados"]
+        if conteo["invalidos"]:
+            print(f"[memoria] {path.name}: {conteo['invalidos']} fila(s) inválida(s) omitida(s)")
 
     if propia:
         conn.close()
-    print(f"[memoria] Importadas {insertadas} filas desde {path.name}"
-          + (f" ({malas} omitidas)" if malas else ""))
+    print(f"[memoria] Importado ← {carpeta}: "
+          + ", ".join(f"{p}={n}" for p, n in insertadas.items()))
     return insertadas
+
+
+def leer_mensual(path: Path | None = None) -> list[dict]:
+    """Promedios mensuales oficiales (MEM, autoservicio, Ciudad Capital)."""
+    path = path or MENSUAL_CSV
+    if not path.exists():
+        return []
+    with open(path, "r", encoding="utf-8") as f:
+        return [
+            {"anio": int(r["anio"]), "mes": int(r["mes"]), "producto": r["producto"],
+             "promedio": float(r["promedio"]), "fuente": r["fuente"]}
+            for r in csv.DictReader(f)
+        ]
+
+
+def leer_semilla_anual(path: Path | None = None) -> list[dict]:
+    """Promedios anuales de años sin datos diarios (solo lectura)."""
+    path = path or SEMILLA_ANUAL_CSV
+    if not path.exists():
+        return []
+    with open(path, "r", encoding="utf-8") as f:
+        return [
+            {"anio": int(r["anio"]), "producto": r["producto"],
+             "promedio": float(r["promedio"]), "fuente": r["fuente"]}
+            for r in csv.DictReader(f)
+        ]
 
 
 if __name__ == "__main__":
@@ -132,6 +137,5 @@ if __name__ == "__main__":
         sys.path.insert(0, str(_root))
 
     # Uso directo: `python collector/memoria.py` → importa y re-exporta.
-    n = importar_memoria()
+    importar_memoria()
     exportar_memoria()
-    print(f"[memoria] ciclo completo ({n} filas importadas)")

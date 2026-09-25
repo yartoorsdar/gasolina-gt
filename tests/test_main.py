@@ -27,30 +27,6 @@ def export_dir(tmp_path):
 # ──────────────────────────────────────────────
 
 class TestHelpersMain:
-    def test_fila_a_dict_none(self):
-        from collector.main import _fila_a_dict
-        assert _fila_a_dict(None) == {}
-
-    def test_fila_a_dict_sqlite_row_like(self):
-        from collector.main import _fila_a_dict
-
-        class FakeRow(dict):
-            def keys(self):
-                return ["id", "fecha", "precio"]
-
-        row = FakeRow({"id": 1, "fecha": "2026-09-22", "precio": 35.5})
-        result = _fila_a_dict(row)
-        assert result["id"] == 1
-        assert result["fecha"] == "2026-09-22"
-        assert result["precio"] == 35.5
-
-    def test_fila_a_dict_tuple(self):
-        from collector.main import _fila_a_dict
-        columns = ["a", "b", "c"]
-        fila = (1, "texto", None)
-        result = _fila_a_dict(fila, columns=columns)
-        assert result == {"a": 1, "b": "texto", "c": None}
-
     def test_write_json(self, export_dir):
         from collector.main import _write_json
 
@@ -136,85 +112,104 @@ class TestEjecutarTodo:
 # ──────────────────────────────────────────────
 
 class TestExportJson:
-    def test_exportar_json_crea_archivos(self, cfg, tmp_path):
-        from collector.db import conectar_temporal, crear_tablas
+    def test_exportar_consolidado(self, cfg, tmp_path):
+        """Un solo archivo, misma forma para cada producto."""
+        from collector.db import conectar_temporal, guardar_precios, hace_dias_gt, hoy_gt
         from collector.main import exportar_json
-        from datetime import datetime
 
-        # Crear DB temporal con datos de prueba
         conn = conectar_temporal()
-        crear_tablas(conn)
-
-        ahora = datetime.now().strftime("%Y-%m-%dT%H:%M:%S-06:00")
-
-        # Insertar precios de combustible actuales
-        for i, producto in enumerate(["superior", "regular", "diessel"]):
-            conn.execute(
-                """INSERT INTO precios_combustible
-                   (fecha_observacion, producto, precio, incluye_impuestos, regimen, fuente, fetched_at)
-                   VALUES (?, ?, ?, 1, 'normal', 'test_db', ?)""",
-                ("2026-09-22", producto, 35.0 + i, ahora),
-            )
-
-        # Insertar precios de petróleo actuales
-        for ref in ["brent", "wti"]:
-            conn.execute(
-                """INSERT INTO precios_petroleo
-                   (fecha, referencia, usd_barril, fuente, fetched_at)
-                   VALUES (?, ?, ?, 'test_db', ?)""",
-                ("2026-09-21", ref, 75.0, ahora),
-            )
-
-        # Insertar noticias recientes
+        ayer, hoy = hace_dias_gt(1), hoy_gt()
+        guardar_precios(conn, [
+            {"producto": p, "fecha": f, "precio": 35.0 + i}
+            for i, p in enumerate(["superior", "regular", "diessel"]) for f in (ayer, hoy)
+        ], "MEM")
+        guardar_precios(conn, [{"producto": "wti", "fecha": hoy, "precio": 75.0}], "OilPriceAPI")
         conn.execute(
-            """INSERT INTO noticias (url, titulo, medio, publicado_at, fetched_at)
-               VALUES (?, ?, ?, ?, ?)""",
-            ("https://test.com/1", "Petroleo sube 5%", "Test Media",
-             "2026-09-22T10:00:00-06:00", ahora),
+            "INSERT INTO noticias (url, titulo, medio, publicado_at, relevancia, fetched_at) VALUES (?, ?, ?, ?, ?, ?)",
+            ("https://test.com/1", "Petroleo sube 5%", "Test Media", hoy + "T10:00:00-06:00", 4, hoy + "T10:00:00-06:00"),
         )
-
         conn.commit()
 
         export_dir = tmp_path / "export"
-
         resultado = exportar_json(cfg=cfg, output_dir=export_dir, conn=conn)
 
-        # Verificar que se crearon los archivos esperados
-        assert "archivos" in resultado
-        expected_files = [
-            "precios_combustible.json",
-            "historial_precios.json",
-            "petroleo.json",
-            "historial_petroleo.json",
-            "noticias.json",
-            "resumen.json",
+        assert sorted(p.name for p in export_dir.iterdir()) == ["consolidado.json"]
+        assert resultado["total_registros"] == 7 + 1  # 7 filas de historial + 1 noticia
+
+        c = json.loads((export_dir / "consolidado.json").read_text(encoding="utf-8"))
+        assert c["precios_actualizados"] is True
+        assert list(c["productos"]) == ["regular", "superior", "diésel", "wti"]
+        for codigo, prod in c["productos"].items():
+            assert set(prod) == {"nombre", "categoria", "unidad", "orden", "actual", "historial", "mensual", "anual"}
+            assert prod["actual"]["fecha"] == hoy
+        assert c["productos"]["diésel"]["historial"] == [
+            {"fecha": ayer, "precio": 37.0}, {"fecha": hoy, "precio": 37.0}
         ]
-        for fname in expected_files:
-            path = export_dir / fname
-            assert path.exists(), f"Archivo {fname} no creado en {export_dir}"
+        assert c["productos"]["wti"]["actual"]["fuente"] == "OilPriceAPI"
+        assert c["noticias"]["total"] == 1
+        assert c["noticias"]["top"][0]["relevancia"] == 4
 
-        # Verificar contenido de resumen.json
-        resumen_path = export_dir / "resumen.json"
-        resumen = json.loads(resumen_path.read_text(encoding="utf-8"))
-        assert "actualizado_at" in resumen
-        assert "precios_combustible" in resumen
-        assert "petroleo" in resumen
+    def test_promedios_anuales_prioridad(self):
+        """diario completo > mensual oficial > semilla > diario parcial."""
+        from datetime import date, timedelta
 
-    def test_exportar_json_sin_datos(self, cfg, tmp_path):
-        """Verifica que la exportación no falla con DB vacía."""
-        from collector.db import conectar_temporal, crear_tablas
+        from collector.db import conectar_temporal, guardar_precios
+        from collector.main import _promedios_anuales
+
+        conn = conectar_temporal()
+        # 2023: año diario completo (365 días a 30.0)
+        d0 = date(2023, 1, 1)
+        guardar_precios(conn, [
+            {"producto": "regular", "fecha": (d0 + timedelta(days=i)).isoformat(), "precio": 30.0}
+            for i in range(365)
+        ], "MEM")
+        # 2024 y 2019: solo 2 días (parcial)
+        guardar_precios(conn, [
+            {"producto": "regular", "fecha": "2024-01-01", "precio": 30.0},
+            {"producto": "regular", "fecha": "2024-06-01", "precio": 31.0},
+            {"producto": "regular", "fecha": "2019-06-01", "precio": 25.0},
+        ], "MEM")
+        semilla = [
+            {"anio": 2020, "producto": "regular", "promedio": 21.24, "fuente": "consolidado histórico"},
+            {"anio": 2023, "producto": "regular", "promedio": 99.0, "fuente": "consolidado histórico"},
+            {"anio": 2020, "producto": "superior", "promedio": 22.64, "fuente": "consolidado histórico"},
+        ]
+        mensual = [
+            {"anio": 2023, "mes": 1, "producto": "regular", "promedio": 50.0, "fuente": "MEM mensual"},
+            {"anio": 2024, "mes": 1, "producto": "regular", "promedio": 28.0, "fuente": "MEM mensual"},
+            {"anio": 2024, "mes": 2, "producto": "regular", "promedio": 29.0, "fuente": "MEM mensual"},
+        ]
+        assert _promedios_anuales(conn, "regular", semilla, mensual) == [
+            {"anio": 2019, "promedio": 25.0, "dias": 1, "meses": None, "fuente": "diario"},  # parcial, sin alternativa
+            {"anio": 2020, "promedio": 21.24, "dias": None, "meses": None, "fuente": "consolidado histórico"},
+            {"anio": 2023, "promedio": 30.0, "dias": 365, "meses": None, "fuente": "diario"},  # diario completo gana
+            {"anio": 2024, "promedio": 28.5, "dias": None, "meses": 2, "fuente": "MEM mensual"},  # mensual > diario parcial
+        ]
+
+    def test_frescura_ignora_wti(self, cfg, tmp_path):
+        """Un WTI de hoy no vuelve "frescos" a combustibles viejos."""
+        from collector.db import conectar_temporal, guardar_precios, hoy_gt
         from collector.main import exportar_json
 
         conn = conectar_temporal()
-        crear_tablas(conn)
+        guardar_precios(conn, [{"producto": "regular", "fecha": "2024-10-27", "precio": 28.62}], "MEM")
+        guardar_precios(conn, [{"producto": "wti", "fecha": hoy_gt(), "precio": 75.0}], "OilPriceAPI")
+        exportar_json(cfg=cfg, output_dir=tmp_path, conn=conn)
 
-        export_dir = tmp_path / "export"
+        c = json.loads((tmp_path / "consolidado.json").read_text(encoding="utf-8"))
+        assert c["precios_actualizados"] is False
+        assert c["max_fecha_precios"] == "2024-10-27"
 
-        resultado = exportar_json(cfg=cfg, output_dir=export_dir, conn=conn)
+    def test_exportar_json_sin_datos(self, cfg, tmp_path):
+        """La exportación no falla con DB vacía."""
+        from collector.db import conectar_temporal
+        from collector.main import exportar_json
 
-        assert "archivos" in resultado
-        # No hay datos insertados → 0 registros
+        resultado = exportar_json(cfg=cfg, output_dir=tmp_path, conn=conectar_temporal())
+
         assert resultado["total_registros"] == 0
+        c = json.loads((tmp_path / "consolidado.json").read_text(encoding="utf-8"))
+        assert all(p["actual"] is None for p in c["productos"].values())
 
 
 # ──────────────────────────────────────────────

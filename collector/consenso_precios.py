@@ -107,8 +107,7 @@ def obtener_precios_recentes(conn: sqlite3.Connection) -> list[sqlite3.Row]:
         WHERE fecha >= date('now', ?)
           AND producto IN ('superior', 'regular', 'diésel')
           AND fuente IN (
-              'Ministerio de Energía y Minas', 'MEM HTML', 'Prensa Libre', 'GNews GT',
-              'GlobalPetrolPrices', 'Chapin TV'
+              'MEM', 'Prensa Libre', 'GNews GT', 'GlobalPetrolPrices', 'Chapin TV'
           )
         ORDER BY fecha, producto, fuente
     """

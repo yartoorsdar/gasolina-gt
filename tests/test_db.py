@@ -1,10 +1,11 @@
-"""Tests unitarios para collector/db.py.
+"""Tests unitarios para collector/db.py (esquema genérico: catálogo + precios).
 
 Verifica:
-  - Creación de tablas sin error.
-  - Inserciones idempotentes (duplicados no se repiten).
-  - Consultas: precios actuales, historial, petróleo, noticias, ejecuciones.
-  - Uso de DB en memoria.
+  - Catálogo de productos y vistas historial_<producto>.
+  - guardar_precios: insertar / actualizar / sin_cambio / descartar por prioridad.
+  - borrar_precios y lecturas con los mismos filtros.
+  - Normalización de DBs viejas (diessel → diésel, bunker fuera, fuentes canónicas).
+  - Noticias y ejecuciones.
 """
 
 import sqlite3
@@ -12,26 +13,21 @@ import sqlite3
 import pytest
 
 from collector.db import (
+    PRODUCTOS,
+    borrar_precios,
+    canon_fuente,
     conectar_temporal,
     crear_tablas,
+    guardar_precios,
     insertar_ejecucion,
     insertar_noticia,
-    insertar_precio_combustible,
-    insertar_precio_petroleo,
-    obtener_historial_petroleo,
-    obtener_historial_precios,
-    obtener_ultimas_ejecuciones,
+    leer_actuales,
+    leer_historial,
+    leer_ultimo,
     obtener_noticias,
-    obtener_noticia_por_url,
-    obtener_petroleo_actual,
-    obtener_precio,
-    obtener_precios_actuales,
+    obtener_ultimas_ejecuciones,
 )
 
-
-# ──────────────────────────────────────────────
-# Fixture: conexión temporal con tablas creadas
-# ──────────────────────────────────────────────
 
 @pytest.fixture()
 def conn() -> sqlite3.Connection:
@@ -39,270 +35,185 @@ def conn() -> sqlite3.Connection:
     return conectar_temporal()
 
 
-# ──────────────────────────────────────────────
-# 1. Creación de tablas
-# ──────────────────────────────────────────────
-
-class TestCrearTablas:
-    def test_tabla_precios_combustible(self, conn):
-        """La tabla precios_combustible se crea sin error."""
-        assert conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='precios_combustible'").fetchone()
-
-    def test_tabla_precios_petroleo(self, conn):
-        assert conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='precios_petroleo'").fetchone()
-
-    def test_tabla_noticias(self, conn):
-        assert conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='noticias'").fetchone()
-
-    def test_tabla_ejecuciones(self, conn):
-        assert conn.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='ejecuciones'").fetchone()
-
-    def test_columnas_precios_combustible(self, conn):
-        """Verifica que existen las columnas regimen y nota."""
-        cols = [row["name"] for row in conn.execute("PRAGMA table_info(precios_combustible)").fetchall()]
-        assert "regimen" in cols
-        assert "nota" in cols
-        assert "incluye_impuestos" in cols
-
-    def test_unique_precios_petroleo(self, conn):
-        """Existe el índice único para fechas y referencia."""
-        indexes = [row["name"] for row in conn.execute("SELECT name FROM sqlite_master WHERE type='index'").fetchall()]
-        assert "idx_petroleo_fecha_ref" in indexes
-
-    def test_unique_noticias_url(self, conn):
-        """La tabla noticias tiene URL como UNIQUE."""
-        constraints = conn.execute("PRAGMA table_info(noticias)").fetchall()
-        # Verificar que la tabla existe y tiene columna url
-        col_names = [c["name"] for c in constraints]
-        assert "url" in col_names
+def _fila(producto, fecha, precio, fuente=None):
+    f = {"producto": producto, "fecha": fecha, "precio": precio}
+    if fuente:
+        f["fuente"] = fuente
+    return f
 
 
 # ──────────────────────────────────────────────
-# 2. Inserciones idempotentes — precios combustible
+# 1. Estructura
 # ──────────────────────────────────────────────
 
-class TestInsertarPrecioCombustible:
-    def test_insertar_uno(self, conn):
-        row_id = insertar_precio_combustible(
-            conn, "2026-09-15", "regular", 42.00, fuente="MEM"
+class TestEstructura:
+    def test_catalogo_productos(self, conn):
+        codigos = [r["codigo"] for r in conn.execute("SELECT codigo FROM productos ORDER BY orden")]
+        assert codigos == ["regular", "superior", "diésel", "wti"]
+
+    def test_vista_por_producto(self, conn):
+        vistas = {r["name"] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='view'")}
+        assert vistas == {f"historial_{d['archivo']}" for d in PRODUCTOS.values()}
+
+    def test_vista_filtra_su_producto(self, conn):
+        guardar_precios(conn, [_fila("diésel", "2026-09-15", 49.0), _fila("wti", "2026-09-15", 90.0)], "MEM")
+        rows = conn.execute("SELECT precio FROM historial_diesel").fetchall()
+        assert [r["precio"] for r in rows] == [49.0]
+
+    def test_crear_tablas_idempotente(self, conn):
+        crear_tablas(conn)
+        crear_tablas(conn)
+        assert conn.execute("SELECT COUNT(*) FROM productos").fetchone()[0] == len(PRODUCTOS)
+
+
+# ──────────────────────────────────────────────
+# 2. Escritura genérica (upsert)
+# ──────────────────────────────────────────────
+
+class TestGuardarPrecios:
+    def test_insertar(self, conn):
+        c = guardar_precios(conn, [_fila("regular", "2026-09-15", 42.0)], "MEM")
+        assert c["insertados"] == 1
+        assert leer_ultimo(conn, "regular")["precio"] == 42.0
+
+    def test_reejecutar_actualiza_no_duplica(self, conn):
+        guardar_precios(conn, [_fila("regular", "2026-09-15", 42.0)], "MEM")
+        c = guardar_precios(conn, [_fila("regular", "2026-09-15", 42.5)], "MEM")
+        assert c["actualizados"] == 1
+        assert conn.execute("SELECT COUNT(*) FROM precios").fetchone()[0] == 1
+        assert leer_ultimo(conn, "regular")["precio"] == 42.5
+
+    def test_mismo_valor_sin_cambio(self, conn):
+        guardar_precios(conn, [_fila("wti", "2026-09-15", 90.0)], "OilPriceAPI")
+        c = guardar_precios(conn, [_fila("wti", "2026-09-15", 90.0)], "OilPriceAPI")
+        assert c["sin_cambio"] == 1
+
+    def test_fuente_baja_no_pisa_oficial(self, conn):
+        guardar_precios(conn, [_fila("superior", "2026-09-15", 44.0)], "MEM")
+        c = guardar_precios(conn, [_fila("superior", "2026-09-15", 43.0)], "Chapin TV")
+        assert c["descartados"] == 1
+        assert leer_ultimo(conn, "superior")["precio"] == 44.0
+
+    def test_oficial_pisa_fuente_baja(self, conn):
+        guardar_precios(conn, [_fila("superior", "2026-09-15", 43.0)], "Chapin TV")
+        c = guardar_precios(conn, [_fila("superior", "2026-09-15", 44.0)], "Ministerio de Energía y Minas")
+        assert c["actualizados"] == 1
+        row = leer_ultimo(conn, "superior")
+        assert (row["precio"], row["fuente"]) == (44.0, "MEM")
+
+    def test_sin_sobrescribir_solo_siembra(self, conn):
+        guardar_precios(conn, [_fila("regular", "2026-09-15", 42.0)], "MEM")
+        c = guardar_precios(conn, [_fila("regular", "2026-09-15", 41.0)], "MEM", sobrescribir=False)
+        assert c["descartados"] == 1
+        assert leer_ultimo(conn, "regular")["precio"] == 42.0
+
+    def test_alias_de_producto(self, conn):
+        guardar_precios(conn, [_fila("diessel", "2026-09-15", 49.0), _fila("super", "2026-09-15", 44.0)], "MEM")
+        assert set(leer_actuales(conn)) == {"diésel", "superior"}
+
+    def test_filas_invalidas(self, conn):
+        c = guardar_precios(conn, [
+            _fila("bunker", "2026-09-15", 20.0),       # fuera del catálogo
+            _fila("regular", "15/09/2026", 42.0),     # fecha mal formada
+            _fila("regular", "2026-09-15", None),     # sin precio
+            _fila("regular", "2026-09-15", -1),       # precio no positivo
+        ], "MEM")
+        assert c["invalidos"] == 4
+        assert conn.execute("SELECT COUNT(*) FROM precios").fetchone()[0] == 0
+
+    def test_fuente_por_fila_gana_a_la_default(self, conn):
+        guardar_precios(conn, [_fila("regular", "2026-09-15", 42.0, fuente="GlobalPetrolPrices")], "otra")
+        assert leer_ultimo(conn, "regular")["fuente"] == "GlobalPetrolPrices"
+
+
+# ──────────────────────────────────────────────
+# 3. Lectura y borrado (mismos filtros)
+# ──────────────────────────────────────────────
+
+class TestLecturaBorrado:
+    @pytest.fixture()
+    def datos(self, conn):
+        guardar_precios(conn, [
+            _fila("regular", "2026-09-01", 41.0),
+            _fila("regular", "2026-09-10", 41.5),
+            _fila("regular", "2026-09-15", 42.0),
+            _fila("superior", "2026-09-12", 43.0),
+        ], "MEM")
+        return conn
+
+    def test_historial_por_producto_ordenado(self, datos):
+        assert [r["fecha"] for r in leer_historial(datos, "regular")] == ["2026-09-01", "2026-09-10", "2026-09-15"]
+
+    def test_historial_rango(self, datos):
+        rows = leer_historial(datos, "regular", desde="2026-09-05", hasta="2026-09-12")
+        assert [r["precio"] for r in rows] == [41.5]
+
+    def test_leer_actuales(self, datos):
+        actuales = leer_actuales(datos)
+        assert actuales["regular"]["fecha"] == "2026-09-15"
+        assert actuales["superior"]["precio"] == 43.0
+        assert "wti" not in actuales
+
+    def test_borrar_rango(self, datos):
+        assert borrar_precios(datos, "regular", desde="2026-09-10") == 2
+        assert [r["fecha"] for r in leer_historial(datos, "regular")] == ["2026-09-01"]
+
+    def test_borrar_por_fuente(self, datos):
+        guardar_precios(datos, [_fila("wti", "2026-09-15", 90.0)], "OilPriceAPI")
+        assert borrar_precios(datos, fuente="OilPriceAPI") == 1
+        assert leer_ultimo(datos, "wti") is None
+
+
+# ──────────────────────────────────────────────
+# 4. Normalización de DBs viejas
+# ──────────────────────────────────────────────
+
+class TestNormalizacion:
+    def _insertar_crudo(self, conn, fecha, producto, precio, fuente):
+        conn.execute(
+            "INSERT INTO precios (fecha, producto, precio, fuente, fetched_at) VALUES (?, ?, ?, ?, ?)",
+            (fecha, producto, precio, fuente, "2026-09-01T00:00:00-06:00"),
         )
-        assert row_id is not None
 
-    def test_duplicado_ignorado(self, conn):
-        """Insertar el mismo registro dos veces: solo se cuenta uno."""
-        id1 = insertar_precio_combustible(
-            conn, "2026-09-15", "regular", 42.00, fuente="MEM"
-        )
-        id2 = insertar_precio_combustible(
-            conn, "2026-09-15", "regular", 42.00, fuente="MEM"
-        )
-        # El segundo debería ser None (ya existía) o el mismo id
-        assert id1 is not None
+    def test_diessel_duplicado_y_bunker(self, conn):
+        self._insertar_crudo(conn, "2024-01-01", "diessel", 29.0, "Ministerio de Energía y Minas")
+        self._insertar_crudo(conn, "2024-01-01", "diésel", 29.5, "Ministerio de Energía y Minas")
+        self._insertar_crudo(conn, "2024-01-02", "diessel", 29.1, "Ministerio de Energía y Minas")
+        self._insertar_crudo(conn, "2024-01-01", "bunker", 20.0, "Ministerio de Energía y Minas")
+        crear_tablas(conn)
 
-    def test_distinto_producto_no_duplicado(self, conn):
-        """Distinto producto con misma fecha no es duplicado."""
-        insertar_precio_combustible(conn, "2026-09-15", "regular", 42.00, fuente="MEM")
-        id_sup = insertar_precio_combustible(conn, "2026-09-15", "superior", 44.00, fuente="MEM")
-        assert id_sup is not None
+        rows = conn.execute("SELECT fecha, producto, precio, fuente FROM precios ORDER BY fecha").fetchall()
+        assert [tuple(r) for r in rows] == [
+            ("2024-01-01", "diésel", 29.5, "MEM"),
+            ("2024-01-02", "diésel", 29.1, "MEM"),
+        ]
 
-    def test_distinta_fuenteno_duplicado(self, conn):
-        """Misma fecha y producto pero distinta fuente no es duplicado."""
-        insertar_precio_combustible(conn, "2026-09-15", "regular", 42.00, fuente="MEM")
-        id_otra = insertar_precio_combustible(
-            conn, "2026-09-15", "regular", 42.50, fuente="Otro"
-        )
-        assert id_otra is not None
-
-    def test_regimen_default(self, conn):
-        """Por defecto el regimen es 'normal'."""
-        insertar_precio_combustible(conn, "2026-09-15", "regular", 42.00, fuente="MEM")
-        row = obtener_precio(conn, "2026-09-15", "regular", "MEM")
-        assert row["regimen"] == "normal"
-
-    def test_regimen_personalizado(self, conn):
-        """Se puede especificar un regimen diferente."""
-        insertar_precio_combustible(
-            conn, "2026-09-15", "diessel", 38.00, fuente="MEM",
-            regimen="apoyo_social_2026", nota="Apoyo Q8.00 incluido"
-        )
-        row = obtener_precio(conn, "2026-09-15", "diessel", "MEM")
-        assert row["regimen"] == "apoyo_social_2026"
-        assert row["nota"] == "Apoyo Q8.00 incluido"
-
-    def test_incluye_impuestos_false(self, conn):
-        """Se puede marcar precio sin impuestos."""
-        insertar_precio_combustible(
-            conn, "2026-11-15", "regular", 32.90, fuente="MEM",
-            incluye_impuestos=0, regimen="exencion_decreto_22_2026"
-        )
-        row = obtener_precio(conn, "2026-11-15", "regular", "MEM")
-        assert row["incluye_impuestos"] == 0
+    def test_canon_fuente(self):
+        assert canon_fuente("Ministerio de Energia y Minas (HTML)") == "MEM"
+        assert canon_fuente("MEM HTML") == "MEM"
+        assert canon_fuente(None) == "manual"
+        assert canon_fuente("Fuente Nueva") == "Fuente Nueva"
 
 
 # ──────────────────────────────────────────────
-# 3. Inserciones idempotentes — petróleo
+# 5. Noticias y ejecuciones
 # ──────────────────────────────────────────────
 
-class TestInsertarPetroleo:
-    def test_insertar_uno(self, conn):
-        row_id = insertar_precio_petroleo(conn, "2026-09-15", "brent", 78.50, fuente="EIA")
-        assert row_id is not None
-
-    def test_duplicado_ignorado(self, conn):
-        id1 = insertar_precio_petroleo(conn, "2026-09-15", "brent", 78.50, fuente="EIA")
-        id2 = insertar_precio_petroleo(conn, "2026-09-15", "brent", 78.50, fuente="EIA")
-        assert id1 is not None
-
-    def test_distinta_referencia_no_duplicado(self, conn):
-        insertar_precio_petroleo(conn, "2026-09-15", "brent", 78.50, fuente="EIA")
-        id_wti = insertar_precio_petroleo(conn, "2026-09-15", "wti", 74.30, fuente="EIA")
-        assert id_wti is not None
-
-
-# ──────────────────────────────────────────────
-# 4. Inserciones — noticias
-# ──────────────────────────────────────────────
-
-class TestInsertarNoticia:
-    def test_insertar_una(self, conn):
-        row_id = insertar_noticia(
-            conn, "https://example.com/noticia1", "Guerra en Medio Oriente",
-            "Agencia X", categoria="conflicto_productor", relevancia=4
-        )
-        assert row_id is not None
-
-    def test_duplicado_ignorado(self, conn):
-        id1 = insertar_noticia(
-            conn, "https://example.com/noticia1", "Guerra en Medio Oriente",
-            "Agencia X", categoria="conflicto_productor"
-        )
-        id2 = insertar_noticia(
-            conn, "https://example.com/noticia1", "Guerra en Medio Oriente",
-            "Agencia X", categoria="conflicto_productor"
-        )
-        assert id1 is not None
-
-
-# ──────────────────────────────────────────────
-# 5. Consultas — precios combustible
-# ──────────────────────────────────────────────
-
-class TestConsultasPrecios:
-    def test_obtener_precios_actuales(self, conn):
-        """Obtiene el precio más reciente por producto."""
-        insertar_precio_combustible(conn, "2026-09-10", "regular", 41.00, fuente="MEM")
-        insertar_precio_combustible(conn, "2026-09-15", "regular", 42.00, fuente="MEM")
-        insertar_precio_combustible(conn, "2026-09-12", "superior", 43.00, fuente="MEM")
-
-        actuales = obtener_precios_actuales(conn)
-        assert len(actuales) == 2
-
-        # El más reciente de regular debe ser el del 15
-        for row in actuales:
-            if row["producto"] == "regular":
-                assert row["fecha_observacion"] == "2026-09-15"
-                assert row["precio"] == 42.00
-
-    def test_obtener_precio_especifico(self, conn):
-        insertar_precio_combustible(conn, "2026-09-15", "regular", 42.00, fuente="MEM")
-        row = obtener_precio(conn, "2026-09-15", "regular", "MEM")
-        assert row is not None
-        assert row["precio"] == 42.00
-
-    def test_obtener_precio_no_existe(self, conn):
-        row = obtener_precio(conn, "2026-09-15", "regular", "MEM")
-        assert row is None
-
-    def test_historial_por_producto(self, conn):
-        insertar_precio_combustible(conn, "2026-08-01", "regular", 40.00, fuente="MEM")
-        insertar_precio_combustible(conn, "2026-09-01", "regular", 41.50, fuente="MEM")
-        insertar_precio_combustible(conn, "2026-09-15", "superior", 43.00, fuente="MEM")
-
-        historial = obtener_historial_precios(conn, producto="regular", dias=90)
-        assert len(historial) == 2
-        assert historial[0]["producto"] == "regular"
-
-
-# ──────────────────────────────────────────────
-# 6. Consultas — petróleo
-# ──────────────────────────────────────────────
-
-class TestConsultasPetroleo:
-    def test_petroleo_actual(self, conn):
-        insertar_precio_petroleo(conn, "2026-09-15", "brent", 78.50, fuente="EIA")
-        insertar_precio_petroleo(conn, "2026-09-15", "wti", 74.30, fuente="EIA")
-
-        actuales = obtener_petroleo_actual(conn)
-        assert len(actuales) == 2
-
-    def test_ultimo_por_referencia(self, conn):
-        insertar_precio_petroleo(conn, "2026-09-10", "brent", 77.00, fuente="EIA")
-        insertar_precio_petroleo(conn, "2026-09-15", "brent", 78.50, fuente="EIA")
-
-        ultimo = conn.execute(
-            "SELECT * FROM precios_petroleo WHERE referencia='brent' ORDER BY fecha DESC LIMIT 1"
-        ).fetchone()
-        assert ultimo["fecha"] == "2026-09-15"
-
-
-# ──────────────────────────────────────────────
-# 7. Consultas — noticias
-# ──────────────────────────────────────────────
-
-class TestConsultasNoticias:
+class TestNoticiasEjecuciones:
     def test_obtener_noticias(self, conn):
-        insertar_noticia(
-            conn, "https://example.com/1", "Ataque a oleoducto",
-            "Agencia X", publicado_at="2026-09-20", categoria="ataque_infraestructura", relevancia=5
-        )
-        insertar_noticia(
-            conn, "https://example.com/2", "OPEC recorta producción",
-            "Reuters", publicado_at="2026-09-18", categoria="opep_produccion", relevancia=3
-        )
+        from collector.db import hoy_gt
+        insertar_noticia(conn, "https://example.com/1", "Ataque a oleoducto", "Agencia X",
+                         publicado_at=hoy_gt(), relevancia=5)
+        insertar_noticia(conn, "https://example.com/2", "Vieja", "Reuters", publicado_at="2020-01-01")
+        assert [n["titulo"] for n in obtener_noticias(conn, dias=30)] == ["Ataque a oleoducto"]
 
-        noticias = obtener_noticias(conn, dias=30)
-        assert len(noticias) == 2
-
-
-# ──────────────────────────────────────────────
-# 8. Consultas — ejecuciones
-# ──────────────────────────────────────────────
-
-class TestConsultasEjecuciones:
-    def test_insertar_y_listar(self, conn):
-        insertar_ejecucion(conn, "precios_mem", ok=1, mensaje="OK")
-        import time; time.sleep(1.1)  # asegurar timestamps distintos (precision de SQLite = segundos)
-        insertar_ejecucion(conn, "petroleo", ok=0, mensaje="Error API")
-
-        ultimas = obtener_ultimas_ejecuciones(conn)
-        assert len(ultimas) == 2
-        # La última debería ser la de petroleo (más reciente)
-        assert ultimas[0]["modulo"] == "petroleo"
-
-
-# ──────────────────────────────────────────────
-# 9. Conteo total de registros duplicados
-# ──────────────────────────────────────────────
-
-class TestConteoDuplicados:
-    def test_precios_no_se_repite(self, conn):
-        """Insertar el mismo precio 5 veces → solo 1 registro en la tabla."""
-        for _ in range(5):
-            insertar_precio_combustible(conn, "2026-09-15", "regular", 42.00, fuente="MEM")
-
-        total = conn.execute("SELECT COUNT(*) as c FROM precios_combustible").fetchone()["c"]
-        assert total == 1
-
-    def test_petroleo_no_se_repite(self, conn):
-        for _ in range(5):
-            insertar_precio_petroleo(conn, "2026-09-15", "brent", 78.50, fuente="EIA")
-
-        total = conn.execute("SELECT COUNT(*) as c FROM precios_petroleo").fetchone()["c"]
-        assert total == 1
-
-    def test_noticias_no_se_repite(self, conn):
+    def test_noticias_no_se_repiten(self, conn):
         for _ in range(5):
             insertar_noticia(conn, "https://example.com/unique", "Título", "Agencia")
+        assert conn.execute("SELECT COUNT(*) FROM noticias").fetchone()[0] == 1
 
-        total = conn.execute("SELECT COUNT(*) as c FROM noticias").fetchone()["c"]
-        assert total == 1
+    def test_ejecuciones(self, conn):
+        insertar_ejecucion(conn, "petroleo", ok=0, mensaje="Error API")
+        ultimas = obtener_ultimas_ejecuciones(conn)
+        assert ultimas[0]["modulo"] == "petroleo"
+        assert ultimas[0]["fin"] is not None

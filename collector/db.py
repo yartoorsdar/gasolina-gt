@@ -1,15 +1,28 @@
 """Capa de acceso a base de datos (SQLite) para gasolina-gt.
 
-Tablas:
-  - precios        — todo: R, S, D, wti (GTQ/Gal o USD/Bbl)
-  - noticias       — headlines RSS clasificados
-  - ejecuciones    — log de runs de colectores
+Estructura (una sola forma para todo):
+  - productos    — catálogo: superior, regular, diésel, wti (nombre, unidad, archivo…)
+  - precios      — UNA fila por (producto, fecha). Todos los productos igual.
+  - historial_<archivo> — vista por producto (historial_superior, historial_regular,
+                   historial_diesel, historial_wti), generadas desde el catálogo.
+  - noticias     — headlines RSS clasificados
+  - ejecuciones  — log de runs de colectores
 
-Insert or ignore para ser idempotente.
+API genérica de precios (cualquier producto, cualquier colector):
+  guardar_precios(conn, filas, fuente)   → insertar o actualizar (upsert con prioridad)
+  borrar_precios(conn, producto, desde, hasta, fuente)
+  leer_historial(conn, producto, desde, hasta)
+  leer_ultimo(conn, producto) / leer_actuales(conn)
+
+Regla de conflicto: si dos fuentes traen el mismo (producto, fecha), gana la de
+mayor prioridad (MEM oficial > alternas). Re-ejecutar la misma fuente el mismo
+día ACTUALIZA el precio — no hace falta borrar antes de insertar.
 """
 
+import re
 import sqlite3
-from datetime import date, datetime, timezone, timedelta
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
 
 # Guatemala = UTC-6 todo el año (sin horario de verano).
 # Usar SIEMPRE hora GT tz-aware: el runner (GitHub Actions) tiene reloj UTC,
@@ -27,10 +40,28 @@ def hoy_gt() -> str:
     return datetime.now(_GT).strftime("%Y-%m-%d")
 
 
-# Nombres canónicos de producto. Los colectores históricos escriben 'diessel'
-# (sin acento); sin normalizar, el export y el consenso lo filtran y el Diésel
-# desaparece del dashboard.
-_PRODUCTOS_CANON = {
+def hace_dias_gt(dias: int) -> str:
+    """Fecha GT de hace N días (YYYY-MM-DD). Sin date('now') de SQLite (es UTC)."""
+    return (datetime.now(_GT).date() - timedelta(days=dias)).strftime("%Y-%m-%d")
+
+
+# ──────────────────────────────────────────────
+# Catálogos: productos y fuentes
+# ──────────────────────────────────────────────
+
+# Única definición de productos del proyecto. `archivo` = nombre ASCII para
+# CSV/vistas (diésel → diesel). `orden` = orden de presentación (R, S, D, WTI).
+PRODUCTOS = {
+    "regular":  {"nombre": "Regular",  "categoria": "combustible", "unidad": "GTQ/galón",  "archivo": "regular",  "orden": 1},
+    "superior": {"nombre": "Superior", "categoria": "combustible", "unidad": "GTQ/galón",  "archivo": "superior", "orden": 2},
+    "diésel":   {"nombre": "Diésel",   "categoria": "combustible", "unidad": "GTQ/galón",  "archivo": "diesel",   "orden": 3},
+    "wti":      {"nombre": "WTI",      "categoria": "petroleo",    "unidad": "USD/barril", "archivo": "wti",      "orden": 4},
+}
+
+COMBUSTIBLES = tuple(p for p, d in PRODUCTOS.items() if d["categoria"] == "combustible")
+
+# Grafías que llegan de colectores/imports viejos → código canónico.
+_PRODUCTOS_ALIAS = {
     "diessel": "diésel",
     "diesel": "diésel",
     "diésel": "diésel",
@@ -40,13 +71,40 @@ _PRODUCTOS_CANON = {
     "wti": "wti",
 }
 
+# Fuente canónica y prioridad (mayor gana en conflicto del mismo día).
+_FUENTES = {
+    "mem": ("MEM", 3),
+    "ministerio de energía y minas": ("MEM", 3),
+    "ministerio de energia y minas": ("MEM", 3),
+    "ministerio de energia y minas (html)": ("MEM", 3),
+    "mem html": ("MEM", 3),
+    "oilpriceapi": ("OilPriceAPI", 3),
+    "manual": ("manual", 2),
+    "globalpetrolprices": ("GlobalPetrolPrices", 1),
+    "chapin tv": ("Chapin TV", 1),
+    "prensa libre": ("Prensa Libre", 1),
+    "gnews gt": ("GNews GT", 1),
+}
+
+_FECHA_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
 
 def canon_producto(producto: str) -> str:
-    """Normaliza un nombre de producto a su forma canónica."""
+    """Normaliza un nombre de producto a su código canónico."""
     if not producto:
         return producto
-    return _PRODUCTOS_CANON.get(producto.strip().lower(), producto.strip())
-from pathlib import Path
+    return _PRODUCTOS_ALIAS.get(producto.strip().lower(), producto.strip())
+
+
+def canon_fuente(fuente: str) -> str:
+    """Normaliza un nombre de fuente ('Ministerio de Energía y Minas' → 'MEM')."""
+    fuente = (fuente or "manual").strip()
+    return _FUENTES.get(fuente.lower(), (fuente, 1))[0]
+
+
+def prioridad_fuente(fuente: str) -> int:
+    """Prioridad de una fuente (desconocidas = 1, la más baja)."""
+    return _FUENTES.get((fuente or "").strip().lower(), (fuente, 1))[1]
 
 
 # ──────────────────────────────────────────────
@@ -65,8 +123,17 @@ def _default_db_path() -> str:
 # ──────────────────────────────────────────────
 
 def crear_tablas(conn: sqlite3.Connection) -> None:
-    """Crea las tablas si no existen."""
+    """Crea tablas, catálogo y vistas por producto; normaliza datos viejos."""
     conn.executescript("""
+        CREATE TABLE IF NOT EXISTS productos (
+            codigo TEXT PRIMARY KEY,
+            nombre TEXT NOT NULL,
+            categoria TEXT NOT NULL,
+            unidad TEXT NOT NULL,
+            archivo TEXT NOT NULL,
+            orden INTEGER NOT NULL
+        );
+
         CREATE TABLE IF NOT EXISTS precios (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             fecha TEXT NOT NULL,
@@ -103,11 +170,49 @@ def crear_tablas(conn: sqlite3.Connection) -> None:
             mensaje TEXT
         );
     """)
+    # Catálogo (idempotente: refleja siempre PRODUCTOS)
+    conn.executemany(
+        "INSERT OR REPLACE INTO productos (codigo, nombre, categoria, unidad, archivo, orden) "
+        "VALUES (?, ?, ?, ?, ?, ?)",
+        [(c, d["nombre"], d["categoria"], d["unidad"], d["archivo"], d["orden"]) for c, d in PRODUCTOS.items()],
+    )
+    # Una vista de historial por producto, generada desde el catálogo
+    for codigo, d in PRODUCTOS.items():
+        conn.execute(
+            f"CREATE VIEW IF NOT EXISTS historial_{d['archivo']} AS "
+            f"SELECT fecha, precio, fuente, fetched_at FROM precios "
+            f"WHERE producto = '{codigo}' ORDER BY fecha"
+        )
     # Migración para DBs existentes (CREATE IF NOT EXISTS no agrega columnas)
     cols = [r[1] for r in conn.execute("PRAGMA table_info(noticias)").fetchall()]
     if "titulo_es" not in cols:
         conn.execute("ALTER TABLE noticias ADD COLUMN titulo_es TEXT")
-        conn.commit()
+    _normalizar_precios(conn)
+    conn.commit()
+
+
+def _normalizar_precios(conn: sqlite3.Connection) -> None:
+    """Deja DBs viejas en forma canónica: grafías de producto/fuente y catálogo.
+
+    - 'diessel'/'diesel' → 'diésel' (si ya existe el canónico ese día, se borra el alias)
+    - productos fuera del catálogo (ej. 'bunker') se eliminan
+    - fuentes a su nombre canónico ('Ministerio de Energía y Minas' → 'MEM')
+    """
+    for alias, canon in _PRODUCTOS_ALIAS.items():
+        if alias == canon:
+            continue
+        conn.execute(
+            "DELETE FROM precios WHERE producto = ? AND EXISTS "
+            "(SELECT 1 FROM precios p2 WHERE p2.producto = ? AND p2.fecha = precios.fecha)",
+            (alias, canon),
+        )
+        conn.execute("UPDATE precios SET producto = ? WHERE producto = ?", (canon, alias))
+    conn.execute("DELETE FROM precios WHERE producto NOT IN (SELECT codigo FROM productos)")
+    for alias, (canon, _) in _FUENTES.items():
+        conn.execute(
+            "UPDATE precios SET fuente = ? WHERE lower(fuente) = ? AND fuente != ?",
+            (canon, alias, canon),
+        )
 
 
 # ──────────────────────────────────────────────
@@ -133,49 +238,147 @@ def conectar_temporal() -> sqlite3.Connection:
 
 
 # ──────────────────────────────────────────────
-# Inserciones — precios (insert or ignore — idempotentes)
+# Precios — escritura (una sola vía para todos los productos)
 # ──────────────────────────────────────────────
 
-def insertar_precio(
+def guardar_precios(
     conn: sqlite3.Connection,
-    fecha: str,
-    producto: str,
-    precio: float,
-    fuente: str = "manual",
-) -> int | None:
-    """Inserta o ignora un precio (combustible o petróleo).
+    filas,
+    fuente: str = None,
+    sobrescribir: bool = True,
+) -> dict:
+    """Inserta o actualiza precios de cualquier producto.
 
-    Normaliza el nombre del producto a canónico ('diessel'/'diesel' → 'diésel')
-    para que ningún lector lo pierda por el acento.
+    Args:
+        filas: iterable de dicts {producto, fecha, precio[, fuente]}.
+        fuente: fuente por defecto si la fila no trae la suya.
+        sobrescribir: False = solo sembrar (no toca filas existentes; para
+            restaurar memoria sin pisar datos más nuevos).
+
+    Por cada (producto, fecha):
+      - no existe                         → insertado
+      - existe, fuente de menor prioridad → descartado (no se pisa lo oficial)
+      - existe, mismo precio y fuente     → sin_cambio
+      - existe, en otro caso              → actualizado
 
     Returns:
-        id del registro insertado, o None si ya existía (duplicado).
+        Conteo {insertados, actualizados, sin_cambio, descartados, invalidos}.
     """
-    producto = canon_producto(producto)
-    fetched_at = ahora_gt_iso()
-    cursor = conn.execute(
-        "INSERT OR IGNORE INTO precios (fecha, producto, precio, fuente, fetched_at) VALUES (?, ?, ?, ?, ?)",
-        (fecha, producto, precio, fuente, fetched_at),
-    )
+    conteo = {"insertados": 0, "actualizados": 0, "sin_cambio": 0, "descartados": 0, "invalidos": 0}
+    ahora = ahora_gt_iso()
+
+    for f in filas:
+        producto = canon_producto(f.get("producto") or "")
+        fecha = (f.get("fecha") or "").strip()
+        src = canon_fuente(f.get("fuente") or fuente)
+        try:
+            precio = float(f.get("precio"))
+        except (TypeError, ValueError):
+            precio = 0.0
+        if producto not in PRODUCTOS or not _FECHA_RE.match(fecha) or precio <= 0:
+            conteo["invalidos"] += 1
+            continue
+
+        actual = conn.execute(
+            "SELECT precio, fuente FROM precios WHERE producto = ? AND fecha = ?",
+            (producto, fecha),
+        ).fetchone()
+
+        if actual is None:
+            conn.execute(
+                "INSERT INTO precios (fecha, producto, precio, fuente, fetched_at) VALUES (?, ?, ?, ?, ?)",
+                (fecha, producto, precio, src, ahora),
+            )
+            conteo["insertados"] += 1
+        elif not sobrescribir or prioridad_fuente(src) < prioridad_fuente(actual[1]):
+            conteo["descartados"] += 1
+        elif actual[0] == precio and actual[1] == src:
+            conteo["sin_cambio"] += 1
+        else:
+            conn.execute(
+                "UPDATE precios SET precio = ?, fuente = ?, fetched_at = ? WHERE producto = ? AND fecha = ?",
+                (precio, src, ahora, producto, fecha),
+            )
+            conteo["actualizados"] += 1
+
     conn.commit()
-    row = obtener_precio(conn, fecha, producto)
-    return row["id"] if row else None
+    return conteo
 
 
-def borrar_precios_hoy(conn: sqlite3.Connection, fuente: str) -> int:
-    """Borra precios de hoy insertados por una fuente específica.
+def borrar_precios(
+    conn: sqlite3.Connection,
+    producto: str = None,
+    desde: str = None,
+    hasta: str = None,
+    fuente: str = None,
+) -> int:
+    """Borra precios con los filtros dados (todos opcionales, fechas inclusivas).
 
     Returns:
         Cantidad de filas borradas.
     """
-    hoy = date.today().strftime("%Y-%m-%d")
-    cursor = conn.execute(
-        "DELETE FROM precios WHERE fecha = ? AND fuente = ?",
-        (hoy, fuente),
-    )
+    where, params = _filtros(producto, desde, hasta, fuente)
+    cursor = conn.execute(f"DELETE FROM precios{where}", params)
     conn.commit()
     return cursor.rowcount
 
+
+# ──────────────────────────────────────────────
+# Precios — lectura
+# ──────────────────────────────────────────────
+
+def _filtros(producto=None, desde=None, hasta=None, fuente=None) -> tuple[str, list]:
+    """WHERE común a lecturas y borrados (mismos filtros en todas partes)."""
+    cond, params = [], []
+    if producto:
+        cond.append("producto = ?")
+        params.append(canon_producto(producto))
+    if desde:
+        cond.append("fecha >= ?")
+        params.append(desde)
+    if hasta:
+        cond.append("fecha <= ?")
+        params.append(hasta)
+    if fuente:
+        cond.append("fuente = ?")
+        params.append(canon_fuente(fuente))
+    return (" WHERE " + " AND ".join(cond) if cond else ""), params
+
+
+def leer_historial(
+    conn: sqlite3.Connection,
+    producto: str = None,
+    desde: str = None,
+    hasta: str = None,
+) -> list[sqlite3.Row]:
+    """Historial ordenado por fecha (un producto o todos)."""
+    where, params = _filtros(producto, desde, hasta)
+    return conn.execute(
+        f"SELECT * FROM precios{where} ORDER BY fecha, producto", params
+    ).fetchall()
+
+
+def leer_ultimo(conn: sqlite3.Connection, producto: str) -> sqlite3.Row | None:
+    """Último precio disponible de un producto."""
+    return conn.execute(
+        "SELECT * FROM precios WHERE producto = ? ORDER BY fecha DESC LIMIT 1",
+        (canon_producto(producto),),
+    ).fetchone()
+
+
+def leer_actuales(conn: sqlite3.Connection) -> dict[str, sqlite3.Row]:
+    """Último precio de cada producto del catálogo (omite los que no tienen datos)."""
+    actuales = {}
+    for producto in PRODUCTOS:
+        row = leer_ultimo(conn, producto)
+        if row is not None:
+            actuales[producto] = row
+    return actuales
+
+
+# ──────────────────────────────────────────────
+# Noticias y ejecuciones
+# ──────────────────────────────────────────────
 
 def insertar_noticia(
     conn: sqlite3.Connection,
@@ -212,119 +415,39 @@ def insertar_ejecucion(
     """Registra una ejecución del colector."""
     inicio = ahora_gt_iso()
     cursor = conn.execute(
-        "INSERT INTO ejecuciones (inicio, modulo, ok, mensaje) VALUES (?, ?, ?, ?)",
-        (inicio, modulo, ok, mensaje),
+        "INSERT INTO ejecuciones (inicio, fin, modulo, ok, mensaje) VALUES (?, ?, ?, ?, ?)",
+        (inicio, inicio, modulo, ok, mensaje),
     )
     conn.commit()
-    exec_id = cursor.lastrowid
-    # Actualizar fin después
-    conn.execute(
-        "UPDATE ejecuciones SET fin = ? WHERE id = ?",
-        (ahora_gt_iso(), exec_id),
-    )
-    conn.commit()
-    return exec_id
+    return cursor.lastrowid
 
-
-# ──────────────────────────────────────────────
-# Consultas — precios
-# ──────────────────────────────────────────────
-
-def obtener_precios_actuales(conn: sqlite3.Connection) -> list[sqlite3.Row]:
-    """Obtiene el precio más reciente por cada producto.
-
-    Ordena por fecha DESC, toma solo el primero por producto.
-    """
-    rows = conn.execute(
-        "SELECT * FROM precios ORDER BY fecha DESC, id DESC"
-    ).fetchall()
-
-    seen = set()
-    result = []
-    for row in rows:
-        if row["producto"] not in seen:
-            seen.add(row["producto"])
-            result.append(row)
-    return result
-
-
-def obtener_historial_precios(
-    conn: sqlite3.Connection,
-    producto: str = None,
-    dias: int = 30,
-) -> list[sqlite3.Row]:
-    """Obtiene el historial de precios, opcionalmente filtrado por producto y días."""
-    query = "SELECT * FROM precios WHERE 1=1"
-    params: list = []
-
-    if producto:
-        query += " AND producto = ?"
-        params.append(producto)
-
-    if dias and dias > 0:
-        query += " AND fecha >= date('now', ?)"
-        params.append(f"-{dias} days")
-
-    query += " ORDER BY fecha, producto"
-    rows = conn.execute(query, params).fetchall()
-    return rows
-
-
-def obtener_ultimo_precio(conn: sqlite3.Connection, producto: str) -> sqlite3.Row | None:
-    """Obtiene el último precio disponible de un producto específico."""
-    row = conn.execute(
-        "SELECT * FROM precios WHERE producto = ? ORDER BY fecha DESC LIMIT 1",
-        (producto,),
-    ).fetchone()
-    return row
-
-
-def obtener_precio(conn: sqlite3.Connection, fecha: str, producto: str) -> sqlite3.Row | None:
-    """Obtiene un precio específico por fecha y producto."""
-    row = conn.execute(
-        "SELECT * FROM precios WHERE fecha = ? AND producto = ?",
-        (fecha, producto),
-    ).fetchone()
-    return row
-
-
-# ──────────────────────────────────────────────
-# Consultas — noticias
-# ──────────────────────────────────────────────
 
 def obtener_noticias(
     conn: sqlite3.Connection, dias: int = 30, categoria: str = None
 ) -> list[sqlite3.Row]:
-    """Obtiene noticias relevantes de los últimos N días."""
-    query = "SELECT * FROM noticias WHERE publicado_at >= date('now', ?)"
-    params: list = [f"-{dias} days"]
+    """Obtiene noticias de los últimos N días (fecha GT)."""
+    query = "SELECT * FROM noticias WHERE publicado_at >= ?"
+    params: list = [hace_dias_gt(dias)]
 
     if categoria:
         query += " AND categoria = ?"
         params.append(categoria)
 
     query += " ORDER BY publicado_at DESC"
-    rows = conn.execute(query, params).fetchall()
-    return rows
+    return conn.execute(query, params).fetchall()
 
 
 def obtener_noticia_por_url(conn: sqlite3.Connection, url: str) -> sqlite3.Row | None:
     """Verifica si una noticia ya existe por URL."""
-    row = conn.execute(
+    return conn.execute(
         "SELECT * FROM noticias WHERE url = ?", (url,)
     ).fetchone()
-    return row
 
-
-# ──────────────────────────────────────────────
-# Consultas — ejecuciones
-# ──────────────────────────────────────────────
 
 def obtener_ultimas_ejecuciones(
     conn: sqlite3.Connection, limite: int = 10
 ) -> list[sqlite3.Row]:
     """Obtiene las últimas N ejecuciones."""
-    rows = conn.execute(
+    return conn.execute(
         "SELECT * FROM ejecuciones ORDER BY inicio DESC LIMIT ?", (limite,)
     ).fetchall()
-    return rows

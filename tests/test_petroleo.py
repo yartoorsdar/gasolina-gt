@@ -203,9 +203,35 @@ class TestEjecutar:
                 ]
                 with patch(
                     "collector.petroleo.guardar_precios_petroleo"
-                ) as mock_save:
+                ) as mock_save, patch(
+                    "collector.petroleo.fetch_historial_wti", return_value=[]
+                ):
                     mock_save.return_value = 1
                     resultado = ejecutar(cfg)
 
         assert resultado["fuente"] == "oilpriceapi"
         assert resultado["precios_encontrados"] == 1
+
+    def test_historial_corrige_dias_previos(self):
+        """La serie diaria pisa un valor malo de un día anterior (ej. 71.45 de un mock)."""
+        from collector.db import conectar, guardar_precios, leer_ultimo
+        from collector.petroleo import fetch_historial_wti, guardar_serie_petroleo
+
+        conn = conectar()
+        guardar_precios(conn, [{"producto": "wti", "fecha": "2026-09-24", "precio": 71.45}], "OilPriceAPI")
+        conn.close()
+
+        mock_resp = MagicMock()
+        mock_resp.json.return_value = {"status": "success", "data": {"prices": [
+            {"price": 93.3, "created_at": "2026-09-24T00:00:00.000Z", "synthetic": False},
+            {"price": 90.7, "created_at": "2026-09-23T00:00:00.000Z", "synthetic": False},
+            {"price": 1.0, "created_at": "2026-09-22T00:00:00.000Z", "synthetic": True},
+        ]}}
+        with patch("collector.petroleo.crear_session") as mock_session:
+            mock_session.return_value.get.return_value = mock_resp
+            serie = fetch_historial_wti("test-key")
+
+        assert serie == [{"fecha": "2026-09-23", "usd_barril": 90.7}, {"fecha": "2026-09-24", "usd_barril": 93.3}]
+        guardar_serie_petroleo(serie)
+        conn = conectar()
+        assert leer_ultimo(conn, "wti")["precio"] == 93.3

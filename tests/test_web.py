@@ -30,10 +30,12 @@ class TestDashboardHTML:
             assert sec.lower() in content.lower(), f"Falta sección: {sec}"
 
     def test_contiene_fetch_json(self, html_path):
-        """Verifica que el JS use fetch para cargar resumen.json."""
+        """Verifica que el JS cargue consolidado.json (único archivo de datos)."""
         content = html_path.read_text(encoding="utf-8")
         assert "fetch" in content, "No se encontró fetch() en el JS"
-        assert "resumen.json" in content, "No se referencia resumen.json"
+        assert "consolidado.json" in content, "No se referencia consolidado.json"
+        assert "resumen.json" not in content, "resumen.json ya no se exporta"
+        assert "87.45" not in content, "Volvieron los precios WTI escritos a mano"
 
     def test_contiene_css_embebido(self, html_path):
         """Verifica que el CSS esté embebido (sin dependencias externas)."""
