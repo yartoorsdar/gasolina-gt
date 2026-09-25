@@ -1,5 +1,5 @@
 {
-  "actualizado_at": "2026-09-24T19:08:57+00:00",
+  "actualizado_at": "2026-09-25T00:54:20+00:00",
   "precios_combustible": [
     {
       "id": 2,
@@ -7,7 +7,7 @@
       "producto": "diésel",
       "precio": 50.5,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T13:08:39-06:00"
+      "fetched_at": "2026-09-24T18:53:25-06:00"
     },
     {
       "id": 1,
@@ -15,7 +15,7 @@
       "producto": "superior",
       "precio": 45.74,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T13:08:39-06:00"
+      "fetched_at": "2026-09-24T18:53:25-06:00"
     },
     {
       "id": 4,
@@ -23,14 +23,14 @@
       "producto": "regular",
       "precio": 41.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T13:08:39-06:00"
+      "fetched_at": "2026-09-24T18:53:25-06:00"
     }
   ],
   "petroleo": [
     {
       "referencia": "wti",
       "fecha": "2026-09-24",
-      "usd_barril": 94.41,
+      "usd_barril": 93.73,
       "fuente": "OilPriceAPI"
     }
   ],
@@ -38,6 +38,123 @@
   "ultimas_noticias": [
     {
       "id": 81,
+      "url": "https://oilprice.com/Energy/Crude-Oil/5-Energy-Stocks-Positioned-for-a-Prolonged-Iran-War.html",
+      "titulo": "5 Energy Stocks Positioned for a Prolonged Iran War",
+      "titulo_es": null,
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T18:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "For the first time since the Iran war began, JPMorgan says it no longer has a clear baseline for how the oil market gets out of it. The bank had previously worked on the assumption that rising oil prices and the economic damage they caused would eventually put limits on how far the conflict could go. Six months into the war, JPMorgan says many of those thresholds have already been crossed without producing a clear exit. Roughly 10 million barrels per day of oil supply has been disrupted, while t",
+      "fetched_at": "2026-09-24T18:54:20-06:00"
+    },
+    {
+      "id": 61,
+      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOeXR1bW9EYlJQUWFIZUxvZnprNHpNUFZQNTJDQ2NXZmVzRFQ4N2Y1OWZIZnNxVS1xQzB3X2VuVG5GZFB6S0l0ZlNseTRRSFk1OHp2dHdVa2JCaXB5Vm9XT2FuWE9ETzlKcjlCYWRZOXhpcXlOcENueTRISE5uTE50V0JBZHRoZmY4R0FMZkV6UV9GdjEwOTV1S2xHZnduSDlKMnFhYnllM0hEbmlrMW9Jek4xWW1wLTlzYTU0MGE1ZWZReFFNeTFnQ1dnMjVlWkUzVk9scjVHVHNzenEwMGZLRVk2aG56STY5U2R4dnJVM2xWRGgxbHNlZ2tPWVR6cHpS?oc=5",
+      "titulo": "El Congreso de Guatemala despeja el camino para que Arévalo decida entre dos mecanismos de control de precios de combustibles - Infobae",
+      "titulo_es": null,
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-24T17:03:59-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMigAJBVV95cUxOeXR1bW9EYlJQUWFIZUxvZnprNHpNUFZQNTJDQ2NXZmVzRFQ4N2Y1OWZIZnNxVS1xQzB3X2VuVG5GZFB6S0l0ZlNseTRRSFk1OHp2dHdVa2JCaXB5Vm9XT2FuWE9ETzlKcjlCYWRZOXhpcXlOcENueTRISE5uTE50V0JBZHRoZmY4R0FMZkV6UV9GdjEwOTV1S2xHZnduSDlKMnFhYnllM0hEbmlrMW9Jek4xWW1wLTlzYTU0MGE1ZWZReFFNeTFnQ1dnMjVlWkUzVk9scjVHVHNzenEwMGZLRVk2aG56STY5U2R4dnJVM2xWRGgxbHNlZ2tPWVR6cHpS?oc=5\" target=\"_blank\">El Congreso de Guatemala despeja el camino para que Arévalo decida entre dos mecani",
+      "fetched_at": "2026-09-24T18:54:20-06:00"
+    },
+    {
+      "id": 82,
+      "url": "https://oilprice.com/Energy/Crude-Oil/Soaring-Freight-Costs-Make-Japans-Crude-Imports-the-Worlds-Most-Expensive.html",
+      "titulo": "Soaring Freight Costs Make Japan’s Crude Imports the World’s Most Expensive",
+      "titulo_es": null,
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T17:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Oil is increasingly getting more expensive before it even reaches a refinery. Freight now accounts for roughly a fifth of the cost of a crude cargo, turning the tanker market into a major driver of the price buyers pay. At the center of the squeeze is the very large crude carrier, or VLCC, the supertanker that can move about 2 million barrels in a single voyage. Amidst stranded Gulf and Red Sea supplies, these vessels are spending more time at sea as refiners search farther afield for supplies. ",
+      "fetched_at": "2026-09-24T18:54:20-06:00"
+    },
+    {
+      "id": 83,
+      "url": "https://oilprice.com/Energy/Energy-General/Why-a-US-Diesel-Export-Ban-Wont-Lower-Fuel-Prices.html",
+      "titulo": "Why a U.S. Diesel Export Ban Won’t Lower Fuel Prices",
+      "titulo_es": null,
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T16:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "As the national average diesel price soared to a record $6.52 per gallon, the Trump Administration sent mixed signals this week about restricting U.S. diesel exports.  The White House has denied that an export ban is in the works, even if President Donald Trump and Treasury Secretary Scott Bessent had hinted at the possibility hours earlier.  Rumors and reports of a diesel ban sparked vehement opposition from the U.S. energy and manufacturing industries, while analysts say restricting exports wo",
+      "fetched_at": "2026-09-24T18:54:20-06:00"
+    },
+    {
+      "id": 84,
+      "url": "https://oilprice.com/Energy/Energy-General/Can-the-World-Hit-35-Electrification-by-2035.html",
+      "titulo": "Can the World Hit 35% Electrification by 2035?",
+      "titulo_es": null,
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T15:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "The energy crisis caused by the United States and Israel’s war in Iran could be just what the world needed to achieve 35 percent electrification by 2035. This goal, “35 by ‘35” has emerged as a key platform of the upcoming COP31 United Nations climate conference, to be held in Antalya, Türkiye, from November 9 to 20, 2026. And experts say that a number of factors, including volatile oil and gas markets stemming from the prolonged closure of the Strait of Hormuz, have put that goal within “striki",
+      "fetched_at": "2026-09-24T18:54:20-06:00"
+    },
+    {
+      "id": 2,
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPSTJMTUpOdnRremU0Nm1HcVlQSEliNjJsM1kzWGZMUzVZbURqYzVKeUdha3NxZk1GajA4eG4zdjdfSUNPT08zbUkzbzNwLUVZNXRWdG5DS0Q2Nk1uNGxjTHpWTXVJcG81NXlORklrN2xRb2htOHFob0NCUEZMY2tGUmJuQm9neHgwWWNncE1ER0Z4ME42STZPaVp4RzUtT1NGQ2RjU3Z0R1NCSFlOM1VrcFVmdW0xdlBaVHloVmlFSmV6WDNjVmkxQ2x1N0pZZ9IB6AFBVV95cUxQQUR2SC14dUl3akhBNzRJa1lacE9oeHdXWHE4QV9HcGFJOUlyNTNPOGdHRW1KZmhNdjRUd2Q1bkpuZlVpTVJ0RWNJcVhHcm9Ud0JPdi13bnEzbUFpTUxDWTlNRHlyTl80c05hUk4wNHh3YWdUenl5X29FRllxMnlLd2o4b3NVY2VHUmJJblc0elFKanR6Um5JTkFadXM2dEZqWm1WWGpZa1A2UmdSLVpiRzBGTWJ0OENBbHlDa25VLWhOWGZSZXZvYXcwN1NHdEVCaGxJaVlaZW5jbnE2d2w0OHNnRUFvWmU0?oc=5",
+      "titulo": "El petróleo volvió a subir tras un nuevo ataque de los hutíes contra Arabia Saudita - Infobae",
+      "titulo_es": null,
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-24T14:57:39-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxPSTJMTUpOdnRremU0Nm1HcVlQSEliNjJsM1kzWGZMUzVZbURqYzVKeUdha3NxZk1GajA4eG4zdjdfSUNPT08zbUkzbzNwLUVZNXRWdG5DS0Q2Nk1uNGxjTHpWTXVJcG81NXlORklrN2xRb2htOHFob0NCUEZMY2tGUmJuQm9neHgwWWNncE1ER0Z4ME42STZPaVp4RzUtT1NGQ2RjU3Z0R1NCSFlOM1VrcFVmdW0xdlBaVHloVmlFSmV6WDNjVmkxQ2x1N0pZZ9IB6AFBVV95cUxQQUR2SC14dUl3akhBNzRJa1lacE9oeHdXWHE4QV9HcGFJOUlyNTNPOGdHRW1KZmhNdjRUd2Q1bkpuZlVpTVJ0RWNJcVhHcm9Ud0JPdi13bnEzbUFpTUxDWTlNRHlyTl80c05hUk4wNHh3YWdUenl5X29FRllxMn",
+      "fetched_at": "2026-09-24T18:54:20-06:00"
+    },
+    {
+      "id": 85,
+      "url": "https://oilprice.com/Alternative-Energy/Biofuels/Global-Biofuels-Output-Could-Surge-70-Amid-Energy-Crisis.html",
+      "titulo": "Global Biofuels Output Could Surge 70% Amid Energy Crisis",
+      "titulo_es": null,
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T14:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Global biofuels production is projected to surge by nearly 70% by 2030 as major producing countries raise their fuel-blending mandates in response to the energy crisis triggered by the Middle East conflict, a study co-authored by British think tank Chatham House and Forest Stewardship Council has found.  Biofuels like ethanol, which typically originate from food crops or animal feed and are mixed with gasoline or diesel, become more cost-competitive as crude oil and gasoline prices spike. Severa",
+      "fetched_at": "2026-09-24T18:54:20-06:00"
+    },
+    {
+      "id": 11,
+      "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxQcWoteFRVaXE1bXhEZXpHaVJPUXFfQXFrTXdZV2RJNHllU2pEX21BdG5BNHNpUkhqLWt5T0xJYmxkZnJFU1lveEc4SGVzQS1vNTl5dVJGcS1oMDFOeHo5amNhMU9rYTkzaTBwVVNfRk5oWDliQ3ZrMFlSOU9XZWtnbGhxNUVnU3NDb1RQeDBPcUJ1ck9QcGd6RUg5eGx3UGtzYkY1eWR6MGswYmdqem5seElZSVJEakxkbmRycWdrRlJnYy1VaXFTd0E1Y2pSMk0zN3YteTVpMDlDWEl2MzVGWElMTkZxaVpJRWN2NkxOTHVwdzNRa2NTRzFhcnVtQXhNSFE?oc=5",
+      "titulo": "El petróleo brent cierra sobre los US$106 tras un nuevo ataque de los hutíes a Araba Saudí - BioBioChile",
+      "titulo_es": null,
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-24T13:51:02-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiggJBVV95cUxQcWoteFRVaXE1bXhEZXpHaVJPUXFfQXFrTXdZV2RJNHllU2pEX21BdG5BNHNpUkhqLWt5T0xJYmxkZnJFU1lveEc4SGVzQS1vNTl5dVJGcS1oMDFOeHo5amNhMU9rYTkzaTBwVVNfRk5oWDliQ3ZrMFlSOU9XZWtnbGhxNUVnU3NDb1RQeDBPcUJ1ck9QcGd6RUg5eGx3UGtzYkY1eWR6MGswYmdqem5seElZSVJEakxkbmRycWdrRlJnYy1VaXFTd0E1Y2pSMk0zN3YteTVpMDlDWEl2MzVGWElMTkZxaVpJRWN2NkxOTHVwdzNRa2NTRzFhcnVtQXhNSFE?oc=5\" target=\"_blank\">El petróleo brent cierra sobre los US$106 tras un nuevo ataque de los hutíes a A",
+      "fetched_at": "2026-09-24T18:54:20-06:00"
+    },
+    {
+      "id": 32,
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQMnMxWEhFczdxZWUxNFRCTFlBNVJodmVRRHJoTDJyNldfTm8tTjJNb3dUTWd6UTJvaFhvRktUS29EaTlSYlB4RGY5eHB6ZC1JdDNhZ3JBMXJucTVaZThFSVN3V3cwOXRWamtUejliUDlHWkZ5UVZfenVEVlVqbGMxY1QzZF8xQnpYTnBzbklQY1ozSU1qVVZlbUl3?oc=5",
+      "titulo": "The Kuibyshev Oil Refinery in Russia has halted operations following a drone attack – Reuters - UA.NEWS",
+      "titulo_es": null,
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-24T13:42:09-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxQMnMxWEhFczdxZWUxNFRCTFlBNVJodmVRRHJoTDJyNldfTm8tTjJNb3dUTWd6UTJvaFhvRktUS29EaTlSYlB4RGY5eHB6ZC1JdDNhZ3JBMXJucTVaZThFSVN3V3cwOXRWamtUejliUDlHWkZ5UVZfenVEVlVqbGMxY1QzZF8xQnpYTnBzbklQY1ozSU1qVVZlbUl3?oc=5\" target=\"_blank\">The Kuibyshev Oil Refinery in Russia has halted operations following a drone attack – Reuters</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UA.NEWS</font>",
+      "fetched_at": "2026-09-24T18:54:20-06:00"
+    },
+    {
+      "id": 86,
       "url": "https://oilprice.com/Alternative-Energy/Nuclear-Power/Italy-Returns-to-Nuclear-After-40-Year-Hiatus.html",
       "titulo": "Italy Returns to Nuclear After 40-Year Hiatus",
       "titulo_es": null,
@@ -47,124 +164,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "For the first time in nearly four decades, Italy is considering nuclear power as part of its energy calculus. The Italian Senate on Wednesday gave final approval to a government plan to restart nuclear power generation, Reuters said, almost 40 years after a referendum led to the closure of Italy’s reactors: The government aims to deploy advanced modular reactors to help decarbonise industry and strengthen energy security, arguing that technological and safety advances have rendered the 1987 anti",
-      "fetched_at": "2026-09-24T13:08:57-06:00"
-    },
-    {
-      "id": 82,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Oil-Export-Costs-Surge-as-Red-Sea-Risks-Mount.html",
-      "titulo": "Saudi Oil Export Costs Surge as Red Sea Risks Mount",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T12:30:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Saudi Arabia’s workaround for the Strait of Hormuz now carries a war-risk insurance bill nearly as expensive as sending tankers through Hormuz itself. Quoted premiums for Saudi-linked tankers calling at the Red Sea port of Yanbu have tripled to around 3% of a vessel’s value from less than 1% in early July, according to Reuters. At Saudi ports farther south, including Jizan, quoted premiums can reach 7%. Hormuz voyages are running between 6% and 9%. That adds millions of dollars to every cargo. A",
-      "fetched_at": "2026-09-24T13:08:57-06:00"
-    },
-    {
-      "id": 83,
-      "url": "https://oilprice.com/Energy/Energy-General/Why-Are-Diesel-Prices-So-High.html",
-      "titulo": "Why Are Diesel Prices So High?",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T12:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Some claims making the rounds on social media start with an observation that is basically correct: crude oil was more expensive after Russia invaded Ukraine in 2022 than it is today, yet diesel prices are now higher. The conclusion often attached to that comparison is that refiners must be gouging consumers. It sounds plausible because crude oil is the main raw material used to make diesel. But it leaves out the critical part of the market that has become the real bottleneck: refining. As of Sep",
-      "fetched_at": "2026-09-24T13:08:57-06:00"
-    },
-    {
-      "id": 84,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/Vitol-Scoops-Up-25-Million-Barrels-of-Discounted-Iraqi-Crude.html",
-      "titulo": "Vitol Scoops Up 25 Million Barrels of Discounted Iraqi Crude",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T11:30:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Vitol has bought at least 25 million barrels of Iraqi crude for September loading, making the world’s largest independent oil trader Iraq’s second-biggest buyer behind ADNOC as Baghdad pays steep discounts to keep barrels moving through the Strait of Hormuz. Iraq’s SOMO offered September crude at discounts of $15 to $20.80 per barrel to its official selling prices, according to a tender document reviewed by Reuters. Trading sources said some cargoes sold at even larger discounts. The discount bu",
-      "fetched_at": "2026-09-24T13:08:57-06:00"
-    },
-    {
-      "id": 85,
-      "url": "https://oilprice.com/Energy/Energy-General/Iran-Warns-US-Strikes-Could-Push-War-Into-Indian-Ocean.html",
-      "titulo": "Iran Warns U.S. Strikes Could Push War Into Indian Ocean",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T11:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "It was just this month that saw the Iran conflict spill over into a renewed fight between the Saudi coalition and Yemen's Houthi rebels. Now Iran is threatening to expand the fight further, even into the Indian Ocean. Yahya Rahim Safavi, an adviser to Iran’s Supreme Leader Mojtaba Khamenei, warned Thursday of another significant expansion of the war if the Islamic Republic suffers an attack again. \"Since the conflict has spread from the Persian Gulf and Strait of Hormuz to the Red Sea, it is pos",
-      "fetched_at": "2026-09-24T13:08:57-06:00"
-    },
-    {
-      "id": 26,
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPRllab01RVkk3OXBfcXhrNjVIZEpIN25SdFJaclhZOE1pN0lmbWV6cHF6dHB3QmNvbXNyd1FYWjFITURLM1ExNTlzdUZLYWRaRll0QlQxU1ltZXZtcFVDM0pHVWthZlBSS1ZTWUQxRC1mcmhkMG1KMnZGQ1lZYVkxZkVuRHF1amZOVHNnd2xPa3dyRjR6VmFRSHdGbWlFelV4WGZraVdkbDZvQzZ0Qlhlc2xRTQ?oc=5",
-      "titulo": "Saudi tanker transits through Hormuz hit war-time high after pipeline attack - Lloyd's List",
-      "titulo_es": null,
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-24T10:32:37-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiswFBVV95cUxPRllab01RVkk3OXBfcXhrNjVIZEpIN25SdFJaclhZOE1pN0lmbWV6cHF6dHB3QmNvbXNyd1FYWjFITURLM1ExNTlzdUZLYWRaRll0QlQxU1ltZXZtcFVDM0pHVWthZlBSS1ZTWUQxRC1mcmhkMG1KMnZGQ1lZYVkxZkVuRHF1amZOVHNnd2xPa3dyRjR6VmFRSHdGbWlFelV4WGZraVdkbDZvQzZ0Qlhlc2xRTQ?oc=5\" target=\"_blank\">Saudi tanker transits through Hormuz hit war-time high after pipeline attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Lloyd's List</font>",
-      "fetched_at": "2026-09-24T13:08:57-06:00"
-    },
-    {
-      "id": 86,
-      "url": "https://oilprice.com/Geopolitics/International/US-Invites-Putin-To-G20-Summit-In-Miami.html",
-      "titulo": "U.S. Invites Putin To G20 Summit In Miami",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T10:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "The United States has invited Russian President Vladimir Putin to attend the Group of 20 summit in Miami in December, Secretary of State Marco Rubio said on September 23, as the Trump administration is seeking steps to reduce fighting in Ukraine. “We've invited President Putin to the G20,\" Rubio told reporters after meeting Russian Foreign Minister Sergei Lavrov on the sidelines of the UN General Assembly in New York. \"We think it's an opportunity for him to engage not just with the president bu",
-      "fetched_at": "2026-09-24T13:08:57-06:00"
-    },
-    {
-      "id": 87,
-      "url": "https://oilprice.com/Latest-Energy-News/World-News/Russia-Begins-Oil-Exports-From-Its-Giant-Vostok-Arctic-Project.html",
-      "titulo": "Russia Begins Oil Exports From Its Giant Vostok Arctic Project",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T09:35:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Russia has begun commercial crude exports from Rosneft’s Vostok Oil project, putting barrels on the water from its new Arctic terminal after years of sanctions, investor exits, and construction delays. Three ice-class tankers loaded about 250,000 metric tons of crude from the Bukhta Sever terminal on the Taimyr Peninsula in September. Two carried the oil to Murmansk for ship-to-ship transfer. A third headed for Asia through the Northern Sea Route. A fourth tanker is waiting to load. Industry sou",
-      "fetched_at": "2026-09-24T13:08:57-06:00"
-    },
-    {
-      "id": 88,
-      "url": "https://oilprice.com/Energy/Energy-General/China-Could-Cut-Fuel-Exports-in-October-as-Inventories-Plunge.html",
-      "titulo": "China Could Cut Fuel Exports in October as Inventories Plunge",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T09:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "China could lower its fuel exports again in October, potentially tightening the global fuel market further, as domestic gasoline and diesel inventories have slumped to multi-year lows. China’s fuel exports recovered in August as refiners exported 6.01 million tons of petroleum products, up by 12.7% from a year earlier, after Beijing removed in mid-July restrictions on fuel exports that were in place at the peak of the Strait of Hormuz blockage.   The total volume of Chinese fuel exports exceeded",
-      "fetched_at": "2026-09-24T13:08:57-06:00"
-    },
-    {
-      "id": 41,
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNVkJpTUpITnhiaE85OS1NQk8yRjFuQ2VCVzlYQlpzb0h5LTNqbGVNdVFudE1qbWh3MG94WmxON0wyUTA4ZjBZdi0zbnNtNW45RW5UbnI3WGtfc2FtRzBzc010QlM4bGNFUHM2anVRWE5fYVBTSWhvbHd0LTFRTHB1cXpMYXRvcUQ5MUU0bW93?oc=5",
-      "titulo": "Oil Rises as Iran Threat to Widen War Dims Hormuz Deal Hopes - Military.com",
-      "titulo_es": null,
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-24T08:44:08-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMijgFBVV95cUxNVkJpTUpITnhiaE85OS1NQk8yRjFuQ2VCVzlYQlpzb0h5LTNqbGVNdVFudE1qbWh3MG94WmxON0wyUTA4ZjBZdi0zbnNtNW45RW5UbnI3WGtfc2FtRzBzc010QlM4bGNFUHM2anVRWE5fYVBTSWhvbHd0LTFRTHB1cXpMYXRvcUQ5MUU0bW93?oc=5\" target=\"_blank\">Oil Rises as Iran Threat to Widen War Dims Hormuz Deal Hopes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Military.com</font>",
-      "fetched_at": "2026-09-24T13:08:57-06:00"
+      "fetched_at": "2026-09-24T18:54:20-06:00"
     }
   ]
 }
