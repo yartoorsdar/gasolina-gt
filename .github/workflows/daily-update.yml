@@ -58,7 +58,7 @@ jobs:
           GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
         run: |
           python -c "from datetime import datetime, timezone, timedelta; now_utc = datetime.utcnow().strftime('%H:%M'); now_gt = datetime.now(timezone(timedelta(hours=-6))).strftime('%H:%M'); print(f'UTC={now_utc} GT={now_gt}'); f=open('logs/debug_time.txt','w'); f.write(f'{now_utc}|{now_gt}')"
-          python collector/main.py --alternos --petroleo --noticias --export
+          python collector/main.py --memoria --alternos --petroleo --noticias --export
 
       - name: Commit and push updated JSONs
         shell: bash
@@ -67,7 +67,9 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           # Configurar credenciales con GITHUB_TOKEN para el push
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/yartoorsdar/gasolina-gt.git
-          git add data/export/*.json
+          # Memoria persistente: el CSV es la tabla precios acumulada entre runs.
+          # Sin él, cada run nacería con DB vacía y Vercel "reiniciaría" el historial.
+          git add data/export/*.json data/memory/precios.csv
           if git diff --cached --quiet; then
             echo "::notice::No changes to commit."
           else

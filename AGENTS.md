@@ -9,7 +9,7 @@ python serve.py                             # dashboard at http://localhost:8089
 ```
 
 ## Architecture
-- `collector/*.py` — `db.py` (schema + `ahora_gt_iso()`/`hoy_gt()` + `canon_producto()`), `impuestos.py`, `mem_html.py`, `fuentes_alternas.py`, `consenso_precios.py`, `importar_historico.py`, `petroleo.py`, `noticias.py`, `main.py`, `scheduler.py` (`precios_mem.py` eliminado)
+- `collector/*.py` — `db.py` (schema + `ahora_gt_iso()`/`hoy_gt()` + `canon_producto()`), `impuestos.py`, `mem_html.py`, `fuentes_alternas.py`, `consenso_precios.py`, `importar_historico.py`, `petroleo.py`, `noticias.py`, `memoria.py`, `main.py`, `scheduler.py` (`precios_mem.py` eliminado)
 - `web/index.html` — single-file dashboard (CSS+JS vanilla, no build step)
 - `index.html` — copy of web/index.html at repo root (Vercel serves this at `/`)
 - `data/export/*.json` — `main.py:exportar_json` genera 6 (NO genera `consolidado.json`; el archivo en repo está congelado): `resumen.json`, `precios_combustible.json`, `petroleo.json`, `historial_precios.json`, `historial_petroleo.json`, `noticias.json`
@@ -21,6 +21,14 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 -- UNIQUE(fecha, producto) via CREATE UNIQUE INDEX (inline UNIQUE broken on Windows/SQLite)
 -- Products: 'superior', 'regular', 'diésel' (combustible), 'wti' (petróleo)
 ```
+
+## Memoria persistente de precios (`collector/memoria.py`)
+La DB es efímera en CI → sin memoria, cada run "reiniciaba" el historial a la vista de Vercel. El sistema:
+1. **Inicio del run** — `importar_memoria()`: restaura la tabla `precios` desde `data/memory/precios.csv` (commitado). Insert-or-ignore: siembra el historial sin pisar valores nuevos.
+2. **Colectores** — agregan el día de hoy con su patrón delete-hoy-antes-de-insertar: re-ejecutar un mismo día ACTUALIZA el precio, no duplica (UNIQUE fecha+producto).
+3. **Fin del run** — `exportar_memoria()`: vuelca la tabla completa al CSV → se commitea junto con los JSONs; el próximo run parte de ahí. El archivo es determinista (orden fijo por fecha+canon-producto, sin fetched_at): nada cambió = byte-idéntico = cero diff.
+- Deduplica grafías (`diessel`/`diésel` del mismo día → 1 fila, la de `fetched_at` más reciente). Productos se guardan canónicos en el CSV.
+- CI: `python collector/main.py --memoria --alternos --petroleo --noticias --export`; el paso de push añade `data/memory/precios.csv`.
 
 ## Timezone (Guatemala = UTC-6, sin DST)
 - **Backend**: NUNCA `datetime.now().strftime("...-06:00")` ingenuo — en el runner GitHub (reloj UTC) queda 6h adelantado. Usar `ahora_gt_iso()` / `hoy_gt()` de `collector/db.py`. Sin red (worldtimeapi fallaba en CI).
@@ -74,7 +82,7 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 - **Two index.html**: `web/index.html` (source of truth), `index.html` at root (copy for Vercel `/`). Always keep them in sync. La copia raíz usa `sprites/barrel-oil.png` y `iconos/favicon.*` (relativas a raíz); la de `web/` usa `../sprites/`, `../iconos/`.
 
 ## GitHub Actions (`daily-update.yml` produce datos; `test-apis.yml` solo diagnostica)
-- **daily-update**: cron `0 14 * * *` (nominal 08:00 GT; en la práctica GitHub gratis lo ejecuta ~18:2x UTC), push a main, manual dispatch. Runner `windows-latest`, Python 3.11. Runs `python collector/main.py --alternos --petroleo --noticias --export`.
+- **daily-update**: cron `0 14 * * *` (nominal 08:00 GT; en la práctica GitHub gratis lo ejecuta ~18:2x UTC), push a main, manual dispatch. Runner `windows-latest`, Python 3.11. Runs `python collector/main.py --memoria --alternos --petroleo --noticias --export`. El paso de push commitea `data/export/*.json` **y** `data/memory/precios.csv` (memoria persistente: sin el CSV cada run nacería con DB vacía y Vercel reiniciaría el historial).
 - **test-apis** (solo `workflow_dispatch`): corre `scripts/test_apis.py` contra el LLM primario de config.json (prompt mínimo), Groq secundario y MyMemory — sin DB ni export ni push. Mismo runner que daily-update: si la API responde ahí, responde en el run diario. Job rojo = ningún LLM completó el prompt (contrato del script).
 - `concurrency: daily-update-global` (sin cancel) serializa schedule+push+dispatch.
 - Push step: orden add → diff → **commit → pull --rebase → push HEAD:main**, SIN `|| true` (un rechazo queda rojo, no se pierde en silencio).

@@ -257,6 +257,14 @@ def ejecutar() -> dict:
         with open(config_path, "r", encoding="utf-8") as f:
             cfg = json.load(f)
 
+        # Re-ejecutar el mismo día = ACTUALIZAR el precio, no duplicar ni
+        # congelar el valor del primer run (mismo patrón que fuentes_alternas).
+        from collector.db import borrar_precios_hoy
+        _FUENTE_MEM_HTML = "Ministerio de Energia y Minas (HTML)"
+        borrados = borrar_precios_hoy(conn, _FUENTE_MEM_HTML)
+        if borrados:
+            print(f"[mem_html] Actualización: {borrados} precio(s) de hoy reemplazado(s)")
+
         inserted = 0
         for p in precios:
             from collector.db import insertar_precio

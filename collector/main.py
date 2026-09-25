@@ -475,6 +475,8 @@ Ejemplos:
   python main.py --noticias             Solo feeds RSS
   python main.py --export               Exporta DB a JSON
   python main.py --all --export         Ejecuta todo y exporta
+  python main.py --memoria --alternos --petroleo --noticias --export
+                                         Memoria persistente + ciclo de CI
         """,
     )
 
@@ -500,16 +502,30 @@ Ejemplos:
     parser.add_argument(
         "--export", action="store_true", help="Exportar base de datos a JSON"
     )
+    parser.add_argument(
+        "--memoria", action="store_true",
+        help="Memoria persistente: importar data/memory/precios.csv al inicio "
+             "y re-exportarlo al final (la CI nace con DB vacía; así no se reinicia el historial)",
+    )
 
     args = parser.parse_args()
 
     # Si no se especifica nada, ejecutar todo por defecto
     if not any([args.all, args.mem_html, args.consenso,
                 args.consenso_retry, args.historico, args.petroleo, args.noticias,
-                args.alternos]):
+                args.alternos, args.memoria]):
         args.all = True
 
     cfg = cargar_config()
+
+    # ── Memoria persistente: restaurar la tabla precios ANTES de que los
+    # colectores escriban. La memoria siembra el historial; lo de HOY lo
+    # definen las fuentes vivas (sus patrones delete-hoy-antes-de-insertar ya
+    # garantizan "re-ejecutar un día = actualizar, no duplicar"). ──
+    if args.memoria:
+        from collector.memoria import importar_memoria
+        logger.info("=== Restaurando memoria persistente ===")
+        importar_memoria()
 
     # Ejecutar colectores solicitados
     modulos_activas = []
@@ -542,9 +558,13 @@ Ejemplos:
                 {"modulo": nombre, "resultado": {"fuente": "error", "error": str(exc)}}
             )
 
-    # Exportar si se solicitó
+    # Exportar si se solicitó (y regenerar la memoria persistente junto con él)
     if args.export and resultados:
         exportar_json(cfg=cfg)
+        if args.memoria:
+            from collector.memoria import exportar_memoria
+            logger.info("=== Regenerando memoria persistente ===")
+            exportar_memoria()
 
     # Imprimir resumen
     logger.info("-" * 60)
@@ -560,6 +580,10 @@ Ejemplos:
         # Solo exportar sin ejecutar colectores
         logger.info("Ejecutando solo exportación...")
         exportar_json(cfg=cfg)
+        if args.memoria:
+            from collector.memoria import exportar_memoria
+            logger.info("=== Regenerando memoria persistente ===")
+            exportar_memoria()
 
 
 if __name__ == "__main__":
