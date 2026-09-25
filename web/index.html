@@ -340,13 +340,13 @@
             margin-top: 2px;
         }
 
-        /* ── Semáforo de impacto (vertical, estilo neón) ── */
+        /* ── Semáforo de impacto (vertical, estilo neón) — rectángulo compacto ── */
         .oil-impact-alert.semaforo {
             display: flex;
-            gap: 14px;
+            gap: 10px;
             align-items: center;
             border-radius: 12px;
-            padding: 12px 14px;
+            padding: 8px 12px;
             background: rgba(255, 255, 255, 0.03);
         }
 
@@ -377,10 +377,10 @@
            pantalla). Los faroles también bajan de tamaño. */
         @media (max-width: 768px) {
             .oil-impact-alert.semaforo {
-                gap: 8px;
-                padding: 8px 10px;
-                font-size: 0.8rem;
-                line-height: 1.4;
+                gap: 7px;
+                padding: 6px 8px;
+                font-size: 0.78rem;
+                line-height: 1.35;
             }
             .oil-impact-alert.semaforo strong {
                 font-size: 0.85rem;
@@ -1896,7 +1896,7 @@
                     : (impacto.color === '#f39c12' ? 'yellow'
                     : (impacto.nivel === 'bajo' ? '' : 'green'));
                 alertEl.innerHTML = `
-                    <div class="oil-impact-alert semaforo" data-nivel="${impacto.nivel}" style="border-left:4px solid ${impacto.color};margin-top:12px;">
+                    <div class="oil-impact-alert semaforo" data-nivel="${impacto.nivel}" style="border-left:4px solid ${impacto.color};margin-top:6px;">
                         <div class="semaforo-lamps">
                             <span class="lamp ${lamp === 'red' ? 'on-red' : ''}"></span>
                             <span class="lamp ${lamp === 'yellow' ? 'on-yellow' : ''}"></span>
