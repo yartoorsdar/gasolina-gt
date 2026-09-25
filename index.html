@@ -83,13 +83,17 @@
         }
 
         .card h2 {
-            font-size: 1rem;
-            color: var(--text-muted);
+            font-size: 1.12rem;
+            font-weight: 800;
+            color: var(--text);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.2px;
+            text-align: center;
+            line-height: 1.45;
             margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, transparent, var(--accent), transparent) 1;
         }
 
         /* ──────────────────────────────────────────
@@ -1702,16 +1706,22 @@
             // Palabras que indican impacto positivo (subida de precio)
             const keywordsSubida = [
                 'ataque', 'attack', 'disruption', 'shutdown', 'cierre', 'drone', 'missile',
-                'pipeline', 'oleoducto', 'refinería', 'refinery', 'explosion', 'destroyed',
+                'misil', 'pipeline', 'oleoducto', 'refinería', 'refinery', 'explosion',
+                'explosión', 'destroyed', 'destruido', 'incendio', 'fire',
                 'escasez', 'shortage', 'tightness', 'record', 'record-high', 'ramp up',
-                'sube', 'rise', 'increase', 'jump', 'soar', 'explode', 'costs', 'freight'
+                'sube', 'suben', 'rise', 'increase', 'jump', 'soar', 'explode', 'costs',
+                'freight', 'flete', 'sanción', 'sanciones', 'sanction', 'embargo',
+                'guerra', 'war', 'opec', 'opep', 'recorte', 'cut', 'bloqueo',
+                'alza', 'récord', 'arancel', 'huelga', 'strike', 'export', 'exportación'
             ];
 
             // Palabras que indican impacto negativo (bajada de precio)
             const keywordsBajada = [
                 'restart', 'reativa', 'restaura', 'recuperation', 'rebounds',
-                'exceso', 'surplus', 'decline', 'caída', 'drop', 'crash',
-                'reserva', 'reserve', 'inventory increase', 'stockpile'
+                'exceso', 'surplus', 'decline', 'caída', 'caen', 'bajan', 'baja',
+                'drop', 'crash', 'reserva', 'reserve', 'inventory increase',
+                'stockpile', 'excedente', 'acuerdo', 'deal', 'tregua', 'ceasefire',
+                'reapertura', 'reopen', 'aumenta producción', 'récord de producción'
             ];
 
             let score = 0; // -5 a +5, donde + es alza de precio
@@ -1740,6 +1750,13 @@
                     topNoticia = n;
                 }
             }
+
+            // Voto del LLM: la relevancia máxima (1-5) empuja el semáforo.
+            // rel 5 → +3 (mínimo medio), rel 4 → +1.5. Y si el LLM marcó
+            // relevancia alta pero las keywords no picaron, piso a medio.
+            const maxRel = Math.max(0, ...noticias.map(n => n.relevancia || 0));
+            score += Math.max(0, maxRel - 3) * 1.5;
+            if (maxRel >= 4 && score > -2 && score < 2) score = 2.5;
 
             // Determinar nivel de impacto y mensaje
             let nivel, color, emoji, mensaje;

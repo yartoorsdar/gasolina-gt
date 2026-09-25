@@ -327,13 +327,18 @@ def clasificar_lote_llm(items: list[dict], cfg: dict = None) -> list[dict | None
     prompt = (
         "Eres un analista de energía para Guatemala (país que IMPORTA todos sus "
         "combustibles). Clasifica CADA noticia y responde SOLO con un array JSON, "
-        "un objeto por noticia con su índice:\n"
-        '[{"i":0,"categoria":"...","relevancia":1-5,"resumen_es":"...","titulo_es":"..."}, ...]\n'
-        "- categoria: 'oferta','demanda','geopolitica','precios','infraestructura','finanzas','diplomacia','otro'\n"
-        "- relevancia 5 = afecta directo precio/abastecimiento en Guatemala "
-        "(refinerías, oleoductos, sanciones, OPEP, guerras petroleras, diésel)\n"
-        "- resumen_es: ESPAÑOL, máx 2 líneas (qué pasó + por qué importa)\n"
-        "- titulo_es: titular ESPAÑOL, máx 90 caracteres\n\n"
+        "sin texto antes ni después, sin markdown. Un objeto por noticia con su índice:\n"
+        '[{"i":0,"categoria":"geopolitica","relevancia":5,'
+        '"resumen_es":"...","titulo_es":"..."}, ...]\n'
+        "Reglas por campo:\n"
+        "- categoria: UNA de 'oferta','demanda','geopolitica','precios','infraestructura','finanzas','diplomacia','otro'\n"
+        "- relevancia: entero 1-5. 5 = afecta directo precio/abastecimiento en Guatemala "
+        "(refinerías, oleoductos, sanciones, OPEP, guerras petroleras, diésel). "
+        "1 = sin relación con combustibles.\n"
+        "- resumen_es: SIEMPRE en ESPAÑOL aunque la noticia esté en inglés. Máx 2 líneas: "
+        "qué pasó + por qué importa para el precio del combustible.\n"
+        "- titulo_es: SIEMPRE en ESPAÑOL aunque el original esté en inglés. Titular "
+        "periodístico, máx 90 caracteres.\n\n"
         f"NOTICIAS:\n{lineas}"
     )
 
@@ -341,11 +346,21 @@ def clasificar_lote_llm(items: list[dict], cfg: dict = None) -> list[dict | None
     if not content:
         return [None] * len(items)
 
+    # Limpiar cercas markdown (```json ... ```) que Gemini suele agregar
+    import re as _re
+    content = _re.sub(r"^```(?:json)?\s*", "", content.strip())
+    content = _re.sub(r"\s*```$", "", content.strip())
+
     try:
         start = content.find("[")
         end = content.rfind("]")
         arr = json.loads(content[start:end + 1]) if start != -1 and end > start else []
-    except (json.JSONDecodeError, ValueError):
+    except (json.JSONDecodeError, ValueError) as exc:
+        print(f"[noticias] Lote: parse falló ({exc}). Respuesta: {content[:300]!r}")
+        return [None] * len(items)
+
+    if not isinstance(arr, list) or not arr:
+        print(f"[noticias] Lote: respuesta sin array. Respuesta: {content[:300]!r}")
         return [None] * len(items)
 
     por_i = {o.get("i"): o for o in arr if isinstance(o, dict)}
@@ -518,19 +533,26 @@ def ejecutar(cfg: dict = None) -> dict:
         candidatos = _seleccion_rotativa(all_items, por_feed=3, max_total=15)
         print(f"[noticias] Clasificando lote de {len(candidatos)} con LLM...")
         lote = clasificar_lote_llm(candidatos, cfg)
-        if lote:
+        n_ok = sum(1 for c in (lote or []) if c)
+        if lote and n_ok:
+            print(f"[noticias] Lote OK: {n_ok}/{len(candidatos)} clasificadas")
             for item, cls in zip(candidatos, lote):
                 if cls:
                     item.update(cls)
         else:
-            # Fallback: uno por uno (máximo 8 para no alargar el CI)
+            # Fallback: uno por uno (máximo 8, con pausa anti rate-limit)
+            import time as _time
             print("[noticias] Lote falló, reintentando uno por uno...")
+            ok = 0
             for item in candidatos[:8]:
                 classification = clasificar_noticia_llm(
                     item["title"], item.get("summary", ""), cfg
                 )
                 if classification:
                     item.update(classification)
+                    ok += 1
+                _time.sleep(4)
+            print(f"[noticias] Fallback OK: {ok} clasificadas")
 
     # Guardar en DB
     inserted = guardar_noticias(all_items, cfg)
