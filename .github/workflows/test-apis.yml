@@ -1,0 +1,57 @@
+# ⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️
+######## INICIA WORKFLOW DE PRUEBAS DE APIS ########
+# Workflow SOLO de pruebas (workflow_dispatch manual) para diagnosticar el
+# pipeline LLM de noticias SIN tocar daily-update:
+#   - No dispara push, no commit, sin concurrency group compartido.
+#   - Mismo runner (windows-latest + Python 3.11) que daily-update → mismo
+#     pool de IPs GitHub; si la API responde aquí, responde en el run diario.
+# Uso desde la UI: Actions → "Test APIs — LLM" → Run workflow.
+name: Test APIs — LLM (Gemini/Groq/MyMemory)
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Modelo Gemini a probar (vacío = el de config.json llm.model)"
+        required: false
+        default: ""
+      groq_model:
+        description: "Modelo Groq para completado (vacío = solo ping /v1/models)"
+        required: false
+        default: ""
+
+jobs:
+  test-apis:
+    runs-on: windows-latest
+    # Re-dispatch: cancela el run anterior (son pruebas, no hay carreras de push).
+    concurrency:
+      group: test-apis-global
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install requests (solo lo que necesita el test)
+        run: pip install --no-cache-dir requests
+
+      - name: Testear APIs LLM + MyMemory
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
+          TEST_LLM_MODEL: ${{ inputs.model }}
+          GROQ_TEST_MODEL: ${{ inputs.groq_model }}
+          PYTHONIOENCODING: utf-8
+        run: python scripts/test_apis.py
+
+        # El script imprime por API: ping HTTP, prompt HTTP y diagnóstico.
+        # Códigos típicos Gemini: 401 key mala · 402 cuota/billing agotado ·
+        # 404 modelo inexistente para la key · 429 rate-limit (IP/cuota).
+        # Job queda ROJO solo si NINGÚN LLM completó el prompt de prueba.
+######## FINALIZA WORKFLOW DE PRUEBAS DE APIS ########
+# ⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️
