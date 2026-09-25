@@ -6,7 +6,7 @@
       "producto": "superior",
       "precio": 30.54,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T21:55:22-06:00"
+      "fetched_at": "2026-09-24T22:04:56-06:00"
     },
     {
       "id": 3,
@@ -14,7 +14,7 @@
       "producto": "superior",
       "precio": 43.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T21:55:22-06:00"
+      "fetched_at": "2026-09-24T22:04:56-06:00"
     },
     {
       "id": 1,
@@ -22,7 +22,7 @@
       "producto": "superior",
       "precio": 45.74,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T21:55:22-06:00"
+      "fetched_at": "2026-09-24T22:04:56-06:00"
     },
     {
       "id": 7,
@@ -30,7 +30,7 @@
       "producto": "regular",
       "precio": 29.53,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T21:55:22-06:00"
+      "fetched_at": "2026-09-24T22:04:56-06:00"
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "producto": "regular",
       "precio": 41.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T21:55:22-06:00"
+      "fetched_at": "2026-09-24T22:04:56-06:00"
     },
     {
       "id": 5,
@@ -46,7 +46,7 @@
       "producto": "diésel",
       "precio": 46.39,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T21:55:22-06:00"
+      "fetched_at": "2026-09-24T22:04:56-06:00"
     },
     {
       "id": 2,
@@ -54,23 +54,23 @@
       "producto": "diésel",
       "precio": 50.5,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T21:55:22-06:00"
+      "fetched_at": "2026-09-24T22:04:56-06:00"
     },
     {
       "id": 8,
       "fecha": "2026-09-24",
       "producto": "wti",
-      "precio": 93.06,
+      "precio": 93.08,
       "fuente": "OilPriceAPI",
-      "fetched_at": "2026-09-24T21:55:23-06:00"
+      "fetched_at": "2026-09-24T22:04:57-06:00"
     }
   ],
   "productos": [
-    "superior",
-    "regular",
     "diésel",
-    "wti"
+    "wti",
+    "regular",
+    "superior"
   ],
   "total_registros": 8,
-  "actualizado_at": "2026-09-25T03:56:14+00:00"
+  "actualizado_at": "2026-09-25T04:05:38+00:00"
 }
