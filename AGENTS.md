@@ -9,7 +9,7 @@ python serve.py                             # dashboard at http://localhost:8089
 ```
 
 ## Architecture
-- `collector/*.py` — data collectors: `db.py` (schema + `ahora_gt_iso()`/`hoy_gt()` helpers), `impuestos.py`, `precios_mem.py`, `mem_html.py`, `fuentes_alternas.py`, `consenso_precios.py`, `importar_historico.py`, `petroleo.py`, `noticias.py`, `main.py`, `scheduler.py`
+- `collector/*.py` — data collectors: `db.py` (schema + `ahora_gt_iso()`/`hoy_gt()` + `canon_producto()`), `impuestos.py`, `mem_html.py`, `fuentes_alternas.py`, `consenso_precios.py`, `importar_historico.py`, `petroleo.py`, `noticias.py`, `main.py`, `scheduler.py` (`precios_mem.py` eliminado: ya no se buscan precios en PDFs del MEM)
 - `web/index.html` — single-file dashboard (CSS+JS vanilla, no build step)
 - `index.html` — copy of web/index.html at repo root (Vercel serves this at `/`)
 - `data/export/*.json` — 7 JSON files consumed by dashboard: `resumen.json`, `consolidado.json`, `precios_combustible.json`, `petroleo.json`, `historial_precios.json`, `historial_petroleo.json`, `noticias.json`
@@ -47,12 +47,6 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 - Key: secreto `GROK_API_KEY` (fallback `GEMINI_API_KEY`, luego `llm.api_key`) vía `collector/noticias.py:_obtener_api_key`
 - Auto-detecta proveedor por `base_url` (Gemini nativo vs OpenAI-compatible con Bearer)
 - Lote de 15 (round-robin por feed) + fallback 3×10s; `_sanear_error` quita `key=***` del diagnóstico público
-
-## PDF parser (precios_mem.py)
-- Uses `pdfplumber.extract_words()` + Y-position grouping (NOT `extract_text()`)
-- Extracts AutoServicio and Servicio Completo for superior/regular/diésel
-- Takes penultimate price per line (`precios[-2]`) because last value is the difference
-- MEM page returns 403 Cloudflare — Plan B processes PDFs from `data/inbox/`
 
 ## XLSX parser (importar_historico.py)
 - Fixed column indices: A=FECHA, C=Superior, D=Regular, E=Diésel

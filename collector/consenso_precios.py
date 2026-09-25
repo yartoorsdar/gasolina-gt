@@ -14,7 +14,6 @@ Productos obligatorios (spelling exacta): 'superior', 'regular', 'diessel'.
 Tolerancia máxima entre fuentes: Q0.20 por galón.
 
 Fuentes soportadas (extensible):
-  - "MEM PDF"    → precios_mem.py
   - "MEM HTML"   → mem_html.py (Playwright)
   - "Prensa Libre" → futuro colector de prensa libre
   - "GNews GT"   → futuro colector de GNews Guatemala
@@ -80,7 +79,6 @@ DIAS_RECENTES = 7                  # consultar precios de los últimos N días
 
 # Fuentes consideradas válidas (debe coincidir con el campo "fuente" en DB)
 FUENTES_VALIDAS = {
-    "MEM PDF",
     "MEM HTML",
     "Prensa Libre",
     "GNews GT",
@@ -316,7 +314,6 @@ def validar_con_ia(
 
     # Construir prompt con contexto de fuentes
     fuente_descripcion = {
-        "MEM PDF": "Precios oficiales MEM (Ciudad de Guatemala, autoservicio)",
         "MEM HTML": "Precios oficiales MEM via web (Ciudad de Guatemala)",
         "GlobalPetrolPrices": "Promedio nacional Guatemala (no solo capital)",
         "Chapin TV": "Sondeo en estaciones de servicio (área metropolitana)",

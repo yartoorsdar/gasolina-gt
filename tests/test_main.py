@@ -97,14 +97,12 @@ class TestEjecutarTodo:
     def test_ejecutar_todo_con_modulos_mock(self, cfg):
         from collector.main import ejecutar_todo
 
-        with patch("collector.main.ejecutar_precios_mem") as mock_pm, \
-             patch("collector.main.ejecutar_mem_html") as mock_mh, \
+        with patch("collector.main.ejecutar_mem_html") as mock_mh, \
              patch("collector.main.ejecutar_consenso") as mock_cs, \
              patch("collector.main.ejecutar_historico") as mock_hi, \
              patch("collector.main.ejecutar_petroleo") as mock_pt, \
              patch("collector.main.ejecutar_noticias") as mock_n:
 
-            mock_pm.return_value = {"fuente": "mem", "insertados": 6}
             mock_mh.return_value = {"fuente": "html", "insertados": 0}
             mock_cs.return_value = {"fuente": "consenso_validador", "con_senso_alcanzado": 3}
             mock_hi.return_value = {"fuente": "xlsx", "insertados": 100}
@@ -113,9 +111,8 @@ class TestEjecutarTodo:
 
             resultados = ejecutar_todo(cfg=cfg, exportar=False)
 
-        assert len(resultados) == 6
+        assert len(resultados) == 5
         modulos = [r["modulo"] for r in resultados]
-        assert "precios_mem" in modulos
         assert "mem_html" in modulos
         assert "consenso_precios" in modulos
         assert "historico" in modulos
@@ -125,13 +122,13 @@ class TestEjecutarTodo:
     def test_ejecutar_todo_con_error(self, cfg):
         from collector.main import ejecutar_todo
 
-        with patch("collector.main.ejecutar_precios_mem") as mock_pm:
-            mock_pm.side_effect = ValueError("Fallo MEM")
+        with patch("collector.main.ejecutar_mem_html") as mock_mh:
+            mock_mh.side_effect = ValueError("Fallo HTML")
 
             resultados = ejecutar_todo(cfg=cfg, exportar=False)
 
-        # Debería continuar con los demás módulos (ahora 6 modulos)
-        assert len(resultados) == 6
+        # Debería continuar con los demás módulos (ahora 5 modulos)
+        assert len(resultados) == 5
 
 
 # ──────────────────────────────────────────────

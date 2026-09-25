@@ -1,18 +1,16 @@
 """Orquestador principal y exportación JSON para gasolina-gt.
 
 Ejecuta todos los collectors en secuencia:
-  1. precios_mem    → precios actuales de combustible (PDF MEM)
-  2. mem_html       → precios actuales HTML (Playwright, bypass Cloudflare)
-  3. consenso_precios → validación por consenso multifuente (Q0.20 tolerancia)
-  4. importar_historico → historial de precios (XLSX diario MEM)
-  5. petroleo       → WTI (API OilPriceAPI)
-  6. noticias       → feeds RSS clasificados
+  1. mem_html       → precios actuales HTML (Playwright, bypass Cloudflare)
+  2. consenso_precios → validación por consenso multifuente (Q0.20 tolerancia)
+  3. importar_historico → historial de precios (XLSX diario MEM)
+  4. petroleo       → WTI (API OilPriceAPI)
+  5. noticias       → feeds RSS clasificados
 
 También exporta la DB a archivos JSON para uso externo o web.
 
 Uso:
   python main.py --all              # ejecuta todo
-  python main.py --precios-mem      # solo precios MEM actuales (PDF)
   python main.py --mem-html         # solo scraping HTML del MEM
   python main.py --consenso         # validación por consenso multifuente
   python main.py --historico        # solo importar histórico
@@ -130,14 +128,6 @@ def _ejecutar_modulo(nombre: str, funcion) -> dict:
 # Funciones de colección (wrappers con cfg)
 # ──────────────────────────────────────────────
 
-def ejecutar_precios_mem(cfg: dict = None) -> dict:
-    """Wrapper para precios_mem.ejecutar que pasa la config."""
-    from collector.precios_mem import ejecutar as _ejecutar
-
-    # Patch: necesitamos pasar cfg a guardar_precios_en_db, pero ejecutar() no lo hace directamente. La solución es setear un global temporal o modificar el módulo. Para mantener compatibilidad, usamos la versión que ya funciona (precios_mem.ejecutar usa su propia carga de config).
-    return _ejecutar()
-
-
 def ejecutar_mem_html(cfg: dict = None) -> dict:
     """Wrapper para mem_html.ejecutar (Playwright HTML scraping)."""
     from collector.mem_html import ejecutar as _ejecutar
@@ -217,7 +207,6 @@ def ejecutar_todo(cfg: dict = None, exportar: bool = False) -> list[dict]:
     logger.info("=" * 60)
 
     modulos = [
-        ("precios_mem", ejecutar_precios_mem),
         ("mem_html", ejecutar_mem_html),
         ("consenso_precios", ejecutar_consenso),
         ("historico", ejecutar_historico),
@@ -490,7 +479,6 @@ def main():
         epilog="""\
 Ejemplos:
   python main.py --all                  Ejecuta todos los colectores
-  python main.py --precios-mem          Solo precios MEM actuales
   python main.py --historico            Solo importar histórico (XLSX)
   python main.py --petroleo             Solo WTI (OilPriceAPI)
   python main.py --noticias             Solo feeds RSS
@@ -502,7 +490,6 @@ Ejemplos:
     parser.add_argument(
         "--all", action="store_true", help="Ejecutar todos los colectores"
     )
-    parser.add_argument("--precios-mem", action="store_true", help="Precios MEM actuales (PDF)")
     parser.add_argument("--mem-html", action="store_true", help="Precios MEM HTML (Playwright)")
     parser.add_argument(
         "--consenso", action="store_true",
@@ -526,7 +513,7 @@ Ejemplos:
     args = parser.parse_args()
 
     # Si no se especifica nada, ejecutar todo por defecto
-    if not any([args.all, args.precios_mem, args.mem_html, args.consenso,
+    if not any([args.all, args.mem_html, args.consenso,
                 args.consenso_retry, args.historico, args.petroleo, args.noticias,
                 args.alternos]):
         args.all = True
@@ -535,8 +522,6 @@ Ejemplos:
 
     # Ejecutar colectores solicitados
     modulos_activas = []
-    if args.all or args.precios_mem:
-        modulos_activas.append(("precios_mem", ejecutar_precios_mem))
     if args.all or args.mem_html:
         modulos_activas.append(("mem_html", ejecutar_mem_html))
     if args.all or args.alternos:

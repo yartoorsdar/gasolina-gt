@@ -8,7 +8,7 @@ Flujo:
   1. Navegar a la pagina del MEM con Playwright (headless)
   2. Esperar a que se rendericen las tablas
   3. Extraer datos de Autoservicio y Servicio Completo
-  4. Guardar en DB (misma estructura que precios_mem.py)
+  4. Guardar en DB (tabla precios: fecha, producto, precio, fuente, fetched_at)
 
 Requiere: pip install playwright && playwright install chromium
 """
