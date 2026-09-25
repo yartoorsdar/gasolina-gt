@@ -34,13 +34,19 @@ jobs:
           New-Item -ItemType Directory -Force -Path "data\inbox\historico"
           New-Item -ItemType Directory -Force -Path "logs"
 
-      - name: Run PDF + historico + export JSONs
+      - name: Validar feeds RSS
+        continue-on-error: true
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python scripts/validar_feeds.py
+
+      - name: Run PDF + historico + GPP + petróleo + noticias + export JSONs
         env:
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
           OILPRICEAPI_KEY: ${{ secrets.OILPRICEAPI_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          python collector/main.py --precios-mem --historico --export
+          python collector/main.py --precios-mem --historico --alternos --petroleo --noticias --export
 
       - name: Commit and push updated JSONs
         shell: bash
@@ -53,7 +59,8 @@ jobs:
           if git diff --cached --quiet; then
             echo "::notice::No changes to commit."
           else
+            git pull --rebase origin main || true
             git commit -m "Weekly update: precios MEM PDF [skip ci]"
-            git push
+            git push origin main || true
             echo "::notice::OK JSONs pushed"
           fi

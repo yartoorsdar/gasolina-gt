@@ -59,7 +59,7 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 - `noticias_llm: {titulos_es_hoy, total_hoy}` — diagnóstico del pipeline LLM (ground truth desde DB). Si `titulos_es_hoy` es 0 tras un run, leer el log del job en Actions (`[noticias] Lote OK/Fallback OK/Error LLM`).
 - `ultimas_noticias[]` trae `titulo_es`/`categoria`/`relevancia` (1-5, impacto GT)/`resumen_es` del LLM Gemini cuando hay `GEMINI_API_KEY`; si no, `relevancia` es null y el dashboard ordena por fecha. Top 5 = `relevancia` desc, luego fecha desc (`agruparNoticias`).
 - Semáforo (`analizarImpactoPetrolero`): el mensaje siempre cierra con `Motivo: <noticia de mayor peso>` (fundamento en pocas palabras).
-- **Product names**: `'superior'`, `'regular'`, `'diésel'` (single s, accent on e). Dashboard normalizes `'diessel'` → `'diésel'`. Collectors/tests use `'diessel'` without accent — known inconsistency.
+- **Product names**: canónicos `'superior'`, `'regular'`, `'diésel'`, `'wti'`. `db.canon_producto()` normaliza al insertar (`diessel`/`diesel`→`diésel`, `super`→`superior`) — el Diésel ya no desaparece del export. Dashboard también normaliza por si acaso.
 - **Sort order**: R, S, D via `Map` (NOT `indexOf()` which is unstable in V8 on Windows).
 - **Chart rendering**: `renderHistorial()` MUST be called AFTER `contentEl.style.display = 'block'`. While container is hidden (`display:none`), `getBoundingClientRect()` returns 0×0 and canvas draws at wrong size.
 - **Date display**: Takes max `fecha` across all products, NOT `precios[0].fecha` (which could be any product depending on sort order).
@@ -73,7 +73,8 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 
 ## GitHub Actions workflows (`.github/workflows/`)
 - **daily-update.yml**: cron `0 14 * * *` (14:00 UTC = 08:00 GT), push a main, manual dispatch. Runner `windows-latest`, Python 3.11. Runs `python collector/main.py --alternos --petroleo --noticias --export`. Push con `git pull --rebase origin main || true` + `[skip ci]` (evita loops y races con el trigger de push).
-- **weekly-pdfs.yml**: cron `0 15 * * 1` y `0 15 * * 2` (Lun/Mar 09:00 GT). Runs `python collector/main.py --precios-mem --historico --export`. OJO: no hace `pull --rebase` antes del push — si coincide con el diario puede fallar el push.
+- **weekly-pdfs.yml**: Lun/Mar 09:00 GT. Corre el pipeline COMPLETO (`--precios-mem --historico --alternos --petroleo --noticias --export`): con DB efímera en CI, un run parcial sobrescribiría el dashboard con datos viejos (pasó el 2026-09-24: exportó MEM 2024 y borró noticias). Regla: ningún workflow hace export parcial + push.
+- `resumen.json` trae `precios_actualizados` (bool) + `max_fecha_precios`: guardia de frescura (stale si max fecha > 30 días). Si es false tras un run, revisar colectores.
 
 ## Scheduler (`collector/scheduler.py`)
 ```powershell

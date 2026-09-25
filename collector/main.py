@@ -427,9 +427,28 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
     # quedarían fuera del corte y el dashboard nunca las vería.
     top_noticias = sorted(noticias, key=lambda n: n.get("publicado_at") or "", reverse=True)
     top_noticias = sorted(top_noticias, key=lambda n: n.get("relevancia") or 0, reverse=True)
+    # Guardia de frescura: si lo más nuevo que hay es viejo (ej. un run parcial
+    # solo-MEM con DB efímera), se marca para no presentar 2024 como "actual".
+    from collector.db import hoy_gt as _hoy_gt
+    _hoy = _hoy_gt()
+    _max_fecha = max((p.get("fecha") or "" for p in precios_actuales), default="")
+    try:
+        _dias = (
+            datetime.strptime(_hoy, "%Y-%m-%d") - datetime.strptime(_max_fecha, "%Y-%m-%d")
+        ).days
+    except ValueError:
+        _dias = 999
+    _frescos = bool(precios_actuales) and _dias <= 30
+    if not _frescos:
+        logger.warning(
+            f"[export] PRECIOS DESACTUALIZADOS: max fecha {_max_fecha} "
+            f"(hace {_dias}d, hoy {_hoy}). Revisar colectores."
+        )
     resumen = {
         "actualizado_at": ahora,
         "precios_combustible": combustibles,
+        "precios_actualizados": _frescos,
+        "max_fecha_precios": _max_fecha,
         "petroleo": petroleo_actual,
         "noticias_count": len(noticias),
         "noticias_llm": {"titulos_es_hoy": _es_hoy, "total_hoy": _tot_hoy},

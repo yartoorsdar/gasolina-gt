@@ -25,6 +25,27 @@ def ahora_gt_iso() -> str:
 def hoy_gt() -> str:
     """Fecha actual en Guatemala (YYYY-MM-DD)."""
     return datetime.now(_GT).strftime("%Y-%m-%d")
+
+
+# Nombres canónicos de producto. Los colectores históricos escriben 'diessel'
+# (sin acento); sin normalizar, el export y el consenso lo filtran y el Diésel
+# desaparece del dashboard.
+_PRODUCTOS_CANON = {
+    "diessel": "diésel",
+    "diesel": "diésel",
+    "diésel": "diésel",
+    "super": "superior",
+    "superior": "superior",
+    "regular": "regular",
+    "wti": "wti",
+}
+
+
+def canon_producto(producto: str) -> str:
+    """Normaliza un nombre de producto a su forma canónica."""
+    if not producto:
+        return producto
+    return _PRODUCTOS_CANON.get(producto.strip().lower(), producto.strip())
 from pathlib import Path
 
 
@@ -124,9 +145,13 @@ def insertar_precio(
 ) -> int | None:
     """Inserta o ignora un precio (combustible o petróleo).
 
+    Normaliza el nombre del producto a canónico ('diessel'/'diesel' → 'diésel')
+    para que ningún lector lo pierda por el acento.
+
     Returns:
         id del registro insertado, o None si ya existía (duplicado).
     """
+    producto = canon_producto(producto)
     fetched_at = ahora_gt_iso()
     cursor = conn.execute(
         "INSERT OR IGNORE INTO precios (fecha, producto, precio, fuente, fetched_at) VALUES (?, ?, ?, ?, ?)",
