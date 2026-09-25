@@ -73,7 +73,7 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 
 ## GitHub Actions workflows (`.github/workflows/`)
 - **daily-update.yml**: cron `0 14 * * *` (14:00 UTC = 08:00 GT), push a main, manual dispatch. Runner `windows-latest`, Python 3.11. Runs `python collector/main.py --alternos --petroleo --noticias --export`. Push con `git pull --rebase origin main || true` + `[skip ci]` (evita loops y races con el trigger de push).
-- **weekly-pdfs.yml**: Lun/Mar 09:00 GT. Corre el pipeline COMPLETO (`--precios-mem --historico --alternos --petroleo --noticias --export`): con DB efímera en CI, un run parcial sobrescribiría el dashboard con datos viejos (pasó el 2026-09-24: exportó MEM 2024 y borró noticias). Regla: ningún workflow hace export parcial + push.
+- ~~weekly-pdfs.yml~~ eliminado (2026-09-25): corría pipeline parcial y con DB efímera sobrescribía el dashboard con datos viejos. Solo queda `daily-update.yml`.
 - `resumen.json` trae `precios_actualizados` (bool) + `max_fecha_precios`: guardia de frescura (stale si max fecha > 30 días). Si es false tras un run, revisar colectores.
 
 ## Scheduler (`collector/scheduler.py`)
