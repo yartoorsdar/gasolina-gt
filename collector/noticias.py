@@ -514,6 +514,8 @@ def _traducir_fallback(items: list[dict]) -> int:
         if not titulo or _ya_es(titulo, it.get("source_url", "")):
             if titulo:
                 it["titulo_es"] = titulo[:120]
+                it.setdefault("categoria", "otro")
+                it["relevancia"] = _relevancia_keywords(titulo, it.get("summary", ""))
             continue
         try:
             import time as _time

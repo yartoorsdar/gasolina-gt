@@ -9,11 +9,11 @@ python serve.py                             # dashboard at http://localhost:8089
 ```
 
 ## Architecture
-- `collector/*.py` — data collectors: `db.py` (schema + `ahora_gt_iso()`/`hoy_gt()` + `canon_producto()`), `impuestos.py`, `mem_html.py`, `fuentes_alternas.py`, `consenso_precios.py`, `importar_historico.py`, `petroleo.py`, `noticias.py`, `main.py`, `scheduler.py` (`precios_mem.py` eliminado: ya no se buscan precios en PDFs del MEM)
+- `collector/*.py` — `db.py` (schema + `ahora_gt_iso()`/`hoy_gt()` + `canon_producto()`), `impuestos.py`, `mem_html.py`, `fuentes_alternas.py`, `consenso_precios.py`, `importar_historico.py`, `petroleo.py`, `noticias.py`, `main.py`, `scheduler.py` (`precios_mem.py` eliminado)
 - `web/index.html` — single-file dashboard (CSS+JS vanilla, no build step)
 - `index.html` — copy of web/index.html at repo root (Vercel serves this at `/`)
-- `data/export/*.json` — 7 JSON files consumed by dashboard: `resumen.json`, `consolidado.json`, `precios_combustible.json`, `petroleo.json`, `historial_precios.json`, `historial_petroleo.json`, `noticias.json`
-- `data/historial.db` — SQLite DB with tables: `precios` (single table for ALL prices), `noticias`, `ejecuciones`
+- `data/export/*.json` — `main.py:exportar_json` genera 6 (NO genera `consolidado.json`; el archivo en repo está congelado): `resumen.json`, `precios_combustible.json`, `petroleo.json`, `historial_precios.json`, `historial_petroleo.json`, `noticias.json`
+- `data/historial.db` — SQLite, NOT in git (ephemeral in CI): `precios`, `noticias`, `ejecuciones`
 
 ## DB schema (single-table)
 ```sql
@@ -23,7 +23,7 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 ```
 
 ## Timezone (Guatemala = UTC-6, sin DST)
-- **Backend**: NUNCA `datetime.now().strftime("...-06:00")` ingenuo — en el runner GitHub (reloj UTC) queda 6h adelantado. Usar `datetime.now(timezone(timedelta(hours=-6)))` o los helpers `ahora_gt_iso()` / `hoy_gt()` de `collector/db.py`.
+- **Backend**: NUNCA `datetime.now().strftime("...-06:00")` ingenuo — en el runner GitHub (reloj UTC) queda 6h adelantado. Usar `ahora_gt_iso()` / `hoy_gt()` de `collector/db.py`. Sin red (worldtimeapi fallaba en CI).
 - **Noticias**: `parsedate_to_datetime()` devuelve aware (GMT) — convertir con `.astimezone(_GT)` antes de etiquetar `-06:00`, no solo reformatear.
 
 ## Tax formula
@@ -40,13 +40,15 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 ## Petróleo (OilPriceAPI — solo WTI)
 - Endpoint: `https://api.oilpriceapi.com/v1/prices/latest?by_code=WTI_CRUDE_USD`
 - Key vía `OILPRICEAPI_KEY` (secreto GitHub + `.env`, ver `.env.example`)
-- La doc vieja de "EIA API v2 / DCOILWTICO / EIA_API_KEY" ya no aplica al código actual
+- OJO: `config.json → petroleo.series.wti = "DCOILWTICO"` es resto de la era EIA, nadie lo lee — no revivir EIA
 
 ## LLM noticias (Gemini nativo; Groq de respaldo)
 - `config.json → llm`: `base_url https://generativelanguage.googleapis.com/v1beta`, `model gemini-3.6-flash`
 - Key: secreto `GEMINI_API_KEY` (fallback `GROK_API_KEY`, luego `llm.api_key`) vía `collector/noticias.py:_obtener_api_key`
-- Auto-detecta proveedor por `base_url` (Gemini nativo vs OpenAI-compatible con Bearer). Groq bloquea IPs de Actions → no usar como primario.
-- Lote de 15 (round-robin por feed) + fallback traductor MyMemory sin key + relevancia keywords; `_sanear_error` quita `key=***` del diagnóstico público (`noticias_llm` en resumen.json)
+- Auto-detecta proveedor por `base_url` (Gemini nativo vs OpenAI-compatible con Bearer). Groq 401 desde IPs de Actions (misma key OK en local, sha verificado) → no usar como primario.
+- Gemini nuevo da `402 Payment Required` (cuota/billing agotado) → la traducción real la hace el **fallback MyMemory sin key** (verificado: 15 `titulo_es` ES en run 2026-09-25) + relevancia keywords (`_relevancia_keywords`, réplica del semáforo).
+- OJO `_traducir_fallback`: la rama `_ya_es` (feeds ES) también debe asignar `categoria`/`relevancia` o esas filas quedan fuera del top-10 por relevancia.
+- Lote de 15 (round-robin por feed) + pausas anti-429; `_sanear_error` quita `key=***` del diagnóstico público (`noticias_llm: {titulos_es_hoy,total_hoy,error,key_fp}` en resumen.json)
 
 ## XLSX parser (importar_historico.py)
 - Fixed column indices: A=FECHA, C=Superior, D=Regular, E=Diésel
@@ -57,31 +59,33 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 - **Reads from GitHub raw** (not local files): `https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export/resumen.json`
 - JSON properties: `precios_combustible`, `petroleo`, `ultimas_noticias`, `noticias_count`, `actualizado_at` — NOT `data.precios`
 - `noticias_llm: {titulos_es_hoy, total_hoy}` — diagnóstico del pipeline LLM (ground truth desde DB). Si `titulos_es_hoy` es 0 tras un run, leer el log del job en Actions (`[noticias] Lote OK/Fallback OK/Error LLM`).
-- `ultimas_noticias[]` trae `titulo_es`/`categoria`/`relevancia` (1-5, impacto GT)/`resumen_es` del LLM Gemini cuando hay `GEMINI_API_KEY`; si no, `relevancia` es null y el dashboard ordena por fecha. Top 5 = `relevancia` desc, luego fecha desc (`agruparNoticias`).
+- `ultimas_noticias[]` trae `titulo_es`/`categoria`/`relevancia` (1-5, impacto GT)/`resumen_es` del LLM cuando hay key; si no, `relevancia` es null y el dashboard ordena por fecha. Top 5 = `relevancia` desc, luego fecha desc (`agruparNoticias`).
 - Semáforo (`analizarImpactoPetrolero`): el mensaje siempre cierra con `Motivo: <noticia de mayor peso>` (fundamento en pocas palabras).
-- **Product names**: canónicos `'superior'`, `'regular'`, `'diésel'`, `'wti'`. `db.canon_producto()` normaliza al insertar (`diessel`/`diesel`→`diésel`, `super`→`superior`) — el Diésel ya no desaparece del export. Dashboard también normaliza por si acaso.
+- **Product names**: canónicos `'superior'`, `'regular'`, `'diésel'`, `'wti'`. `db.canon_producto()` normaliza al insertar (`diessel`/`diesel`→`diésel`, `super`→`superior`). Dashboard también normaliza por si acaso.
 - **Sort order**: R, S, D via `Map` (NOT `indexOf()` which is unstable in V8 on Windows).
 - **Chart rendering**: `renderHistorial()` MUST be called AFTER `contentEl.style.display = 'block'`. While container is hidden (`display:none`), `getBoundingClientRect()` returns 0×0 and canvas draws at wrong size.
 - **Date display**: Takes max `fecha` across all products, NOT `precios[0].fecha` (which could be any product depending on sort order).
-- **Time extraction**: si `fetched_at` trae offset local (`-06:00`) se muestra tal cual (`slice(11,16)`); solo se restan 6h si viene en UTC puro (`Z` o `+00:00`). El backend ahora emite GT tz-aware, así que el caso normal es mostrar directo. Do NOT use `new Date()` parsing — the runner clock offset is unreliable.
-- **Anti-flicker móvil**: cero animaciones `infinite` en el `<style>` inline (precios y borde del barril son estáticos; solo queda el `prefers-reduced-motion` guard). En `style-glass.css` el fondo mesh y `border-shimmer` se apagan con `@media (max-width:768px),(pointer:coarse)`. Resize con debounce 250ms que redibuja charts en estado final — NUNCA reiniciar `start*Animation` en resize (en móvil cada scroll = resize por la barra del navegador). Un solo listener global, no uno por render.
+- **Time extraction**: si `fetched_at` trae offset local (`-06:00`) se muestra tal cual (`slice(11,16)`); solo se restan 6h si viene en UTC puro (`Z` o `+00:00`). El backend emite GT tz-aware, así que el caso normal es mostrar directo. Do NOT use `new Date()` parsing — the runner clock offset is unreliable.
+- **Anti-flicker móvil**: cero animaciones `infinite` en el `<style>` inline (precios y borde del barril son estáticos; pulso permitido solo vía `opacity`). En `style-glass.css` el fondo mesh y `border-shimmer` se apagan con `@media (max-width:768px),(pointer:coarse)`. Resize con debounce 250ms que redibuja charts en estado final — NUNCA reiniciar `start*Animation` en resize (en móvil cada scroll = resize por la barra del navegador). Un solo listener global, no uno por render.
 
 ## Vercel deployment
 - `vercel.json`: static build with cache headers for JSON files (max-age=60) and HTML (max-age=300). OJO: esos headers casi no aplican — el dashboard lee de `raw.githubusercontent.com` (`GITHUB_RAW` en el JS), no de Vercel.
 - `_redirects` (`/* /web/index.html 200`) es sintaxis Netlify — Vercel lo ignora. `_routes.json` (sintaxis Azure SWA) también es muerto en Vercel.
-- **Two index.html**: `web/index.html` (source of truth), `index.html` at root (copy for Vercel `/`). Always keep them in sync. La copia raíz usa `sprites/barrel-oil.png` (relativa a raíz); la de `web/` usa `../sprites/`.
+- **Two index.html**: `web/index.html` (source of truth), `index.html` at root (copy for Vercel `/`). Always keep them in sync. La copia raíz usa `sprites/barrel-oil.png` y `iconos/favicon.*` (relativas a raíz); la de `web/` usa `../sprites/`, `../iconos/`.
 
-## GitHub Actions workflows (`.github/workflows/`)
-- **daily-update.yml**: cron `0 14 * * *` (14:00 UTC = 08:00 GT), push a main, manual dispatch. Runner `windows-latest`, Python 3.11. Runs `python collector/main.py --alternos --petroleo --noticias --export`. Push con `git pull --rebase origin main || true` + `[skip ci]` (evita loops y races con el trigger de push).
-- ~~weekly-pdfs.yml~~ eliminado (2026-09-25): corría pipeline parcial y con DB efímera sobrescribía el dashboard con datos viejos. Solo queda `daily-update.yml`.
+## GitHub Actions (`.github/workflows/daily-update.yml` — único workflow)
+- cron `0 14 * * *` (nominal 08:00 GT; en la práctica GitHub gratis lo ejecuta ~18:2x UTC), push a main, manual dispatch. Runner `windows-latest`, Python 3.11. Runs `python collector/main.py --alternos --petroleo --noticias --export`.
+- `concurrency: daily-update-global` (sin cancel) serializa schedule+push+dispatch.
+- Push step: orden add → diff → **commit → pull --rebase → push HEAD:main**, SIN `|| true` (un rechazo queda rojo, no se pierde en silencio).
+- `[skip ci]` en commits de docs/UI para no disparar runs. Sin `[skip ci]` el push dispara el workflow (útil para validar cambios de colectores).
+- Regla: ningún workflow hace export parcial + push (con DB efímera eso sobrescribe el dashboard con datos viejos).
 - `resumen.json` trae `precios_actualizados` (bool) + `max_fecha_precios`: guardia de frescura (stale si max fecha > 30 días). Si es false tras un run, revisar colectores.
 
 ## Scheduler (`collector/scheduler.py`)
 ```powershell
 python scheduler.py --run-all                  # one-shot execution + export
 python scheduler.py --schedule 3600            # repeat every N seconds (foreground)
-python scheduler.py --export-task "name"       # generate Windows Task Scheduler XML
-python scheduler.py --install-task             # install directly in Windows Task Scheduler
+python scheduler.py --export-task NOMBRE --interval-min N  # genera XML (ver --install-task/--uninstall-task)
 ```
 
 ## Testing
@@ -97,3 +101,4 @@ python scheduler.py --install-task             # install directly in Windows Tas
 3. `collector/main.py` — orchestrator and JSON export logic
 4. `web/index.html` — dashboard HTML/CSS/JS (single file)
 5. `PROGRESS.md` — history of decisions and bugs
+6. `.opencode/skills/gasolina-gt/SKILL.md` — staged-build rules (hablar español, un stage por ciclo con checkpoint, nunca inventar datos/URLs, PROGRESS.md al día)
