@@ -56,6 +56,7 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 ## Dashboard data contract (`web/index.html`)
 - **Reads from GitHub raw** (not local files): `https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export/resumen.json`
 - JSON properties: `precios_combustible`, `petroleo`, `ultimas_noticias`, `noticias_count`, `actualizado_at` — NOT `data.precios`
+- `noticias_llm: {titulos_es_hoy, total_hoy}` — diagnóstico del pipeline LLM (ground truth desde DB). Si `titulos_es_hoy` es 0 tras un run, leer el log del job en Actions (`[noticias] Lote OK/Fallback OK/Error LLM`).
 - `ultimas_noticias[]` trae `titulo_es`/`categoria`/`relevancia` (1-5, impacto GT)/`resumen_es` del LLM Gemini cuando hay `GEMINI_API_KEY`; si no, `relevancia` es null y el dashboard ordena por fecha. Top 5 = `relevancia` desc, luego fecha desc (`agruparNoticias`).
 - Semáforo (`analizarImpactoPetrolero`): el mensaje siempre cierra con `Motivo: <noticia de mayor peso>` (fundamento en pocas palabras).
 - **Product names**: `'superior'`, `'regular'`, `'diésel'` (single s, accent on e). Dashboard normalizes `'diessel'` → `'diésel'`. Collectors/tests use `'diessel'` without accent — known inconsistency.

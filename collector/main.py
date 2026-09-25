@@ -402,6 +402,17 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
     # ── 5. Noticias recientes (últimos 30 días) ──
     noticias_rows = obtener_noticias(conn, dias=30)
     noticias = [_fila_a_dict(r) for r in noticias_rows]
+    # Diagnóstico LLM (ground truth desde DB: cuántas de hoy traen español).
+    # Visible en resumen.json → permite validar el pipeline sin leer logs de CI.
+    from collector.db import hoy_gt as _hoy_gt
+    _hoy = _hoy_gt()
+    _tot_hoy = conn.execute(
+        "SELECT COUNT(*) FROM noticias WHERE substr(fetched_at,1,10)=?", (_hoy,)
+    ).fetchone()[0]
+    _es_hoy = conn.execute(
+        "SELECT COUNT(*) FROM noticias WHERE substr(fetched_at,1,10)=? AND titulo_es IS NOT NULL",
+        (_hoy,),
+    ).fetchone()[0]
     path_noticias = export_dir / "noticias.json"
     _write_json(
         path_noticias, {"noticias": noticias, "total_registros": len(noticias)}
@@ -421,6 +432,7 @@ def exportar_json(cfg: dict = None, output_dir: Path = None, conn: sqlite3.Conne
         "precios_combustible": combustibles,
         "petroleo": petroleo_actual,
         "noticias_count": len(noticias),
+        "noticias_llm": {"titulos_es_hoy": _es_hoy, "total_hoy": _tot_hoy},
         "ultimas_noticias": top_noticias[:10],  # top 10 por relevancia + fecha
     }
 

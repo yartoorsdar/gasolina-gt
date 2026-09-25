@@ -246,43 +246,54 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
 # ──────────────────────────────────────────────
 
 def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | None:
-    """Un request al LLM. Soporta Gemini nativo y OpenAI-compatible."""
-    try:
-        if "generativelanguage" in base_url:
-            resp = requests.post(
-                f"{base_url}/models/{model}:generateContent?key={api_key}",
-                json={
-                    "contents": [{
-                        "parts": [
-                            {"text": "Eres un analista de energia. Responde SOLO con JSON.\n\n" + prompt}
-                        ]
-                    }],
-                    "generationConfig": {"temperature": 0.3},
-                },
-                timeout=60,
-            )
-            resp.raise_for_status()
-            data = resp.json()
-            return data["candidates"][0]["content"]["parts"][0]["text"]
-        # OpenAI compatible (DeepSeek, etc.)
-        resp = requests.post(
-            f"{base_url}/v1/chat/completions",
-            json={
+    """Un request al LLM. Soporta Gemini nativo y OpenAI-compatible.
+
+    Intenta primero en modo JSON estricto y, si falla, reintenta plano.
+    """
+    for json_mode in (True, False):
+        try:
+            if "generativelanguage" in base_url:
+                gen_cfg: dict = {"temperature": 0.3}
+                if json_mode:
+                    gen_cfg["responseMimeType"] = "application/json"
+                resp = requests.post(
+                    f"{base_url}/models/{model}:generateContent?key={api_key}",
+                    json={
+                        "contents": [{
+                            "parts": [
+                                {"text": "Eres un analista de energia. Responde SOLO con JSON.\n\n" + prompt}
+                            ]
+                        }],
+                        "generationConfig": gen_cfg,
+                    },
+                    timeout=60,
+                )
+                resp.raise_for_status()
+                data = resp.json()
+                return data["candidates"][0]["content"]["parts"][0]["text"]
+            # OpenAI compatible (DeepSeek, etc.)
+            body: dict = {
                 "model": model,
                 "messages": [
                     {"role": "system", "content": "Eres un analista de energia. Responde solo con JSON."},
                     {"role": "user", "content": prompt},
                 ],
                 "temperature": 0.3,
-            },
-            timeout=60,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        return data["choices"][0]["message"]["content"]
-    except Exception as exc:
-        print(f"[noticias] Error LLM: {exc}")
-        return None
+            }
+            if json_mode:
+                body["response_format"] = {"type": "json_object"}
+            resp = requests.post(
+                f"{base_url}/v1/chat/completions",
+                json=body,
+                timeout=60,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            return data["choices"][0]["message"]["content"]
+        except Exception as exc:
+            print(f"[noticias] Error LLM (json_mode={json_mode}): {exc}")
+            continue
+    return None
 
 
 def _seleccion_rotativa(items: list[dict], por_feed: int = 3, max_total: int = 15) -> list[dict]:
@@ -363,7 +374,14 @@ def clasificar_lote_llm(items: list[dict], cfg: dict = None) -> list[dict | None
         print(f"[noticias] Lote: respuesta sin array. Respuesta: {content[:300]!r}")
         return [None] * len(items)
 
-    por_i = {o.get("i"): o for o in arr if isinstance(o, dict)}
+    por_i: dict[int, dict] = {}
+    for o in arr:
+        if not isinstance(o, dict):
+            continue
+        try:
+            por_i[int(o.get("i"))] = o
+        except (TypeError, ValueError):
+            continue
     salida: list[dict | None] = []
     for i, it in enumerate(items):
         o = por_i.get(i)
@@ -532,6 +550,8 @@ def ejecutar(cfg: dict = None) -> dict:
     if _llm_available(cfg):
         candidatos = _seleccion_rotativa(all_items, por_feed=3, max_total=15)
         print(f"[noticias] Clasificando lote de {len(candidatos)} con LLM...")
+        import time as _time
+        _time.sleep(2)  # respirar antes del lote (anti rate-limit)
         lote = clasificar_lote_llm(candidatos, cfg)
         n_ok = sum(1 for c in (lote or []) if c)
         if lote and n_ok:
