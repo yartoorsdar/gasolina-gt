@@ -245,8 +245,17 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
 # LLM en lote (1 request para N noticias) + selección rotativa
 # ──────────────────────────────────────────────
 
-# Último error del LLM (diagnóstico exportado a resumen.json)
+# Último error del LLM (diagnóstico exportado a resumen.json).
+# NUNCA incluir la API key: se sanea antes de guardar.
 _last_llm_error: str | None = None
+
+
+def _sanear_error(exc: Exception) -> str:
+    """Recorta el error y elimina secretos (key=...) antes de exponerlo."""
+    import re as _re
+    txt = str(exc)
+    txt = _re.sub(r"key=[^&\s'\"]+", "key=***", txt)
+    return txt[:160]
 
 
 def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | None:
@@ -291,7 +300,7 @@ def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | Non
         return data["choices"][0]["message"]["content"]
     except Exception as exc:
         global _last_llm_error
-        _last_llm_error = str(exc)[:160]
+        _last_llm_error = _sanear_error(exc)
         print(f"[noticias] Error LLM: {exc}")
         return None
 
@@ -557,19 +566,26 @@ def ejecutar(cfg: dict = None) -> dict:
         _time.sleep(2)  # respirar antes del lote (anti rate-limit)
         lote = clasificar_lote_llm(candidatos, cfg)
         n_ok = sum(1 for c in (lote or []) if c)
+        if not n_ok and "429" in (_last_llm_error or ""):
+            # Rate-limit: esperar 65s y reintentar el lote UNA vez
+            import time as _time
+            print("[noticias] 429: esperando 65s y reintentando lote...")
+            _time.sleep(65)
+            lote = clasificar_lote_llm(candidatos, cfg)
+            n_ok = sum(1 for c in (lote or []) if c)
         if lote and n_ok:
             print(f"[noticias] Lote OK: {n_ok}/{len(candidatos)} clasificadas")
             for item, cls in zip(candidatos, lote):
                 if cls:
                     item.update(cls)
         else:
-            # Fallback: uno por uno (máximo 5, con pausa anti rate-limit).
-            # Sin reintentos pegados: a 5s por llamada quedamos en ~12 RPM.
+            # Fallback: uno por uno (máximo 3, con pausa anti rate-limit).
+            # Sin reintentos pegados: a 10s por llamada quedamos en ~6 RPM.
             import time as _time
             print("[noticias] Lote falló, reintentando uno por uno...")
             ok = 0
-            for item in candidatos[:5]:
-                _time.sleep(5)
+            for item in candidatos[:3]:
+                _time.sleep(10)
                 classification = clasificar_noticia_llm(
                     item["title"], item.get("summary", ""), cfg
                 )
