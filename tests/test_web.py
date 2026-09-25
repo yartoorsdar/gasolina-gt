@@ -105,3 +105,13 @@ def test_iconos_pixel_art_animados_solo_por_opacidad():
             linea = next(l for l in html.splitlines() if f"@keyframes px{n} " in l)
             assert set(re.findall(r"([a-z-]+)\s*:", linea)) == {"opacity"}, f"{archivo}: px{n} anima algo más que opacity"
         assert re.search(r"prefers-reduced-motion: reduce\)\s*\{\s*\.px \.pxf", html), f"{archivo}: sin reducir movimiento"
+
+
+def test_grafica_principal_30_dias_por_fecha():
+    from pathlib import Path
+    raiz = Path(__file__).resolve().parent.parent
+    for archivo in ("index.html", "web/index.html"):
+        html = (raiz / archivo).read_text(encoding="utf-8")
+        assert "Precios de los últimos 30 días" in html, archivo
+        assert "ultimaHist - diaUTC(f) <= 29" in html, f"{archivo}: ventana no es de 30 días por fecha"
+        assert "padLeft + chartW * fraccionX(j)" in html, f"{archivo}: eje X no proporcional a la fecha"

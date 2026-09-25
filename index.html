@@ -1468,9 +1468,15 @@
             var cssH = targetH;
             ctx.clearRect(0, 0, cssW, cssH);
 
-            // ── Datos: últimos 7 días REALES del historial (consolidado.json) ──
+            // ── Datos: últimos 30 días REALES del historial (consolidado.json) ──
             var dailyData = window.__weekHist || [];
             if (dailyData.length === 0) return;
+            // Eje X proporcional a la FECHA: en 30 días hay tramos semanales y
+            // tramos diarios; por índice, 7 días sin dato se verían como uno solo.
+            var diaDe = function(iso) { return Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10)) / 86400000; };
+            var t0 = dailyData[0].iso ? diaDe(dailyData[0].iso) : 0;
+            var tSpan = dailyData[0].iso ? Math.max(diaDe(dailyData[dailyData.length - 1].iso) - t0, 1) : Math.max(dailyData.length - 1, 1);
+            var fraccionX = function(j) { return dailyData[j].iso ? (diaDe(dailyData[j].iso) - t0) / tSpan : j / tSpan; };
 
             var products = [
                 { key: 'diésel', label: 'Diésel' },
@@ -1480,7 +1486,7 @@
 
             // ── MEDIR TEXTOS para calcular márgenes exactos ──
             ctx.font = 'bold 13px -apple-system, sans-serif';
-            var titleW = ctx.measureText('Precios de los últimos 7 días').width;
+            var titleW = ctx.measureText('Precios de los últimos 30 días').width;
 
             ctx.font = '9px -apple-system, sans-serif';
             // Medir labels Y (Q50, Q48...)
@@ -1530,7 +1536,7 @@
             ctx.fillStyle = '#c8d8f5';
             ctx.font = 'bold 13px -apple-system, sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('Precios de los últimos 7 días', centerX, titleY);
+            ctx.fillText('Precios de los últimos 30 días', centerX, titleY);
 
             // ── Leyenda RGB animada ──
             var legendY = chartTop - 6;
@@ -1613,7 +1619,7 @@
                     var val = d[prod.key];
                     if (val == null) continue;
 
-                    var x = padLeft + (chartW / Math.max(dailyData.length - 1, 1)) * j;
+                    var x = padLeft + chartW * fraccionX(j);
                     var y = chartTop + chartH - ((val - minPrice) / (maxPrice - minPrice)) * chartH;
 
                     linePoints.push({ x: x, y: y, val: val });
@@ -1696,13 +1702,17 @@
                 ctx.shadowBlur = 0;
             }
 
-            // ── Labels X (fechas) centrados bajo cada punto ──
+            // ── Labels X (fechas): desde la más reciente hacia atrás, dejando
+            // al menos 34 px entre etiquetas para que no se encimen ──
             ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
             ctx.font = '9px -apple-system, sans-serif';
             ctx.textAlign = 'center';
-            for (var j = 0; j < dailyData.length; j++) {
-                var xLabel = padLeft + (chartW / Math.max(dailyData.length - 1, 1)) * j;
+            var ultimaEtiqueta = Infinity;
+            for (var j = dailyData.length - 1; j >= 0; j--) {
+                var xLabel = padLeft + chartW * fraccionX(j);
+                if (ultimaEtiqueta - xLabel < 34) continue;
                 ctx.fillText(dailyData[j].fecha, xLabel, cssH - bottomSpace + 20);
+                ultimaEtiqueta = xLabel;
             }
 
             // ── Fuente centrada abajo ──
@@ -1742,7 +1752,7 @@
 
             var trendEl = document.getElementById('weeklyTrendText');
             if (trendEl) {
-                var html = '<div class="trend-text"><strong>Cambios esta semana:</strong><br>';
+                var html = '<div class="trend-text"><strong>Cambios en 30 días:</strong><br>';
                 for (var ti = 0; ti < trendItems.length; ti++) {
                     if (ti > 0) html += ' &nbsp;|&nbsp; ';
                     html += trendItems[ti];
@@ -2505,16 +2515,22 @@
                     anios.get(a.anio)[codigo] = a.promedio;
                 }
             }
-            // Últimos 7 días con dato de algún combustible: [{fecha, superior, regular, diésel}]
+            // Últimos 30 días (por fecha) con dato de algún combustible:
+            // [{fecha: 'DD/Mes', iso, superior, regular, diésel}]
             const dias = new Map();
             for (const [codigo, p] of Object.entries(P)) {
                 if (p.categoria !== 'combustible') continue;
                 for (const h of p.historial || []) {
-                    if (!dias.has(h.fecha)) dias.set(h.fecha, { fecha: fmtDiaMes(h.fecha) });
+                    if (!dias.has(h.fecha)) dias.set(h.fecha, { fecha: fmtDiaMes(h.fecha), iso: h.fecha });
                     dias.get(h.fecha)[codigo] = h.precio;
                 }
             }
-            const combustiblesHistorial = [...dias.keys()].sort().slice(-7).map(f => dias.get(f));
+            const fechasHist = [...dias.keys()].sort();
+            const diaUTC = f => Date.UTC(+f.slice(0, 4), +f.slice(5, 7) - 1, +f.slice(8, 10)) / 86400000;
+            const ultimaHist = fechasHist.length ? diaUTC(fechasHist[fechasHist.length - 1]) : 0;
+            const combustiblesHistorial = fechasHist
+                .filter(f => ultimaHist - diaUTC(f) <= 29)
+                .map(f => dias.get(f));
             return {
                 resumen: {
                     actualizado_at: c.actualizado_at,
