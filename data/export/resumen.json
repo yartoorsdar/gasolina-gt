@@ -1,174 +1,28 @@
 {
-  "actualizado_at": "2026-09-25T01:07:55+00:00",
+  "actualizado_at": "2026-09-25T03:33:23+00:00",
   "precios_combustible": [
     {
-      "id": 2,
-      "fecha": "2026-09-24",
-      "producto": "diésel",
-      "precio": 50.5,
-      "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T19:06:55-06:00"
-    },
-    {
-      "id": 1,
-      "fecha": "2026-09-24",
-      "producto": "superior",
-      "precio": 45.74,
-      "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T19:06:55-06:00"
-    },
-    {
-      "id": 4,
-      "fecha": "2026-09-05",
+      "id": 958,
+      "fecha": "2024-10-27",
       "producto": "regular",
-      "precio": 41.09,
-      "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T19:06:55-06:00"
-    }
-  ],
-  "petroleo": [
+      "precio": 28.62,
+      "fuente": "Ministerio de Energía y Minas",
+      "fetched_at": "2026-09-24T21:33:19-06:00"
+    },
     {
-      "referencia": "wti",
-      "fecha": "2026-09-24",
-      "usd_barril": 93.77,
-      "fuente": "OilPriceAPI"
+      "id": 957,
+      "fecha": "2024-10-27",
+      "producto": "superior",
+      "precio": 30.11,
+      "fuente": "Ministerio de Energía y Minas",
+      "fetched_at": "2026-09-24T21:33:19-06:00"
     }
   ],
-  "noticias_count": 105,
+  "petroleo": [],
+  "noticias_count": 0,
   "noticias_llm": {
-    "titulos_es_hoy": 1,
-    "total_hoy": 113
+    "titulos_es_hoy": 0,
+    "total_hoy": 0
   },
-  "ultimas_noticias": [
-    {
-      "id": 21,
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQcThldmdWd2c5aHdfck8zYk1XMWtsa3kweWlXaTNQWEpnV2NIUHhiNTh2cHhoSndCV2Z2QkhwNl9DZEJObFJha2pXWG1JcUZpVXlZU1RqQ2diZUJ0YVV2alRBRmRCampGOGdQQnM4UVV2R2ZMQ2p6WC1QSk5iOGJEWDZ2YXdaSzlLeGtZYnNuVld5MGZESG1tenNaMFlFcExWeVhlZjJBTlJOeHNmVkhBYzFkejJkNno5VWEwU05hRHU4NGlqT1U5UXcxUzU?oc=5",
-      "titulo": "Saudi Arabia ramps up Gulf oil exports after pipeline attack, data shows - Reuters",
-      "titulo_es": "Arabia Saudita eleva exportaciones de petróleo tras ataque a oleoducto",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-21T12:51:41-06:00",
-      "categoria": "geopolitica",
-      "pais": null,
-      "relevancia": 4,
-      "resumen_es": "Arabia Saudita aumentó sus exportaciones de petróleo desde el Golfo tras un ataque a un oleoducto, buscando mantener el suministro global y evitar alzas drásticas en los precios de los combustibles.",
-      "fetched_at": "2026-09-24T19:07:54-06:00"
-    },
-    {
-      "id": 81,
-      "url": "https://oilprice.com/Energy/Crude-Oil/5-Energy-Stocks-Positioned-for-a-Prolonged-Iran-War.html",
-      "titulo": "5 Energy Stocks Positioned for a Prolonged Iran War",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T18:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "For the first time since the Iran war began, JPMorgan says it no longer has a clear baseline for how the oil market gets out of it. The bank had previously worked on the assumption that rising oil prices and the economic damage they caused would eventually put limits on how far the conflict could go. Six months into the war, JPMorgan says many of those thresholds have already been crossed without producing a clear exit. Roughly 10 million barrels per day of oil supply has been disrupted, while t",
-      "fetched_at": "2026-09-24T19:07:54-06:00"
-    },
-    {
-      "id": 61,
-      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOeXR1bW9EYlJQUWFIZUxvZnprNHpNUFZQNTJDQ2NXZmVzRFQ4N2Y1OWZIZnNxVS1xQzB3X2VuVG5GZFB6S0l0ZlNseTRRSFk1OHp2dHdVa2JCaXB5Vm9XT2FuWE9ETzlKcjlCYWRZOXhpcXlOcENueTRISE5uTE50V0JBZHRoZmY4R0FMZkV6UV9GdjEwOTV1S2xHZnduSDlKMnFhYnllM0hEbmlrMW9Jek4xWW1wLTlzYTU0MGE1ZWZReFFNeTFnQ1dnMjVlWkUzVk9scjVHVHNzenEwMGZLRVk2aG56STY5U2R4dnJVM2xWRGgxbHNlZ2tPWVR6cHpS?oc=5",
-      "titulo": "El Congreso de Guatemala despeja el camino para que Arévalo decida entre dos mecanismos de control de precios de combustibles - Infobae",
-      "titulo_es": null,
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-24T17:03:59-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMigAJBVV95cUxOeXR1bW9EYlJQUWFIZUxvZnprNHpNUFZQNTJDQ2NXZmVzRFQ4N2Y1OWZIZnNxVS1xQzB3X2VuVG5GZFB6S0l0ZlNseTRRSFk1OHp2dHdVa2JCaXB5Vm9XT2FuWE9ETzlKcjlCYWRZOXhpcXlOcENueTRISE5uTE50V0JBZHRoZmY4R0FMZkV6UV9GdjEwOTV1S2xHZnduSDlKMnFhYnllM0hEbmlrMW9Jek4xWW1wLTlzYTU0MGE1ZWZReFFNeTFnQ1dnMjVlWkUzVk9scjVHVHNzenEwMGZLRVk2aG56STY5U2R4dnJVM2xWRGgxbHNlZ2tPWVR6cHpS?oc=5\" target=\"_blank\">El Congreso de Guatemala despeja el camino para que Arévalo decida entre dos mecani",
-      "fetched_at": "2026-09-24T19:07:54-06:00"
-    },
-    {
-      "id": 82,
-      "url": "https://oilprice.com/Energy/Crude-Oil/Soaring-Freight-Costs-Make-Japans-Crude-Imports-the-Worlds-Most-Expensive.html",
-      "titulo": "Soaring Freight Costs Make Japan’s Crude Imports the World’s Most Expensive",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T17:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Oil is increasingly getting more expensive before it even reaches a refinery. Freight now accounts for roughly a fifth of the cost of a crude cargo, turning the tanker market into a major driver of the price buyers pay. At the center of the squeeze is the very large crude carrier, or VLCC, the supertanker that can move about 2 million barrels in a single voyage. Amidst stranded Gulf and Red Sea supplies, these vessels are spending more time at sea as refiners search farther afield for supplies. ",
-      "fetched_at": "2026-09-24T19:07:54-06:00"
-    },
-    {
-      "id": 83,
-      "url": "https://oilprice.com/Energy/Energy-General/Why-a-US-Diesel-Export-Ban-Wont-Lower-Fuel-Prices.html",
-      "titulo": "Why a U.S. Diesel Export Ban Won’t Lower Fuel Prices",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T16:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "As the national average diesel price soared to a record $6.52 per gallon, the Trump Administration sent mixed signals this week about restricting U.S. diesel exports.  The White House has denied that an export ban is in the works, even if President Donald Trump and Treasury Secretary Scott Bessent had hinted at the possibility hours earlier.  Rumors and reports of a diesel ban sparked vehement opposition from the U.S. energy and manufacturing industries, while analysts say restricting exports wo",
-      "fetched_at": "2026-09-24T19:07:54-06:00"
-    },
-    {
-      "id": 84,
-      "url": "https://oilprice.com/Energy/Energy-General/Can-the-World-Hit-35-Electrification-by-2035.html",
-      "titulo": "Can the World Hit 35% Electrification by 2035?",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T15:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "The energy crisis caused by the United States and Israel’s war in Iran could be just what the world needed to achieve 35 percent electrification by 2035. This goal, “35 by ‘35” has emerged as a key platform of the upcoming COP31 United Nations climate conference, to be held in Antalya, Türkiye, from November 9 to 20, 2026. And experts say that a number of factors, including volatile oil and gas markets stemming from the prolonged closure of the Strait of Hormuz, have put that goal within “striki",
-      "fetched_at": "2026-09-24T19:07:54-06:00"
-    },
-    {
-      "id": 2,
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPSTJMTUpOdnRremU0Nm1HcVlQSEliNjJsM1kzWGZMUzVZbURqYzVKeUdha3NxZk1GajA4eG4zdjdfSUNPT08zbUkzbzNwLUVZNXRWdG5DS0Q2Nk1uNGxjTHpWTXVJcG81NXlORklrN2xRb2htOHFob0NCUEZMY2tGUmJuQm9neHgwWWNncE1ER0Z4ME42STZPaVp4RzUtT1NGQ2RjU3Z0R1NCSFlOM1VrcFVmdW0xdlBaVHloVmlFSmV6WDNjVmkxQ2x1N0pZZ9IB6AFBVV95cUxQQUR2SC14dUl3akhBNzRJa1lacE9oeHdXWHE4QV9HcGFJOUlyNTNPOGdHRW1KZmhNdjRUd2Q1bkpuZlVpTVJ0RWNJcVhHcm9Ud0JPdi13bnEzbUFpTUxDWTlNRHlyTl80c05hUk4wNHh3YWdUenl5X29FRllxMnlLd2o4b3NVY2VHUmJJblc0elFKanR6Um5JTkFadXM2dEZqWm1WWGpZa1A2UmdSLVpiRzBGTWJ0OENBbHlDa25VLWhOWGZSZXZvYXcwN1NHdEVCaGxJaVlaZW5jbnE2d2w0OHNnRUFvWmU0?oc=5",
-      "titulo": "El petróleo volvió a subir tras un nuevo ataque de los hutíes contra Arabia Saudita - Infobae",
-      "titulo_es": null,
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-24T14:57:39-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxPSTJMTUpOdnRremU0Nm1HcVlQSEliNjJsM1kzWGZMUzVZbURqYzVKeUdha3NxZk1GajA4eG4zdjdfSUNPT08zbUkzbzNwLUVZNXRWdG5DS0Q2Nk1uNGxjTHpWTXVJcG81NXlORklrN2xRb2htOHFob0NCUEZMY2tGUmJuQm9neHgwWWNncE1ER0Z4ME42STZPaVp4RzUtT1NGQ2RjU3Z0R1NCSFlOM1VrcFVmdW0xdlBaVHloVmlFSmV6WDNjVmkxQ2x1N0pZZ9IB6AFBVV95cUxQQUR2SC14dUl3akhBNzRJa1lacE9oeHdXWHE4QV9HcGFJOUlyNTNPOGdHRW1KZmhNdjRUd2Q1bkpuZlVpTVJ0RWNJcVhHcm9Ud0JPdi13bnEzbUFpTUxDWTlNRHlyTl80c05hUk4wNHh3YWdUenl5X29FRllxMn",
-      "fetched_at": "2026-09-24T19:07:54-06:00"
-    },
-    {
-      "id": 85,
-      "url": "https://oilprice.com/Alternative-Energy/Biofuels/Global-Biofuels-Output-Could-Surge-70-Amid-Energy-Crisis.html",
-      "titulo": "Global Biofuels Output Could Surge 70% Amid Energy Crisis",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T14:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Global biofuels production is projected to surge by nearly 70% by 2030 as major producing countries raise their fuel-blending mandates in response to the energy crisis triggered by the Middle East conflict, a study co-authored by British think tank Chatham House and Forest Stewardship Council has found.  Biofuels like ethanol, which typically originate from food crops or animal feed and are mixed with gasoline or diesel, become more cost-competitive as crude oil and gasoline prices spike. Severa",
-      "fetched_at": "2026-09-24T19:07:54-06:00"
-    },
-    {
-      "id": 11,
-      "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxQcWoteFRVaXE1bXhEZXpHaVJPUXFfQXFrTXdZV2RJNHllU2pEX21BdG5BNHNpUkhqLWt5T0xJYmxkZnJFU1lveEc4SGVzQS1vNTl5dVJGcS1oMDFOeHo5amNhMU9rYTkzaTBwVVNfRk5oWDliQ3ZrMFlSOU9XZWtnbGhxNUVnU3NDb1RQeDBPcUJ1ck9QcGd6RUg5eGx3UGtzYkY1eWR6MGswYmdqem5seElZSVJEakxkbmRycWdrRlJnYy1VaXFTd0E1Y2pSMk0zN3YteTVpMDlDWEl2MzVGWElMTkZxaVpJRWN2NkxOTHVwdzNRa2NTRzFhcnVtQXhNSFE?oc=5",
-      "titulo": "El petróleo brent cierra sobre los US$106 tras un nuevo ataque de los hutíes a Araba Saudí - BioBioChile",
-      "titulo_es": null,
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-24T13:51:02-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiggJBVV95cUxQcWoteFRVaXE1bXhEZXpHaVJPUXFfQXFrTXdZV2RJNHllU2pEX21BdG5BNHNpUkhqLWt5T0xJYmxkZnJFU1lveEc4SGVzQS1vNTl5dVJGcS1oMDFOeHo5amNhMU9rYTkzaTBwVVNfRk5oWDliQ3ZrMFlSOU9XZWtnbGhxNUVnU3NDb1RQeDBPcUJ1ck9QcGd6RUg5eGx3UGtzYkY1eWR6MGswYmdqem5seElZSVJEakxkbmRycWdrRlJnYy1VaXFTd0E1Y2pSMk0zN3YteTVpMDlDWEl2MzVGWElMTkZxaVpJRWN2NkxOTHVwdzNRa2NTRzFhcnVtQXhNSFE?oc=5\" target=\"_blank\">El petróleo brent cierra sobre los US$106 tras un nuevo ataque de los hutíes a A",
-      "fetched_at": "2026-09-24T19:07:54-06:00"
-    },
-    {
-      "id": 32,
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQMnMxWEhFczdxZWUxNFRCTFlBNVJodmVRRHJoTDJyNldfTm8tTjJNb3dUTWd6UTJvaFhvRktUS29EaTlSYlB4RGY5eHB6ZC1JdDNhZ3JBMXJucTVaZThFSVN3V3cwOXRWamtUejliUDlHWkZ5UVZfenVEVlVqbGMxY1QzZF8xQnpYTnBzbklQY1ozSU1qVVZlbUl3?oc=5",
-      "titulo": "The Kuibyshev Oil Refinery in Russia has halted operations following a drone attack – Reuters - UA.NEWS",
-      "titulo_es": null,
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-24T13:42:09-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxQMnMxWEhFczdxZWUxNFRCTFlBNVJodmVRRHJoTDJyNldfTm8tTjJNb3dUTWd6UTJvaFhvRktUS29EaTlSYlB4RGY5eHB6ZC1JdDNhZ3JBMXJucTVaZThFSVN3V3cwOXRWamtUejliUDlHWkZ5UVZfenVEVlVqbGMxY1QzZF8xQnpYTnBzbklQY1ozSU1qVVZlbUl3?oc=5\" target=\"_blank\">The Kuibyshev Oil Refinery in Russia has halted operations following a drone attack – Reuters</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">UA.NEWS</font>",
-      "fetched_at": "2026-09-24T19:07:54-06:00"
-    }
-  ]
+  "ultimas_noticias": []
 }
