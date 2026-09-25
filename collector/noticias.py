@@ -44,9 +44,21 @@ HEADERS = {
 # Proveedores LLM soportados (auto-detectado por base_url):
 # - Gemini nativo (generativelanguage) con GEMINI_API_KEY ← proveedor activo
 # - OpenAI-compatible (Groq, DeepSeek...) con GROK_API_KEY (respaldo)
-def _obtener_api_key(llm_cfg: dict) -> str:
-    """API key desde secrets (.env/CI) con fallback a config."""
-    for var in ("GEMINI_API_KEY", "GROK_API_KEY"):
+def _obtener_api_key(llm_cfg: dict, base_url: str = "") -> str:
+    """API key según proveedor (auto-detectado por base_url), con fallback a config.
+
+    - Gemini nativo (generativelanguage) → GEMINI_API_KEY primero.
+    - OpenAI-compatible (Groq/DeepSeek…) → GROK_API_KEY: las keys de Gemini
+      NO funcionan en ese esquema (auth Bearer distinta); si ambas secrets
+      existen, usar la equivocada da 401 solo en el POST.
+    """
+    if "generativelanguage" in (base_url or ""):
+        candidates = ("GEMINI_API_KEY", "GROK_API_KEY")
+    elif (base_url or "").strip():
+        candidates = ("GROK_API_KEY",)
+    else:
+        candidates = ("GEMINI_API_KEY", "GROK_API_KEY")
+    for var in candidates:
         val = os.environ.get(var, "").strip()
         if val:
             return val
@@ -169,7 +181,7 @@ def _llm_available(cfg: dict = None) -> bool:
     llm_cfg = cfg.get("llm", {})
     base_url = llm_cfg.get("base_url", "").strip().rstrip("/")
     model = llm_cfg.get("model", "").strip()
-    api_key = _obtener_api_key(llm_cfg)
+    api_key = _obtener_api_key(llm_cfg, base_url)
 
     if not base_url or not model:
         return False
@@ -231,7 +243,7 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
     llm_cfg = cfg.get("llm", {})
     base_url = llm_cfg.get("base_url", "").strip()
     model = llm_cfg.get("model", "").strip()
-    api_key = _obtener_api_key(llm_cfg)
+    api_key = _obtener_api_key(llm_cfg, base_url)
 
     if not base_url or not model:
         return None
@@ -324,6 +336,8 @@ def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | Non
         # OpenAI compatible (Groq, DeepSeek, etc.). Con response_format
         # json_object en el primer intento (gpt-oss lo soporta); si falla,
         # reintento plano. Sin reintentos pegados extra (ver llamador).
+        # OJO: Groq exige Authorization Bearer incluso para POST (sin header
+        # da 401 aunque el ping GET /v1/models haya pasado con la misma key).
         for _json_mode in (True, False):
             try:
                 body: dict = {
@@ -339,6 +353,7 @@ def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | Non
                 resp = requests.post(
                     f"{base_url}/v1/chat/completions",
                     json=body,
+                    headers={"Authorization": f"Bearer {api_key}"},
                     timeout=60,
                 )
                 resp.raise_for_status()
@@ -387,7 +402,7 @@ def clasificar_lote_llm(items: list[dict], cfg: dict = None) -> list[dict | None
     llm_cfg = cfg.get("llm", {})
     base_url = llm_cfg.get("base_url", "").strip()
     model = llm_cfg.get("model", "").strip()
-    api_key = _obtener_api_key(llm_cfg)
+    api_key = _obtener_api_key(llm_cfg, base_url)
     if not base_url or not model or not api_key:
         return [None] * len(items)
 
@@ -501,24 +516,39 @@ def _relevancia_keywords(titulo: str, resumen: str) -> int:
 def _traducir_fallback(items: list[dict]) -> int:
     """Traduce al español lo que el LLM no alcanzó (MyMemory, sin API key).
 
-    Presupuesto anónimo ~5000 caracteres/día: primero títulos (baratos),
-    luego resúmenes solo mientras quede cuota. Titulares ya-español
-    (feeds ES) se omiten para no gastar cuota.
+    Dos pasadas sobre el mismo lote:
+      1. Titulares YA en español (feeds ES): etiquetado GRATIS (titulo_es +
+         categoria + relevancia por keywords), sin gastar cuota de traducción.
+         Antes esta rama competía con las EN y, al agotarse la cuota, un
+         `break` dejaba a las restantes SIN categoría ni relevancia.
+      2. Titulares EN vía MyMemory: presupuesto anónimo ~5000 caracteres/día —
+         primero títulos (baratos), luego resúmenes solo mientras quede cuota.
     """
+    import time as _time
+
+    # Pasada 1: ya-español → etiquetado gratuito (nunca consume cuota)
+    for it in items:
+        if it.get("titulo_es"):
+            continue
+        titulo = (it.get("title") or "").strip()
+        if not titulo:
+            continue
+        if _ya_es(titulo, it.get("source_url", "")):
+            it["titulo_es"] = titulo[:120]
+            it.setdefault("categoria", "otro")
+            it["relevancia"] = _relevancia_keywords(titulo, it.get("summary", ""))
+
+    # Pasada 2: EN vía MyMemory; cuota agotada o red caída → detenerse sin
+    # afectar lo ya etiquetado en la pasada 1.
     ok = 0
     gasto = 0
     for it in items:
         if it.get("titulo_es"):
             continue
         titulo = (it.get("title") or "").strip()
-        if not titulo or _ya_es(titulo, it.get("source_url", "")):
-            if titulo:
-                it["titulo_es"] = titulo[:120]
-                it.setdefault("categoria", "otro")
-                it["relevancia"] = _relevancia_keywords(titulo, it.get("summary", ""))
+        if not titulo:
             continue
         try:
-            import time as _time
             es = _mymemory(titulo[:450])
             if not es:
                 break  # cuota agotada o red caída: no insistir
@@ -756,10 +786,13 @@ def ejecutar(cfg: dict = None) -> dict:
                     ok += 1
             print(f"[noticias] Fallback OK: {ok} clasificadas")
 
-    # Fallback determinístico (sin API key): traduce lo que el LLM no alcanzó
+    # Fallback determinístico (sin API key): traduce lo que el LLM no alcanzó.
+    # Selección rotativa (no pendientes[:15]): con la lista cruda el primer feed
+    # ES se comía todo el lote y los títulos EN —los únicos que NECESITAN
+    # traducción— nunca entraban; de ahí "15 titulos_es, todos del mismo feed".
     pendientes = [it for it in all_items if not it.get("titulo_es")]
     if pendientes:
-        n_tr = _traducir_fallback(pendientes[:15])
+        n_tr = _traducir_fallback(_seleccion_rotativa(pendientes, por_feed=3, max_total=15))
         print(f"[noticias] Traductor fallback: {n_tr} traducidas")
 
     # Guardar en DB

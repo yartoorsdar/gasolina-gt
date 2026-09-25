@@ -42,13 +42,13 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 - Key vía `OILPRICEAPI_KEY` (secreto GitHub + `.env`, ver `.env.example`)
 - OJO: `config.json → petroleo.series.wti = "DCOILWTICO"` es resto de la era EIA, nadie lo lee — no revivir EIA
 
-## LLM noticias (Gemini nativo; Groq de respaldo)
-- `config.json → llm`: `base_url https://generativelanguage.googleapis.com/v1beta`, `model gemini-3.6-flash`
-- Key: secreto `GEMINI_API_KEY` (fallback `GROK_API_KEY`, luego `llm.api_key`) vía `collector/noticias.py:_obtener_api_key`
-- Auto-detecta proveedor por `base_url` (Gemini nativo vs OpenAI-compatible con Bearer). Groq 401 desde IPs de Actions (misma key OK en local, sha verificado) → no usar como primario.
-- Gemini nuevo da `402 Payment Required` (cuota/billing agotado) → la traducción real la hace el **fallback MyMemory sin key** (verificado: 15 `titulo_es` ES en run 2026-09-25) + relevancia keywords (`_relevancia_keywords`, réplica del semáforo).
-- OJO `_traducir_fallback`: la rama `_ya_es` (feeds ES) también debe asignar `categoria`/`relevancia` o esas filas quedan fuera del top-10 por relevancia.
-- Lote de 15 (round-robin por feed) + pausas anti-429; `_sanear_error` quita `key=***` del diagnóstico público (`noticias_llm: {titulos_es_hoy,total_hoy,error,key_fp}` en resumen.json)
+## LLM noticias (Groq primario desde 2026-09-25; Gemini en pausa por 402)
+- `config.json → llm`: `base_url https://api.groq.com/openai`, `model openai/gpt-oss-120b` — OpenAI-compatible vía `_llm_post` (json_object primero, plano si el modelo no lo soporta; POST con header `Authorization: Bearer` OBLIGATORIO sin él da 401 aunque el ping GET /v1/models haya pasado).
+- Key por proveedor (`_obtener_api_key(llm_cfg, base_url)`): Gemini nativo → `GEMINI_API_KEY`; OpenAI-compatible → `GROK_API_KEY` (las keys de Gemini NO sirven en ese esquema; si ambas secrets existen y no se discrimina, el POST usa la equivocada). Fallback siempre a `llm.api_key`.
+- Verificado desde runner windows-latest (workflow test-apis, 2026-09-25): Groq `/v1/models` → 200 con 11 modelos (gpt-oss-120b/20b, qwen3.8-27b…). El "Groq 401 desde IPs de Actions" era de la key vieja; esta sí responde.
+- Gemini `gemini-3.6-flash` da `402 prepayment credits depleted` (free tier agotada) → en pausa hasta renovar key/billing en AI Studio o resetear cuota. Si recupera, revertir config.json a generativelanguage.
+- Fallback MyMemory sin key (`_traducir_fallback`, 2 pasadas): 1) titulares ya-español etiquetados GRATIS (titulo_es + categoria + `_relevancia_keywords` — SIEMPRE asignar esas keys o las filas quedan fuera del top-10); 2) EN vía MyMemory hasta agotar cuota (~5000 chars/día). El lote de traducción usa `_seleccion_rotativa(pendientes, por_feed=3, max_total=15)` — NUNCA `pendientes[:15]` (el primer feed ES se comía todo el lote y los EN nunca entraban).
+- Lote LLM de 15 (round-robin por feed) + pausas anti-429; `_sanear_error` quita `key=***` del diagnóstico público (`noticias_llm: {titulos_es_hoy,total_hoy,error,key_fp}` en resumen.json)
 
 ## XLSX parser (importar_historico.py)
 - Fixed column indices: A=FECHA, C=Superior, D=Regular, E=Diésel
@@ -73,8 +73,9 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 - `_redirects` (`/* /web/index.html 200`) es sintaxis Netlify — Vercel lo ignora. `_routes.json` (sintaxis Azure SWA) también es muerto en Vercel.
 - **Two index.html**: `web/index.html` (source of truth), `index.html` at root (copy for Vercel `/`). Always keep them in sync. La copia raíz usa `sprites/barrel-oil.png` y `iconos/favicon.*` (relativas a raíz); la de `web/` usa `../sprites/`, `../iconos/`.
 
-## GitHub Actions (`.github/workflows/daily-update.yml` — único workflow)
-- cron `0 14 * * *` (nominal 08:00 GT; en la práctica GitHub gratis lo ejecuta ~18:2x UTC), push a main, manual dispatch. Runner `windows-latest`, Python 3.11. Runs `python collector/main.py --alternos --petroleo --noticias --export`.
+## GitHub Actions (`daily-update.yml` produce datos; `test-apis.yml` solo diagnostica)
+- **daily-update**: cron `0 14 * * *` (nominal 08:00 GT; en la práctica GitHub gratis lo ejecuta ~18:2x UTC), push a main, manual dispatch. Runner `windows-latest`, Python 3.11. Runs `python collector/main.py --alternos --petroleo --noticias --export`.
+- **test-apis** (solo `workflow_dispatch`): corre `scripts/test_apis.py` contra el LLM primario de config.json (prompt mínimo), Groq secundario y MyMemory — sin DB ni export ni push. Mismo runner que daily-update: si la API responde ahí, responde en el run diario. Job rojo = ningún LLM completó el prompt (contrato del script).
 - `concurrency: daily-update-global` (sin cancel) serializa schedule+push+dispatch.
 - Push step: orden add → diff → **commit → pull --rebase → push HEAD:main**, SIN `|| true` (un rechazo queda rojo, no se pierde en silencio).
 - `[skip ci]` en commits de docs/UI para no disparar runs. Sin `[skip ci]` el push dispara el workflow (útil para validar cambios de colectores).

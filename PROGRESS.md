@@ -36,13 +36,14 @@ Estado: todas las etapas implementadas y validadas
 - EIA API v2 endpoint: https://api.eia.gov/v2/petroleum/pri/spt/data/. Series Brent RBRTE, WTI RWTC. Gasolina/diésel US Gulf Coast pendientes de metadata.
 - Feeds RSS: Google News ES y EN, oilprice.com, EIA todayinenergy.xml. Probar cada feed antes de Etapa 6.
 - Revisión workflow daily-update (2026-09-25): paso commit reordenado a add → diff → **commit → pull --rebase → push HEAD:main** sin `|| true` (antes el rebase fallaba en silencio con índice dirty y los pushes rechazados eran invisibles). Concurrency global `daily-update-global` (sin cancel) serializa schedule+push+dispatch. `actualizado_at` ahora usa `ahora_gt_iso()` de collector/db.py (GT tz-aware determinista, sin red); worldtimeapi.org fallaba en CI y dejaba UTC (+00:00). `.debug_time.txt` movido a `logs/`. Ojo: cron corre ~18:2x UTC real (GitHub Actions gratis) → datos llegan ~12:20 GT, no 08:00. Secreto `GROK_API_KEY` devuelve 401 → clasificación LLM apagada; títulos ES cubiertos por fallback MyMemory. Falta actualizar el secreto en GitHub.
+- Debug pipeline IA (2026-09-25): workflow nuevo **test-apis.yml** (solo dispatch) + `scripts/test_apis.py` — prueba provider-aware del LLM primario de config.json con prompt mínimo, catálogo de modelos, Groq secundario y MyMemory; job rojo = ningún LLM completó el prompt. Hallazgos desde runner real: Gemini `gemini-3.6-flash` da **402 prepayment credits depleted** (free tier agotada, NO bloqueo IP — tiempos normales ~1s) → Groq pasa a **primario**: config.json llm = `api.groq.com/openai` + `openai/gpt-oss-120b` (verificado: `/v1/models` 200 con 11 modelos). Fixes en noticias.py: (a) `_llm_post` rama OpenAI ahora manda `Authorization: Bearer` (sin él 401 en el POST); (b) `_obtener_api_key(llm_cfg, base_url)` discrimina proveedor — Gemini→GEMINI_API_KEY, compatible→GROK_API_KEY; (c) fallback de traducción a 2 pasadas (ES gratis primero, EN vía MyMemory después: antes un `break` por cuota dejaba sin categoría las ES restantes); (d) lote de traducción usa `_seleccion_rotativa(pendientes)` en vez de `pendientes[:15]` — el primer feed ES se comía todo y los EN nunca entraban.
 
 ## Bugs conocidos
 - SQLite UNIQUE inline bug: `CREATE TABLE ... UNIQUE(...)` en executescript() no crea índice implícito en esta versión Windows/SQLite. Se usa CREATE UNIQUE INDEX explícito después de crear tablas. Afecta conectar_temporal() en tests.
 
 ## Pendientes / preguntas abiertas
 - EIA_API_KEY: variable en .env, necesita valor del usuario.
-- LLM base_url/model: valores pendientes para Etapa 6.
+- Gemini (gemini-3.6-flash) en pausa por 402 cuota agotada: renovar key/billing en AI Studio y revertir config.json a generativelanguage cuando vuelva a responder (test-apis lo confirma).
 
 ## Archivos de arranque (bat)
 ### `iniciar.bat` — Dashboard local (puerto 9090)
