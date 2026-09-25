@@ -306,22 +306,34 @@ def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | Non
             resp.raise_for_status()
             data = resp.json()
             return data["candidates"][0]["content"]["parts"][0]["text"]
-        # OpenAI compatible (DeepSeek, etc.)
-        resp = requests.post(
-            f"{base_url}/v1/chat/completions",
-            json={
-                "model": model,
-                "messages": [
-                    {"role": "system", "content": "Eres un analista de energia. Responde solo con JSON."},
-                    {"role": "user", "content": prompt},
-                ],
-                "temperature": 0.3,
-            },
-            timeout=60,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        return data["choices"][0]["message"]["content"]
+        # OpenAI compatible (Groq, DeepSeek, etc.). Con response_format
+        # json_object en el primer intento (gpt-oss lo soporta); si falla,
+        # reintento plano. Sin reintentos pegados extra (ver llamador).
+        for _json_mode in (True, False):
+            try:
+                body: dict = {
+                    "model": model,
+                    "messages": [
+                        {"role": "system", "content": "Eres un analista de energia. Responde solo con JSON."},
+                        {"role": "user", "content": prompt},
+                    ],
+                    "temperature": 0.3,
+                }
+                if _json_mode:
+                    body["response_format"] = {"type": "json_object"}
+                resp = requests.post(
+                    f"{base_url}/v1/chat/completions",
+                    json=body,
+                    timeout=60,
+                )
+                resp.raise_for_status()
+                data = resp.json()
+                return data["choices"][0]["message"]["content"]
+            except Exception as exc:
+                if _json_mode:
+                    print(f"[noticias] json_mode no soportado, reintentando plano: {exc}")
+                    continue
+                raise
     except Exception as exc:
         global _last_llm_error
         _last_llm_error = _sanear_error(exc)
