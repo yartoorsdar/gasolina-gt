@@ -1,21 +1,21 @@
 {
-  "actualizado_at": "2026-09-25T05:52:59+00:00",
+  "actualizado_at": "2026-09-25T00:48:38-06:00",
   "precios_combustible": [
     {
       "id": 2,
-      "fecha": "2026-09-24",
+      "fecha": "2026-09-25",
       "producto": "diésel",
       "precio": 50.5,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T23:52:12-06:00"
+      "fetched_at": "2026-09-25T00:47:50-06:00"
     },
     {
       "id": 1,
-      "fecha": "2026-09-24",
+      "fecha": "2026-09-25",
       "producto": "superior",
       "precio": 45.74,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T23:52:12-06:00"
+      "fetched_at": "2026-09-25T00:47:50-06:00"
     },
     {
       "id": 4,
@@ -23,16 +23,16 @@
       "producto": "regular",
       "precio": 41.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T23:52:12-06:00"
+      "fetched_at": "2026-09-25T00:47:50-06:00"
     }
   ],
   "precios_actualizados": true,
-  "max_fecha_precios": "2026-09-24",
+  "max_fecha_precios": "2026-09-25",
   "petroleo": [
     {
       "referencia": "wti",
-      "fecha": "2026-09-24",
-      "usd_barril": 92.71,
+      "fecha": "2026-09-25",
+      "usd_barril": 93.0,
       "fuente": "OilPriceAPI"
     }
   ],
@@ -40,15 +40,54 @@
   "noticias_llm": {
     "titulos_es_hoy": 15,
     "total_hoy": 153,
-    "error": "401 Client Error: Unauthorized for url: https://api.groq.com/openai/v1/chat/completions",
+    "error": "402 Client Error: Payment Required for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=***",
     "key_fp": {
-      "GROK_API_KEY": "gsk_*** len=56 sha=d8647ae8",
-      "GEMINI_API_KEY": "AQ.A*** len=53 sha=c7c5b7ea"
+      "GEMINI_API_KEY": "AQ.A*** len=53 sha=c7c5b7ea",
+      "GROK_API_KEY": "gsk_*** len=56 sha=d8647ae8"
     }
   },
   "ultimas_noticias": [
     {
-      "id": 33,
+      "id": 81,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/VLCC-Rates-Hit-Record-127-Million-a-Day-as-Oman-Transfer-Capacity-Maxes-Out.html",
+      "titulo": "VLCC Rates Hit Record $1.27 Million a Day as Oman Transfer Capacity Maxes Out",
+      "titulo_es": null,
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-25T00:17:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Capacity for ship-to-ship transfers of crude oil off the coast of Oman has reached its limits after Saudi Arabia diverted its flows from the port of Yanbu amid Houthi attacks, Reuters has reported, citing unnamed trading sources and analysts. The report said Saudi Arabia has sold some 60 million barrels of crude, to be shipped from the Gulf of Oman after being transferred from smaller carriers to supertankers, for delivery this month and in October. This has tightened an already tight very large",
+      "fetched_at": "2026-09-25T00:48:38-06:00"
+    },
+    {
+      "id": 124,
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPczljd09LSXRVU3VtZTFyLVpzVVVtejZtSUx5RW9QSnAyYXJLNnhWU2FVc2RwUW9xWWxsQ3hEX1hSTjZOb3M2RjEzOUpKbUlWMFlnRVkxcTNZcEg5WkNIM2xFNE9HNmJIdDhHV25BcUIwV3FEdHp4cWQ3Ulp4TXJuMWRlMWpTRlRCeDJlVE9QTzEzR0EtcEU0TlZObw?oc=5",
+      "titulo": "Festines a costillas de nuestros impuestos - Prensa Libre",
+      "titulo_es": null,
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-25T00:02:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMimwFBVV95cUxPczljd09LSXRVU3VtZTFyLVpzVVVtejZtSUx5RW9QSnAyYXJLNnhWU2FVc2RwUW9xWWxsQ3hEX1hSTjZOb3M2RjEzOUpKbUlWMFlnRVkxcTNZcEg5WkNIM2xFNE9HNmJIdDhHV25BcUIwV3FEdHp4cWQ3Ulp4TXJuMWRlMWpTRlRCeDJlVE9QTzEzR0EtcEU0TlZObw?oc=5\" target=\"_blank\">Festines a costillas de nuestros impuestos</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Prensa Libre</font>",
+      "fetched_at": "2026-09-25T00:48:38-06:00"
+    },
+    {
+      "id": 121,
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOOVNwUjN3TE12TUs4R0dTRnNJX3R4QTRpcU1WM09yWVVaajVPZ1ZpdXEydDVWd0RXNmIzWURIQ2p0N09KQlFSZ3FMY2pRQ2xIUTZWUy1wSzRHbUNzN0FhNUI4V2hNN1h6dGExZVNITE5udml4MXRINzNZTUg5WmktaEZ6R2V1UW12M2lEYllOMWJzWDg?oc=5",
+      "titulo": "Oportunistas medran en la ignorancia - Prensa Libre",
+      "titulo_es": null,
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-25T00:00:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMikwFBVV95cUxOOVNwUjN3TE12TUs4R0dTRnNJX3R4QTRpcU1WM09yWVVaajVPZ1ZpdXEydDVWd0RXNmIzWURIQ2p0N09KQlFSZ3FMY2pRQ2xIUTZWUy1wSzRHbUNzN0FhNUI4V2hNN1h6dGExZVNITE5udml4MXRINzNZTUg5WmktaEZ6R2V1UW12M2lEYllOMWJzWDg?oc=5\" target=\"_blank\">Oportunistas medran en la ignorancia</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Prensa Libre</font>",
+      "fetched_at": "2026-09-25T00:48:38-06:00"
+    },
+    {
+      "id": 32,
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPSTZUMjRiOGJmTlZhYkpYSFdNNFhYc0Z6Rk1od09OWm9VekJ5bFZ2SmxSZGZmTjhLd3ltRlNReHJ2ZGQzdkVUcVdVZ0dPSmc1cmtFaEctR0VMRE1MOGo5dlBLNV9oZmxiZC1RLUxmOFBFc013ZUhxR3ZkV1dzRFVDY1MyUlk2RFpoVU1wazg0Yl9TcE5sVllrbQ?oc=5",
       "titulo": "Novoshakhtinsk oil refinery suspends operations after drone attack - Caliber.Az",
       "titulo_es": null,
@@ -58,10 +97,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxPSTZUMjRiOGJmTlZhYkpYSFdNNFhYc0Z6Rk1od09OWm9VekJ5bFZ2SmxSZGZmTjhLd3ltRlNReHJ2ZGQzdkVUcVdVZ0dPSmc1cmtFaEctR0VMRE1MOGo5dlBLNV9oZmxiZC1RLUxmOFBFc013ZUhxR3ZkV1dzRFVDY1MyUlk2RFpoVU1wazg0Yl9TcE5sVllrbQ?oc=5\" target=\"_blank\">Novoshakhtinsk oil refinery suspends operations after drone attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Caliber.Az</font>",
-      "fetched_at": "2026-09-24T23:52:58-06:00"
+      "fetched_at": "2026-09-25T00:48:38-06:00"
     },
     {
-      "id": 81,
+      "id": 82,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/Brent-Set-for-Weekly-Gain-as-Houthi-Attacks-Rattle-Saudi-Oil-Supply.html",
       "titulo": "Brent Set for Weekly Gain as Houthi Attacks Rattle Saudi Oil Supply",
       "titulo_es": null,
@@ -71,7 +110,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "Crude oil prices dipped from Thursday's close earlier today but Brent crude was on track for a weekly gain on continued concern about the security of supply from the Middle East. The concern persists despite reports about a possible deal between the United States and Iran, as well as estimates of oil flows out of the Strait of Hormuz. At the time of writing, Brent crude was trading at $105.65 per barrel, up from around $102 per barrel on Monday. West Texas Intermediate, on the other hand, is end",
-      "fetched_at": "2026-09-24T23:52:58-06:00"
+      "fetched_at": "2026-09-25T00:48:38-06:00"
     },
     {
       "id": 30,
@@ -84,7 +123,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxPV3ZrUHlqNkk1S2l5N0g3YS0zNHl5bEpJcE5ieXFfRXNhY1poMUhqR0VBWGdzSzAxRTB2Sk5FQUxxQzNEVzBFMEsybHJHUjF2dW5xZnpiSG9fcTh5U09WM01WVmZ4dEJRWXR0cHBTUjhvZy0xLVM0Y3NVcTVTQ3FTSHZiRW9oeldLODBHLXpzaUhwNVcwZlBMT1dMZW16NDkzQ095ekVpZFhIUkVId0o0OVV6RUQtZ0FUTlp6eTU0dG1LUmlEc2xtWk1HNGxzem9Oa3lXelRYWW1vUQ?oc=5\" target=\"_blank\">Russia's Novoshakhtinsk oil refinery suspends operations after drone attack, governor says</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">marke",
-      "fetched_at": "2026-09-24T23:52:58-06:00"
+      "fetched_at": "2026-09-25T00:48:38-06:00"
     },
     {
       "id": 23,
@@ -97,10 +136,10 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxNeFd0akhaaFhCeVNSaUh5Y0N2UDd0UldJQmQ4aXl0UkFNWjhxMm82blVmMXNIVG8tVUpKQUhUSFFabUd1a2Iza2FXUWU2RTBrdEJwakg4aTBsZVZKUmVZQkh0Wl9heEdkaEZ0cHQ0WnJQaE1OejMyMEpudzk3X1I4bnVBcnpzMmV3LWh1UTVuOUcxNERKRTJHaHdmZWJJZGNBaEtOTlBkVU1XeklpV0FNUWJ5bW83eWY2dUFnMGExcEpwcXJvOF9XLWxSNGxzZw?oc=5\" target=\"_blank\">Ukrainian forces reportedly strike oil refinery 1,500 kilometers from border, Russian electronics factory</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">The Ky",
-      "fetched_at": "2026-09-24T23:52:58-06:00"
+      "fetched_at": "2026-09-25T00:48:38-06:00"
     },
     {
-      "id": 82,
+      "id": 83,
       "url": "https://oilprice.com/Energy/Crude-Oil/5-Energy-Stocks-Positioned-for-a-Prolonged-Iran-War.html",
       "titulo": "5 Energy Stocks Positioned for a Prolonged Iran War",
       "titulo_es": null,
@@ -110,7 +149,7 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "For the first time since the Iran war began, JPMorgan says it no longer has a clear baseline for how the oil market gets out of it. The bank had previously worked on the assumption that rising oil prices and the economic damage they caused would eventually put limits on how far the conflict could go. Six months into the war, JPMorgan says many of those thresholds have already been crossed without producing a clear exit. Roughly 10 million barrels per day of oil supply has been disrupted, while t",
-      "fetched_at": "2026-09-24T23:52:58-06:00"
+      "fetched_at": "2026-09-25T00:48:38-06:00"
     },
     {
       "id": 61,
@@ -123,59 +162,20 @@
       "pais": null,
       "relevancia": null,
       "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMigAJBVV95cUxOeXR1bW9EYlJQUWFIZUxvZnprNHpNUFZQNTJDQ2NXZmVzRFQ4N2Y1OWZIZnNxVS1xQzB3X2VuVG5GZFB6S0l0ZlNseTRRSFk1OHp2dHdVa2JCaXB5Vm9XT2FuWE9ETzlKcjlCYWRZOXhpcXlOcENueTRISE5uTE50V0JBZHRoZmY4R0FMZkV6UV9GdjEwOTV1S2xHZnduSDlKMnFhYnllM0hEbmlrMW9Jek4xWW1wLTlzYTU0MGE1ZWZReFFNeTFnQ1dnMjVlWkUzVk9scjVHVHNzenEwMGZLRVk2aG56STY5U2R4dnJVM2xWRGgxbHNlZ2tPWVR6cHpS0gGbAkFVX3lxTE8yZ0YtWFpnYl9PNjdKVjlVNXgwLVE5S3BRQkNXQVFYU0hFdHN1VllWQmdHQXpEM0haVlctdEcxRm4tMDR3eTFmc0NrWW",
-      "fetched_at": "2026-09-24T23:52:58-06:00"
+      "fetched_at": "2026-09-25T00:48:38-06:00"
     },
     {
-      "id": 83,
-      "url": "https://oilprice.com/Energy/Crude-Oil/Soaring-Freight-Costs-Make-Japans-Crude-Imports-the-Worlds-Most-Expensive.html",
-      "titulo": "Soaring Freight Costs Make Japan’s Crude Imports the World’s Most Expensive",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T17:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "Oil is increasingly getting more expensive before it even reaches a refinery. Freight now accounts for roughly a fifth of the cost of a crude cargo, turning the tanker market into a major driver of the price buyers pay. At the center of the squeeze is the very large crude carrier, or VLCC, the supertanker that can move about 2 million barrels in a single voyage. Amidst stranded Gulf and Red Sea supplies, these vessels are spending more time at sea as refiners search farther afield for supplies. ",
-      "fetched_at": "2026-09-24T23:52:58-06:00"
-    },
-    {
-      "id": 137,
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1iS2FyM2tvTTlYcFMwWkNBa1BJYzh5T1d0UC1kZXRka0JBUUxqcncweEJDYVBMQV9mQkRYOUVsRjlLNlBkUHQ3bXNqZVZXSkc4R3FoUE83T2twZGpv0gFiQVVfeXFMT1ZrVWF6d2hJb3MtWHRtc1ZRNkdKbVRJWVN4dlZOMmsyNTBkWFlSVTBVZWJuekN5YzYzS0p0R2Q3UmIwTFRCVktjMGRSUWpTSVZObVB6a0tNNmZwdGl1QlJtaEE?oc=5",
-      "titulo": "En video: decenas de delegados abandonan la Asamblea General de la ONU durante la intervención de Netanyahu - BBC",
+      "id": 133,
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPM0Z1N25nRmRjQmhiRXJDMXFTaHgzVHhDSDZmUkdHX0F0MWR1aDZuZ1ZMUTBPZGl1WENRSElvVGJQMW9KMmRqLWcyQ25uY1hHNWNwRFVvb1JUbUY2QVliUlVqRzBrVEctaDFseEd4aVd2MXdLLS1BcElRRnBkdFhjMDQ0Wk9NSWhBZnk5YWh6NkJwMFVQVEhWakZMSmNMLTF4bFllNHd1N1NkZlFjX3Bla2FpWUZ4X2pJWWZpRHJ1SWhxMFBwQ3RuSmRuOVlzeXZ2T2swT3ItXzZPcWpFS2JIRw?oc=5",
+      "titulo": "Xavi y Klopp debutan con empate en la Liga de Naciones: resultados de la jornada - Prensa Libre",
       "titulo_es": null,
       "medio": "Google News ES",
-      "publicado_at": "2026-09-24T16:16:29-06:00",
+      "publicado_at": "2026-09-24T17:00:43-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE1iS2FyM2tvTTlYcFMwWkNBa1BJYzh5T1d0UC1kZXRka0JBUUxqcncweEJDYVBMQV9mQkRYOUVsRjlLNlBkUHQ3bXNqZVZXSkc4R3FoUE83T2twZGpv0gFiQVVfeXFMT1ZrVWF6d2hJb3MtWHRtc1ZRNkdKbVRJWVN4dlZOMmsyNTBkWFlSVTBVZWJuekN5YzYzS0p0R2Q3UmIwTFRCVktjMGRSUWpTSVZObVB6a0tNNmZwdGl1QlJtaEE?oc=5\" target=\"_blank\">En video: decenas de delegados abandonan la Asamblea General de la ONU durante la intervención de Netanyahu</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>",
-      "fetched_at": "2026-09-24T23:52:58-06:00"
-    },
-    {
-      "id": 84,
-      "url": "https://oilprice.com/Energy/Energy-General/Why-a-US-Diesel-Export-Ban-Wont-Lower-Fuel-Prices.html",
-      "titulo": "Why a U.S. Diesel Export Ban Won’t Lower Fuel Prices",
-      "titulo_es": null,
-      "medio": "OilPrice.com",
-      "publicado_at": "2026-09-24T16:00:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "As the national average diesel price soared to a record $6.52 per gallon, the Trump Administration sent mixed signals this week about restricting U.S. diesel exports.  The White House has denied that an export ban is in the works, even if President Donald Trump and Treasury Secretary Scott Bessent had hinted at the possibility hours earlier.  Rumors and reports of a diesel ban sparked vehement opposition from the U.S. energy and manufacturing industries, while analysts say restricting exports wo",
-      "fetched_at": "2026-09-24T23:52:58-06:00"
-    },
-    {
-      "id": 2,
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPSTJMTUpOdnRremU0Nm1HcVlQSEliNjJsM1kzWGZMUzVZbURqYzVKeUdha3NxZk1GajA4eG4zdjdfSUNPT08zbUkzbzNwLUVZNXRWdG5DS0Q2Nk1uNGxjTHpWTXVJcG81NXlORklrN2xRb2htOHFob0NCUEZMY2tGUmJuQm9neHgwWWNncE1ER0Z4ME42STZPaVp4RzUtT1NGQ2RjU3Z0R1NCSFlOM1VrcFVmdW0xdlBaVHloVmlFSmV6WDNjVmkxQ2x1N0pZZ9IB6AFBVV95cUxQQUR2SC14dUl3akhBNzRJa1lacE9oeHdXWHE4QV9HcGFJOUlyNTNPOGdHRW1KZmhNdjRUd2Q1bkpuZlVpTVJ0RWNJcVhHcm9Ud0JPdi13bnEzbUFpTUxDWTlNRHlyTl80c05hUk4wNHh3YWdUenl5X29FRllxMnlLd2o4b3NVY2VHUmJJblc0elFKanR6Um5JTkFadXM2dEZqWm1WWGpZa1A2UmdSLVpiRzBGTWJ0OENBbHlDa25VLWhOWGZSZXZvYXcwN1NHdEVCaGxJaVlaZW5jbnE2d2w0OHNnRUFvWmU0?oc=5",
-      "titulo": "El petróleo volvió a subir tras un nuevo ataque de los hutíes contra Arabia Saudita - Infobae",
-      "titulo_es": "El petróleo volvió a subir tras un nuevo ataque de los hutíes contra Arabia Saudita - Infobae",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-24T15:34:00-06:00",
-      "categoria": null,
-      "pais": null,
-      "relevancia": null,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxPSTJMTUpOdnRremU0Nm1HcVlQSEliNjJsM1kzWGZMUzVZbURqYzVKeUdha3NxZk1GajA4eG4zdjdfSUNPT08zbUkzbzNwLUVZNXRWdG5DS0Q2Nk1uNGxjTHpWTXVJcG81NXlORklrN2xRb2htOHFob0NCUEZMY2tGUmJuQm9neHgwWWNncE1ER0Z4ME42STZPaVp4RzUtT1NGQ2RjU3Z0R1NCSFlOM1VrcFVmdW0xdlBaVHloVmlFSmV6WDNjVmkxQ2x1N0pZZ9IB6AFBVV95cUxQQUR2SC14dUl3akhBNzRJa1lacE9oeHdXWHE4QV9HcGFJOUlyNTNPOGdHRW1KZmhNdjRUd2Q1bkpuZlVpTVJ0RWNJcVhHcm9Ud0JPdi13bnEzbUFpTUxDWTlNRHlyTl80c05hUk4wNHh3YWdUenl5X29FRllxMn",
-      "fetched_at": "2026-09-24T23:52:58-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxPM0Z1N25nRmRjQmhiRXJDMXFTaHgzVHhDSDZmUkdHX0F0MWR1aDZuZ1ZMUTBPZGl1WENRSElvVGJQMW9KMmRqLWcyQ25uY1hHNWNwRFVvb1JUbUY2QVliUlVqRzBrVEctaDFseEd4aVd2MXdLLS1BcElRRnBkdFhjMDQ0Wk9NSWhBZnk5YWh6NkJwMFVQVEhWakZMSmNMLTF4bFllNHd1N1NkZlFjX3Bla2FpWUZ4X2pJWWZpRHJ1SWhxMFBwQ3RuSmRuOVlzeXZ2T2swT3ItXzZPcWpFS2JIRw?oc=5\" target=\"_blank\">Xavi y Klopp debutan con empate en la Liga de Naciones: resultados de la jornada</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Prensa ",
+      "fetched_at": "2026-09-25T00:48:38-06:00"
     }
   ]
 }

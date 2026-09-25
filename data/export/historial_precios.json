@@ -6,7 +6,7 @@
       "producto": "superior",
       "precio": 30.54,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T23:52:12-06:00"
+      "fetched_at": "2026-09-25T00:47:50-06:00"
     },
     {
       "id": 3,
@@ -14,15 +14,15 @@
       "producto": "superior",
       "precio": 43.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T23:52:12-06:00"
+      "fetched_at": "2026-09-25T00:47:50-06:00"
     },
     {
       "id": 1,
-      "fecha": "2026-09-24",
+      "fecha": "2026-09-25",
       "producto": "superior",
       "precio": 45.74,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T23:52:12-06:00"
+      "fetched_at": "2026-09-25T00:47:50-06:00"
     },
     {
       "id": 7,
@@ -30,7 +30,7 @@
       "producto": "regular",
       "precio": 29.53,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T23:52:12-06:00"
+      "fetched_at": "2026-09-25T00:47:50-06:00"
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "producto": "regular",
       "precio": 41.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T23:52:12-06:00"
+      "fetched_at": "2026-09-25T00:47:50-06:00"
     },
     {
       "id": 5,
@@ -46,31 +46,31 @@
       "producto": "diésel",
       "precio": 46.39,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-24T23:52:12-06:00"
+      "fetched_at": "2026-09-25T00:47:50-06:00"
     },
     {
       "id": 2,
-      "fecha": "2026-09-24",
+      "fecha": "2026-09-25",
       "producto": "diésel",
       "precio": 50.5,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-24T23:52:12-06:00"
+      "fetched_at": "2026-09-25T00:47:50-06:00"
     },
     {
       "id": 8,
-      "fecha": "2026-09-24",
+      "fecha": "2026-09-25",
       "producto": "wti",
-      "precio": 92.71,
+      "precio": 93.0,
       "fuente": "OilPriceAPI",
-      "fetched_at": "2026-09-24T23:52:12-06:00"
+      "fetched_at": "2026-09-25T00:47:51-06:00"
     }
   ],
   "productos": [
-    "wti",
-    "regular",
     "superior",
+    "regular",
+    "wti",
     "diésel"
   ],
   "total_registros": 8,
-  "actualizado_at": "2026-09-25T05:52:59+00:00"
+  "actualizado_at": "2026-09-25T00:48:38-06:00"
 }
