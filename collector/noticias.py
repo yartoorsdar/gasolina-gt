@@ -281,7 +281,8 @@ def clasificar_noticia_llm(titulo: str, resumen: str, cfg: dict = None) -> dict 
                 return {
                     "categoria": parsed.get("categoria", "otro"),
                     "relevancia": min(5, max(1, int(parsed.get("relevancia", 3)))),
-                    "resumen_es": parsed.get("resumen_es", resumen[:200]),
+                    # Igual que el lote: sin fallback crudo; _validar_cls descarta si falta.
+                    "resumen_es": (parsed.get("resumen_es") or "").strip(),
                     "titulo_es": titulo_es,
                 }
     except Exception as exc:
@@ -407,7 +408,7 @@ def clasificar_lote_llm(items: list[dict], cfg: dict = None) -> list[dict | None
         return [None] * len(items)
 
     lineas = "\n".join(
-        f'[{i}] TITULO: {it.get("title", "")[:200]} | RESUMEN: {(it.get("summary", "") or "")[:300]}'
+        f'[{i}] TITULO: {it.get("title", "")[:200]} | RESUMEN: {(it.get("summary") or "").strip()[:300] or "(sin cuerpo)"}'
         for i, it in enumerate(items)
     )
     prompt = (
@@ -422,9 +423,10 @@ def clasificar_lote_llm(items: list[dict], cfg: dict = None) -> list[dict | None
         "(refinerías, oleoductos, sanciones, OPEP, guerras petroleras, diésel). "
         "1 = sin relación con combustibles.\n"
         "- resumen_es: SIEMPRE en ESPAÑOL aunque la noticia esté en inglés. Máx 2 líneas: "
-        "qué pasó + por qué importa para el precio del combustible.\n"
+        "qué pasó + por qué importa para el precio del combustible. Si el RESUMEN está vacío "
+        "o dice '(sin cuerpo)', escríbelo basándote SOLO en el título. Nunca copies URLs, HTML ni marcas de código.\n"
         "- titulo_es: SIEMPRE en ESPAÑOL aunque el original esté en inglés. Titular "
-        "periodístico, máx 90 caracteres.\n\n"
+        "periodístico, máx 90 caracteres, sin el nombre del medio ni sufijos tipo ' - ABC News'.\n\n"
         f"NOTICIAS:\n{lineas}"
     )
 
@@ -466,7 +468,9 @@ def clasificar_lote_llm(items: list[dict], cfg: dict = None) -> list[dict | None
         salida.append({
             "categoria": o.get("categoria", "otro"),
             "relevancia": min(5, max(1, int(o.get("relevancia", 3)))),
-            "resumen_es": o.get("resumen_es") or it.get("summary", "")[:200],
+            # SIN fallback al summary crudo: si el LLM no devolvió resumen_es,
+            # la validación (_validar_cls) descarta el item y se pasa al siguiente.
+            "resumen_es": (o.get("resumen_es") or "").strip(),
             "titulo_es": ((o.get("titulo_es") or "").strip()[:120]) or None,
         })
     return salida
@@ -513,7 +517,109 @@ def _relevancia_keywords(titulo: str, resumen: str) -> int:
     return 1
 
 
-def _traducir_fallback(items: list[dict]) -> int:
+# ──────────────────────────────────────────────
+# Validación de estructura y calidad (pipeline: verificar → ordenar → traducir)
+# El objetivo es terminar con NOTICIAS_EXCELENTES fichas limpias: título ES +
+# descripción sin defectos. Lo que falla se descarta y se pasa a la siguiente.
+# ──────────────────────────────────────────────
+
+NOTICIAS_EXCELENTES = 5
+
+
+def _limpiar_texto(txt) -> str:
+    """HTML/entidades → texto plano (tags fuera, &nbsp;→espacio, espacios colapsados).
+
+    Los feeds de Google News traen summary como `<a href="URL">título</a>
+    <font>Prensa Libre</font>`; sin limpiar, ese HTML se filtraba a resumen_es.
+    """
+    if not txt:
+        return ""
+    import html as _html
+    import re as _re
+    t = _re.sub(r"<[^>]+>", " ", str(txt))
+    t = _html.unescape(t)
+    return _re.sub(r"\s+", " ", t).strip()
+
+
+def _inteligible(txt: str) -> bool:
+    """Heurística de caracteres inentendibles: relleno U+FFFD, control chars o
+    mayoría de letras fuera del alfabeto latino (noticia 'mojada' en la codificación)."""
+    if not txt:
+        return False
+    import re as _re
+    if "\ufffd" in txt or _re.search(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", txt):
+        return True
+    letras = [c for c in txt if c.isalpha()]
+    if not letras:
+        return False
+    latin = sum(1 for c in letras if "a" <= c.lower() <= "z")
+    return (len(letras) - latin) / len(letras) > 0.35
+
+
+def _validar_cls(cls: dict | None, it: dict | None = None) -> bool:
+    """Valida una clasificación/salida traducida IN PLACE y la devuelve lista.
+
+    True solo si titulo_es Y resumen_es están presentes, legibles y sin URLs/HTML/
+    caracteres raros. Si falla → el item NO es 'excelente': se pasa al siguiente.
+    (resumen_es opcional SOLO si la noticia no trae cuerpo ni el LLM pudo escribirlo.)
+    """
+    if not cls:
+        return False
+    t = (cls.get("titulo_es") or "").strip()
+    r = (cls.get("resumen_es") or "").strip()
+    sin_cuerpo = it is None or not (it.get("summary") or "").strip()
+
+    ok_titulo = bool(t) and len(t) >= 10 \
+        and "http" not in t.lower() and "<a " not in t.lower() and not _inteligible(t)
+    # Descripción: exigida salvo noticia sin cuerpo (ahí el título ES ya la cubre).
+    ok_resumen = bool(r) or (sin_cuerpo and ok_titulo)
+    if r:
+        ok_resumen = ok_resumen and len(r) >= 25 \
+            and "http" not in r.lower() and "&#" not in r and not _inteligible(r)
+
+    if not (ok_titulo and ok_resumen):
+        return False
+
+    # Normalizar antes de persistir: nada de HTML residual ni sufijos de medio.
+    # Sin cuerpo y sin resumen del LLM → "" a propósito: el dashboard oculta la
+    # descripción vacía (mejor que fabricar una repitiendo el título).
+    cls["titulo_es"] = t[:120]
+    cls["resumen_es"] = r
+    return True
+
+
+def _item_valido(it: dict) -> bool:
+    """Estructura mínima para competir por ficha 'excelente' (paso 1 del pipeline).
+
+    Descarta: sin link, título corto/vacío, título con URL en vez de texto, o
+    caracteres inentendibles. El summary ya llega limpio (_limpiar_texto al recibir).
+    """
+    titulo = it.get("title") or ""
+    if not it.get("link") or len(titulo) < 15:
+        return False
+    tl = titulo.lower()
+    if "http" in tl or "<a " in tl or _inteligible(titulo):
+        return False
+    s = (it.get("summary") or "").lower()
+    if "http" in s and "google.com/rss/articles" in s:
+        return False  # resumen que sigue siendo URL → descripción en blanco real
+    return True
+
+
+def _ordenar_candidatos(items: list[dict]) -> list[dict]:
+    """Paso 2 del pipeline: ordena por relevancia estimada (determinística, sin LLM).
+
+    Las NOTICIAS_EXCELENTES mejores reciben la traducción; el resto queda de
+    respaldo si alguna falla en validación. Ties conservan el orden original.
+    """
+    return sorted(
+        items,
+        key=lambda x: _relevancia_keywords(x.get("title", ""), x.get("summary", "")),
+        reverse=True,
+    )
+
+
+def _traducir_fallback(items: list[dict], objetivo: int = 0) -> int:
     """Traduce al español lo que el LLM no alcanzó (MyMemory, sin API key).
 
     Dos pasadas sobre el mismo lote:
@@ -526,8 +632,22 @@ def _traducir_fallback(items: list[dict]) -> int:
     """
     import time as _time
 
-    # Pasada 1: ya-español → etiquetado gratuito (nunca consume cuota)
+    def aceptado(it) -> bool:
+        """El item solo cuenta hacia objetivo si su traducción pasa calidad."""
+        probe = {"titulo_es": it.get("titulo_es", ""), "resumen_es": it.get("resumen_es", "")}
+        if not _validar_cls(probe, it):
+            return False
+        # Escribir los valores normalizados (sin HTML ni sufijos de medio).
+        it["titulo_es"] = probe["titulo_es"]
+        it["resumen_es"] = probe["resumen_es"]
+        return True
+
+    ok = 0
+
+    # Pasada 1: ya-español → etiquetado gratuito (nunca consume cuota).
     for it in items:
+        if objetivo and ok >= objetivo:
+            break
         if it.get("titulo_es"):
             continue
         titulo = (it.get("title") or "").strip()
@@ -535,14 +655,21 @@ def _traducir_fallback(items: list[dict]) -> int:
             continue
         if _ya_es(titulo, it.get("source_url", "")):
             it["titulo_es"] = titulo[:120]
-            it.setdefault("categoria", "otro")
-            it["relevancia"] = _relevancia_keywords(titulo, it.get("summary", ""))
+            # Categoria + relevancia SOLO si pasa calidad: un item defectuoso no
+            # debe aparecer en el top-10 (con nulls) ni faltarle el semáforo.
+            if aceptado(it):
+                it.setdefault("categoria", "otro")
+                it["relevancia"] = _relevancia_keywords(titulo, it.get("summary", ""))
+                ok += 1
+            else:
+                it["titulo_es"] = None
 
     # Pasada 2: EN vía MyMemory; cuota agotada o red caída → detenerse sin
-    # afectar lo ya etiquetado en la pasada 1.
-    ok = 0
+    # afectar lo ya etiquetado en la pasada 1. Con objetivo, parar al lograrlo.
     gasto = 0
     for it in items:
+        if objetivo and ok >= objetivo:
+            break
         if it.get("titulo_es"):
             continue
         titulo = (it.get("title") or "").strip()
@@ -561,9 +688,14 @@ def _traducir_fallback(items: list[dict]) -> int:
                 if es_s:
                     gasto += len(summ)
                     it["resumen_es"] = es_s[:500]
-            it.setdefault("categoria", "otro")
-            it["relevancia"] = _relevancia_keywords(it.get("title", ""), it.get("summary", ""))
-            ok += 1
+            # Traducción con defectos (mojada, URL, vacía) → no contar y seguir.
+            # Categoria + relevancia SOLO si pasa calidad.
+            if aceptado(it):
+                it.setdefault("categoria", "otro")
+                it["relevancia"] = _relevancia_keywords(it.get("title", ""), it.get("summary", ""))
+                ok += 1
+            else:
+                it["titulo_es"] = None
             _time.sleep(1)
         except Exception as exc:
             print(f"[noticias] Trad fallback falló, continúo sin él: {exc}")
@@ -748,52 +880,80 @@ def ejecutar(cfg: dict = None) -> dict:
 
     resultados["total_encontrados"] = len(all_items)
 
-    # Clasificación con LLM si está disponible. Selección rotativa entre feeds
-    # (3 por feed) para que todos los idiomas/fuentes entren al lote; el resto
-    # se guarda sin clasificar. Un solo request en lote (no 15 sueltos).
+    # ── Pipeline IA (orden fijo): 1 verificar → 2 ordenar → 3 traducir al final ──
+    # Meta: terminar con NOTICIAS_EXCELENTES fichas SIN FALLAS en título y
+    # descripción. Lo defectuoso se descarta y se pasa a la siguiente noticia.
+
+    # 1. VERIFICAR estructura: limpia HTML/entidades del summary (raíz del bug de
+    # Google News que filtraba <a href="..."> hasta resumen_es) y detecta títulos
+    # rotos. Los items inválidos siguen guardándose a la DB, pero no compiten por
+    # ficha excelente.
+    for it in all_items:
+        it["summary"] = _limpiar_texto(it.get("summary", ""))
+
+    # 2. ORDENAR por relevancia estimada (determinística, sin costo de LLM). Las
+    # mejores reciben la traducción; el resto queda de respaldo si alguna falla
+    # la validación final.
+    candidatos = _ordenar_candidatos([it for it in all_items if _item_valido(it)])
+    print(f"[noticias] {len(candidatos)}/{len(all_items)} estructuralmente válidos; "
+          f"top por relevancia priorizado")
+
+    excelentes: list[dict] = []  # items que superan TODA la validación de calidad
+
+    LOTE_MAX = 15
     if _llm_available(cfg):
-        candidatos = _seleccion_rotativa(all_items, por_feed=3, max_total=15)
-        print(f"[noticias] Clasificando lote de {len(candidatos)} con LLM...")
+        # 3. TRADUCIR (último paso): lote único del top rankeado, un solo request.
+        candidatos_llm = candidatos[:LOTE_MAX]
+        print(f"[noticias] Clasificando lote de {len(candidatos_llm)} con LLM...")
         import time as _time
         _time.sleep(2)  # respirar antes del lote (anti rate-limit)
-        lote = clasificar_lote_llm(candidatos, cfg)
-        n_ok = sum(1 for c in (lote or []) if c)
+
+        def fusionar_lote(lote):
+            """Aplica solo lo que pasa calidad; devuelve cuántas fichas quedaron OK."""
+            ok = 0
+            for item, cls in zip(candidatos_llm, lote or []):
+                if cls and _validar_cls(cls, item):
+                    item.update(cls)
+                    excelentes.append(item)
+                    ok += 1
+            return ok
+
+        n_ok = fusionar_lote(clasificar_lote_llm(candidatos_llm, cfg))
         if not n_ok and "429" in (_last_llm_error or ""):
             # Rate-limit: esperar 65s y reintentar el lote UNA vez
-            import time as _time
             print("[noticias] 429: esperando 65s y reintentando lote...")
             _time.sleep(65)
-            lote = clasificar_lote_llm(candidatos, cfg)
-            n_ok = sum(1 for c in (lote or []) if c)
-        if lote and n_ok:
-            print(f"[noticias] Lote OK: {n_ok}/{len(candidatos)} clasificadas")
-            for item, cls in zip(candidatos, lote):
-                if cls:
-                    item.update(cls)
+            n_ok = fusionar_lote(clasificar_lote_llm(candidatos_llm, cfg))
+        if n_ok:
+            fallados = len(candidatos_llm) - n_ok
+            print(f"[noticias] Lote OK: {n_ok}/{len(candidatos_llm)} válidas"
+                  + (f", {fallados} descartadas (se pasa a la siguiente)" if fallados else ""))
         else:
-            # Fallback: uno por uno (máximo 3, con pausa anti rate-limit).
-            # Sin reintentos pegados: a 10s por llamada quedamos en ~6 RPM.
-            import time as _time
+            # Fallback LLM uno por uno (máximo 3, con pausa anti rate-limit).
             print("[noticias] Lote falló, reintentando uno por uno...")
-            ok = 0
-            for item in candidatos[:3]:
+            for item in candidatos_llm[:3]:
                 _time.sleep(10)
                 classification = clasificar_noticia_llm(
                     item["title"], item.get("summary", ""), cfg
                 )
-                if classification:
+                if classification and _validar_cls(classification, item):
                     item.update(classification)
-                    ok += 1
-            print(f"[noticias] Fallback OK: {ok} clasificadas")
+                    excelentes.append(item)
+            print(f"[noticias] Fallback LLM OK: {len(excelentes)} clasificadas")
 
-    # Fallback determinístico (sin API key): traduce lo que el LLM no alcanzó.
-    # Selección rotativa (no pendientes[:15]): con la lista cruda el primer feed
-    # ES se comía todo el lote y los títulos EN —los únicos que NECESITAN
-    # traducción— nunca entraban; de ahí "15 titulos_es, todos del mismo feed".
-    pendientes = [it for it in all_items if not it.get("titulo_es")]
-    if pendientes:
-        n_tr = _traducir_fallback(_seleccion_rotativa(pendientes, por_feed=3, max_total=15))
-        print(f"[noticias] Traductor fallback: {n_tr} traducidas")
+    # 3b. Si el LLM no cubrió las fichas exigidas: fallback determinístico (sin key)
+    # SOLO sobre lo necesario — y de nuevo, lo defectuoso se descarta y sigue.
+    faltantes = max(0, NOTICIAS_EXCELENTES - len(excelentes))
+    if faltantes:
+        hechos = {id(e) for e in excelentes}
+        bloque = [it for it in candidatos if id(it) not in hechos][:faltantes * 3]
+        n_tr = _traducir_fallback(bloque, objetivo=faltantes)
+        nuevas = [it for it in bloque if it.get("relevancia") is not None and it.get("titulo_es")]
+        excelentes.extend(nuevas)
+        print(f"[noticias] Traductor fallback: {n_tr} completadas "
+              f"(fichas totales: {len(excelentes)}/{NOTICIAS_EXCELENTES})")
+
+    resultados["excelentes"] = len(excelentes)
 
     # Guardar en DB
     inserted = guardar_noticias(all_items, cfg)
@@ -815,6 +975,8 @@ if __name__ == "__main__":
     print(f"Feeds procesados: {resultado.get('feeds_procesados', 0)}")
     print(f"Noticias encontradas: {resultado.get('total_encontrados', 0)}")
     print(f"Insertadas en DB: {resultado.get('insertados', 0)}")
+    if "excelentes" in resultado:
+        print(f"Fichas excelentes (título+descripción sin fallas): {resultado['excelentes']}/{NOTICIAS_EXCELENTES}")
     if resultado.get("errores"):
         for e in resultado["errores"]:
             print(f"  ERROR: {e}")

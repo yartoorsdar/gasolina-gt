@@ -366,23 +366,43 @@
             padding: 9px 8px;
         }
 
-        @media (max-width: 480px) {
+        .semaforo-motivo {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Móvil/tablet: el rectángulo del semáforo se compacta — mensaje clavado a
+           3 líneas y motivo a 2 (antes el bloque crecía sin límite y ocupaba media
+           pantalla). Los faroles también bajan de tamaño. */
+        @media (max-width: 768px) {
             .oil-impact-alert.semaforo {
                 gap: 8px;
                 padding: 8px 10px;
-                font-size: 0.82rem;
-                line-height: 1.45;
+                font-size: 0.8rem;
+                line-height: 1.4;
             }
             .oil-impact-alert.semaforo strong {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
+            }
+            .semaforo-msg,
+            .semaforo-motivo {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .semaforo-msg { -webkit-line-clamp: 3; }
+            .semaforo-motivo {
+                -webkit-line-clamp: 2;
+                font-size: 0.72rem;
             }
             .semaforo-lamps {
                 gap: 5px;
-                padding: 7px 6px;
+                padding: 6px 5px;
             }
             .lamp {
-                width: 12px;
-                height: 12px;
+                width: 11px;
+                height: 11px;
             }
         }
 
@@ -1820,16 +1840,16 @@
                 }
             }
 
-            // Fundamento: la noticia que más pesó en el semáforo, en pocas palabras
-            let fundamento = '';
+            // Fundamento: la noticia que más pesó en el semáforo, en pocas palabras.
+            // Se devuelve SEPARADO (motivo): en móvil se clava a 2 líneas sin
+            // recortar el resto del mensaje (antes era un solo párrafo ilimitado).
+            let motivo = '';
             if (topNoticia) {
-                let motivo = (topNoticia.titulo_es || traducirTituloEnEspañol(topNoticia)).replace(/<[^>]*>/g, '').trim();
+                motivo = (topNoticia.titulo_es || traducirTituloEnEspañol(topNoticia)).replace(/<[^>]*>/g, '').trim();
                 if (motivo.length > 110) motivo = motivo.substring(0, 110) + '…';
-                fundamento = ` Motivo: ${motivo}`;
             }
-            mensaje += fundamento;
 
-            return { nivel, color, emoji, mensaje, score };
+            return { nivel, color, emoji, mensaje, motivo, score };
         }
 
         function renderNoticias(data) {
@@ -1884,7 +1904,8 @@
                         </div>
                         <div>
                             <strong>${impacto.emoji} Impacto petrolero — nivel ${impacto.nivel}</strong>
-                            <br><span>${impacto.mensaje}</span>
+                            <br><span class="semaforo-msg">${impacto.mensaje}</span>
+                            ${impacto.motivo ? `<div class="semaforo-motivo">Motivo: ${impacto.motivo}</div>` : ''}
                         </div>
                     </div>`;
                 alertEl.style.display = 'block';

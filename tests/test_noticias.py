@@ -164,6 +164,95 @@ class TestLlmClasificacion:
 
 
 # ──────────────────────────────────────────────
+# 3b. Pipeline de calidad: verificar → ordenar → traducir (5 fichas excelentes)
+# ──────────────────────────────────────────────
+
+class TestPipelineCalidad:
+    def test_limpiar_texto_html_google_news(self):
+        """Raíz del bug 'drones': el HTML <a href=...> de Google News no debe
+        filtrar a resumen_es."""
+        from collector.noticias import _limpiar_texto
+        html_gn = (
+            '<a href="https://news.google.com/rss/articles/ABC?oc=5" target="_blank">'
+            "Festines a costillas de nuestros impuestos</a>&nbsp;&nbsp;"
+            '<font color="#6f6f6f">Prensa Libre</font>'
+        )
+        limpio = _limpiar_texto(html_gn)
+        assert "http" not in limpio
+        assert "<" not in limpio and "&#" not in limpio
+        assert "Festines a costillas de nuestros impuestos" in limpio
+
+    def test_limpiar_texto_vacio(self):
+        from collector.noticias import _limpiar_texto
+        assert _limpiar_texto("") == ""
+        assert _limpiar_texto(None) == ""
+
+    def test_item_valido_descarta_url_y_cortos(self):
+        from collector.noticias import _item_valido
+        ok = {"title": "Ukrainian drones target Moscow oil refinery",
+              "link": "https://ejemplo.com/1", "summary": ""}
+        assert _item_valido(ok) is True
+        assert _item_valido({**ok, "link": ""}) is False
+        assert _item_valido({"title": "Petro sube 5%", "link": "l"}) is False  # corto
+        assert _item_valido({"title": "https://ejemplo.com/x", "link": "l"}) is False
+
+    def test_validar_cls_rechaza_url_en_resumen(self):
+        from collector.noticias import _validar_cls
+        it = {"title": "t", "summary": "resumen con cuerpo suficiente para pasar"}
+        cls = {"categoria": "otro", "relevancia": 3,
+               "titulo_es": "Refinería suspende operación tras ataque",
+               "resumen_es": '<a href="https://news.google.com/rss/articles/X">...</a>'}
+        assert _validar_cls(cls, it) is False
+
+    def test_validar_cls_rechaza_resumen_vacia_con_cuerpo(self):
+        from collector.noticias import _validar_cls
+        it = {"title": "t", "summary": "resumen con cuerpo suficiente para pasar"}
+        cls = {"categoria": "otro", "relevancia": 3,
+               "titulo_es": "Refinería suspende operación tras ataque",
+               "resumen_es": ""}
+        assert _validar_cls(cls, it) is False
+
+    def test_validar_cls_acepta_sin_cuerpo(self):
+        """Noticia sin cuerpo: descripción vacía permitida (el título ES la cubre)."""
+        from collector.noticias import _validar_cls
+        it = {"title": "t", "summary": ""}
+        cls = {"categoria": "otro", "relevancia": 3,
+               "titulo_es": "Refinería suspende operación tras ataque",
+               "resumen_es": ""}
+        assert _validar_cls(cls, it) is True
+
+    def test_ordenar_candidatos_pone_relevante_primero(self):
+        from collector.noticias import _ordenar_candidatos
+        bajo = {"title": "Xavi y Klopp debutan en la Liga de Naciones", "link": "l2"}
+        alto = {"title": "Oil prices rise after refinery attack", "link": "l1"}
+        ordenados = _ordenar_candidatos([bajo, alto])
+        assert ordenados[0]["link"] == "l1"
+
+    def test_traducir_fallback_objetivo_y_calidad(self):
+        """Con objetivo>0 se detiene al lograrlo; traducción defectuosa no cuenta."""
+        from collector import noticias as mod
+
+        items = [
+            {"title": "Ataque a refinería de petróleo en Rusia", "link": "1"},   # ES gratis, válido
+            {"title": "Oil prices rise after refinery attack", "link": "2"},      # EN vía MyMemory (mock)
+            {"title": "U+FFFD traducción mojada \ufffd\u0645\u0710", "link": "3"},  # ininteligible
+        ]
+        llamadas = []
+
+        def _mm(texto):
+            llamadas.append(texto)
+            return "Traduccion de " + texto[:20]
+
+        with patch.object(mod, "_mymemory", side_effect=_mm):
+            n_ok = mod._traducir_fallback(items, objetivo=1)
+
+        # Con objetivo=1: el ítem ES (válido) basta; MyMemory ni se llama.
+        assert n_ok == 1
+        assert items[0]["titulo_es"] and items[0].get("relevancia") is not None
+        assert llamadas == []
+
+
+# ──────────────────────────────────────────────
 # 4. Integración con DB
 # ──────────────────────────────────────────────
 
