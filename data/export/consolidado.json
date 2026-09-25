@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "actualizado_at": "2026-09-25T03:45:30-06:00",
+  "version": 3,
+  "actualizado_at": "2026-09-25T04:07:47-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-09-24",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-09-24",
         "precio": 43.29,
         "fuente": "MEM",
-        "fetched_at": "2026-09-25T03:45:04-06:00"
+        "fetched_at": "2026-09-25T04:04:25-06:00"
       },
       "historial": [
         {
@@ -1358,7 +1358,169 @@
           "meses": 7,
           "fuente": "MEM mensual"
         }
-      ]
+      ],
+      "modalidades": {
+        "autoservicio": {
+          "nombre": "Autoservicio",
+          "actual": {
+            "fecha": "2026-09-24",
+            "precio": 43.29,
+            "fuente": "MEM",
+            "fetched_at": "2026-09-25T04:04:25-06:00"
+          },
+          "consenso": {
+            "fecha": "2026-09-24",
+            "precio": 43.29,
+            "confianza": "alta",
+            "n_coinciden": 3,
+            "n_fuentes": 5,
+            "fuentes": [
+              {
+                "coincide": true,
+                "fecha": "2026-09-24",
+                "medio": "MEM (oficial)",
+                "peso": 1.0,
+                "precio": 43.29,
+                "url": "https://mem.gob.gt/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-09-23",
+                "medio": "emisorasunidas.com",
+                "peso": 1.0,
+                "precio": 43.29,
+                "url": "https://emisorasunidas.com/nacional/2026/09/23/combustibles-gasolina-precios-septiembre-2026-guatemala/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-09-23",
+                "medio": "prensalibre.com",
+                "peso": 1.0,
+                "precio": 43.29,
+                "url": "https://www.prensalibre.com/economia/precio-de-los-combustibles-en-guatemala-estos-son-los-precios-de-galon-de-regular-y-super-en-autoservicio/"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-09-21",
+                "medio": "elsalvador.com",
+                "peso": 1.0,
+                "precio": 42.58,
+                "url": "https://www.elsalvador.com/noticias/internacional/impuestos-combustibles-precios-guatemala/1294766/2026/"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-09-23",
+                "medio": "publinews.gt",
+                "peso": 0.631,
+                "precio": 45.29,
+                "url": "https://www.publinews.gt/noticias/2026/09/23/precios-de-combustibles-presentan-cambios-para-este-miercoles/"
+              }
+            ]
+          },
+          "historial": [
+            {
+              "fecha": "2026-08-28",
+              "precio": 38.76
+            },
+            {
+              "fecha": "2026-08-31",
+              "precio": 38.64
+            },
+            {
+              "fecha": "2026-09-05",
+              "precio": 41.09
+            },
+            {
+              "fecha": "2026-09-07",
+              "precio": 40.93
+            },
+            {
+              "fecha": "2026-09-15",
+              "precio": 42.0
+            },
+            {
+              "fecha": "2026-09-16",
+              "precio": 42.58
+            },
+            {
+              "fecha": "2026-09-17",
+              "precio": 42.58
+            },
+            {
+              "fecha": "2026-09-18",
+              "precio": 42.58
+            },
+            {
+              "fecha": "2026-09-19",
+              "precio": 42.58
+            },
+            {
+              "fecha": "2026-09-20",
+              "precio": 42.58
+            },
+            {
+              "fecha": "2026-09-21",
+              "precio": 42.58
+            },
+            {
+              "fecha": "2026-09-22",
+              "precio": 42.58
+            },
+            {
+              "fecha": "2026-09-23",
+              "precio": 43.29
+            },
+            {
+              "fecha": "2026-09-24",
+              "precio": 43.29
+            }
+          ]
+        },
+        "servicio_completo": {
+          "nombre": "Servicio completo",
+          "actual": {
+            "fecha": "2026-09-21",
+            "precio": 43.66,
+            "fuente": "MEM",
+            "fetched_at": "2026-09-25T04:04:25-06:00"
+          },
+          "consenso": {
+            "fecha": "2026-09-21",
+            "precio": 43.66,
+            "confianza": "alta",
+            "n_coinciden": 2,
+            "n_fuentes": 2,
+            "fuentes": [
+              {
+                "coincide": true,
+                "fecha": "2026-09-21",
+                "medio": "MEM (oficial)",
+                "peso": 1.0,
+                "precio": 43.66,
+                "url": "https://mem.gob.gt/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-09-21",
+                "medio": "publinews.gt",
+                "peso": 0.631,
+                "precio": 43.69,
+                "url": "https://www.publinews.gt/noticias/2026/09/21/asi-estan-los-precios-de-los-combustibles-este-lunes/"
+              }
+            ]
+          },
+          "historial": [
+            {
+              "fecha": "2026-09-16",
+              "precio": 43.57
+            },
+            {
+              "fecha": "2026-09-21",
+              "precio": 43.66
+            }
+          ]
+        }
+      }
     },
     "superior": {
       "nombre": "Superior",
@@ -1369,7 +1531,7 @@
         "fecha": "2026-09-24",
         "precio": 45.29,
         "fuente": "MEM",
-        "fetched_at": "2026-09-25T03:45:04-06:00"
+        "fetched_at": "2026-09-25T04:04:25-06:00"
       },
       "historial": [
         {
@@ -2714,7 +2876,177 @@
           "meses": 7,
           "fuente": "MEM mensual"
         }
-      ]
+      ],
+      "modalidades": {
+        "autoservicio": {
+          "nombre": "Autoservicio",
+          "actual": {
+            "fecha": "2026-09-24",
+            "precio": 45.29,
+            "fuente": "MEM",
+            "fetched_at": "2026-09-25T04:04:25-06:00"
+          },
+          "consenso": {
+            "fecha": "2026-09-24",
+            "precio": 45.29,
+            "confianza": "alta",
+            "n_coinciden": 3,
+            "n_fuentes": 5,
+            "fuentes": [
+              {
+                "coincide": true,
+                "fecha": "2026-09-24",
+                "medio": "MEM (oficial)",
+                "peso": 1.0,
+                "precio": 45.29,
+                "url": "https://mem.gob.gt/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-09-23",
+                "medio": "emisorasunidas.com",
+                "peso": 1.0,
+                "precio": 45.29,
+                "url": "https://emisorasunidas.com/nacional/2026/09/23/combustibles-gasolina-precios-septiembre-2026-guatemala/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-09-23",
+                "medio": "prensalibre.com",
+                "peso": 1.0,
+                "precio": 45.29,
+                "url": "https://www.prensalibre.com/economia/precio-de-los-combustibles-en-guatemala-estos-son-los-precios-de-galon-de-regular-y-super-en-autoservicio/"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-09-21",
+                "medio": "elsalvador.com",
+                "peso": 1.0,
+                "precio": 44.61,
+                "url": "https://www.elsalvador.com/noticias/internacional/impuestos-combustibles-precios-guatemala/1294766/2026/"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-09-23",
+                "medio": "publinews.gt",
+                "peso": 0.631,
+                "precio": 43.29,
+                "url": "https://www.publinews.gt/noticias/2026/09/23/precios-de-combustibles-presentan-cambios-para-este-miercoles/"
+              }
+            ]
+          },
+          "historial": [
+            {
+              "fecha": "2026-08-28",
+              "precio": 40.58
+            },
+            {
+              "fecha": "2026-08-31",
+              "precio": 40.58
+            },
+            {
+              "fecha": "2026-09-05",
+              "precio": 43.09
+            },
+            {
+              "fecha": "2026-09-07",
+              "precio": 43.06
+            },
+            {
+              "fecha": "2026-09-15",
+              "precio": 44.0
+            },
+            {
+              "fecha": "2026-09-16",
+              "precio": 44.66
+            },
+            {
+              "fecha": "2026-09-17",
+              "precio": 44.66
+            },
+            {
+              "fecha": "2026-09-18",
+              "precio": 44.66
+            },
+            {
+              "fecha": "2026-09-19",
+              "precio": 44.66
+            },
+            {
+              "fecha": "2026-09-20",
+              "precio": 44.66
+            },
+            {
+              "fecha": "2026-09-21",
+              "precio": 44.61
+            },
+            {
+              "fecha": "2026-09-22",
+              "precio": 44.61
+            },
+            {
+              "fecha": "2026-09-23",
+              "precio": 45.29
+            },
+            {
+              "fecha": "2026-09-24",
+              "precio": 45.29
+            }
+          ]
+        },
+        "servicio_completo": {
+          "nombre": "Servicio completo",
+          "actual": {
+            "fecha": "2026-09-21",
+            "precio": 45.74,
+            "fuente": "MEM",
+            "fetched_at": "2026-09-25T04:04:25-06:00"
+          },
+          "consenso": {
+            "fecha": "2026-09-21",
+            "precio": 45.74,
+            "confianza": "alta",
+            "n_coinciden": 3,
+            "n_fuentes": 3,
+            "fuentes": [
+              {
+                "coincide": true,
+                "fecha": "2026-09-21",
+                "medio": "MEM (oficial)",
+                "peso": 1.0,
+                "precio": 45.74,
+                "url": "https://mem.gob.gt/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-09-21",
+                "medio": "globalpetrolprices.com",
+                "peso": 1.0,
+                "precio": 45.74,
+                "url": "https://globalpetrolprices.com/Guatemala/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-09-21",
+                "medio": "publinews.gt",
+                "peso": 0.631,
+                "precio": 45.69,
+                "url": "https://www.publinews.gt/noticias/2026/09/21/asi-estan-los-precios-de-los-combustibles-este-lunes/"
+              }
+            ]
+          },
+          "historial": [
+            {
+              "fecha": "2026-09-16",
+              "precio": 45.68
+            },
+            {
+              "fecha": "2026-09-21",
+              "precio": 45.74
+            }
+          ]
+        }
+      }
     },
     "diésel": {
       "nombre": "Diésel",
@@ -2725,7 +3057,7 @@
         "fecha": "2026-09-24",
         "precio": 49.4,
         "fuente": "MEM",
-        "fetched_at": "2026-09-25T03:45:04-06:00"
+        "fetched_at": "2026-09-25T04:04:25-06:00"
       },
       "historial": [
         {
@@ -4066,7 +4398,165 @@
           "meses": 7,
           "fuente": "MEM mensual"
         }
-      ]
+      ],
+      "modalidades": {
+        "autoservicio": {
+          "nombre": "Autoservicio",
+          "actual": {
+            "fecha": "2026-09-24",
+            "precio": 49.4,
+            "fuente": "MEM",
+            "fetched_at": "2026-09-25T04:04:25-06:00"
+          },
+          "consenso": {
+            "fecha": "2026-09-24",
+            "precio": 49.4,
+            "confianza": "alta",
+            "n_coinciden": 4,
+            "n_fuentes": 4,
+            "fuentes": [
+              {
+                "coincide": true,
+                "fecha": "2026-09-24",
+                "medio": "MEM (oficial)",
+                "peso": 1.0,
+                "precio": 49.4,
+                "url": "https://mem.gob.gt/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-09-21",
+                "medio": "elsalvador.com",
+                "peso": 1.0,
+                "precio": 49.4,
+                "url": "https://www.elsalvador.com/noticias/internacional/impuestos-combustibles-precios-guatemala/1294766/2026/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-09-23",
+                "medio": "prensalibre.com",
+                "peso": 1.0,
+                "precio": 49.4,
+                "url": "https://www.prensalibre.com/economia/precio-de-los-combustibles-en-guatemala-estos-son-los-precios-de-galon-de-regular-y-super-en-autoservicio/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-09-23",
+                "medio": "publinews.gt",
+                "peso": 0.631,
+                "precio": 49.39,
+                "url": "https://www.publinews.gt/noticias/2026/09/23/precios-de-combustibles-presentan-cambios-para-este-miercoles/"
+              }
+            ]
+          },
+          "historial": [
+            {
+              "fecha": "2026-08-28",
+              "precio": 45.37
+            },
+            {
+              "fecha": "2026-08-31",
+              "precio": 44.71
+            },
+            {
+              "fecha": "2026-09-05",
+              "precio": 46.39
+            },
+            {
+              "fecha": "2026-09-07",
+              "precio": 46.37
+            },
+            {
+              "fecha": "2026-09-16",
+              "precio": 49.36
+            },
+            {
+              "fecha": "2026-09-17",
+              "precio": 49.36
+            },
+            {
+              "fecha": "2026-09-18",
+              "precio": 49.36
+            },
+            {
+              "fecha": "2026-09-19",
+              "precio": 49.36
+            },
+            {
+              "fecha": "2026-09-20",
+              "precio": 49.36
+            },
+            {
+              "fecha": "2026-09-21",
+              "precio": 49.4
+            },
+            {
+              "fecha": "2026-09-22",
+              "precio": 49.4
+            },
+            {
+              "fecha": "2026-09-23",
+              "precio": 49.4
+            },
+            {
+              "fecha": "2026-09-24",
+              "precio": 49.4
+            }
+          ]
+        },
+        "servicio_completo": {
+          "nombre": "Servicio completo",
+          "actual": {
+            "fecha": "2026-09-21",
+            "precio": 50.5,
+            "fuente": "MEM",
+            "fetched_at": "2026-09-25T04:04:25-06:00"
+          },
+          "consenso": {
+            "fecha": "2026-09-21",
+            "precio": 50.5,
+            "confianza": "alta",
+            "n_coinciden": 3,
+            "n_fuentes": 3,
+            "fuentes": [
+              {
+                "coincide": true,
+                "fecha": "2026-09-21",
+                "medio": "MEM (oficial)",
+                "peso": 1.0,
+                "precio": 50.5,
+                "url": "https://mem.gob.gt/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-09-21",
+                "medio": "globalpetrolprices.com",
+                "peso": 1.0,
+                "precio": 50.5,
+                "url": "https://globalpetrolprices.com/Guatemala/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-09-21",
+                "medio": "publinews.gt",
+                "peso": 0.631,
+                "precio": 50.49,
+                "url": "https://www.publinews.gt/noticias/2026/09/21/asi-estan-los-precios-de-los-combustibles-este-lunes/"
+              }
+            ]
+          },
+          "historial": [
+            {
+              "fecha": "2026-09-16",
+              "precio": 50.36
+            },
+            {
+              "fecha": "2026-09-21",
+              "precio": 50.5
+            }
+          ]
+        }
+      }
     },
     "wti": {
       "nombre": "WTI",
@@ -4075,9 +4565,9 @@
       "orden": 4,
       "actual": {
         "fecha": "2026-09-25",
-        "precio": 92.88,
+        "precio": 92.98,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-09-25T03:45:08-06:00"
+        "fetched_at": "2026-09-25T04:07:20-06:00"
       },
       "historial": [
         {
@@ -5126,7 +5616,7 @@
         },
         {
           "fecha": "2026-09-25",
-          "precio": 92.88
+          "precio": 92.98
         }
       ],
       "mensual": [],
@@ -5152,76 +5642,199 @@
           "meses": null,
           "fuente": "diario"
         }
-      ]
+      ],
+      "modalidades": {
+        "spot": {
+          "nombre": "Spot",
+          "actual": {
+            "fecha": "2026-09-25",
+            "precio": 92.98,
+            "fuente": "OilPriceAPI",
+            "fetched_at": "2026-09-25T04:07:20-06:00"
+          },
+          "consenso": null,
+          "historial": [
+            {
+              "fecha": "2026-08-26",
+              "precio": 81.08
+            },
+            {
+              "fecha": "2026-08-27",
+              "precio": 82.35
+            },
+            {
+              "fecha": "2026-08-28",
+              "precio": 83.15
+            },
+            {
+              "fecha": "2026-08-31",
+              "precio": 85.77
+            },
+            {
+              "fecha": "2026-09-01",
+              "precio": 88.25
+            },
+            {
+              "fecha": "2026-09-02",
+              "precio": 90.62
+            },
+            {
+              "fecha": "2026-09-03",
+              "precio": 91.34
+            },
+            {
+              "fecha": "2026-09-04",
+              "precio": 91.02
+            },
+            {
+              "fecha": "2026-09-07",
+              "precio": 92.32
+            },
+            {
+              "fecha": "2026-09-08",
+              "precio": 93.45
+            },
+            {
+              "fecha": "2026-09-09",
+              "precio": 95.14
+            },
+            {
+              "fecha": "2026-09-10",
+              "precio": 98.86
+            },
+            {
+              "fecha": "2026-09-11",
+              "precio": 100.72
+            },
+            {
+              "fecha": "2026-09-14",
+              "precio": 102.5
+            },
+            {
+              "fecha": "2026-09-15",
+              "precio": 103.81
+            },
+            {
+              "fecha": "2026-09-16",
+              "precio": 103.72
+            },
+            {
+              "fecha": "2026-09-17",
+              "precio": 101.43
+            },
+            {
+              "fecha": "2026-09-18",
+              "precio": 100.87
+            },
+            {
+              "fecha": "2026-09-21",
+              "precio": 93.36
+            },
+            {
+              "fecha": "2026-09-22",
+              "precio": 91.77
+            },
+            {
+              "fecha": "2026-09-23",
+              "precio": 90.7
+            },
+            {
+              "fecha": "2026-09-24",
+              "precio": 93.3
+            },
+            {
+              "fecha": "2026-09-25",
+              "precio": 92.98
+            }
+          ]
+        }
+      }
     }
+  },
+  "consejo": {
+    "precision_fuentes": {
+      "prensalibre.com": {
+        "error_medio": 0.0,
+        "n": 6,
+        "peso": 1.0
+      },
+      "elsalvador.com": {
+        "error_medio": 0.0,
+        "n": 3,
+        "peso": 1.0
+      },
+      "emisorasunidas.com": {
+        "error_medio": 0.0,
+        "n": 2,
+        "peso": 1.0
+      },
+      "publinews.gt": {
+        "error_medio": 0.292,
+        "n": 15,
+        "peso": 0.631
+      },
+      "globalpetrolprices.com": {
+        "error_medio": 0.0,
+        "n": 2,
+        "peso": 1.0
+      },
+      "MEM (oficial)": {
+        "error_medio": 0.0,
+        "n": null,
+        "peso": 1.0
+      }
+    },
+    "observaciones_7d": 28,
+    "notas_leidas": 8,
+    "medios": [
+      "elsalvador.com",
+      "emisorasunidas.com",
+      "globalpetrolprices.com",
+      "prensalibre.com",
+      "publinews.gt"
+    ]
   },
   "noticias": {
     "total": 78,
     "top": [
       {
-        "id": 1,
-        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNQVAtV3RwM2k0VkhjVjdGQ0VlcmlWREtGZENxQWpCdXMwaEpmZjc5cmc5RlFtMm9UUGE5dkVpN1lac1gzUmNMTTVVNjZYMVo0b2x6OVBwbHZNZUN0RnpfLWJrRk92LXZaM2ZZYXBLOGd1QlpCQjEzZEtBemlvSXNqczlyWVZueWZtc2NGd2dYOVpfUWV5cXlmTjVVNjJsZnVQQ3k4enhPMFphTnd6QXdkbDhTeVRWTDVoM21lc1AtcVZQaGRhVTUyS3ZwM1k?oc=5",
-        "titulo": "Cuándo entra en vigencia el subsidio a la gasolina en Guatemala, que aplica exención del IDP e IVA a los combustibles - Prensa Libre",
-        "titulo_es": "Gobierno de Guatemala activa subsidio que exime IDP e IVA a la gasolina",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-24T08:00:00-06:00",
-        "categoria": "finanzas",
+        "id": 9,
+        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOa002SlQwdjRkZTJfNWtycjdSSmhMbmlZanRKQm10YzhLMDJSNnBtZW94YWYxX0ZCSWQ3OWJtTDdjTDY0VlpnclNreHFxQ0ZXM2JZSlpjZ2pDYVlEcVd6aVNQSlVPSDVPNHh0cW5KcVY0UWYzc0ZqSGhsdGhEd253SGx3ZGZPa25tR3o5UGRBY191dHU1NG5PMm5KRFVHb20zMU9hMUFma080bk1rN1AtWllZbU1BYVJxREJ6WlR5MDVldVZZVlZZ?oc=5",
+        "titulo": "Saudi Oil Loaded from Port at Yanbu after Pipeline Attack - Industrial Info Resources",
+        "titulo_es": "Arabia Saudí reanuda carga de crudo en Yanbu tras ataque al oleoducto",
+        "medio": "Google News EN",
+        "publicado_at": "2026-09-24T03:53:23-06:00",
+        "categoria": "infraestructura",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "El gobierno implementará un subsidio que exime el IDP e IVA a la gasolina, reduciendo el precio al consumidor y aliviando la presión inflacionaria.",
-        "fetched_at": "2026-09-25T03:45:30-06:00"
-      },
-      {
-        "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOaGZoNlkweHJDOGYwTGt4QUZRV0Y3X3JnQXFtQWFLdXFhZTB0T2w0TFVYUDF0OUpMdVhzdV8tLWxSN2V0dk95WE5sZ3RqdjBKSWFZZlgxZEMzUmlpZmRvb202RHBqY2ozUjdoZV9uT2s2NjVZRVprMGNfWXk5bTNRMnRJSTUzSFIyY0ZLUi1NMUVWX05ma29nVTFVaWs3TThhaHBwNE5uTQ?oc=5",
-        "titulo": "Guatemala elimina impuestos a combustibles - elsalvador.com",
-        "titulo_es": "Guatemala elimina impuestos a los combustibles",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-23T07:54:19-06:00",
-        "categoria": "finanzas",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "El Estado suprime impuestos a los combustibles, lo que bajará los precios al consumidor y puede reducir la inflación.",
-        "fetched_at": "2026-09-25T03:45:30-06:00"
-      },
-      {
-        "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOUW1fM1J0NUV5TzR5Z1BLQkVsMmhCMDRxNlcwalBReFdnRmhuSzhWajZrQjNENkU2bURjWkR3bVFjdmZQeTdxTll0VmJWY1RLOG9JM2Rma2dLVlhNSnVJYlJpSWxlX3d0Q05ONUNpRjNsVTl6cm1xY1VfVEZPc2pWNlFrNDc0ODFDcXQtVlZMdUdjSktXeWF1eWVEOVN0UGRGSkJBTnZTdGkwb3BOaXRVQW9FN2lLRHVvNGxPOENlTzZuSWFfaDNkQk9aX1ZRQ3Q5VUVvX3lBXzg?oc=5",
-        "titulo": "Guatemala exonera impuestos al combustible ante las protestas por el alza de los precios - France 24",
-        "titulo_es": "Guatemala exonera impuestos al combustible ante protestas por alza de precios",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-23T05:31:34-06:00",
-        "categoria": "finanzas",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Ante las protestas por el alza de precios, el gobierno exonera los impuestos al combustible, buscando calmar la presión social y bajar los costos.",
-        "fetched_at": "2026-09-25T03:45:30-06:00"
+        "resumen_es": "Tras un ataque a un oleoducto, Arabia Saudí reanuda la carga de crudo en Yanbu, ayudando a estabilizar la oferta mundial y mitigando alzas de precios para importadores como Guatemala.",
+        "fetched_at": "2026-09-25T04:07:46-06:00"
       },
       {
         "id": 10,
         "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQdkZNZEtRS1dqcEI1X3dySnFhNUlqRTFVc1h6ZGtrOUFjSmV4Q2d1Vk1OM3ZfalpWaS1Wb2RwdzVobHNDR1BRd0t5OFRzNjUxcmN1c09mQ0FzVS0wZGV1Nm8zRVlaMGw3c0taZTNVRVZHTmE0T0FGZ0hfS1lqU0xLNDM2aDdjVlZiVzU0?oc=5",
         "titulo": "Oil Prices Increase After Iraq Attack Shuts Down Saudi Pipeline - The Organization for World Peace",
-        "titulo_es": "Precios del petróleo suben tras ataque en Irak que cierra oleoducto saudí",
+        "titulo_es": "Precios del petróleo suben tras ataque iraquí que cierra oleoducto saudí",
         "medio": "Google News EN",
         "publicado_at": "2026-09-22T08:27:17-06:00",
-        "categoria": "geopolitica",
+        "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Un ataque en Irak cerró un oleoducto saudí, disparando los precios del crudo, lo que repercutirá en los costos de importación de combustibles en Guatemala.",
-        "fetched_at": "2026-09-25T03:45:30-06:00"
+        "relevancia": 5,
+        "resumen_es": "Un ataque en Irak que cierra un oleoducto saudí eleva los precios internacionales del petróleo, encareciendo la importación de combustibles para Guatemala.",
+        "fetched_at": "2026-09-25T04:07:46-06:00"
       },
       {
         "id": 11,
         "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQcThldmdWd2c5aHdfck8zYk1XMWtsa3kweWlXaTNQWEpnV2NIUHhiNTh2cHhoSndCV2Z2QkhwNl9DZEJObFJha2pXWG1JcUZpVXlZU1RqQ2diZUJ0YVV2alRBRmRCampGOGdQQnM4UVV2R2ZMQ2p6WC1QSk5iOGJEWDZ2YXdaSzlLeGtZYnNuVld5MGZESG1tenNaMFlFcExWeVhlZjJBTlJOeHNmVkhBYzFkejJkNno5VWEwU05hRHU4NGlqT1U5UXcxUzU?oc=5",
-        "titulo": "Saudi Arabia ramps up Gulf oil exports after pipeline attack, data shows - reuters.com",
-        "titulo_es": "Arabia Saudí incrementa exportaciones del Golfo después de ataque al oleoducto",
+        "titulo": "Saudi Arabia ramps up Gulf oil exports after pipeline attack, data shows - Reuters",
+        "titulo_es": "Arabia Saudí aumenta exportaciones del Golfo tras ataque al oleoducto",
         "medio": "Google News EN",
         "publicado_at": "2026-09-21T09:55:00-06:00",
-        "categoria": "geopolitica",
+        "categoria": "oferta",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Tras el ataque al oleoducto, Arabia Saudí incrementa sus exportaciones del Golfo, intentando estabilizar el suministro y contener la subida de precios internacionales.",
-        "fetched_at": "2026-09-25T03:45:30-06:00"
+        "relevancia": 5,
+        "resumen_es": "Tras el ataque, Arabia Saudí incrementa sus exportaciones del Golfo, reforzando la oferta global y limitando el impacto en los precios que paga Guatemala.",
+        "fetched_at": "2026-09-25T04:07:46-06:00"
       },
       {
         "id": 5,
@@ -5232,61 +5845,87 @@
         "publicado_at": "2026-09-19T10:05:52-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El diésel casi duplica su precio y la gasolina sube más del 60%, reflejando el impacto de la eliminación de impuestos y la alta del crudo, afectando costos de transporte.",
-        "fetched_at": "2026-09-25T03:45:30-06:00"
+        "relevancia": 5,
+        "resumen_es": "El diésel casi duplica su precio y la gasolina sube más del 60%, reflejando la presión de costos internacionales y afectando el gasto de transporte en Guatemala.",
+        "fetched_at": "2026-09-25T04:07:46-06:00"
       },
       {
         "id": 14,
         "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQTzVjMkh4M1lsaEJyZkV0a3lzMlhVNHVsZVNoV1A4d0VkTjluTFgwc0JXTHpPNWRFMjlfdThqMmxlLTI4dGRaalR4SnBEZmZ6aDBxTGNRNzZMX0VzVk9tcmIyR1pvS0l4ZlNBbjctU0hWWUJIYXRIdTFNc1NhVFRnLUVwY2E?oc=5",
-        "titulo": "Saudi Pipeline Attack Risks ‘Disastrous’ Loss of Oil as Fighting Escalates - The New York Times",
+        "titulo": "Saudi Pipeline Attack Risks ‘Disastrous’ Loss of Oil as Fighting Escalates - nytimes.com",
         "titulo_es": "Ataque al oleoducto saudí amenaza pérdida catastrófica de crudo",
         "medio": "Google News EN",
         "publicado_at": "2026-09-16T01:00:00-06:00",
-        "categoria": "geopolitica",
+        "categoria": "infraestructura",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Un ataque al oleoducto saudí amenaza perder gran cantidad de crudo, lo que podría reducir la oferta mundial y presionar al alza los precios del combustible.",
-        "fetched_at": "2026-09-25T03:45:30-06:00"
+        "relevancia": 5,
+        "resumen_es": "Un ataque al oleoducto saudí amenaza una gran pérdida de crudo, lo que reduciría la oferta global y podría disparar los precios del combustible importado por Guatemala.",
+        "fetched_at": "2026-09-25T04:07:46-06:00"
       },
       {
         "id": 15,
         "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOeDdvckhVQlJKZzN2eU90TEg3YU9vRmhZdTdjdkZ1cExSOUd4N09GVEktMTBVT012ZUdGWUdtc2JLaDdIWDJWWFdpUmlJU3pMVWt3MXR2bXRyUXlnSHJTVDJ2Vzg1bmx1ZFptX3ZoVmlMZS1EODlaM3FHbGFJTHFUM0I5YkE5WVRGcEs0UlNkZjdsdXhzdHF6dXFqbHV0bFFZRmRCNDF1WHpQOGZLeGJCdkJIRmNOa1Bzb1FKNU9fcGc?oc=5",
-        "titulo": "Oil Prices Rise as Saudi East-West Pipeline Attack Threatens Export Routes - WSJ",
-        "titulo_es": "Precios del petróleo aumentan tras amenaza al oleoducto este‑oeste de Arabia Saudí",
+        "titulo": "Oil Prices Rise as Saudi East-West Pipeline Attack Threatens Export Routes - wsj.com",
+        "titulo_es": "Precios del petróleo suben tras ataque al oleoducto Este-Oeste saudí",
         "medio": "Google News EN",
         "publicado_at": "2026-09-14T01:00:00-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El ataque al oleoducto este‑oeste de Arabia Saudí eleva los precios del petróleo, lo que se traducirá en mayores costos de importación para Guatemala.",
-        "fetched_at": "2026-09-25T03:45:30-06:00"
+        "relevancia": 5,
+        "resumen_es": "El ataque al oleoducto Este-Oeste de Arabia Saudí eleva los precios del petróleo, encareciendo la importación de combustibles para Guatemala.",
+        "fetched_at": "2026-09-25T04:07:46-06:00"
       },
       {
-        "id": 9,
-        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOa002SlQwdjRkZTJfNWtycjdSSmhMbmlZanRKQm10YzhLMDJSNnBtZW94YWYxX0ZCSWQ3OWJtTDdjTDY0VlpnclNreHFxQ0ZXM2JZSlpjZ2pDYVlEcVd6aVNQSlVPSDVPNHh0cW5KcVY0UWYzc0ZqSGhsdGhEd253SGx3ZGZPa25tR3o5UGRBY191dHU1NG5PMm5KRFVHb20zMU9hMUFma080bk1rN1AtWllZbU1BYVJxREJ6WlR5MDVldVZZVlZZ?oc=5",
-        "titulo": "Saudi Oil Loaded from Port at Yanbu after Pipeline Attack - Industrial Info Resources",
-        "titulo_es": "Carga de petróleo saudí en Yanbu tras ataque al oleoducto",
-        "medio": "Google News EN",
-        "publicado_at": "2026-09-24T03:53:23-06:00",
+        "id": 1,
+        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNQVAtV3RwM2k0VkhjVjdGQ0VlcmlWREtGZENxQWpCdXMwaEpmZjc5cmc5RlFtMm9UUGE5dkVpN1lac1gzUmNMTTVVNjZYMVo0b2x6OVBwbHZNZUN0RnpfLWJrRk92LXZaM2ZZYXBLOGd1QlpCQjEzZEtBemlvSXNqczlyWVZueWZtc2NGd2dYOVpfUWV5cXlmTjVVNjJsZnVQQ3k4enhPMFphTnd6QXdkbDhTeVRWTDVoM21lc1AtcVZQaGRhVTUyS3ZwM1k?oc=5",
+        "titulo": "Cuándo entra en vigencia el subsidio a la gasolina en Guatemala, que aplica exención del IDP e IVA a los combustibles - Prensa Libre",
+        "titulo_es": "Guatemala implementa subsidio que exime IDP e IVA a la gasolina",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-24T08:00:00-06:00",
+        "categoria": "finanzas",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El gobierno implementa un subsidio que elimina el IDP e IVA a la gasolina, reduciendo su precio para los consumidores y aliviando la presión inflacionaria.",
+        "fetched_at": "2026-09-25T04:07:46-06:00"
+      },
+      {
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOaGZoNlkweHJDOGYwTGt4QUZRV0Y3X3JnQXFtQWFLdXFhZTB0T2w0TFVYUDF0OUpMdVhzdV8tLWxSN2V0dk95WE5sZ3RqdjBKSWFZZlgxZEMzUmlpZmRvb202RHBqY2ozUjdoZV9uT2s2NjVZRVprMGNfWXk5bTNRMnRJSTUzSFIyY0ZLUi1NMUVWX05ma29nVTFVaWs3TThhaHBwNE5uTQ?oc=5",
+        "titulo": "Guatemala elimina impuestos a combustibles - elsalvador.com",
+        "titulo_es": "Guatemala elimina impuestos a los combustibles",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-23T07:54:19-06:00",
+        "categoria": "finanzas",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El Estado suprime impuestos a los combustibles, lo que debería bajar los precios al consumidor y aliviar la presión inflacionaria.",
+        "fetched_at": "2026-09-25T04:07:46-06:00"
+      },
+      {
+        "id": 4,
+        "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOUW1fM1J0NUV5TzR5Z1BLQkVsMmhCMDRxNlcwalBReFdnRmhuSzhWajZrQjNENkU2bURjWkR3bVFjdmZQeTdxTll0VmJWY1RLOG9JM2Rma2dLVlhNSnVJYlJpSWxlX3d0Q05ONUNpRjNsVTl6cm1xY1VfVEZPc2pWNlFrNDc0ODFDcXQtVlZMdUdjSktXeWF1eWVEOVN0UGRGSkJBTnZTdGkwb3BOaXRVQW9FN2lLRHVvNGxPOENlTzZuSWFfaDNkQk9aX1ZRQ3Q5VUVvX3lBXzg?oc=5",
+        "titulo": "Guatemala exonera impuestos al combustible ante las protestas por el alza de los precios - France 24",
+        "titulo_es": "Guatemala exonera impuestos al combustible frente a protestas por alza de precios",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-23T05:31:34-06:00",
+        "categoria": "finanzas",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Ante protestas por el aumento, el gobierno exime impuestos al combustible para contener la alza de precios y calmar a la población.",
+        "fetched_at": "2026-09-25T04:07:46-06:00"
+      },
+      {
+        "id": 13,
+        "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNNURRYjZjLU5EWmJSb2ZMeGNGRjFuLXY4Tk85WjJmMUJ3WXhockZvTVUtbzRyTHpoeEh0NGZBMGFUNzB4TzV3ZExCWlJPTzk2Zm9ZWWpKUmlQdGMyNWZZMFRTM250WDRfblg0RVNXckZya0tYU1k5TEpKVE9MdTV3RktOaWNjdDkwMllDSnY3V2lCMnVDVlRmUklkcFk5Ums5LXotbWxHRF9vbEF2RUZMR253eG5ZcnREWUYxYXdzbEgwZWtHRmZ3cjI0aWxZXzBER3kyQ1N6dHZCQkE0Q2RaZUtuT1ptQTI3MVByOTBPQTNVVnNV?oc=5",
+        "titulo": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con las autoridades de ese país, los dispositivos impactaron la principal refinería de petróleo de la capital y un edificio residencial. El alcalde Sergei Sobyanin d - facebook.com",
+        "titulo_es": "Ucrania ataca la principal refinería de Moscú con drones",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-21T08:15:23-06:00",
         "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Tras un ataque a un oleoducto saudí, el petróleo se carga en Yanbu, indicando interrupciones en la oferta que pueden elevar los precios internacionales.",
-        "fetched_at": "2026-09-25T03:45:30-06:00"
-      },
-      {
-        "id": 2,
-        "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOYVQzdWs1Ri1rTm5weExQdkRkc0ZQeHhSdFcwRmdIVDZsX2pUWlJ0S3ZaUGt6Z0h2Y09sS3BDQ3V3RUZjSWNsM3NtRUtsTmVRR0c2VkphRmtEeXNGNno2Rm1SLWpWdmR1SUxzSTdud0o1c3VBMGh1MGtKbTN4U19vckc3Ym5kVTJLaUhPWXVPSnJkSVRyaW9yS3ZuZnhHUWhsZ0JucjMySzJOUW5NOWdIMEJXdE1zbnJETGVwUGFTRWpBSWg1OUphNDJoTlFoRmN0cU00N2tWckhKZ1k?oc=5",
-        "titulo": "Precio de los combustibles en Guatemala: estos son los precios de galón de regular y super en autoservicio - Prensa Libre",
-        "titulo_es": "Precios actuales del combustible en Guatemala: galón de regular y super",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-23T15:56:37-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Se publican los precios actuales por galón de gasolina regular y super en estaciones de autoservicio, información clave para consumidores y análisis de mercado.",
-        "fetched_at": "2026-09-25T03:45:30-06:00"
+        "relevancia": 4,
+        "resumen_es": "Ucrania ataca la principal refinería de Moscú con drones, potencialmente disminuyendo la producción de petróleo ruso y elevando los precios internacionales que afectan a Guatemala.",
+        "fetched_at": "2026-09-25T04:07:46-06:00"
       }
     ],
     "llm": {
