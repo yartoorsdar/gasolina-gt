@@ -178,14 +178,18 @@ def _llm_available(cfg: dict = None) -> bool:
         print(f"[noticias] {_last_llm_error}")
         return False
 
-    # Huella no sensible: confirma QUÉ key está usando CI sin exponerla
-    # (prefijo + longitud + sha256 corto: irreversible, pero comparable
-    # con el hash local para saber si el secreto == la key probada)
+    # Huella no sensible de TODAS las keys presentes (prefijo + longitud + sha).
+    # Permite comparar contra el hash local y saber exactamente cuál secreto
+    # difiere, sin exponer ningún valor.
     import hashlib as _hl
     global _llm_key_fp
-    _llm_key_fp = (f"{api_key[:4]}*** len={len(api_key)} "
-                   f"sha={_hl.sha256(api_key.encode()).hexdigest()[:8]}")
-    print(f"[noticias] LLM key: {_llm_key_fp}")
+    _llm_key_fp = {}
+    for _var in ("GROK_API_KEY", "GEMINI_API_KEY"):
+        _v = (os.environ.get(_var, "") or "").strip()
+        if _v:
+            _llm_key_fp[_var] = (f"{_v[:4]}*** len={len(_v)} "
+                                 f"sha={_hl.sha256(_v.encode()).hexdigest()[:8]}")
+    print(f"[noticias] LLM keys: {_llm_key_fp}")
 
     # Verificar que el endpoint responde (ping liviano según proveedor).
     # OJO: Groq/OpenAI exigen auth incluso en /v1/models → mandar Bearer.
