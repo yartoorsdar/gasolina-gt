@@ -86,4 +86,22 @@ def test_ajustes_visuales_legibilidad():
         # el bloque de ajustes va DESPUÉS de style-glass.css (si no, esa hoja lo anula)
         assert html.index("--text-muted: #b9c3d1") > html.index('href="style-glass.css"'), archivo
         assert "overflow-y: auto;" in html, f"{archivo}: historial sin scroll vertical"
-        assert ".semaforo-lamps .lamp:nth-child(2)" in html, f"{archivo}: luces apagadas sin color"
+        assert "function svgSemaforo(" in html, f"{archivo}: sin semáforo SVG"
+
+
+def test_iconos_pixel_art_animados_solo_por_opacidad():
+    """Íconos pixel art: sin emojis en títulos; animación de fotogramas solo
+    por opacity (regla anti-parpadeo móvil) y respeto a reducir movimiento."""
+    import re
+    from pathlib import Path
+    raiz = Path(__file__).resolve().parent.parent
+    for archivo in ("index.html", "web/index.html"):
+        html = (raiz / archivo).read_text(encoding="utf-8")
+        for entidad in ("&#x26FD;", "&#x1F6E1;", "&#x1F4C8;", "&#x1F4F0;", "&#x1F6E2;"):
+            assert entidad not in html, f"{archivo}: quedó el emoji {entidad}"
+        for nombre in ("barril", "bomba", "gota", "grafica", "periodico", "alerta", "espadas", "caja", "globo", "rayo", "punto"):
+            assert f'"{nombre}":' in html, f"{archivo}: falta el ícono {nombre}"
+        for n in (2, 3, 4):
+            linea = next(l for l in html.splitlines() if f"@keyframes px{n} " in l)
+            assert set(re.findall(r"([a-z-]+)\s*:", linea)) == {"opacity"}, f"{archivo}: px{n} anima algo más que opacity"
+        assert re.search(r"prefers-reduced-motion: reduce\)\s*\{\s*\.px \.pxf", html), f"{archivo}: sin reducir movimiento"
