@@ -1,5 +1,5 @@
 {
-  "actualizado_at": "2026-09-25T00:54:35-06:00",
+  "actualizado_at": "2026-09-25T01:20:02-06:00",
   "precios_combustible": [
     {
       "id": 2,
@@ -7,7 +7,7 @@
       "producto": "diésel",
       "precio": 50.5,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-25T00:53:47-06:00"
+      "fetched_at": "2026-09-25T01:19:13-06:00"
     },
     {
       "id": 1,
@@ -15,7 +15,7 @@
       "producto": "superior",
       "precio": 45.74,
       "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-25T00:53:47-06:00"
+      "fetched_at": "2026-09-25T01:19:13-06:00"
     },
     {
       "id": 4,
@@ -23,7 +23,7 @@
       "producto": "regular",
       "precio": 41.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-25T00:53:47-06:00"
+      "fetched_at": "2026-09-25T01:19:13-06:00"
     }
   ],
   "precios_actualizados": true,
@@ -32,150 +32,150 @@
     {
       "referencia": "wti",
       "fecha": "2026-09-25",
-      "usd_barril": 92.85,
+      "usd_barril": 93.09,
       "fuente": "OilPriceAPI"
     }
   ],
   "noticias_count": 144,
   "noticias_llm": {
-    "titulos_es_hoy": 15,
+    "titulos_es_hoy": 30,
     "total_hoy": 153,
-    "error": "402 Client Error: Payment Required for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=***",
+    "error": null,
     "key_fp": {
-      "GEMINI_API_KEY": "AQ.A*** len=53 sha=c7c5b7ea",
+      "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
       "GROK_API_KEY": "gsk_*** len=56 sha=d8647ae8"
     }
   },
   "ultimas_noticias": [
     {
-      "id": 6,
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOaUN2YjZDc19JWGtHUGUtcElvZ2VfT3lpazlKQXJaWXpWMkJ1ZVlfNjZaVW8ydmgyekZiNE5TTTJDNW5yME5vc3hZdGRIQmRleTdxVTR6Y2xYOXdGa1lCMFk3d2x6bFFKbDNac1BPTVZhYWVIenpwdTBtOVZlX0ZYQ3pzQmRURzg4bXlHd3RGcG55bXNQWnlVbTRDZDRJV0gtSjkxTGRiNWY?oc=5",
-      "titulo": "Ataque masivo con drones contra Moscú alcanza Refinería y deja víctimas - Noticia Zavaleta",
-      "titulo_es": "Ataque masivo con drones contra Moscú alcanza Refinería y deja víctimas - Noticia Zavaleta",
+      "id": 61,
+      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOeXR1bW9EYlJQUWFIZUxvZnprNHpNUFZQNTJDQ2NXZmVzRFQ4N2Y1OWZIZnNxVS1xQzB3X2VuVG5GZFB6S0l0ZlNseTRRSFk1OHp2dHdVa2JCaXB5Vm9XT2FuWE9ETzlKcjlCYWRZOXhpcXlOcENueTRISE5uTE50V0JBZHRoZmY4R0FMZkV6UV9GdjEwOTV1S2xHZnduSDlKMnFhYnllM0hEbmlrMW9Jek4xWW1wLTlzYTU0MGE1ZWZReFFNeTFnQ1dnMjVlWkUzVk9scjVHVHNzenEwMGZLRVk2aG56STY5U2R4dnJVM2xWRGgxbHNlZ2tPWVR6cHpS0gGbAkFVX3lxTE8yZ0YtWFpnYl9PNjdKVjlVNXgwLVE5S3BRQkNXQVFYU0hFdHN1VllWQmdHQXpEM0haVlctdEcxRm4tMDR3eTFmc0NrWWRJSnN0cmU4WDFEaVFuMGN6T04xTl9ES2lYNHpBYnJ0eUpyV2dORTNZWWdGQ3JWckp6YTdGY09nNGdiNHBqUk8xS1Z4X2t4OVhtZWRqaFZvbVhubGpYQjloSWdwV29pbE1uWUdydmVpM090MDlHTXFJRXpDcURFcDFodzBONTA4X3loRE4wN2ZRLUN4SWhpSUV0WFRDa1pXYXRWSUIzOF8zMmpUS18zS0kxV3pFTmlYZjVpQ0ZnWnRUUXpId1l0Z1JUU01jSFZlV1N4Z2R5UWs?oc=5",
+      "titulo": "El Congreso de Guatemala despeja el camino para que Arévalo decida entre dos mecanismos de control de precios de combustibles - Infobae",
+      "titulo_es": "Congreso permite a Arévalo elegir mecanismo de control de precios de combustibles",
       "medio": "Google News ES",
-      "publicado_at": "2026-09-21T08:57:09-06:00",
-      "categoria": "otro",
+      "publicado_at": "2026-09-24T17:56:00-06:00",
+      "categoria": "finanzas",
       "pais": null,
       "relevancia": 5,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiqAFBVV95cUxOaUN2YjZDc19JWGtHUGUtcElvZ2VfT3lpazlKQXJaWXpWMkJ1ZVlfNjZaVW8ydmgyekZiNE5TTTJDNW5yME5vc3hZdGRIQmRleTdxVTR6Y2xYOXdGa1lCMFk3d2x6bFFKbDNac1BPTVZhYWVIenpwdTBtOVZlX0ZYQ3pzQmRURzg4bXlHd3RGcG55bXNQWnlVbTRDZDRJV0gtSjkxTGRiNWY?oc=5\" target=\"_blank\">Ataque masivo con drones contra Moscú alcanza Refinería y deja víctimas</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Noticia Zavaleta</font>",
-      "fetched_at": "2026-09-25T00:54:35-06:00"
+      "resumen_es": "El Congreso permite al presidente Arévalo elegir entre dos mecanismos de control de precios de combustibles, lo que podría fijar precios más bajos para los guatemaltecos.",
+      "fetched_at": "2026-09-25T01:20:02-06:00"
     },
     {
-      "id": 5,
-      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNNURRYjZjLU5EWmJSb2ZMeGNGRjFuLXY4Tk85WjJmMUJ3WXhockZvTVUtbzRyTHpoeEh0NGZBMGFUNzB4TzV3ZExCWlJPTzk2Zm9ZWWpKUmlQdGMyNWZZMFRTM250WDRfblg0RVNXckZya0tYU1k5TEpKVE9MdTV3RktOaWNjdDkwMllDSnY3V2lCMnVDVlRmUklkcFk5Ums5LXotbWxHRF9vbEF2RUZMR253eG5ZcnREWUYxYXdzbEgwZWtHRmZ3cjI0aWxZXzBER3kyQ1N6dHZCQkE0Q2RaZUtuT1ptQTI3MVByOTBPQTNVVnNV?oc=5",
-      "titulo": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con las autoridades de ese país, los dispositivos impactaron la principal refinería de petróleo de la capital y un edificio residencial. El alcalde Sergei Sobyanin d - facebook.com",
-      "titulo_es": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con las autoridades de ese",
+      "id": 114,
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPWkRlSHB2VE5NempVYUZtMkNBM2dnc2Rxd1RFYnBhWm5aOEJOVzJlUHF6MnpaT3I5aWNUMGt2Wmx3V1B4c0NpREFRX2lRV2NfUW53WW8zUldvQ2pwUkF0amRYS3NKS3JJTGdJTG1oMGNJNE1aRjVOZThnNnpMLWdLLS1GUnZWU0pW?oc=5",
+      "titulo": "Combustibles: alivio temporal - Prensa Libre",
+      "titulo_es": "Alivio temporal en precios de combustibles anunciado por el gobierno",
       "medio": "Google News ES",
-      "publicado_at": "2026-09-21T08:15:23-06:00",
-      "categoria": "otro",
+      "publicado_at": "2026-09-24T00:03:00-06:00",
+      "categoria": "precios",
       "pais": null,
       "relevancia": 5,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi9AFBVV95cUxNNURRYjZjLU5EWmJSb2ZMeGNGRjFuLXY4Tk85WjJmMUJ3WXhockZvTVUtbzRyTHpoeEh0NGZBMGFUNzB4TzV3ZExCWlJPTzk2Zm9ZWWpKUmlQdGMyNWZZMFRTM250WDRfblg0RVNXckZya0tYU1k5TEpKVE9MdTV3RktOaWNjdDkwMllDSnY3V2lCMnVDVlRmUklkcFk5Ums5LXotbWxHRF9vbEF2RUZMR253eG5ZcnREWUYxYXdzbEgwZWtHRmZ3cjI0aWxZXzBER3kyQ1N6dHZCQkE0Q2RaZUtuT1ptQTI3MVByOTBPQTNVVnNV?oc=5\" target=\"_blank\">Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con l",
-      "fetched_at": "2026-09-25T00:54:35-06:00"
-    },
-    {
-      "id": 10,
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPYmNHVmRmVGtuc1Jzd21CdG1YaW1SQ3FGcTN6X2VEcmpRMnVPYW5RRVBCQi1UalpsbGstc3hlSzdhalRvWk5tMklYMS00Z0hiNzB1SVZucHEybG13Z0otM3o3Q0xRUFFicnkzWi00MjZPdTNKSUJBdVdSLVhIUnBucFUxek9iS3pWQUZGQXpVcGFjaFcwUms5ODJPRDZhRXc?oc=5",
-      "titulo": "El petróleo de Texas sube un 2,7% tras ataques contra objetivos militares en Arabia Saudí - Banca y Negocios",
-      "titulo_es": "El petróleo de Texas sube un 2,7% tras ataques contra objetivos militares en Arabia Saudí - Banca y Negocios",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-24T14:18:04-06:00",
-      "categoria": "otro",
-      "pais": null,
-      "relevancia": 4,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMinwFBVV95cUxPYmNHVmRmVGtuc1Jzd21CdG1YaW1SQ3FGcTN6X2VEcmpRMnVPYW5RRVBCQi1UalpsbGstc3hlSzdhalRvWk5tMklYMS00Z0hiNzB1SVZucHEybG13Z0otM3o3Q0xRUFFicnkzWi00MjZPdTNKSUJBdVdSLVhIUnBucFUxek9iS3pWQUZGQXpVcGFjaFcwUms5ODJPRDZhRXc?oc=5\" target=\"_blank\">El petróleo de Texas sube un 2,7% tras ataques contra objetivos militares en Arabia Saudí</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Banca y Negocios</font>",
-      "fetched_at": "2026-09-25T00:54:35-06:00"
-    },
-    {
-      "id": 12,
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQZTh1ZGdBLXZDbEZKb015REhqSXNIWnRuaFVTUko0bUEwc3dWWEp5ZkxLLTFOUmNsUzNuR1ZtZmFDUEdaWV9QWTNXZFJXZzJxb2ZpNlNqc1pVUVVpNmZheVZQbFNIcmRkNEdzVHpGdTVXaXRiV1BRdzkxWDdHTzU2MHlIZzRLZm5wWXBzOUhaV1dJT0VKU2k5aDlBdVkzWXVIRG9wdldXOThPS0E2cncxWV9EWFotN1BtT2w1MWNJYXpaY2lIVlh3X3FQUHNGeHVqUlAtUlM2OUdmMUE1ZG94UFh2NA?oc=5",
-      "titulo": "Arabia Saudita aumenta las exportaciones de petróleo a través del Golfo tras ataque a oleoducto - IDNFinancials",
-      "titulo_es": "Arabia Saudita aumenta las exportaciones de petróleo a través del Golfo tras ataque a oleoducto - IDNFinancials",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-22T05:20:00-06:00",
-      "categoria": "otro",
-      "pais": null,
-      "relevancia": 4,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi4wFBVV95cUxQZTh1ZGdBLXZDbEZKb015REhqSXNIWnRuaFVTUko0bUEwc3dWWEp5ZkxLLTFOUmNsUzNuR1ZtZmFDUEdaWV9QWTNXZFJXZzJxb2ZpNlNqc1pVUVVpNmZheVZQbFNIcmRkNEdzVHpGdTVXaXRiV1BRdzkxWDdHTzU2MHlIZzRLZm5wWXBzOUhaV1dJT0VKU2k5aDlBdVkzWXVIRG9wdldXOThPS0E2cncxWV9EWFotN1BtT2w1MWNJYXpaY2lIVlh3X3FQUHNGeHVqUlAtUlM2OUdmMUE1ZG94UFh2NA?oc=5\" target=\"_blank\">Arabia Saudita aumenta las exportaciones de petróleo a través del Golfo tras ataque a oleoducto</a>&nbsp;&nbsp;<font colo",
-      "fetched_at": "2026-09-25T00:54:35-06:00"
-    },
-    {
-      "id": 15,
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxObHZYa0xwOFQ4OUFVVWpCMVJVQXlibFBnN1ZDa01BZklCMkdGNkdaZ2dOcGdpZGc4aUh5RWNHN1pWTkYtaEZMdFA2aFk1ZlFrRW92dE83R1RPMzYxS21LbEc3YnhvV1FUdlAxRWdla2F4azVXMFh5eFJTYVh2Z0NyV2pQd0I0TG5xMXh1bVJwY2RtSHFVMVFF?oc=5",
-      "titulo": "Arabia Saudita reactiva oleoducto Este-Oeste para reanudar las exportaciones desde Yanbu: fuentes - Yahoo",
-      "titulo_es": "Arabia Saudita reactiva oleoducto Este-Oeste para reanudar las exportaciones desde Yanbu: fuentes - Yahoo",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-22T04:33:00-06:00",
-      "categoria": "otro",
-      "pais": null,
-      "relevancia": 4,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMilwFBVV95cUxObHZYa0xwOFQ4OUFVVWpCMVJVQXlibFBnN1ZDa01BZklCMkdGNkdaZ2dOcGdpZGc4aUh5RWNHN1pWTkYtaEZMdFA2aFk1ZlFrRW92dE83R1RPMzYxS21LbEc3YnhvV1FUdlAxRWdla2F4azVXMFh5eFJTYVh2Z0NyV2pQd0I0TG5xMXh1bVJwY2RtSHFVMVFF?oc=5\" target=\"_blank\">Arabia Saudita reactiva oleoducto Este-Oeste para reanudar las exportaciones desde Yanbu: fuentes</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo</font>",
-      "fetched_at": "2026-09-25T00:54:35-06:00"
+      "resumen_es": "El gobierno anuncia medidas temporales que reducen el precio de los combustibles, aliviando el gasto de los consumidores guatemaltecos.",
+      "fetched_at": "2026-09-25T01:20:02-06:00"
     },
     {
       "id": 1,
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNcnJqNEJNOEgxaC1YcXNtNzljeWxKdlJmM0pMMUM0UlpoMklBR1ZSWFI0REVjWlVZMWxlV2FxRWlMLXpvWXBqTVpjTHNVVDVYZXRhWEZ1ZVFlVHJXcTBHaGMtY3ZtOC16N0lubjFxZzByT1hmX0NiTzBwN3Z2SVBURXQ2cE55d21kSmRxRklCaFg2X3hQMXliQUJBZTQ?oc=5",
       "titulo": "Arde en llamas una refinería de petróleo de Moscú tras un ataque ucraniano, según un vídeo publicado por Zelensky - CNN en Español",
-      "titulo_es": "Arde en llamas una refinería de petróleo de Moscú tras un ataque ucraniano, según un vídeo publicado por Zelensky - CNN ",
+      "titulo_es": "Incendio en refinería de Moscú tras ataque ucraniano",
       "medio": "Google News ES",
       "publicado_at": "2026-09-20T07:02:54-06:00",
-      "categoria": "otro",
+      "categoria": "geopolitica",
       "pais": null,
-      "relevancia": 4,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMinAFBVV95cUxNcnJqNEJNOEgxaC1YcXNtNzljeWxKdlJmM0pMMUM0UlpoMklBR1ZSWFI0REVjWlVZMWxlV2FxRWlMLXpvWXBqTVpjTHNVVDVYZXRhWEZ1ZVFlVHJXcTBHaGMtY3ZtOC16N0lubjFxZzByT1hmX0NiTzBwN3Z2SVBURXQ2cE55d21kSmRxRklCaFg2X3hQMXliQUJBZTQ?oc=5\" target=\"_blank\">Arde en llamas una refinería de petróleo de Moscú tras un ataque ucraniano, según un vídeo publicado por Zelensky</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CNN en Español</font>",
-      "fetched_at": "2026-09-25T00:54:35-06:00"
+      "relevancia": 5,
+      "resumen_es": "Refinería de Moscú se incendió tras ataque ucraniano, reduciendo la oferta de crudo ruso y presionando los precios internacionales, lo que afecta el costo de los combustibles importados por Guatemala.",
+      "fetched_at": "2026-09-25T01:20:02-06:00"
     },
     {
-      "id": 3,
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5CY0dINlhhc09NdHhscF9LV0s5UEdPeldGQ0RCbmduUmQ2aUpNN21iMVNwWHdnMlZ4NFFEZEt3SWxRbkhQM2pPbjBIaml4U0pyZnNaOHlnai0ydFNt0gFiQVVfeXFMT0ZMOWFHLXVfTnRRZEo5ZVpZMjh3bjI0OUtpMFVXX21vNlJUVjYySEp6VGJaQTd2WVc3Q0xuM0Z1QU9rQlo1ZkozX2NFZFNpTmMwTEJLQWlwZFZFQTBTYjkyZkE?oc=5",
-      "titulo": "Ucrania golpea Moscú con unos 450 drones en el mayor ataque contra la capital rusa hasta la fecha - BBC",
-      "titulo_es": "Ucrania golpea Moscú con unos 450 drones en el mayor ataque contra la capital rusa hasta la fecha - BBC",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-20T06:58:45-06:00",
+      "id": 24,
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxORGt0RWRlLUFoQ2xGYlVjY0x0bS1oU2VYaURwQlVrVEZtX2JYUkxCOGF1NmpmcWZkNmE3REtjd2d0bW1IV2JoTnpXcndfVTE4dVlCWXFfVVVCSjJRQUFWVlMzZS1iUDZkTHRhQ0l5MDEtcHgzSGM3dHpETVhxWWd2NXlvdUlqU2xlN1VtVHlINm5Wb09IWW1lazRvNmRsY1RabmtuTWhRNWpiZk1LSXVR0gG0AUFVX3lxTE5BRzJ5UkhlX1hUYWVGN2pQNVk2SURFZ3NTZy1Bc0MyN0QtcW9ySU15LTE1aU8zRm4yMXhCVHNINndqcjdsWmM5b1ZOd3pqRS1GZTkyUG8yRkktNFZhbjU0LTdBTTFXdlBBT0hNX1VIVEtwNFQtbDdxVGFDbzdNQ0Jhdmp6QXdua3N0R0V4RkFlbkRsRFdsQ1RpSm4wa3NhR3NBcWhldXhZd2lKYldnZHR6ZzZ6NA?oc=5",
+      "titulo": "Ukrainian drones and missiles target Moscow, oil refinery in deadly attack: Officials - ABC News - Breaking News, Latest News and Videos",
+      "titulo_es": "Drones y misiles ucranianos apuntan a Moscú, refinería de petróleo en ataque mortal: Funcionarios - ABC News - Noticias ",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-20T04:46:44-06:00",
       "categoria": "otro",
       "pais": null,
-      "relevancia": 4,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMiXEFVX3lxTE5CY0dINlhhc09NdHhscF9LV0s5UEdPeldGQ0RCbmduUmQ2aUpNN21iMVNwWHdnMlZ4NFFEZEt3SWxRbkhQM2pPbjBIaml4U0pyZnNaOHlnai0ydFNt0gFiQVVfeXFMT0ZMOWFHLXVfTnRRZEo5ZVpZMjh3bjI0OUtpMFVXX21vNlJUVjYySEp6VGJaQTd2WVc3Q0xuM0Z1QU9rQlo1ZkozX2NFZFNpTmMwTEJLQWlwZFZFQTBTYjkyZkE?oc=5\" target=\"_blank\">Ucrania golpea Moscú con unos 450 drones en el mayor ataque contra la capital rusa hasta la fecha</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">BBC</font>",
-      "fetched_at": "2026-09-25T00:54:35-06:00"
+      "relevancia": 5,
+      "resumen_es": "< a href=\"https://news.google.com/rss/articles/CBMirwFBVV95cUxORGt0RWRlLUFoQ2xGYlVjY0x0bS1oU2VYaURwQlVrVEZtX2JYUkxCOGF1NmpmcWZkNmE3REtjd2d0bW1IV2JoTnpXcndfVTE4dVlCWXFfVVVCSjJRQUFWVlMzZS1iUDZkTHRhQ0l5MDEtcHgzSGM3dHpETVhxWWd2NXlvdUlqU2xlN1VtVHlINm5Wb09IWW1lazRvNmRsY1RabmtuTWhRNWpiZk1LSXVR0gG0AUFVX3lxTE5BRzJ5UkhlX1hUYWVGN2pQNVk2SURFZ3NTZy1Bc0MyN0QtcW9ySU15LTE1aU8zRm4yMXhCVHNINndqcjdsWmM5b1ZOd3pqRS1GZT",
+      "fetched_at": "2026-09-25T01:20:02-06:00"
     },
     {
-      "id": 13,
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOUHIxakVjNjVyWVI2YTY1bURpLWRxbHNtSTB5QlRUekNGX1FFdWduc3Bjb29WRFZhdnZhdk9SLUJGa3JyZF9TdWVrY3dzcFRxTEp2RG1oc3Q5X09qbmpVa3g3X1FXNE85dHlfd0tDMjRTeHNORXZjYm1ZcER6WnpxclZJTUpGdw?oc=5",
-      "titulo": "Moscú, blanco del mayor ataque con drones de Ucrania en el último día de las elecciones de Rusia - CNN en Español",
-      "titulo_es": "Moscú, blanco del mayor ataque con drones de Ucrania en el último día de las elecciones de Rusia - CNN en Español",
+      "id": 62,
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNSzhkYWpVcFdOVmRvQnUzUnpRU3E3R1kzTnpDN2VhVjVvc21kUHRyTUF4Nzg2ZG5qVmRFUHVJamQ3ZjVQWTJSa1o2VEFVd0V3cHZZRlkyYVRrV05pM0JIYW9xYXNLUVI4YS03c0tpYjdZRkk4eG5aV0RIT2xraTFqWmsyUmNaa3NPOTU1N293ZGh1eVR5TVFZeWowWGVZdnFEMC02V3VR?oc=5",
+      "titulo": "Congreso de Guatemala fija un tope al precio de los combustibles - Norwalk Hour",
+      "titulo_es": "Congreso fija tope máximo al precio de los combustibles",
       "medio": "Google News ES",
-      "publicado_at": "2026-09-20T06:19:00-06:00",
-      "categoria": "otro",
+      "publicado_at": "2026-09-09T01:00:00-06:00",
+      "categoria": "finanzas",
       "pais": null,
-      "relevancia": 4,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMihgFBVV95cUxOUHIxakVjNjVyWVI2YTY1bURpLWRxbHNtSTB5QlRUekNGX1FFdWduc3Bjb29WRFZhdnZhdk9SLUJGa3JyZF9TdWVrY3dzcFRxTEp2RG1oc3Q5X09qbmpVa3g3X1FXNE85dHlfd0tDMjRTeHNORXZjYm1ZcER6WnpxclZJTUpGdw?oc=5\" target=\"_blank\">Moscú, blanco del mayor ataque con drones de Ucrania en el último día de las elecciones de Rusia</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">CNN en Español</font>",
-      "fetched_at": "2026-09-25T00:54:35-06:00"
+      "relevancia": 5,
+      "resumen_es": "El Congreso aprueba un límite máximo al precio de los combustibles, buscando proteger a los consumidores y controlar la inflación en Guatemala.",
+      "fetched_at": "2026-09-25T01:20:02-06:00"
     },
     {
-      "id": 4,
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQVHpKSWNnc0xsTF9DYUZoX0gxQjJpb1BYanAwbWhWTUdxVTJmMDk1aXIzalRuemNfOE93STR2ekdBU3N6ZGNlaU1kOVdxVkxMQWprRjhnb2FQQUJlUmFOb18xbDNTQlZZT09zelltYzllXzJBSzR4b1J1eFdaQ0ZmeDE1LVVndmlmWjJYdG1yQW9jZEtGVC1QZ09ZZlpEMVgtc0lMTERuX2MzNjFYMkdMcHpXbnlXMmdVWFlfWFlzc0FaM25NdWZPRWxtdWU5ODhDekg4cTl2R1E?oc=5",
-      "titulo": "Irak dice que ataques a oleoducto saudí salieron de su territorio y otras noticias de Oriente Medio - chicagotribune.com",
-      "titulo_es": "Irak dice que ataques a oleoducto saudí salieron de su territorio y otras noticias de Oriente Medio - chicagotribune.com",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-12T01:00:00-06:00",
-      "categoria": "otro",
+      "id": 82,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Brent-Set-for-Weekly-Gain-as-Houthi-Attacks-Rattle-Saudi-Oil-Supply.html",
+      "titulo": "Brent Set for Weekly Gain as Houthi Attacks Rattle Saudi Oil Supply",
+      "titulo_es": "Brent sube semanalmente por ataques hutíes a suministro saudí",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T23:04:32-06:00",
+      "categoria": "precios",
       "pais": null,
       "relevancia": 4,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi2AFBVV95cUxQVHpKSWNnc0xsTF9DYUZoX0gxQjJpb1BYanAwbWhWTUdxVTJmMDk1aXIzalRuemNfOE93STR2ekdBU3N6ZGNlaU1kOVdxVkxMQWprRjhnb2FQQUJlUmFOb18xbDNTQlZZT09zelltYzllXzJBSzR4b1J1eFdaQ0ZmeDE1LVVndmlmWjJYdG1yQW9jZEtGVC1QZ09ZZlpEMVgtc0lMTERuX2MzNjFYMkdMcHpXbnlXMmdVWFlfWFlzc0FaM25NdWZPRWxtdWU5ODhDekg4cTl2R1E?oc=5\" target=\"_blank\">Irak dice que ataques a oleoducto saudí salieron de su territorio y otras noticias de Oriente Medio</a>&nbsp;&nbsp;<font color=\"#6f6f6f\"",
-      "fetched_at": "2026-09-25T00:54:35-06:00"
+      "resumen_es": "Los ataques hutíes a la oferta saudí impulsan al Brent a subir semanalmente, lo que eleva el costo de importación de combustibles en Guatemala.",
+      "fetched_at": "2026-09-25T01:20:02-06:00"
     },
     {
-      "id": 8,
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxORmJ0elJsNERtZHBGTEpxdnotOXRHVmVrVjAyTG5HdlRoSGphU1FtZThjNkY1WW5IaHBjazFLRy1rNWNEZW5KTHVpR3Uxa1hDQjhZRHVkUmdCak1VbkZoM1lHNENLUi03WThRRER6cGRsaGNhZmpPTTVNZHhUVTJoVHlDYks3b1ZtS3d4U211Ny16VG1MN1NScw?oc=5",
-      "titulo": "El Gobierno iraquí condena ataque contra oleoducto de Arabia Saudita e inicia investigación - Yahoo",
-      "titulo_es": "El Gobierno iraquí condena ataque contra oleoducto de Arabia Saudita e inicia investigación - Yahoo",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-12T01:00:00-06:00",
+      "id": 23,
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNeFd0akhaaFhCeVNSaUh5Y0N2UDd0UldJQmQ4aXl0UkFNWjhxMm82blVmMXNIVG8tVUpKQUhUSFFabUd1a2Iza2FXUWU2RTBrdEJwakg4aTBsZVZKUmVZQkh0Wl9heEdkaEZ0cHQ0WnJQaE1OejMyMEpudzk3X1I4bnVBcnpzMmV3LWh1UTVuOUcxNERKRTJHaHdmZWJJZGNBaEtOTlBkVU1XeklpV0FNUWJ5bW83eWY2dUFnMGExcEpwcXJvOF9XLWxSNGxzZw?oc=5",
+      "titulo": "Ukrainian forces reportedly strike oil refinery 1,500 kilometers from border, Russian electronics factory - The Kyiv Independent",
+      "titulo_es": "Según los informes, las fuerzas ucranianas atacaron la refinería de petróleo a 1.500 kilómetros de la frontera, la fábri",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-24T20:28:28-06:00",
       "categoria": "otro",
       "pais": null,
       "relevancia": 4,
-      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxORmJ0elJsNERtZHBGTEpxdnotOXRHVmVrVjAyTG5HdlRoSGphU1FtZThjNkY1WW5IaHBjazFLRy1rNWNEZW5KTHVpR3Uxa1hDQjhZRHVkUmdCak1VbkZoM1lHNENLUi03WThRRER6cGRsaGNhZmpPTTVNZHhUVTJoVHlDYks3b1ZtS3d4U211Ny16VG1MN1NScw?oc=5\" target=\"_blank\">El Gobierno iraquí condena ataque contra oleoducto de Arabia Saudita e inicia investigación</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Yahoo</font>",
-      "fetched_at": "2026-09-25T00:54:35-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMizgFBVV95cUxNeFd0akhaaFhCeVNSaUh5Y0N2UDd0UldJQmQ4aXl0UkFNWjhxMm82blVmMXNIVG8tVUpKQUhUSFFabUd1a2Iza2FXUWU2RTBrdEJwakg4aTBsZVZKUmVZQkh0Wl9heEdkaEZ0cHQ0WnJQaE1OejMyMEpudzk3X1I4bnVBcnpzMmV3LWh1UTVuOUcxNERKRTJHaHdmZWJJZGNBaEtOTlBkVU1XeklpV0FNUWJ5bW83eWY2dUFnMGExcEpwcXJvOF9XLWxSNGxzZw?oc=5\" target=\"_blank\">Según los informes, las fuerzas ucranianas atacan la refinería de petróleo",
+      "fetched_at": "2026-09-25T01:20:02-06:00"
+    },
+    {
+      "id": 84,
+      "url": "https://oilprice.com/Energy/Crude-Oil/Soaring-Freight-Costs-Make-Japans-Crude-Imports-the-Worlds-Most-Expensive.html",
+      "titulo": "Soaring Freight Costs Make Japan’s Crude Imports the World’s Most Expensive",
+      "titulo_es": "El aumento de los costes de flete hace que las importaciones de crudo de Japón sean las más caras del mundo",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T17:00:00-06:00",
+      "categoria": "otro",
+      "pais": null,
+      "relevancia": 4,
+      "resumen_es": "El petróleo es cada vez más caro incluso antes de llegar a una refinería. El flete ahora representa aproximadamente una quinta parte del costo de una carga de crudo, lo que convierte al mercado de petroleros en un importante impulsor del precio que pagan los compradores. En el centro del apretón se encuentra el gran petrolero, o VLCC, el superpetrolero que puede mover alrededor de 2 millones de barriles en un solo viaje. En medio del Golfo varado y el Mar Rojo su",
+      "fetched_at": "2026-09-25T01:20:02-06:00"
+    },
+    {
+      "id": 2,
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPSTJMTUpOdnRremU0Nm1HcVlQSEliNjJsM1kzWGZMUzVZbURqYzVKeUdha3NxZk1GajA4eG4zdjdfSUNPT08zbUkzbzNwLUVZNXRWdG5DS0Q2Nk1uNGxjTHpWTXVJcG81NXlORklrN2xRb2htOHFob0NCUEZMY2tGUmJuQm9neHgwWWNncE1ER0Z4ME42STZPaVp4RzUtT1NGQ2RjU3Z0R1NCSFlOM1VrcFVmdW0xdlBaVHloVmlFSmV6WDNjVmkxQ2x1N0pZZ9IB6AFBVV95cUxQQUR2SC14dUl3akhBNzRJa1lacE9oeHdXWHE4QV9HcGFJOUlyNTNPOGdHRW1KZmhNdjRUd2Q1bkpuZlVpTVJ0RWNJcVhHcm9Ud0JPdi13bnEzbUFpTUxDWTlNRHlyTl80c05hUk4wNHh3YWdUenl5X29FRllxMnlLd2o4b3NVY2VHUmJJblc0elFKanR6Um5JTkFadXM2dEZqWm1WWGpZa1A2UmdSLVpiRzBGTWJ0OENBbHlDa25VLWhOWGZSZXZvYXcwN1NHdEVCaGxJaVlaZW5jbnE2d2w0OHNnRUFvWmU0?oc=5",
+      "titulo": "El petróleo volvió a subir tras un nuevo ataque de los hutíes contra Arabia Saudita - Infobae",
+      "titulo_es": "Aumento del petróleo tras ataque hutí a Arabia Saudita",
+      "medio": "Google News ES",
+      "publicado_at": "2026-09-24T15:34:00-06:00",
+      "categoria": "precios",
+      "pais": null,
+      "relevancia": 4,
+      "resumen_es": "Un nuevo ataque hutí a instalaciones saudíes eleva el precio del petróleo, incrementando el costo de los combustibles importados por Guatemala.",
+      "fetched_at": "2026-09-25T01:20:02-06:00"
+    },
+    {
+      "id": 22,
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOa002SlQwdjRkZTJfNWtycjdSSmhMbmlZanRKQm10YzhLMDJSNnBtZW94YWYxX0ZCSWQ3OWJtTDdjTDY0VlpnclNreHFxQ0ZXM2JZSlpjZ2pDYVlEcVd6aVNQSlVPSDVPNHh0cW5KcVY0UWYzc0ZqSGhsdGhEd253SGx3ZGZPa25tR3o5UGRBY191dHU1NG5PMm5KRFVHb20zMU9hMUFma080bk1rN1AtWllZbU1BYVJxREJ6WlR5MDVldVZZVlZZ?oc=5",
+      "titulo": "Saudi Oil Loaded from Port at Yanbu after Pipeline Attack - Industrial Info Resources",
+      "titulo_es": "Arabia Saudí carga crudo en Yanbu tras ataque al oleoducto",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-24T03:53:23-06:00",
+      "categoria": "oferta",
+      "pais": null,
+      "relevancia": 4,
+      "resumen_es": "Tras el ataque al oleoducto, Arabia Saudí carga crudo en Yanbu, manteniendo el flujo de exportaciones y limitando alzas de precios para Guatemala.",
+      "fetched_at": "2026-09-25T01:20:02-06:00"
     }
   ]
 }
