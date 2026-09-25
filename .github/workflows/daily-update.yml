@@ -20,6 +20,11 @@ jobs:
       contents: write
     runs-on: windows-latest
 
+    # Serializa schedule + push + dispatch: evita carreras en el commit/push de JSONs.
+    concurrency:
+      group: daily-update-global
+      cancel-in-progress: false
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -52,7 +57,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
         run: |
-          python -c "from datetime import datetime, timezone, timedelta; now_utc = datetime.utcnow().strftime('%H:%M'); now_gt = datetime.now(timezone(timedelta(hours=-6))).strftime('%H:%M'); print(f'UTC={now_utc} GT={now_gt}'); f=open('data/export/.debug_time.txt','w'); f.write(f'{now_utc}|{now_gt}')"
+          python -c "from datetime import datetime, timezone, timedelta; now_utc = datetime.utcnow().strftime('%H:%M'); now_gt = datetime.now(timezone(timedelta(hours=-6))).strftime('%H:%M'); print(f'UTC={now_utc} GT={now_gt}'); f=open('logs/debug_time.txt','w'); f.write(f'{now_utc}|{now_gt}')"
           python collector/main.py --alternos --petroleo --noticias --export
 
       - name: Commit and push updated JSONs
@@ -66,9 +71,14 @@ jobs:
           if git diff --cached --quiet; then
             echo "::notice::No changes to commit."
           else
-            git pull --rebase origin main || true
+            # Commit PRIMERO: con índice limpio, el rebase de abajo sí funciona.
+            # (Antes fallaba en silencio: había cambios staged y || true lo ocultaba.)
             git commit -m "Daily update: GPP + petróleo + noticias [skip ci]"
-            git push origin main || true
+            # Sincronizar por si main avanzó en paralelo; si hay conflicto se aborta
+            # y el push de abajo deja la falla VISIBLE (los JSONs salen en el próximo run).
+            git pull --rebase origin main || { git rebase --abort 2>/dev/null || true; }
+            # Sin || true: un rechazo de push queda ROJO, no se pierde en silencio.
+            git push origin HEAD:main
             echo "::notice::OK JSONs pushed"
           fi
 ######## FINALIZA SCRIPT DE WORKFLOW DAILY UPDATE ########

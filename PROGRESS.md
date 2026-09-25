@@ -35,6 +35,7 @@ Estado: todas las etapas implementadas y validadas
 - LLM local: mismos base_url y model que OpenCode; verificar con GET /models antes de codificar.
 - EIA API v2 endpoint: https://api.eia.gov/v2/petroleum/pri/spt/data/. Series Brent RBRTE, WTI RWTC. Gasolina/diésel US Gulf Coast pendientes de metadata.
 - Feeds RSS: Google News ES y EN, oilprice.com, EIA todayinenergy.xml. Probar cada feed antes de Etapa 6.
+- Revisión workflow daily-update (2026-09-25): paso commit reordenado a add → diff → **commit → pull --rebase → push HEAD:main** sin `|| true` (antes el rebase fallaba en silencio con índice dirty y los pushes rechazados eran invisibles). Concurrency global `daily-update-global` (sin cancel) serializa schedule+push+dispatch. `actualizado_at` ahora usa `ahora_gt_iso()` de collector/db.py (GT tz-aware determinista, sin red); worldtimeapi.org fallaba en CI y dejaba UTC (+00:00). `.debug_time.txt` movido a `logs/`. Ojo: cron corre ~18:2x UTC real (GitHub Actions gratis) → datos llegan ~12:20 GT, no 08:00. Secreto `GROK_API_KEY` devuelve 401 → clasificación LLM apagada; títulos ES cubiertos por fallback MyMemory. Falta actualizar el secreto en GitHub.
 
 ## Bugs conocidos
 - SQLite UNIQUE inline bug: `CREATE TABLE ... UNIQUE(...)` en executescript() no crea índice implícito en esta versión Windows/SQLite. Se usa CREATE UNIQUE INDEX explícito después de crear tablas. Afecta conectar_temporal() en tests.
