@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "actualizado_at": "2026-09-25T03:30:48-06:00",
+  "actualizado_at": "2026-09-25T03:45:30-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-09-24",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-09-24",
         "precio": 43.29,
         "fuente": "MEM",
-        "fetched_at": "2026-09-25T03:30:22-06:00"
+        "fetched_at": "2026-09-25T03:45:04-06:00"
       },
       "historial": [
         {
@@ -1369,7 +1369,7 @@
         "fecha": "2026-09-24",
         "precio": 45.29,
         "fuente": "MEM",
-        "fetched_at": "2026-09-25T03:30:22-06:00"
+        "fetched_at": "2026-09-25T03:45:04-06:00"
       },
       "historial": [
         {
@@ -2725,7 +2725,7 @@
         "fecha": "2026-09-24",
         "precio": 49.4,
         "fuente": "MEM",
-        "fetched_at": "2026-09-25T03:30:22-06:00"
+        "fetched_at": "2026-09-25T03:45:04-06:00"
       },
       "historial": [
         {
@@ -4075,9 +4075,9 @@
       "orden": 4,
       "actual": {
         "fecha": "2026-09-25",
-        "precio": 92.35,
+        "precio": 92.88,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-09-25T03:30:25-06:00"
+        "fetched_at": "2026-09-25T03:45:08-06:00"
       },
       "historial": [
         {
@@ -5126,7 +5126,7 @@
         },
         {
           "fecha": "2026-09-25",
-          "precio": 92.35
+          "precio": 92.88
         }
       ],
       "mensual": [],
@@ -5156,142 +5156,142 @@
     }
   },
   "noticias": {
-    "total": 142,
+    "total": 78,
     "top": [
       {
-        "id": 27,
-        "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQdkZNZEtRS1dqcEI1X3dySnFhNUlqRTFVc1h6ZGtrOUFjSmV4Q2d1Vk1OM3ZfalpWaS1Wb2RwdzVobHNDR1BRd0t5OFRzNjUxcmN1c09mQ0FzVS0wZGV1Nm8zRVlaMGw3c0taZTNVRVZHTmE0T0FGZ0hfS1lqU0xLNDM2aDdjVlZiVzU0?oc=5",
-        "titulo": "Oil Prices Increase After Iraq Attack Shuts Down Saudi Pipeline - The Organization for World Peace",
-        "titulo_es": "Los precios del petróleo suben tras ataque iraquí que cierra oleoducto saudí",
-        "medio": "Google News EN",
-        "publicado_at": "2026-09-22T08:27:17-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Un ataque iraquí cerró un oleoducto clave de Arabia Saudita, reduciendo la oferta y disparando los precios internacionales, lo que encarece las importaciones guatemaltecas.",
-        "fetched_at": "2026-09-25T03:30:48-06:00"
-      },
-      {
-        "id": 7,
-        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOaUN2YjZDc19JWGtHUGUtcElvZ2VfT3lpazlKQXJaWXpWMkJ1ZVlfNjZaVW8ydmgyekZiNE5TTTJDNW5yME5vc3hZdGRIQmRleTdxVTR6Y2xYOXdGa1lCMFk3d2x6bFFKbDNac1BPTVZhYWVIenpwdTBtOVZlX0ZYQ3pzQmRURzg4bXlHd3RGcG55bXNQWnlVbTRDZDRJV0gtSjkxTGRiNWY?oc=5",
-        "titulo": "Ataque masivo con drones contra Moscú alcanza Refinería y deja víctimas - Noticia Zavaleta",
-        "titulo_es": "Ataque masivo de drones contra Moscú alcanza refinería y deja víctimas",
+        "id": 1,
+        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNQVAtV3RwM2k0VkhjVjdGQ0VlcmlWREtGZENxQWpCdXMwaEpmZjc5cmc5RlFtMm9UUGE5dkVpN1lac1gzUmNMTTVVNjZYMVo0b2x6OVBwbHZNZUN0RnpfLWJrRk92LXZaM2ZZYXBLOGd1QlpCQjEzZEtBemlvSXNqczlyWVZueWZtc2NGd2dYOVpfUWV5cXlmTjVVNjJsZnVQQ3k4enhPMFphTnd6QXdkbDhTeVRWTDVoM21lc1AtcVZQaGRhVTUyS3ZwM1k?oc=5",
+        "titulo": "Cuándo entra en vigencia el subsidio a la gasolina en Guatemala, que aplica exención del IDP e IVA a los combustibles - Prensa Libre",
+        "titulo_es": "Gobierno de Guatemala activa subsidio que exime IDP e IVA a la gasolina",
         "medio": "Google News ES",
-        "publicado_at": "2026-09-21T08:57:09-06:00",
-        "categoria": "geopolitica",
+        "publicado_at": "2026-09-24T08:00:00-06:00",
+        "categoria": "finanzas",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Un ataque masivo de drones alcanzó una refinería en Moscú, generando interrupciones en la producción y elevando los precios del crudo a nivel mundial, afectando a Guatemala.",
-        "fetched_at": "2026-09-25T03:30:47-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNNURRYjZjLU5EWmJSb2ZMeGNGRjFuLXY4Tk85WjJmMUJ3WXhockZvTVUtbzRyTHpoeEh0NGZBMGFUNzB4TzV3ZExCWlJPTzk2Zm9ZWWpKUmlQdGMyNWZZMFRTM250WDRfblg0RVNXckZya0tYU1k5TEpKVE9MdTV3RktOaWNjdDkwMllDSnY3V2lCMnVDVlRmUklkcFk5Ums5LXotbWxHRF9vbEF2RUZMR253eG5ZcnREWUYxYXdzbEgwZWtHRmZ3cjI0aWxZXzBER3kyQ1N6dHZCQkE0Q2RaZUtuT1ptQTI3MVByOTBPQTNVVnNV?oc=5",
-        "titulo": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con las autoridades de ese país, los dispositivos impactaron la principal refinería de petróleo de la capital y un edificio residencial. El alcalde Sergei Sobyanin d - facebook.com",
-        "titulo_es": "Ucrania lanza su mayor ataque con drones contra la principal refinería de Moscú",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-21T08:15:23-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Ucrania atacó con drones la principal refinería de Moscú, reduciendo la oferta rusa y presionando al alza los precios internacionales del combustible, lo que impacta la importación guatemalteca.",
-        "fetched_at": "2026-09-25T03:30:47-06:00"
+        "resumen_es": "El gobierno implementará un subsidio que exime el IDP e IVA a la gasolina, reduciendo el precio al consumidor y aliviando la presión inflacionaria.",
+        "fetched_at": "2026-09-25T03:45:30-06:00"
       },
       {
         "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5CY0dINlhhc09NdHhscF9LV0s5UEdPeldGQ0RCbmduUmQ2aUpNN21iMVNwWHdnMlZ4NFFEZEt3SWxRbkhQM2pPbjBIaml4U0pyZnNaOHlnai0ydFNt0gFiQVVfeXFMT0ZMOWFHLXVfTnRRZEo5ZVpZMjh3bjI0OUtpMFVXX21vNlJUVjYySEp6VGJaQTd2WVc3Q0xuM0Z1QU9rQlo1ZkozX2NFZFNpTmMwTEJLQWlwZFZFQTBTYjkyZkE?oc=5",
-        "titulo": "Ucrania golpea Moscú con unos 450 drones en el mayor ataque contra la capital rusa hasta la fecha - BBC",
-        "titulo_es": "Ucrania lanza ~450 drones contra Moscú en su mayor ataque",
+        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOaGZoNlkweHJDOGYwTGt4QUZRV0Y3X3JnQXFtQWFLdXFhZTB0T2w0TFVYUDF0OUpMdVhzdV8tLWxSN2V0dk95WE5sZ3RqdjBKSWFZZlgxZEMzUmlpZmRvb202RHBqY2ozUjdoZV9uT2s2NjVZRVprMGNfWXk5bTNRMnRJSTUzSFIyY0ZLUi1NMUVWX05ma29nVTFVaWs3TThhaHBwNE5uTQ?oc=5",
+        "titulo": "Guatemala elimina impuestos a combustibles - elsalvador.com",
+        "titulo_es": "Guatemala elimina impuestos a los combustibles",
         "medio": "Google News ES",
-        "publicado_at": "2026-09-20T06:58:45-06:00",
+        "publicado_at": "2026-09-23T07:54:19-06:00",
+        "categoria": "finanzas",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "El Estado suprime impuestos a los combustibles, lo que bajará los precios al consumidor y puede reducir la inflación.",
+        "fetched_at": "2026-09-25T03:45:30-06:00"
+      },
+      {
+        "id": 4,
+        "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOUW1fM1J0NUV5TzR5Z1BLQkVsMmhCMDRxNlcwalBReFdnRmhuSzhWajZrQjNENkU2bURjWkR3bVFjdmZQeTdxTll0VmJWY1RLOG9JM2Rma2dLVlhNSnVJYlJpSWxlX3d0Q05ONUNpRjNsVTl6cm1xY1VfVEZPc2pWNlFrNDc0ODFDcXQtVlZMdUdjSktXeWF1eWVEOVN0UGRGSkJBTnZTdGkwb3BOaXRVQW9FN2lLRHVvNGxPOENlTzZuSWFfaDNkQk9aX1ZRQ3Q5VUVvX3lBXzg?oc=5",
+        "titulo": "Guatemala exonera impuestos al combustible ante las protestas por el alza de los precios - France 24",
+        "titulo_es": "Guatemala exonera impuestos al combustible ante protestas por alza de precios",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-23T05:31:34-06:00",
+        "categoria": "finanzas",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Ante las protestas por el alza de precios, el gobierno exonera los impuestos al combustible, buscando calmar la presión social y bajar los costos.",
+        "fetched_at": "2026-09-25T03:45:30-06:00"
+      },
+      {
+        "id": 10,
+        "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQdkZNZEtRS1dqcEI1X3dySnFhNUlqRTFVc1h6ZGtrOUFjSmV4Q2d1Vk1OM3ZfalpWaS1Wb2RwdzVobHNDR1BRd0t5OFRzNjUxcmN1c09mQ0FzVS0wZGV1Nm8zRVlaMGw3c0taZTNVRVZHTmE0T0FGZ0hfS1lqU0xLNDM2aDdjVlZiVzU0?oc=5",
+        "titulo": "Oil Prices Increase After Iraq Attack Shuts Down Saudi Pipeline - The Organization for World Peace",
+        "titulo_es": "Precios del petróleo suben tras ataque en Irak que cierra oleoducto saudí",
+        "medio": "Google News EN",
+        "publicado_at": "2026-09-22T08:27:17-06:00",
         "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 5,
-        "resumen_es": "El masivo ataque con drones a Moscú intensifica la tensión geopolítica y amenaza la producción de energía rusa, lo que puede subir los precios del combustible importado por Guatemala.",
-        "fetched_at": "2026-09-25T03:30:47-06:00"
+        "relevancia": 4,
+        "resumen_es": "Un ataque en Irak cerró un oleoducto saudí, disparando los precios del crudo, lo que repercutirá en los costos de importación de combustibles en Guatemala.",
+        "fetched_at": "2026-09-25T03:45:30-06:00"
       },
       {
-        "id": 32,
+        "id": 11,
+        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQcThldmdWd2c5aHdfck8zYk1XMWtsa3kweWlXaTNQWEpnV2NIUHhiNTh2cHhoSndCV2Z2QkhwNl9DZEJObFJha2pXWG1JcUZpVXlZU1RqQ2diZUJ0YVV2alRBRmRCampGOGdQQnM4UVV2R2ZMQ2p6WC1QSk5iOGJEWDZ2YXdaSzlLeGtZYnNuVld5MGZESG1tenNaMFlFcExWeVhlZjJBTlJOeHNmVkhBYzFkejJkNno5VWEwU05hRHU4NGlqT1U5UXcxUzU?oc=5",
+        "titulo": "Saudi Arabia ramps up Gulf oil exports after pipeline attack, data shows - reuters.com",
+        "titulo_es": "Arabia Saudí incrementa exportaciones del Golfo después de ataque al oleoducto",
+        "medio": "Google News EN",
+        "publicado_at": "2026-09-21T09:55:00-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Tras el ataque al oleoducto, Arabia Saudí incrementa sus exportaciones del Golfo, intentando estabilizar el suministro y contener la subida de precios internacionales.",
+        "fetched_at": "2026-09-25T03:45:30-06:00"
+      },
+      {
+        "id": 5,
+        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPS0E5S0xaNF9mX0owRUk2LXdwZVg2REE1Mmh2UTJMdTdKWW82RUtpQmFXSV9SRDZsbWVTQ2pEN1VrVkxMSkJhMVNNaXV4YVg2cnk1Ym9POU1MUlMzeXdZZmJvcTdSSlNwS3puMnhESEY1b2NFWG01MDYzV2FEYl81cUR1WVBnOC1NWmJrOFJ0bHB6R2VyYXFkVU1GSWc5OFFfbDUzWVlWLVNvUVR2VFI3aTU4UEtOc2M5VS0xS1N1NGhpUW95bjk0?oc=5",
+        "titulo": "Combustibles en Guatemala: el diésel casi duplica su precio y las gasolinas suben más de 60% - Prensa Libre",
+        "titulo_es": "Diésel casi duplica su precio y gasolinas suben más del 60% en Guatemala",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-19T10:05:52-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El diésel casi duplica su precio y la gasolina sube más del 60%, reflejando el impacto de la eliminación de impuestos y la alta del crudo, afectando costos de transporte.",
+        "fetched_at": "2026-09-25T03:45:30-06:00"
+      },
+      {
+        "id": 14,
         "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQTzVjMkh4M1lsaEJyZkV0a3lzMlhVNHVsZVNoV1A4d0VkTjluTFgwc0JXTHpPNWRFMjlfdThqMmxlLTI4dGRaalR4SnBEZmZ6aDBxTGNRNzZMX0VzVk9tcmIyR1pvS0l4ZlNBbjctU0hWWUJIYXRIdTFNc1NhVFRnLUVwY2E?oc=5",
         "titulo": "Saudi Pipeline Attack Risks ‘Disastrous’ Loss of Oil as Fighting Escalates - The New York Times",
-        "titulo_es": "Ataque al oleoducto saudí amenaza pérdida desastrosa de crudo",
+        "titulo_es": "Ataque al oleoducto saudí amenaza pérdida catastrófica de crudo",
         "medio": "Google News EN",
         "publicado_at": "2026-09-16T01:00:00-06:00",
-        "categoria": "infraestructura",
+        "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 5,
-        "resumen_es": "El ataque al oleoducto saudí podría cortar gran parte del suministro mundial, elevando precios y afectando la disponibilidad de combustible en Guatemala.",
-        "fetched_at": "2026-09-25T03:30:48-06:00"
+        "relevancia": 4,
+        "resumen_es": "Un ataque al oleoducto saudí amenaza perder gran cantidad de crudo, lo que podría reducir la oferta mundial y presionar al alza los precios del combustible.",
+        "fetched_at": "2026-09-25T03:45:30-06:00"
       },
       {
-        "id": 30,
+        "id": 15,
         "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOeDdvckhVQlJKZzN2eU90TEg3YU9vRmhZdTdjdkZ1cExSOUd4N09GVEktMTBVT012ZUdGWUdtc2JLaDdIWDJWWFdpUmlJU3pMVWt3MXR2bXRyUXlnSHJTVDJ2Vzg1bmx1ZFptX3ZoVmlMZS1EODlaM3FHbGFJTHFUM0I5YkE5WVRGcEs0UlNkZjdsdXhzdHF6dXFqbHV0bFFZRmRCNDF1WHpQOGZLeGJCdkJIRmNOa1Bzb1FKNU9fcGc?oc=5",
         "titulo": "Oil Prices Rise as Saudi East-West Pipeline Attack Threatens Export Routes - WSJ",
-        "titulo_es": "Precios del petróleo suben por amenaza al oleoducto este‑oeste de Arabia Saudí",
+        "titulo_es": "Precios del petróleo aumentan tras amenaza al oleoducto este‑oeste de Arabia Saudí",
         "medio": "Google News EN",
         "publicado_at": "2026-09-14T01:00:00-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 5,
-        "resumen_es": "La amenaza al oleoducto este‑oeste de Arabia Saudí genera incertidumbre en la oferta, impulsando al alza los precios del crudo y afectando el costo del combustible en Guatemala.",
-        "fetched_at": "2026-09-25T03:30:48-06:00"
-      },
-      {
-        "id": 1,
-        "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNWVIwYkp0R281ZXpZSkNOMDhJT1p1SXgyNFpsaVc0VE9KMXZXNjFac19EbWJtallxMFFwYjJMR09iZGVLZi02U2JSSlV6dFMxOTQ5MzBwVVN5MlVCVVRfYm9EZDNIbFhrZTRXa3VHYkdQU2NqbGVPMllUMzFPZGFZd25KTHN6RGlkTnNrUDNzRGxSMEdYWFd2WlNsVWdpTWRjWi03ano4d0lVTXF4X2Z2bXhlVXJHQ3pkcEMwbjJPZ2NEMTRaYmJLTTdPei14TFM1a0g1azhOeEl3RzNhbnpCXzQ4QQ?oc=5",
-        "titulo": "Atacan con drones una importante refinería de la petrolera rusa LUKOIL por segunda vez desde agosto - UNITED24 Media",
-        "titulo_es": "Drones atacan por segunda vez a refinería rusa LUKOIL",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-25T02:09:09-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
         "relevancia": 4,
-        "resumen_es": "El segundo ataque a la refinería LUKOIL reduce la capacidad de producción rusa, afectando la oferta global y los precios del combustible que importa Guatemala.",
-        "fetched_at": "2026-09-25T03:30:47-06:00"
+        "resumen_es": "El ataque al oleoducto este‑oeste de Arabia Saudí eleva los precios del petróleo, lo que se traducirá en mayores costos de importación para Guatemala.",
+        "fetched_at": "2026-09-25T03:45:30-06:00"
       },
       {
-        "id": 22,
+        "id": 9,
         "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOa002SlQwdjRkZTJfNWtycjdSSmhMbmlZanRKQm10YzhLMDJSNnBtZW94YWYxX0ZCSWQ3OWJtTDdjTDY0VlpnclNreHFxQ0ZXM2JZSlpjZ2pDYVlEcVd6aVNQSlVPSDVPNHh0cW5KcVY0UWYzc0ZqSGhsdGhEd253SGx3ZGZPa25tR3o5UGRBY191dHU1NG5PMm5KRFVHb20zMU9hMUFma080bk1rN1AtWllZbU1BYVJxREJ6WlR5MDVldVZZVlZZ?oc=5",
         "titulo": "Saudi Oil Loaded from Port at Yanbu after Pipeline Attack - Industrial Info Resources",
-        "titulo_es": "Cargan petróleo saudí en Yanbu tras ataque al oleoducto",
+        "titulo_es": "Carga de petróleo saudí en Yanbu tras ataque al oleoducto",
         "medio": "Google News EN",
         "publicado_at": "2026-09-24T03:53:23-06:00",
-        "categoria": "infraestructura",
+        "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Tras el ataque a un oleoducto saudí, el crudo se cargó en el puerto de Yanbu, mostrando una interrupción temporal que puede elevar los precios del combustible importado por Guatemala.",
-        "fetched_at": "2026-09-25T03:30:48-06:00"
-      },
-      {
-        "id": 34,
-        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQcThldmdWd2c5aHdfck8zYk1XMWtsa3kweWlXaTNQWEpnV2NIUHhiNTh2cHhoSndCV2Z2QkhwNl9DZEJObFJha2pXWG1JcUZpVXlZU1RqQ2diZUJ0YVV2alRBRmRCampGOGdQQnM4UVV2R2ZMQ2p6WC1QSk5iOGJEWDZ2YXdaSzlLeGtZYnNuVld5MGZESG1tenNaMFlFcExWeVhlZjJBTlJOeHNmVkhBYzFkejJkNno5VWEwU05hRHU4NGlqT1U5UXcxUzU?oc=5",
-        "titulo": "Saudi Arabia ramps up Gulf oil exports after pipeline attack, data shows - Reuters",
-        "titulo_es": "Arabia Saudí incrementa exportaciones de crudo tras ataque al oleoducto",
-        "medio": "Google News EN",
-        "publicado_at": "2026-09-21T09:55:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Tras el ataque, Arabia Saudí aumentó sus exportaciones desde el Golfo, compensando la interrupción y estabilizando parcialmente los precios del combustible importado por Guatemala.",
-        "fetched_at": "2026-09-25T03:30:48-06:00"
+        "relevancia": 3,
+        "resumen_es": "Tras un ataque a un oleoducto saudí, el petróleo se carga en Yanbu, indicando interrupciones en la oferta que pueden elevar los precios internacionales.",
+        "fetched_at": "2026-09-25T03:45:30-06:00"
       },
       {
         "id": 2,
-        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNcnJqNEJNOEgxaC1YcXNtNzljeWxKdlJmM0pMMUM0UlpoMklBR1ZSWFI0REVjWlVZMWxlV2FxRWlMLXpvWXBqTVpjTHNVVDVYZXRhWEZ1ZVFlVHJXcTBHaGMtY3ZtOC16N0lubjFxZzByT1hmX0NiTzBwN3Z2SVBURXQ2cE55d21kSmRxRklCaFg2X3hQMXliQUJBZTQ?oc=5",
-        "titulo": "Arde en llamas una refinería de petróleo de Moscú tras un ataque ucraniano, según un vídeo publicado por Zelensky - CNN en Español",
-        "titulo_es": "Arde refinería de Moscú tras ataque ucraniano",
+        "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOYVQzdWs1Ri1rTm5weExQdkRkc0ZQeHhSdFcwRmdIVDZsX2pUWlJ0S3ZaUGt6Z0h2Y09sS3BDQ3V3RUZjSWNsM3NtRUtsTmVRR0c2VkphRmtEeXNGNno2Rm1SLWpWdmR1SUxzSTdud0o1c3VBMGh1MGtKbTN4U19vckc3Ym5kVTJLaUhPWXVPSnJkSVRyaW9yS3ZuZnhHUWhsZ0JucjMySzJOUW5NOWdIMEJXdE1zbnJETGVwUGFTRWpBSWg1OUphNDJoTlFoRmN0cU00N2tWckhKZ1k?oc=5",
+        "titulo": "Precio de los combustibles en Guatemala: estos son los precios de galón de regular y super en autoservicio - Prensa Libre",
+        "titulo_es": "Precios actuales del combustible en Guatemala: galón de regular y super",
         "medio": "Google News ES",
-        "publicado_at": "2026-09-20T07:02:54-06:00",
-        "categoria": "infraestructura",
+        "publicado_at": "2026-09-23T15:56:37-06:00",
+        "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El incendio en la refinería de Moscú disminuye la producción rusa, elevando los precios internacionales del petróleo y encareciendo las importaciones guatemaltecas.",
-        "fetched_at": "2026-09-25T03:30:47-06:00"
+        "relevancia": 3,
+        "resumen_es": "Se publican los precios actuales por galón de gasolina regular y super en estaciones de autoservicio, información clave para consumidores y análisis de mercado.",
+        "fetched_at": "2026-09-25T03:45:30-06:00"
       }
     ],
     "llm": {
       "titulos_es_hoy": 15,
-      "total_hoy": 153,
+      "total_hoy": 78,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
