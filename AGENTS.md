@@ -42,11 +42,11 @@ CREATE TABLE precios (id, fecha TEXT, producto TEXT, precio REAL, fuente TEXT, f
 - Key vía `OILPRICEAPI_KEY` (secreto GitHub + `.env`, ver `.env.example`)
 - La doc vieja de "EIA API v2 / DCOILWTICO / EIA_API_KEY" ya no aplica al código actual
 
-## LLM noticias (Groq, OpenAI-compatible)
-- `config.json → llm`: `base_url https://api.groq.com/openai`, `model llama-3.3-70b-versatile`
-- Key: secreto `GROK_API_KEY` (fallback `GEMINI_API_KEY`, luego `llm.api_key`) vía `collector/noticias.py:_obtener_api_key`
-- Auto-detecta proveedor por `base_url` (Gemini nativo vs OpenAI-compatible con Bearer)
-- Lote de 15 (round-robin por feed) + fallback 3×10s; `_sanear_error` quita `key=***` del diagnóstico público
+## LLM noticias (Gemini nativo; Groq de respaldo)
+- `config.json → llm`: `base_url https://generativelanguage.googleapis.com/v1beta`, `model gemini-3.6-flash`
+- Key: secreto `GEMINI_API_KEY` (fallback `GROK_API_KEY`, luego `llm.api_key`) vía `collector/noticias.py:_obtener_api_key`
+- Auto-detecta proveedor por `base_url` (Gemini nativo vs OpenAI-compatible con Bearer). Groq bloquea IPs de Actions → no usar como primario.
+- Lote de 15 (round-robin por feed) + fallback traductor MyMemory sin key + relevancia keywords; `_sanear_error` quita `key=***` del diagnóstico público (`noticias_llm` en resumen.json)
 
 ## XLSX parser (importar_historico.py)
 - Fixed column indices: A=FECHA, C=Superior, D=Regular, E=Diésel

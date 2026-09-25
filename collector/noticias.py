@@ -42,11 +42,11 @@ HEADERS = {
 
 
 # Proveedores LLM soportados (auto-detectado por base_url):
-# - Gemini nativo (generativelanguage) con GEMINI_API_KEY
-# - OpenAI-compatible (Groq, DeepSeek...) con GROK_API_KEY (Groq) u otra
+# - Gemini nativo (generativelanguage) con GEMINI_API_KEY ← proveedor activo
+# - OpenAI-compatible (Groq, DeepSeek...) con GROK_API_KEY (respaldo)
 def _obtener_api_key(llm_cfg: dict) -> str:
     """API key desde secrets (.env/CI) con fallback a config."""
-    for var in ("GROK_API_KEY", "GEMINI_API_KEY"):
+    for var in ("GEMINI_API_KEY", "GROK_API_KEY"):
         val = os.environ.get(var, "").strip()
         if val:
             return val
@@ -184,7 +184,7 @@ def _llm_available(cfg: dict = None) -> bool:
     import hashlib as _hl
     global _llm_key_fp
     _llm_key_fp = {}
-    for _var in ("GROK_API_KEY", "GEMINI_API_KEY"):
+    for _var in ("GEMINI_API_KEY", "GROK_API_KEY"):
         _v = (os.environ.get(_var, "") or "").strip()
         if _v:
             _llm_key_fp[_var] = (f"{_v[:4]}*** len={len(_v)} "

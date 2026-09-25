@@ -42,8 +42,8 @@
     ]
   },
   "llm": {
-    "base_url": "https://api.groq.com/openai",
-    "model": "openai/gpt-oss-20b",
+    "base_url": "https://generativelanguage.googleapis.com/v1beta",
+    "model": "gemini-3.6-flash",
     "api_key": ""
   }
 }
