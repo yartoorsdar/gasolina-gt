@@ -1,3 +1,5 @@
+# ⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️
+######## INICIA SCRIPT DE WORKFLOW DAILY UPDATE ########
 name: Daily Update — GPP + Petróleo + Noticias
 
 on:
@@ -37,6 +39,12 @@ jobs:
           New-Item -ItemType Directory -Force -Path "data\inbox\historico"
           New-Item -ItemType Directory -Force -Path "logs"
 
+      - name: Validar feeds RSS
+        continue-on-error: true
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python scripts/validar_feeds.py
+
       - name: Run GPP + petróleo + noticias + export JSONs
         env:
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
@@ -62,3 +70,5 @@ jobs:
             git push origin main || true
             echo "::notice::OK JSONs pushed"
           fi
+######## FINALIZA SCRIPT DE WORKFLOW DAILY UPDATE ########
+# ⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️

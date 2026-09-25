@@ -36,7 +36,9 @@
       "https://news.google.com/rss/search?q=oil+sanctions+OR+war+Middle+East+OR+Strait+of+Hormuz+OR+Russia+Ukraine+oil&hl=en-US&gl=US&ceid=US:en",
       "https://news.google.com/rss/search?q=precio+petr%C3%B3leo+OR+OPEP+OR+combustibles+Guatemala+OR+importaci%C3%B3n+combustible&hl=es-419&gl=GT&ceid=GT:es-419",
       "https://oilprice.com/rss/main",
-      "https://www.eia.gov/rss/todayinenergy.xml"
+      "https://www.eia.gov/rss/todayinenergy.xml",
+      "https://news.google.com/rss/search?q=site:prensalibre.com+combustibles+OR+gasolina+OR+di%C3%A9sel+OR+petr%C3%B3leo&hl=es-419&gl=GT&ceid=GT:es-419",
+      "https://news.google.com/rss/search?q=site:bbc.com/mundo+petr%C3%B3leo+OR+guerra+OR+sanciones&hl=es-419&gl=US&ceid=US:es-419"
     ]
   },
   "llm": {
