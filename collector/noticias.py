@@ -595,7 +595,8 @@ def _grupos_duplicados_llm(titulos: list[str], cfg: dict) -> list[list[int]] | N
     """
     llm_cfg = cfg.get("llm", {})
     base_url = llm_cfg.get("base_url", "").strip().rstrip("/")
-    lista = "\n".join(f"[{i}] {re.sub(r'\s+-\s+[^-]+$', '', t)[:160]}" for i, t in enumerate(titulos))
+    sin_medio = [re.sub(r"\s+-\s+[^-]+$", "", t)[:160] for t in titulos]  # fuera del f-string: 3.11
+    lista = "\n".join(f"[{i}] {t}" for i, t in enumerate(sin_medio))
     prompt = (
         "Estos son titulares de noticias (pueden estar en distintos idiomas). Agrupa SOLO los que "
         "informan sobre el MISMO hecho concreto (mismo evento, mismo lugar, mismos días). Noticias del "
