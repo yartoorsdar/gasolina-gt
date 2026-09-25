@@ -179,9 +179,12 @@ def _llm_available(cfg: dict = None) -> bool:
         return False
 
     # Huella no sensible: confirma QUÉ key está usando CI sin exponerla
-    # (prefijo + longitud; una key truncada o con comillas se delata aquí)
+    # (prefijo + longitud + sha256 corto: irreversible, pero comparable
+    # con el hash local para saber si el secreto == la key probada)
+    import hashlib as _hl
     global _llm_key_fp
-    _llm_key_fp = f"{api_key[:4]}*** len={len(api_key)}"
+    _llm_key_fp = (f"{api_key[:4]}*** len={len(api_key)} "
+                   f"sha={_hl.sha256(api_key.encode()).hexdigest()[:8]}")
     print(f"[noticias] LLM key: {_llm_key_fp}")
 
     # Verificar que el endpoint responde (ping liviano según proveedor).
