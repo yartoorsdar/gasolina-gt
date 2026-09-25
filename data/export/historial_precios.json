@@ -6,7 +6,7 @@
       "producto": "superior",
       "precio": 30.54,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-25T01:49:07-06:00"
+      "fetched_at": "2026-09-23T07:16:59-06:00"
     },
     {
       "id": 3,
@@ -14,15 +14,87 @@
       "producto": "superior",
       "precio": 43.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-25T01:49:07-06:00"
+      "fetched_at": "2026-09-23T07:16:59-06:00"
     },
     {
-      "id": 1,
-      "fecha": "2026-09-25",
+      "id": 4523,
+      "fecha": "2026-09-15",
       "producto": "superior",
-      "precio": 45.74,
-      "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-25T01:49:07-06:00"
+      "precio": 44.0,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-24T12:09:58-06:00"
+    },
+    {
+      "id": 44927,
+      "fecha": "2026-09-16",
+      "producto": "superior",
+      "precio": 44.66,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44930,
+      "fecha": "2026-09-17",
+      "producto": "superior",
+      "precio": 44.66,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44933,
+      "fecha": "2026-09-18",
+      "producto": "superior",
+      "precio": 44.66,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44936,
+      "fecha": "2026-09-19",
+      "producto": "superior",
+      "precio": 44.66,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44939,
+      "fecha": "2026-09-20",
+      "producto": "superior",
+      "precio": 44.66,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44942,
+      "fecha": "2026-09-21",
+      "producto": "superior",
+      "precio": 44.61,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44945,
+      "fecha": "2026-09-22",
+      "producto": "superior",
+      "precio": 44.61,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44948,
+      "fecha": "2026-09-23",
+      "producto": "superior",
+      "precio": 45.29,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44951,
+      "fecha": "2026-09-24",
+      "producto": "superior",
+      "precio": 45.29,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
     },
     {
       "id": 7,
@@ -30,7 +102,7 @@
       "producto": "regular",
       "precio": 29.53,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-25T01:49:07-06:00"
+      "fetched_at": "2026-09-23T07:16:59-06:00"
     },
     {
       "id": 4,
@@ -38,7 +110,87 @@
       "producto": "regular",
       "precio": 41.09,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-25T01:49:07-06:00"
+      "fetched_at": "2026-09-23T07:16:59-06:00"
+    },
+    {
+      "id": 4522,
+      "fecha": "2026-09-15",
+      "producto": "regular",
+      "precio": 42.0,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-24T12:09:58-06:00"
+    },
+    {
+      "id": 44926,
+      "fecha": "2026-09-16",
+      "producto": "regular",
+      "precio": 42.58,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44929,
+      "fecha": "2026-09-17",
+      "producto": "regular",
+      "precio": 42.58,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44932,
+      "fecha": "2026-09-18",
+      "producto": "regular",
+      "precio": 42.58,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44935,
+      "fecha": "2026-09-19",
+      "producto": "regular",
+      "precio": 42.58,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44938,
+      "fecha": "2026-09-20",
+      "producto": "regular",
+      "precio": 42.58,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44941,
+      "fecha": "2026-09-21",
+      "producto": "regular",
+      "precio": 42.58,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44944,
+      "fecha": "2026-09-22",
+      "producto": "regular",
+      "precio": 42.58,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44947,
+      "fecha": "2026-09-23",
+      "producto": "regular",
+      "precio": 43.29,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44950,
+      "fecha": "2026-09-24",
+      "producto": "regular",
+      "precio": 43.29,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
     },
     {
       "id": 5,
@@ -46,31 +198,111 @@
       "producto": "diésel",
       "precio": 46.39,
       "fuente": "Chapin TV",
-      "fetched_at": "2026-09-25T01:49:07-06:00"
+      "fetched_at": "2026-09-23T07:16:59-06:00"
     },
     {
-      "id": 2,
-      "fecha": "2026-09-25",
+      "id": 44925,
+      "fecha": "2026-09-16",
       "producto": "diésel",
-      "precio": 50.5,
-      "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-25T01:49:07-06:00"
+      "precio": 49.36,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
     },
     {
-      "id": 8,
+      "id": 44928,
+      "fecha": "2026-09-17",
+      "producto": "diésel",
+      "precio": 49.36,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44931,
+      "fecha": "2026-09-18",
+      "producto": "diésel",
+      "precio": 49.36,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44934,
+      "fecha": "2026-09-19",
+      "producto": "diésel",
+      "precio": 49.36,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44937,
+      "fecha": "2026-09-20",
+      "producto": "diésel",
+      "precio": 49.36,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44940,
+      "fecha": "2026-09-21",
+      "producto": "diésel",
+      "precio": 49.4,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44943,
+      "fecha": "2026-09-22",
+      "producto": "diésel",
+      "precio": 49.4,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44946,
+      "fecha": "2026-09-23",
+      "producto": "diésel",
+      "precio": 49.4,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44949,
+      "fecha": "2026-09-24",
+      "producto": "diésel",
+      "precio": 49.4,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 32,
+      "fecha": "2026-09-23",
+      "producto": "wti",
+      "precio": 91.27,
+      "fuente": "OilPriceAPI",
+      "fetched_at": "2026-09-23T07:19:34-06:00"
+    },
+    {
+      "id": 17989,
+      "fecha": "2026-09-24",
+      "producto": "wti",
+      "precio": 71.45,
+      "fuente": "OilPriceAPI",
+      "fetched_at": "2026-09-24T23:48:07-06:00"
+    },
+    {
+      "id": 44960,
       "fecha": "2026-09-25",
       "producto": "wti",
-      "precio": 93.36,
+      "precio": 93.56,
       "fuente": "OilPriceAPI",
-      "fetched_at": "2026-09-25T01:49:07-06:00"
+      "fetched_at": "2026-09-25T02:05:45-06:00"
     }
   ],
   "productos": [
-    "wti",
     "regular",
+    "wti",
     "diésel",
     "superior"
   ],
-  "total_registros": 8,
-  "actualizado_at": "2026-09-25T01:49:32-06:00"
+  "total_registros": 37,
+  "actualizado_at": "2026-09-25T02:05:45-06:00"
 }

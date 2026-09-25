@@ -1,29 +1,29 @@
 {
-  "actualizado_at": "2026-09-25T01:49:32-06:00",
+  "actualizado_at": "2026-09-25T02:05:45-06:00",
   "precios_combustible": [
     {
-      "id": 2,
-      "fecha": "2026-09-25",
-      "producto": "diésel",
-      "precio": 50.5,
-      "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-25T01:49:07-06:00"
-    },
-    {
-      "id": 1,
-      "fecha": "2026-09-25",
+      "id": 44951,
+      "fecha": "2026-09-24",
       "producto": "superior",
-      "precio": 45.74,
-      "fuente": "GlobalPetrolPrices",
-      "fetched_at": "2026-09-25T01:49:07-06:00"
+      "precio": 45.29,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
     },
     {
-      "id": 4,
-      "fecha": "2026-09-05",
+      "id": 44950,
+      "fecha": "2026-09-24",
       "producto": "regular",
-      "precio": 41.09,
-      "fuente": "Chapin TV",
-      "fetched_at": "2026-09-25T01:49:07-06:00"
+      "precio": 43.29,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
+    },
+    {
+      "id": 44949,
+      "fecha": "2026-09-24",
+      "producto": "diésel",
+      "precio": 49.4,
+      "fuente": "MEM",
+      "fetched_at": "2026-09-25T01:59:56-06:00"
     }
   ],
   "precios_actualizados": true,
@@ -32,150 +32,147 @@
     {
       "referencia": "wti",
       "fecha": "2026-09-25",
-      "usd_barril": 93.36,
+      "usd_barril": 93.56,
       "fuente": "OilPriceAPI"
     }
   ],
-  "noticias_count": 144,
+  "noticias_count": 175,
   "noticias_llm": {
-    "titulos_es_hoy": 5,
-    "total_hoy": 153,
+    "titulos_es_hoy": 0,
+    "total_hoy": 14,
     "error": null,
-    "key_fp": {
-      "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
-      "GROK_API_KEY": "gsk_*** len=56 sha=d8647ae8"
-    }
+    "key_fp": null
   },
   "ultimas_noticias": [
     {
-      "id": 22,
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOa002SlQwdjRkZTJfNWtycjdSSmhMbmlZanRKQm10YzhLMDJSNnBtZW94YWYxX0ZCSWQ3OWJtTDdjTDY0VlpnclNreHFxQ0ZXM2JZSlpjZ2pDYVlEcVd6aVNQSlVPSDVPNHh0cW5KcVY0UWYzc0ZqSGhsdGhEd253SGx3ZGZPa25tR3o5UGRBY191dHU1NG5PMm5KRFVHb20zMU9hMUFma080bk1rN1AtWllZbU1BYVJxREJ6WlR5MDVldVZZVlZZ?oc=5",
-      "titulo": "Saudi Oil Loaded from Port at Yanbu after Pipeline Attack - Industrial Info Resources",
-      "titulo_es": "Carga de crudo saudí en Yanbu tras ataque al oleoducto",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-24T03:53:23-06:00",
-      "categoria": "oferta",
-      "pais": null,
-      "relevancia": 5,
-      "resumen_es": "Tras el ataque al oleoducto, el puerto de Yanbu cargó crudo saudí, asegurando suministro y estabilizando precios del combustible importado por Guatemala.",
-      "fetched_at": "2026-09-25T01:49:32-06:00"
-    },
-    {
-      "id": 26,
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQdkZNZEtRS1dqcEI1X3dySnFhNUlqRTFVc1h6ZGtrOUFjSmV4Q2d1Vk1OM3ZfalpWaS1Wb2RwdzVobHNDR1BRd0t5OFRzNjUxcmN1c09mQ0FzVS0wZGV1Nm8zRVlaMGw3c0taZTNVRVZHTmE0T0FGZ0hfS1lqU0xLNDM2aDdjVlZiVzU0?oc=5",
-      "titulo": "Oil Prices Increase After Iraq Attack Shuts Down Saudi Pipeline - The Organization for World Peace",
-      "titulo_es": "Los precios del petróleo aumentan después de que el ataque de Irak cerrara el oleoducto saudí - Organización para la Paz",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-22T08:27:17-06:00",
-      "categoria": "otro",
-      "pais": null,
-      "relevancia": 5,
-      "resumen_es": "Los precios del petróleo aumentan después de que el ataque de Irak cerrara el oleoducto saudí La Organización para la Paz Mundial",
-      "fetched_at": "2026-09-25T01:49:32-06:00"
-    },
-    {
-      "id": 21,
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQcThldmdWd2c5aHdfck8zYk1XMWtsa3kweWlXaTNQWEpnV2NIUHhiNTh2cHhoSndCV2Z2QkhwNl9DZEJObFJha2pXWG1JcUZpVXlZU1RqQ2diZUJ0YVV2alRBRmRCampGOGdQQnM4UVV2R2ZMQ2p6WC1QSk5iOGJEWDZ2YXdaSzlLeGtZYnNuVld5MGZESG1tenNaMFlFcExWeVhlZjJBTlJOeHNmVkhBYzFkejJkNno5VWEwU05hRHU4NGlqT1U5UXcxUzU?oc=5",
-      "titulo": "Saudi Arabia ramps up Gulf oil exports after pipeline attack, data shows - Reuters",
-      "titulo_es": "Arabia Saudí incrementa exportaciones de crudo tras ataque a oleoducto",
-      "medio": "Google News EN",
-      "publicado_at": "2026-09-21T09:55:00-06:00",
-      "categoria": "oferta",
-      "pais": null,
-      "relevancia": 5,
-      "resumen_es": "Arabia Saudí incrementa exportaciones de crudo tras el ataque al oleoducto, manteniendo la oferta mundial y limitando alzas de precios del combustible en Guatemala.",
-      "fetched_at": "2026-09-25T01:49:32-06:00"
-    },
-    {
-      "id": 6,
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOaUN2YjZDc19JWGtHUGUtcElvZ2VfT3lpazlKQXJaWXpWMkJ1ZVlfNjZaVW8ydmgyekZiNE5TTTJDNW5yME5vc3hZdGRIQmRleTdxVTR6Y2xYOXdGa1lCMFk3d2x6bFFKbDNac1BPTVZhYWVIenpwdTBtOVZlX0ZYQ3pzQmRURzg4bXlHd3RGcG55bXNQWnlVbTRDZDRJV0gtSjkxTGRiNWY?oc=5",
-      "titulo": "Ataque masivo con drones contra Moscú alcanza Refinería y deja víctimas - Noticia Zavaleta",
-      "titulo_es": "Ataque masivo con drones alcanza refinería de Moscú",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-21T08:57:09-06:00",
-      "categoria": "geopolitica",
-      "pais": null,
-      "relevancia": 4,
-      "resumen_es": "Un ataque masivo con drones alcanzó la refinería de Moscú, generando riesgos de interrupción en la producción rusa y posibles alzas de precios del combustible en Guatemala.",
-      "fetched_at": "2026-09-25T01:49:32-06:00"
-    },
-    {
-      "id": 5,
-      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNNURRYjZjLU5EWmJSb2ZMeGNGRjFuLXY4Tk85WjJmMUJ3WXhockZvTVUtbzRyTHpoeEh0NGZBMGFUNzB4TzV3ZExCWlJPTzk2Zm9ZWWpKUmlQdGMyNWZZMFRTM250WDRfblg0RVNXckZya0tYU1k5TEpKVE9MdTV3RktOaWNjdDkwMllDSnY3V2lCMnVDVlRmUklkcFk5Ums5LXotbWxHRF9vbEF2RUZMR253eG5ZcnREWUYxYXdzbEgwZWtHRmZ3cjI0aWxZXzBER3kyQ1N6dHZCQkE0Q2RaZUtuT1ptQTI3MVByOTBPQTNVVnNV?oc=5",
-      "titulo": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con las autoridades de ese país, los dispositivos impactaron la principal refinería de petróleo de la capital y un edificio residencial. El alcalde Sergei Sobyanin d - facebook.com",
-      "titulo_es": "Ucrania lanza mayor ataque con drones contra refinería de Moscú",
-      "medio": "Google News ES",
-      "publicado_at": "2026-09-21T08:15:23-06:00",
-      "categoria": "geopolitica",
-      "pais": null,
-      "relevancia": 4,
-      "resumen_es": "Ucrania atacó con drones la principal refinería de Moscú, lo que podría reducir la producción rusa y elevar los precios del crudo, encareciendo el combustible importado por Guatemala.",
-      "fetched_at": "2026-09-25T01:49:32-06:00"
-    },
-    {
-      "id": 81,
+      "id": 1001,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/Hormuz-Tanker-Transits-Crash-to-Single-Digits-as-Crisis-Deepens.html",
       "titulo": "Hormuz Tanker Transits Crash to Single Digits as Crisis Deepens",
-      "titulo_es": null,
       "medio": "OilPrice.com",
       "publicado_at": "2026-09-25T01:30:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
       "resumen_es": "Only nine commodity carriers passed through the Strait of Hormuz on Thursday, eight of them exiting the waterway, Reuters reported in its now regular update on tanker numbers in the strait. The Thursday total is a further decline on already depressed numbers that have now gone from double to single digits, with the 10-day average at 18. The nine tankers that passed through Hormuz yesterday included one very large crude carrier, several Panamaxes and Supramaxes, short- and medium-range smaller ca",
-      "fetched_at": "2026-09-25T01:49:32-06:00"
+      "fetched_at": "2026-09-25T01:46:56-06:00",
+      "titulo_es": null
     },
     {
-      "id": 82,
+      "id": 536,
       "url": "https://oilprice.com/Latest-Energy-News/World-News/VLCC-Rates-Hit-Record-127-Million-a-Day-as-Oman-Transfer-Capacity-Maxes-Out.html",
-      "titulo": "VLCC Rates Hit Record $1.27 Million a Day",
-      "titulo_es": null,
+      "titulo": "VLCC Rates Hit Record $1.27 Million a Day as Oman Transfer Capacity Maxes Out",
       "medio": "OilPrice.com",
       "publicado_at": "2026-09-25T00:17:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
       "resumen_es": "Capacity for ship-to-ship transfers of crude oil off the coast of Oman has reached its limits after Saudi Arabia diverted its flows from the port of Yanbu amid Houthi attacks, Reuters has reported, citing unnamed trading sources and analysts. The report said Saudi Arabia has sold some 60 million barrels of crude, to be shipped from the Gulf of Oman after being transferred from smaller carriers to supertankers, for delivery this month and in October. This has tightened an already tight very large",
-      "fetched_at": "2026-09-25T01:49:32-06:00"
+      "fetched_at": "2026-09-25T00:42:16-06:00",
+      "titulo_es": null
     },
     {
-      "id": 121,
+      "id": 797,
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOd2M1c3hSSkxrQWNrZ2hUUWFvTXhic0MtOVU2UkV3ZWFRUEN3VTNRMl9PUjgtU044NjhfUjFIaWdZeVpMSlJ5MU81MWdTSEhxSG1DdTZLWE84aGJORzRPWF9BcG5kY2NJc3RMREdod3ltMnFKcU9DZ2tCb2MtV0VyUWZqY2tUSUZ3YldLdU56V1VCZ2ttMmZicDdPYUdvVGJkMUZ2ZnJoeWlfem1Ya1RGNUtJZ2FGOGgwaXZZOGJpTmxMcnlBcnhv0gHGAUFVX3lxTE91LXM2YVVTSzRjTGJheTk2aEV6cmNtVXI1TWxqdDFtSEFQWjJKaVVsdlVfZHN6cFJIbUNIUllxaFlqNlBIM1dvanZZUlBRVGROeXFmRjRKclR4WlBJWEJ2cVM4Z0dwbHlUY25oTno4ZnlMcW8wOENWQ09TUGxfRFhhV0ZlQkVlMEY5SUV1Yk5wN1Ixd0FBSTQzT0dJalBmcHczTU90QmZOaHcwU0dkSEZFVS1DUURzUmZOSDVaNmhaT1NuSmp2dw?oc=5",
+      "titulo": "Russia reported a nighttime drone attack on an oil refinery and enterprises in four regions — what is known - Українські Національні Новини (УНН)",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-25T00:05:50-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMixwFBVV95cUxOd2M1c3hSSkxrQWNrZ2hUUWFvTXhic0MtOVU2UkV3ZWFRUEN3VTNRMl9PUjgtU044NjhfUjFIaWdZeVpMSlJ5MU81MWdTSEhxSG1DdTZLWE84aGJORzRPWF9BcG5kY2NJc3RMREdod3ltMnFKcU9DZ2tCb2MtV0VyUWZqY2tUSUZ3YldLdU56V1VCZ2ttMmZicDdPYUdvVGJkMUZ2ZnJoeWlfem1Ya1RGNUtJZ2FGOGgwaXZZOGJpTmxMcnlBcnhv0gHGAUFVX3lxTE91LXM2YVVTSzRjTGJheTk2aEV6cmNtVXI1TWxqdDFtSEFQWjJKaVVsdlVfZHN6cFJIbUNIUllxaFlqNlBIM1dvanZZUlBRVGROeXFmRjRKclR4WlBJWEJ2cVM4Z0dwbHlUY25oTno4ZnlMcW8wOENWQ09TUGxfRFhhV0ZlQk",
+      "fetched_at": "2026-09-25T01:17:05-06:00",
+      "titulo_es": null
+    },
+    {
+      "id": 579,
       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPczljd09LSXRVU3VtZTFyLVpzVVVtejZtSUx5RW9QSnAyYXJLNnhWU2FVc2RwUW9xWWxsQ3hEX1hSTjZOb3M2RjEzOUpKbUlWMFlnRVkxcTNZcEg5WkNIM2xFNE9HNmJIdDhHV25BcUIwV3FEdHp4cWQ3Ulp4TXJuMWRlMWpTRlRCeDJlVE9QTzEzR0EtcEU0TlZObw?oc=5",
       "titulo": "Festines a costillas de nuestros impuestos - Prensa Libre",
-      "titulo_es": null,
       "medio": "Google News ES",
       "publicado_at": "2026-09-25T00:02:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "Festines a costillas de nuestros impuestos Prensa Libre",
-      "fetched_at": "2026-09-25T01:49:32-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMimwFBVV95cUxPczljd09LSXRVU3VtZTFyLVpzVVVtejZtSUx5RW9QSnAyYXJLNnhWU2FVc2RwUW9xWWxsQ3hEX1hSTjZOb3M2RjEzOUpKbUlWMFlnRVkxcTNZcEg5WkNIM2xFNE9HNmJIdDhHV25BcUIwV3FEdHp4cWQ3Ulp4TXJuMWRlMWpTRlRCeDJlVE9QTzEzR0EtcEU0TlZObw?oc=5\" target=\"_blank\">Festines a costillas de nuestros impuestos</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Prensa Libre</font>",
+      "fetched_at": "2026-09-25T00:42:16-06:00",
+      "titulo_es": null
     },
     {
-      "id": 120,
+      "id": 576,
       "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOOVNwUjN3TE12TUs4R0dTRnNJX3R4QTRpcU1WM09yWVVaajVPZ1ZpdXEydDVWd0RXNmIzWURIQ2p0N09KQlFSZ3FMY2pRQ2xIUTZWUy1wSzRHbUNzN0FhNUI4V2hNN1h6dGExZVNITE5udml4MXRINzNZTUg5WmktaEZ6R2V1UW12M2lEYllOMWJzWDg?oc=5",
       "titulo": "Oportunistas medran en la ignorancia - Prensa Libre",
-      "titulo_es": null,
       "medio": "Google News ES",
       "publicado_at": "2026-09-25T00:00:00-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "Oportunistas medran en la ignorancia Prensa Libre",
-      "fetched_at": "2026-09-25T01:49:32-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMikwFBVV95cUxOOVNwUjN3TE12TUs4R0dTRnNJX3R4QTRpcU1WM09yWVVaajVPZ1ZpdXEydDVWd0RXNmIzWURIQ2p0N09KQlFSZ3FMY2pRQ2xIUTZWUy1wSzRHbUNzN0FhNUI4V2hNN1h6dGExZVNITE5udml4MXRINzNZTUg5WmktaEZ6R2V1UW12M2lEYllOMWJzWDg?oc=5\" target=\"_blank\">Oportunistas medran en la ignorancia</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Prensa Libre</font>",
+      "fetched_at": "2026-09-25T00:42:16-06:00",
+      "titulo_es": null
     },
     {
-      "id": 34,
+      "id": 180,
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPSTZUMjRiOGJmTlZhYkpYSFdNNFhYc0Z6Rk1od09OWm9VekJ5bFZ2SmxSZGZmTjhLd3ltRlNReHJ2ZGQzdkVUcVdVZ0dPSmc1cmtFaEctR0VMRE1MOGo5dlBLNV9oZmxiZC1RLUxmOFBFc013ZUhxR3ZkV1dzRFVDY1MyUlk2RFpoVU1wazg0Yl9TcE5sVllrbQ?oc=5",
-      "titulo": "Novoshakhtinsk oil refinery suspends operations after drone attack - Caliber.Az",
-      "titulo_es": null,
+      "titulo": "Novoshakhtinsk oil refinery suspends operations after drone attack - caliber.az",
       "medio": "Google News EN",
       "publicado_at": "2026-09-24T23:23:16-06:00",
       "categoria": null,
       "pais": null,
       "relevancia": null,
-      "resumen_es": "Novoshakhtinsk oil refinery suspends operations after drone attack Caliber.Az",
-      "fetched_at": "2026-09-25T01:49:32-06:00"
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMimAFBVV95cUxPSTZUMjRiOGJmTlZhYkpYSFdNNFhYc0Z6Rk1od09OWm9VekJ5bFZ2SmxSZGZmTjhLd3ltRlNReHJ2ZGQzdkVUcVdVZ0dPSmc1cmtFaEctR0VMRE1MOGo5dlBLNV9oZmxiZC1RLUxmOFBFc013ZUhxR3ZkV1dzRFVDY1MyUlk2RFpoVU1wazg0Yl9TcE5sVllrbQ?oc=5\" target=\"_blank\">Novoshakhtinsk oil refinery suspends operations after drone attack</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">caliber.az</font>",
+      "fetched_at": "2026-09-24T23:47:43-06:00",
+      "titulo_es": null
+    },
+    {
+      "id": 229,
+      "url": "https://oilprice.com/Latest-Energy-News/World-News/Brent-Set-for-Weekly-Gain-as-Houthi-Attacks-Rattle-Saudi-Oil-Supply.html",
+      "titulo": "Brent Set for Weekly Gain as Houthi Attacks Rattle Saudi Oil Supply",
+      "medio": "OilPrice.com",
+      "publicado_at": "2026-09-24T23:04:32-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Crude oil prices dipped from Thursday's close earlier today but Brent crude was on track for a weekly gain on continued concern about the security of supply from the Middle East. The concern persists despite reports about a possible deal between the United States and Iran, as well as estimates of oil flows out of the Strait of Hormuz. At the time of writing, Brent crude was trading at $105.65 per barrel, up from around $102 per barrel on Monday. West Texas Intermediate, on the other hand, is end",
+      "fetched_at": "2026-09-24T23:47:43-06:00",
+      "titulo_es": null
+    },
+    {
+      "id": 489,
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUDR0NHVCVXdTZ0lCTk5zc3Vta0tmYmc1bV80Rk5ORTJhRWtEUkswcVNMYXE4U1FGamRjSU56c05hYnJTMGRGeVE0WUcta3RZaGJCYTZaU3Vlby1OYUZiVEhoSGRhbEpCMzdxalNyOFZMZXNZSGQtQW45d2F5ajRrMWMxRDRnY1QyaF9QSFJJM2VEWlpkSzhEUjRmUkhiYmxT?oc=5",
+      "titulo": "Ukraine attack damages oil refinery in Russia's Rostov - Breakingthenews.net",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-24T22:54:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMioAFBVV95cUxOUDR0NHVCVXdTZ0lCTk5zc3Vta0tmYmc1bV80Rk5ORTJhRWtEUkswcVNMYXE4U1FGamRjSU56c05hYnJTMGRGeVE0WUcta3RZaGJCYTZaU3Vlby1OYUZiVEhoSGRhbEpCMzdxalNyOFZMZXNZSGQtQW45d2F5ajRrMWMxRDRnY1QyaF9QSFJJM2VEWlpkSzhEUjRmUkhiYmxT?oc=5\" target=\"_blank\">Ukraine attack damages oil refinery in Russia's Rostov</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Breakingthenews.net</font>",
+      "fetched_at": "2026-09-25T00:42:16-06:00",
+      "titulo_es": null
+    },
+    {
+      "id": 178,
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPV3ZrUHlqNkk1S2l5N0g3YS0zNHl5bEpJcE5ieXFfRXNhY1poMUhqR0VBWGdzSzAxRTB2Sk5FQUxxQzNEVzBFMEsybHJHUjF2dW5xZnpiSG9fcTh5U09WM01WVmZ4dEJRWXR0cHBTUjhvZy0xLVM0Y3NVcTVTQ3FTSHZiRW9oeldLODBHLXpzaUhwNVcwZlBMT1dMZW16NDkzQ095ekVpZFhIUkVId0o0OVV6RUQtZ0FUTlp6eTU0dG1LUmlEc2xtWk1HNGxzem9Oa3lXelRYWW1vUQ?oc=5",
+      "titulo": "Russia's Novoshakhtinsk oil refinery suspends operations after drone attack, governor says - marketscreener.com",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-24T22:37:33-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "<a href=\"https://news.google.com/rss/articles/CBMi2gFBVV95cUxPV3ZrUHlqNkk1S2l5N0g3YS0zNHl5bEpJcE5ieXFfRXNhY1poMUhqR0VBWGdzSzAxRTB2Sk5FQUxxQzNEVzBFMEsybHJHUjF2dW5xZnpiSG9fcTh5U09WM01WVmZ4dEJRWXR0cHBTUjhvZy0xLVM0Y3NVcTVTQ3FTSHZiRW9oeldLODBHLXpzaUhwNVcwZlBMT1dMZW16NDkzQ095ekVpZFhIUkVId0o0OVV6RUQtZ0FUTlp6eTU0dG1LUmlEc2xtWk1HNGxzem9Oa3lXelRYWW1vUQ?oc=5\" target=\"_blank\">Russia's Novoshakhtinsk oil refinery suspends operations after drone attack, governor says</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">marke",
+      "fetched_at": "2026-09-24T23:47:43-06:00",
+      "titulo_es": null
+    },
+    {
+      "id": 952,
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOaUpUQThveHlveExoUlc5NFJiRU5tZUlqSTMwYXZDZVNMNmhzcHltbnlBSWlmdlA2S2hVaFNXUjZPT0lvM3o5SDNEZ2hicFNBdm95OHNpNGdpeml2NXlkWkhuWWp2ZGxmZHMtQVlVcUxnLXo4VlZITmk4bmNEeUQtNUs1OVpwUURvNmlQZzFkekNXN283N3RUQTEtc0NSY29VelpUd3NYMzlfUWtJMW5qQllMal91dF9adzVyNA?oc=5",
+      "titulo": "Ukraine kills two in drone attacks on Russia, hits oil refinery and train, officials say - Reuters",
+      "medio": "Google News EN",
+      "publicado_at": "2026-09-24T22:29:00-06:00",
+      "categoria": null,
+      "pais": null,
+      "relevancia": null,
+      "resumen_es": "Ukraine kills two in drone attacks on Russia, hits oil refinery and train, officials say Reuters",
+      "fetched_at": "2026-09-25T01:46:56-06:00",
+      "titulo_es": null
     }
   ]
 }
