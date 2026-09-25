@@ -4,11 +4,11 @@
       "id": 8,
       "fecha": "2026-09-24",
       "producto": "wti",
-      "precio": 93.05,
+      "precio": 93.1,
       "fuente": "OilPriceAPI",
-      "fetched_at": "2026-09-24T22:56:25-06:00"
+      "fetched_at": "2026-09-24T23:05:26-06:00"
     }
   ],
   "total_registros": 1,
-  "actualizado_at": "2026-09-25T04:57:08+00:00"
+  "actualizado_at": "2026-09-25T05:06:13+00:00"
 }
