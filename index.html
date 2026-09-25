@@ -1557,6 +1557,14 @@
                 if (resultado.length >= maxItems) break;
             }
 
+            // Completar hasta maxItems: la variedad (máx. 2 por tema) es
+            // preferencia, no tope — si casi todo es de un tema, antes quedaban
+            // 2-4 noticias aunque el backend mandara 10 relevantes.
+            for (const n of clasificados) {
+                if (resultado.length >= maxItems) break;
+                if (!resultado.includes(n)) resultado.push(n);
+            }
+
             return resultado.slice(0, maxItems);
         }
 
@@ -1607,128 +1615,12 @@
         }
 
         /**
-         * Traduce o resume un título/noticia al español automáticamente.
+         * Título a mostrar cuando el backend no trajo `titulo_es`.
+         * NUNCA inventar texto: antes había frases fijas por patrón (ej. cualquier
+         * nota de Venezuela mostraba un discurso de Trump). Se muestra el título
+         * original limpio; la traducción la hace el backend (LLM/MyMemory).
          */
         function traducirTituloEnEspañol(n) {
-            const titulo = (n.titulo || '').toLowerCase();
-            const resumen = ((n.resumen_es || '') + ' ' + (n.titulo || '')).toLowerCase();
-
-            // Patrones de traducción/resumen en español
-            if (/south korea.*cut.*middle east crude reliance/i.test(titulo)) {
-                return 'Corea del Sur busca reducir su dependencia del crudo del Medio Oriente al 50% para 2035, según plan del ministerio de industria.';
-            }
-
-            // Pipeline Arabia Saudita
-            if (/east west.*pipeline.*(restore|restart|attack|shut)/i.test(resumen) || /oleoducto.*(este.?este|reactiva|ataque)/i.test(titulo)) {
-                return 'Arabia Saudita reanudó el flujo del oleoducto Este-Oeste tras un ataque con drones que interrumpió las exportaciones de petróleo por esa ruta alternativa al Estrecho de Ormuz.';
-            }
-
-            // Trump diesel ban
-            if (/trump.*(back|ban).*diesel.*export/i.test(titulo)) {
-                return 'El presidente Trump apoyó una posible prohibición a la exportación de diésel mientras los precios alcanzan niveles récord por el alza en la bomba.';
-            }
-
-            // Ukraine drones Moscow refinery
-            if (/ukraine.*(drone|drone swarm).*moscow|mayor ataque.*drones.*rusia|ataque masivo.*drones.*moscú/i.test(resumen) || /refinería.*(moscó|ataque|ucrania)/i.test(titulo)) {
-                return 'Ucrania lanzó su mayor ataque con drones contra la región de Moscú, alcanzando una refinería clave y dejando fuera de servicio capacidad de refinación.';
-            }
-
-            // Ukraine strikes Kuibyshev/Samara refinery
-            if (/kuibyshev.*samara|refinería.*(samara|ataquen)/i.test(titulo)) {
-                return 'Drones ucranianos atacaron e incendiaron la refinería de petróleo de Kuibyshev en Samara, paralizando parte de la capacidad de refinación rusa.';
-            }
-
-            // Russia refinery 45% paralyzed
-            if (/paralizado.*45%|refino ruso.*ataque/i.test(titulo)) {
-                return 'Un ataque de precisión dejó sin producción el 45% de la capacidad de refinación rusa, afectando la capital.';
-            }
-
-            // 1000 drones weekend
-            if (/mas de.*1000.*drones|over 1,000 drones/i.test(resumen) || /mayor ataque.*drones.*rusia/i.test(titulo)) {
-                return 'Ucrania desplegó más de 1.000 drones en un fin de semana contra infraestructura petrolera rusa, incluyendo la refinería de Moscú con capacidad de 230.000 barriles diarios.';
-            }
-
-            // Saudi Aramco Gulf exports ramp up
-            if (/aramco.*ramp.*gulf|aumenta.*exportaciones.*golfo|eleva exportación.*golfo/i.test(titulo)) {
-                return 'Saudi Aramco aumentó las cargas de petróleo por el Golfo Pérsico en respuesta al ataque contra el oleoducto Este-Oeste, diversificando las rutas de exportación.';
-            }
-
-            // Oil prices rise pipeline attack
-            if (/oil prices.*(rise|increase).*pipeline/i.test(titulo)) {
-                return 'Los precios del petróleo subieron tras el ataque al oleoducto Este-Oeste de Arabia Saudita, que amenazó las principales rutas de exportación.';
-            }
-
-            // Iraq attack Saudi pipeline
-            if (/iraq.*attack.*(shut|pipeline)|pipeline.*(iraq)/i.test(titulo)) {
-                return 'Un ataque en Irak interrumpió el oleoducto principal de Arabia Saudita, elevando los precios del petróleo.';
-            }
-
-            // US gasoline distillate inventories fall
-            if (/gasoline.*distillate.*inventor.*(fall|continue)/i.test(titulo)) {
-                return 'Las reservas de gasolina y destilados de EE.UU. continúan bajando mientras las reservas de crudo se mantienen estables.';
-            }
-
-            // Trump $5 billion Gulf infrastructure fund
-            if (/trump.*5 billion.*(fund|rebuild).*gulf/i.test(titulo)) {
-                return 'Trump propuso un fondo de 5 mil millones de dólares para reconstruir la infraestructura energética del Golfo Pérsico dañada en el conflicto con Irán.';
-            }
-
-            // LNG deal Washington Beijing
-            if (/washington.*lng.*(deal|more).*beijing/i.test(titulo)) {
-                return 'Washington necesita más que Beijing un acuerdo de gas natural licuado (LNG) por 6 mil millones anuales, pendiente de levantar aranceles chinos.';
-            }
-
-            // India Russian oil imports slide
-            if (/india.*(russian.*oil|imports).*slide/i.test(titulo)) {
-                return 'Las importaciones de crudo ruso por India cayeron un 16.5% en agosto mientras los refineríos buscan alternativas ante nuevas sanciones estadounidenses.';
-            }
-
-            // Global energy demand jump
-            if (/global.*energy.*(demand|set to jump)/i.test(titulo)) {
-                return 'La demanda global de energía crecerá un 60% para 2060 impulsada por economías emergentes como Brasil, India y Nigeria.';
-            }
-
-            // Norway liquids output
-            if (/norway.*(liquids|output).*rebound/i.test(titulo)) {
-                return 'La producción de líquidos de Noruega se recuperó con casi 100.000 barriles diarios más en agosto, aunque aún está por debajo del nivel de 2025.';
-            }
-
-            // China rare earth flow
-            if (/(beijing|china).*(tighten|rare earth)/i.test(titulo)) {
-                return 'Beijing restringe el flujo de tierras raras antes de la cumbre comercial con Trump en Washington.';
-            }
-
-            // Nuclear safety Russia Uzbekistan
-            if (/(nuclear safety|uzbek).*russia/i.test(resumen) || /america.*russia.*(uzbek)/i.test(titulo)) {
-                return 'Estados Unidos firmó un acuerdo de seguridad nuclear con Uzbekistán para su primera planta, mientras Tashkent confía en Rusia para la construcción.';
-            }
-
-            // Europe offshore wind slowdown
-            if (/(europe|offshore).*wind.*(slowdown|squeezing)/i.test(titulo)) {
-                return 'La desaceleración eólica marina de Europa está presionando a los fabricantes, con proyectos retrasados y demanda por debajo de la nueva capacidad instalada.';
-            }
-
-            // UK gas prices Ineos chemical plants
-            if (/(uk|britain).*gas.*(price|force).*inos/i.test(titulo)) {
-                return 'Los precios del gas en el Reino Unido obligaron a INEOS a cerrar tres plantas químicas, perdiéndose las últimas unidades a escala mundial de Acetyl en Europa.';
-            }
-
-            // Utility profits target
-            if (/(utility profit).*(next|target)/i.test(titulo)) {
-                return 'Los costos de las empresas eléctricas suben: materias primas, combustible y tasas de interés más altas presionan los márgenes.';
-            }
-
-            // US crude oil public companies production
-            if (/(public company).*(crude|natural gas)/i.test(titulo)) {
-                return 'Las empresas públicas representan solo el 2% de los productores de crudo y gas en EE.UU., pero generan el 68% de la producción nacional.';
-            }
-
-            // Venezuela oil Maduro
-            if (/(venezuela.*(petróleo|oil)|maduro.*petróleo)/i.test(titulo)) {
-                return 'Durante su discurso en la ONU, Trump abordó el petróleo de Venezuela y reafirmó la postura estadounidense frente a Maduro.';
-            }
-
-            // Default: clean up title and make it Spanish-friendly
             let txt = (n.titulo || '').replace(/<[^>]*>/g, '').trim();
             if (txt.length > 180) txt = txt.substring(0, 180) + '…';
             return txt;

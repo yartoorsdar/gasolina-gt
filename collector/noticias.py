@@ -13,6 +13,7 @@ Opcionalmente usa un LLM local para clasificar y resumir en español
 
 import os
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -496,11 +497,77 @@ _FB_BAJADA = [
 ]
 
 
+# ──────────────────────────────────────────────
+# Filtro temático (compuerta): solo entra lo que puede mover el precio del
+# combustible en Guatemala. Lo demás se DESCARTA (antes solo se ordenaba y
+# colaban columnas de opinión sin relación). Español + inglés; el título se
+# traduce después, así que el idioma de origen no importa.
+# ──────────────────────────────────────────────
+
+DIAS_MAX_NOTICIA = 15   # antigüedad máxima (días) de una noticia publicable
+NOTICIAS_MINIMAS = 5    # el dashboard debe tener al menos estas en español
+
+_RE_PETROLEO = re.compile(
+    r"\b(petr[oó]le\w*|crudo|barril\w*|wti|brent|opep|opec|refiner\w*|refino|refinaci\w*|"
+    r"refinari\w*|oleoducto\w*|"
+    r"gasoducto\w*|pipeline\w*|gasolin\w*|gasoline|di[eé]sel|combustible\w*|fuel\w*|"
+    r"carburante\w*|combust[ií]ve\w*|glp|lpg|gas natural|natural gas|lng|gnl|b[uú]nker|jet fuel|"
+    r"queroseno|kerosene|petrolero\w*|tanker\w*|aramco|pemex|pdvsa|rosneft|lukoil|"
+    r"gazprom|oil|crude|refinery|refineries|barrel\w*)\b",
+    re.IGNORECASE,
+)
+_RE_GUATEMALA = re.compile(r"\bguatemal\w*", re.IGNORECASE)
+_RE_ENERGIA_GT = re.compile(
+    r"\b(energ\w*|electricidad|el[eé]ctric\w*|subsidi\w*|idp|importaci\w*|"
+    r"hidrocarbur\w*|decreto 22|precio\w* de (?:la |los )?combustible\w*)\b",
+    re.IGNORECASE,
+)
+_RE_CONFLICTO = re.compile(
+    r"\b(guerra\w*|war|wars|ataque\w*|attack\w*|atentado\w*|misil\w*|missile\w*|"
+    r"dron\w*|drone\w*|bombarde\w*|airstrike\w*|sanci[oó]n\w*|sanction\w*|embargo\w*|"
+    r"bloqueo\w*|blockade\w*|conflict\w*|invasi\w*|invasion|escalad\w*|escalat\w*)\b",
+    re.IGNORECASE,
+)
+_RE_REGION = re.compile(
+    r"\b(ormuz|hormuz|mar rojo|red sea|golfo p[eé]rsico|persian gulf|ir[aá]n\w*|"
+    r"iraq\w*|irak\w*|arabia saud\w*|saudi\w*|rusia|russia\w*|ucrania|ukrain\w*|"
+    r"venezuel\w*|libia|libya|nigeria|yemen|hut[ií]es|houthi\w*|israel\w*|kuwait|"
+    r"qatar|emiratos|golfo de m[eé]xico|gulf of mexico|suez)\b",
+    re.IGNORECASE,
+)
+
+
+def es_relevante(titulo: str, resumen: str = "") -> bool:
+    """¿La noticia puede afectar el precio del combustible en Guatemala?
+
+    Entra si trata de (a) petróleo o derivados; (b) Guatemala + energía /
+    combustibles / subsidios / importación; o (c) guerra, ataque o sanción en
+    una región productora o ruta clave del crudo.
+    """
+    texto = f"{titulo or ''} {resumen or ''}"
+    if _RE_PETROLEO.search(texto):
+        return True
+    if _RE_GUATEMALA.search(texto) and _RE_ENERGIA_GT.search(texto):
+        return True
+    return bool(_RE_CONFLICTO.search(texto) and _RE_REGION.search(texto))
+
+
+def _dentro_de_ventana(it: dict, dias: int = DIAS_MAX_NOTICIA) -> bool:
+    """Publicada en los últimos `dias` (sin fecha verificable = fuera)."""
+    from collector.db import hace_dias_gt
+    publicado = _normalizar_fecha_publicacion(it.get("published", ""))
+    return bool(publicado) and publicado[:10] >= hace_dias_gt(dias)
+
+
 def _relevancia_keywords(titulo: str, resumen: str) -> int:
     """Relevancia 1-5 determinística (réplica del semáforo del dashboard)."""
     text = f"{titulo or ''} {resumen or ''}".lower()
     score = sum(1 for kw in _FB_SUBIDA if kw in text)
     score -= 0.5 * sum(1 for kw in _FB_BAJADA if kw in text)
+    # Guatemala + combustible/energía = impacto directo en el dashboard: sin
+    # este empuje quedaban detrás de cualquier nota de ataques (más keywords).
+    if _RE_GUATEMALA.search(text) and (_RE_PETROLEO.search(text) or _RE_ENERGIA_GT.search(text)):
+        score += 4
     import re as _re
     if _re.search(r"pipeline.*(attack|damage|shut)", text):
         score += 2
@@ -610,13 +677,17 @@ def _ordenar_candidatos(items: list[dict]) -> list[dict]:
     """Paso 2 del pipeline: ordena por relevancia estimada (determinística, sin LLM).
 
     Las NOTICIAS_EXCELENTES mejores reciben la traducción; el resto queda de
-    respaldo si alguna falla en validación. Ties conservan el orden original.
+    respaldo si alguna falla en validación. Empates: primero Guatemala (el
+    puntaje satura en 5 y muchas notas de ataques empatan), luego lo más nuevo.
     """
-    return sorted(
-        items,
-        key=lambda x: _relevancia_keywords(x.get("title", ""), x.get("summary", "")),
-        reverse=True,
-    )
+    def clave(x):
+        texto = f"{x.get('title', '')} {x.get('summary', '')}"
+        return (
+            _relevancia_keywords(x.get("title", ""), x.get("summary", "")),
+            bool(_RE_GUATEMALA.search(texto)),
+            _normalizar_fecha_publicacion(x.get("published", "")) or "",
+        )
+    return sorted(items, key=clave, reverse=True)
 
 
 def _traducir_fallback(items: list[dict], objetivo: int = 0) -> int:
@@ -894,9 +965,16 @@ def ejecutar(cfg: dict = None) -> dict:
     # 2. ORDENAR por relevancia estimada (determinística, sin costo de LLM). Las
     # mejores reciben la traducción; el resto queda de respaldo si alguna falla
     # la validación final.
-    candidatos = _ordenar_candidatos([it for it in all_items if _item_valido(it)])
-    print(f"[noticias] {len(candidatos)}/{len(all_items)} estructuralmente válidos; "
-          f"top por relevancia priorizado")
+    validos = [it for it in all_items if _item_valido(it)]
+    recientes = [it for it in validos if _dentro_de_ventana(it)]
+    candidatos = _ordenar_candidatos(
+        [it for it in recientes if es_relevante(it.get("title", ""), it.get("summary", ""))]
+    )
+    print(f"[noticias] {len(all_items)} recibidas -> {len(validos)} válidas -> "
+          f"{len(recientes)} de los últimos {DIAS_MAX_NOTICIA} días -> "
+          f"{len(candidatos)} relevantes (petróleo / Guatemala-energía / conflicto en zona petrolera)")
+    if len(candidatos) < NOTICIAS_MINIMAS:
+        print(f"[noticias] AVISO: solo {len(candidatos)} relevantes (< {NOTICIAS_MINIMAS})")
 
     excelentes: list[dict] = []  # items que superan TODA la validación de calidad
 
@@ -955,8 +1033,10 @@ def ejecutar(cfg: dict = None) -> dict:
 
     resultados["excelentes"] = len(excelentes)
 
-    # Guardar en DB
-    inserted = guardar_noticias(all_items, cfg)
+    # Guardar en DB SOLO lo relevante y reciente: lo descartado no debe poder
+    # llegar al dashboard por ningún camino.
+    inserted = guardar_noticias(candidatos, cfg)
+    resultados["relevantes"] = len(candidatos)
     resultados["insertados"] = inserted
     resultados["fuente"] = "rss_feeds"
     resultados["llm_error"] = _last_llm_error

@@ -52,3 +52,15 @@ class TestDashboardHTML:
         """Verifica responsive design."""
         content = html_path.read_text(encoding="utf-8")
         assert "viewport" in content.lower(), "Falta meta viewport (no es responsive)"
+
+
+def test_dashboard_no_inventa_titulos():
+    """traducirTituloEnEspañol tenía frases fijas por patrón (texto inventado)."""
+    from pathlib import Path
+    raiz = Path(__file__).resolve().parent.parent
+    for archivo in ("index.html", "web/index.html"):
+        html = (raiz / archivo).read_text(encoding="utf-8")
+        for frase in ("Trump abordó el petróleo de Venezuela", "Corea del Sur busca reducir",
+                      "paralizando parte de la capacidad de refinación rusa"):
+            assert frase not in html, f"{archivo}: texto inventado '{frase}'"
+        assert "if (!resultado.includes(n)) resultado.push(n);" in html, f"{archivo}: sin relleno a 5 noticias"

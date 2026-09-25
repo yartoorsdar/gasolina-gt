@@ -305,3 +305,86 @@ class TestEjecutar:
 
         assert resultado["fuente"] == "rss_feeds"
         assert resultado["feeds_procesados"] >= 0
+
+
+# ──────────────────────────────────────────────
+# Filtro temático + ventana de 15 días (Etapa 2)
+# Casos reales de los feeds del 2026-09-25.
+# ──────────────────────────────────────────────
+
+class TestFiltroRelevancia:
+    RELEVANTES = [
+        "Ukraine kills two in drone attacks on Russia, hits oil refinery and train, officials say - Reuters",
+        "Hormuz Tanker Transits Crash to Single Digits as Crisis Deepens",
+        "Paralizado el 45% del refino ruso: un ataque de precisión deja sin producción a la capital",
+        "Combustibles en Guatemala: el diésel casi duplica su precio y las gasolinas suben más de 60%",
+        "Guatemala elimina impuestos a combustibles - elsalvador.com",
+        "China busca poner fin a la guerra con Irán, pero no como Trump quiere - BBC",
+        "Petróleo fecha em alta de cerca de 3% após ataque dos houthis à Arábia Saudita",
+        "Guatemala: Congreso aprueba subsidio a la energía eléctrica",
+    ]
+    DESCARTADAS = [
+        "Festines a costillas de nuestros impuestos - Prensa Libre",
+        "Oportunistas medran en la ignorancia - Prensa Libre",
+        "Torneo Apertura: Xelajú MC golea 4-0 a Antigua GFC",
+        "Jamaica vs Guatemala: Los Reggae Boyz convocan a sus referentes",
+        "Por qué más mujeres sufren ataques de migraña que los hombres - BBC",
+        "Australia denuncia el primer hackeo conocido de un agente de IA - BBC",
+    ]
+
+    def test_relevantes(self):
+        from collector.noticias import es_relevante
+        for t in self.RELEVANTES:
+            assert es_relevante(t), t
+
+    def test_descartadas(self):
+        from collector.noticias import es_relevante
+        for t in self.DESCARTADAS:
+            assert not es_relevante(t), t
+
+    def test_resumen_tambien_cuenta(self):
+        from collector.noticias import es_relevante
+        assert es_relevante("Tensión en el Golfo", "El crudo Brent sube 3% por el bloqueo")
+
+    def test_ventana_15_dias(self):
+        from datetime import datetime, timedelta, timezone
+        from collector.noticias import _dentro_de_ventana
+
+        def rss(dias):
+            dt = datetime.now(timezone.utc) - timedelta(days=dias)
+            return {"published": dt.strftime("%a, %d %b %Y %H:%M:%S GMT")}
+
+        assert _dentro_de_ventana(rss(1))
+        assert _dentro_de_ventana(rss(14))
+        assert not _dentro_de_ventana(rss(20))
+        assert not _dentro_de_ventana({"published": ""})  # sin fecha verificable
+
+
+class TestExportNoticias:
+    def test_consolidado_filtra_y_prioriza_traducidas(self, tmp_path):
+        from collector.db import conectar_temporal, hace_dias_gt, insertar_noticia
+        from collector.main import exportar_json
+
+        conn = conectar_temporal()
+        hoy = hace_dias_gt(0) + "T10:00:00-06:00"
+        viejo = hace_dias_gt(20) + "T10:00:00-06:00"
+        insertar_noticia(conn, "https://x/1", "Oil prices jump after pipeline attack", "M", publicado_at=hoy)
+        insertar_noticia(conn, "https://x/2", "Refinery fire cuts crude output", "M", publicado_at=hoy,
+                         titulo_es="Incendio en refinería recorta producción", relevancia=3)
+        insertar_noticia(conn, "https://x/3", "Festines a costillas de nuestros impuestos", "M", publicado_at=hoy)
+        insertar_noticia(conn, "https://x/4", "OPEC cuts output again", "M", publicado_at=viejo)
+        exportar_json(output_dir=tmp_path, conn=conn)
+
+        import json
+        c = json.loads((tmp_path / "consolidado.json").read_text(encoding="utf-8"))
+        urls = [n["url"] for n in c["noticias"]["top"]]
+        assert urls == ["https://x/2", "https://x/1"]  # traducida primero; sin columna ni >15 días
+        assert c["noticias"]["total"] == 2
+
+
+def test_guatemala_combustible_prioritaria():
+    """Una nota de combustibles en Guatemala no debe quedar detrás de ataques genéricos."""
+    from collector.noticias import _relevancia_keywords
+    gt = _relevancia_keywords("Combustibles en Guatemala: el diésel casi duplica su precio", "")
+    ataque = _relevancia_keywords("Drone attack hits oil refinery", "")
+    assert gt == 5 and gt >= ataque

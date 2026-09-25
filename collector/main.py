@@ -348,10 +348,19 @@ def construir_consolidado(conn: sqlite3.Connection, dias_historial: int = 365) -
             f"(hace {dias}d, hoy {hoy}). Revisar colectores."
         )
 
-    # Noticias: top 10 por relevancia LLM (impacto GT), luego por fecha.
-    noticias = [dict(r) for r in obtener_noticias(conn, dias=30)]
-    top = sorted(noticias, key=lambda n: n.get("publicado_at") or "", reverse=True)
-    top = sorted(top, key=lambda n: n.get("relevancia") or 0, reverse=True)[:10]
+    # Noticias: solo relevantes (mismo filtro que el colector: una DB vieja
+    # puede traer columnas o deportes) y de los últimos DIAS_MAX_NOTICIA días.
+    # Top 10: primero las que ya tienen título en español, luego relevancia
+    # LLM (impacto GT) y fecha.
+    noticias = [
+        dict(r) for r in obtener_noticias(conn, dias=_noticias_mod.DIAS_MAX_NOTICIA)
+        if _noticias_mod.es_relevante(r["titulo"], r["resumen_es"])
+    ]
+    top = sorted(
+        noticias,
+        key=lambda n: (bool(n.get("titulo_es")), n.get("relevancia") or 0, n.get("publicado_at") or ""),
+        reverse=True,
+    )[:10]
     # Diagnóstico LLM (ground truth desde DB: cuántas de hoy traen español).
     total_hoy = conn.execute(
         "SELECT COUNT(*) FROM noticias WHERE substr(fetched_at,1,10)=?", (hoy,)
