@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-09-25T12:26:17-06:00",
+  "actualizado_at": "2026-09-26T11:43:01-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-09-24",
   "productos": {
@@ -13,13 +13,9 @@
         "fecha": "2026-09-24",
         "precio": 43.29,
         "fuente": "MEM",
-        "fetched_at": "2026-09-25T12:25:22-06:00"
+        "fetched_at": "2026-09-26T11:42:07-06:00"
       },
       "historial": [
-        {
-          "fecha": "2025-09-25",
-          "precio": 28.45
-        },
         {
           "fecha": "2025-09-26",
           "precio": 28.45
@@ -1366,7 +1362,7 @@
             "fecha": "2026-09-24",
             "precio": 43.29,
             "fuente": "MEM",
-            "fetched_at": "2026-09-25T12:25:22-06:00"
+            "fetched_at": "2026-09-26T11:42:07-06:00"
           },
           "consenso": {
             "fecha": "2026-09-24",
@@ -1482,7 +1478,7 @@
             "fecha": "2026-09-21",
             "precio": 43.66,
             "fuente": "MEM",
-            "fetched_at": "2026-09-25T12:25:22-06:00"
+            "fetched_at": "2026-09-26T11:42:07-06:00"
           },
           "consenso": {
             "fecha": "2026-09-21",
@@ -1531,13 +1527,9 @@
         "fecha": "2026-09-24",
         "precio": 45.29,
         "fuente": "MEM",
-        "fetched_at": "2026-09-25T12:25:22-06:00"
+        "fetched_at": "2026-09-26T11:42:07-06:00"
       },
       "historial": [
-        {
-          "fecha": "2025-09-25",
-          "precio": 29.94
-        },
         {
           "fecha": "2025-09-26",
           "precio": 29.94
@@ -2884,7 +2876,7 @@
             "fecha": "2026-09-24",
             "precio": 45.29,
             "fuente": "MEM",
-            "fetched_at": "2026-09-25T12:25:22-06:00"
+            "fetched_at": "2026-09-26T11:42:07-06:00"
           },
           "consenso": {
             "fecha": "2026-09-24",
@@ -3000,7 +2992,7 @@
             "fecha": "2026-09-21",
             "precio": 45.74,
             "fuente": "MEM",
-            "fetched_at": "2026-09-25T12:25:22-06:00"
+            "fetched_at": "2026-09-26T11:42:07-06:00"
           },
           "consenso": {
             "fecha": "2026-09-21",
@@ -3057,13 +3049,9 @@
         "fecha": "2026-09-24",
         "precio": 49.4,
         "fuente": "MEM",
-        "fetched_at": "2026-09-25T12:25:22-06:00"
+        "fetched_at": "2026-09-26T11:42:07-06:00"
       },
       "historial": [
-        {
-          "fecha": "2025-09-25",
-          "precio": 26.39
-        },
         {
           "fecha": "2025-09-26",
           "precio": 26.39
@@ -4406,7 +4394,7 @@
             "fecha": "2026-09-24",
             "precio": 49.4,
             "fuente": "MEM",
-            "fetched_at": "2026-09-25T12:25:22-06:00"
+            "fetched_at": "2026-09-26T11:42:07-06:00"
           },
           "consenso": {
             "fecha": "2026-09-24",
@@ -4510,7 +4498,7 @@
             "fecha": "2026-09-21",
             "precio": 50.5,
             "fuente": "MEM",
-            "fetched_at": "2026-09-25T12:25:22-06:00"
+            "fetched_at": "2026-09-26T11:42:07-06:00"
           },
           "consenso": {
             "fecha": "2026-09-21",
@@ -4564,16 +4552,12 @@
       "unidad": "USD/barril",
       "orden": 4,
       "actual": {
-        "fecha": "2026-09-25",
-        "precio": 92.19,
+        "fecha": "2026-09-26",
+        "precio": 92.44,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-09-25T12:25:29-06:00"
+        "fetched_at": "2026-09-26T11:42:15-06:00"
       },
       "historial": [
-        {
-          "fecha": "2025-09-25",
-          "precio": 64.79
-        },
         {
           "fecha": "2025-09-26",
           "precio": 65.37
@@ -5616,7 +5600,11 @@
         },
         {
           "fecha": "2026-09-25",
-          "precio": 92.19
+          "precio": 92.87
+        },
+        {
+          "fecha": "2026-09-26",
+          "precio": 92.44
         }
       ],
       "mensual": [],
@@ -5637,8 +5625,8 @@
         },
         {
           "anio": 2026,
-          "promedio": 83.22,
-          "dias": 192,
+          "promedio": 83.27,
+          "dias": 193,
           "meses": null,
           "fuente": "diario"
         }
@@ -5647,17 +5635,13 @@
         "spot": {
           "nombre": "Spot",
           "actual": {
-            "fecha": "2026-09-25",
-            "precio": 92.19,
+            "fecha": "2026-09-26",
+            "precio": 92.44,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-09-25T12:25:29-06:00"
+            "fetched_at": "2026-09-26T11:42:15-06:00"
           },
           "consenso": null,
           "historial": [
-            {
-              "fecha": "2026-08-26",
-              "precio": 81.08
-            },
             {
               "fecha": "2026-08-27",
               "precio": 82.35
@@ -5744,7 +5728,11 @@
             },
             {
               "fecha": "2026-09-25",
-              "precio": 92.19
+              "precio": 92.87
+            },
+            {
+              "fecha": "2026-09-26",
+              "precio": 92.44
             }
           ]
         }
@@ -5801,207 +5789,207 @@
     ]
   },
   "noticias": {
-    "total": 57,
+    "total": 49,
     "top": [
       {
-        "id": 8,
-        "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQOHhVaEdiSkdZeTlVX0g2MmdOV2RhekNsUHNCbUd1SU9YQmliMDJJakJ6MzZYZzU5V3gzcmVWUVktZHJILXFPRHFYOHFRam9qaVNhMWRQdjkzdGdMTjJjY0kyQy1sTndsa2htZU1rTmtHQ0hQQTQtc0tYMzltTjEzb29GNy1kUnExSzdDWTV0QW9PTkYxMlJCTTBjVENLRmNHYnVGQlg2ZWZHTS1pcjBlVzBtaGQwbTUxY3FpWnM3dnczY1ZGMGJPR2R2STE2cllUOENnMk81OGRXakRIZEJiWkkwM3VCRU9NSUFV?oc=5",
-        "titulo": "La refinería rusa de Perm paraliza sus operaciones tras el ataque con drones del viernes, según fuentes - MarketScreener España",
-        "titulo_es": "Refinería rusa de Perm paraliza operaciones tras ataque con drones",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-25T09:16:35-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Un ataque con drones detiene operaciones de la refinería rusa de Perm, reduciendo la oferta mundial de crudo y productos.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
-      },
-      {
-        "id": 10,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Ukraine-Drone-Strike-Knocks-Out-Russias-Novoshakhtinsk-Refinery.html",
-        "titulo": "Ukraine Drone Strike Knocks Out Russia's Novoshakhtinsk Refinery",
-        "titulo_es": "Ataque con drones ucraniano deja fuera de servicio refinería rusa Novoshakhtinsk",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-09-25T05:00:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Un dron ucraniano deja fuera de servicio la refinería Novoshakhtinsk, reduciendo la capacidad de producción rusa y presionando precios globales.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
-      },
-      {
-        "id": 14,
-        "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOdWc3eTVxbF9hRVhlaXU1VUdrZ3JMUEZwWWY2VU82Yk5NXzZZMWFOTWg1V3RaSWVyeGZDaTQ1aE90VGJHLUd1YU5hcWxaRmFnWExBWjFnN0l4SzVfYm50cmtUUmRTLVFEcnhac0ZZNVI2NXJQcmljdVRONWhtUHhmMmNyc0dDR1NiZU40X0tURkE3VUYtWkl3YkZETVFKTG0zM1MwSy1jUUxKY1dzSmcyZHlQMjg0bmxVbUpPNndfdC1Yb2Z6UDJ5Y1paZ0FCYkRMTWY5NFY2bkgxUFlrVFpr?oc=5",
-        "titulo": "Satellite Imagery Reveals Damage at Russia’s Kuibyshev Oil Refinery Following Ukrainian Drone Strike - united24media.com",
-        "titulo_es": "Imágenes satelitales muestran daños en refinería rusa Kuibyshev tras ataque",
-        "medio": "Google News EN",
-        "publicado_at": "2026-09-25T03:24:13-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Imágenes satelitales revelan daños en la refinería Kuibyshev tras ataque ucraniano, reduciendo capacidad de suministro de crudo ruso.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
-      },
-      {
-        "id": 15,
-        "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBBbHdEdjFqYXJ2MmtYTWFZMEtRTlpOOHluQkVTdDA0SjB4NnlpM096OWNKMzJYem1ia0F4TFRobmZ4QVplTFo1SUNScWgwclVBeVV3bW5nNl85ZFpRWWJoQ3hpWU7SAXBBVV95cUxNNkNQY2tfVnRyakVhaURDSGhnblRRM3lJVGdIOGxFeWFucURHaVlFQ29Yb3VtVzU2WkVVemhEemRnVEhpYmtscl9YQU9lLWZhRlA2R2NnTTZRWHZpTDdsYmZ3ak51SVR3Zl9FYmVFRUkt?oc=5",
-        "titulo": "Drone attack halts another Russian oil refinery - Українська правда",
-        "titulo_es": "Ataque con drones detiene otra refinería de petróleo rusa",
-        "medio": "Google News EN",
-        "publicado_at": "2026-09-25T02:22:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Otro ataque con drones deja fuera de operación una refinería rusa, limitando la oferta global de petróleo.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
-      },
-      {
-        "id": 11,
-        "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNNURRYjZjLU5EWmJSb2ZMeGNGRjFuLXY4Tk85WjJmMUJ3WXhockZvTVUtbzRyTHpoeEh0NGZBMGFUNzB4TzV3ZExCWlJPTzk2Zm9ZWWpKUmlQdGMyNWZZMFRTM250WDRfblg0RVNXckZya0tYU1k5TEpKVE9MdTV3RktOaWNjdDkwMllDSnY3V2lCMnVDVlRmUklkcFk5Ums5LXotbWxHRF9vbEF2RUZMR253eG5ZcnREWUYxYXdzbEgwZWtHRmZ3cjI0aWxZXzBER3kyQ1N6dHZCQkE0Q2RaZUtuT1ptQTI3MVByOTBPQTNVVnNV?oc=5",
-        "titulo": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con las autoridades de ese país, los dispositivos impactaron la principal refinería de petróleo de la capital y un edificio residencial. El alcalde Sergei Sobyanin d - facebook.com",
-        "titulo_es": "Ucrania realiza mayor ataque con drones contra principal refinería de Moscú",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-21T08:15:23-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Ucrania lanza su mayor ataque con drones contra la principal refinería de Moscú, afectando la oferta de petróleo ruso.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
-      },
-      {
-        "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPS0E5S0xaNF9mX0owRUk2LXdwZVg2REE1Mmh2UTJMdTdKWW82RUtpQmFXSV9SRDZsbWVTQ2pEN1VrVkxMSkJhMVNNaXV4YVg2cnk1Ym9POU1MUlMzeXdZZmJvcTdSSlNwS3puMnhESEY1b2NFWG01MDYzV2FEYl81cUR1WVBnOC1NWmJrOFJ0bHB6R2VyYXFkVU1GSWc5OFFfbDUzWVlWLVNvUVR2VFI3aTU4UEtOc2M5VS0xS1N1NGhpUW95bjk0?oc=5",
-        "titulo": "Combustibles en Guatemala: el diésel casi duplica su precio y las gasolinas suben más de 60% - Prensa Libre",
-        "titulo_es": "Diésel casi duplica su precio y gasolinas suben más de 60% en Guatemala",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-19T10:05:52-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "El diésel casi duplica su precio y la gasolina sube más del 60%, elevando costos de transporte y producción.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
-      },
-      {
-        "id": 9,
-        "url": "https://oilprice.com/Energy/Energy-General/Aramco-Restores-East-West-Pipeline-as-War-Risk-Closes-In-on-Yanbu.html",
-        "titulo": "Aramco Restores East-West Pipeline as War Risk Closes In on Yanbu",
-        "titulo_es": "Aramco restablece oleoducto Este-Oeste tras ataques, reanudando flujo de crudo",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-09-25T07:00:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Aramco reanuda parcialmente el oleoducto Este-Oeste, restaurando parte del flujo de crudo saudí tras ataques, lo que ayuda a estabilizar precios internacionales.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
-      },
-      {
-        "id": 2,
+        "id": 1,
         "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNQVAtV3RwM2k0VkhjVjdGQ0VlcmlWREtGZENxQWpCdXMwaEpmZjc5cmc5RlFtMm9UUGE5dkVpN1lac1gzUmNMTTVVNjZYMVo0b2x6OVBwbHZNZUN0RnpfLWJrRk92LXZaM2ZZYXBLOGd1QlpCQjEzZEtBemlvSXNqczlyWVZueWZtc2NGd2dYOVpfUWV5cXlmTjVVNjJsZnVQQ3k4enhPMFphTnd6QXdkbDhTeVRWTDVoM21lc1AtcVZQaGRhVTUyS3ZwM1k?oc=5",
         "titulo": "Cuándo entra en vigencia el subsidio a la gasolina en Guatemala, que aplica exención del IDP e IVA a los combustibles - Prensa Libre",
-        "titulo_es": "Subsidio a gasolina en Guatemala exime IDP e IVA",
+        "titulo_es": "Entra en vigor subsidio a la gasolina que exime IDP e IVA en Guatemala",
         "medio": "Google News ES",
         "publicado_at": "2026-09-24T08:00:00-06:00",
         "categoria": "finanzas",
         "pais": null,
+        "relevancia": 5,
+        "resumen_es": "El subsidio a la gasolina entrará en vigor eximiendo el IDP e IVA, lo que reducirá el precio al consumidor y afectará el mercado interno de combustibles en Guatemala.",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
+      },
+      {
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOaGZoNlkweHJDOGYwTGt4QUZRV0Y3X3JnQXFtQWFLdXFhZTB0T2w0TFVYUDF0OUpMdVhzdV8tLWxSN2V0dk95WE5sZ3RqdjBKSWFZZlgxZEMzUmlpZmRvb202RHBqY2ozUjdoZV9uT2s2NjVZRVprMGNfWXk5bTNRMnRJSTUzSFIyY0ZLUi1NMUVWX05ma29nVTFVaWs3TThhaHBwNE5uTQ?oc=5",
+        "titulo": "Guatemala elimina impuestos a combustibles - elsalvador.com",
+        "titulo_es": "Guatemala elimina impuestos a los combustibles",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-23T07:54:19-06:00",
+        "categoria": "finanzas",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "El gobierno elimina los impuestos a los combustibles, disminuyendo el costo final para los usuarios y potencialmente aumentando la demanda interna.",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
+      },
+      {
+        "id": 2,
+        "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOYVQzdWs1Ri1rTm5weExQdkRkc0ZQeHhSdFcwRmdIVDZsX2pUWlJ0S3ZaUGt6Z0h2Y09sS3BDQ3V3RUZjSWNsM3NtRUtsTmVRR0c2VkphRmtEeXNGNno2Rm1SLWpWdmR1SUxzSTdud0o1c3VBMGh1MGtKbTN4U19vckc3Ym5kVTJLaUhPWXVPSnJkSVRyaW9yS3ZuZnhHUWhsZ0JucjMySzJOUW5NOWdIMEJXdE1zbnJETGVwUGFTRWpBSWg1OUphNDJoTlFoRmN0cU00N2tWckhKZ1k?oc=5",
+        "titulo": "Precio de los combustibles en Guatemala: estos son los precios de galón de regular y super en autoservicio - Prensa Libre",
+        "titulo_es": "Precios de galón de gasolina regular y super en autoservicio en Guatemala",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-23T15:56:37-06:00",
+        "categoria": "precios",
+        "pais": null,
         "relevancia": 4,
-        "resumen_es": "Se implementa subsidio que exime IDP e IVA a la gasolina, reduciendo su costo para los consumidores.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
+        "resumen_es": "Se publican los precios por galón de gasolina regular y super en autoservicio, reflejando el nivel actual del mercado guatemalteco y sirviendo de referencia para consumidores y distribuidores.",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
+      },
+      {
+        "id": 7,
+        "url": "https://oilprice.com/Energy/Energy-General/Aramco-Restores-East-West-Pipeline-as-War-Risk-Closes-In-on-Yanbu.html",
+        "titulo": "Aramco Restores East-West Pipeline as War Risk Closes In on Yanbu",
+        "titulo_es": "Aramco restablece oleoducto Este-Oeste tras ataques",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-25T07:00:00-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Saudi Aramco restableció el oleoducto Este‑Oeste después de los ataques, recuperando parte del flujo de crudo que rodea el estrecho de Hormuz y ayudando a estabilizar la oferta mundial.",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
+      },
+      {
+        "id": 8,
+        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNWVpCclVaNHZSUVZCZ2hvMlhXbnRrS3Y4UVZEME1COVh4MnItcm5VT1V1QkhnUk1xUXpMdkk3YzlSN25tRG5yTnZxdnlZNF9TaEh3YjR0VHZfSDRiUElwZ0FMQjV1NGtYX1dobkZ5aG9QODJTZTVzTjB2TWMzbTF2dE9VQXdJcFNXS1lrVDJZOWdDRUtON2FteWlJbFF0NjU2MmZyOTZuNWYzS1E3S3VKM3BB?oc=5",
+        "titulo": "Refinería petrolera de Moscú detiene producción tras ataque con drones del domingo: fuentes - Yahoo",
+        "titulo_es": "Refinería de Moscú detiene producción tras ataque con drones",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-21T10:04:52-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "La refinería de Moscú detuvo su producción tras un ataque con drones, disminuyendo la oferta de productos refinados y potencialmente elevando los precios globales del combustible.",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
+      },
+      {
+        "id": 4,
+        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQQm9qdmd0eW83NmhMd1MyWHFtLXNycW5xbkpSd1dES3NvSTdVRFVicmJ3ZEU0X3pRQjg1Q3pkMURDa2ZIQmhQNFQ4N2FFUlZfYjhXbkNVT09sclVyR1NRMVJvTk9zYW5pMFJfUUNyX0I3aGVQUHVlenpOaWZnTzJCc0NUSTdiUUN4UGdiN3ktdzhUUXBOZnNTVXd3UWJ1WXNiY2RHNUxR?oc=5",
+        "titulo": "De Guatemala a Siria, el aumento de precios del combustible desata protestas en el mundo - nytimes.com",
+        "titulo_es": "Aumento de precios del combustible desata protestas de Guatemala a Siria",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-15T01:00:00-06:00",
+        "categoria": "demanda",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "El aumento de precios del combustible genera protestas en varios países, incluida Guatemala, mostrando presión social sobre los precios y la política energética.",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
+      },
+      {
+        "id": 5,
+        "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNSlg2SmRKSzhzWUVuNTVpRXB2S0dIZ0pJalBDT1BlUWpfZThzMll2Y0gxbkJ3bVJJdVgtakl4YzdnSG50M1NIbXJWZk1BLThqcmJuV2tkZUhoYmtEQ05IcTR3SW9sOUdKS2EtR1laSXBLS0k2WjFoZExxNHU1cTVSUTRCNUI2OERaNlE2WTY1U2diVEwxb3BVeXJUSUtqd1dhYUZRUWRXd2pDaUgwZ2lxQWNkNEg2TGROcUVlWlR3SWxQSHhraTJsby1hbUJjUXI0S1Q4T3ByZ1FNNzZUZ2RQcTcwbzFqdzZ6azU4TUdncWZ3VVozV0E?oc=5",
+        "titulo": "Dos policías heridos de bala durante una protesta por el alza de precios de los combustibles en Guatemala - France 24",
+        "titulo_es": "Policías heridos en protestas por alza de precios de combustibles en Guatemala",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-12T01:00:00-06:00",
+        "categoria": "demanda",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Dos policías resultaron heridos durante protestas por el alza de precios de combustibles en Guatemala, evidenciando la tensión social y posibles interrupciones en la distribución.",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
+      },
+      {
+        "id": 10,
+        "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5iNzRONTJUeUNSSkwzaUpuVGNvRjBSaU5mTC0wdFNaZFo1eC1GQXdfYUFGdzM5THlpWWpTS2RmSWxES2tLNGZzcWlINA?oc=5",
+        "titulo": "Russia’s 7th-Largest Refinery in Perm Reportedly Offline After Friday Attack - Kyiv Post",
+        "titulo_es": "Refinería de Perm, la séptima de Rusia, queda offline tras ataque",
+        "medio": "Google News EN",
+        "publicado_at": "2026-09-26T03:03:05-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "La séptima refinería más grande de Rusia, en Perm, quedó fuera de operación tras un ataque, reduciendo la capacidad de refinado y pudiendo afectar los precios internacionales del crudo.",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
+      },
+      {
+        "id": 6,
+        "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE0tZ3c1S2tmdkdRSmhEX0NsMkNsd3hVUnNiZGFLU3RDWkNvaEt0a0ZTNS1mNXRxLWFHci1FZ1lCUDNjT1hpajAtVGZId2tyRjlnZEJ5c05oLVF5XzQwZ2tyaUwyWFjSAXBBVV95cUxNV3lMTnJpcllvZy1FM21hRk5LYnYyRkdDM2YwT0Q4cFhvSjZ0Q2hiS1dvRDNfbGZIMmo5UW5qQ1A2ZUNPbVU3ejhySkxJM2o5bVNQYV9NYkV6UGZBTkg2S1BLOE1WUDdDTVphdkxMbzlU?oc=5",
+        "titulo": "Drones attack Russia's Krasnodar Krai: Ilsky oil refinery catches fire – photos, video - Українська правда",
+        "titulo_es": "Drones incendian refinería Ilsky en Krasnodar, Rusia",
+        "medio": "Google News EN",
+        "publicado_at": "2026-09-25T18:33:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "Un ataque con drones incendia la refinería Ilsky en Krasnodar, Rusia, reduciendo la capacidad de producción de crudo y pudiendo presionar los precios internacionales del petróleo.",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
       },
       {
         "id": 12,
         "url": "https://oilprice.com/Energy/Energy-General/Trumps-Diesel-Export-Threat-Puts-Britain-on-Edge.html",
         "titulo": "Trump’s Diesel Export Threat Puts Britain on Edge",
-        "titulo_es": "Amenaza EE.UU. de suspender exportaciones de diésel inquieta a Reino Unido",
+        "titulo_es": "Amenaza de EE.UU. de suspender exportaciones de diésel inquieta a Reino Unido",
         "medio": "OilPrice.com",
         "publicado_at": "2026-09-25T09:00:00-06:00",
         "categoria": "diplomacia",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "EE.UU. amenaza con suspender exportaciones de diésel, generando incertidumbre en mercados y posibles alzas de precios para importadores guatemaltecos.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
-      },
-      {
-        "id": 1,
-        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNbmdpTHFkVE1ZbmdBZnIxdDVTTnZQM00wQmVwUXpkbVdJb3U3SExjLTFLNHFHNmlHRHcxcThPeEZRN3R6eGg5Z3JCekIzNjRBbkVoVGMzNWF0aWZ6R2Y4TjBGVWpzSjVkNGFxUkowTVVsTEZQQXFIWlNCeHh2dkxGVnJtZjhwaUV4Nkxmck5rb1lpSUN5dEp1N2pVWURSazRpQTRaeTA0SWNuY1VYay1Odg?oc=5",
-        "titulo": "Factura petrolera aumenta demanda de dólares y presiona el tipo de cambio en Guatemala - Prensa Libre",
-        "titulo_es": "Factura petrolera eleva demanda de dólares y presiona tipo de cambio en Guatemala",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-24T18:30:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "La factura del petróleo eleva la demanda de dólares, presionando el tipo de cambio y encareciendo la importación de combustibles.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
-      },
-      {
-        "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOYVQzdWs1Ri1rTm5weExQdkRkc0ZQeHhSdFcwRmdIVDZsX2pUWlJ0S3ZaUGt6Z0h2Y09sS3BDQ3V3RUZjSWNsM3NtRUtsTmVRR0c2VkphRmtEeXNGNno2Rm1SLWpWdmR1SUxzSTdud0o1c3VBMGh1MGtKbTN4U19vckc3Ym5kVTJLaUhPWXVPSnJkSVRyaW9yS3ZuZnhHUWhsZ0JucjMySzJOUW5NOWdIMEJXdE1zbnJETGVwUGFTRWpBSWg1OUphNDJoTlFoRmN0cU00N2tWckhKZ1k?oc=5",
-        "titulo": "Precio de los combustibles en Guatemala: estos son los precios de galón de regular y super en autoservicio - Prensa Libre",
-        "titulo_es": "Precios de galón de gasolina regular y super en Guatemala",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-23T15:56:37-06:00",
-        "categoria": "precios",
-        "pais": null,
         "relevancia": 2,
-        "resumen_es": "Publica los precios actuales del galón de gasolina regular y super en autoservicio.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
+        "resumen_es": "EE.UU., bajo la administración Trump, amenazó con suspender exportaciones de diésel, generando incertidumbre en los mercados internacionales que podría influir en los precios de importación en Guatemala.",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
       },
       {
-        "id": 5,
-        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQQm9qdmd0eW83NmhMd1MyWHFtLXNycW5xbkpSd1dES3NvSTdVRFVicmJ3ZEU0X3pRQjg1Q3pkMURDa2ZIQmhQNFQ4N2FFUlZfYjhXbkNVT09sclVyR1NRMVJvTk9zYW5pMFJfUUNyX0I3aGVQUHVlenpOaWZnTzJCc0NUSTdiUUN4UGdiN3ktdzhUUXBOZnNTVXd3UWJ1WXNiY2RHNUxR?oc=5",
-        "titulo": "De Guatemala a Siria, el aumento de precios del combustible desata protestas en el mundo - The New York Times",
-        "titulo_es": "Aumento de precios del combustible desata protestas en Guatemala y el mundo",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-15T01:00:00-06:00",
-        "categoria": "geopolitica",
+        "id": 9,
+        "url": "https://oilprice.com/Energy/Energy-General/North-Carolina-Regulators-Reject-Duke-Energy-Gas-Power-Plant.html",
+        "titulo": "North Carolina Regulators Reject Duke Energy Gas Power Plant",
+        "titulo_es": "Reguladores de Carolina del Norte rechazan planta de gas de Duke Energy",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-26T09:00:00-06:00",
+        "categoria": "infraestructura",
         "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Aumento global de precios del combustible genera protestas, incluyendo manifestaciones en Guatemala.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
+        "relevancia": 1,
+        "resumen_es": "Reguladores de Carolina del Norte rechazaron la construcción de una planta de energía a gas de Duke Energy, limitando la expansión de generación de gas en EE.UU. con escaso impacto en Guatemala.",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
       },
       {
-        "id": 7,
-        "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNSlg2SmRKSzhzWUVuNTVpRXB2S0dIZ0pJalBDT1BlUWpfZThzMll2Y0gxbkJ3bVJJdVgtakl4YzdnSG50M1NIbXJWZk1BLThqcmJuV2tkZUhoYmtEQ05IcTR3SW9sOUdKS2EtR1laSXBLS0k2WjFoZExxNHU1cTVSUTRCNUI2OERaNlE2WTY1U2diVEwxb3BVeXJUSUtqd1dhYUZRUWRXd2pDaUgwZ2lxQWNkNEg2TGROcUVlWlR3SWxQSHhraTJsby1hbUJjUXI0S1Q4T3ByZ1FNNzZUZ2RQcTcwbzFqdzZ6azU4TUdncWZ3VVozV0E?oc=5",
-        "titulo": "Dos policías heridos de bala durante una protesta por el alza de precios de los combustibles en Guatemala - France 24",
-        "titulo_es": "Policías heridos en protesta por alza de precios de combustibles en Guatemala",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-12T01:00:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Protestas por alza de precios del combustible dejan dos policías heridos, reflejando tensión social.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
-      },
-      {
-        "id": 13,
-        "url": "https://www.eia.gov/todayinenergy/detail.php?id=68204",
-        "titulo": "Henry Hub natural gas prices this summer were 6% lower than last summer",
-        "titulo_es": "Precios del gas natural Henry Hub bajan 6% en verano",
-        "medio": "EIA Today in Energy",
-        "publicado_at": "2026-09-25T08:00:00-06:00",
+        "id": 11,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Why-Record-Heat-Failed-to-Lift-US-Natural-Gas-Prices.html",
+        "titulo": "Why Record Heat Failed to Lift U.S. Natural Gas Prices",
+        "titulo_es": "Calor récord no eleva precios del gas natural en EE.UU.",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-25T14:00:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 1,
-        "resumen_es": "El precio spot del gas natural Henry Hub baja 6% en verano, indicando menor presión de costos energéticos.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
+        "resumen_es": "A pesar del calor récord, los precios del gas natural Henry Hub en EE.UU. cayeron 6% por la alta producción, sin repercusión directa en los combustibles importados por Guatemala.",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
       },
       {
-        "id": 6,
-        "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPc2JYcnVkWmhSSkRoU0laTHJqLWZtSnpZQzJPcEtnbDVodkZiM3JUX2l3eVJVODJ3c3ZqbHFzZGVjenc0eDM0X3RuNmNWdzZPakxPNVEzVk1mbk8zS3U2a2hROHppZWJnMEkyOWE0SWNiMUNOQmRDT1Y2OWhXUUljbUloQW15UHNrR21jeGt1R2dqN0h5dGNJakktWjJJZVlMZTBGYWc1WXdBTGU2LTdJcEpVVFF1dWpvQlQ1NWg2WXEtZVNCUkxGTUozMFdZTF9Melc0aHRLLUxyZTA1eExlQQ?oc=5",
-        "titulo": "De 3 centavos el galón a más de Q40: así ha evolucionado el precio del combustible en la historia de Guatemala - Prensa Libre",
-        "titulo_es": "Evolución histórica del precio del combustible en Guatemala",
+        "id": 31,
+        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQTk9HQldiU0VDWkkxblJHV3ZyY0NxTDYzZlozSVFDTFp5MW80cnJ6YzlULXhqNU9xeE9qMC02ajhhU2kxS2l4U2k3T0VuaHZtd245WDNPN2NxNnBod0hTTklpd1BxMEZFb2h0aUpZM1VZSmJzYTdERnljaTFJU1Ayc2pHRTk4YnZwVkRsMUZMM0hGanhpZ29KYVdjb0RqbEpJcnEyY2RBYUY3ZjFMWU1HY1Rjam1jN0J4LXQwNmxsZlRQZkNzcWY5ZWN2NA?oc=5",
+        "titulo": "Salvadoreños pagaron $492 millones más por la importación de combustible - La Prensa Gráfica",
+        "titulo_es": null,
         "medio": "Google News ES",
-        "publicado_at": "2026-09-13T01:00:00-06:00",
-        "categoria": "precios",
+        "publicado_at": "2026-09-26T09:31:00-06:00",
+        "categoria": null,
         "pais": null,
-        "relevancia": 1,
-        "resumen_es": "Recorrido histórico del precio del combustible en Guatemala, desde 3 centavos hasta más de Q40 por galón.",
-        "fetched_at": "2026-09-25T12:26:16-06:00"
+        "relevancia": null,
+        "resumen_es": "Salvadoreños pagaron $492 millones más por la importación de combustible La Prensa Gráfica",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
+      },
+      {
+        "id": 32,
+        "url": "https://oilprice.com/Energy/Energy-General/Nigeria-Joins-IEA-As-Crude-Output-Hits-Six-Year-High.html",
+        "titulo": "Nigeria Joins IEA As Crude Output Hits Six-Year High",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-25T16:00:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Nigeria has ambitious energy plans for the coming decades, including expanding its oil industry and accelerating the development of its renewable energy sector. In recent years, Nigeria has begun to solidify its position as a major energy power in Africa. This led the International Energy Agency (IEA) Governing Board to decide in June to welcome Nigeria as an Association country. Nigeria joins South Africa, Kenya, and Senegal as an IEA Association country in sub-Saharan Africa. To solidify the",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
+      },
+      {
+        "id": 33,
+        "url": "https://oilprice.com/Energy/Crude-Oil/Venezuela-Oil-Output-Could-Hit-18-Million-Bpd-By-2030-Rystad-Says.html",
+        "titulo": "Venezuela Oil Output Could Hit 1.8 Million Bpd By 2030, Rystad Says",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-25T12:00:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Venezuela’s upstream oil sector is attracting its broadest pool of international operators and capital in decades, with established majors expanding their footprints and new operators entering under revised contractual frameworks. If capital deployment, rig availability and oilfield services scale in line with requirements, Rystad Energy models Venezuelan crude production reaching around 1.6 million barrels per day (bpd) by 2028 and 1.8 million bpd by 2030. The roster of companies now actively l",
+        "fetched_at": "2026-09-26T11:43:01-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 15,
-      "total_hoy": 57,
+      "titulos_es_hoy": 12,
+      "total_hoy": 49,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
