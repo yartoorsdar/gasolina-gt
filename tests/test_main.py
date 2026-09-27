@@ -183,7 +183,32 @@ class TestExportJson:
             {"anio": 2019, "promedio": 25.0, "dias": 1, "meses": None, "fuente": "diario"},  # parcial, sin alternativa
             {"anio": 2020, "promedio": 21.24, "dias": None, "meses": None, "fuente": "consolidado histórico"},
             {"anio": 2023, "promedio": 30.0, "dias": 365, "meses": None, "fuente": "diario"},  # diario completo gana
-            {"anio": 2024, "promedio": 28.5, "dias": None, "meses": 2, "fuente": "MEM mensual"},  # mensual > diario parcial
+            # mensual > diario parcial; junio (sin oficial) entra con su último diario
+            {"anio": 2024, "promedio": 29.33, "dias": None, "meses": 3, "fuente": "MEM mensual + último diario"},
+        ]
+
+    def test_promedios_anuales_mes_sin_oficial_usa_ultimo_diario(self):
+        """Año en curso: meses oficiales + último precio de los meses que el MEM
+        aún no promedia; servicio completo nunca entra en el promedio."""
+        from collector.db import conectar_temporal, guardar_precios
+        from collector.main import _promedios_anuales
+
+        conn = conectar_temporal()
+        guardar_precios(conn, [
+            {"producto": "regular", "fecha": "2026-01-10", "precio": 99.0},  # mes con oficial: se ignora
+            {"producto": "regular", "fecha": "2026-08-17", "precio": 38.0},
+            {"producto": "regular", "fecha": "2026-08-31", "precio": 39.0},  # último de agosto
+            {"producto": "regular", "fecha": "2026-09-05", "precio": 41.0},
+            {"producto": "regular", "fecha": "2026-09-24", "precio": 43.0},  # último de septiembre
+            {"producto": "regular", "fecha": "2026-09-25", "precio": 60.0, "modalidad": "servicio_completo"},
+        ], "MEM")
+        mensual = [
+            {"anio": 2026, "mes": 1, "producto": "regular", "promedio": 26.0, "fuente": "MEM mensual"},
+            {"anio": 2026, "mes": 2, "producto": "regular", "promedio": 28.0, "fuente": "MEM mensual"},
+        ]
+        assert _promedios_anuales(conn, "regular", [], mensual) == [
+            {"anio": 2026, "promedio": 34.0, "dias": None, "meses": 4,
+             "fuente": "MEM mensual + último diario"},
         ]
 
     def test_frescura_ignora_wti(self, cfg, tmp_path):

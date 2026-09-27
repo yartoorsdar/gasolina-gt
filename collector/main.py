@@ -235,24 +235,42 @@ def _promedios_anuales(
     """Promedio por año, por prioridad de fuente:
 
     1. diario   — si el año tiene >= DIAS_MIN_ANUAL_DIARIO días con dato
-    2. mensual  — promedio de los meses oficiales disponibles del año
+    2. mensual  — promedio de los meses oficiales disponibles del año; un mes
+                  sin promedio oficial todavía (ej. el mes en curso) pero con
+                  precios diarios entra con su ÚLTIMO precio registrado
     3. semilla  — valor anual histórico (años sin diarios ni mensuales)
     4. diario parcial — último recurso si no hay nada mejor
     """
+    from collector.db import modalidad_principal
+
+    modalidad = modalidad_principal(producto)
     diario = {
         int(r[0]): {"anio": int(r[0]), "promedio": round(r[1], 2), "dias": r[2], "meses": None, "fuente": "diario"}
         for r in conn.execute(
             "SELECT substr(fecha, 1, 4), avg(precio), count(*) FROM precios "
-            "WHERE producto = ? GROUP BY 1",
-            (producto,),
+            "WHERE producto = ? AND modalidad = ? GROUP BY 1",
+            (producto, modalidad),
         )
     }
-    meses: dict[int, list[float]] = {}
+    oficiales: dict[int, dict[int, float]] = {}
     fuente_mensual = {}
     for m in mensual:
         if m["producto"] == producto:
-            meses.setdefault(m["anio"], []).append(m["promedio"])
+            oficiales.setdefault(m["anio"], {})[m["mes"]] = m["promedio"]
             fuente_mensual[m["anio"]] = m["fuente"]
+    # Meses con diarios pero sin promedio oficial: último precio del mes
+    ultimo_mes: dict[int, dict[int, float]] = {}
+    for fecha, precio in conn.execute(
+        "SELECT fecha, precio FROM precios WHERE producto = ? AND modalidad = ? ORDER BY fecha",
+        (producto, modalidad),
+    ):
+        ultimo_mes.setdefault(int(fecha[:4]), {})[int(fecha[5:7])] = precio
+    meses: dict[int, list[float]] = {}
+    for anio, ofi in oficiales.items():
+        faltan = {m: p for m, p in ultimo_mes.get(anio, {}).items() if m not in ofi}
+        meses[anio] = list(ofi.values()) + list(faltan.values())
+        if faltan:
+            fuente_mensual[anio] += " + último diario"
 
     anual = {}
     for anio in set(diario) | set(meses) | {s["anio"] for s in semilla if s["producto"] == producto}:
