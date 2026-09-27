@@ -3,8 +3,8 @@
 ## Quick start
 ```powershell
 cd C:\Users\manue\Documents\proyectos\web\Gasolina
-python -m pytest tests/ -q -p no:cacheprovider   # suite completa (6 fallas preexistentes: consenso/petroleo con esquema viejo)
-python collector/main.py --memoria --alternos --petroleo --noticias --export   # CSV→DB, colectores, consolidado.json + CSV
+python -m pytest tests/ -q -p no:cacheprovider   # suite completa (0 fallas esperadas)
+python collector/main.py --memoria --alternos --consenso --petroleo --noticias --export   # CSV→DB, colectores, consolidado.json + CSV
 python serve.py                             # dashboard at http://localhost:8089/web/index.html
 ```
 
@@ -31,11 +31,11 @@ CREATE TABLE consenso (fecha, producto, modalidad, precio, confianza, n_coincide
 
 ## Memoria persistente de precios (`collector/memoria.py`)
 La DB es efímera en CI → sin memoria, cada run "reiniciaba" el historial a la vista de Vercel. El sistema:
-1. **Inicio del run** — `importar_memoria()`: restaura la tabla `precios` desde `data/memory/precios.csv` (commitado). Insert-or-ignore: siembra el historial sin pisar valores nuevos.
+1. **Inicio del run** — `importar_memoria()`: restaura `precios` y las tablas del consejo desde `data/db/*.csv` (commitados). Insert-or-ignore: siembra el historial sin pisar valores nuevos.
 2. **Colectores** — agregan el día de hoy con su patrón delete-hoy-antes-de-insertar: re-ejecutar un mismo día ACTUALIZA el precio, no duplica (UNIQUE fecha+producto).
 3. **Fin del run** — `exportar_memoria()`: vuelca la tabla completa al CSV → se commitea junto con los JSONs; el próximo run parte de ahí. El archivo es determinista (orden fijo por fecha+canon-producto, sin fetched_at): nada cambió = byte-idéntico = cero diff.
 - Deduplica grafías (`diessel`/`diésel` del mismo día → 1 fila, la de `fetched_at` más reciente). Productos se guardan canónicos en el CSV.
-- CI: `python collector/main.py --memoria --alternos --petroleo --noticias --export`; el paso de push añade `data/memory/precios.csv`.
+- CI: `python collector/main.py --memoria --alternos --consenso --petroleo --noticias --export`; el paso de push añade `data/db/*.csv`.
 
 ## Timezone (Guatemala = UTC-6, sin DST)
 - **Backend**: NUNCA `datetime.now().strftime("...-06:00")` ingenuo — en el runner GitHub (reloj UTC) queda 6h adelantado. Usar `ahora_gt_iso()` / `hoy_gt()` de `collector/db.py`. Sin red (worldtimeapi fallaba en CI).
@@ -75,7 +75,7 @@ La DB es efímera en CI → sin memoria, cada run "reiniciaba" el historial a la
 - **Una noticia por hecho** (`quitar_duplicados`, tras ordenar y ANTES de traducir): el LLM agrupa en 1 request los top-40 titulares que cuentan el MISMO hecho (cualquier idioma); queda la mejor rankeada. Sin LLM: respaldo léxico estricto (Jaccard de raíces ≥ 0.5, solo casi-copias — comparar palabras no separa 'mismo hecho' de 'mismo tema'). El export vuelve a aplicar el léxico. Pausa de 20 s antes del lote de traducción (Groq 8K tokens/min).
 - Metas: `NOTICIAS_EXCELENTES = NOTICIAS_MINIMAS = 10`; export `noticias.top` = 15; dashboard muestra 10 (`agruparNoticias(…, 10)`): máx. 2 por tema es PREFERENCIA, luego rellena.
 - Fallback de traducción, pasada 1: nota ya en español usa SU resumen como `resumen_es` (antes la validación la rechazaba y MyMemory gastaba cuota traduciendo ES→ES). `traducirTituloEnEspañol` ya NO inventa frases por patrón: sin `titulo_es` muestra el título original.
-- Pipeline IA en `ejecutar()` (orden fijo): 1) VERIFICAR — `_limpiar_texto` limpia HTML/entidades del summary al recibir (raíz del bug Google News que filtraba `<a href>` a resumen_es) + `_item_valido` descarta títulos rotos; 2) ORDENAR — `_ordenar_candidatos` por relevancia determinística (`_relevancia_keywords`, sin costo LLM); 3) TRADUCIR AL FINAL — lote LLM del top-15 rankeado; cada salida pasa por `_validar_cls` (título+descripción presentes, legibles y sin URL/HTML/caracteres ininteligibles — si falla se pasa a la siguiente). Meta: `NOTICIAS_EXCELENTES = 5` fichas sin fallas; si el LLM no cubre 5, `_traducir_fallback(objetivo=...)` completa SOLO lo faltante (2 pasadas: ES gratis primero, EN vía MyMemory), y los items rechazados NO reciben categoria/relevancia (no entran al top-10 con nulls).
+- Pipeline IA en `ejecutar()` (orden fijo): 1) VERIFICAR — `_limpiar_texto` limpia HTML/entidades del summary al recibir (raíz del bug Google News que filtraba `<a href>` a resumen_es) + `_item_valido` descarta títulos rotos; 2) ORDENAR — `_ordenar_candidatos` por relevancia determinística (`_relevancia_keywords`, sin costo LLM); 3) TRADUCIR AL FINAL — lote LLM del top-15 rankeado; cada salida pasa por `_validar_cls` (título+descripción presentes, legibles y sin URL/HTML/caracteres ininteligibles — si falla se pasa a la siguiente). Meta: `NOTICIAS_EXCELENTES` (10) fichas sin fallas; si el LLM no las cubre, `_traducir_fallback(objetivo=...)` completa SOLO lo faltante (2 pasadas: ES gratis primero, EN vía MyMemory), y los items rechazados NO reciben categoria/relevancia (no entran al top-10 con nulls).
 
 ## XLSX parser (importar_historico.py)
 - Fixed column indices: A=FECHA, C=Superior, D=Regular, E=Diésel
@@ -106,7 +106,7 @@ La DB es efímera en CI → sin memoria, cada run "reiniciaba" el historial a la
 - **Two index.html**: `web/index.html` (source of truth), `index.html` at root (copy for Vercel `/`). Always keep them in sync. La copia raíz usa `sprites/barrel-oil.png` y `iconos/favicon.*` (relativas a raíz); la de `web/` usa `../sprites/`, `../iconos/`.
 
 ## GitHub Actions (`daily-update.yml` produce datos; `test-apis.yml` solo diagnostica)
-- **daily-update**: cron `0 14 * * *` (nominal 08:00 GT; en la práctica GitHub gratis lo ejecuta ~18:2x UTC), push a main, manual dispatch. Runner `windows-latest`, Python 3.11. Runs `python collector/main.py --memoria --alternos --petroleo --noticias --export`. El paso de push commitea `data/export/consolidado.json` **y** `data/db/*.csv` (memoria persistente: sin los CSV cada run nacería con DB vacía y perdería el historial).
+- **daily-update**: cron `0 14 * * *` (nominal 08:00 GT; en la práctica GitHub gratis lo ejecuta ~18:2x UTC), push a main, manual dispatch. Runner `windows-latest`, Python 3.11. Runs `python collector/main.py --memoria --alternos --consenso --petroleo --noticias --export`. El paso de push commitea `data/export/consolidado.json` **y** `data/db/*.csv` (memoria persistente: sin los CSV cada run nacería con DB vacía y perdería el historial).
 - **test-apis** (solo `workflow_dispatch`): corre `scripts/test_apis.py` contra el LLM primario de config.json (prompt mínimo), Groq secundario y MyMemory — sin DB ni export ni push. Mismo runner que daily-update: si la API responde ahí, responde en el run diario. Job rojo = ningún LLM completó el prompt (contrato del script).
 - `concurrency: daily-update-global` (sin cancel) serializa schedule+push+dispatch.
 - **Consola cp1252**: el runner windows-latest escribe la consola en cp1252; un `print()` con un carácter fuera de cp1252 (`→`, `←`, `✓`…) lanza UnicodeEncodeError y tumba el job (pasó 2 veces el 2026-09-25). Defensa doble: `env` a nivel de job `PYTHONIOENCODING: utf-8` + `PYTHONUTF8: '1'`, y `tests/test_consola.py` falla si un print/logger de `collector/` o `scripts/` trae esos caracteres.
@@ -125,7 +125,7 @@ python scheduler.py --export-task NOMBRE --interval-min N  # genera XML (ver --i
 
 ## Testing
 - **`tests/conftest.py` aísla TODO test**: redirige `db._default_db_path` y las rutas de `memoria` a tmp. Sin eso, tests con APIs simuladas escribían en `data/historial.db` real (así entró el WTI falso 71.45). No quitarlo.
-- Suite principal: `pytest tests/ -q -p no:cacheprovider` — **0 fallas** desde la Etapa 1 (158+).
+- Suite principal: `pytest tests/ -q -p no:cacheprovider` — **0 fallas** (172 tests al 2026-09-27).
 - Single test file: `pytest tests/test_module.py -v`
 - Tests use `conectar_temporal()` for isolated in-memory DB operations.
 - `test_db.py`, `test_memoria.py` y `TestExportJson` cubren el esquema genérico. Partes de `test_consenso.py`/`test_petroleo.py` aún referencian el esquema viejo (dos tablas `precios_combustible`/`precios_petroleo`, `fecha_observacion`, producto `brent`) — pendientes de migrar al esquema tabla-única. No reescribir asserts existentes sin migrar el setup.
