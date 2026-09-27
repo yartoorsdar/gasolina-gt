@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-09-27T10:21:21-06:00",
+  "actualizado_at": "2026-09-27T12:14:24-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-09-24",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-09-24",
         "precio": 43.29,
         "fuente": "MEM",
-        "fetched_at": "2026-09-27T10:20:30-06:00"
+        "fetched_at": "2026-09-27T12:13:28-06:00"
       },
       "historial": [
         {
@@ -1358,7 +1358,7 @@
             "fecha": "2026-09-24",
             "precio": 43.29,
             "fuente": "MEM",
-            "fetched_at": "2026-09-27T10:20:30-06:00"
+            "fetched_at": "2026-09-27T12:13:28-06:00"
           },
           "consenso": {
             "fecha": "2026-09-24",
@@ -1474,7 +1474,7 @@
             "fecha": "2026-09-21",
             "precio": 43.66,
             "fuente": "MEM",
-            "fetched_at": "2026-09-27T10:20:30-06:00"
+            "fetched_at": "2026-09-27T12:13:28-06:00"
           },
           "consenso": {
             "fecha": "2026-09-21",
@@ -1523,7 +1523,7 @@
         "fecha": "2026-09-24",
         "precio": 45.29,
         "fuente": "MEM",
-        "fetched_at": "2026-09-27T10:20:30-06:00"
+        "fetched_at": "2026-09-27T12:13:28-06:00"
       },
       "historial": [
         {
@@ -2868,7 +2868,7 @@
             "fecha": "2026-09-24",
             "precio": 45.29,
             "fuente": "MEM",
-            "fetched_at": "2026-09-27T10:20:30-06:00"
+            "fetched_at": "2026-09-27T12:13:28-06:00"
           },
           "consenso": {
             "fecha": "2026-09-24",
@@ -2984,7 +2984,7 @@
             "fecha": "2026-09-21",
             "precio": 45.74,
             "fuente": "MEM",
-            "fetched_at": "2026-09-27T10:20:30-06:00"
+            "fetched_at": "2026-09-27T12:13:28-06:00"
           },
           "consenso": {
             "fecha": "2026-09-21",
@@ -3041,7 +3041,7 @@
         "fecha": "2026-09-24",
         "precio": 49.4,
         "fuente": "MEM",
-        "fetched_at": "2026-09-27T10:20:30-06:00"
+        "fetched_at": "2026-09-27T12:13:28-06:00"
       },
       "historial": [
         {
@@ -4382,7 +4382,7 @@
             "fecha": "2026-09-24",
             "precio": 49.4,
             "fuente": "MEM",
-            "fetched_at": "2026-09-27T10:20:30-06:00"
+            "fetched_at": "2026-09-27T12:13:28-06:00"
           },
           "consenso": {
             "fecha": "2026-09-24",
@@ -4486,7 +4486,7 @@
             "fecha": "2026-09-21",
             "precio": 50.5,
             "fuente": "MEM",
-            "fetched_at": "2026-09-27T10:20:30-06:00"
+            "fetched_at": "2026-09-27T12:13:28-06:00"
           },
           "consenso": {
             "fecha": "2026-09-21",
@@ -4543,7 +4543,7 @@
         "fecha": "2026-09-27",
         "precio": 92.41,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-09-27T10:20:30-06:00"
+        "fetched_at": "2026-09-27T12:13:28-06:00"
       },
       "historial": [
         {
@@ -5626,7 +5626,7 @@
             "fecha": "2026-09-27",
             "precio": 92.41,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-09-27T10:20:30-06:00"
+            "fetched_at": "2026-09-27T12:13:28-06:00"
           },
           "consenso": null,
           "historial": [
@@ -5777,85 +5777,59 @@
     ]
   },
   "noticias": {
-    "total": 51,
+    "total": 48,
     "top": [
       {
-        "id": 9,
-        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPSDE4dFZtM0VyWGhGMnlnOTk5azZ5YTV0NUlKUk9aTjlwaUhoS1JQUzcxY29sdFRjQV9rWTVGa29XVmE1SWE4dDRRYlc5WkhLRjRZOTNTZTd3anpsdC1JdnhFb3ZkQXhHd3B2dU1oTExGdC1jYU54QUlwXzhYcFhhUTNIbzl1S0NuOE9sZkNndl9Pc05fTVJKdQ?oc=5",
-        "titulo": "Ilsky Oil Refinery Halts Operations After September 26 Attack - Мілітарний",
-        "titulo_es": "Refinería Ilsky detiene operaciones tras ataque del 26 de septiembre",
-        "medio": "Google News EN",
-        "publicado_at": "2026-09-27T06:02:19-06:00",
-        "categoria": "oferta",
+        "id": 1,
+        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNQVAtV3RwM2k0VkhjVjdGQ0VlcmlWREtGZENxQWpCdXMwaEpmZjc5cmc5RlFtMm9UUGE5dkVpN1lac1gzUmNMTTVVNjZYMVo0b2x6OVBwbHZNZUN0RnpfLWJrRk92LXZaM2ZZYXBLOGd1QlpCQjEzZEtBemlvSXNqczlyWVZueWZtc2NGd2dYOVpfUWV5cXlmTjVVNjJsZnVQQ3k4enhPMFphTnd6QXdkbDhTeVRWTDVoM21lc1AtcVZQaGRhVTUyS3ZwM1k?oc=5",
+        "titulo": "Cuándo entra en vigencia el subsidio a la gasolina en Guatemala, que aplica exención del IDP e IVA a los combustibles - Prensa Libre",
+        "titulo_es": "Entra en vigor subsidio a la gasolina que elimina IDP e IVA",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-24T08:00:00-06:00",
+        "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "La refinería Ilsky en Rusia detiene sus operaciones tras un ataque, disminuyendo la oferta de productos refinados y pudiendo encarecer los combustibles importados por Guatemala.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
+        "resumen_es": "El gobierno guatemalteco implementará un subsidio que elimina el IDP e IVA a la gasolina, reduciendo su precio al consumidor y afectando la demanda interna.",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
       },
       {
-        "id": 10,
-        "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPeVI4aG9kZ1JGR3BvTnlIMzRUaGRjM1NWbWhEejRsTlZRRHJxOUxUZHZveGxNUTVKT0ZPQ3BEVTJla3RWNk1mNDg3ZEtkUVFDUk5XWERHZWxyLXpxMmJkX2h2ZzFDOGx2MENyaWQyYmJmU2dvOXJlWVJhZU1fZXg4Z0VZT2lfNUR5N1BsYmN0SElVZEZvOU4wNkhGRU5lZHFkek5Z?oc=5",
-        "titulo": "Situada a 1.500 km de la frontera, la principal refinería de petróleo de Rusia se encuentra paralizada por un ataque. - Vietnam.vn",
-        "titulo_es": "Principal refinería rusa paralizada por ataque",
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOaGZoNlkweHJDOGYwTGt4QUZRV0Y3X3JnQXFtQWFLdXFhZTB0T2w0TFVYUDF0OUpMdVhzdV8tLWxSN2V0dk95WE5sZ3RqdjBKSWFZZlgxZEMzUmlpZmRvb202RHBqY2ozUjdoZV9uT2s2NjVZRVprMGNfWXk5bTNRMnRJSTUzSFIyY0ZLUi1NMUVWX05ma29nVTFVaWs3TThhaHBwNE5uTQ?oc=5",
+        "titulo": "Guatemala elimina impuestos a combustibles - elsalvador.com",
+        "titulo_es": "Guatemala elimina impuestos a los combustibles",
         "medio": "Google News ES",
-        "publicado_at": "2026-09-26T18:36:36-06:00",
-        "categoria": "oferta",
+        "publicado_at": "2026-09-23T07:54:19-06:00",
+        "categoria": "finanzas",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "La principal refinería rusa queda paralizada por un ataque, reduciendo la capacidad de suministro global y afectando los precios del combustible en Guatemala.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
+        "resumen_es": "El Estado suprime impuestos a los combustibles, lo que reducirá el costo de importación y el precio al consumidor, impactando la demanda y la balanza comercial.",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
       },
       {
         "id": 13,
         "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNU2FOWmZzc0w0QnNVM3NsRkFoQm05RHBGZXluZzB0OHlUc1RuVldUOFd2dFZULURweDI4Y0VIeVpoMWpwNG9aUl9BejZKTDAxMFNaUVg0RjYxWnRTLUlEWHpHOFNhZE5MWm53S1gwM2lpdWg0a2JKd1RHTTlIZHZTdHpXT0dJTFBlQnFwVzljdXBuMkFyZmM0aWpiUVdpWXVNcGFsNHZZcHZETy0wS1V6NHoyOE5FZUozNm14TVl4NkpLQnpPeWRWMQ?oc=5",
         "titulo": "Russia's Perm oil refinery halted operations after Friday drone attack, sources say - Reuters",
-        "titulo_es": "Refinería Perm de Rusia detiene operaciones tras ataque con drones",
+        "titulo_es": "Refinería Perm de Rusia se detiene tras ataque con drones",
         "medio": "Google News EN",
         "publicado_at": "2026-09-25T09:23:44-06:00",
-        "categoria": "oferta",
+        "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 5,
-        "resumen_es": "La refinería Perm en Rusia cesa operaciones tras un ataque con drones, reduciendo la oferta de crudo y productos refinados, lo que puede subir los precios en Guatemala.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
-      },
-      {
-        "id": 1,
-        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNQVAtV3RwM2k0VkhjVjdGQ0VlcmlWREtGZENxQWpCdXMwaEpmZjc5cmc5RlFtMm9UUGE5dkVpN1lac1gzUmNMTTVVNjZYMVo0b2x6OVBwbHZNZUN0RnpfLWJrRk92LXZaM2ZZYXBLOGd1QlpCQjEzZEtBemlvSXNqczlyWVZueWZtc2NGd2dYOVpfUWV5cXlmTjVVNjJsZnVQQ3k4enhPMFphTnd6QXdkbDhTeVRWTDVoM21lc1AtcVZQaGRhVTUyS3ZwM1k?oc=5",
-        "titulo": "Cuándo entra en vigencia el subsidio a la gasolina en Guatemala, que aplica exención del IDP e IVA a los combustibles - Prensa Libre",
-        "titulo_es": "Entra en vigor el subsidio a la gasolina que exime IDP e IVA",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-24T08:00:00-06:00",
-        "categoria": "finanzas",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "El subsidio elimina el IDP y el IVA a la gasolina, reduciendo su precio al consumidor y afectando directamente los costos de combustible en Guatemala.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
+        "relevancia": 4,
+        "resumen_es": "El ataque con drones a la refinería Perm en Rusia suspende su producción, reduciendo la oferta global de crudo y potencialmente elevando los precios de importación para Guatemala.",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
       },
       {
         "id": 6,
         "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOaTVUSFBrQkQ3YUtqM1hlendocHBpM2k5WC12U3lzd0Z5TGhYc2MzQ2xQREhaYU83ZDNVdDJmRWxRb3lpRjl1MWNRV0lZTDROWjdYdEZ2c0NhOXV0WHhxU2xNUmJMeVdtMnNkLXlvWXVnbGJCNjFjZHFOdzdjcWxFTlpzYXlrZlpBdElvX3c0YUpQckVIRGlUZjdwdUZYRnlZaDE5U1pmb0dSTlNDX2c?oc=5",
-        "titulo": "Saudi Oil Loaded from Port at Yanbu after Pipeline Attack - Industrial Info Resources",
-        "titulo_es": "Cargan petróleo saudí en Yanbu tras ataque al oleoducto",
+        "titulo": "Saudi Oil Loaded from Port at Yanbu after Pipeline Attack - industrialinfo.com",
+        "titulo_es": "Cargan crudo saudí en Yanbu tras ataque al oleoducto",
         "medio": "Google News EN",
         "publicado_at": "2026-09-24T05:50:42-06:00",
         "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Tras un ataque al oleoducto saudí, el crudo se carga en Yanbu, señalando interrupciones que pueden elevar precios internacionales y afectar a Guatemala importadora.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
-      },
-      {
-        "id": 7,
-        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNWVpCclVaNHZSUVZCZ2hvMlhXbnRrS3Y4UVZEME1COVh4MnItcm5VT1V1QkhnUk1xUXpMdkk3YzlSN25tRG5yTnZxdnlZNF9TaEh3YjR0VHZfSDRiUElwZ0FMQjV1NGtYX1dobkZ5aG9QODJTZTVzTjB2TWMzbTF2dE9VQXdJcFNXS1lrVDJZOWdDRUtON2FteWlJbFF0NjU2MmZyOTZuNWYzS1E3S3VKM3BB?oc=5",
-        "titulo": "Refinería petrolera de Moscú detiene producción tras ataque con drones del domingo: fuentes - Yahoo",
-        "titulo_es": "Refinería de Moscú cierra producción tras ataque con drones",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-21T10:04:52-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Una refinería de Moscú detiene la producción después de un ataque con drones, reduciendo la oferta mundial de crudo y potencialmente subiendo los precios en Guatemala.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
+        "relevancia": 4,
+        "resumen_es": "Tras un ataque a un oleoducto saudí, el crudo se cargó en Yanbu, indicando interrupciones que pueden elevar los precios internacionales y afectar a importadores guatemaltecos.",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
       },
       {
         "id": 8,
@@ -5866,22 +5840,22 @@
         "publicado_at": "2026-09-14T01:00:00-06:00",
         "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Los avances de los Houthi y el ataque a una instalación saudí aumentan la presión sobre los mercados petroleros, lo que puede elevar los precios para Guatemala.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
+        "relevancia": 4,
+        "resumen_es": "Los avances de los Houthi y el ataque a un complejo de oleoductos saudí aumentan la incertidumbre en los mercados, lo que puede encarecer el crudo importado por Guatemala.",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
       },
       {
-        "id": 14,
-        "url": "https://oilprice.com/Energy/Energy-General/Trumps-Diesel-Export-Threat-Puts-Britain-on-Edge.html",
-        "titulo": "Trump’s Diesel Export Threat Puts Britain on Edge",
-        "titulo_es": "Amenaza de EE.UU. de suspender exportaciones de diésel inquieta al Reino Unido",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-09-25T09:00:00-06:00",
-        "categoria": "diplomacia",
+        "id": 9,
+        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNN2VoSEpnWGtZZFN5dmxSWlJOQWtLV2VDdEJWOFZQVS1OY0I4a01DOF82SGJ4Tk0ySWRvMVU2SUZsOU94TjVmU1lRaE1GUk1HaXhlY2h5T2ZtZlFiQWI3eXprdklRNTVUSGhDMHZIR0ZNNmdZU1QzbnQ3bFI1X1AwWXFMUTVucS1SOTZJVjBncHBBSUN6aFFN?oc=5",
+        "titulo": "Saudi oil pipeline attack could raise global gas prices - DW.com",
+        "titulo_es": "Ataque a oleoducto saudí podría subir precios globales del gas",
+        "medio": "Google News EN",
+        "publicado_at": "2026-09-12T01:00:00-06:00",
+        "categoria": "geopolitica",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "La amenaza de EE.UU. de suspender exportaciones de diésel genera incertidumbre en los mercados, pudiendo elevar el precio del diésel importado por Guatemala.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
+        "resumen_es": "El ataque a un oleoducto de Arabia Saudita podría elevar los precios del gas a nivel mundial, impactando los costos de importación de combustibles en Guatemala.",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
       },
       {
         "id": 2,
@@ -5892,22 +5866,9 @@
         "publicado_at": "2026-09-23T15:56:37-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Se publican los precios actuales del galón de gasolina regular y super en autoservicio, información clave para anticipar el gasto de los guatemaltecos.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
-      },
-      {
-        "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQQm9qdmd0eW83NmhMd1MyWHFtLXNycW5xbkpSd1dES3NvSTdVRFVicmJ3ZEU0X3pRQjg1Q3pkMURDa2ZIQmhQNFQ4N2FFUlZfYjhXbkNVT09sclVyR1NRMVJvTk9zYW5pMFJfUUNyX0I3aGVQUHVlenpOaWZnTzJCc0NUSTdiUUN4UGdiN3ktdzhUUXBOZnNTVXd3UWJ1WXNiY2RHNUxR?oc=5",
-        "titulo": "De Guatemala a Siria, el aumento de precios del combustible desata protestas en el mundo - The New York Times",
-        "titulo_es": "Aumento de precios del combustible desata protestas de Guatemala a Siria",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-15T01:00:00-06:00",
-        "categoria": "demanda",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El aumento de precios del combustible genera protestas en varios países, incluida Guatemala, indicando presión social que puede influir en decisiones de precios.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
+        "relevancia": 3,
+        "resumen_es": "Publican los precios actuales por galón de gasolina regular y super en estaciones de autoservicio, información clave para consumidores y análisis de mercado.",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
       },
       {
         "id": 5,
@@ -5918,35 +5879,9 @@
         "publicado_at": "2026-09-12T01:00:00-06:00",
         "categoria": "demanda",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Protestas en Guatemala por la alza de precios dejan a policías heridos, reflejando tensión social que podría presionar al gobierno a ajustar tarifas.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
-      },
-      {
-        "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdWF0YmEtT3Q0UU0wQTE1NWEtTnBzTzgyamtFczFJOW93NGx3REx3MGVVRGZFTDZQQ3pTeWdJb2VMYlRQaDRKX1hDT25RVGthZW1UUmxuQl9MZUZxMkdsUlJXUXNxQWN0R3FocWxHRjJvbTc2ZVlXWFh0NW8yR1hkeEo2WmVYd1dzNzFuQXFQMFhqLWdmTFpnVTgyTFZMeF95UzQ1OTNDY0plb1BZREk3QXNqZDVpdw?oc=5",
-        "titulo": "Gasolina regular con etanol: qué cambió tras el primer mes de uso en Guatemala - Prensa Libre",
-        "titulo_es": "Gasolina regular con etanol: cambios tras el primer mes de uso",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-23T00:10:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
         "relevancia": 3,
-        "resumen_es": "Tras el primer mes de uso, la gasolina regular con etanol muestra cambios en rendimiento y precios, relevante para la política energética y el costo al consumidor.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
-      },
-      {
-        "id": 11,
-        "url": "https://oilprice.com/Energy/Energy-General/North-Carolina-Regulators-Reject-Duke-Energy-Gas-Power-Plant.html",
-        "titulo": "North Carolina Regulators Reject Duke Energy Gas Power Plant",
-        "titulo_es": "Reguladores de Carolina del Norte rechazan planta de energía a gas de Duke Energy",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-09-26T09:00:00-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Reguladores de Carolina del Norte rechazan una planta de energía a gas, limitando la expansión de generación de gas con escaso efecto indirecto sobre los precios en Guatemala.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
+        "resumen_es": "Manifestantes protestan contra el alza de precios de los combustibles en Guatemala, dejando a dos policías heridos, lo que evidencia tensión social.",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
       },
       {
         "id": 12,
@@ -5958,26 +5893,91 @@
         "categoria": "precios",
         "pais": null,
         "relevancia": 2,
-        "resumen_es": "El calor récord no eleva los precios del gas natural en EE.UU., indicando exceso de oferta que tiene poco impacto en los precios internacionales de combustibles para Guatemala.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
+        "resumen_es": "A pesar del calor récord, los precios del gas natural en EE.UU. cayeron, lo que indica exceso de oferta y podría influir en los precios internacionales del gas que importa Guatemala.",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
+      },
+      {
+        "id": 14,
+        "url": "https://oilprice.com/Energy/Energy-General/Trumps-Diesel-Export-Threat-Puts-Britain-on-Edge.html",
+        "titulo": "Trump’s Diesel Export Threat Puts Britain on Edge",
+        "titulo_es": "Amenaza de Trump de prohibir exportaciones de diésel inquieta al mercado",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-25T09:00:00-06:00",
+        "categoria": "diplomacia",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "La amenaza del presidente Trump de prohibir exportaciones de diésel genera incertidumbre en el mercado global, lo que podría influir en los precios del diésel importado por Guatemala.",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
       },
       {
         "id": 15,
         "url": "https://www.eia.gov/todayinenergy/detail.php?id=68204",
         "titulo": "Henry Hub natural gas prices this summer were 6% lower than last summer",
-        "titulo_es": "Precio del gas natural Henry Hub baja 6% respecto al verano pasado",
+        "titulo_es": "Precios del gas natural Henry Hub bajan 6% en verano",
         "medio": "EIA Today in Energy",
         "publicado_at": "2026-09-25T08:00:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 2,
-        "resumen_es": "El precio del gas natural Henry Hub baja un 6% respecto al verano anterior, reflejando exceso de oferta y con escaso efecto sobre los precios de combustibles en Guatemala.",
-        "fetched_at": "2026-09-27T10:21:21-06:00"
+        "resumen_es": "Los precios spot del gas natural Henry Hub bajaron 6% en verano, señalando precios internacionales más bajos que pueden repercutir en el costo del gas importado por Guatemala.",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
+      },
+      {
+        "id": 4,
+        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQQm9qdmd0eW83NmhMd1MyWHFtLXNycW5xbkpSd1dES3NvSTdVRFVicmJ3ZEU0X3pRQjg1Q3pkMURDa2ZIQmhQNFQ4N2FFUlZfYjhXbkNVT09sclVyR1NRMVJvTk9zYW5pMFJfUUNyX0I3aGVQUHVlenpOaWZnTzJCc0NUSTdiUUN4UGdiN3ktdzhUUXBOZnNTVXd3UWJ1WXNiY2RHNUxR?oc=5",
+        "titulo": "De Guatemala a Siria, el aumento de precios del combustible desata protestas en el mundo - nytimes.com",
+        "titulo_es": "Aumento de precios del combustible desata protestas en Guatemala y el mundo",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-15T01:00:00-06:00",
+        "categoria": "demanda",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "El alza de precios del combustible genera protestas en varios países, incluido Guatemala, reflejando presión social sobre los gobiernos.",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
+      },
+      {
+        "id": 11,
+        "url": "https://oilprice.com/Energy/Energy-General/North-Carolina-Regulators-Reject-Duke-Energy-Gas-Power-Plant.html",
+        "titulo": "North Carolina Regulators Reject Duke Energy Gas Power Plant",
+        "titulo_es": "Reguladores de Carolina del Norte rechazan planta de gas de Duke Energy",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-26T09:00:00-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 1,
+        "resumen_es": "Reguladores de Carolina del Norte rechazan la construcción de una planta de energía de gas de Duke Energy, decisión con poco impacto directo en el suministro guatemalteco.",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
+      },
+      {
+        "id": 28,
+        "url": "https://oilprice.com/Energy/Natural-Gas/Global-Gas-Squeeze-Could-Last-Through-Next-Summer.html",
+        "titulo": "Global Gas Squeeze Could Last Through Next Summer",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-26T17:00:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Global natural gas supply is likely to remain tighter than it should be until next summer at least, and it could cause prolonged demand destruction. Should this scenario materialize, it would deliver a severe blow to Europe, as it already struggles to cover its winter gas needs ahead of the official start of heating season—but Asia won’t be happy about it, either. The prediction comes from the International Gas Union, an industry association that covers 90% of the world’s gas producers. “The mar",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
+      },
+      {
+        "id": 29,
+        "url": "https://oilprice.com/Alternative-Energy/Renewable-Energy/Brazils-Energy-Mix-Goes-Green-Even-As-Oil-Production-Climbs.html",
+        "titulo": "Brazil's Energy Mix Goes Green Even As Oil Production Climbs",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-26T13:00:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Brazil is continuing to expand its renewable energy capacity thanks to favourable national policies and support from foreign investors. The South American giant has developed an impressive green energy industry in recent years, expanding its oil and gas production to strengthen energy security and establish its reputation as a regional energy hub. By 2025, Brazil had an impressively low-carbon energy mix, with around 50 per cent of its energy coming from renewable sources, including solar, wind,",
+        "fetched_at": "2026-09-27T12:14:24-06:00"
       }
     ],
     "llm": {
       "titulos_es_hoy": 15,
-      "total_hoy": 51,
+      "total_hoy": 48,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
