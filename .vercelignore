@@ -1,0 +1,14 @@
+# Vercel solo sirve el dashboard estático. Sin esto detecta requirements.txt/*.py
+# y falla con 'framework "python" ... must specify an "entrypoint"'.
+# Lista blanca: se ignora todo salvo lo que usan index.html, web/index.html y fuentes.html.
+/*
+!/index.html
+!/fuentes.html
+!/style-glass.css
+!/iconos
+!/sprites
+!/vercel.json
+!/web
+/web/*
+!/web/index.html
+!/web/style-glass.css
