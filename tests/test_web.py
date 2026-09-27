@@ -115,3 +115,14 @@ def test_grafica_principal_30_dias_por_fecha():
         assert "Precios de los últimos 30 días" in html, archivo
         assert "ultimaHist - diaUTC(f) <= 29" in html, f"{archivo}: ventana no es de 30 días por fecha"
         assert "padLeft + chartW * fraccionX(j)" in html, f"{archivo}: eje X no proporcional a la fecha"
+
+
+def test_vercel_web_analytics():
+    """Métricas de visitas: script de Vercel Web Analytics en todas las páginas (PR 1)."""
+    from pathlib import Path
+    raiz = Path(__file__).resolve().parent.parent
+    for archivo in ("index.html", "web/index.html", "fuentes.html"):
+        html = (raiz / archivo).read_text(encoding="utf-8")
+        # exactamente 1: dos cargas = visitas contadas doble
+        assert html.count('<script defer src="/_vercel/insights/script.js"></script>') == 1, archivo
+        assert html.index("/_vercel/insights/script.js") < html.index("</head>"), archivo

@@ -102,6 +102,7 @@ La DB es efímera en CI → sin memoria, cada run "reiniciaba" el historial a la
 ## Vercel deployment
 - `vercel.json`: static build with cache headers for `consolidado.json` (max-age=60) and HTML (max-age=300). OJO: esos headers casi no aplican — el dashboard lee de `raw.githubusercontent.com` (`GITHUB_RAW` en el JS), no de Vercel.
 - `_redirects` (`/* /web/index.html 200`) es sintaxis Netlify — Vercel lo ignora. `_routes.json` (sintaxis Azure SWA) también es muerto en Vercel.
+- **Web Analytics (visitas)**: `<script defer src="/_vercel/insights/script.js">` + stub `window.va` en el `<head>` de `index.html`, `web/index.html` y `fuentes.html` (lo agregó el PR 1 de Vercel Agent) (ruta absoluta, sirve igual en `/` y `/web/`; en local da 404 inofensivo). Requiere Analytics activado en el dashboard del proyecto `gasolina-gt` (Project → Analytics → Enable). `test_web.py::test_vercel_web_analytics` exige exactamente 1 script por página (2 = visitas contadas doble).
 - **Two index.html**: `web/index.html` (source of truth), `index.html` at root (copy for Vercel `/`). Always keep them in sync. La copia raíz usa `sprites/barrel-oil.png` y `iconos/favicon.*` (relativas a raíz); la de `web/` usa `../sprites/`, `../iconos/`.
 
 ## GitHub Actions (`daily-update.yml` produce datos; `test-apis.yml` solo diagnostica)
