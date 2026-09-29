@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-09-29T01:50:02-06:00",
+  "actualizado_at": "2026-09-29T02:11:40-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-09-28",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-09-28",
         "precio": 43.29,
         "fuente": "Consejo",
-        "fetched_at": "2026-09-29T01:49:16-06:00"
+        "fetched_at": "2026-09-29T02:10:37-06:00"
       },
       "historial": [
         {
@@ -1354,7 +1354,7 @@
             "fecha": "2026-09-28",
             "precio": 43.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-09-29T01:49:16-06:00"
+            "fetched_at": "2026-09-29T02:10:37-06:00"
           },
           "consenso": {
             "fecha": "2026-09-28",
@@ -1446,7 +1446,7 @@
             "fecha": "2026-09-28",
             "precio": 44.23,
             "fuente": "Consejo",
-            "fetched_at": "2026-09-29T01:49:16-06:00"
+            "fetched_at": "2026-09-29T02:10:37-06:00"
           },
           "consenso": {
             "fecha": "2026-09-28",
@@ -1499,7 +1499,7 @@
         "fecha": "2026-09-28",
         "precio": 45.29,
         "fuente": "Consejo",
-        "fetched_at": "2026-09-29T01:49:16-06:00"
+        "fetched_at": "2026-09-29T02:10:37-06:00"
       },
       "historial": [
         {
@@ -2840,7 +2840,7 @@
             "fecha": "2026-09-28",
             "precio": 45.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-09-29T01:49:16-06:00"
+            "fetched_at": "2026-09-29T02:10:37-06:00"
           },
           "consenso": {
             "fecha": "2026-09-28",
@@ -2932,7 +2932,7 @@
             "fecha": "2026-09-28",
             "precio": 46.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-09-29T01:49:16-06:00"
+            "fetched_at": "2026-09-29T02:10:37-06:00"
           },
           "consenso": {
             "fecha": "2026-09-28",
@@ -2985,7 +2985,7 @@
         "fecha": "2026-09-28",
         "precio": 49.39,
         "fuente": "Consejo",
-        "fetched_at": "2026-09-29T01:49:16-06:00"
+        "fetched_at": "2026-09-29T02:10:37-06:00"
       },
       "historial": [
         {
@@ -4322,7 +4322,7 @@
             "fecha": "2026-09-28",
             "precio": 49.39,
             "fuente": "Consejo",
-            "fetched_at": "2026-09-29T01:49:16-06:00"
+            "fetched_at": "2026-09-29T02:10:37-06:00"
           },
           "consenso": {
             "fecha": "2026-09-28",
@@ -4410,7 +4410,7 @@
             "fecha": "2026-09-28",
             "precio": 50.4,
             "fuente": "Consejo",
-            "fetched_at": "2026-09-29T01:49:16-06:00"
+            "fetched_at": "2026-09-29T02:10:37-06:00"
           },
           "consenso": {
             "fecha": "2026-09-28",
@@ -4461,9 +4461,9 @@
       "orden": 4,
       "actual": {
         "fecha": "2026-09-29",
-        "precio": 93.42,
+        "precio": 93.24,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-09-29T01:49:17-06:00"
+        "fetched_at": "2026-09-29T02:10:48-06:00"
       },
       "historial": [
         {
@@ -5520,7 +5520,7 @@
         },
         {
           "fecha": "2026-09-29",
-          "precio": 93.42
+          "precio": 93.24
         }
       ],
       "mensual": [],
@@ -5552,9 +5552,9 @@
           "nombre": "Spot",
           "actual": {
             "fecha": "2026-09-29",
-            "precio": 93.42,
+            "precio": 93.24,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-09-29T01:49:17-06:00"
+            "fetched_at": "2026-09-29T02:10:48-06:00"
           },
           "consenso": null,
           "historial": [
@@ -5652,7 +5652,7 @@
             },
             {
               "fecha": "2026-09-29",
-              "precio": 93.42
+              "precio": 93.24
             }
           ]
         }
@@ -5709,21 +5709,8 @@
     ]
   },
   "noticias": {
-    "total": 49,
+    "total": 47,
     "top": [
-      {
-        "id": 5,
-        "url": "https://oilprice.com/Energy/Energy-General/Why-Blocking-US-Diesel-Exports-Could-Make-Fuel-More-Expensive.html",
-        "titulo": "Why Blocking U.S. Diesel Exports Could Make Fuel More Expensive",
-        "titulo_es": "Posible prohibición de exportaciones de diésel de EE. UU. podría encarecer el combustible",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-09-28T17:00:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Un posible veto a las exportaciones de diésel de EE. UU. podría reducir la oferta mundial y elevar los precios del diésel importado por Guatemala.",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
-      },
       {
         "id": 6,
         "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNTUlKTFR3OEthOUE2eGZ0eGJxNFZnNlR1VncxdGxJNFRJUzdOak1nYmRHcTdteG9tS3ZWeGRMX3RiVGJFaGlZNFRUT0dPTkh2eC1sSjdfYnVnRzBCTVFwcW9TXy1BSlpwaENHWFhNVUZJWW5SNEJSOVdXczZJaWxLb3lTRmJndnozMWctREln0gGTAUFVX3lxTE9wQWEtSUt0a01ka2laODQzYXFFV2MtbHVxOThNNUVJZlFGRVhzdVR0d0tUSkFnNEV4YU1WMi1qVWNSalo0bE1mcEprNlJ2TEtOdm1BV0gyVks5RTQ3bFBIVDh6MndXMzF5c0FPY0htd2dMV3huRjBmRGVkLWM3ek1qT25Uc2lkRTE3ZWR5NkpDam1ESQ?oc=5",
@@ -5734,34 +5721,73 @@
         "categoria": "infraestructura",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Se confirma que el IRGC y los hutíes atacaron un oleoducto saudí, interrumpiendo el flujo de crudo y pudiendo elevar los precios del petróleo importado por Guatemala.",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
+        "resumen_es": "Se acusa al IRGC y a los hutíes de atacar un oleoducto saudí desde Irak, amenazando la infraestructura de transporte de crudo y potencialmente incrementando los precios en Guatemala.",
+        "fetched_at": "2026-09-29T02:11:40-06:00"
       },
       {
         "id": 1,
         "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNQVAtV3RwM2k0VkhjVjdGQ0VlcmlWREtGZENxQWpCdXMwaEpmZjc5cmc5RlFtMm9UUGE5dkVpN1lac1gzUmNMTTVVNjZYMVo0b2x6OVBwbHZNZUN0RnpfLWJrRk92LXZaM2ZZYXBLOGd1QlpCQjEzZEtBemlvSXNqczlyWVZueWZtc2NGd2dYOVpfUWV5cXlmTjVVNjJsZnVQQ3k4enhPMFphTnd6QXdkbDhTeVRWTDVoM21lc1AtcVZQaGRhVTUyS3ZwM1k?oc=5",
         "titulo": "Cuándo entra en vigencia el subsidio a la gasolina en Guatemala, que aplica exención del IDP e IVA a los combustibles - Prensa Libre",
-        "titulo_es": "Entra en vigor subsidio a la gasolina que exime IDP e IVA en Guatemala",
+        "titulo_es": "Entra en vigor el subsidio a la gasolina que exime IDP e IVA en Guatemala",
         "medio": "Google News ES",
         "publicado_at": "2026-09-24T08:00:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "El gobierno implementará un subsidio que exime el IDP e IVA a la gasolina, reduciendo su precio al consumidor y aliviando la carga de importación.",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
+        "resumen_es": "El subsidio entrará en vigor eximiendo IDP e IVA a la gasolina, lo que reducirá el precio al consumidor y afectará directamente el costo del combustible en Guatemala.",
+        "fetched_at": "2026-09-29T02:11:40-06:00"
       },
       {
         "id": 7,
         "url": "https://oilprice.com/Energy/Energy-General/Hormuz-Rerouting-Doubles-Cape-Traffic-Without-Delivering-a-Windfall.html",
         "titulo": "Hormuz Rerouting Doubles Cape Traffic Without Delivering a Windfall",
-        "titulo_es": "Desvío del tráfico marítimo por Hormuz duplica paso por el Cabo y eleva costos",
+        "titulo_es": "Desvíos por el estrecho de Hormuz duplican tráfico marítimo y elevan costos de crudo",
         "medio": "OilPrice.com",
         "publicado_at": "2026-09-28T18:00:00-06:00",
         "categoria": "infraestructura",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "El cierre parcial del estrecho de Hormuz obliga a redirigir buques, duplicando el tráfico en el Cabo y encareciendo el transporte del crudo que importa Guatemala.",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
+        "resumen_es": "El cierre parcial del estrecho de Hormuz obliga a desvíos marítimos que duplican el tráfico y aumentan los costos de transporte del crudo, lo que puede traducirse en precios más altos para Guatemala.",
+        "fetched_at": "2026-09-29T02:11:40-06:00"
+      },
+      {
+        "id": 5,
+        "url": "https://oilprice.com/Energy/Energy-General/Why-Blocking-US-Diesel-Exports-Could-Make-Fuel-More-Expensive.html",
+        "titulo": "Why Blocking U.S. Diesel Exports Could Make Fuel More Expensive",
+        "titulo_es": "Posible prohibición de exportaciones de diésel de EE. UU. podría encarecer el combustible",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-28T17:00:00-06:00",
+        "categoria": "diplomacia",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Un posible veto a las exportaciones de diésel de EE. UU. podría crear un exceso interno y elevar los precios internacionales, encareciendo el diésel que importa Guatemala.",
+        "fetched_at": "2026-09-29T02:11:40-06:00"
+      },
+      {
+        "id": 8,
+        "url": "https://oilprice.com/Energy/Energy-General/The-World-Is-Entering-a-New-Era-of-Energy-Security.html",
+        "titulo": "The World Is Entering a New Era of Energy Security",
+        "titulo_es": "El mundo está entrando en una nueva era de seguridad energética",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-28T14:00:00-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Las guerras entre Estados Unidos, Irán y Rusia y Ucrania son más que conflictos regionales o militares. Están exponiendo debilidades en el sistema energético y económico mundial y demostrando que la seguridad energética ya no puede verse como independiente de la seguridad financiera, el transporte, la seguridad militar, la autonomía estratégica e incluso los lazos con las hegemonías del poder mundial. La guerra entre Rusia y Ucrania interrumpió la larga",
+        "fetched_at": "2026-09-29T02:11:40-06:00"
+      },
+      {
+        "id": 9,
+        "url": "https://oilprice.com/Energy/Energy-General/Record-Diesel-Costs-Add-Fresh-Pressure-on-UK-Economy.html",
+        "titulo": "Record Diesel Costs Add Fresh Pressure on UK Economy",
+        "titulo_es": "Los costes récord del diésel añaden una nueva presión a la economía del Reino Unido",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-28T12:00:00-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "La economía del Reino Unido entró en \"territorio desconocido\" el lunes, luchando contra una variedad de presiones financieras a medida que los temores se intensificaban antes del próximo Presupuesto. Los costes del diésel aumentaron a un máximo histórico de 199,18p por litro, marcando el último shock energético en la economía del Reino Unido. Las estaciones se registraron con una carga de 199,18p por litro, según el RAC. La firma automotriz dijo que el salto de precios reflejaba \"cómo EXP",
+        "fetched_at": "2026-09-29T02:11:40-06:00"
       },
       {
         "id": 12,
@@ -5774,75 +5800,62 @@
         "pais": null,
         "relevancia": 4,
         "resumen_es": "Situada a 1.500 km de la frontera, la principal refinería de petróleo de Rusia se encuentra paralizada por un ataque. Vietnam.vn",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
+        "fetched_at": "2026-09-29T02:11:40-06:00"
       },
       {
         "id": 2,
         "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOYVQzdWs1Ri1rTm5weExQdkRkc0ZQeHhSdFcwRmdIVDZsX2pUWlJ0S3ZaUGt6Z0h2Y09sS3BDQ3V3RUZjSWNsM3NtRUtsTmVRR0c2VkphRmtEeXNGNno2Rm1SLWpWdmR1SUxzSTdud0o1c3VBMGh1MGtKbTN4U19vckc3Ym5kVTJLaUhPWXVPSnJkSVRyaW9yS3ZuZnhHUWhsZ0JucjMySzJOUW5NOWdIMEJXdE1zbnJETGVwUGFTRWpBSWg1OUphNDJoTlFoRmN0cU00N2tWckhKZ1k?oc=5",
         "titulo": "Precio de los combustibles en Guatemala: estos son los precios de galón de regular y super en autoservicio - Prensa Libre",
-        "titulo_es": "Precios actuales del galón de gasolina regular y super en Guatemala",
+        "titulo_es": "Precios actuales del galón de gasolina regular y super en autoservicio en Guatemala",
         "medio": "Google News ES",
         "publicado_at": "2026-09-23T15:56:37-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Publican los precios actuales del galón de gasolina regular y super en autoservicio, información clave para el costo de importación y consumo en Guatemala.",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
+        "resumen_es": "Se publican los precios por galón de gasolina regular y super en autoservicio, información clave para los consumidores y para monitorear la evolución del costo del combustible.",
+        "fetched_at": "2026-09-29T02:11:40-06:00"
       },
       {
         "id": 3,
         "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdWF0YmEtT3Q0UU0wQTE1NWEtTnBzTzgyamtFczFJOW93NGx3REx3MGVVRGZFTDZQQ3pTeWdJb2VMYlRQaDRKX1hDT25RVGthZW1UUmxuQl9MZUZxMkdsUlJXUXNxQWN0R3FocWxHRjJvbTc2ZVlXWFh0NW8yR1hkeEo2WmVYd1dzNzFuQXFQMFhqLWdmTFpnVTgyTFZMeF95UzQ1OTNDY0plb1BZREk3QXNqZDVpdw?oc=5",
         "titulo": "Gasolina regular con etanol: qué cambió tras el primer mes de uso en Guatemala - Prensa Libre",
-        "titulo_es": "Cambios tras el primer mes de gasolina regular con etanol en Guatemala",
+        "titulo_es": "Gasolina regular con etanol: cambios tras el primer mes de uso en Guatemala",
         "medio": "Google News ES",
         "publicado_at": "2026-09-23T00:10:00-06:00",
         "categoria": "oferta",
         "pais": null,
         "relevancia": 3,
-        "resumen_es": "Tras un mes de uso del nuevo blend de gasolina regular con etanol, se reportan cambios en rendimiento y precios, influyendo en la demanda y costos de importación.",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
+        "resumen_es": "Tras un mes de uso, la gasolina regular con etanol muestra cambios en calidad y rendimiento, lo que puede influir en la percepción de precios y aceptación del combustible.",
+        "fetched_at": "2026-09-29T02:11:40-06:00"
       },
       {
         "id": 4,
         "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQQm9qdmd0eW83NmhMd1MyWHFtLXNycW5xbkpSd1dES3NvSTdVRFVicmJ3ZEU0X3pRQjg1Q3pkMURDa2ZIQmhQNFQ4N2FFUlZfYjhXbkNVT09sclVyR1NRMVJvTk9zYW5pMFJfUUNyX0I3aGVQUHVlenpOaWZnTzJCc0NUSTdiUUN4UGdiN3ktdzhUUXBOZnNTVXd3UWJ1WXNiY2RHNUxR?oc=5",
         "titulo": "De Guatemala a Siria, el aumento de precios del combustible desata protestas en el mundo - The New York Times",
-        "titulo_es": "Aumento mundial de precios del combustible desata protestas, incluida Guatemala",
+        "titulo_es": "Aumento de precios del combustible desencadena protestas de Guatemala a Siria",
         "medio": "Google News ES",
         "publicado_at": "2026-09-15T01:00:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "El alza global de precios del combustible genera protestas en varios países, incluida Guatemala, señalando presión sobre los costos de importación.",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
-      },
-      {
-        "id": 8,
-        "url": "https://oilprice.com/Energy/Energy-General/The-World-Is-Entering-a-New-Era-of-Energy-Security.html",
-        "titulo": "The World Is Entering a New Era of Energy Security",
-        "titulo_es": "Conflictos globales revelan vulnerabilidades en la seguridad energética mundial",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-09-28T14:00:00-06:00",
         "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Los conflictos en Ucrania e Irán resaltan vulnerabilidades del sistema energético global, lo que podría influir a largo plazo en la seguridad de suministro de Guatemala.",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
+        "relevancia": 3,
+        "resumen_es": "El alza global de precios del combustible provoca protestas desde Guatemala hasta Siria, reflejando la presión sobre los precios internacionales que impactan a los importadores guatemaltecos.",
+        "fetched_at": "2026-09-29T02:11:40-06:00"
       },
       {
-        "id": 9,
-        "url": "https://oilprice.com/Energy/Energy-General/Record-Diesel-Costs-Add-Fresh-Pressure-on-UK-Economy.html",
-        "titulo": "Record Diesel Costs Add Fresh Pressure on UK Economy",
-        "titulo_es": "Precios récord del diésel presionan la economía del Reino Unido",
+        "id": 29,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Argentina-Threatens-UK-with-Court-Action-Over-Falklands-Oil-Drilling.html",
+        "titulo": "Argentina Threatens UK with Court Action Over Falklands Oil Drilling",
+        "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-09-28T12:00:00-06:00",
-        "categoria": "precios",
+        "publicado_at": "2026-09-29T02:00:00-06:00",
+        "categoria": null,
         "pais": null,
-        "relevancia": 1,
-        "resumen_es": "Los precios del diésel en Reino Unido alcanzan récord, aunque su impacto directo en Guatemala es mínimo.",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
+        "relevancia": null,
+        "resumen_es": "Argentina will sue the UK unless it suspends an oil drilling project off the coast of the Falkland Islands, the BBC has reported, citing an X post by Argentine president Javier Milei. \"I instructed the Foreign Ministry and our legal teams to initiate international arbitration against the United Kingdom for the illegal plundering of our resources through the Sea Lion Project in the North Malvinas Basin,\" the Argentine president wrote on the social media platform. \"If in 2 weeks the United Kingdom",
+        "fetched_at": "2026-09-29T02:11:40-06:00"
       },
       {
-        "id": 20,
+        "id": 21,
         "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNRkdaWjNOci14UXNCWkVabU4tMVJGY0Q0RXRXWEJId1Z4MEMzWXB3OElQVTJRd1NDdEJVeTJ6TmwzdXp4U3dMeTVrajFpemprbkg2Q200NlZVeG1TcDNkZktSQm5aRG9pclVWaFFpNnlyX0VBQnZYVHdSTnUzZFRySU10SzRpazNoZlNNWUVlWnM2X2pyVXVycjEzVk8?oc=5",
         "titulo": "Russia’s oil problem: How Ukraine is changing the energy economics of the war - news.az",
         "titulo_es": null,
@@ -5852,7 +5865,20 @@
         "pais": null,
         "relevancia": null,
         "resumen_es": "Russia’s oil problem: How Ukraine is changing the energy economics of the war news.az",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
+        "fetched_at": "2026-09-29T02:11:40-06:00"
+      },
+      {
+        "id": 30,
+        "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNejAxN1B1bFpIR0I5UkhjUFdpcXprMXJpM0Y5OHJWREszelhnZzAtRTMwLVpFTThVOWxWRTNaSjlNczVGNHYyaFA2c1ZFMkc3YU1hSTFSOURoMXY2WlFVZUJWc1MzcTBrZHVHYWFsd1c5UVc3aWM4eUZUMklIazNBVExLN2pGVEJXMTg5VnRaUjlpazBuWUHSAY8BQVVfeXFMUHZHQ3hLYW5PbVV6U1hxZzJ1N0VRWFVJS1hzSnpjVlAxVlVfVjU4Z1VtdTJTVWhBRlRKdEE0dTJGeFZVUEdwXzhSZXNTZnItZC00Q1dBLUo5bUYzM3VJd2F6ajdPRlV0R0ZuNldiTDJfY0cxTXR4cGhsOWFJc2dyOENvYmZMcEZDNGhkOThOMmM?oc=5",
+        "titulo": "Strait of Hormuz keeps markets on edge as Middle East tensions drive oil prices higher - The New Voice of Ukraine",
+        "titulo_es": null,
+        "medio": "Google News EN",
+        "publicado_at": "2026-09-29T01:27:15-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Strait of Hormuz keeps marke",
+        "fetched_at": "2026-09-29T02:11:40-06:00"
       },
       {
         "id": 31,
@@ -5865,10 +5891,10 @@
         "pais": null,
         "relevancia": null,
         "resumen_es": "China's imports of liquefied natural gas are on course to book their second consecutive monthly decline because of significantly higher prices driven by the war in the Middle East. September LNG flows to China are seen at 5.3 million tons, according to Kpler data cited by Bloomberg today. This would be 8% lower than LNG imports for September 2025, but slightly higher than August flows, which Kpler estimated last month at 5.2 million tons. China is one of the biggest buyers of liquefied natural g",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
+        "fetched_at": "2026-09-29T02:11:40-06:00"
       },
       {
-        "id": 21,
+        "id": 22,
         "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Extends-Rally-Despite-Higher-Hormuz-Volume-Reports.html",
         "titulo": "Oil Extends Rally Despite Higher Hormuz Volume Reports",
         "titulo_es": null,
@@ -5878,38 +5904,12 @@
         "pais": null,
         "relevancia": null,
         "resumen_es": "Crude oil prices extended a climb that began on Monday, despite reports that oil flows via the Strait of Hormuz have improved considerably since the start of September. At the time of writing, Brent crude was trading at $107.37 per barrel, and West Texas Intermediate was trading at $94.31 per barrel. The widening gap between the two has been driven by reports about a possible U.S. ban on diesel fuel exports. Meanwhile, Kpler reported on Monday it had estimated daily oil flows out of Hormuz at 12",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
-      },
-      {
-        "id": 22,
-        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9ucXNUN1pHRzRvTnVHQTR2bTM1b3MtU1lEU0x5R2RUSmFib0hNemJxUFdZMWI1b3VYVmYyTFExczNTTFp4eUpnRnBfeWRIclVwcldFOU1SSldOSmh50gFiQVVfeXFMUGhTc3hKOWRYMFo0cVoxMjhNelBKTlRoRDBjSVNrR3ZpMDg4ekxxdUdSYTlMQkswc0NpZGRYRnZxd3lOMzVFZl8xSE9xdk1aaTRjZUw3aWtpei12N1FuMm04dmc?oc=5",
-        "titulo": "La BBC en primera línea de fuego de la guerra civil de Yemen, el conflicto que amenaza la seguridad energética mundial - BBC",
-        "titulo_es": null,
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-28T21:41:41-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "La BBC en primera línea de fuego de la guerra civil de Yemen, el conflicto que amenaza la seguridad energética mundial BBC",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
-      },
-      {
-        "id": 23,
-        "url": "https://oilprice.com/Energy/Oil-Prices/Standard-Chartered-Record-CTA-Long-Bets-Are-Capping-Oils-Upside.html",
-        "titulo": "Standard Chartered: Record CTA Long Bets Are Capping Oil's Upside",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-09-28T16:00:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Oil prices rebounded from their recent slide on fears of U.S.-Iran escalation after attempts at diplomacy yielded mixed results, with speeches by leaders on both sides laced with threats and belligerence. Brent crude for November delivery was up 1.70% to trade at $106.09 per barrel at 4:30 p.m. ET on Monday, while the corresponding WTI crude contract was up 0.95% to change hands at $93.29 per barrel. In a defiant speech to the United Nations last Wednesday, resident Masoud Pezeshkian blamed the",
-        "fetched_at": "2026-09-29T01:50:02-06:00"
+        "fetched_at": "2026-09-29T02:11:40-06:00"
       }
     ],
     "llm": {
       "titulos_es_hoy": 10,
-      "total_hoy": 49,
+      "total_hoy": 47,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
