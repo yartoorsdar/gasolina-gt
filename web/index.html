@@ -657,9 +657,9 @@
 .pulso-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
 .pc{position:relative;padding:14px;border-radius:14px;overflow:hidden;isolation:isolate;-webkit-mask-image:-webkit-radial-gradient(white,black);background:transparent}
 .pc>*{position:relative;z-index:2}
-/* borde vivo: un arco de color (tono del producto) recorre el marco. Solo transform en escritorio; en táctil/móvil solo opacity */
+/* borde RGB: aro arcoíris COMPLETO (como el del barril) que gira. Solo transform en escritorio; en táctil/móvil queda fijo y respira con opacity */
 .pc::before{content:"";position:absolute;z-index:0;left:50%;top:50%;width:800px;height:800px;margin:-400px 0 0 -400px;pointer-events:none;
-  background:conic-gradient(from 0deg,rgba(255,255,255,0) 0deg,rgba(255,255,255,0) 235deg,hsl(var(--h),95%,52%) 290deg,hsl(var(--h2),95%,66%) 335deg,#fff 360deg),linear-gradient(rgba(255,255,255,.12),rgba(255,255,255,.12));
+  background:conic-gradient(from 0deg,#ff2d2d,#ffe600,#22ff6a,#00e5ff,#2f7bff,#a83cff,#ff3dd0,#ff2d2d);
   -webkit-animation:pcGiro 5.5s linear infinite;animation:pcGiro 5.5s linear infinite}
 .pc:nth-child(2)::before{-webkit-animation-delay:-1.8s;animation-delay:-1.8s}
 .pc:nth-child(3)::before{-webkit-animation-delay:-3.6s;animation-delay:-3.6s}

@@ -108,3 +108,6 @@ Genera URL tipo `https://xxx.ngrok-free.app` compartible con clientes. Requiere 
 - OilPriceAPI: 1 llamada por run (historial solo el lunes temprano, si faltan datos o forzado) + freno por saldo (`x-ratelimit-remaining`). La prueba gratuita termina 2026-09-30 00:30 GT (339 de 10 000 usadas al 09-29); después, plan gratuito ~100/mes.
 - Dashboard: aviso "(dato de hace N días)" en la tarjeta del WTI si el atraso es >= 4 días.
 - Tests: +16 Python (petróleo/cupo 13, frescura 7, menos ajustes) y +9 Node (disparador); integración workerd ahora verifica el Cron Trigger.
+
+## 2026-09-29 - Borde RGB de las cajas de votos
+- Bug: el borde de `.pc` era un arco corto (125 grados) sobre un aro gris; en escritorio pasaba rápido y en táctil (`pointer:coarse`, solo opacity) quedaba fijo en una esquina, así que parecía que el RGB no funcionaba. Ahora es un aro arcoíris COMPLETO (mismo estilo del barril) que gira en escritorio y queda fijo y visible en táctil. Editado en `web/index.html` e `index.html`.
