@@ -5,3 +5,12 @@ __pycache__/
 *.db
 *.log
 logs/
+
+# votos-api (Cloudflare Worker): dependencias y estado local
+votos-api/node_modules/
+votos-api/.wrangler/
+votos-api/.dev.vars
+votos-api/.tmp/
+
+# Exports crudos de votos (lo que persiste en git es data/db/votos.csv)
+data/inbox/votos/

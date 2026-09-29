@@ -1,0 +1,260 @@
+[
+ {
+  "nombre": "sin votos",
+  "n_votos": 0,
+  "n_coincide": 0,
+  "escritos": [],
+  "ref": 43.29,
+  "externo": false,
+  "estado": "sin",
+  "mediana": null
+ },
+ {
+  "nombre": "dos votos: sin datos suficientes",
+  "n_votos": 2,
+  "n_coincide": 2,
+  "escritos": [],
+  "ref": 43.29,
+  "externo": false,
+  "estado": "sin",
+  "mediana": null
+ },
+ {
+  "nombre": "cinco votos: debil",
+  "n_votos": 5,
+  "n_coincide": 5,
+  "escritos": [],
+  "ref": 43.29,
+  "externo": false,
+  "estado": "debil",
+  "mediana": null
+ },
+ {
+  "nombre": "tres votos escritos: debil",
+  "n_votos": 3,
+  "n_coincide": 0,
+  "escritos": [
+   43.2,
+   43.3,
+   43.4
+  ],
+  "ref": 43.29,
+  "externo": false,
+  "estado": "debil",
+  "mediana": 43.3
+ },
+ {
+  "nombre": "doce votos, 8 confirman, 4 escritos: coincide",
+  "n_votos": 12,
+  "n_coincide": 8,
+  "escritos": [
+   43.19,
+   43.24,
+   43.29,
+   43.34
+  ],
+  "ref": 43.29,
+  "externo": false,
+  "estado": "coincide",
+  "mediana": 43.265
+ },
+ {
+  "nombre": "doce votos, 2 confirman, 4 escritos: debil",
+  "n_votos": 12,
+  "n_coincide": 2,
+  "escritos": [
+   43.19,
+   43.24,
+   43.29,
+   43.34
+  ],
+  "ref": 43.29,
+  "externo": false,
+  "estado": "debil",
+  "mediana": 43.265
+ },
+ {
+  "nombre": "doce escritos cerca del oficial: coincide",
+  "n_votos": 12,
+  "n_coincide": 0,
+  "escritos": [
+   43.19,
+   43.24,
+   43.29,
+   43.34,
+   43.39,
+   43.19,
+   43.24,
+   43.29,
+   43.34,
+   43.39,
+   43.19,
+   43.24
+  ],
+  "ref": 43.29,
+  "externo": false,
+  "estado": "coincide",
+  "mediana": 43.265
+ },
+ {
+  "nombre": "doce escritos Q0.6 abajo: sigue coincidiendo",
+  "n_votos": 12,
+  "n_coincide": 0,
+  "escritos": [
+   42.59,
+   42.64,
+   42.69,
+   42.74,
+   42.79,
+   42.59,
+   42.64,
+   42.69,
+   42.74,
+   42.79,
+   42.59,
+   42.64
+  ],
+  "ref": 43.29,
+  "externo": false,
+  "estado": "coincide",
+  "mediana": 42.665
+ },
+ {
+  "nombre": "doce escritos Q4.60 abajo: posible cambio",
+  "n_votos": 12,
+  "n_coincide": 0,
+  "escritos": [
+   38.59,
+   38.64,
+   38.69,
+   38.74,
+   38.79,
+   38.59,
+   38.64,
+   38.69,
+   38.74,
+   38.79,
+   38.59,
+   38.64
+  ],
+  "ref": 43.29,
+  "externo": false,
+  "estado": "cambio",
+  "mediana": 38.665
+ },
+ {
+  "nombre": "doce escritos Q4.60 abajo con fuente externa: respaldado",
+  "n_votos": 12,
+  "n_coincide": 0,
+  "escritos": [
+   38.59,
+   38.64,
+   38.69,
+   38.74,
+   38.79,
+   38.59,
+   38.64,
+   38.69,
+   38.74,
+   38.79,
+   38.59,
+   38.64
+  ],
+  "ref": 43.29,
+  "externo": true,
+  "estado": "respaldado",
+  "mediana": 38.665
+ },
+ {
+  "nombre": "doce escritos dispersos: debil",
+  "n_votos": 12,
+  "n_coincide": 0,
+  "escritos": [
+   38,
+   40,
+   42,
+   44,
+   46,
+   48,
+   39,
+   41,
+   43,
+   45,
+   47,
+   49
+  ],
+  "ref": 43.29,
+  "externo": false,
+  "estado": "debil",
+  "mediana": 43.5
+ },
+ {
+  "nombre": "sin oficial: no hay cambio posible",
+  "n_votos": 12,
+  "n_coincide": 0,
+  "escritos": [
+   38.59,
+   38.64,
+   38.69,
+   38.74,
+   38.79,
+   38.59,
+   38.64,
+   38.69,
+   38.74,
+   38.79,
+   38.59,
+   38.64
+  ],
+  "ref": null,
+  "externo": false,
+  "estado": "coincide",
+  "mediana": 38.665
+ },
+ {
+  "nombre": "exactamente Q1.00 de diferencia: ya es cambio",
+  "n_votos": 12,
+  "n_coincide": 0,
+  "escritos": [
+   42.29,
+   42.29,
+   42.29,
+   42.29,
+   42.29,
+   42.29,
+   42.29,
+   42.29,
+   42.29,
+   42.29,
+   42.29,
+   42.29
+  ],
+  "ref": 43.29,
+  "externo": false,
+  "estado": "cambio",
+  "mediana": 42.29
+ },
+ {
+  "nombre": "Q0.99 de diferencia: no es cambio",
+  "n_votos": 12,
+  "n_coincide": 0,
+  "escritos": [
+   42.3,
+   42.3,
+   42.3,
+   42.3,
+   42.3,
+   42.3,
+   42.3,
+   42.3,
+   42.3,
+   42.3,
+   42.3,
+   42.3
+  ],
+  "ref": 43.29,
+  "externo": false,
+  "estado": "coincide",
+  "mediana": 42.3
+ }
+]

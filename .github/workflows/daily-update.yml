@@ -48,11 +48,20 @@ jobs:
       - name: Create data directories
         run: |
           New-Item -ItemType Directory -Force -Path "data\inbox\historico"
+          New-Item -ItemType Directory -Force -Path "data\inbox\votos"
           New-Item -ItemType Directory -Force -Path "logs"
 
       - name: Validar feeds RSS
         continue-on-error: true
         run: python scripts/validar_feeds.py
+
+      # Votos ciudadanos (votos-api, Cloudflare): baja los de ayer y hoy para la calibración.
+      # Sin el secreto VOTOS_EXPORT_TOKEN o con el servidor caído se omite sin fallar el run.
+      - name: Descargar votos ciudadanos
+        continue-on-error: true
+        env:
+          VOTOS_EXPORT_TOKEN: ${{ secrets.VOTOS_EXPORT_TOKEN }}
+        run: python scripts/descargar_votos.py
 
       - name: Run GPP + petróleo + noticias + export JSONs
         env:
@@ -62,7 +71,7 @@ jobs:
           GROK_API_KEY: ${{ secrets.GROK_API_KEY }}
         run: |
           python -c "from datetime import datetime, timezone, timedelta; now_utc = datetime.utcnow().strftime('%H:%M'); now_gt = datetime.now(timezone(timedelta(hours=-6))).strftime('%H:%M'); print(f'UTC={now_utc} GT={now_gt}'); f=open('logs/debug_time.txt','w'); f.write(f'{now_utc}|{now_gt}')"
-          python collector/main.py --memoria --alternos --consenso --petroleo --noticias --export
+          python collector/main.py --memoria --alternos --consenso --petroleo --noticias --export --calibracion
 
       - name: Commit and push updated JSONs
         shell: bash

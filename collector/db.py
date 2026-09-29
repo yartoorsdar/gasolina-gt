@@ -226,6 +226,53 @@ def crear_tablas(conn: sqlite3.Connection) -> None:
             PRIMARY KEY (fecha, producto, modalidad)
         );
 
+        -- Votos ciudadanos (fase de prueba). NUNCA guardan IP ni datos personales:
+        -- `dispositivo` es un hash anónimo salado generado por el backend de votos.
+        CREATE TABLE IF NOT EXISTS votos (
+            id_voto TEXT PRIMARY KEY,     -- id único del voto (idempotencia al reimportar)
+            fecha TEXT NOT NULL,          -- día GT del voto
+            producto TEXT NOT NULL,
+            modalidad TEXT NOT NULL,
+            tipo TEXT NOT NULL,           -- coincide | otro
+            precio REAL,                  -- precio escrito (NULL si tipo = coincide)
+            precio_mostrado REAL,         -- precio oficial que la persona veía al votar
+            vio_oficial INTEGER NOT NULL DEFAULT 1,  -- 0 = voto ciego (no vio el oficial)
+            dispositivo TEXT NOT NULL,    -- hash anónimo
+            zona TEXT,                    -- opcional (ej. "zona 10")
+            ts TEXT NOT NULL              -- hora GT con offset
+        );
+
+        -- Medición diaria del sistema de votos contra el MEM (una fila por día,
+        -- producto y modalidad). Insumo para calibrar los umbrales.
+        CREATE TABLE IF NOT EXISTS calibracion (
+            fecha TEXT NOT NULL,
+            producto TEXT NOT NULL,
+            modalidad TEXT NOT NULL,
+            ref_precio REAL,              -- precio MEM del día (NULL = sin referencia)
+            ref_fuente TEXT,
+            ref_previo REAL,              -- último precio MEM anterior a ese día
+            n_votos INTEGER NOT NULL,     -- votos válidos (1 por dispositivo) tras quitar duplicados y fuera de rango
+            n_coincide INTEGER NOT NULL,
+            n_otro INTEGER NOT NULL,
+            n_ciegos INTEGER NOT NULL,
+            n_zonas INTEGER NOT NULL,
+            n_duplicados INTEGER NOT NULL,
+            n_fuera_rango INTEGER NOT NULL,
+            mediana REAL,                 -- de los precios escritos
+            mad REAL,                     -- desviación absoluta mediana
+            acuerdo REAL,                 -- fracción de escritos dentro de ±tol de la mediana
+            mediana_ciegos REAL,          -- mediana de votos que NO vieron el oficial
+            pct_coincide REAL,            -- n_coincide / n_votos (indicador de efecto ancla)
+            error_mediana REAL,           -- mediana - ref_precio
+            error_abs REAL,
+            estado TEXT NOT NULL,         -- sin | debil | coincide | cambio
+            alerta INTEGER NOT NULL,      -- 1 si estado = cambio
+            cambio_real INTEGER,          -- 1 si el MEM cambió >= tol_cambio vs su previo (NULL = sin datos)
+            hora_primer_voto TEXT,
+            hora_umbral TEXT,             -- hora en que se alcanzó el mínimo de dispositivos
+            PRIMARY KEY (fecha, producto, modalidad)
+        );
+
         CREATE TABLE IF NOT EXISTS noticias (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             url TEXT NOT NULL,

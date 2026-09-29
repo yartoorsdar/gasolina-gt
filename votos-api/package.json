@@ -1,0 +1,16 @@
+{
+  "name": "gasolina-gt-votos-api",
+  "private": true,
+  "version": "0.1.0",
+  "description": "API de votos ciudadanos (Cloudflare Workers + D1) de gasolinasogt.com",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "db:local": "wrangler d1 execute gasolina-votos --local --file=schema.sql",
+    "dev": "wrangler dev --local --port 8787",
+    "test:integracion": "node test/integracion_local.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}

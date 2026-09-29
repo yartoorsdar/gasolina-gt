@@ -51,6 +51,21 @@ TABLAS_MEMORIA = {
         "columnas": ("fecha", "producto", "modalidad", "precio", "confianza", "n_coinciden", "n_fuentes", "fuentes"),
         "orden": "fecha, producto, modalidad",
     },
+    # Fase de prueba del sistema de votos ciudadanos (collector/calibracion.py).
+    # `votos` solo trae hashes anónimos (sin IP ni datos personales).
+    "votos": {
+        "columnas": ("id_voto", "fecha", "producto", "modalidad", "tipo", "precio", "precio_mostrado",
+                     "vio_oficial", "dispositivo", "zona", "ts"),
+        "orden": "fecha, producto, modalidad, ts, id_voto",
+    },
+    "calibracion": {
+        "columnas": ("fecha", "producto", "modalidad", "ref_precio", "ref_fuente", "ref_previo",
+                     "n_votos", "n_coincide", "n_otro", "n_ciegos", "n_zonas",
+                     "n_duplicados", "n_fuera_rango", "mediana", "mad", "acuerdo", "mediana_ciegos",
+                     "pct_coincide", "error_mediana", "error_abs", "estado", "alerta", "cambio_real",
+                     "hora_primer_voto", "hora_umbral"),
+        "orden": "fecha, producto, modalidad",
+    },
 }
 
 

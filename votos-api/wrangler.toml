@@ -1,0 +1,22 @@
+# Cloudflare Worker + D1 del sistema de votos de gasolinasogt.com
+name = "gasolina-votos"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+# Sin URLs de vista previa extra: solo la direccion workers.dev principal.
+preview_urls = false
+
+[vars]
+# Origenes que pueden votar desde el navegador (CORS). Agregar aqui otros dominios si hace falta.
+ALLOWED_ORIGINS = "https://gasolinasogt.com,https://www.gasolinasogt.com,http://localhost:8089"
+# Fuente del precio oficial del dia (la misma que lee el dashboard).
+OFICIAL_URL = "https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export/consolidado.json"
+# Votos por hora y por IP hasheada (generoso: muchas personas comparten IP en redes moviles).
+LIMITE_IP_HORA = "120"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "gasolina-votos"
+# Id real de la D1 creada el 2026-09-29 con `npx wrangler d1 create gasolina-votos` (un id no es
+# secreto). El binding se llama DB: el codigo usa env.DB. Los secretos (VOTOS_SALT, EXPORT_TOKEN) NUNCA van en este
+# archivo: se cargan con `npx wrangler secret put` (produccion) o .dev.vars (local, fuera de git).
+database_id = "d6ba4561-007b-4316-8f48-66f9b7e651c0"

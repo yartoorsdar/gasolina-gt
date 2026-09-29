@@ -72,3 +72,24 @@ Sirve solo en red local. Para ver desde celular mismo WiFi: `http://192.168.0.11
 # → Actualiza datos JSON + abre servidor 9090 + tunnel ngrok
 ```
 Genera URL tipo `https://xxx.ngrok-free.app` compartible con clientes. Requiere token ngrok guardado en `~\AppData\Local\ngrok\ngrok.yml`.
+
+## 2026-09-29 — Sistema de medición de la fase de prueba de votos
+- Decisión del dueño: los votos ciudadanos son pilar del dato junto al MEM; hay 7 días de prueba cruzándolos con el MEM antes de que muevan el precio mostrado (ver AGENTS.md "Objetivo del producto").
+- Nuevo `collector/calibracion.py` (+ tablas `votos` y `calibracion`, persistidas en `data/db/votos.csv` y `calibracion.csv`, flag opt-in `--calibracion`): importa votos anónimos, mide por día y producto la calidad frente al MEM (error, sesgo, acuerdo, efecto ancla, alertas vs cambio real, hora de umbral) y emite un veredicto de salida de la fase de prueba. Curva "error vs nº de votos" para saber cuántos votos hacen falta.
+- 41 tests nuevos (`tests/test_calibracion.py`); suite total 214 sin fallas. Verificado que romper un umbral hace fallar 3 tests.
+- Pendiente: backend de votos (endpoint + almacén) que produzca el export; regla de desempate MEM vs Comunidad tras la prueba; activar `--calibracion` en `daily-update.yml` cuando el dueño lo apruebe.
+- Nota de calidad: el prototipo web todavía no distingue votos ciegos ni cuenta dispositivos; cuando exista el backend, `precio_mostrado`/`vio_oficial` deben registrarse en cada voto.
+
+## 2026-09-29 — Servidor de votos en Cloudflare Workers + D1 (fase local)
+- Elegido tras comparar Vercel+Upstash/Supabase, Firebase, Netlify y Apps Script: Cloudflare Workers + D1 (gratis, sin tarjeta, clave primaria atómica). Sin login por ahora (`usuario_id` reservado en la tabla).
+- Nueva carpeta `votos-api/` (Worker en JS, `schema.sql`, `wrangler.toml`, pruebas). `wrangler` 4.143 como devDependency (solo desarrollo).
+- Verificado: 48 pruebas `node --test`; prueba de integración sobre workerd + D1 local reales (10 personas simultáneas OK, 10 toques de la misma persona = 1 voto + 9 conflictos, ráfaga de 40 sin errores 5xx, export protegido, Python importa los 51 votos sin rechazos). pytest 215 sin fallas (incluye paridad de `clasificar` con el fixture compartido).
+- NO publicado: falta cuenta de Cloudflare, `wrangler d1 create`, secretos, deploy, conexión del dashboard y paso del workflow. Ver `votos-api/README.md`.
+- 2026-09-29 (después): Worker PUBLICADO en https://gasolina-votos.gasolinasogt.workers.dev con D1 remota (tablas `votos`, `limites`) y secretos cargados. Bug encontrado en producción y corregido: `deps.fetchFn()` daba "Illegal invocation" en Workers y dejaba `precio_oficial` en null; ahora se envuelve `fetch` y la prueba de integración lo exige. `preview_urls = false` en wrangler.toml. El dashboard aún NO está conectado al Worker.
+
+## 2026-09-29 — Lanzamiento: votos ciudadanos + aviso de IA en el dashboard
+- `web/index.html` e `index.html` (misma inserción en ambos): bloque de votos bajo "(Área Metropolitana)" conectado a `https://gasolina-votos.gasolinasogt.workers.dev`, marcas de la comunidad sobre la gráfica de 30 días y aviso de IA ("esta página analiza los datos con inteligencia artificial y puede tener errores o fallos...") arriba de la gráfica. Aviso de "Fase de prueba, día N de 7" (se oculta solo).
+- Probado en navegador contra el Worker local (voto "coincide", precio escrito, rangos, duplicado 409, estado "posible cambio" con 12 votos simulados, marcas en la gráfica, móvil 375 px sin scroll horizontal, copia de la raíz). NO se hizo ningún voto de prueba en la D1 de producción.
+- Workflow: paso `Descargar votos ciudadanos` + `--calibracion`; nuevo `scripts/descargar_votos.py` con 4 tests. Falta que el dueño guarde el secreto `VOTOS_EXPORT_TOKEN` en GitHub.
+- ALLOWED_ORIGINS del Worker: gasolinasogt.com, www.gasolinasogt.com y localhost:8089.
+- Pendiente: probar en Safari real y en el navegador de Facebook; medir participación real los 7 días; decidir la regla de desempate MEM vs Comunidad; login opcional (no por ahora).

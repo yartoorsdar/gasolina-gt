@@ -141,6 +141,13 @@ def ejecutar_consenso(cfg: dict = None) -> dict:
     return _ejecutar(cfg=cfg)
 
 
+def ejecutar_calibracion(cfg: dict = None) -> dict:
+    """Wrapper para calibracion.ejecutar (fase de prueba del sistema de votos)."""
+    from collector.calibracion import ejecutar as _ejecutar
+
+    return _ejecutar(cfg=cfg)
+
+
 def ejecutar_historico(cfg: dict = None) -> dict:
     """Wrapper para importar_historico.ejecutar."""
     from collector.importar_historico import ejecutar as _ejecutar
@@ -507,6 +514,11 @@ Ejemplos:
         "--consenso", action="store_true",
         help="Validación por consenso multifuente (Q0.20 tolerancia)",
     )
+    parser.add_argument(
+        "--calibracion", action="store_true",
+        help="Fase de prueba de votos ciudadanos: importa data/inbox/votos/, mide contra el MEM y "
+             "guarda en la tabla calibracion (opt-in: no forma parte de --all)",
+    )
     parser.add_argument("--historico", action="store_true", help="Importar histórico (XLSX)")
     parser.add_argument("--petroleo", action="store_true", help="WTI (OilPriceAPI)")
     parser.add_argument("--noticias", action="store_true", help="Feeds RSS")
@@ -528,7 +540,7 @@ Ejemplos:
     # Si no se especifica nada, ejecutar todo por defecto
     if not any([args.all, args.mem_html, args.consenso,
                 args.historico, args.petroleo, args.noticias,
-                args.alternos, args.memoria]):
+                args.alternos, args.memoria, args.calibracion]):
         args.all = True
 
     cfg = cargar_config()
@@ -556,6 +568,8 @@ Ejemplos:
         modulos_activas.append(("petroleo", ejecutar_petroleo))
     if args.all or args.noticias:
         modulos_activas.append(("noticias", ejecutar_noticias))
+    if args.calibracion:  # opt-in: --all NO lo incluye
+        modulos_activas.append(("calibracion", ejecutar_calibracion))
 
     resultados = []
     

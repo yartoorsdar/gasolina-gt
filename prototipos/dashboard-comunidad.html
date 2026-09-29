@@ -1,0 +1,2861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gasolinasogt.com — Precios de Combustibles Guatemala</title>
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <link rel="icon" href="../iconos/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="../iconos/favicon-32.png">
+    <link rel="apple-touch-icon" href="../iconos/favicon-32.png">
+    <style>
+        /* ──────────────────────────────────────────
+           Variables y reset
+           ────────────────────────────────────────── */
+        :root {
+            --bg: #f5f6fa;
+            --card-bg: #ffffff;
+            --text: #2d3436;
+            --text-muted: #636e72;
+            --accent: #0984e3;
+            --green: #00b894;
+            --orange: #fdcb6e;
+            --red: #d63031;
+            --border: #dfe6e9;
+            --shadow: 0 2px 8px rgba(0,0,0,0.07);
+            --radius: 10px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* ──────────────────────────────────────────
+           Layout
+           ────────────────────────────────────────── */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        header .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .last-update {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* ──────────────────────────────────────────
+           Cards grid
+           ────────────────────────────────────────── */
+        .grid {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+        }
+
+        .card h2 {
+            font-size: 1.12rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            text-align: center;
+            line-height: 1.45;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, transparent, var(--accent), transparent) 1;
+        }
+
+        /* ──────────────────────────────────────────
+           Precios de combustible
+           ────────────────────────────────────────── */
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .price-item:last-child { border-bottom: none; }
+
+        .price-label {
+            font-weight: 500;
+        }
+
+        .price-values {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 1px;
+        }
+
+        /* ── Precio con impuestos → rojo fuego (estático: la animación
+           infinita de text-shadow repinta cada frame y parpadea en móvil) ── */
+        .price-value-main {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ff4500;
+            text-shadow: 0 0 6px rgba(255,69,0,0.7), 0 0 12px rgba(255,69,0,0.3);
+        }
+
+        /* ── Precio sin impuestos → verde dinero (estático: el scale()
+           infinito fuerza re-layout constante en móvil) ── */
+        .price-value-exempt {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4ade8a;
+            text-shadow: 0 0 6px rgba(74,222,138,0.5);
+        }
+
+        /* ── Pulso suave solo con opacity (lo compone la GPU sin repintar:
+           nada de text-shadow/color animados = sin parpadeo en móvil) ── */
+        @keyframes softPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .price-value-main,
+            .price-value-exempt {
+                animation: softPulse 2.6s ease-in-out infinite;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .price-value-main,
+            .price-value-exempt,
+            .barrel-frame::before,
+            .lamp {
+                animation: none !important;
+            }
+        }
+
+        .price-regimen {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+
+        .regimen-normal { background: #b8e994; color: #2d3436; }
+
+        .price-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ── Modalidades (autoservicio / servicio completo) + consejo ── */
+        .modalidad-bloque { margin-bottom: 14px; }
+        .modalidad-titulo {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 6px 0 4px;
+            border-bottom: 2px solid var(--border);
+        }
+        .confianza {
+            display: inline-block;
+            margin-top: 3px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 1px 7px;
+            border-radius: 999px;
+            border: 1px solid currentColor;
+            white-space: nowrap;
+        }
+        .confianza-alta { color: #22c55e; }
+        .confianza-media { color: #f59e0b; }
+        .confianza-baja { color: #ef4444; }
+        .consejo-fuentes { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
+        .consejo-fuentes summary { cursor: pointer; }
+        .consejo-fuentes ul { margin: 6px 0 0; padding-left: 16px; }
+        .consejo-fuentes li { margin-bottom: 4px; }
+        .consejo-fuentes a { color: inherit; }
+        .consejo-fuentes a.coincide { color: #22c55e; }
+        .consejo-fuentes a.difiere { text-decoration: line-through; opacity: 0.7; }
+
+        /* ── Barril de petróleo con borde RGB animado ── */
+        .barrel-frame {
+            position: relative;
+            width: 180px;
+            height: 200px;
+            border-radius: 20px;
+            padding: 6px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .barrel-frame::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 22px;
+            background: conic-gradient(
+                from 0deg,
+                #ff0000, #ffff00, #00ff00, #00ffff,
+                #0088ff, #8800ff, #ff00ff, #ff0000
+            );
+            z-index: -1;
+            /* Sin animación infinita: hue-rotate repinta el elemento cada
+               frame y en móvil se ve como parpadeo + drena batería */
+        }
+
+        .barrel-frame::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: rgba(15, 20, 35, 0.85);
+            z-index: -1;
+        }
+
+        .barrel-img {
+            display: block;
+            width: 168px;
+            height: 188px;
+            object-fit: contain;
+            border-radius: 14px;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 0 12px rgba(0, 255, 136, 0.3));
+        }
+
+        /* ── Texto de tendencia semanal ── */
+        .trend-text {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: rgba(200, 220, 245, 0.7);
+        }
+
+        .trend-up { color: #00ff88 !important; }
+        .trend-down { color: #ff4444 !important; }
+
+        /* ── Advertencia decreto 22-2026 ── */
+        .decree-alert {
+            margin-top: 14px;
+            padding: 10px 16px;
+            border-radius: 12px;
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 3px solid #ff4444;
+            font-size: 0.8rem;
+            color: #ff9999;
+            text-align: center;
+        }
+
+        .decree-alert strong {
+            color: #ff6666;
+        }
+
+        /* ── Precio WTI card ── */
+        .wti-price-card {
+            text-align: center;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            margin: 12px 0;
+        }
+
+        .wti-price-value {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #ff4444, #ffaa00, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .wti-price-label {
+            font-size: 1rem;
+            color: rgba(230, 240, 255, 0.85);
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+
+        .wti-price-card small {
+            display: block;
+            font-size: 0.82rem;
+            color: rgba(225, 235, 255, 0.8) !important;
+            margin-top: 2px;
+        }
+
+        /* ──────────────────────────────────────────
+           Noticias
+           ────────────────────────────────────────── */
+        .news-section-title {
+            text-align: center;
+            font-size: 1.2rem;
+            letter-spacing: 0.8px;
+            line-height: 1.45;
+        }
+
+        .news-list { list-style: none; }
+
+        .news-snippet {
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: var(--text-muted);
+            margin: 6px 0 4px 0;
+        }
+
+        /* ── Tarjetas top 10: ranking + cuerpo ── */
+        .news-item.news-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .news-rank {
+            flex: 0 0 auto;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: #0b1220;
+            background: linear-gradient(135deg, #ffd166, #f4a261);
+        }
+
+        .news-item.news-card:last-child { border-bottom: 1px solid var(--border); }
+
+        .news-card-body { flex: 1; min-width: 0; }
+
+        .news-stars {
+            color: #ffd166;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-top: 2px;
+        }
+
+        /* ── Semáforo de impacto (vertical, estilo neón) — rectángulo compacto ── */
+        .oil-impact-alert.semaforo {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            border-radius: 12px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .oil-impact-alert.semaforo > div:last-child {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .semaforo-lamps {
+            flex: 0 0 auto;
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 20px;
+            padding: 9px 8px;
+        }
+
+        .semaforo-motivo {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Móvil/tablet: el rectángulo del semáforo se compacta — mensaje clavado a
+           3 líneas y motivo a 2 (antes el bloque crecía sin límite y ocupaba media
+           pantalla). Los faroles también bajan de tamaño. */
+        @media (max-width: 768px) {
+            .oil-impact-alert.semaforo {
+                gap: 7px;
+                padding: 6px 8px;
+                font-size: 0.78rem;
+                line-height: 1.35;
+            }
+            .oil-impact-alert.semaforo strong {
+                font-size: 0.85rem;
+            }
+            .semaforo-msg,
+            .semaforo-motivo {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .semaforo-msg { -webkit-line-clamp: 3; }
+            .semaforo-motivo {
+                -webkit-line-clamp: 2;
+                font-size: 0.72rem;
+            }
+            .semaforo-lamps {
+                gap: 5px;
+                padding: 6px 5px;
+            }
+            .lamp {
+                width: 11px;
+                height: 11px;
+            }
+        }
+
+        .lamp {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #555;
+            opacity: 0.25;
+        }
+
+        /* Neón: brillo radial + halo. La luz activa además pulsa con
+           softPulse (solo opacity = GPU, sin repintado, móvil seguro) */
+        .lamp.on-red {
+            background: radial-gradient(circle at 35% 35%, #ffb3ab, #e74c3c 60%);
+            opacity: 1;
+            box-shadow: 0 0 12px #e74c3c, 0 0 30px rgba(231, 76, 60, 0.55);
+            animation: softPulse 2.2s ease-in-out infinite;
+        }
+        .lamp.on-yellow {
+            background: radial-gradient(circle at 35% 35%, #ffe6b3, #f39c12 60%);
+            opacity: 1;
+            box-shadow: 0 0 12px #f39c12, 0 0 30px rgba(243, 156, 18, 0.55);
+            animation: softPulse 2.2s ease-in-out infinite;
+        }
+        .lamp.on-green {
+            background: radial-gradient(circle at 35% 35%, #b3f0d1, #27ae60 60%);
+            opacity: 1;
+            box-shadow: 0 0 12px #27ae60, 0 0 30px rgba(39, 174, 96, 0.55);
+            animation: softPulse 2.2s ease-in-out infinite;
+        }
+
+        .news-summary-box {
+            font-size: 0.87rem;
+            line-height: 1.6;
+            color: #e8eef5;
+        }
+
+        .news-summary-box strong {
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        .news-topic-line { margin-bottom: 8px; }
+        .news-topic-line:last-child { margin-bottom: 0; }
+
+        .news-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .news-item:last-child { border-bottom: none; }
+
+        .news-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .news-title a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .news-title a:hover { color: var(--accent); }
+
+        .news-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .news-category {
+            display: inline-block;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            background: #dfe6e9;
+            color: var(--text-muted);
+            margin-right: 4px;
+        }
+
+        /* ──────────────────────────────────────────
+           Regímenes fiscales
+           ────────────────────────────────────────── */
+        .regimen-info {
+            font-size: 0.85rem;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            border-left: 3px solid;
+        }
+
+        /* ──────────────────────────────────────────
+           Loading / error states
+           ────────────────────────────────────────── */
+        .loading { text-align: center; padding: 40px; color: var(--text-muted); }
+        .error { text-align: center; padding: 24px; color: var(--red); background: #fff5f5; border-radius: var(--radius); margin-bottom: 16px; }
+
+        /* ──────────────────────────────────────────
+           Footer
+           ────────────────────────────────────────── */
+        footer {
+            text-align: center;
+            padding: 24px 0 8px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 32px;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ──────────────────────────────────────────
+           Footer glass style (override)
+           ────────────────────────────────────────── */
+        .glass-footer {
+            color: var(--glass-muted);
+            border-top-color: rgba(255, 255, 255, 0.08);
+        }
+
+        @media (prefers-color-scheme: light) {
+            .glass-footer {
+                color: var(--text-muted);
+                border-top-color: var(--border);
+            }
+        }
+
+        /* ──────────────────────────────────────────
+           Responsive
+           ────────────────────────────────────────── */
+        /* ──────────────────────────────────────────
+           Historial de precios (gráfico + tabla)
+           ────────────────────────────────────────── */
+        .history-toggle {
+            display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;
+        }
+
+        .history-toggle button {
+            padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border);
+            background: var(--card-bg); cursor: pointer; font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .history-toggle button.active {
+            background: var(--accent); color: white; border-color: var(--accent);
+        }
+
+        #historialChart {
+            width: 100%; height: 350px; margin-bottom: 16px;
+            /* Dimensiones fijas para el canvas */
+            min-width: 400px;
+        }
+
+        .history-table-wrap {
+            overflow-x: auto; max-height: 400px; overflow-y: hidden;
+        }
+
+        .history-table {
+            width: 100%; border-collapse: collapse; font-size: 0.85rem;
+        }
+
+        .history-table th {
+            position: sticky; top: 0; background: var(--card-bg);
+            padding: 8px; text-align: right; font-weight: 600;
+            border-bottom: 2px solid var(--border); color: var(--text-muted);
+        }
+
+        .history-table th:first-child { text-align: left; }
+
+        .history-table td {
+            padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--border);
+        }
+
+        .history-table td:first-child {
+            text-align: left; font-weight: 600; color: var(--text-muted);
+        }
+
+        .history-table tr:hover td { background: #f8f9fa; }
+
+        .change-positive { color: var(--red); }
+        .change-negative { color: var(--green); }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.4rem; }
+            .price-value-main { font-size: 1.1rem; }
+            .price-value-exempt { font-size: 0.85rem; }
+            #historialChart { height: 250px; }
+
+            /* Tabla anual en móvil: sin scroll vertical, todo visible */
+            .history-table-wrap {
+                max-height: none; overflow-y: hidden;
+            }
+            .history-table th { position: static; }
+
+            .history-table td:first-child,
+            .history-table th:first-child {
+                min-width: 50px;
+                white-space: nowrap;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../web/style-glass.css">
+<style>
+/* ===== Comunidad (prototipo): solo transform/opacity/stroke-dashoffset, con prefijos -webkit- ===== */
+.proto-bar{position:relative;z-index:5;max-width:1100px;margin:8px auto 0;padding:8px 12px;border-radius:12px;background:#3a2c0c;border:1px solid #f0b03e;color:#ffe2a3;font-size:.8rem;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;gap:8px;-webkit-align-items:center;align-items:center}
+.proto-bar button{font:inherit;font-size:.78rem;padding:6px 10px;border-radius:8px;border:1px solid rgba(255,226,163,.5);background:rgba(0,0,0,.25);color:#ffe2a3;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pulso{color:#e8edf5;margin:4px 0 18px;padding:14px 12px 12px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);text-align:left}
+.pulso-head{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:space-between;justify-content:space-between;gap:8px;margin-bottom:10px}
+.pulso-title{-webkit-flex:1;flex:1;min-width:0;font-weight:800;font-size:.95rem;letter-spacing:.01em}
+.pulso-live{white-space:nowrap;-webkit-flex:none;flex:none;font-size:.72rem;color:#b9c3d1;padding:3px 9px;border-radius:99px;border:1px solid rgba(255,255,255,.12)}
+.pulso-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.pc{position:relative;padding:14px;border-radius:14px;overflow:hidden;isolation:isolate;-webkit-mask-image:-webkit-radial-gradient(white,black);background:transparent}
+.pc>*{position:relative;z-index:2}
+/* borde vivo: un arco de color (tono del producto) recorre el marco. Solo transform en escritorio; en táctil/móvil solo opacity */
+.pc::before{content:"";position:absolute;z-index:0;left:50%;top:50%;width:800px;height:800px;margin:-400px 0 0 -400px;pointer-events:none;
+  background:conic-gradient(from 0deg,rgba(255,255,255,0) 0deg,rgba(255,255,255,0) 235deg,hsl(var(--h),95%,52%) 290deg,hsl(var(--h2),95%,66%) 335deg,#fff 360deg),linear-gradient(rgba(255,255,255,.12),rgba(255,255,255,.12));
+  -webkit-animation:pcGiro 5.5s linear infinite;animation:pcGiro 5.5s linear infinite}
+.pc:nth-child(2)::before{-webkit-animation-delay:-1.8s;animation-delay:-1.8s}
+.pc:nth-child(3)::before{-webkit-animation-delay:-3.6s;animation-delay:-3.6s}
+.pc::after{content:"";position:absolute;z-index:1;left:2px;right:2px;top:2px;bottom:2px;border-radius:12px;background:#0b1220;pointer-events:none}
+.pc.abierto::before{-webkit-animation-duration:2.6s;animation-duration:2.6s}
+@-webkit-keyframes pcGiro{to{-webkit-transform:rotate(360deg)}}
+@keyframes pcGiro{to{transform:rotate(360deg)}}
+@-webkit-keyframes pcRespira{0%,100%{opacity:1}50%{opacity:.5}}
+@keyframes pcRespira{0%,100%{opacity:1}50%{opacity:.5}}
+@media (pointer:coarse){.pc::before{-webkit-animation:pcRespira 3.4s ease-in-out infinite;animation:pcRespira 3.4s ease-in-out infinite}}
+.pc-top{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:10px}
+.ring{position:relative;width:48px;height:48px;-webkit-flex:none;flex:none}
+.ring svg{display:block;width:48px;height:48px;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}
+.ring .bg{fill:none;stroke:rgba(255,255,255,.1);stroke-width:5}
+.ring .fg{fill:none;stroke:hsl(var(--h),90%,58%);stroke-width:5;stroke-linecap:round;stroke-dasharray:113.1;stroke-dashoffset:113.1;-webkit-transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1);transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1)}
+.ring b{position:absolute;left:0;right:0;top:50%;margin-top:-.6em;text-align:center;font-size:.82rem;line-height:1.2em}
+.pc-name{font-weight:800;font-size:.95rem}
+.pc-name i{display:inline-block;width:8px;height:8px;border-radius:50%;background:hsl(var(--h),90%,58%);margin-right:6px}
+.pc-precio{font-size:1.2rem;font-weight:800;line-height:1.2}
+.pc-line{font-size:.78rem;color:#b9c3d1;margin-top:9px;min-height:2.5em;line-height:1.25em}
+.pc-line strong{color:#fff}
+.chip-cambio{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:99px;font-size:.7rem;font-weight:700;color:#2b1c00;background:#f0b03e;-webkit-animation:pcPulse 2.4s ease-in-out infinite;animation:pcPulse 2.4s ease-in-out infinite}
+@-webkit-keyframes pcPulse{0%,100%{opacity:1}50%{opacity:.6}}
+@keyframes pcPulse{0%,100%{opacity:1}50%{opacity:.6}}
+.pc-acts{display:-webkit-box;display:-webkit-flex;display:flex;gap:8px;margin-top:10px}
+.pc-acts button,.pc .enviar{-webkit-appearance:none;appearance:none;font:inherit;font-size:.85rem;font-weight:700;min-height:42px;padding:0 12px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#e8edf5;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-transition:-webkit-transform .15s ease,background .2s ease;transition:transform .15s ease,background .2s ease}
+.pc-acts button{-webkit-flex:1;flex:1}
+.pc-acts button:active,.pc .enviar:active{-webkit-transform:scale(.96);transform:scale(.96)}
+.pc-acts .si{background:hsla(var(--h),90%,58%,.22);border-color:hsl(var(--h),90%,58%)}
+.tray{max-height:0;opacity:0;overflow:hidden;-webkit-transition:max-height .35s ease,opacity .25s ease,margin-top .35s ease;transition:max-height .35s ease,opacity .25s ease,margin-top .35s ease}
+.pc.abierto .tray{max-height:120px;opacity:1;margin-top:10px}
+.stepper{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:6px}
+.stepper button{-webkit-appearance:none;appearance:none;width:38px;height:42px;font:inherit;font-size:1.1rem;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#e8edf5;cursor:pointer;touch-action:manipulation}
+.stepper input{-webkit-appearance:none;appearance:none;-moz-appearance:textfield;width:100%;min-width:0;height:42px;font-size:16px;text-align:center;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.35);color:#e8edf5}
+.pc .enviar{display:block;width:100%;margin-top:8px;background:hsl(var(--h),90%,58%);color:#0a0f1a;border-color:transparent}
+.gracias{display:none;-webkit-align-items:center;align-items:center;gap:8px;margin-top:10px;font-size:.85rem;font-weight:700;color:hsl(var(--h),90%,66%)}
+.pc.votado .gracias{display:-webkit-box;display:-webkit-flex;display:flex}
+.pc.votado .pc-acts,.pc.votado .tray{display:none}
+.gracias svg{width:20px;height:20px}
+.gracias path{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24}
+.pc.votado .gracias path{stroke-dashoffset:0;-webkit-transition:stroke-dashoffset .5s ease .1s;transition:stroke-dashoffset .5s ease .1s}
+.pulso-foot{margin-top:10px;font-size:.72rem;color:#b9c3d1;min-height:1.2em}
+.pulso-foot a{color:#b9c3d1;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.pulso-foot button{font:inherit;font-size:.72rem;margin-left:6px;padding:3px 9px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#e8edf5;cursor:pointer}
+.aviso-ia{margin:18px 0 0;padding:11px 13px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);text-align:left;font-size:.9rem;line-height:1.45;color:#eef2f8}
+.aviso-ia b{color:#fff}
+.fase{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:10px;margin:0 0 12px;padding:8px 10px;border-radius:10px;background:rgba(77,163,255,.1);border:1px solid rgba(77,163,255,.3);font-size:.76rem;line-height:1.3;color:#cfe3fb}
+.fase b{color:#fff}
+.puntos{display:-webkit-box;display:-webkit-flex;display:flex;gap:3px;-webkit-flex:none;flex:none}
+.puntos i{display:block;width:6px;height:18px;border-radius:3px;background:rgba(255,255,255,.18)}
+.puntos i.on{background:#4da3ff}
+.aviso{display:block;padding:8px 10px;border-radius:10px;border-left:4px solid #6b7686;background:rgba(255,255,255,.05);line-height:1.3}
+.aviso b{display:block;font-size:.8rem;color:#fff;margin-bottom:2px}
+.aviso span{display:block;font-size:.76rem;color:#c3ccd9}
+.aviso-debil{border-left-color:#7c9cc4}
+.aviso-coincide{border-left-color:#37c48a;background:rgba(55,196,138,.1)}
+.aviso-cambio{border-left-color:#f0b03e;background:rgba(240,176,62,.12)}
+.aviso-cambio b{color:#ffd48a;-webkit-animation:pcPulse 2.4s ease-in-out infinite;animation:pcPulse 2.4s ease-in-out infinite}
+.aviso-respaldado{border-left-color:#ff6b5b;background:rgba(255,107,91,.13)}
+.aviso-respaldado b{color:#ffb3aa}
+.pc-line{min-height:0}
+@media (prefers-reduced-motion:reduce){.aviso b{-webkit-animation:none!important;animation:none!important}.pc::before{-webkit-animation:none!important;animation:none!important}.pc,.pc *{-webkit-transition:none!important;transition:none!important;-webkit-animation:none!important;animation:none!important}}
+</style>
+
+    <!-- Ajustes visuales DESPUÉS de style-glass.css (si no, esa hoja los anula) -->
+    <style>
+        /* ── Legibilidad: el gris "atenuado" (#636e72) era para fondo blanco; sobre
+           el fondo oscuro no se leía. Blanco suave, menos fuerte que el título. ── */
+        @media (prefers-color-scheme: dark), (prefers-color-scheme: no-preference) {
+            :root { --text-muted: #b9c3d1; }
+            /* Encabezado fijo OPACO: el de style-glass (rgba 0.1) dejaba ver las
+               filas al hacer scroll */
+            .glass-card .history-table th { background: #1b2436; color: #d6dde8; }
+            .history-table tr:hover td { background: rgba(255, 255, 255, 0.05); }
+        }
+        /* Sobre el fondo de color del semáforo el gris desaparecía */
+        .oil-impact-alert .semaforo-motivo { color: rgba(255, 255, 255, 0.88); }
+
+        /* ── Historial anual: scroll vertical (antes overflow-y:hidden cortaba en
+           2017 y no se podían ver los años anteriores) ── */
+        .history-table-wrap {
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+        }
+        .history-table-wrap::-webkit-scrollbar { width: 8px; height: 8px; }
+        .history-table-wrap::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.3); border-radius: 4px; }
+        .history-table-wrap::-webkit-scrollbar-track { background: transparent; }
+
+        /* ── Íconos pixel art animados: fotogramas que se alternan SOLO por
+           opacity (regla anti-parpadeo móvil). Respetan "reducir movimiento". ── */
+        .px {
+            display: inline-block;
+            width: 1.35em;
+            height: 1.35em;
+            vertical-align: -0.28em;
+            flex: none;
+            image-rendering: pixelated;
+            overflow: visible;
+        }
+        .px .pxf { opacity: 0; }
+        @keyframes px2 { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 0; } }
+        @keyframes px3 { 0% { opacity: 1; } 33.333% { opacity: 0; } 100% { opacity: 0; } }
+        @keyframes px4 { 0% { opacity: 1; } 25% { opacity: 0; } 100% { opacity: 0; } }
+        @media (prefers-reduced-motion: reduce) {
+            .px .pxf { animation: none !important; opacity: 0; }
+            .px .pxf.f0 { opacity: 1; }
+        }
+        header h1 .px { width: 1.2em; height: 1.2em; vertical-align: -0.18em; margin-right: 6px; }
+        h2 .px { margin-right: 4px; }
+        .px-punto { width: 1.5em; height: 1.5em; vertical-align: -0.4em; margin: 0 -0.15em; }
+
+        /* ── Ranking de noticias estilo editorial: 01, 02… en degradado; top 3
+           en tonos cálidos, el resto plateado ── */
+        .news-item.news-card .news-rank {
+            width: auto;
+            height: auto;
+            min-width: 48px;
+            border-radius: 0;
+            display: block;
+            background: linear-gradient(160deg, #ffe29a 0%, #ff9a3d 45%, #ff3d7f 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            font-variant-numeric: tabular-nums;
+            text-align: left;
+            padding-left: 4px;
+        }
+        .news-item.news-card .news-rank::after {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 3px;
+            margin-top: 7px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, #ff9a3d, #ff3d7f);
+        }
+        .news-item.news-card:nth-child(n+4) .news-rank {
+            background: linear-gradient(160deg, #f1f5fb 0%, #a9bbd3 60%, #6f84a3 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        .news-item.news-card:nth-child(n+4) .news-rank::after { background: linear-gradient(90deg, #a9bbd3, #6f84a3); }
+        @media (max-width: 768px) {
+            .news-item.news-card .news-rank { font-size: 1.55rem; min-width: 38px; }
+        }
+
+        /* ── Semáforo completo (SVG): carcasa, viseras, tornillos, soporte y poste ── */
+        .semaforo-svg { flex: none; width: 46px; height: auto; overflow: visible; }
+        .semaforo-svg .sm-brillo { animation: softPulse 2.2s ease-in-out infinite; }
+        @media (max-width: 768px) { .semaforo-svg { width: 34px; } }
+        @media (prefers-reduced-motion: reduce) { .semaforo-svg .sm-brillo { animation: none; } }
+
+        /* ── Indicadores del WTI (30 días) ── */
+        .wti-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 16px 4px; }
+        .wti-stat {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 10px 8px;
+            text-align: center;
+        }
+        .wti-stat-label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+        .wti-stat-valor { font-size: 1.15rem; font-weight: 800; margin-top: 2px; color: #f4f7fb; }
+        .wti-stat-sub { font-size: 0.7rem; color: var(--text-muted); margin-top: 1px; }
+        .wti-sube { color: #ff5a4a; }
+        .wti-baja { color: #2fdc7c; }
+        @media (max-width: 768px) { .wti-stats { margin: 12px 4px 4px; gap: 6px; } .wti-stat-valor { font-size: 1rem; } }
+
+        /* ── Rectángulos de noticias más angostos: se separan del borde de la
+           tarjeta y entre sí ── */
+        .oil-impact-alert.semaforo,
+        .news-summary-box,
+        .news-item.news-card {
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+        .oil-impact-alert.semaforo { margin-bottom: 14px; }
+        .news-summary-box { margin-bottom: 14px; }
+        .news-item.news-card { margin-bottom: 12px; }
+        @media (max-width: 768px) {
+            .oil-impact-alert.semaforo,
+            .news-summary-box,
+            .news-item.news-card {
+                margin-left: 6px;
+                margin-right: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-mesh-bg"><span class="mesh-blob-third"></span></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1><span class="px-slot" data-px="barril"></span>Gasolinasogt.com</h1>
+            <p class="subtitle">Seguimiento a los precios diarios de los combustibles en Guatemala</p>
+        </header>
+
+        
+    <div class="proto-bar">
+        <strong>PROTOTIPO</strong> <span>votos simulados, guardados solo en este navegador</span>
+        <button id="dPocos" type="button">Pocos votos</button>
+        <button id="dNormal" type="button">Coincide</button>
+        <button id="dDecreto" type="button">Posible cambio</button>
+        <button id="dExterno" type="button">Cambio confirmado</button>
+        <button id="dRes" type="button">Reiniciar</button>
+    </div>
+
+        <!-- Loading state -->
+        <div id="loading" class="loading">Cargando datos...</div>
+
+        <!-- Error state (hidden by default) -->
+        <div id="error" class="error" style="display:none;"></div>
+
+        <!-- Main content (hidden until loaded) -->
+        <main id="content" style="display:none;">
+            <!-- Precios de combustible -->
+            <div class="grid grid-2">
+                <div class="card glass-card glass-card-animated" id="glassDemoCard">
+                    <h2 style="text-align:center;"><span class="px-slot" data-px="bomba"></span> Precios Combustible</h2>
+                    <p style="text-align:center;margin:-4px 0 12px;font-size:0.9rem;color:var(--text-muted);">(Área Metropolitana)</p>
+                    <!-- Voto de la comunidad: integrado en la gráfica S/R/D -->
+                    <div class="pulso" id="pulso">
+                        <div class="pulso-head">
+                            <span class="pulso-title">Si ya echaste gasolina hoy, ¡comparte cuánto pagaste!</span>
+                            <span class="pulso-live" id="pulsoLive">hoy</span>
+                        </div>
+                        <div class="fase"><span class="puntos"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span><span><b>Fase de prueba, día 3 de 7.</b> Estamos midiendo qué tan precisos son los votos para mejorar el sistema. Tu voto ya ayuda a afinarlo.</span></div>
+                        <div class="pulso-grid" id="pulsoGrid"></div>
+                        <div class="pulso-foot" id="pulsoFoot">Tu voto es anónimo, sin registro, y ayuda a que todos sepamos el precio de hoy.</div>
+                    </div>
+
+                    <div id="preciosCombustible"></div>
+                    <div class="aviso-ia" role="note"><b>Aviso:</b> esta página analiza los datos con inteligencia artificial y puede tener errores o fallos. Ningún modelo de IA es 100 % seguro en sus respuestas. Contrasta el precio con otras fuentes y con lo que ves en la bomba.</div>
+                    <!-- Gráfica de tendencia semanal -->
+                    <div style="text-align:center;margin-top:16px;">
+                        <canvas id="weeklyPriceChart" style="display:block;width:100%;max-width:480px;height:200px;"></canvas>
+                    </div>
+                    <!-- Tendencia semanal RGB -->
+                    <div id="weeklyTrendText" style="text-align:center;margin-top:10px;font-size:0.85rem;"></div>
+
+                    <!-- Advertencia decreto 22-2026 -->
+                    <div class="decree-alert">
+                        <span class="px-slot" data-px="alerta"></span> <strong>Decreto 22-2026</strong> — Exención de IVA aún no en vigencia
+                    </div>
+                </div>
+
+                <!-- Petróleo -->
+                <div class="card glass-card glass-card-animated">
+                    <h2><span class="px-slot" data-px="gota"></span> Precio del Petróleo en el Mundo</h2>
+
+                    <!-- Barril con borde RGB animado -->
+                    <div id="barrelContainer" style="display:flex;justify-content:center;margin:16px 0;">
+                        <div class="barrel-frame">
+                            <img src="../sprites/barrel-oil.png" alt="Barril de petróleo WTI" class="barrel-img">
+                        </div>
+                    </div>
+
+                    <!-- Precio WTI -->
+                    <div id="wtiPriceCard" style="text-align:center;margin:0 16px;"></div>
+
+                    <!-- Gráfica semanal WTI -->
+                    <div style="text-align:center;margin-top:12px;">
+                        <canvas id="wtiWeeklyChart" style="display:block;width:100%;max-width:480px;height:200px;"></canvas>
+                    </div>
+                    <!-- Indicadores WTI (historial real, 30 días) -->
+                    <div id="wtiStats"></div>
+                </div>
+            </div>
+
+            <!-- Historial de precios -->
+            <div class="card glass-card glass-card-animated" style="margin-top: 16px;">
+                <h2><span class="px-slot" data-px="grafica"></span> Historial de Precios Anual</h2>
+                <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:12px;">
+                    Promedio anual GTQ/galón — Fuente: Ministerio de Energía y Minas (MEM)
+                </p>
+                <canvas id="historialChart"></canvas>
+                <div class="history-table-wrap">
+                    <table class="history-table" id="historialTable">
+                        <thead><tr><th>Año</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Noticias -->
+            <div class="card glass-card glass-card-animated" style="margin-top: 16px;">
+                <h2 class="news-section-title"><span class="px-slot" data-px="periodico"></span> Top 10: noticias que pueden mover el precio del combustible</h2>
+
+                <!-- Semáforo de impacto petrolero (con motivo) -->
+                <div id="oilImpactAlert" style="display:none;"></div>
+
+                <!-- Mini-resumen por temas -->
+                <div id="newsSummary" style="display:none;"></div>
+
+                <!-- Lista top 10: título + mini-resumen -->
+                <ul class="news-list" id="newsList"></ul>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="glass-footer">
+            <p>Fuentes: Ministerio de Energía y Minas (Guatemala), OilPriceAPI, Google News, OilPrice.com &middot; <a href="../fuentes.html">Fuentes consultadas</a></p>
+            <p style="margin-top:4px;">gasolina-gt — Dashboard local &middot; <a href="#" onclick="location.reload();return false;">Actualizar</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // ── Backdrop-filter fallback ──
+        if (!CSS.supports('backdrop-filter', 'blur(1px)')) {
+            document.body.classList.add('no-backdrop-filter');
+        }
+
+        // ──────────────────────────────────────────
+        // Configuración
+        // ──────────────────────────────────────────
+        const DATA_DIR = './';  // JSONs en web/ junto con index.html
+        const GITHUB_RAW = 'https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export';
+        // Usar GitHub raw como fuente principal (evita cache de Vercel)
+        const PRIMARY_DATA_URL = `${GITHUB_RAW}/consolidado.json`;
+        const CONFIG = {
+            impuestos: {
+                iva: 0.12,
+                idp_por_galon: { superior: 4.70, regular: 4.60, diésel: 1.30 }
+            }
+        };
+
+        // ──────────────────────────────────────────
+        // Helpers
+        // ──────────────────────────────────────────
+
+        /** Formatea precio en Quetzales */
+        function fmtQ(v) { return `Q${v.toFixed(2)}`; }
+
+        /** Formatea precio en USD */
+        function fmtUSD(v) { return `$${v.toFixed(2)}`; }
+
+        // ── Íconos pixel art animados (generados desde cuadrículas 16x16) ──
+        const PX_ICONOS = {"barril": "<path fill=\"#0d1422\" d=\"M4 1h8v1h-8zM3 2h1v1h-1zM12 2h1v1h-1zM3 3h1v1h-1zM12 3h1v1h-1zM3 4h10v1h-10zM3 5h1v1h-1zM12 5h1v1h-1zM3 6h1v1h-1zM12 6h1v1h-1zM3 7h1v1h-1zM7 7h2v1h-2zM12 7h1v1h-1zM3 8h1v1h-1zM6 8h4v1h-4zM12 8h1v1h-1zM3 9h1v1h-1zM7 9h2v1h-2zM12 9h1v1h-1zM3 10h10v1h-10zM3 11h1v1h-1zM12 11h1v1h-1zM3 12h1v1h-1zM12 12h1v1h-1zM3 13h1v1h-1zM12 13h1v1h-1zM4 14h8v1h-8z\"/><path fill=\"#ff8a1f\" d=\"M4 3h1v1h-1zM6 3h4v1h-4zM11 3h1v1h-1zM4 5h1v1h-1zM6 5h4v1h-4zM11 5h1v1h-1zM4 6h1v1h-1zM6 6h4v1h-4zM11 6h1v1h-1zM4 7h3v1h-3zM9 7h3v1h-3zM4 8h2v1h-2zM10 8h2v1h-2zM4 9h3v1h-3zM9 9h3v1h-3zM4 11h1v1h-1zM6 11h4v1h-4zM11 11h1v1h-1zM4 12h1v1h-1zM6 12h4v1h-4zM11 12h1v1h-1z\"/><path fill=\"#c45f0c\" d=\"M4 2h8v1h-8zM4 13h8v1h-8z\"/><g class=\"pxf f0\" style=\"animation:px4 2.4s steps(1,end) infinite;animation-delay:0s\"><path fill=\"#ff8a1f\" d=\"M5 3h1v1h-1zM10 3h1v1h-1zM5 5h1v1h-1zM10 5h1v1h-1zM5 6h1v1h-1zM10 6h1v1h-1zM5 11h1v1h-1zM10 11h1v1h-1zM5 12h1v1h-1zM10 12h1v1h-1z\"/></g><g class=\"pxf f1\" style=\"animation:px4 2.4s steps(1,end) infinite;animation-delay:-1.8s\"><path fill=\"#ff8a1f\" d=\"M10 3h1v1h-1zM10 5h1v1h-1zM10 6h1v1h-1zM10 11h1v1h-1zM10 12h1v1h-1z\"/><path fill=\"#fff1dc\" d=\"M5 3h1v1h-1zM5 5h1v1h-1zM5 6h1v1h-1zM5 11h1v1h-1zM5 12h1v1h-1z\"/></g><g class=\"pxf f2\" style=\"animation:px4 2.4s steps(1,end) infinite;animation-delay:-1.2s\"><path fill=\"#ff8a1f\" d=\"M5 3h1v1h-1zM5 5h1v1h-1zM5 6h1v1h-1zM5 11h1v1h-1zM5 12h1v1h-1z\"/><path fill=\"#fff1dc\" d=\"M10 3h1v1h-1zM10 5h1v1h-1zM10 6h1v1h-1zM10 11h1v1h-1zM10 12h1v1h-1z\"/></g><g class=\"pxf f3\" style=\"animation:px4 2.4s steps(1,end) infinite;animation-delay:-0.6s\"><path fill=\"#ff8a1f\" d=\"M5 3h1v1h-1zM10 3h1v1h-1zM5 5h1v1h-1zM10 5h1v1h-1zM5 6h1v1h-1zM10 6h1v1h-1zM5 11h1v1h-1zM10 11h1v1h-1zM5 12h1v1h-1zM10 12h1v1h-1z\"/></g>", "bomba": "<path fill=\"#9fb3c8\" d=\"M11 3h2v1h-2zM12 4h1v1h-1zM12 5h1v1h-1zM12 6h2v1h-2zM13 7h1v1h-1zM10 8h1v1h-1zM13 8h1v1h-1zM11 9h1v1h-1zM13 9h1v1h-1zM12 10h2v1h-2z\"/><path fill=\"#0d1422\" d=\"M2 1h8v1h-8zM2 2h1v1h-1zM9 2h1v1h-1zM2 3h1v1h-1zM9 3h1v1h-1zM2 4h1v1h-1zM9 4h1v1h-1zM2 5h1v1h-1zM9 5h1v1h-1zM2 6h1v1h-1zM9 6h1v1h-1zM2 7h1v1h-1zM9 7h1v1h-1zM2 8h1v1h-1zM9 8h1v1h-1zM2 9h1v1h-1zM9 9h1v1h-1zM2 10h1v1h-1zM9 10h1v1h-1zM2 11h1v1h-1zM9 11h1v1h-1zM2 12h1v1h-1zM9 12h1v1h-1zM1 13h10v1h-10zM1 14h1v1h-1zM10 14h1v1h-1zM1 15h10v1h-10z\"/><path fill=\"#ff4d3d\" d=\"M3 2h6v1h-6zM3 3h1v1h-1zM8 3h1v1h-1zM3 4h1v1h-1zM8 4h1v1h-1zM3 5h1v1h-1zM8 5h1v1h-1zM3 6h6v1h-6zM3 7h6v1h-6zM3 8h1v1h-1zM8 8h1v1h-1zM3 9h6v1h-6zM3 10h6v1h-6zM3 11h6v1h-6zM3 12h6v1h-6z\"/><path fill=\"#5f7189\" d=\"M2 14h8v1h-8z\"/><path fill=\"#b3261b\" d=\"M4 8h4v1h-4z\"/><path fill=\"#f4f7fb\" d=\"M4 3h4v1h-4zM4 5h4v1h-4z\"/><g class=\"pxf f0\" style=\"animation:px3 1.5s steps(1,end) infinite;animation-delay:0s\"><path fill=\"#38d9f5\" d=\"M5 4h2v1h-2z\"/><path fill=\"#f4f7fb\" d=\"M4 4h1v1h-1zM7 4h1v1h-1z\"/></g><g class=\"pxf f1\" style=\"animation:px3 1.5s steps(1,end) infinite;animation-delay:-1.0s\"><path fill=\"#38d9f5\" d=\"M4 4h2v1h-2zM7 4h1v1h-1z\"/><path fill=\"#ff8a1f\" d=\"M13 11h1v1h-1z\"/><path fill=\"#f4f7fb\" d=\"M6 4h1v1h-1z\"/></g><g class=\"pxf f2\" style=\"animation:px3 1.5s steps(1,end) infinite;animation-delay:-0.5s\"><path fill=\"#38d9f5\" d=\"M4 4h1v1h-1zM6 4h1v1h-1z\"/><path fill=\"#ff8a1f\" d=\"M13 12h1v1h-1z\"/><path fill=\"#f4f7fb\" d=\"M5 4h1v1h-1zM7 4h1v1h-1z\"/></g>", "grafica": "<path fill=\"#9fb3c8\" d=\"M1 1h1v1h-1zM1 2h1v1h-1zM1 3h1v1h-1zM1 4h1v1h-1zM1 5h1v1h-1zM1 6h1v1h-1zM1 7h1v1h-1zM1 8h1v1h-1zM1 9h1v1h-1zM1 10h1v1h-1zM1 11h1v1h-1zM1 12h14v1h-14z\"/><path fill=\"#35e07a\" d=\"M4 7h1v1h-1zM3 8h1v1h-1zM2 9h1v1h-1z\"/><g class=\"pxf f0\" style=\"animation:px4 2.4s steps(1,end) infinite;animation-delay:0s\"></g><g class=\"pxf f1\" style=\"animation:px4 2.4s steps(1,end) infinite;animation-delay:-1.8s\"><path fill=\"#35e07a\" d=\"M5 8h1v1h-1zM7 8h1v1h-1zM6 9h1v1h-1z\"/></g><g class=\"pxf f2\" style=\"animation:px4 2.4s steps(1,end) infinite;animation-delay:-1.2s\"><path fill=\"#35e07a\" d=\"M10 5h1v1h-1zM9 6h1v1h-1zM8 7h1v1h-1zM5 8h1v1h-1zM7 8h1v1h-1zM6 9h1v1h-1z\"/></g><g class=\"pxf f3\" style=\"animation:px4 2.4s steps(1,end) infinite;animation-delay:-0.6s\"><path fill=\"#35e07a\" d=\"M12 2h3v1h-3zM12 3h2v1h-2zM11 4h1v1h-1zM10 5h1v1h-1zM9 6h1v1h-1zM8 7h1v1h-1zM5 8h1v1h-1zM7 8h1v1h-1zM6 9h1v1h-1z\"/></g>", "periodico": "<path fill=\"#9fb3c8\" d=\"M2 1h11v1h-11zM2 2h1v1h-1zM12 2h1v1h-1zM2 3h1v1h-1zM12 3h2v1h-2zM2 4h1v1h-1zM12 4h1v1h-1zM14 4h1v1h-1zM2 5h1v1h-1zM12 5h1v1h-1zM14 5h1v1h-1zM2 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM2 7h1v1h-1zM12 7h1v1h-1zM14 7h1v1h-1zM2 8h1v1h-1zM12 8h1v1h-1zM14 8h1v1h-1zM2 9h1v1h-1zM12 9h1v1h-1zM14 9h1v1h-1zM2 10h1v1h-1zM12 10h1v1h-1zM14 10h1v1h-1zM2 11h1v1h-1zM12 11h1v1h-1zM14 11h1v1h-1zM2 12h1v1h-1zM12 12h1v1h-1zM14 12h1v1h-1zM2 13h13v1h-13z\"/><path fill=\"#38d9f5\" d=\"M4 5h3v1h-3zM4 6h3v1h-3zM4 7h3v1h-3z\"/><path fill=\"#ff4d3d\" d=\"M4 3h7v1h-7z\"/><path fill=\"#5f7189\" d=\"M8 5h3v1h-3zM8 7h3v1h-3zM4 9h2v1h-2zM4 11h2v1h-2z\"/><path fill=\"#f4f7fb\" d=\"M3 2h9v1h-9zM3 3h1v1h-1zM11 3h1v1h-1zM3 4h9v1h-9zM13 4h1v1h-1zM3 5h1v1h-1zM7 5h1v1h-1zM11 5h1v1h-1zM13 5h1v1h-1zM3 6h1v1h-1zM7 6h5v1h-5zM13 6h1v1h-1zM3 7h1v1h-1zM7 7h1v1h-1zM11 7h1v1h-1zM13 7h1v1h-1zM3 8h9v1h-9zM13 8h1v1h-1zM3 9h1v1h-1zM11 9h1v1h-1zM13 9h1v1h-1zM3 10h9v1h-9zM13 10h1v1h-1zM3 11h1v1h-1zM11 11h1v1h-1zM13 11h1v1h-1zM3 12h9v1h-9zM13 12h1v1h-1z\"/><g class=\"pxf f0\" style=\"animation:px3 1.8s steps(1,end) infinite;animation-delay:0s\"><path fill=\"#f4f7fb\" d=\"M6 9h5v1h-5zM6 11h5v1h-5z\"/></g><g class=\"pxf f1\" style=\"animation:px3 1.8s steps(1,end) infinite;animation-delay:-1.2s\"><path fill=\"#5f7189\" d=\"M6 9h5v1h-5zM6 11h1v1h-1z\"/><path fill=\"#f4f7fb\" d=\"M7 11h4v1h-4z\"/></g><g class=\"pxf f2\" style=\"animation:px3 1.8s steps(1,end) infinite;animation-delay:-0.6s\"><path fill=\"#5f7189\" d=\"M6 9h5v1h-5zM6 11h5v1h-5z\"/></g>", "alerta": "<path fill=\"#0d1422\" d=\"M7 2h2v1h-2zM7 3h2v1h-2zM7 4h2v1h-2zM7 5h2v1h-2zM7 6h2v1h-2zM7 7h2v1h-2zM7 8h2v1h-2zM7 10h2v1h-2zM7 11h2v1h-2z\"/><g class=\"pxf f0\" style=\"animation:px2 1.0s steps(1,end) infinite;animation-delay:0s\"><path fill=\"#ffc233\" d=\"M7 0h2v1h-2zM6 1h4v1h-4zM6 2h1v1h-1zM9 2h1v1h-1zM5 3h2v1h-2zM9 3h2v1h-2zM5 4h2v1h-2zM9 4h2v1h-2zM4 5h3v1h-3zM9 5h3v1h-3zM4 6h3v1h-3zM9 6h3v1h-3zM3 7h4v1h-4zM9 7h4v1h-4zM3 8h4v1h-4zM9 8h4v1h-4zM2 9h12v1h-12zM2 10h5v1h-5zM9 10h5v1h-5zM1 11h6v1h-6zM9 11h6v1h-6zM1 12h14v1h-14zM0 13h16v1h-16z\"/></g><g class=\"pxf f1\" style=\"animation:px2 1.0s steps(1,end) infinite;animation-delay:-0.5s\"><path fill=\"#ff8a1f\" d=\"M7 0h2v1h-2zM6 1h4v1h-4zM6 2h1v1h-1zM9 2h1v1h-1zM5 3h2v1h-2zM9 3h2v1h-2zM5 4h2v1h-2zM9 4h2v1h-2zM4 5h3v1h-3zM9 5h3v1h-3zM4 6h3v1h-3zM9 6h3v1h-3zM3 7h4v1h-4zM9 7h4v1h-4zM3 8h4v1h-4zM9 8h4v1h-4zM2 9h12v1h-12zM2 10h5v1h-5zM9 10h5v1h-5zM1 11h6v1h-6zM9 11h6v1h-6zM1 12h14v1h-14zM0 13h16v1h-16z\"/></g>", "espadas": "<path fill=\"#9c5b21\" d=\"M3 11h1v1h-1zM12 11h1v1h-1zM2 12h2v1h-2zM12 12h2v1h-2zM1 13h2v1h-2zM13 13h2v1h-2z\"/><path fill=\"#d6e2f0\" d=\"M1 1h1v1h-1zM14 1h1v1h-1zM1 2h2v1h-2zM13 2h2v1h-2zM2 3h2v1h-2zM12 3h2v1h-2zM3 4h2v1h-2zM11 4h2v1h-2zM4 5h2v1h-2zM10 5h2v1h-2zM5 6h2v1h-2zM9 6h2v1h-2zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z\"/><path fill=\"#ffc233\" d=\"M5 9h2v1h-2zM9 9h2v1h-2zM4 10h2v1h-2zM10 10h2v1h-2zM4 11h2v1h-2zM10 11h2v1h-2z\"/><g class=\"pxf f0\" style=\"animation:px3 1.2s steps(1,end) infinite;animation-delay:0s\"></g><g class=\"pxf f1\" style=\"animation:px3 1.2s steps(1,end) infinite;animation-delay:-0.8s\"><path fill=\"#ffc233\" d=\"M7 5h2v1h-2zM4 7h1v1h-1zM11 7h1v1h-1z\"/></g><g class=\"pxf f2\" style=\"animation:px3 1.2s steps(1,end) infinite;animation-delay:-0.4s\"><path fill=\"#fff1dc\" d=\"M7 4h2v1h-2zM4 6h1v1h-1zM11 6h1v1h-1zM3 8h1v1h-1zM12 8h1v1h-1z\"/><path fill=\"#ffc233\" d=\"M7 5h2v1h-2z\"/></g>", "caja": "<path fill=\"#9c5b21\" d=\"M2 3h1v1h-1zM13 3h1v1h-1zM2 4h1v1h-1zM13 4h1v1h-1zM2 5h1v1h-1zM13 5h1v1h-1zM2 6h1v1h-1zM13 6h1v1h-1zM2 7h1v1h-1zM7 7h2v1h-2zM13 7h1v1h-1zM2 8h1v1h-1zM13 8h1v1h-1zM2 9h1v1h-1zM13 9h1v1h-1zM2 10h1v1h-1zM13 10h1v1h-1zM2 11h1v1h-1zM13 11h1v1h-1z\"/><path fill=\"#e0a458\" d=\"M3 3h1v1h-1zM5 3h6v1h-6zM12 3h1v1h-1zM3 4h1v1h-1zM6 4h4v1h-4zM12 4h1v1h-1zM3 5h2v1h-2zM7 5h2v1h-2zM11 5h2v1h-2zM3 6h3v1h-3zM10 6h3v1h-3zM3 7h4v1h-4zM9 7h4v1h-4zM3 8h3v1h-3zM10 8h3v1h-3zM3 9h2v1h-2zM7 9h2v1h-2zM11 9h2v1h-2zM3 10h1v1h-1zM6 10h4v1h-4zM12 10h1v1h-1zM3 11h1v1h-1zM5 11h6v1h-6zM12 11h1v1h-1z\"/><path fill=\"#5f7189\" d=\"M5 14h6v1h-6z\"/><g class=\"pxf f0\" style=\"animation:px2 1.0s steps(1,end) infinite;animation-delay:0s\"><path fill=\"#9c5b21\" d=\"M3 2h10v1h-10zM4 4h1v1h-1zM11 4h1v1h-1zM5 5h1v1h-1zM10 5h1v1h-1zM6 6h1v1h-1zM9 6h1v1h-1zM7 8h2v1h-2zM6 9h1v1h-1zM9 9h1v1h-1zM5 10h1v1h-1zM10 10h1v1h-1zM4 11h1v1h-1zM11 11h1v1h-1zM2 12h1v1h-1zM13 12h1v1h-1zM3 13h10v1h-10z\"/><path fill=\"#e0a458\" d=\"M4 3h1v1h-1zM11 3h1v1h-1zM5 4h1v1h-1zM10 4h1v1h-1zM6 5h1v1h-1zM9 5h1v1h-1zM7 6h2v1h-2zM6 8h1v1h-1zM9 8h1v1h-1zM5 9h1v1h-1zM10 9h1v1h-1zM4 10h1v1h-1zM11 10h1v1h-1zM3 12h10v1h-10z\"/><path fill=\"#5f7189\" d=\"M3 14h2v1h-2zM11 14h2v1h-2z\"/></g><g class=\"pxf f1\" style=\"animation:px2 1.0s steps(1,end) infinite;animation-delay:-0.5s\"><path fill=\"#9c5b21\" d=\"M3 1h10v1h-10zM2 2h1v1h-1zM13 2h1v1h-1zM4 3h1v1h-1zM11 3h1v1h-1zM5 4h1v1h-1zM10 4h1v1h-1zM6 5h1v1h-1zM9 5h1v1h-1zM7 6h2v1h-2zM6 8h1v1h-1zM9 8h1v1h-1zM5 9h1v1h-1zM10 9h1v1h-1zM4 10h1v1h-1zM11 10h1v1h-1zM3 12h10v1h-10z\"/><path fill=\"#e0a458\" d=\"M3 2h10v1h-10zM4 4h1v1h-1zM11 4h1v1h-1zM5 5h1v1h-1zM10 5h1v1h-1zM6 6h1v1h-1zM9 6h1v1h-1zM7 8h2v1h-2zM6 9h1v1h-1zM9 9h1v1h-1zM5 10h1v1h-1zM10 10h1v1h-1zM4 11h1v1h-1zM11 11h1v1h-1z\"/></g>", "globo": "<path fill=\"#9fb3c8\" d=\"M5 0h6v1h-6zM3 1h2v1h-2zM11 1h2v1h-2zM2 2h1v1h-1zM13 2h1v1h-1zM2 3h1v1h-1zM13 3h1v1h-1zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM14 7h1v1h-1zM1 8h1v1h-1zM14 8h1v1h-1zM1 9h1v1h-1zM14 9h1v1h-1zM2 10h1v1h-1zM13 10h1v1h-1zM2 11h1v1h-1zM13 11h1v1h-1zM3 12h2v1h-2zM11 12h2v1h-2zM5 13h6v1h-6z\"/><path fill=\"#38a8f5\" d=\"M5 1h1v1h-1zM8 1h2v1h-2zM3 4h1v1h-1zM7 4h1v1h-1zM11 4h1v1h-1zM3 5h2v1h-2zM7 5h2v1h-2zM11 5h2v1h-2zM3 6h2v1h-2zM7 6h2v1h-2zM11 6h2v1h-2zM4 7h1v1h-1zM8 7h1v1h-1zM12 7h1v1h-1zM4 10h1v1h-1zM8 10h1v1h-1zM12 10h1v1h-1zM3 11h3v1h-3zM7 11h3v1h-3zM11 11h2v1h-2zM5 12h6v1h-6z\"/><g class=\"pxf f0\" style=\"animation:px4 2.0s steps(1,end) infinite;animation-delay:0s\"><path fill=\"#38a8f5\" d=\"M10 1h1v1h-1zM3 2h2v1h-2zM9 2h4v1h-4zM3 3h1v1h-1zM8 3h5v1h-5zM2 4h1v1h-1zM4 4h1v1h-1zM8 4h3v1h-3zM2 5h1v1h-1zM5 5h1v1h-1zM9 5h2v1h-2zM5 6h2v1h-2zM9 6h2v1h-2zM5 7h3v1h-3zM10 7h2v1h-2zM13 7h1v1h-1zM4 8h4v1h-4zM11 8h3v1h-3zM4 9h4v1h-4zM12 9h2v1h-2zM5 10h3v1h-3zM11 10h1v1h-1zM6 11h1v1h-1z\"/><path fill=\"#35e07a\" d=\"M6 1h2v1h-2zM5 2h4v1h-4zM4 3h4v1h-4zM5 4h2v1h-2zM12 4h2v1h-2zM6 5h1v1h-1zM13 5h1v1h-1zM2 6h1v1h-1zM13 6h1v1h-1zM2 7h2v1h-2zM9 7h1v1h-1zM2 8h2v1h-2zM8 8h3v1h-3zM2 9h2v1h-2zM8 9h4v1h-4zM3 10h1v1h-1zM9 10h2v1h-2zM10 11h1v1h-1z\"/></g><g class=\"pxf f1\" style=\"animation:px4 2.0s steps(1,end) infinite;animation-delay:-1.5s\"><path fill=\"#38a8f5\" d=\"M6 1h2v1h-2zM10 1h1v1h-1zM5 2h5v1h-5zM11 2h2v1h-2zM4 3h5v1h-5zM11 3h2v1h-2zM4 4h3v1h-3zM12 4h2v1h-2zM5 5h2v1h-2zM13 5h1v1h-1zM2 6h1v1h-1zM5 6h2v1h-2zM10 6h1v1h-1zM13 6h1v1h-1zM2 7h2v1h-2zM6 7h2v1h-2zM9 7h3v1h-3zM2 8h2v1h-2zM7 8h6v1h-6zM2 9h2v1h-2zM8 9h6v1h-6zM3 10h1v1h-1zM7 10h1v1h-1zM9 10h3v1h-3zM10 11h1v1h-1z\"/><path fill=\"#35e07a\" d=\"M3 2h2v1h-2zM10 2h1v1h-1zM3 3h1v1h-1zM9 3h2v1h-2zM2 4h1v1h-1zM8 4h3v1h-3zM2 5h1v1h-1zM9 5h2v1h-2zM9 6h1v1h-1zM5 7h1v1h-1zM13 7h1v1h-1zM4 8h3v1h-3zM13 8h1v1h-1zM4 9h4v1h-4zM5 10h2v1h-2zM6 11h1v1h-1z\"/></g><g class=\"pxf f2\" style=\"animation:px4 2.0s steps(1,end) infinite;animation-delay:-1.0s\"><path fill=\"#38a8f5\" d=\"M6 1h2v1h-2zM10 1h1v1h-1zM3 2h3v1h-3zM7 2h6v1h-6zM3 3h2v1h-2zM7 3h5v1h-5zM2 4h1v1h-1zM8 4h3v1h-3zM12 4h1v1h-1zM2 5h1v1h-1zM9 5h2v1h-2zM13 5h1v1h-1zM2 6h1v1h-1zM6 6h1v1h-1zM9 6h1v1h-1zM13 6h1v1h-1zM2 7h2v1h-2zM5 7h3v1h-3zM13 7h1v1h-1zM3 8h6v1h-6zM12 8h2v1h-2zM4 9h6v1h-6zM12 9h2v1h-2zM3 10h1v1h-1zM5 10h3v1h-3zM9 10h2v1h-2zM6 11h1v1h-1zM10 11h1v1h-1z\"/><path fill=\"#35e07a\" d=\"M6 2h1v1h-1zM5 3h2v1h-2zM12 3h1v1h-1zM4 4h3v1h-3zM13 4h1v1h-1zM5 5h2v1h-2zM5 6h1v1h-1zM10 6h1v1h-1zM9 7h3v1h-3zM2 8h1v1h-1zM9 8h3v1h-3zM2 9h2v1h-2zM10 9h2v1h-2zM11 10h1v1h-1z\"/></g><g class=\"pxf f3\" style=\"animation:px4 2.0s steps(1,end) infinite;animation-delay:-0.5s\"><path fill=\"#38a8f5\" d=\"M6 1h2v1h-2zM3 2h6v1h-6zM3 3h5v1h-5zM12 3h1v1h-1zM4 4h3v1h-3zM8 4h1v1h-1zM12 4h2v1h-2zM5 5h2v1h-2zM9 5h1v1h-1zM13 5h1v1h-1zM2 6h1v1h-1zM5 6h1v1h-1zM9 6h2v1h-2zM13 6h1v1h-1zM2 7h2v1h-2zM9 7h3v1h-3zM2 8h3v1h-3zM8 8h4v1h-4zM2 9h4v1h-4zM8 9h4v1h-4zM3 10h1v1h-1zM5 10h2v1h-2zM9 10h3v1h-3zM6 11h1v1h-1zM10 11h1v1h-1z\"/><path fill=\"#35e07a\" d=\"M10 1h1v1h-1zM9 2h4v1h-4zM8 3h4v1h-4zM2 4h1v1h-1zM9 4h2v1h-2zM2 5h1v1h-1zM10 5h1v1h-1zM6 6h1v1h-1zM5 7h3v1h-3zM13 7h1v1h-1zM5 8h3v1h-3zM12 8h2v1h-2zM6 9h2v1h-2zM12 9h2v1h-2zM7 10h1v1h-1z\"/></g>", "rayo": "<g class=\"pxf f0\" style=\"animation:px3 1.5s steps(1,end) infinite;animation-delay:0s\"><path fill=\"#ffc233\" d=\"M9 0h4v1h-4zM8 1h4v1h-4zM7 2h4v1h-4zM6 3h4v1h-4zM5 4h4v1h-4zM4 5h8v1h-8zM3 6h8v1h-8zM7 7h4v1h-4zM6 8h4v1h-4zM5 9h4v1h-4zM4 10h3v1h-3zM3 11h2v1h-2zM2 12h1v1h-1z\"/></g><g class=\"pxf f1\" style=\"animation:px3 1.5s steps(1,end) infinite;animation-delay:-1.0s\"><path fill=\"#fff1dc\" d=\"M9 0h4v1h-4zM8 1h4v1h-4zM7 2h4v1h-4zM6 3h4v1h-4zM5 4h4v1h-4zM4 5h8v1h-8zM3 6h8v1h-8zM7 7h4v1h-4zM6 8h4v1h-4zM5 9h4v1h-4zM4 10h3v1h-3zM3 11h2v1h-2zM2 12h1v1h-1z\"/></g><g class=\"pxf f2\" style=\"animation:px3 1.5s steps(1,end) infinite;animation-delay:-0.5s\"><path fill=\"#ffc233\" d=\"M9 0h4v1h-4zM8 1h4v1h-4zM7 2h4v1h-4zM6 3h4v1h-4zM5 4h4v1h-4zM4 5h8v1h-8zM3 6h8v1h-8zM7 7h4v1h-4zM6 8h4v1h-4zM5 9h4v1h-4zM4 10h3v1h-3zM3 11h2v1h-2zM2 12h1v1h-1z\"/></g>", "gota": "<path fill=\"#2b3550\" d=\"M7 4h1v1h-1zM7 5h1v1h-1zM7 6h2v1h-2zM7 7h3v1h-3zM7 8h3v1h-3zM6 9h4v1h-4z\"/><path fill=\"#c45f0c\" d=\"M2 15h12v1h-12z\"/><g class=\"pxf f0\" style=\"animation:px4 1.6s steps(1,end) infinite;animation-delay:0s\"><path fill=\"#38d9f5\" d=\"M6 5h1v1h-1zM5 6h1v1h-1zM5 7h1v1h-1z\"/><path fill=\"#2b3550\" d=\"M7 1h1v1h-1zM7 2h1v1h-1zM6 3h3v1h-3zM5 4h2v1h-2zM8 4h2v1h-2zM5 5h1v1h-1zM8 5h2v1h-2zM4 6h1v1h-1zM6 6h1v1h-1zM9 6h2v1h-2zM4 7h1v1h-1zM6 7h1v1h-1zM10 7h1v1h-1zM4 8h3v1h-3zM10 8h1v1h-1zM5 9h1v1h-1z\"/><path fill=\"#ff8a1f\" d=\"M7 0h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM5 3h1v1h-1zM9 3h1v1h-1zM4 4h1v1h-1zM10 4h1v1h-1zM4 5h1v1h-1zM10 5h1v1h-1zM3 6h1v1h-1zM11 6h1v1h-1zM3 7h1v1h-1zM11 7h1v1h-1zM3 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM5 10h5v1h-5z\"/></g><g class=\"pxf f1\" style=\"animation:px4 1.6s steps(1,end) infinite;animation-delay:-1.2s\"><path fill=\"#38d9f5\" d=\"M6 6h1v1h-1zM5 7h1v1h-1zM5 8h1v1h-1z\"/><path fill=\"#2b3550\" d=\"M7 2h1v1h-1zM7 3h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM5 5h2v1h-2zM8 5h2v1h-2zM5 6h1v1h-1zM9 6h1v1h-1zM4 7h1v1h-1zM6 7h1v1h-1zM10 7h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM10 8h1v1h-1zM4 9h2v1h-2zM10 9h1v1h-1zM5 10h5v1h-5z\"/><path fill=\"#ff8a1f\" d=\"M7 1h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM5 4h1v1h-1zM9 4h1v1h-1zM4 5h1v1h-1zM10 5h1v1h-1zM4 6h1v1h-1zM10 6h1v1h-1zM3 7h1v1h-1zM11 7h1v1h-1zM3 8h1v1h-1zM11 8h1v1h-1zM3 9h1v1h-1zM11 9h1v1h-1zM4 10h1v1h-1zM10 10h1v1h-1zM5 11h5v1h-5z\"/></g><g class=\"pxf f2\" style=\"animation:px4 1.6s steps(1,end) infinite;animation-delay:-0.8s\"><path fill=\"#38d9f5\" d=\"M6 7h1v1h-1zM5 8h1v1h-1zM5 9h1v1h-1z\"/><path fill=\"#2b3550\" d=\"M7 3h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM5 6h2v1h-2zM9 6h1v1h-1zM5 7h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM10 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM4 10h7v1h-7zM5 11h5v1h-5z\"/><path fill=\"#ff8a1f\" d=\"M7 2h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM5 5h1v1h-1zM9 5h1v1h-1zM4 6h1v1h-1zM10 6h1v1h-1zM4 7h1v1h-1zM10 7h1v1h-1zM3 8h1v1h-1zM11 8h1v1h-1zM3 9h1v1h-1zM11 9h1v1h-1zM3 10h1v1h-1zM11 10h1v1h-1zM4 11h1v1h-1zM10 11h1v1h-1zM5 12h5v1h-5z\"/></g><g class=\"pxf f3\" style=\"animation:px4 1.6s steps(1,end) infinite;animation-delay:-0.4s\"><path fill=\"#38d9f5\" d=\"M6 8h1v1h-1zM5 9h1v1h-1zM5 10h1v1h-1z\"/><path fill=\"#2b3550\" d=\"M6 6h1v1h-1zM5 7h2v1h-2zM5 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM4 10h1v1h-1zM6 10h5v1h-5zM4 11h7v1h-7zM5 12h5v1h-5z\"/><path fill=\"#ff8a1f\" d=\"M7 3h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM5 6h1v1h-1zM9 6h1v1h-1zM4 7h1v1h-1zM10 7h1v1h-1zM4 8h1v1h-1zM10 8h1v1h-1zM3 9h1v1h-1zM11 9h1v1h-1zM3 10h1v1h-1zM11 10h1v1h-1zM3 11h1v1h-1zM11 11h1v1h-1zM4 12h1v1h-1zM10 12h1v1h-1zM2 13h1v1h-1zM5 13h5v1h-5zM12 13h1v1h-1zM1 14h1v1h-1zM13 14h1v1h-1z\"/></g>", "punto": "<path fill=\"#fff1dc\" d=\"M7 7h1v1h-1z\"/><path fill=\"currentColor\" d=\"M6 5h4v1h-4zM5 6h6v1h-6zM5 7h2v1h-2zM8 7h3v1h-3zM5 8h6v1h-6zM5 9h6v1h-6zM6 10h4v1h-4z\"/><g class=\"pxf f0\" style=\"animation:px2 1.2s steps(1,end) infinite;animation-delay:0s\"></g><g class=\"pxf f1\" style=\"animation:px2 1.2s steps(1,end) infinite;animation-delay:-0.6s\"><path fill=\"currentColor\" fill-opacity=\"0.35\" d=\"M6 4h4v1h-4zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM6 11h4v1h-4z\"/></g>"};
+        function pxIcon(nombre, estilo = '', clase = '') {
+            const cuerpo = PX_ICONOS[nombre];
+            if (!cuerpo) return '';
+            return `<svg class="px ${clase}" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"`
+                 + (estilo ? ` style="${estilo}"` : '') + `>${cuerpo}</svg>`;
+        }
+        // Íconos del HTML estático: <span class="px-slot" data-px="nombre"></span>
+        function llenarIconos() {
+            document.querySelectorAll('.px-slot').forEach(el => { el.outerHTML = pxIcon(el.dataset.px); });
+        }
+
+        // ── Semáforo completo en SVG (carcasa, viseras, soporte y poste).
+        // Luz encendida: degradado realista + reflejo + resplandor difuminado
+        // (solo pulso de opacity). Apagadas: vidrio de su color, opaco. ──
+        function svgSemaforo(activa) {
+            const luces = [
+                { k: 'red',    on: ['#ffffff', '#ffe3de', '#ff8a7a', '#ff3b2f', '#c4170c', '#7a0b05'], off: ['#8a3a33', '#4a100b'], brillo: '#ff3b2f' },
+                { k: 'yellow', on: ['#ffffff', '#fff6d8', '#ffd46b', '#ffb300', '#c98400', '#7a4f00'], off: ['#8a6a2c', '#473004'], brillo: '#ffb300' },
+                { k: 'green',  on: ['#ffffff', '#dcffec', '#6ff0a8', '#19d26b', '#0e9a4c', '#065229'], off: ['#2f6f4b', '#0b3620'], brillo: '#19d26b' },
+            ];
+            const ys = [34, 66, 98];
+            const cortes = [0, 0.12, 0.3, 0.55, 0.82, 1];
+            let defs = `<linearGradient id="sm-caja" x1="0" x2="1"><stop offset="0" stop-color="#1c2638"/><stop offset=".5" stop-color="#2a3650"/><stop offset="1" stop-color="#121a28"/></linearGradient>`
+                     + `<linearGradient id="sm-metal" x1="0" x2="1"><stop offset="0" stop-color="#4a5670"/><stop offset=".45" stop-color="#9aa8c0"/><stop offset="1" stop-color="#3a4458"/></linearGradient>`
+                     + `<filter id="sm-blur" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>`;
+            let cuerpo = '';
+            luces.forEach((l, i) => {
+                const y = ys[i], on = activa === l.k;
+                defs += `<radialGradient id="sm-${l.k}" cx="42%" cy="38%" r="62%">`
+                      + (on ? l.on.map((c, j) => `<stop offset="${cortes[j]}" stop-color="${c}"/>`).join('')
+                            : `<stop offset="0" stop-color="${l.off[0]}"/><stop offset="1" stop-color="${l.off[1]}"/>`)
+                      + `</radialGradient>`;
+                cuerpo += `<circle cx="32" cy="${y}" r="13.5" fill="#05080e" stroke="#1c2638" stroke-width="1"/>`;
+                if (on) cuerpo += `<circle class="sm-brillo" cx="32" cy="${y}" r="20" fill="${l.brillo}" opacity=".6" filter="url(#sm-blur)"/>`;
+                cuerpo += `<circle cx="32" cy="${y}" r="11" fill="url(#sm-${l.k})"${on ? '' : ' opacity=".55"'}/>`
+                        + `<ellipse cx="28" cy="${y - 4}" rx="4" ry="2.4" fill="#fff" opacity="${on ? '.8' : '.16'}"/>`
+                        + `<path d="M16.5 ${y - 5} A15.5 15.5 0 0 1 47.5 ${y - 5} L50.5 ${y - 11} A19.5 19.5 0 0 0 13.5 ${y - 11} Z" fill="#070b12" stroke="#2c3852" stroke-width=".8"/>`;
+            });
+            return `<svg class="semaforo-svg" viewBox="0 0 64 150" role="img" aria-label="Semáforo de impacto">`
+                 + `<defs>${defs}</defs>`
+                 + `<rect x="28" y="122" width="8" height="28" fill="url(#sm-metal)"/>`
+                 + `<rect x="22" y="124" width="20" height="5" rx="1.5" fill="#56657f"/>`
+                 + `<rect x="5" y="6" width="54" height="118" rx="12" fill="#0a0f18" stroke="#26324a" stroke-width="1.5"/>`
+                 + `<rect x="10" y="12" width="44" height="108" rx="9" fill="url(#sm-caja)" stroke="#4a5a75" stroke-width="1"/>`
+                 + [[9, 10], [55, 10], [9, 120], [55, 120]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="1.3" fill="#6b7a95"/>`).join('')
+                 + cuerpo + `</svg>`;
+        }
+
+        // Fecha ISO → "25/09/2026"
+        function fmtFechaCorta(iso) {
+            return iso ? `${iso.slice(8, 10)}/${iso.slice(5, 7)}/${iso.slice(0, 4)}` : '';
+        }
+
+        // Indicadores del WTI con el historial real: variación ~7 días y
+        // máximo / mínimo de los últimos 30 días.
+        function indicadoresWTI(hist) {
+            if (!hist || hist.length < 2) return '';
+            const ultimo = hist[hist.length - 1];
+            const dia = f => Date.UTC(+f.slice(0, 4), +f.slice(5, 7) - 1, +f.slice(8, 10)) / 86400000;
+            const dUlt = dia(ultimo.fecha);
+            const ult30 = hist.filter(h => dUlt - dia(h.fecha) <= 30);
+            const base7 = hist.find(h => dUlt - dia(h.fecha) <= 7) || hist[0];
+            const cambio = (ultimo.precio - base7.precio) / base7.precio * 100;
+            const max = ult30.reduce((a, b) => b.precio > a.precio ? b : a);
+            const min = ult30.reduce((a, b) => b.precio < a.precio ? b : a);
+            const signo = cambio >= 0 ? '+' : '';
+            return `<div class="wti-stats">`
+                 + `<div class="wti-stat"><div class="wti-stat-label">7 días</div><div class="wti-stat-valor ${cambio >= 0 ? 'wti-sube' : 'wti-baja'}">${signo}${cambio.toFixed(1)}%</div><div class="wti-stat-sub">desde ${fmtDiaMes(base7.fecha)}</div></div>`
+                 + `<div class="wti-stat"><div class="wti-stat-label">Máx. 30 días</div><div class="wti-stat-valor">${fmtUSD(max.precio)}</div><div class="wti-stat-sub">${fmtDiaMes(max.fecha)}</div></div>`
+                 + `<div class="wti-stat"><div class="wti-stat-label">Mín. 30 días</div><div class="wti-stat-valor">${fmtUSD(min.precio)}</div><div class="wti-stat-sub">${fmtDiaMes(min.fecha)}</div></div>`
+                 + `</div>`;
+        }
+
+        /** Formatea fecha relativa (hace X días) */
+        function fmtFechaRelativa(fechaStr) {
+            if (!fechaStr) return '';
+            const fecha = new Date(fechaStr);
+            const hoy = new Date();
+            const diffMs = hoy - fecha;
+            const diffDias = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+            if (diffDias === 0) return 'hoy';
+            if (diffDias === 1) return 'ayer';
+            if (diffDias < 7) return `hace ${diffDias} días`;
+            if (diffDias < 30) return `hace ${Math.floor(diffDias/7)} semana(s)`;
+            return fecha.toLocaleDateString('es-GT');
+        }
+
+        /** Regresa clase CSS para el régimen */
+        function regimenClass(regimen) {
+            return 'regimen-normal';
+        }
+
+        /** Regresa texto legible del régimen */
+        function regimenLabel(regimen) {
+            return 'IVA + IDP';
+        }
+
+        /** Regresa color de precio según régimen */
+        function precioColor(regimen) {
+            return 'var(--text)';
+        }
+
+        // ──────────────────────────────────────────
+        // Renderizado
+        // ──────────────────────────────────────────
+
+        function escHtml(s) {
+            return String(s ?? '').replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+        }
+
+        // Etiqueta de confianza del consejo multifuente (verde/ámbar/rojo)
+        function badgeConfianza(c) {
+            if (!c) return '';
+            const titulo = `${c.n_coinciden} de ${c.n_fuentes} fuentes coinciden (±Q0.20) · dato del ${c.fecha}`;
+            return `<br><span class="confianza confianza-${escHtml(c.confianza)}" title="${escHtml(titulo)}">`
+                 + `Confianza ${escHtml(c.confianza)} · ${c.n_coinciden}/${c.n_fuentes} fuentes</span>`;
+        }
+
+        // "Ver fuentes consultadas": qué dijo cada medio y si coincide con el veredicto
+        function fuentesConsejo(filas, etiquetas) {
+            const con = filas.filter(p => p.consenso && (p.consenso.fuentes || []).length);
+            if (!con.length) return '';
+            const items = con.map(p => {
+                const fuentes = p.consenso.fuentes.map(f =>
+                    `<a href="${escHtml(f.url)}" target="_blank" rel="noopener noreferrer" class="${f.coincide ? 'coincide' : 'difiere'}"`
+                    + ` title="${escHtml(f.fecha)}">${escHtml(f.medio)} Q${Number(f.precio).toFixed(2)}</a>`).join(', ');
+                return `<li><strong>${escHtml(etiquetas[p.producto] || p.producto)}:</strong> ${fuentes}</li>`;
+            }).join('');
+            return `<details class="consejo-fuentes"><summary>Ver fuentes consultadas</summary><ul>${items}</ul></details>`;
+        }
+
+        function renderPreciosCombustible(data) {
+            const container = document.getElementById('preciosCombustible');
+            let precios = data.precios_combustible || [];
+            if (!precios || precios.length === 0) {
+                container.innerHTML = '<p style="color:var(--text-muted);">Sin datos disponibles</p>';
+                return;
+            }
+
+            // Normalizar nombres de producto a forma canónica
+            const normalizar = (nombre) => {
+                const n = nombre.toLowerCase().trim();
+                if (n === 'diessel' || n === 'diesel') return 'diésel';
+                if (n === 'super' || n === 'superior') return 'superior';
+                if (n === 'regular' || n === 'reg') return 'regular';
+                return nombre;
+            };
+
+            precios.forEach(p => p.producto = normalizar(p.producto));
+
+            // Solo aceptar combustibles — descartar wti u otros productos que filtren mal del JSON
+            const combustiblesPermitidos = new Set(['superior', 'regular', 'diésel']);
+            precios = precios.filter(p => combustiblesPermitidos.has(p.producto));
+
+            if (!precios || precios.length === 0) {
+                container.innerHTML = '<p style="color:var(--text-muted);">Sin datos disponibles</p>';
+                return;
+            }
+
+            // Deduplicar: mantener solo el primer precio por producto
+            const vistos = new Set();
+            precios = precios.filter(p => {
+                if (vistos.has(p.producto)) return false;
+                vistos.add(p.producto);
+                return true;
+            });
+
+            // Descartar precios no numéricos (evita que fmtQ tumbe todo el dashboard)
+            precios = precios.filter(p => typeof p.precio === 'number' && isFinite(p.precio));
+
+            let html = '';
+            const orden = ['regular', 'superior', 'diésel'];
+            const productos = { superior: 'Gasolina Superior', regular: 'Gasolina Regular', diésel: 'Diésel' };
+
+            // Ordenar estable por el orden definido
+            const ordenMap = new Map(orden.map((p, i) => [p, i]));
+            precios.sort((a, b) => (ordenMap.get(a.producto) ?? -1) - (ordenMap.get(b.producto) ?? -1));
+
+            // ── Constantes de impuestos (Decreto 38-92 + IVA) ──
+            const IDP = { superior: 4.70, regular: 4.60, diésel: 1.30 };
+
+            const filaPrecio = (p) => {
+                const producto = p.producto || 'superior';
+                const idp = IDP[producto] ?? 4.60;
+                const precioFinal = p.precio;
+
+                // IVA incluido en precio final: IVA = (precioFinal - IDP) * 12/112
+                const ivamonto = Math.max(0, (precioFinal - idp) * 12 / 112);
+                // Base = lo que queda despues de quitar IVA e IDP del precioFinal
+                const baseSinImpuestos = Math.max(0, precioFinal - ivamonto - idp);
+
+                return `
+                    <div class="price-item">
+                        <div>
+                            <span class="price-label">${productos[producto] || producto}</span>
+                            ${badgeConfianza(p.consenso)}
+                        </div>
+                        <div class="price-values">
+                            <span class="price-value-main"><span style="font-size:0.75em;font-weight:400;margin-right:6px;">Con IVA+IDP</span>${fmtQ(precioFinal)}</span>
+                            <span class="price-value-exempt"><span style="font-size:0.85em;font-weight:400;margin-right:4px;">Sin IVA+IDP:</span>${fmtQ(baseSinImpuestos)}</span>
+                        </div>
+                    </div>
+                `;
+            };
+
+            // Un bloque por modalidad: autoservicio primero, luego servicio completo.
+            // Consolidado anterior (sin modalidades) → solo autoservicio.
+            const porModalidad = data.precios_modalidades || { autoservicio: precios };
+            const NOMBRE_MOD = { autoservicio: 'Autoservicio', servicio_completo: 'Servicio completo' };
+            for (const mod of ['autoservicio', 'servicio_completo']) {
+                const filas = (porModalidad[mod] || [])
+                    .map(p => ({ ...p, producto: normalizar(p.producto) }))
+                    .filter(p => combustiblesPermitidos.has(p.producto) && typeof p.precio === 'number' && isFinite(p.precio))
+                    .sort((a, b) => (ordenMap.get(a.producto) ?? -1) - (ordenMap.get(b.producto) ?? -1));
+                if (!filas.length) continue;
+                html += `<div class="modalidad-bloque"><div class="modalidad-titulo">${NOMBRE_MOD[mod]}</div>`
+                      + filas.map(filaPrecio).join('')
+                      + fuentesConsejo(filas, productos)
+                      + '</div>';
+            }
+
+            const fecha = precios.length ? new Date(Math.max(...precios.map(p => new Date(p.fecha)))).toISOString().slice(0,10) : '';
+            let horaStr = '';
+            if (precios.length > 0) {
+                const latest = precios.reduce((a, b) => new Date(a.fetched_at).getTime() > new Date(b.fetched_at).getTime() ? a : b);
+                const fs = latest.fetched_at || '';
+                if (fs.endsWith('Z') || fs.endsWith('+00:00')) {
+                    // UTC puro → convertir a Guatemala (UTC-6)
+                    const h = (parseInt(fs.slice(11, 13), 10) - 6 + 24) % 24;
+                    horaStr = `${String(h).padStart(2,'0')}:${fs.slice(14, 16)}`;
+                } else {
+                    // Ya trae offset local (-06:00) → mostrar tal cual
+                    horaStr = fs.slice(11, 16);
+                }
+            }
+            const act = data.actualizado_at || '';
+            html += `<p class="price-date">Precios vigentes al ${fmtFechaCorta(fecha)}`
+                  + (act ? ` · datos actualizados el ${fmtFechaCorta(act.slice(0, 10))} a las ${act.slice(11, 16)}` : (horaStr ? ` · ${horaStr}` : ''))
+                  + `</p>`;
+            container.innerHTML = html;
+
+            // ── Gráfica de barras comparativa ──
+            window.__weekData = precios;
+            window.__weekHist = data.combustibles_historial || [];
+            startWeeklyAnimation();
+        }
+
+        // Redibujar en estado final al cambiar tamaño (debounce 250ms).
+        // Sin debounce, en móvil cada scroll (la barra del navegador
+        // muestra/oculta = resize) reinicia las animaciones de 1.5-2s y los
+        // charts se redibujan sin parar = parpadeo. Listener único: también
+        // cubre el historial (antes se registraba uno nuevo en cada render).
+        let resizeTimer = null;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (window.__weekData) drawWeeklyPriceChartAnimated(window.__weekData, WEEKLY_ANIM_DURATION);
+                if (window.__wtiData) drawWTIWeeklyChartAnimated(window.__wtiData, WTI_WEEKLY_ANIM_DURATION);
+                if (window.__histData) drawHistorialChartAnimated(window.__histData, window.__histProductos, HIST_ANIM_DURATION);
+            }, 250);
+        });
+
+        // ── Helper para dibujar rectángulos con esquinas redondeadas ──
+        function roundRect(ctx, x, y, w, h, r) {
+            if (w < 2 * r) r = w / 2;
+            if (h < 2 * r) r = h / 2;
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.arcTo(x + w, y, x + w, y + h, r);
+            ctx.arcTo(x + w, y + h, x, y + h, r);
+            ctx.arcTo(x, y + h, x, y, r);
+            ctx.arcTo(x, y, x + w, y, r);
+            ctx.closePath();
+        }
+
+        // ── Weekly chart animation — limitada a 1.5s para evitar flickering en móvil ──
+        let weeklyAnimId = null;
+        let weeklyTime = 0;
+        const WEEKLY_ANIM_DURATION = 1.5;
+
+        function startWeeklyAnimation() {
+            if (weeklyAnimId) cancelAnimationFrame(weeklyAnimId);
+            weeklyTime = 0;
+            function frame() {
+                weeklyTime += 0.02;
+                drawWeeklyPriceChartAnimated(window.__weekData, weeklyTime);
+                if (weeklyTime < WEEKLY_ANIM_DURATION) {
+                    weeklyAnimId = requestAnimationFrame(frame);
+                } else {
+                    // Dibujar estado final una última vez y detener
+                    drawWeeklyPriceChartAnimated(window.__weekData, WEEKLY_ANIM_DURATION);
+                    weeklyAnimId = null;
+                }
+            }
+            frame();
+        }
+
+        // ── Colores RGB por producto para semanal (bien separados) ──
+        const WEEKLY_HUES = {
+            superior: 20,    // rojo/naranja cálido  
+            regular: 260,    // violeta/azul profundo
+            diésel: 145      // verde lima
+        };
+
+        // ── WTI Weekly chart animation — limitada a 1.5s para evitar flickering en móvil ──
+        let wtiWeeklyAnimId = null;
+        let wtiWeeklyTime = 0;
+        const WTI_WEEKLY_ANIM_DURATION = 1.5;
+
+        function startWTIWeeklyAnimation() {
+            if (wtiWeeklyAnimId) cancelAnimationFrame(wtiWeeklyAnimId);
+            wtiWeeklyTime = 0;
+            function frame() {
+                wtiWeeklyTime += 0.02;
+                drawWTIWeeklyChartAnimated(window.__wtiData, wtiWeeklyTime);
+                if (wtiWeeklyTime < WTI_WEEKLY_ANIM_DURATION) {
+                    wtiWeeklyAnimId = requestAnimationFrame(frame);
+                } else {
+                    drawWTIWeeklyChartAnimated(window.__wtiData, WTI_WEEKLY_ANIM_DURATION);
+                    wtiWeeklyAnimId = null;
+                }
+            }
+            frame();
+        }
+
+        // Hue para WTI — naranja/rojo brillante
+        const WTI_HUE = 25;
+
+        function drawWTIWeeklyChartAnimated(data, time) {
+            var canvas = document.getElementById('wtiWeeklyChart');
+            if (!canvas || !data || data.length === 0) return;
+
+            // Tamaño del canvas
+            var targetW = Math.max(480, parseInt(getComputedStyle(canvas).width) || 480);
+            var targetH = 200;
+
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = targetW * dpr;
+            canvas.height = targetH * dpr;
+            var ctx = canvas.getContext('2d');
+            if (dpr > 1) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            var cssW = targetW;
+            var cssH = targetH;
+            ctx.clearRect(0, 0, cssW, cssH);
+
+            // ── Calcular rangos primero (necesario para medir labels) ──
+            var prices = data.map(d => d.precio).filter(p => p != null);
+            if (prices.length === 0) return;
+            var maxPrice = Math.ceil(Math.max(...prices));
+            var minPrice = Math.floor(Math.min(...prices)) - 1;
+            var stepsY = 5;
+
+            // ── Layout limpio con márgenes dinámicos ──
+            ctx.font = '9px -apple-system, sans-serif';
+
+            // Medir labels Y para padLeft
+            var maxYLabelW = 0;
+            for (var i = 0; i <= stepsY; i++) {
+                var priceVal = maxPrice - ((maxPrice - minPrice) / stepsY) * i;
+                var labelStr = '$' + priceVal.toFixed(0);
+                var w = ctx.measureText(labelStr).width;
+                if (w > maxYLabelW) maxYLabelW = w;
+            }
+
+            // Medir último valor para padRight
+            var lastPrice = data[data.length - 1].precio;
+            var lastValueStr = '$' + lastPrice.toFixed(2);
+            var lastValueW = ctx.measureText(lastValueStr).width;
+
+            var padLeft = maxYLabelW + 16;
+            var padRight = Math.max(lastValueW + 30, 55);
+            var chartTop = 48;   // title + legend space
+            var bottomSpace = 35;
+            var chartW = cssW - padLeft - padRight;
+            var chartH = cssH - chartTop - bottomSpace;
+            var centerX = cssW / 2;
+
+            if (chartW < 10 || chartH < 10) return;
+
+            // ── Título ──
+            ctx.fillStyle = '#c8d8f5';
+            ctx.font = 'bold 13px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('¿Cómo ha cambiado el precio esta semana?', centerX, 16);
+
+            // ── Leyenda animada ──
+            var legendY = chartTop - 8;
+            var hue = WTI_HUE;
+            var pulsePhase = time + (hue / 90);
+            var pulseIntensity = 0.5 + 0.5 * Math.sin(pulsePhase * Math.PI * 2);
+            var sat = 90 + 10 * pulseIntensity;
+            var light = 48 + 7 * pulseIntensity;
+            var rgbColor = hslToHex(hue, sat, light);
+
+            // Barra de color pulsante
+            ctx.fillStyle = rgbColor;
+            roundRect(ctx, centerX - 50, legendY - 3, 14, 3, 1.5);
+            ctx.fill();
+            ctx.shadowColor = rgbColor;
+            ctx.shadowBlur = 6 + 6 * pulseIntensity;
+            ctx.fillStyle = rgbColor;
+            roundRect(ctx, centerX - 50, legendY - 3, 14, 3, 1.5);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            // Label leyenda
+            ctx.fillStyle = 'rgba(200, 210, 230, 0.7)';
+            ctx.textAlign = 'left';
+            ctx.fillText('$ por barril', centerX - 32, legendY + 1);
+
+            // ── Grid horizontal y labels Y ──
+            for (var i = 0; i <= stepsY; i++) {
+                var y = chartTop + (chartH / stepsY) * i;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+                ctx.lineWidth = 0.7;
+                ctx.setLineDash([3, 4]);
+                ctx.beginPath();
+                ctx.moveTo(padLeft, y);
+                ctx.lineTo(cssW - padRight, y);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                var priceVal = maxPrice - ((maxPrice - minPrice) / stepsY) * i;
+                ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
+                ctx.font = '9px -apple-system, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText('$' + priceVal.toFixed(0), padLeft - 6, y + 3);
+            }
+
+            // ── Recolectar puntos de la línea WTI ──
+            var linePoints = [];
+            for (var j = 0; j < data.length; j++) {
+                if (data[j].precio == null) continue;
+                var x = padLeft + (chartW / Math.max(data.length - 1, 1)) * j;
+                var y = chartTop + chartH - ((data[j].precio - minPrice) / (maxPrice - minPrice)) * chartH;
+                linePoints.push({ x: x, y: y, fecha: data[j].fecha });
+            }
+
+            if (linePoints.length < 2) return;
+
+            // ── Línea RGB animada con gradiente y pulso ──
+            var pulsePhase = time + (hue / 90);
+            var pulseIntensity = 0.5 + 0.5 * Math.sin(pulsePhase * Math.PI * 2);
+            var currentHue = hue + 15 * Math.sin(pulsePhase * Math.PI);
+            var sat = 85 + 15 * pulseIntensity;
+            var light = 48 + 7 * pulseIntensity;
+
+            var baseColor = hslToHex(currentHue, sat, light);
+            var glowColor = hslToHex(currentHue, 100, 62);
+
+            // Glow pulsante
+            ctx.shadowColor = glowColor;
+            ctx.shadowBlur = 8 + 6 * pulseIntensity;
+
+            // Gradiente a lo largo de la línea
+            var gradient = ctx.createLinearGradient(
+                linePoints[0].x, linePoints[0].y,
+                linePoints[linePoints.length - 1].x, linePoints[linePoints.length - 1].y
+            );
+
+            var gradientSteps = Math.max(linePoints.length, 6);
+            for (var gs = 0; gs <= gradientSteps; gs++) {
+                var t = gs / gradientSteps;
+                var gradHue = currentHue + 35 * Math.sin(t * Math.PI * 2 + time);
+                var gradColor = hslToHex(gradHue, sat, light);
+                gradient.addColorStop(t, gradColor);
+            }
+
+            // Línea principal con gradiente
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 3;
+            ctx.lineJoin = 'round';
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            for (var li = 0; li < linePoints.length; li++) {
+                if (li === 0) ctx.moveTo(linePoints[li].x, linePoints[li].y);
+                else ctx.lineTo(linePoints[li].x, linePoints[li].y);
+            }
+            ctx.stroke();
+
+            // Glow extra detrás de la línea
+            ctx.strokeStyle = glowColor + '35';
+            ctx.lineWidth = 7;
+            ctx.beginPath();
+            for (var li2 = 0; li2 < linePoints.length; li2++) {
+                if (li2 === 0) ctx.moveTo(linePoints[li2].x, linePoints[li2].y);
+                else ctx.lineTo(linePoints[li2].x, linePoints[li2].y);
+            }
+            ctx.stroke();
+
+            // Puntos con efecto neón
+            for (var pi = 0; pi < linePoints.length; pi++) {
+                var pt = linePoints[pi];
+                ctx.fillStyle = baseColor;
+                ctx.beginPath();
+                ctx.arc(pt.x, pt.y, 2.5 + pulseIntensity * 1, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Centro blanco (efecto neón)
+                ctx.fillStyle = 'rgba(255,255,255,' + (0.25 + 0.25 * pulseIntensity) + ')';
+                ctx.beginPath();
+                ctx.arc(pt.x, pt.y, 1.2, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Valor solo en último punto
+                if (pi === linePoints.length - 1) {
+                    var text = '$' + data[data.length - 1].precio.toFixed(2);
+                    ctx.font = 'bold 10px -apple-system, sans-serif';
+                    var tw = ctx.measureText(text).width;
+
+                    // Fondo oscuro detrás del valor
+                    ctx.shadowBlur = 0;
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
+                    roundRect(ctx, pt.x + 10 - 2, pt.y - 9, tw + 16, 15, 4);
+                    ctx.fill();
+
+                    // Texto del valor
+                    ctx.fillStyle = baseColor;
+                    ctx.textAlign = 'left';
+                    ctx.shadowColor = glowColor;
+                    ctx.shadowBlur = 6 * pulseIntensity;
+                    ctx.fillText(text, pt.x + 12, pt.y + 3);
+                    ctx.shadowBlur = 0;
+                }
+            }
+
+            ctx.shadowBlur = 0;
+
+            // ── Labels X (fechas) centrados bajo cada punto ──
+            ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
+            ctx.font = '9px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            for (var j = 0; j < data.length; j++) {
+                var xLabel = padLeft + (chartW / Math.max(data.length - 1, 1)) * j;
+                ctx.fillText(data[j].fecha, xLabel, cssH - bottomSpace + 20);
+            }
+
+            // ── Fuente centrada abajo ──
+            var sourceText = 'Datos de: OilPrice.com';
+            ctx.fillStyle = 'rgba(185, 195, 209, 0.7)';
+            ctx.font = '8px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(sourceText, centerX, cssH - 6);
+        }
+
+        function drawWeeklyPriceChartAnimated(precios, time) {
+            var canvas = document.getElementById('weeklyPriceChart');
+            if (!canvas || !precios || precios.length === 0) return;
+
+            // Tamaño fijo del canvas
+            var targetW = Math.max(500, parseInt(getComputedStyle(canvas).width) || 500);
+            var targetH = 200;
+
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = targetW * dpr;
+            canvas.height = targetH * dpr;
+            var ctx = canvas.getContext('2d');
+            if (dpr > 1) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            var cssW = targetW;
+            var cssH = targetH;
+            ctx.clearRect(0, 0, cssW, cssH);
+
+            // ── Datos: últimos 30 días REALES del historial (consolidado.json) ──
+            var dailyData = window.__weekHist || [];
+            if (dailyData.length === 0) return;
+            // Eje X proporcional a la FECHA: en 30 días hay tramos semanales y
+            // tramos diarios; por índice, 7 días sin dato se verían como uno solo.
+            var diaDe = function(iso) { return Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10)) / 86400000; };
+            var t0 = dailyData[0].iso ? diaDe(dailyData[0].iso) : 0;
+            var tSpan = dailyData[0].iso ? Math.max(diaDe(dailyData[dailyData.length - 1].iso) - t0, 1) : Math.max(dailyData.length - 1, 1);
+            var fraccionX = function(j) { return dailyData[j].iso ? (diaDe(dailyData[j].iso) - t0) / tSpan : j / tSpan; };
+
+            var products = [
+                { key: 'diésel', label: 'Diésel' },
+                { key: 'superior', label: 'Superior' },
+                { key: 'regular', label: 'Regular' }
+            ];
+
+            // ── MEDIR TEXTOS para calcular márgenes exactos ──
+            ctx.font = 'bold 13px -apple-system, sans-serif';
+            var titleW = ctx.measureText('Precios de los últimos 30 días').width;
+
+            ctx.font = '9px -apple-system, sans-serif';
+            // Medir labels Y (Q50, Q48...)
+            var allPrices = [];
+            dailyData.forEach(function(d) {
+                products.forEach(function(p) { if (d[p.key] != null) allPrices.push(d[p.key]); });
+            });
+            var maxPrice = Math.ceil(Math.max(...allPrices));
+            var minPrice = Math.floor(Math.min(...allPrices)) - 1;
+            var stepsY = 5;
+            var maxYLabelW = 0;
+            for (var i = 0; i <= stepsY; i++) {
+                var priceVal = maxPrice - ((maxPrice - minPrice) / stepsY) * i;
+                var labelStr = 'Q' + priceVal.toFixed(0);
+                var w = ctx.measureText(labelStr).width;
+                if (w > maxYLabelW) maxYLabelW = w;
+            }
+
+            // Medir labels X
+            var maxXLabelW = 0;
+            dailyData.forEach(function(d) {
+                var w = ctx.measureText(d.fecha).width;
+                if (w > maxXLabelW) maxXLabelW = w;
+            });
+
+            // Medir leyenda
+            var totalLegendW = 0;
+            for (var pi = 0; pi < products.length; pi++) {
+                var lw = ctx.measureText('● ' + products[pi].label).width;
+                totalLegendW += lw + 24;
+            }
+
+            // ── CALCULAR márgenes basados en mediciones reales ──
+            var padLeft = maxYLabelW + 16;      // ancho label Y + gap
+            var padRight = 55;                   // espacio para valores Qxx al final
+            var titleY = 18;                     // posición del título (arriba)
+            var legendGap = 20;                  // separación título-leyenda
+            var legendH = 14;                    // altura de la leyenda
+            var chartTop = titleY + legendGap + legendH + 6; // inicio gráfico
+            var bottomSpace = 38;                // labels X + fuente abajo
+            var chartW = cssW - padLeft - padRight;
+            var chartH = cssH - chartTop - bottomSpace;
+
+            var centerX = cssW / 2;
+
+            // ── Título (centrado en canvas completo) ──
+            ctx.fillStyle = '#c8d8f5';
+            ctx.font = 'bold 13px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Precios de los últimos 30 días', centerX, titleY);
+
+            // ── Leyenda RGB animada ──
+            var legendY = chartTop - 6;
+            var legendStartX = (cssW - totalLegendW) / 2;
+            var currentX = legendStartX;
+
+            for (var pi = 0; pi < products.length; pi++) {
+                var prod = products[pi];
+                var hue = WEEKLY_HUES[prod.key] || 180;
+                var pulsePhase = time + (hue / 90);
+                var pulseIntensity = 0.5 + 0.5 * Math.sin(pulsePhase * Math.PI * 2);
+
+                // Color pulsante RGB
+                var sat = 90 + 10 * pulseIntensity;
+                var light = 48 + 7 * pulseIntensity;
+                var rgbColor = hslToHex(hue, sat, light);
+
+                ctx.fillStyle = rgbColor;
+                roundRect(ctx, currentX, legendY - 3, 14, 3, 1.5);
+                ctx.fill();
+
+                // Glow pulsante en leyenda
+                ctx.shadowColor = rgbColor;
+                ctx.shadowBlur = 6 + 6 * pulseIntensity;
+                ctx.fillStyle = rgbColor;
+                roundRect(ctx, currentX, legendY - 3, 14, 3, 1.5);
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                ctx.fillStyle = 'rgba(200, 210, 230, 0.7)';
+                ctx.textAlign = 'left';
+                ctx.fillText(prod.label, currentX + 18, legendY + 1);
+
+                var itemW = ctx.measureText('● ' + prod.label).width + 24;
+                currentX += itemW;
+            }
+
+            // ── Grid horizontal y labels Y (max arriba, min abajo) ──
+            for (var i = 0; i <= stepsY; i++) {
+                var y = chartTop + (chartH / stepsY) * i;
+
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+                ctx.lineWidth = 0.7;
+                ctx.setLineDash([3, 4]);
+                ctx.beginPath();
+                ctx.moveTo(padLeft, y);
+                ctx.lineTo(cssW - padRight, y);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                // Label Y (right-aligned)
+                var priceVal = maxPrice - ((maxPrice - minPrice) / stepsY) * i;
+                ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
+                ctx.font = '9px -apple-system, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText('Q' + priceVal.toFixed(0), padLeft - 6, y + 3);
+            }
+
+            // ── Líneas RGB animadas con gradiente y pulso ──
+            for (var pi = 0; pi < products.length; pi++) {
+                var prod = products[pi];
+                var hue = WEEKLY_HUES[prod.key] || 180;
+                var pulsePhase = time + (hue / 90);
+                var pulseIntensity = 0.5 + 0.5 * Math.sin(pulsePhase * Math.PI * 2);
+                var currentHue = hue + 15 * Math.sin(pulsePhase * Math.PI);
+                var sat = 85 + 15 * pulseIntensity;
+                var light = 48 + 7 * pulseIntensity;
+
+                var baseColor = hslToHex(currentHue, sat, light);
+                var glowColor = hslToHex(currentHue, 100, 62);
+
+                // Glow pulsante
+                ctx.shadowColor = glowColor;
+                ctx.shadowBlur = 8 + 6 * pulseIntensity;
+
+                // Recolectar puntos
+                var linePoints = [];
+                for (var j = 0; j < dailyData.length; j++) {
+                    var d = dailyData[j];
+                    var val = d[prod.key];
+                    if (val == null) continue;
+
+                    var x = padLeft + chartW * fraccionX(j);
+                    var y = chartTop + chartH - ((val - minPrice) / (maxPrice - minPrice)) * chartH;
+
+                    linePoints.push({ x: x, y: y, val: val });
+                }
+
+                if (linePoints.length < 2) continue;
+
+                // Gradiente a lo largo de la línea
+                var gradient = ctx.createLinearGradient(
+                    linePoints[0].x, linePoints[0].y,
+                    linePoints[linePoints.length - 1].x, linePoints[linePoints.length - 1].y
+                );
+
+                var gradientSteps = Math.max(linePoints.length, 6);
+                for (var gs = 0; gs <= gradientSteps; gs++) {
+                    var t = gs / gradientSteps;
+                    var gradHue = currentHue + 35 * Math.sin(t * Math.PI * 2 + time);
+                    var gradColor = hslToHex(gradHue, sat, light);
+                    gradient.addColorStop(t, gradColor);
+                }
+
+                // Línea principal con gradiente
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 3;
+                ctx.lineJoin = 'round';
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                for (var li = 0; li < linePoints.length; li++) {
+                    if (li === 0) ctx.moveTo(linePoints[li].x, linePoints[li].y);
+                    else ctx.lineTo(linePoints[li].x, linePoints[li].y);
+                }
+                ctx.stroke();
+
+                // Glow extra detrás de la línea
+                ctx.strokeStyle = glowColor + '35';
+                ctx.lineWidth = 7;
+                ctx.beginPath();
+                for (var li2 = 0; li2 < linePoints.length; li2++) {
+                    if (li2 === 0) ctx.moveTo(linePoints[li2].x, linePoints[li2].y);
+                    else ctx.lineTo(linePoints[li2].x, linePoints[li2].y);
+                }
+                ctx.stroke();
+
+                // Puntos con efecto neón
+                for (var pi2 = 0; pi2 < linePoints.length; pi2++) {
+                    var pt = linePoints[pi2];
+                    ctx.fillStyle = baseColor;
+                    ctx.beginPath();
+                    ctx.arc(pt.x, pt.y, 2.5 + pulseIntensity * 1, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Centro blanco (efecto neón)
+                    ctx.fillStyle = 'rgba(255,255,255,' + (0.25 + 0.25 * pulseIntensity) + ')';
+                    ctx.beginPath();
+                    ctx.arc(pt.x, pt.y, 1.2, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Valor solo en último punto
+                    if (pi2 === linePoints.length - 1) {
+                        var text = 'Q' + pt.val.toFixed(2);
+                        ctx.font = 'bold 10px -apple-system, sans-serif';
+                        var tw = ctx.measureText(text).width;
+
+                        // Fondo oscuro detrás del valor
+                        ctx.shadowBlur = 0;
+                        ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
+                        roundRect(ctx, pt.x + 10 - 2, pt.y - 9, tw + 16, 15, 4);
+                        ctx.fill();
+
+                        // Texto del valor
+                        ctx.fillStyle = baseColor;
+                        ctx.textAlign = 'left';
+                        ctx.shadowColor = glowColor;
+                        ctx.shadowBlur = 6 * pulseIntensity;
+                        ctx.fillText(text, pt.x + 12, pt.y + 3);
+                        ctx.shadowBlur = 0;
+                    }
+                }
+
+                ctx.shadowBlur = 0;
+            }
+
+            if (window.__marcasComunidad) window.__marcasComunidad(ctx, {padLeft: padLeft, chartW: chartW, chartTop: chartTop, chartH: chartH, minPrice: minPrice, maxPrice: maxPrice, time: time});
+
+            // ── Labels X (fechas): desde la más reciente hacia atrás, dejando
+            // al menos 34 px entre etiquetas para que no se encimen ──
+            ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
+            ctx.font = '9px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            var ultimaEtiqueta = Infinity;
+            for (var j = dailyData.length - 1; j >= 0; j--) {
+                var xLabel = padLeft + chartW * fraccionX(j);
+                if (ultimaEtiqueta - xLabel < 34) continue;
+                ctx.fillText(dailyData[j].fecha, xLabel, cssH - bottomSpace + 20);
+                ultimaEtiqueta = xLabel;
+            }
+
+            // ── Fuente centrada abajo ──
+            var sourceText = 'Fuente: MEM + reportes estaciones';
+            ctx.fillStyle = 'rgba(185, 195, 209, 0.7)';
+            ctx.font = '8px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(sourceText, centerX, cssH - 6);
+
+            // ── Calcular y mostrar tendencias semanales RGB ──
+            var trendProducts = [
+                { key: 'superior', label: 'Superior' },
+                { key: 'regular', label: 'Regular' },
+                { key: 'diésel', label: 'Diésel' }
+            ];
+
+            var trendItems = [];
+            for (var tp = 0; tp < trendProducts.length; tp++) {
+                var tProd = trendProducts[tp];
+                var firstVal = null, lastVal = null;
+                for (var td = 0; td < dailyData.length; td++) {
+                    if (dailyData[td][tProd.key] != null) {
+                        if (firstVal === null) firstVal = dailyData[td][tProd.key];
+                        lastVal = dailyData[td][tProd.key];
+                    }
+                }
+                if (firstVal == null || lastVal == null) continue;
+
+                var diff = lastVal - firstVal;
+                var isUp = diff >= 0;
+                var arrow = isUp ? '↑' : '↓';
+                var cls = isUp ? 'trend-up' : 'trend-down';
+                var absDiff = Math.abs(diff).toFixed(2);
+
+                trendItems.push(`<span class="${cls}">${arrow} ${tProd.label}: ${isUp ? 'subió' : 'bajó'} Q${absDiff}</span>`);
+            }
+
+            var trendEl = document.getElementById('weeklyTrendText');
+            if (trendEl) {
+                var html = '<div class="trend-text"><strong>Cambios en 30 días:</strong><br>';
+                for (var ti = 0; ti < trendItems.length; ti++) {
+                    if (ti > 0) html += ' &nbsp;|&nbsp; ';
+                    html += trendItems[ti];
+                }
+                html += '</div>';
+                trendEl.innerHTML = html;
+            }
+        }
+
+        function renderPetroleo(data) {
+            const petroleo = data.petroleo || [];
+
+            if (!petroleo || petroleo.length === 0) return;
+
+            // Solo WTI
+            const wti = petroleo.find(p => p.referencia === 'wti');
+            if (!wti) return;
+
+            // Mostrar precio WTI con card estilizada
+            const priceEl = document.getElementById('wtiPriceCard');
+            priceEl.innerHTML = `
+                <div class="wti-price-card">
+                    <div class="wti-price-value">${fmtUSD(wti.usd_barril)}</div>
+                    <small style="color:var(--text-muted);font-size:0.8rem;">Cada barril cuesta esa cantidad en dólares</small>
+                    <div class="wti-price-label">Es el precio de referencia para la gasolina en Guatemala · Dato del ${fmtFechaCorta(wti.fecha)}</div>
+                </div>
+            `;
+
+            // Gráfica semanal WTI: últimos 7 días REALES del historial (consolidado.json)
+            const wtiWeeklyData = (data.wti_historial || []).map(h => ({
+                fecha: fmtDiaMes(h.fecha),
+                precio: h.precio
+            }));
+
+            window.__wtiData = wtiWeeklyData;
+            const statsEl = document.getElementById('wtiStats');
+            if (statsEl) statsEl.innerHTML = indicadoresWTI(data.wti_historial_30 || []);
+            startWTIWeeklyAnimation();
+        }
+
+        // ──────────────────────────────────────────
+        // Noticias — resumen inteligente + alerta petrolera
+        // ──────────────────────────────────────────
+
+        /**
+         * Agrupa noticias por tema y devuelve las `maxItems` mejores (variedad de temas primero).
+         * Heurística: keywords compartidas en título/resumen = mismo tema.
+         */
+        function agruparNoticias(noticias, maxItems) {
+            if (!noticias || noticias.length === 0) return [];
+
+            // Temas predefinidos con sus palabras clave
+            const temas = [
+                { name: 'petróleo', keywords: ['petrol','oil','crude','barril','wti','aramco','pipeline','oleoducto','refinería','refinery','drill','exploration','producción','production'] },
+                { name: 'conflicto', keywords: ['guerra','war','ataque','attack','drones','drone','russia','ukraine','iran','mideast','middle east','conflict','bomba','bomb','missile','invasion'] },
+                { name: 'exportaciones', keywords: ['export','ban','prohibición','prohibition','embargo','shipping','freight','barrel export'] },
+                { name: 'china', keywords: ['china','chinese','beijing','xi','asia','asian'] },
+                { name: 'energia', keywords: ['energy','gas','lng','liquefied natural gas','electricity','wind','solar','nuclear','renewable','petroleo','gasolina'] },
+            ];
+
+            // Clasificar cada noticia en un tema (el primero que coincida)
+            const clasificados = noticias.map(n => {
+                const text = ((n.titulo || '') + ' ' + (n.resumen_es || '')).toLowerCase();
+                let mejorTema = null;
+                for (const t of temas) {
+                    // Palabras cortas (xi, oil, gas, war, ban…) solo como palabra completa:
+                    // con includes() 'xi' coincidía con 'exime' y un subsidio en
+                    // Guatemala salía como "China y Asia".
+                    if (t.keywords.some(kw => kw.length <= 4
+                            ? new RegExp(`(^|[^a-záéíóúñü])${kw}([^a-záéíóúñü]|$)`).test(text)
+                            : text.includes(kw))) {
+                        mejorTema = t.name;
+                        break;
+                    }
+                }
+                return { ...n, _tema: mejorTema || 'otro' };
+            });
+
+            // Ordenar por relevancia (LLM) primero y fecha después;
+            // sin relevancia todo vale 0 y queda por fecha como antes
+            clasificados.sort((a, b) => {
+                const ra = a.relevancia || 0;
+                const rb = b.relevancia || 0;
+                if (rb !== ra) return rb - ra;
+                const da = a.publicado_at ? new Date(a.publicado_at).getTime() : 0;
+                const db = b.publicado_at ? new Date(b.publicado_at).getTime() : 0;
+                return db - da;
+            });
+
+            // Tomar máximo maxItems totales, priorizando temas con más noticias
+            const porTema = {};
+            for (const n of clasificados) {
+                if (!porTema[n._tema]) porTema[n._tema] = [];
+                if (porTema[n._tema].length < 2) { // max 2 por tema para dar variedad
+                    porTema[n._tema].push(n);
+                }
+            }
+
+            const resultado = [];
+            for (const items of Object.values(porTema)) {
+                resultado.push(...items);
+                if (resultado.length >= maxItems) break;
+            }
+
+            // Completar hasta maxItems: la variedad (máx. 2 por tema) es
+            // preferencia, no tope — si casi todo es de un tema, antes quedaban
+            // 2-4 noticias aunque el backend mandara 10 relevantes.
+            for (const n of clasificados) {
+                if (resultado.length >= maxItems) break;
+                if (!resultado.includes(n)) resultado.push(n);
+            }
+
+            return resultado.slice(0, maxItems);
+        }
+
+        /**
+         * Genera un resumen en español basado en las noticias.
+         * Traduce automáticamente usando detección de patrones en títulos.
+         */
+        function generarResumenNoticias(noticias) {
+            if (!noticias || noticias.length === 0) return '';
+
+            const temas = {};
+            for (const n of noticias) {
+                if (!temas[n._tema]) temas[n._tema] = [];
+                temas[n._tema].push(n);
+            }
+
+            let resumen = '<div style="margin:0 0 10px 0;line-height:1.6;">';
+            const partes = [];
+
+            // Tema petróleo/conflicto primero (más relevante)
+            const ordenTemas = ['petróleo', 'conflicto', 'exportaciones', 'china', 'energia', 'otro'];
+            for (const tema of ordenTemas) {
+                if (!temas[tema]) continue;
+
+                const items = temas[tema];
+                const tituloTema = {
+                    petróleo: pxIcon('barril') + ' Petróleo y energía',
+                    conflicto: pxIcon('espadas') + ' Conflicto geopolítico',
+                    exportaciones: pxIcon('caja') + ' Exportaciones y comercio',
+                    china: pxIcon('globo') + ' China y Asia',
+                    energia: pxIcon('rayo') + ' Energía en general',
+                    otro: pxIcon('periodico') + ' Otras noticias'
+                }[tema] || tema;
+
+                // Generar resumen en español a partir del título + keywords
+                const facts = items.map(n => {
+                    return n.titulo_es || traducirTituloEnEspañol(n);
+                });
+
+                partes.push(`<div class="news-topic-line"><strong>${tituloTema}:</strong> ${facts[0]}</div>`);
+            }
+
+            resumen += partes.join('');
+            resumen += '</div>';
+            resumen += '<p style="margin:0;font-size:0.8rem;color:var(--text-muted);">Basado en las últimas noticias de fuentes internacionales.</p>';
+
+            return resumen;
+        }
+
+        /**
+         * Título a mostrar cuando el backend no trajo `titulo_es`.
+         * NUNCA inventar texto: antes había frases fijas por patrón (ej. cualquier
+         * nota de Venezuela mostraba un discurso de Trump). Se muestra el título
+         * original limpio; la traducción la hace el backend (LLM/MyMemory).
+         */
+        function traducirTituloEnEspañol(n) {
+            let txt = (n.titulo || '').replace(/<[^>]*>/g, '').trim();
+            if (txt.length > 180) txt = txt.substring(0, 180) + '…';
+            return txt;
+        }
+
+        /**
+         * Analiza si las noticias afectan al barril de petróleo y sus derivados.
+         */
+        function analizarImpactoPetrolero(noticias) {
+            if (!noticias || noticias.length === 0) return null;
+
+            // Palabras que indican impacto positivo (subida de precio)
+            const keywordsSubida = [
+                'ataque', 'attack', 'disruption', 'shutdown', 'cierre', 'drone', 'missile',
+                'misil', 'pipeline', 'oleoducto', 'refinería', 'refinery', 'explosion',
+                'explosión', 'destroyed', 'destruido', 'incendio', 'fire',
+                'escasez', 'shortage', 'tightness', 'record', 'record-high', 'ramp up',
+                'sube', 'suben', 'rise', 'increase', 'jump', 'soar', 'explode', 'costs',
+                'freight', 'flete', 'sanción', 'sanciones', 'sanction', 'embargo',
+                'guerra', 'war', 'opec', 'opep', 'recorte', 'cut', 'bloqueo',
+                'alza', 'récord', 'arancel', 'huelga', 'strike', 'export', 'exportación'
+            ];
+
+            // Palabras que indican impacto negativo (bajada de precio)
+            const keywordsBajada = [
+                'restart', 'reativa', 'restaura', 'recuperation', 'rebounds',
+                'exceso', 'surplus', 'decline', 'caída', 'caen', 'bajan', 'baja',
+                'drop', 'crash', 'reserva', 'reserve', 'inventory increase',
+                'stockpile', 'excedente', 'acuerdo', 'deal', 'tregua', 'ceasefire',
+                'reapertura', 'reopen', 'aumenta producción', 'récord de producción'
+            ];
+
+            let score = 0; // -5 a +5, donde + es alza de precio
+            const razones = [];
+            let topNoticia = null;
+            let topContrib = 0;
+
+            for (const n of noticias) {
+                const text = ((n.titulo || '') + ' ' + (n.resumen_es || '')).toLowerCase();
+
+                let contrib = 0;
+                for (const kw of keywordsSubida) {
+                    if (text.includes(kw)) { score += 1; contrib += 1; break; }
+                }
+                for (const kw of keywordsBajada) {
+                    if (text.includes(kw)) { score -= 0.5; contrib -= 0.5; break; }
+                }
+
+                // Eventos específicos con peso alto
+                if (/pipeline.*(attack|damage|shut)/i.test(text)) { score += 2; contrib += 2; }
+                if (/refinería.*(attack|strike|drone)/i.test(text)) { score += 1.5; contrib += 1.5; }
+                if (/diesel.*(ban|export|prohibición)/i.test(text)) { score += 1; contrib += 1; }
+
+                if (Math.abs(contrib) > Math.abs(topContrib)) {
+                    topContrib = contrib;
+                    topNoticia = n;
+                }
+            }
+
+            // Voto del LLM: la relevancia máxima (1-5) empuja el semáforo.
+            // rel 5 → +3 (mínimo medio), rel 4 → +1.5. Y si el LLM marcó
+            // relevancia alta pero las keywords no picaron, piso a medio.
+            const maxRel = Math.max(0, ...noticias.map(n => n.relevancia || 0));
+            score += Math.max(0, maxRel - 3) * 1.5;
+            if (maxRel >= 4 && score > -2 && score < 2) score = 2.5;
+
+            // Determinar nivel de impacto y mensaje
+            let nivel, color, emoji, mensaje;
+            const absScore = Math.abs(score);
+
+            if (absScore < 2) {
+                nivel = 'bajo';
+                color = '#6c757d';
+                emoji = pxIcon('punto', 'color:#c9d3e0', 'px-punto');
+                mensaje = 'Las noticias recientes no muestran un impacto significativo en el precio del barril de petróleo y sus derivados.';
+            } else if (score > 0) {
+                if (absScore >= 5) {
+                    nivel = 'alto';
+                    color = '#e74c3c';
+                    emoji = pxIcon('punto', 'color:#ff3b2f', 'px-punto');
+                    mensaje = `ALERTA: Las noticias sugieren presión al alza en el precio del barril. Se detectaron ${Math.round(score)} señales de disrupción en la oferta (ataques a infraestructura, conflictos geopolíticos, restricciones de exportación).`;
+                } else {
+                    nivel = 'medio';
+                    color = '#f39c12';
+                    emoji = pxIcon('punto', 'color:#ffb300', 'px-punto');
+                    mensaje = `Las noticias recientes podrían tener un impacto moderado en el precio del barril. Se detectaron ${Math.round(score)} señales de tensión en la oferta (conflictos, disrupciones en infraestructura).`;
+                }
+            } else {
+                if (absScore >= 4) {
+                    nivel = 'medio-alta';
+                    color = '#27ae60';
+                    emoji = pxIcon('punto', 'color:#19d26b', 'px-punto');
+                    mensaje = `Las noticias sugieren presión a la baja en el precio del barril. Se detectaron ${Math.round(absScore)} señales de recuperación o exceso de oferta.`;
+                } else {
+                    nivel = 'medio';
+                    color = '#3498db';
+                    emoji = pxIcon('punto', 'color:#38a8f5', 'px-punto');
+                    mensaje = `Se detectaron ${Math.round(absScore)} señales de estabilización en el mercado petrolero (recuperación de infraestructura, aumento de reservas).`;
+                }
+            }
+
+            // Fundamento: la noticia que más pesó en el semáforo, en pocas palabras.
+            // Se devuelve SEPARADO (motivo): en móvil se clava a 2 líneas sin
+            // recortar el resto del mensaje (antes era un solo párrafo ilimitado).
+            let motivo = '';
+            if (topNoticia) {
+                motivo = (topNoticia.titulo_es || traducirTituloEnEspañol(topNoticia)).replace(/<[^>]*>/g, '').trim();
+                if (motivo.length > 110) motivo = motivo.substring(0, 110) + '…';
+            }
+
+            return { nivel, color, emoji, mensaje, motivo, score };
+        }
+
+        function renderNoticias(data) {
+            const list = document.getElementById('newsList');
+            const summaryEl = document.getElementById('newsSummary');
+            const alertEl = document.getElementById('oilImpactAlert');
+            const countEl = document.getElementById('newsCount');
+            const noticiasRaw = data.ultimas_noticias || [];
+
+            if (countEl) {
+                countEl.textContent = `(${data.noticias_count || 0} recientes)`;
+            }
+
+            if (noticiasRaw.length === 0) {
+                list.innerHTML = '<li style="color:var(--text-muted); padding:12px;">Sin noticias disponibles</li>';
+                summaryEl.style.display = 'none';
+                alertEl.style.display = 'none';
+                return;
+            }
+
+            // ── 1. Top 10 (el backend ya dejó una noticia por hecho) ──
+            const filtradas = agruparNoticias(noticiasRaw, 10);
+
+            if (filtradas.length === 0) {
+                list.innerHTML = '<li style="color:var(--text-muted); padding:12px;">Sin noticias relevantes</li>';
+                summaryEl.style.display = 'none';
+                alertEl.style.display = 'none';
+                return;
+            }
+
+            // ── 2. Generar resumen inteligente ──
+            const resumenHTML = generarResumenNoticias(filtradas);
+            if (resumenHTML) {
+                summaryEl.innerHTML = `<div class="news-summary-box">${resumenHTML}</div>`;
+                summaryEl.style.display = 'block';
+            } else {
+                summaryEl.style.display = 'none';
+            }
+
+            // ── 3. Analizar impacto petrolero (semáforo con motivo) ──
+            const impacto = analizarImpactoPetrolero(filtradas);
+            if (impacto) {
+                const lamp = impacto.nivel === 'alto' ? 'red'
+                    : (impacto.color === '#f39c12' ? 'yellow'
+                    : (impacto.nivel === 'bajo' ? '' : 'green'));
+                alertEl.innerHTML = `
+                    <div class="oil-impact-alert semaforo" data-nivel="${impacto.nivel}" style="border-left:4px solid ${impacto.color};margin-top:6px;">
+                        ${svgSemaforo(lamp)}
+                        <div>
+                            <strong>${impacto.emoji} Impacto petrolero — nivel ${impacto.nivel}</strong>
+                            <br><span class="semaforo-msg">${impacto.mensaje}</span>
+                            ${impacto.motivo ? `<div class="semaforo-motivo">Motivo: ${impacto.motivo}</div>` : ''}
+                        </div>
+                    </div>`;
+                alertEl.style.display = 'block';
+            } else {
+                alertEl.style.display = 'none';
+            }
+
+            // ── 4. Lista top 10: tarjetas con ranking + estrellas + mini-resumen ──
+            let html = '';
+            for (let idx = 0; idx < filtradas.length; idx++) {
+                const n = filtradas[idx];
+                const fecha = fmtFechaRelativa(n.publicado_at || '');
+                const tColor = temaColor(n._tema);
+                const temaBadge = n._tema ? `<span class="news-category" style="background:${tColor}20;color:${tColor};">${n._tema}</span>` : '';
+                // Título en español (LLM) o traducido por patrones
+                const tituloEs = n.titulo_es || traducirTituloEnEspañol(n);
+                // Estrellas de relevancia LLM (1-5 = impacto en Guatemala)
+                const stars = n.relevancia ? `<div class="news-stars" title="Impacto estimado en Guatemala: ${n.relevancia}/5">${'★'.repeat(n.relevancia)}${'☆'.repeat(5 - n.relevancia)}</div>` : '';
+                // Mini-resumen del backend (LLM) o del feed, sin HTML.
+                // Si es idéntico al título mostrado, se omite para no duplicar.
+                let snippet = (n.resumen_es || '').replace(/<[^>]*>/g, '').trim();
+                if (snippet === tituloEs.replace(/<[^>]*>/g, '').trim()) snippet = '';
+                if (snippet.length > 220) snippet = snippet.substring(0, 220) + '…';
+
+                html += `
+                    <li class="news-item news-card" style="border-left-color:${tColor}">
+                        <div class="news-rank">${String(idx + 1).padStart(2, '0')}</div>
+                        <div class="news-card-body">
+                            <div class="news-title">
+                                <a href="${n.url}" target="_blank" rel="noopener noreferrer">${tituloEs}</a>
+                            </div>
+                            ${stars}
+                            ${snippet ? `<div class="news-snippet">${snippet}</div>` : ''}
+                            <div class="news-meta">
+                                ${temaBadge}
+                                ${n.medio ? `&middot; ${n.medio}` : ''}
+                                ${fecha ? `&middot; ${fecha}` : ''}
+                            </div>
+                        </div>
+                    </li>`;
+            }
+
+            list.innerHTML = html;
+        }
+
+        function temaColor(tema) {
+            const colors = {
+                petróleo: '#e67e22', conflicto: '#e74c3c', exportaciones: '#9b59b6',
+                china: '#3498db', energia: '#1abc9c', otro: '#95a5a6'
+            };
+            return colors[tema] || '#95a5a6';
+        }
+
+        // ──────────────────────────────────────────
+        // Historial de precios — gráfico RGB animado
+        // ──────────────────────────────────────────
+
+        const HIST_COLORS = {
+            superior: '#0984e3',
+            regular: '#6c5ce7',
+            diésel: '#00b894'
+        };
+
+        let historialVisible = new Set(['superior', 'regular', 'diésel']);
+
+        // Hue base por producto — colores bien diferenciados (rojo, azul, verde)
+        const PRODUCT_HUES = {
+            superior: 10,    // rojo/naranja cálido
+            regular: 260,    // violeta/azul profundo  
+            diésel: 145      // verde lima
+        };
+
+        // ── Historial chart animation — limitada a 2s para evitar flickering en móvil ──
+        let animFrameId = null;
+        const HIST_ANIM_DURATION = 2.0;
+
+        function startHistorialAnimation() {
+            if (animFrameId) cancelAnimationFrame(animFrameId);
+            animTime = 0;
+            function frame() {
+                animTime += 0.015;
+                drawHistorialChartAnimated(window.__histData, window.__histProductos, animTime);
+                if (animTime < HIST_ANIM_DURATION) {
+                    animFrameId = requestAnimationFrame(frame);
+                } else {
+                    drawHistorialChartAnimated(window.__histData, window.__histProductos, HIST_ANIM_DURATION);
+                    animFrameId = null;
+                }
+            }
+            frame();
+        }
+
+        // Helper: HSL a RGB hex
+        function hslToHex(h, s, l) {
+            h /= 360; s /= 100; l /= 100;
+            let r, g, b;
+            if (s === 0) { r = g = b = l; }
+            else {
+                const hue2rgb = (p, q, t) => {
+                    if (t < 0) t += 1; if (t > 1) t -= 1;
+                    if (t < 1/6) return p + (q - p) * 6 * t;
+                    if (t < 1/2) return q;
+                    if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+                    return p;
+                };
+                const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                const p = 2 * l - q;
+                r = Math.round(hue2rgb(p, q, h + 1/3) * 255);
+                g = Math.round(hue2rgb(p, q, h) * 255);
+                b = Math.round(hue2rgb(p, q, h - 1/3) * 255);
+            }
+            return '#' + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
+        }
+
+        function drawHistorialChartAnimated(histData, productos, time) {
+            var c = document.getElementById('historialChart');
+            if (!c || historialVisible.size === 0) return;
+
+            histData = histData || (window.__consData && window.__consData.historial_anual);
+            productos = productos || [
+                { key: 'superior', label: 'Superior' },
+                { key: 'regular', label: 'Regular' },
+                { key: 'diésel', label: 'Diésel' }
+            ];
+            if (!histData || !productos || histData.length === 0) return;
+
+            var rect = c.getBoundingClientRect();
+            var cssW = Math.max(rect.width, 400);
+            var cssH = Math.max(rect.height, 250);
+            if (cssW < 50 || cssH < 50) return;
+
+            const dpr = window.devicePixelRatio || 1;
+            c.width = Math.round(cssW * dpr);
+            c.height = Math.round(cssH * dpr);
+            var ctx = c.getContext('2d');
+            if (dpr > 1) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            ctx.clearRect(0, 0, cssW, cssH);
+
+            // ── Layout limpio como semanal ──
+            var padLeft = 60;
+            var padRight = 20;
+            var chartW = cssW - padLeft - padRight;
+            var chartH = cssH - 58 - 40;
+
+            // Centro
+            var centerX = cssW / 2;
+
+            // Filtrar datos visibles
+            const visibleProducts = productos.filter(p => historialVisible.has(p.key));
+            if (visibleProducts.length === 0) return;
+
+            // Obtener rangos de precios
+            let allPrices = [];
+            for (const row of histData) {
+                for (const p of visibleProducts) {
+                    const val = row[p.key];
+                    if (val !== null && val !== undefined) allPrices.push(val);
+                }
+            }
+            if (allPrices.length === 0) return;
+
+            let minPrice = Math.min(...allPrices);
+            let maxPrice = Math.max(...allPrices);
+            const priceRange = maxPrice - minPrice || 1;
+            minPrice = Math.floor(minPrice / (priceRange * 0.1)) * (priceRange * 0.1);
+            maxPrice = Math.ceil(maxPrice / (priceRange * 0.1)) * (priceRange * 0.1);
+
+            const nYears = histData.length;
+
+            // ── Título ──
+            ctx.fillStyle = '#c8d8f5';
+            ctx.font = 'bold 13px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Historial de Precios Anuales', centerX, 16);
+
+            // ── Leyenda RGB animada ──
+            var legendY = 30;
+            ctx.font = '9px -apple-system, sans-serif';
+            var totalLegendW = 0;
+            for (var pi = 0; pi < visibleProducts.length; pi++) {
+                var lw = ctx.measureText('● ' + visibleProducts[pi].label).width;
+                totalLegendW += lw + 24;
+            }
+            var legendStartX = (cssW - totalLegendW) / 2;
+            var currentX = legendStartX;
+
+            for (var pi = 0; pi < visibleProducts.length; pi++) {
+                var prod = visibleProducts[pi];
+                var hue = PRODUCT_HUES[prod.key] || 180;
+                var rgbColor = hslToHex(hue, 100, 55);
+
+                ctx.fillStyle = rgbColor;
+                roundRect(ctx, currentX, legendY - 3, 14, 3, 1.5);
+                ctx.fill();
+
+                // Glow en leyenda
+                ctx.shadowColor = rgbColor;
+                ctx.shadowBlur = 8;
+                ctx.fillStyle = rgbColor;
+                roundRect(ctx, currentX, legendY - 3, 14, 3, 1.5);
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                ctx.fillStyle = 'rgba(200, 210, 230, 0.7)';
+                ctx.textAlign = 'left';
+                ctx.fillText(prod.label, currentX + 18, legendY + 1);
+
+                var itemW = ctx.measureText('● ' + prod.label).width + 24;
+                currentX += itemW;
+            }
+
+            // ── Grid horizontal (precios) ──
+            const stepsY = 5;
+            for (let i = 0; i <= stepsY; i++) {
+                var y = 58 + chartH - (chartH / stepsY) * i;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+                ctx.lineWidth = 0.7;
+                ctx.setLineDash([3, 4]);
+                ctx.beginPath();
+                ctx.moveTo(padLeft, y);
+                ctx.lineTo(cssW - padRight, y);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                var priceVal = minPrice + ((maxPrice - minPrice) / stepsY) * i;
+                ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
+                ctx.font = '9px -apple-system, sans-serif';
+                ctx.textAlign = 'right';
+                ctx.fillText('Q' + priceVal.toFixed(0), padLeft - 5, y + 3);
+            }
+
+            // ── Grid vertical (años) ──
+            const yearStep = nYears <= 15 ? 1 : nYears <= 25 ? 5 : 10;
+            for (let i = 0; i < nYears; i += yearStep) {
+                var x = padLeft + (chartW / Math.max(nYears - 1, 1)) * i;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+                ctx.beginPath();
+                ctx.moveTo(x, 58);
+                ctx.lineTo(x, cssH - 40);
+                ctx.stroke();
+
+                ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
+                ctx.font = '9px -apple-system, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(histData[i].anio, x, cssH - 40 + 15);
+            }
+
+            // ── Líneas RGB animadas con gradiente y pulso ──
+            for (const prod of visibleProducts) {
+                var hue = PRODUCT_HUES[prod.key] || 180;
+                var pulsePhase = time + (hue / 90);
+                var pulseIntensity = 0.5 + 0.5 * Math.sin(pulsePhase * Math.PI * 2);
+                var currentHue = hue + 15 * Math.sin(pulsePhase * Math.PI);
+                var sat = 85 + 15 * pulseIntensity;
+                var light = 45 + 10 * pulseIntensity;
+
+                var baseColor = hslToHex(currentHue, sat, light);
+                var glowColor = hslToHex(currentHue, 100, 60);
+
+                // Glow pulsante
+                ctx.shadowColor = glowColor;
+                ctx.shadowBlur = 12 + 8 * pulseIntensity;
+
+                // Recolectar puntos de la línea
+                var linePoints = [];
+                for (let i = 0; i < nYears; i++) {
+                    const val = histData[i][prod.key];
+                    if (val === null || val === undefined) continue;
+                    const x = padLeft + (chartW / Math.max(nYears - 1, 1)) * i;
+                    const y = 58 + chartH - ((val - minPrice) / (maxPrice - minPrice)) * chartH;
+                    linePoints.push({ x: x, y: y });
+                }
+
+                if (linePoints.length < 2) continue;
+
+                // Gradiente a lo largo de la línea
+                var gradient = ctx.createLinearGradient(
+                    linePoints[0].x, linePoints[0].y,
+                    linePoints[linePoints.length - 1].x, linePoints[linePoints.length - 1].y
+                );
+
+                var gradientSteps = Math.max(linePoints.length, 8);
+                for (var gs = 0; gs <= gradientSteps; gs++) {
+                    var t = gs / gradientSteps;
+                    var gradHue = currentHue + 40 * Math.sin(t * Math.PI * 2 + time);
+                    var gradColor = hslToHex(gradHue, sat, light);
+                    gradient.addColorStop(t, gradColor);
+                }
+
+                // Línea principal con gradiente
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 3.5;
+                ctx.lineJoin = 'round';
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                for (var li = 0; li < linePoints.length; li++) {
+                    if (li === 0) ctx.moveTo(linePoints[li].x, linePoints[li].y);
+                    else ctx.lineTo(linePoints[li].x, linePoints[li].y);
+                }
+                ctx.stroke();
+
+                // Glow extra detrás de la línea
+                ctx.strokeStyle = glowColor + '40';
+                ctx.lineWidth = 8;
+                ctx.beginPath();
+                for (var li2 = 0; li2 < linePoints.length; li2++) {
+                    if (li2 === 0) ctx.moveTo(linePoints[li2].x, linePoints[li2].y);
+                    else ctx.lineTo(linePoints[li2].x, linePoints[li2].y);
+                }
+                ctx.stroke();
+
+                // Puntos con efecto neón
+                for (var pi2 = 0; pi2 < linePoints.length; pi2++) {
+                    var pt = linePoints[pi2];
+                    ctx.fillStyle = baseColor;
+                    ctx.beginPath();
+                    ctx.arc(pt.x, pt.y, 3.5 + pulseIntensity * 1.5, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Centro blanco (efecto neón)
+                    ctx.fillStyle = 'rgba(255,255,255,' + (0.3 + 0.3 * pulseIntensity) + ')';
+                    ctx.beginPath();
+                    ctx.arc(pt.x, pt.y, 1.5, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.shadowBlur = 0;
+            }
+
+            // ── Fuente centrada abajo ──
+            var sourceText = 'Fuente: MEM + consolidado anual';
+            ctx.fillStyle = 'rgba(185, 195, 209, 0.7)';
+            ctx.font = '8px -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(sourceText, centerX, cssH - 6);
+        }
+
+        function renderHistorial(data) {
+            const histData = data.historial_anual || [];
+            if (!histData || histData.length === 0) return;
+
+            // Ordenar de oldest a newest para el gráfico
+            histData.sort((a, b) => a.anio - b.anio);
+
+            // Guardar globalmente para resize/redraw
+            window.__histData = histData;
+            window.__histProductos = [
+                { key: 'superior', label: 'Superior' },
+                { key: 'regular', label: 'Regular' },
+                { key: 'diésel', label: 'Diésel' }
+            ];
+
+            const productos = [
+                { key: 'superior', label: 'Superior' },
+                { key: 'regular', label: 'Regular' },
+                { key: 'diésel', label: 'Diésel' }
+            ];
+
+            // ── Gráfico Canvas animado RGB ──
+            window.__histData = histData;
+            window.__histProductos = productos;
+            startHistorialAnimation();
+
+            // ── Tabla de datos ──
+            const thead = document.querySelector('#historialTable thead tr');
+            let headHtml = '<th>Año</th>';
+            for (const p of productos) {
+                headHtml += `<th>${p.label} (GTQ/Gal)</th>`;
+            }
+            thead.innerHTML = headHtml;
+
+            const tbody = document.querySelector('#historialTable tbody');
+            let bodyHtml = '';
+            // Mostrar de newest a oldest en la tabla
+            for (let i = histData.length - 1; i >= 0; i--) {
+                const row = histData[i];
+                bodyHtml += `<tr><td>${row.anio}</td>`;
+                for (const p of productos) {
+                    const val = row[p.key];
+                    if (val !== null && val !== undefined) {
+                        bodyHtml += `<td>Q${val.toFixed(2)}</td>`;
+                    } else {
+                        bodyHtml += '<td>-</td>';
+                    }
+                }
+                bodyHtml += '</tr>';
+            }
+            tbody.innerHTML = bodyHtml;
+        }
+
+        // ──────────────────────────────────────────
+        // Carga de datos
+        // ──────────────────────────────────────────
+
+        // consolidado.json (v2) trae la MISMA forma para cada producto:
+        //   productos.<codigo> = {categoria, actual:{fecha,precio,fuente,fetched_at},
+        //                         historial:[{fecha,precio}], anual:[{anio,promedio}]}
+        // Este adaptador la lleva a lo que esperan los renderers.
+        const MESES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+        // 'YYYY-MM-DD' → 'DD/Mes' (sin new Date(): evita corrimientos de zona horaria)
+        function fmtDiaMes(fecha) {
+            return `${fecha.slice(8, 10)}/${MESES[parseInt(fecha.slice(5, 7), 10) - 1]}`;
+        }
+
+        function adaptarConsolidado(c) {
+            const P = c.productos || {};
+            const consensoDe = (p, mod) => (p.modalidades && p.modalidades[mod] && p.modalidades[mod].consenso) || null;
+            const combustibles = Object.entries(P)
+                .filter(([, p]) => p.categoria === 'combustible' && p.actual)
+                .map(([codigo, p]) => ({ producto: codigo, ...p.actual, consenso: consensoDe(p, 'autoservicio') }));
+            // Precios por modalidad (consolidado v3); v2 no trae `modalidades`
+            let preciosModalidades = null;
+            for (const [codigo, p] of Object.entries(P)) {
+                if (p.categoria !== 'combustible' || !p.modalidades) continue;
+                preciosModalidades = preciosModalidades || {};
+                for (const [mod, m] of Object.entries(p.modalidades)) {
+                    if (!m.actual) continue;
+                    (preciosModalidades[mod] = preciosModalidades[mod] || [])
+                        .push({ producto: codigo, ...m.actual, consenso: m.consenso || null });
+                }
+            }
+            const wti = P.wti || {};
+            const anios = new Map();
+            for (const [codigo, p] of Object.entries(P)) {
+                if (p.categoria !== 'combustible') continue;
+                for (const a of p.anual || []) {
+                    if (!anios.has(a.anio)) anios.set(a.anio, { anio: a.anio });
+                    anios.get(a.anio)[codigo] = a.promedio;
+                }
+            }
+            // Últimos 30 días (por fecha) con dato de algún combustible:
+            // [{fecha: 'DD/Mes', iso, superior, regular, diésel}]
+            const dias = new Map();
+            for (const [codigo, p] of Object.entries(P)) {
+                if (p.categoria !== 'combustible') continue;
+                for (const h of p.historial || []) {
+                    if (!dias.has(h.fecha)) dias.set(h.fecha, { fecha: fmtDiaMes(h.fecha), iso: h.fecha });
+                    dias.get(h.fecha)[codigo] = h.precio;
+                }
+            }
+            const fechasHist = [...dias.keys()].sort();
+            const diaUTC = f => Date.UTC(+f.slice(0, 4), +f.slice(5, 7) - 1, +f.slice(8, 10)) / 86400000;
+            const ultimaHist = fechasHist.length ? diaUTC(fechasHist[fechasHist.length - 1]) : 0;
+            const combustiblesHistorial = fechasHist
+                .filter(f => ultimaHist - diaUTC(f) <= 29)
+                .map(f => dias.get(f));
+            return {
+                resumen: {
+                    actualizado_at: c.actualizado_at,
+                    precios_combustible: combustibles,
+                    precios_modalidades: preciosModalidades,
+                    petroleo: wti.actual ? [{
+                        referencia: 'wti', fecha: wti.actual.fecha,
+                        usd_barril: wti.actual.precio, fuente: wti.actual.fuente
+                    }] : [],
+                    wti_historial: (wti.historial || []).slice(-7),
+                    wti_historial_30: (wti.historial || []).slice(-40),
+                    combustibles_historial: combustiblesHistorial,
+                    ultimas_noticias: (c.noticias && c.noticias.top) || [],
+                    noticias_count: (c.noticias && c.noticias.total) || 0
+                },
+                historial: { historial_anual: [...anios.values()] }
+            };
+        }
+
+        async function cargarDashboard() {
+            const loadingEl = document.getElementById('loading');
+            const errorEl = document.getElementById('error');
+            const contentEl = document.getElementById('content');
+            const CACHE_BUST = Date.now();
+
+            // URL única: GitHub raw (siempre funciona, CORS OK)
+            let resData;
+            try {
+                resData = await fetch(`${PRIMARY_DATA_URL}?t=${CACHE_BUST}`);
+                if (!resData.ok) throw new Error(`HTTP ${resData.status}`);
+            } catch (err) {
+                throw new Error('No se pudo cargar consolidado.json: ' + err.message);
+            }
+
+            try {
+                const { resumen: data, historial } = adaptarConsolidado(await resData.json());
+                window.__consData = historial;
+
+                // Renderizar secciones (excepto historial — necesita DOM visible)
+                renderPreciosCombustible(data);
+                renderPetroleo(data);
+                renderNoticias(data);
+
+                // Mostrar contenido, ocultar loading
+                loadingEl.style.display = 'none';
+                contentEl.style.display = 'block';
+
+                // Renderizar historial DESPUÉS de que el DOM sea visible (getBoundingClientRect funciona)
+                renderHistorial(historial);
+            } catch (err) {
+                loadingEl.style.display = 'none';
+                errorEl.style.display = 'block';
+                errorEl.innerHTML = `
+                    <strong>Error al cargar datos</strong><br>
+                    <small style="color:var(--text-muted)">${err.message}</small>
+                `;
+            }
+        }
+
+        // ──────────────────────────────────────────
+        // Inicialización
+        // ──────────────────────────────────────────
+        llenarIconos();
+        cargarDashboard();
+    </script>
+
+<script>
+(function () {
+  var CLAVE = 'proto_dash_comunidad_v1', MIN = 3, TOL = 1.0;
+  var PRODS = [
+    { id: 'superior', nombre: 'Superior', hue: 20 },
+    { id: 'regular',  nombre: 'Regular',  hue: 260 },
+    { id: 'diésel',   nombre: 'Diésel',   hue: 145 }
+  ];
+  function hoy() { return new Date(Date.now() - 6 * 3600 * 1000).toISOString().slice(0, 10); }
+  function load() { try { return JSON.parse(localStorage.getItem(CLAVE)) || {}; } catch (e) { return {}; } }
+  function save() { try { localStorage.setItem(CLAVE, JSON.stringify(E)); } catch (e) {} }
+  var E = load();
+  if (!E.ficha) E.ficha = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Math.random()).slice(2);
+  if (!E.votos) E.votos = [];
+  save();
+
+  function oficial(id) {
+    var w = window.__weekData || [];
+    for (var i = 0; i < w.length; i++) if (w[i].producto === id) return w[i].precio;
+    return null;
+  }
+  function mediana(a) { var s = a.slice().sort(function (x, y) { return x - y; }), m = Math.floor(s.length / 2); return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; }
+  // Estados: sin | debil | coincide | cambio | respaldado  (umbrales de arranque, a calibrar en la fase de prueba)
+  function resumen(id) {
+    var of = oficial(id), vs = E.votos.filter(function (v) { return v.dia === hoy() && v.producto === id; });
+    var conf = vs.filter(function (v) { return v.tipo === 'si'; }).length;
+    var otros = vs.filter(function (v) { return v.tipo === 'otro'; }).map(function (v) { return v.precio; });
+    var med = otros.length ? mediana(otros) : null, estado = 'sin';
+    if (vs.length >= 10) {
+      if (otros.length >= 5) {
+        var cerca = otros.filter(function (x) { return Math.abs(x - med) <= 0.5; }).length;
+        if (cerca / otros.length < 0.6) estado = 'debil';
+        else if (of !== null && Math.abs(med - of) >= TOL) estado = E.externo ? 'respaldado' : 'cambio';
+        else estado = 'coincide';
+      } else estado = (conf / vs.length >= 0.6) ? 'coincide' : 'debil';
+    } else if (vs.length >= 3) estado = 'debil';
+    var aviso = estado === 'cambio' || estado === 'respaldado';
+    return { of: of, total: vs.length, conf: conf, otros: otros.length, med: aviso ? med : null, estado: estado, aviso: aviso,
+             yo: vs.some(function (v) { return v.ficha === E.ficha; }) };
+  }
+  function avisoHtml(r) {
+    var t, x, d = (r.med !== null && r.of !== null) ? Math.abs(r.med - r.of) : 0, dir = (r.med !== null && r.med < r.of) ? 'menos' : 'más';
+    if (r.estado === 'sin') { t = 'Aún sin votos suficientes'; x = 'Sé de los primeros en compartir cuánto pagaste hoy.'; }
+    else if (r.estado === 'debil') { t = 'Pocos votos por ahora'; x = 'Se necesitan más votos para que el resultado sea concluyente.'; }
+    else if (r.estado === 'coincide') { t = 'La comunidad coincide'; x = r.total + ' personas votaron hoy y el precio oficial se mantiene.'; }
+    else if (r.estado === 'cambio') { t = 'Posible cambio de precio'; x = 'La comunidad reporta ' + fmt(r.med) + ' (Q' + d.toFixed(2) + ' ' + dir + ' que el dato oficial). Aún sin confirmar: puede variar por estación.'; }
+    else { t = 'Cambio confirmado'; x = 'La comunidad y una fuente independiente reportan ' + fmt(r.med) + '. El dato oficial puede estar desactualizado.'; }
+    return '<div class="aviso aviso-' + r.estado + '"><b>' + t + '</b><span>' + x + '</span></div>';
+  }
+  function fmt(n) { return 'Q' + n.toFixed(2); }
+
+  function pintar() {
+    var grid = document.getElementById('pulsoGrid'); if (!grid) return;
+    var abiertos = {}; [].forEach.call(grid.querySelectorAll('.pc.abierto'), function (c) { abiertos[c.getAttribute('data-p')] = true; });
+    var totalDia = 0, html = '';
+    PRODS.forEach(function (p) {
+      var r = resumen(p.id); if (r.of === null) return; totalDia += r.total;
+      var ratio = r.total ? r.conf / r.total : 0;
+      var linea = avisoHtml(r);
+      html += '<div class="pc' + (r.yo ? ' votado' : '') + (abiertos[p.id] && !r.yo ? ' abierto' : '') + '" data-p="' + p.id + '" style="--h:' + p.hue + ';--h2:' + ((p.hue + 55) % 360) + '">'
+        + '<div class="pc-top"><div class="ring"><svg viewBox="0 0 48 48"><circle class="bg" cx="24" cy="24" r="18"/><circle class="fg" cx="24" cy="24" r="18" data-r="' + ratio + '"/></svg><b>' + r.total + '</b></div>'
+        + '<div><div class="pc-name"><i></i>' + p.nombre + '</div><div class="pc-precio">' + fmt(r.of) + '</div></div></div>'
+        + '<div class="pc-line">' + linea + '</div>'
+        + '<div class="pc-acts"><button type="button" class="si" data-a="si">Coincide</button><button type="button" data-a="otro">Vi otro</button></div>'
+        + '<div class="tray"><div class="stepper"><button type="button" data-a="menos" aria-label="Bajar diez centavos">&minus;</button>'
+        + '<input type="number" inputmode="decimal" step="0.01" min="10" max="100" value="' + r.of.toFixed(2) + '" aria-label="Precio que viste">'
+        + '<button type="button" data-a="mas" aria-label="Subir diez centavos">+</button></div><button type="button" class="enviar" data-a="enviar">Enviar el precio que vi</button></div>'
+        + '<div class="gracias"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Gracias, tu voto ya cuenta</div>'
+        + '</div>';
+    });
+    grid.innerHTML = html;
+    // el anillo se anima desde 0 hasta su valor (transición sobre stroke-dashoffset)
+    var fgs = grid.querySelectorAll('.fg');
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+      [].forEach.call(fgs, function (c) { c.style.strokeDashoffset = (113.1 * (1 - parseFloat(c.getAttribute('data-r')))).toFixed(1); });
+    }); });
+    document.getElementById('pulsoLive').textContent = totalDia ? totalDia + (totalDia === 1 ? ' voto hoy' : ' votos hoy') : 'hoy';
+    pintarFoot();
+    redibujar();
+  }
+
+  function pintarFoot() {
+    var f = document.getElementById('pulsoFoot'); if (!f) return;
+    var hayVoto = E.votos.some(function (v) { return v.ficha === E.ficha; });
+    if (!hayVoto) { f.textContent = 'Tu voto es anónimo, sin registro, y ayuda a que todos sepamos el precio de hoy.'; return; }
+    if (E.cuenta) { f.textContent = 'Racha conservada en tu cuenta (simulado).'; return; }
+    if (E.ofrecer) { f.innerHTML = 'Continúa con Google para no perder tu racha si cambias de dispositivo.<button type="button" id="btnG">Continuar con Google (simulado)</button>';
+      document.getElementById('btnG').onclick = function () { E.cuenta = true; save(); pintarFoot(); }; return; }
+    f.innerHTML = '<a id="lnkC">Conservar mi racha en otro dispositivo</a>';
+    document.getElementById('lnkC').onclick = function () { E.ofrecer = true; save(); pintarFoot(); };
+  }
+
+  function votar(id, tipo, precio) {
+    var r = resumen(id); if (r.yo) return;
+    if (tipo === 'otro' && (!(precio >= 10 && precio <= 100) || Math.abs(precio - r.of) > 15)) { alert('Ese precio parece fuera de rango. Revísalo, por favor.'); return; }
+    E.votos.push({ dia: hoy(), producto: id, ficha: E.ficha, tipo: tipo, precio: tipo === 'si' ? r.of : precio });
+    save(); pintar();
+  }
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.pc button') : null; if (!b) return;
+    var c = b.closest('.pc'), id = c.getAttribute('data-p'), a = b.getAttribute('data-a'), inp = c.querySelector('input');
+    if (a === 'si') votar(id, 'si');
+    else if (a === 'otro') c.classList.toggle('abierto');
+    else if (a === 'menos') inp.value = (parseFloat(inp.value || 0) - 0.10).toFixed(2);
+    else if (a === 'mas') inp.value = (parseFloat(inp.value || 0) + 0.10).toFixed(2);
+    else if (a === 'enviar') votar(id, 'otro', parseFloat(inp.value));
+  });
+
+  function redibujar() { if (window.__weekData && typeof drawWeeklyPriceChartAnimated === 'function') drawWeeklyPriceChartAnimated(window.__weekData, 1.5); }
+
+  // Marcas sobre la gráfica principal: anillo de "confirmado" o rombo de "la comunidad ve otro precio"
+  window.__marcasComunidad = function (ctx, g) {
+    var rev = Math.min(1, g.time / 1.5);
+    PRODS.forEach(function (p) {
+      var r = resumen(p.id); if (r.of === null || r.total === 0) return;
+      var x = g.padLeft + g.chartW;
+      function yDe(v) { var y = g.chartTop + g.chartH - ((v - g.minPrice) / (g.maxPrice - g.minPrice)) * g.chartH; return Math.max(g.chartTop, Math.min(g.chartTop + g.chartH, y)); }
+      var yO = yDe(r.of), col = hslToHex(p.hue, 90, 60);
+      ctx.save(); ctx.shadowBlur = 0; ctx.lineWidth = 1.6; ctx.strokeStyle = col; ctx.fillStyle = col;
+      if (r.aviso) {
+        var xc = x - 16, yc = yDe(r.med);
+        ctx.setLineDash([3, 3]); ctx.globalAlpha = .8 * rev; ctx.beginPath(); ctx.moveTo(xc, yO); ctx.lineTo(xc, yO + (yc - yO) * rev); ctx.stroke(); ctx.setLineDash([]);
+        ctx.globalAlpha = rev; ctx.beginPath(); ctx.moveTo(xc, yc - 6); ctx.lineTo(xc + 6, yc); ctx.lineTo(xc, yc + 6); ctx.lineTo(xc - 6, yc); ctx.closePath(); ctx.fillStyle = '#0b1220'; ctx.fill(); ctx.stroke();
+        ctx.fillStyle = col; ctx.font = 'bold 9px -apple-system, sans-serif'; ctx.textAlign = 'right';
+        ctx.fillText('Comunidad ' + fmt(r.med), xc - 10, yc + 3);
+      } else if (r.conf > 0) {
+        ctx.globalAlpha = .9 * rev; ctx.beginPath(); ctx.arc(x, yO, 5 + 4 * rev, 0, Math.PI * 2); ctx.stroke();
+      }
+      ctx.restore();
+    });
+  };
+
+  // Engancha el render existente: al terminar de pintar precios, construye el pulso
+  var orig = window.renderPreciosCombustible;
+  window.renderPreciosCombustible = function (d) { orig(d); pintar(); };
+
+  function poner(n, tipoFn) {
+    E.votos = E.votos.filter(function (v) { return v.ficha === E.ficha; });
+    PRODS.forEach(function (p) { var of = oficial(p.id); if (of === null) return;
+      for (var i = 0; i < n; i++) E.votos.push(tipoFn(p, of, i)); });
+  }
+  var simConf = function (p, of, i) { return { dia: hoy(), producto: p.id, ficha: 'sim' + p.id + i + Math.random(), tipo: (i % 3 === 0) ? 'otro' : 'si', precio: (i % 3 === 0) ? +(of + (i % 2 ? .1 : -.1)).toFixed(2) : of }; };
+  var simCambio = function (p, of, i) { return { dia: hoy(), producto: p.id, ficha: 'sim' + p.id + i + Math.random(), tipo: 'otro', precio: +(of - 4.6 + ((i % 5) - 2) * 0.08).toFixed(2) }; };
+  document.getElementById('dPocos').onclick = function () { E.externo = false; poner(4, simConf); save(); pintar(); };
+  document.getElementById('dNormal').onclick = function () { E.externo = false; poner(12, simConf); save(); pintar(); };
+  document.getElementById('dDecreto').onclick = function () { E.externo = false; poner(12, simCambio); save(); pintar(); };
+  document.getElementById('dExterno').onclick = function () { E.externo = true; poner(12, simCambio); save(); pintar(); };
+  document.getElementById('dRes').onclick = function () { try { localStorage.removeItem(CLAVE); } catch (e) {} location.reload(); };
+})();
+</script>
+
+</body>
+</html>
+
+<!-- v2 deployed -->

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototipo - Voto de la comunidad</title>
+<style>
+  :root { --bg:#0e1420; --card:#161f30; --line:#26344d; --txt:#e8edf5; --muted:#b9c3d1; --ok:#37c48a; --warn:#f0b03e; --acc:#4da3ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt); font:16px/1.45 system-ui,Segoe UI,Roboto,sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:20px 16px 60px; }
+  h1 { font-size:1.35rem; margin:0 0 4px; }
+  .demo { background:#3a2c0c; border:1px solid var(--warn); color:#ffe2a3; padding:8px 12px; border-radius:10px; font-size:.85rem; margin:10px 0 18px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin-bottom:14px; }
+  .fila { display:flex; justify-content:space-between; align-items:baseline; gap:8px; flex-wrap:wrap; }
+  .prod { font-weight:700; font-size:1.05rem; }
+  .precio { font-size:1.7rem; font-weight:800; }
+  .sub { color:var(--muted); font-size:.85rem; }
+  .pregunta { margin:12px 0 8px; }
+  .botones { display:flex; gap:10px; flex-wrap:wrap; }
+  button { font:inherit; border:1px solid var(--line); background:#1d2a42; color:var(--txt); padding:11px 16px; border-radius:10px; cursor:pointer; min-height:44px; }
+  button:hover { border-color:var(--acc); }
+  button.si { background:#12382b; border-color:var(--ok); }
+  button.no { background:#3b2a12; border-color:var(--warn); }
+  button.enviar { background:var(--acc); color:#04121f; border-color:var(--acc); font-weight:700; }
+  .otro { display:none; margin-top:10px; gap:10px; align-items:center; flex-wrap:wrap; }
+  .otro.abierto { display:flex; }
+  .otro input { font:inherit; width:130px; padding:10px 12px; border-radius:10px; border:1px solid var(--line); background:#0b111c; color:var(--txt); }
+  .gracias { display:none; margin-top:12px; color:var(--ok); }
+  .gracias.visible { display:block; }
+  .comunidad { margin-top:12px; padding-top:12px; border-top:1px dashed var(--line); font-size:.92rem; }
+  .comunidad b { color:var(--txt); }
+  .etq { display:inline-block; font-size:.72rem; letter-spacing:.04em; text-transform:uppercase; padding:2px 8px; border-radius:99px; border:1px solid var(--line); color:var(--muted); margin-right:6px; }
+  .alerta { color:var(--warn); }
+  .racha { margin:6px 0 16px; color:var(--muted); font-size:.9rem; }
+  .priv { color:var(--muted); font-size:.8rem; margin-top:18px; }
+  .conservar { margin:-10px 0 16px; font-size:.8rem; color:var(--muted); min-height:1.2em; }
+  .conservar a { color:var(--muted); text-decoration:underline; text-underline-offset:3px; cursor:pointer; background:none; border:0; padding:0; min-height:0; font:inherit; }
+  .conservar a:hover { color:var(--txt); }
+  .conservar .g { display:inline-block; margin-left:8px; padding:4px 10px; min-height:0; font-size:.78rem; border-radius:8px; }
+  .panel { margin-top:26px; padding:14px; border:1px dashed var(--line); border-radius:12px; }
+  .panel h2 { font-size:.95rem; margin:0 0 8px; color:var(--muted); }
+  .panel code { color:#9fd0ff; word-break:break-all; }
+  .panel .botones button { font-size:.85rem; padding:8px 12px; min-height:38px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Precios de hoy: ayuda a confirmarlos</h1>
+  <div class="sub">Tu voto es anónimo. No guardamos tus datos personales.</div>
+  <div class="demo">PROTOTIPO: los votos se guardan solo en este navegador y los "otros votantes" son simulados. Los precios del sitio son los del último dato oficial del repo (24-sep-2026).</div>
+  <div class="racha" id="racha"></div>
+  <div class="conservar" id="conservar"></div>
+  <div id="tarjetas"></div>
+
+  <div class="panel">
+    <h2>Panel de demostración (no existirá en la web real)</h2>
+    <div>Tu ficha anónima: <code id="ficha"></code></div>
+    <div class="botones" style="margin-top:10px">
+      <button id="simConf">Simular 6 personas que confirman</button>
+      <button id="simCambio">Simular 5 personas que ven un precio Q4.60 menor (decreto)</button>
+      <button id="reiniciar">Reiniciar demo</button>
+    </div>
+  </div>
+</main>
+
+<script>
+const PRODUCTOS = [
+  { id:'superior', nombre:'Superior', precio:45.29 },
+  { id:'regular',  nombre:'Regular',  precio:43.29 },
+  { id:'diesel',   nombre:'Diésel',   precio:49.40 },
+];
+const MIN_VOTOS = 3;           // mínimo para mostrar mediana de la comunidad
+const TOLERANCIA = 1.00;       // desvío (Q) que dispara "posible cambio"
+const CLAVE = 'proto_voto_comunidad_v1';
+
+function hoy() {
+  // Fecha local de Guatemala (UTC-6, sin DST) sin depender del reloj del equipo
+  const d = new Date(Date.now() - 6 * 3600 * 1000);
+  return d.toISOString().slice(0, 10);
+}
+function cargar() {
+  try { return JSON.parse(localStorage.getItem(CLAVE)) || {}; } catch (e) { return {}; }
+}
+function guardar(e) { try { localStorage.setItem(CLAVE, JSON.stringify(e)); } catch (e2) {} }
+
+let estado = cargar();
+if (!estado.ficha) estado.ficha = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2));
+if (!estado.votos) estado.votos = [];      // {dia, producto, ficha, tipo:'si'|'otro', precio}
+if (!estado.dias) estado.dias = [];        // días en que esta ficha votó (racha)
+guardar(estado);
+
+function mediana(a) {
+  const s = [...a].sort((x, y) => x - y), m = Math.floor(s.length / 2);
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+}
+function yaVoto(prod) {
+  return estado.votos.some(v => v.dia === hoy() && v.producto === prod && v.ficha === estado.ficha);
+}
+function resumen(prod, precioSitio) {
+  const vs = estado.votos.filter(v => v.dia === hoy() && v.producto === prod);
+  // "Sí, coincide" cuenta como un voto con el precio del sitio, pero con peso menor
+  const confirman = vs.filter(v => v.tipo === 'si').length;
+  const otros = vs.filter(v => v.tipo === 'otro').map(v => v.precio);
+  let mediana_otros = null, aviso = false;
+  if (otros.length >= MIN_VOTOS) {
+    mediana_otros = mediana(otros);
+    aviso = Math.abs(mediana_otros - precioSitio) >= TOLERANCIA;
+  }
+  return { total: vs.length, confirman, otros: otros.length, mediana_otros, aviso };
+}
+
+function pintar() {
+  const cont = document.getElementById('tarjetas');
+  cont.innerHTML = '';
+  for (const p of PRODUCTOS) {
+    const r = resumen(p.id, p.precio);
+    const voto = yaVoto(p.id);
+    const el = document.createElement('div');
+    el.className = 'card';
+    let comunidad = '';
+    if (r.total === 0) {
+      comunidad = 'Aún no hay votos hoy. Sé la primera persona en ayudar.';
+    } else {
+      comunidad = `<b>${r.total}</b> ${r.total === 1 ? 'persona votó' : 'personas votaron'} hoy: <b>${r.confirman}</b> confirman el precio`;
+      if (r.otros >= MIN_VOTOS) {
+        comunidad += `; <b>${r.otros}</b> vieron otro precio (mediana <b>Q${r.mediana_otros.toFixed(2)}</b>).`;
+      } else if (r.otros > 0) {
+        comunidad += `; ${r.otros} ${r.otros === 1 ? 'vio' : 'vieron'} otro precio (faltan votos para mostrar la mediana).`;
+      } else { comunidad += '.'; }
+    }
+    if (r.aviso) {
+      comunidad += `<div class="alerta"><span class="etq">Posible cambio</span>La comunidad reporta un precio distinto al oficial (diferencia de Q${Math.abs(r.mediana_otros - p.precio).toFixed(2)}). Se mostrará como aviso hasta que se confirme.</div>`;
+    }
+    el.innerHTML = `
+      <div class="fila"><span class="prod">${p.nombre}</span><span class="precio">Q${p.precio.toFixed(2)}</span></div>
+      <div class="sub">Precio oficial del sitio, por galón, autoservicio</div>
+      ${voto ? `<div class="gracias visible">Gracias. Tu voto de hoy para ${p.nombre} ya cuenta.</div>` : `
+      <div class="pregunta">¿Coincide con lo que viste hoy?</div>
+      <div class="botones">
+        <button class="si" data-a="si" data-p="${p.id}">Sí, coincide</button>
+        <button class="no" data-a="no" data-p="${p.id}">No, vi otro precio</button>
+      </div>
+      <div class="otro" id="otro-${p.id}">
+        <label for="in-${p.id}">Precio que viste: Q</label>
+        <input id="in-${p.id}" type="number" step="0.01" min="10" max="100" inputmode="decimal" placeholder="0.00">
+        <button class="enviar" data-a="enviar" data-p="${p.id}">Enviar</button>
+      </div>`}
+      <div class="comunidad"><span class="etq">Comunidad hoy</span>${comunidad}</div>`;
+    cont.appendChild(el);
+  }
+  const dias = new Set(estado.dias);
+  document.getElementById('racha').textContent = dias.size
+    ? `Llevas ${dias.size} ${dias.size === 1 ? 'día' : 'días'} ayudando en este navegador.`
+    : 'Aún no has votado en este navegador.';
+  document.getElementById('ficha').textContent = estado.ficha.slice(0, 8) + '...';
+  pintarConservar();
+}
+
+// Aviso sutil: solo aparece después de que ESTA persona haya votado; nunca antes ni como banner
+function pintarConservar() {
+  const el = document.getElementById('conservar');
+  const hayVoto = estado.votos.some(v => v.ficha === estado.ficha);
+  if (!hayVoto) { el.innerHTML = ''; return; }
+  if (estado.cuenta) { el.textContent = 'Racha conservada en tu cuenta (simulado).'; return; }
+  if (estado.ofrecer) {
+    el.innerHTML = 'Continúa con Google para no perder tu racha si cambias de dispositivo. <button class="g" id="btnG">Continuar con Google (simulado)</button>';
+    document.getElementById('btnG').onclick = () => { estado.cuenta = true; guardar(estado); pintarConservar(); };
+    return;
+  }
+  el.innerHTML = '<a id="lnkC">Conservar mi racha en otro dispositivo</a>';
+  document.getElementById('lnkC').onclick = () => { estado.ofrecer = true; guardar(estado); pintarConservar(); };
+}
+
+function votar(prod, tipo, precio) {
+  if (yaVoto(prod)) return;
+  const p = PRODUCTOS.find(x => x.id === prod);
+  if (tipo === 'otro') {
+    // Validación de rango: se rechaza lo absurdo (más de Q15 lejos del oficial)
+    if (!(precio >= 10 && precio <= 100) || Math.abs(precio - p.precio) > 15) {
+      alert('Ese precio parece fuera de rango. Revísalo, por favor.');
+      return;
+    }
+  }
+  estado.votos.push({ dia: hoy(), producto: prod, ficha: estado.ficha, tipo, precio: tipo === 'si' ? p.precio : precio });
+  if (!estado.dias.includes(hoy())) estado.dias.push(hoy());
+  guardar(estado);
+  pintar();
+}
+
+document.getElementById('tarjetas').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const prod = b.dataset.p;
+  if (b.dataset.a === 'si') votar(prod, 'si');
+  if (b.dataset.a === 'no') document.getElementById('otro-' + prod).classList.add('abierto');
+  if (b.dataset.a === 'enviar') {
+    const v = parseFloat(document.getElementById('in-' + prod).value);
+    votar(prod, 'otro', v);
+  }
+});
+
+// --- Controles de demostración ---
+function simular(fn) {
+  for (const p of PRODUCTOS) for (let i = 0; i < 6; i++) fn(p, i);
+  guardar(estado); pintar();
+}
+document.getElementById('simConf').onclick = () => simular((p, i) =>
+  estado.votos.push({ dia: hoy(), producto: p.id, ficha: 'sim-c-' + p.id + i, tipo: 'si', precio: p.precio }));
+document.getElementById('simCambio').onclick = () => {
+  for (const p of PRODUCTOS) for (let i = 0; i < 5; i++)
+    estado.votos.push({ dia: hoy(), producto: p.id, ficha: 'sim-x-' + p.id + i, tipo: 'otro', precio: +(p.precio - 4.6 + (i - 2) * 0.05).toFixed(2) });
+  guardar(estado); pintar();
+};
+document.getElementById('reiniciar').onclick = () => { try { localStorage.removeItem(CLAVE); } catch (e) {} location.reload(); };
+
+pintar();
+</script>
+</body>
+</html>

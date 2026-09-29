@@ -1,0 +1,3 @@
+# Valores SOLO de prueba para desarrollo local (este archivo real .dev.vars esta fuera de git)
+VOTOS_SALT=sal-de-prueba-solo-local-1234567890
+EXPORT_TOKEN=token-de-prueba-solo-local-1234567890
