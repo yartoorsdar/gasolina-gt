@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-09-29T04:55:52-06:00",
+  "actualizado_at": "2026-09-29T11:55:09-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-09-28",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-09-28",
         "precio": 43.29,
         "fuente": "Consejo",
-        "fetched_at": "2026-09-29T04:54:44-06:00"
+        "fetched_at": "2026-09-29T11:54:14-06:00"
       },
       "historial": [
         {
@@ -1354,7 +1354,7 @@
             "fecha": "2026-09-28",
             "precio": 43.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-09-29T04:54:44-06:00"
+            "fetched_at": "2026-09-29T11:54:14-06:00"
           },
           "consenso": {
             "fecha": "2026-09-28",
@@ -1446,7 +1446,7 @@
             "fecha": "2026-09-28",
             "precio": 44.23,
             "fuente": "Consejo",
-            "fetched_at": "2026-09-29T04:54:44-06:00"
+            "fetched_at": "2026-09-29T11:54:14-06:00"
           },
           "consenso": {
             "fecha": "2026-09-28",
@@ -1499,7 +1499,7 @@
         "fecha": "2026-09-28",
         "precio": 45.29,
         "fuente": "Consejo",
-        "fetched_at": "2026-09-29T04:54:44-06:00"
+        "fetched_at": "2026-09-29T11:54:14-06:00"
       },
       "historial": [
         {
@@ -2840,7 +2840,7 @@
             "fecha": "2026-09-28",
             "precio": 45.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-09-29T04:54:44-06:00"
+            "fetched_at": "2026-09-29T11:54:14-06:00"
           },
           "consenso": {
             "fecha": "2026-09-28",
@@ -2932,7 +2932,7 @@
             "fecha": "2026-09-28",
             "precio": 46.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-09-29T04:54:44-06:00"
+            "fetched_at": "2026-09-29T11:54:14-06:00"
           },
           "consenso": {
             "fecha": "2026-09-28",
@@ -2985,7 +2985,7 @@
         "fecha": "2026-09-28",
         "precio": 49.39,
         "fuente": "Consejo",
-        "fetched_at": "2026-09-29T04:54:44-06:00"
+        "fetched_at": "2026-09-29T11:54:14-06:00"
       },
       "historial": [
         {
@@ -4322,7 +4322,7 @@
             "fecha": "2026-09-28",
             "precio": 49.39,
             "fuente": "Consejo",
-            "fetched_at": "2026-09-29T04:54:44-06:00"
+            "fetched_at": "2026-09-29T11:54:14-06:00"
           },
           "consenso": {
             "fecha": "2026-09-28",
@@ -4410,7 +4410,7 @@
             "fecha": "2026-09-28",
             "precio": 50.4,
             "fuente": "Consejo",
-            "fetched_at": "2026-09-29T04:54:44-06:00"
+            "fetched_at": "2026-09-29T11:54:14-06:00"
           },
           "consenso": {
             "fecha": "2026-09-28",
@@ -4461,9 +4461,9 @@
       "orden": 4,
       "actual": {
         "fecha": "2026-09-29",
-        "precio": 92.24,
+        "precio": 90.3,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-09-29T04:55:04-06:00"
+        "fetched_at": "2026-09-29T11:54:27-06:00"
       },
       "historial": [
         {
@@ -5520,7 +5520,7 @@
         },
         {
           "fecha": "2026-09-29",
-          "precio": 92.24
+          "precio": 90.3
         }
       ],
       "mensual": [],
@@ -5541,7 +5541,7 @@
         },
         {
           "anio": 2026,
-          "promedio": 83.41,
+          "promedio": 83.4,
           "dias": 196,
           "meses": null,
           "fuente": "diario"
@@ -5552,9 +5552,9 @@
           "nombre": "Spot",
           "actual": {
             "fecha": "2026-09-29",
-            "precio": 92.24,
+            "precio": 90.3,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-09-29T04:55:04-06:00"
+            "fetched_at": "2026-09-29T11:54:27-06:00"
           },
           "consenso": null,
           "historial": [
@@ -5652,7 +5652,7 @@
             },
             {
               "fecha": "2026-09-29",
-              "precio": 92.24
+              "precio": 90.3
             }
           ]
         }
@@ -5709,207 +5709,207 @@
     ]
   },
   "noticias": {
-    "total": 53,
+    "total": 50,
     "top": [
       {
-        "id": 6,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Arabia-Restarts-Red-Sea-Crude-Oil-Loadings.html",
-        "titulo": "Saudi Arabia Restarts Red Sea Crude Oil Loadings",
-        "titulo_es": "Arabia Saudita reinicia las cargas de petróleo crudo del Mar Rojo",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-09-29T04:30:00-06:00",
-        "categoria": "otro",
+        "id": 2,
+        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNQVAtV3RwM2k0VkhjVjdGQ0VlcmlWREtGZENxQWpCdXMwaEpmZjc5cmc5RlFtMm9UUGE5dkVpN1lac1gzUmNMTTVVNjZYMVo0b2x6OVBwbHZNZUN0RnpfLWJrRk92LXZaM2ZZYXBLOGd1QlpCQjEzZEtBemlvSXNqczlyWVZueWZtc2NGd2dYOVpfUWV5cXlmTjVVNjJsZnVQQ3k4enhPMFphTnd6QXdkbDhTeVRWTDVoM21lc1AtcVZQaGRhVTUyS3ZwM1k?oc=5",
+        "titulo": "Cuándo entra en vigencia el subsidio a la gasolina en Guatemala, que aplica exención del IDP e IVA a los combustibles - Prensa Libre",
+        "titulo_es": "Entrada en vigor del subsidio a la gasolina y exención de IDP e IVA",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-24T08:00:00-06:00",
+        "categoria": "finanzas",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Arabia Saudita ha reiniciado las cargas de petróleo crudo en el puerto de Yanbu en el Mar Rojo después de que el oleoducto Este-Oeste reanudara el servicio parcial, informó Reuters el martes, citando datos de seguimiento de buques y fuentes comerciales. Arabia Saudita cerró el oleoducto este-oeste durante dos semanas tras los ataques con aviones no tripulados que dañaron las estaciones de bombeo el 10 de septiembre. El oleoducto que ayuda al Reino a evitar el Strai",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
+        "resumen_es": "El gobierno aplicará un subsidio y eliminará el IDP e IVA a la gasolina, reduciendo directamente el precio para los consumidores guatemaltecos.",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
       },
       {
         "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdWF0YmEtT3Q0UU0wQTE1NWEtTnBzTzgyamtFczFJOW93NGx3REx3MGVVRGZFTDZQQ3pTeWdJb2VMYlRQaDRKX1hDT25RVGthZW1UUmxuQl9MZUZxMkdsUlJXUXNxQWN0R3FocWxHRjJvbTc2ZVlXWFh0NW8yR1hkeEo2WmVYd1dzNzFuQXFQMFhqLWdmTFpnVTgyTFZMeF95UzQ1OTNDY0plb1BZREk3QXNqZDVpdw?oc=5",
-        "titulo": "Gasolina regular con etanol: qué cambió tras el primer mes de uso en Guatemala - prensalibre.com",
-        "titulo_es": "Gasolina regular con etanol: qué cambió tras el primer mes de uso en Guatemala - prensalibre.com",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-23T00:10:00-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Gasolina regular con etanol: qué cambió tras el primer mes de uso en Guatemala prensalibre.com",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
-      },
-      {
-        "id": 5,
-        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQQm9qdmd0eW83NmhMd1MyWHFtLXNycW5xbkpSd1dES3NvSTdVRFVicmJ3ZEU0X3pRQjg1Q3pkMURDa2ZIQmhQNFQ4N2FFUlZfYjhXbkNVT09sclVyR1NRMVJvTk9zYW5pMFJfUUNyX0I3aGVQUHVlenpOaWZnTzJCc0NUSTdiUUN4UGdiN3ktdzhUUXBOZnNTVXd3UWJ1WXNiY2RHNUxR?oc=5",
-        "titulo": "De Guatemala a Siria, el aumento de precios del combustible desata protestas en el mundo - The New York Times",
-        "titulo_es": "De Guatemala a Siria, el aumento de precios del combustible desata protestas en el mundo - The New York Times",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-15T01:00:00-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "De Guatemala a Siria, el aumento de precios del combustible desata protestas en el mundo The New York Times",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
-      },
-      {
-        "id": 15,
-        "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPeVI4aG9kZ1JGR3BvTnlIMzRUaGRjM1NWbWhEejRsTlZRRHJxOUxUZHZveGxNUTVKT0ZPQ3BEVTJla3RWNk1mNDg3ZEtkUVFDUk5XWERHZWxyLXpxMmJkX2h2ZzFDOGx2MENyaWQyYmJmU2dvOXJlWVJhZU1fZXg4Z0VZT2lfNUR5N1BsYmN0SElVZEZvOU4wNkhGRU5lZHFkek5Z?oc=5",
-        "titulo": "Situada a 1.500 km de la frontera, la principal refinería de petróleo de Rusia se encuentra paralizada por un ataque. - Vietnam.vn",
-        "titulo_es": "Situada a 1.500 km de la frontera, la principal refinería de petróleo de Rusia se encuentra paralizada por un ataque. -",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-26T18:36:36-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Situada a 1.500 km de la frontera, la principal refinería de petróleo de Rusia se encuentra paralizada por un ataque. Vietnam.vn",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
-      },
-      {
-        "id": 20,
-        "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNWVIwYkp0R281ZXpZSkNOMDhJT1p1SXgyNFpsaVc0VE9KMXZXNjFac19EbWJtallxMFFwYjJMR09iZGVLZi02U2JSSlV6dFMxOTQ5MzBwVVN5MlVCVVRfYm9EZDNIbFhrZTRXa3VHYkdQU2NqbGVPMllUMzFPZGFZd25KTHN6RGlkTnNrUDNzRGxSMEdYWFd2WlNsVWdpTWRjWi03ano4d0lVTXF4X2Z2bXhlVXJHQ3pkcEMwbjJPZ2NEMTRaYmJLTTdPei14TFM1a0g1azhOeEl3RzNhbnpCXzQ4QQ?oc=5",
-        "titulo": "Atacan con drones una importante refinería de la petrolera rusa LUKOIL por segunda vez desde agosto - UNITED24 Media",
-        "titulo_es": "Atacan con drones una importante refinería de la petrolera rusa LUKOIL por segunda vez desde agosto - UNITED24 Media",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-25T02:09:09-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Atacan con drones una importante refinería de la petrolera rusa LUKOIL por segunda vez desde agosto <font",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
-      },
-      {
-        "id": 1,
-        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNQVAtV3RwM2k0VkhjVjdGQ0VlcmlWREtGZENxQWpCdXMwaEpmZjc5cmc5RlFtMm9UUGE5dkVpN1lac1gzUmNMTTVVNjZYMVo0b2x6OVBwbHZNZUN0RnpfLWJrRk92LXZaM2ZZYXBLOGd1QlpCQjEzZEtBemlvSXNqczlyWVZueWZtc2NGd2dYOVpfUWV5cXlmTjVVNjJsZnVQQ3k4enhPMFphTnd6QXdkbDhTeVRWTDVoM21lc1AtcVZQaGRhVTUyS3ZwM1k?oc=5",
-        "titulo": "Cuándo entra en vigencia el subsidio a la gasolina en Guatemala, que aplica exención del IDP e IVA a los combustibles - prensalibre.com",
-        "titulo_es": "Guatemala implementa subsidio a la gasolina con exención de IDP e IVA",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-24T08:00:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El gobierno otorga exención de IDP e IVA a la gasolina, reduciendo su precio al consumidor y aliviando la carga económica.",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
-      },
-      {
-        "id": 3,
         "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOaGZoNlkweHJDOGYwTGt4QUZRV0Y3X3JnQXFtQWFLdXFhZTB0T2w0TFVYUDF0OUpMdVhzdV8tLWxSN2V0dk95WE5sZ3RqdjBKSWFZZlgxZEMzUmlpZmRvb202RHBqY2ozUjdoZV9uT2s2NjVZRVprMGNfWXk5bTNRMnRJSTUzSFIyY0ZLUi1NMUVWX05ma29nVTFVaWs3TThhaHBwNE5uTQ?oc=5",
         "titulo": "Guatemala elimina impuestos a combustibles - elsalvador.com",
         "titulo_es": "Guatemala elimina impuestos a los combustibles",
         "medio": "Google News ES",
         "publicado_at": "2026-09-23T07:54:19-06:00",
+        "categoria": "finanzas",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "La eliminación de impuestos sobre los combustibles baja el costo final al consumidor, impactando positivamente los precios internos.",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
+      },
+      {
+        "id": 7,
+        "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNV3hlay1yMTRXcktza1lnNEM2TFFta0ROOERuSGIzYjg1SlZDRW81ZVR4Tjg2V0trTmJHTlkzeTVQQjA2OUJuNHBaVHBIc0JMV0VNVDNLeDZMZ0lOV2RqWjBZbS1KNzNXT0dPaGltQkFYT3A5ZUwyZVJ3U2FJaWd4aFYxSjJocllfd2ZxVnk2Qzk0NUo4V2I0WnpSYndxSG84bXM0a1RSNTRGdk95ZURWQUFrU2taRHc?oc=5",
+        "titulo": "The East-West Pipeline Attack Exposes the Limits of Hormuz Contingency Planning - Geopolitical Monitor",
+        "titulo_es": "Ataque al oleoducto East-West revela límites de la planificación en el estrecho de Hormuz",
+        "medio": "Google News EN",
+        "publicado_at": "2026-09-29T09:16:28-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El sabotaje al oleoducto East-West expone vulnerabilidades en la cadena de suministro de crudo, pudiendo elevar los precios del petróleo importado por Guatemala.",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
+      },
+      {
+        "id": 9,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Arabia-Restarts-Red-Sea-Crude-Oil-Loadings.html",
+        "titulo": "Saudi Arabia Restarts Red Sea Crude Oil Loadings",
+        "titulo_es": "Arabia Saudita reanuda cargamentos de crudo en el puerto de Yanbu tras interrupción",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-29T04:30:00-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El reinicio de los cargamentos de crudo en Yanbu, después de la pausa del oleoducto East-West, restablece parte del suministro global, aliviando potenciales aumentos de precios en Guatemala.",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
+      },
+      {
+        "id": 1,
+        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZ2F1REJtMnRyV3U2dWlUeFpJYWk2YUp0Wng5dVd2T0ZlS3FYQnRCNzRBNmdkbDJ6aEVRcUY3bDdic181azdad3NmbEFLSzF3ZnFDNHlybnFHYlpNbi1MdWVIam9iMjV4cUNuTDA4SEZjRnhvN1RFWmpiNE1LakF0Tl9JbzYtYmNDZmRIZU4wNXFkdlk2RnFmMzlZbEwyM1p5Qm81dWR4Nm1XNC0x?oc=5",
+        "titulo": "Combustibles en Guatemala: precios actuales y perspectivas para el 2027 - Prensa Libre",
+        "titulo_es": "Combustibles en Guatemala: precios actuales y perspectivas hasta 2027",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-29T00:10:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "El Estado suprime los impuestos a los combustibles, lo que disminuirá el costo del combustible importado y beneficiará a los usuarios.",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
+        "resumen_es": "Se presentan los precios vigentes y proyecciones hasta 2027, lo que ayuda a anticipar la evolución del costo del combustible en Guatemala.",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
       },
       {
-        "id": 22,
-        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNcnJqNEJNOEgxaC1YcXNtNzljeWxKdlJmM0pMMUM0UlpoMklBR1ZSWFI0REVjWlVZMWxlV2FxRWlMLXpvWXBqTVpjTHNVVDVYZXRhWEZ1ZVFlVHJXcTBHaGMtY3ZtOC16N0lubjFxZzByT1hmX0NiTzBwN3Z2SVBURXQ2cE55d21kSmRxRklCaFg2X3hQMXliQUJBZTQ?oc=5",
-        "titulo": "Arde en llamas una refinería de petróleo de Moscú tras un ataque ucraniano, según un vídeo publicado por Zelensky - CNN en Español",
-        "titulo_es": "Arde en llamas una refinería de petróleo de Moscú tras un ataque ucraniano, según un vídeo publicado por Zelensky - CNN",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-20T01:00:00-06:00",
-        "categoria": "otro",
+        "id": 11,
+        "url": "https://oilprice.com/Energy/Energy-General/Hormuz-Rerouting-Doubles-Cape-Traffic-Without-Delivering-a-Windfall.html",
+        "titulo": "Hormuz Rerouting Doubles Cape Traffic Without Delivering a Windfall",
+        "titulo_es": "Desvío de buques por Hormuz duplica tráfico en el Cabo sin generar ganancias",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-28T18:00:00-06:00",
+        "categoria": "geopolitica",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Arde en llamas una refinería de petróleo de Moscú tras un ataque ucraniano, según un vídeo publicado por Zelensky CNN en Español",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
+        "resumen_es": "El cierre parcial del estrecho de Hormuz obliga a redirigir el tráfico marítimo, encareciendo el transporte de crudo y pudiendo elevar los precios del petróleo importado por Guatemala.",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
       },
       {
-        "id": 23,
-        "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNNTBCU2k5T3h1c0RySEEyQTNVeUdtT2ltYXBKaUtpVUc3VmZlRmxHR3pMZXh0UzdESDJsN1h1ZEZlTXdDQlJ6SDYwSExLT2ViM1RsWHJjYjI3QUgxRjM3MkRNVkdsSF9pSG00dndjM2FWa1BHel9jUFpvUDZ1cWlFOWh1bjBRcGt5RGpmaDdhbkxMZ2gyYk10emZUd0NHVFFEd3hR?oc=5",
-        "titulo": "El petróleo supera los 108 dólares tras los últimos ataques en Ormuz y el cierre de oleoducto en Arabia Saudí - Yahoo Finanzas",
-        "titulo_es": "El petróleo supera los 108 dólares tras los últimos ataques en Ormuz y el cierre de oleoducto en Arabia Saudí - Yahoo Fi",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-14T01:00:00-06:00",
-        "categoria": "otro",
+        "id": 8,
+        "url": "https://oilprice.com/Energy/Energy-General/The-Hidden-Tradeoffs-of-a-US-Diesel-Export-Ban.html",
+        "titulo": "The Hidden Tradeoffs of a U.S. Diesel Export Ban",
+        "titulo_es": "Los costos ocultos de la prohibición de exportación de diésel de EE. UU.",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-29T08:00:00-06:00",
+        "categoria": "diplomacia",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El petróleo supera los 108 dólares tras los últimos ataques en Ormuz y el cierre de oleoducto en Arabia Saudí Yahoo Finanzas",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
+        "relevancia": 3,
+        "resumen_es": "La prohibición de exportar diésel de EE. UU. busca aumentar la oferta interna, pero puede reducir la disponibilidad mundial y presionar al alza los precios del diésel importado por Guatemala.",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
       },
       {
-        "id": 2,
+        "id": 3,
         "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOYVQzdWs1Ri1rTm5weExQdkRkc0ZQeHhSdFcwRmdIVDZsX2pUWlJ0S3ZaUGt6Z0h2Y09sS3BDQ3V3RUZjSWNsM3NtRUtsTmVRR0c2VkphRmtEeXNGNno2Rm1SLWpWdmR1SUxzSTdud0o1c3VBMGh1MGtKbTN4U19vckc3Ym5kVTJLaUhPWXVPSnJkSVRyaW9yS3ZuZnhHUWhsZ0JucjMySzJOUW5NOWdIMEJXdE1zbnJETGVwUGFTRWpBSWg1OUphNDJoTlFoRmN0cU00N2tWckhKZ1k?oc=5",
-        "titulo": "Precio de los combustibles en Guatemala: estos son los precios de galón de regular y super en autoservicio - prensalibre.com",
-        "titulo_es": "Precios actuales del galón de gasolina regular y super en Guatemala",
+        "titulo": "Precio de los combustibles en Guatemala: estos son los precios de galón de regular y super en autoservicio - Prensa Libre",
+        "titulo_es": "Precios de galón de gasolina regular y super en autoservicio en Guatemala",
         "medio": "Google News ES",
         "publicado_at": "2026-09-23T15:56:37-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 3,
-        "resumen_es": "Se publican los precios del galón de gasolina regular y super en estaciones de autoservicio, información clave para monitorear el mercado interno.",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
+        "resumen_es": "Se publican los precios actuales por galón de gasolina regular y super, información clave para el gasto de los usuarios y la demanda interna.",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
       },
       {
-        "id": 24,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/India-Unlikely-to-Ditch-Russian-Oil-Despite-Trumps-100-Tariff-Threat.html",
-        "titulo": "India Unlikely to Ditch Russian Oil Despite Trump's 100% Tariff Threat",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-09-29T03:30:00-06:00",
-        "categoria": null,
+        "id": 5,
+        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOdWF0YmEtT3Q0UU0wQTE1NWEtTnBzTzgyamtFczFJOW93NGx3REx3MGVVRGZFTDZQQ3pTeWdJb2VMYlRQaDRKX1hDT25RVGthZW1UUmxuQl9MZUZxMkdsUlJXUXNxQWN0R3FocWxHRjJvbTc2ZVlXWFh0NW8yR1hkeEo2WmVYd1dzNzFuQXFQMFhqLWdmTFpnVTgyTFZMeF95UzQ1OTNDY0plb1BZREk3QXNqZDVpdw?oc=5",
+        "titulo": "Gasolina regular con etanol: qué cambió tras el primer mes de uso en Guatemala - Prensa Libre",
+        "titulo_es": "Gasolina regular con etanol: cambios tras el primer mes de uso en Guatemala",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-23T00:10:00-06:00",
+        "categoria": "oferta",
         "pais": null,
-        "relevancia": null,
-        "resumen_es": "India cannot and likely will not replace all the Russian crude oil it is importing despite the threat of 100% tariffs on its products in the United States, according to analysts. Earlier this month, U.S. President Donald Trump signed into law the “Lindsey O. Graham Sanctioning Russia and Iran Act of 2026,” which authorizes and expands statutory sanctions, tariffs, and prohibitions on Russia and extends existing sanctions on Iran. The law allows the President to potentially impose trade tariffs",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
+        "relevancia": 3,
+        "resumen_es": "Tras un mes de uso del blend con etanol, se analizan sus efectos en el precio y la oferta de combustible en el país.",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
       },
       {
-        "id": 25,
-        "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9WMFNmeUp5b1lndmttY0hCMVpEWDlSSVJHNHVTX2stM2xSaWxkNGxWbUEwY3d5QXFGdUdZY0Fma2FxTjVScmdFY1hMWWxQTHpIZTdpVTk3d3V4blpuRjkya1BDMmRBYnllbmc?oc=5",
-        "titulo": "Trump Denies Offering Iran Sanctions Relief as Hormuz Dispute Weighs on Oil Markets - Межа. Новини України.",
-        "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-09-29T03:29:44-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Trump Denies Offering Iran Sanctions Relief as Hormuz Dispute Weighs on Oil Markets Межа. Новини України.",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
-      },
-      {
-        "id": 7,
+        "id": 10,
         "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQN094RE1PUXV0X3R4THV5MUw4MTNuNm0wdjJndi1pdlVOMUtlUHF6cTRBdmctaDlxWm9KZ3lUOVk2ZFhucElfbW14dnpxbDMzNXo4NUJXMjl4dllJSTUwX2NUZ2hlbjVpS21TTThKSW5LOG8tWVdvOUZvSy1aWUI1MHpsS1lObXkzLTFudWdsQkpvcDQyRU1zU1JnNncxekpLNUpGZHFB?oc=5",
         "titulo": "Sabotage halts Syria gas pipeline in latest attack on energy sector - Euronews.com",
-        "titulo_es": null,
+        "titulo_es": "Sabotaje detiene el gasoducto sirio, nuevo ataque al sector energético",
         "medio": "Google News EN",
         "publicado_at": "2026-09-29T03:05:23-06:00",
-        "categoria": null,
+        "categoria": "infraestructura",
         "pais": null,
-        "relevancia": null,
-        "resumen_es": "Sabotage halts Syria gas pipeline in latest attack on energy sector Euronews.com",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
+        "relevancia": 2,
+        "resumen_es": "El sabotaje al gasoducto en Siria interrumpe el suministro de gas, lo que podría afectar los precios internacionales del gas y, en menor medida, los costos energéticos en Guatemala.",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
       },
       {
-        "id": 35,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Argentina-Threatens-UK-with-Court-Action-Over-Falklands-Oil-Drilling.html",
-        "titulo": "Argentina Threatens UK with Court Action Over Falklands Oil Drilling",
+        "id": 6,
+        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQQm9qdmd0eW83NmhMd1MyWHFtLXNycW5xbkpSd1dES3NvSTdVRFVicmJ3ZEU0X3pRQjg1Q3pkMURDa2ZIQmhQNFQ4N2FFUlZfYjhXbkNVT09sclVyR1NRMVJvTk9zYW5pMFJfUUNyX0I3aGVQUHVlenpOaWZnTzJCc0NUSTdiUUN4UGdiN3ktdzhUUXBOZnNTVXd3UWJ1WXNiY2RHNUxR?oc=5",
+        "titulo": "De Guatemala a Siria, el aumento de precios del combustible desata protestas en el mundo - The New York Times",
+        "titulo_es": "Aumento de precios del combustible desencadena protestas a nivel mundial",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-15T01:00:00-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "El alza global de precios del combustible genera protestas, lo que puede presionar los precios internacionales y afectar a Guatemala como importadora.",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
+      },
+      {
+        "id": 20,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/EU-Weighs-One-Year-Delay-to-Methane-Rules-as-Winter-Energy-Risks-Rise.html",
+        "titulo": "EU Weighs One-Year Delay to Methane Rules as Winter Energy Risks Rise",
         "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-09-29T02:00:00-06:00",
+        "publicado_at": "2026-09-29T11:00:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "Argentina will sue the UK unless it suspends an oil drilling project off the coast of the Falkland Islands, the BBC has reported, citing an X post by Argentine president Javier Milei. \"I instructed the Foreign Ministry and our legal teams to initiate international arbitration against the United Kingdom for the illegal plundering of our resources through the Sea Lion Project in the North Malvinas Basin,\" the Argentine president wrote on the social media platform. \"If in 2 weeks the United Kingdom",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
+        "resumen_es": "The European Union is considering delaying methane reporting rules for imported oil and gas by as much as a year as tight fuel supplies and rising prices collide with Brussels’ climate agenda. The rules are set to take effect on January 1, 2027. Foreign oil and gas producers supplying the EU would be required to monitor and report methane emissions, with penalties for noncompliance. EU Energy Commissioner Dan Jorgensen said Tuesday that officials are examining whether to postpone the import prov",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
       },
       {
-        "id": 26,
-        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNRkdaWjNOci14UXNCWkVabU4tMVJGY0Q0RXRXWEJId1Z4MEMzWXB3OElQVTJRd1NDdEJVeTJ6TmwzdXp4U3dMeTVrajFpemprbkg2Q200NlZVeG1TcDNkZktSQm5aRG9pclVWaFFpNnlyX0VBQnZYVHdSTnUzZFRySU10SzRpazNoZlNNWUVlWnM2X2pyVXVycjEzVk8?oc=5",
-        "titulo": "Russia’s oil problem: How Ukraine is changing the energy economics of the war - Latest news from Azerbaijan",
+        "id": 21,
+        "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPajNGemVzZDFBQjBNU0FLVzhrT1ZtU2Vrc0xiR3dBRC1PM2J1VzVidjd4dG9HVDJPSDJUdFluV2w5cFQ2b251Tm1VU05oMVF6X1dfRnRWc0VfTWpQMTFOVzZQOXZjS1A2c21PLTZlQk1TdXNkRG9kVzJCN2VCNHJzcGQyZ19mRHVaV2lmN2lmbGJKOHN4UHNTTVdubURpSF9tb0tuN0ZLcmxqYVozS1ZkSkluY0hZbnhN?oc=5",
+        "titulo": "Trump’s proposed diesel export ban spurs fear of energy crunch in Europe - The Washington Post",
         "titulo_es": null,
         "medio": "Google News EN",
-        "publicado_at": "2026-09-29T01:36:34-06:00",
+        "publicado_at": "2026-09-29T10:42:14-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "Russia’s oil problem: How Ukraine is changing the energy economics of the war Latest news from Azerbaijan",
-        "fetched_at": "2026-09-29T04:55:51-06:00"
+        "resumen_es": "Trump’s proposed diesel export ban spurs fear of energy crunch in Europe The Washington Post",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
+      },
+      {
+        "id": 22,
+        "url": "https://oilprice.com/Energy/Crude-Oil/Iran-Talks-Take-the-Heat-Out-of-the-Oil-Rally.html",
+        "titulo": "Iran Talks Take the Heat Out of the Oil Rally",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-29T09:30:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Oil prices ease as renewed Iran talks and recovering Saudi exports temper supply fears. Europe’s LNG Buying Spree Comes With the Clock Ticking - Europe is finally ramping up imports of liquefied natural gas ahead of the winter heating season, following a disappointing summer when deliveries were 30% below 2025 levels. - The 30-day moving average of Europe’s LNG imports stood at 267,000 metric tonnes per day, catching up with last year’s trendline, thanks to a recovery in US LNG flows, accountin",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
+      },
+      {
+        "id": 23,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Dangote-Targets-10-Million-Investors-in-Africas-Biggest-IPO.html",
+        "titulo": "Dangote Targets 10 Million Investors in Africa’s Biggest IPO",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-09-29T09:30:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "The Dangote refinery in Nigeria is going public as Africa’s richest man, Aliko Dangote, is targeting 10 million retail investors in the “IPO for the people” pitch of Africa’s biggest initial public offering. The Dangote group this month launched a widespread marketing campaign to attract retail investors as part of the IPO planned to raise $1.6 billion and valuing the largest refinery in Africa at $47 billion. The ‘IPO for the people’ could boost the number of retail shareholder accounts in Ni",
+        "fetched_at": "2026-09-29T11:55:09-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 10,
-      "total_hoy": 53,
+      "titulos_es_hoy": 11,
+      "total_hoy": 50,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
