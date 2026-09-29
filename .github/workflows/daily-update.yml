@@ -3,16 +3,26 @@
 name: Daily Update — GPP + Petróleo + Noticias
 
 on:
-  # Cada día a las 08:00 AM (hora Guatemala = UTC-6)
+  # RED DE SEGURIDAD: GitHub retrasa los crons gratuitos 4-6 h (medido en este repo), por eso
+  # los runs puntuales de las 04:52 y 11:52 hora de Guatemala (para tener datos a las 05:00 y
+  # 12:00) los DISPARA Cloudflare con workflow_dispatch (votos-api, scheduled). Este cron solo
+  # corre si Cloudflare falló: scripts/frescura.py lo salta si ya hay datos de hace < 6 h.
   schedule:
-    - cron: '0 14 * * *'  # 14:00 UTC = 08:00 CST
+    - cron: '0 16 * * *'
 
-  # Ejecución manual desde GitHub UI
+  # Ejecución manual desde GitHub UI y disparo puntual de Cloudflare
   workflow_dispatch:
 
-  # Disparar en push a main (para que los fixes se apliquen al instante)
+  # Push a main: SOLO si cambia algo que afecta a los datos. Cambios de documentación o de
+  # interfaz (index.html, tests, README...) ya no gastan llamadas de OilPriceAPI ni del LLM.
   push:
     branches: [main]
+    paths:
+      - 'collector/**'
+      - 'scripts/**'
+      - 'config.json'
+      - 'requirements.txt'
+      - '.github/workflows/daily-update.yml'
 
 jobs:
   update-daily:
@@ -40,30 +50,41 @@ jobs:
         with:
           python-version: '3.11'
 
+      # Solo el run programado por GitHub puede saltarse (ver scripts/frescura.py).
+      - name: Comprobar si ya hay datos frescos
+        id: frescura
+        shell: bash
+        run: python scripts/frescura.py "${{ github.event_name }}" >> "$GITHUB_OUTPUT"
+
       - name: Install dependencies
+        if: steps.frescura.outputs.saltar != 'true'
         run: |
           pip install --no-cache-dir -r requirements.txt
           playwright install chromium
 
       - name: Create data directories
+        if: steps.frescura.outputs.saltar != 'true'
         run: |
           New-Item -ItemType Directory -Force -Path "data\inbox\historico"
           New-Item -ItemType Directory -Force -Path "data\inbox\votos"
           New-Item -ItemType Directory -Force -Path "logs"
 
       - name: Validar feeds RSS
+        if: steps.frescura.outputs.saltar != 'true'
         continue-on-error: true
         run: python scripts/validar_feeds.py
 
       # Votos ciudadanos (votos-api, Cloudflare): baja los de ayer y hoy para la calibración.
       # Sin el secreto VOTOS_EXPORT_TOKEN o con el servidor caído se omite sin fallar el run.
       - name: Descargar votos ciudadanos
+        if: steps.frescura.outputs.saltar != 'true'
         continue-on-error: true
         env:
           VOTOS_EXPORT_TOKEN: ${{ secrets.VOTOS_EXPORT_TOKEN || secrets.EXPORT_TOKEN }}
         run: python scripts/descargar_votos.py
 
       - name: Run GPP + petróleo + noticias + export JSONs
+        if: steps.frescura.outputs.saltar != 'true'
         env:
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
           OILPRICEAPI_KEY: ${{ secrets.OILPRICEAPI_KEY }}
@@ -74,6 +95,7 @@ jobs:
           python collector/main.py --memoria --alternos --consenso --petroleo --noticias --export --calibracion
 
       - name: Commit and push updated JSONs
+        if: steps.frescura.outputs.saltar != 'true'
         shell: bash
         run: |
           git config user.name "github-actions[bot]"

@@ -12,6 +12,15 @@ ALLOWED_ORIGINS = "https://gasolinasogt.com,https://www.gasolinasogt.com,http://
 OFICIAL_URL = "https://raw.githubusercontent.com/yartoorsdar/gasolina-gt/main/data/export/consolidado.json"
 # Votos por hora y por IP hasheada (generoso: muchas personas comparten IP en redes moviles).
 LIMITE_IP_HORA = "120"
+# Disparador del workflow diario (secreto GITHUB_DISPATCH_TOKEN aparte, nunca en este archivo).
+GITHUB_REPO = "yartoorsdar/gasolina-gt"
+GITHUB_WORKFLOW = "daily-update.yml"
+GITHUB_REF = "main"
+
+[triggers]
+# 04:52 y 11:52 hora de Guatemala (UTC-6) = 10:52 y 17:52 UTC: los datos quedan publicados
+# ~4 min despues, hacia las 05:00 y las 12:00.
+crons = ["52 10 * * *", "52 17 * * *"]
 
 [[d1_databases]]
 binding = "DB"

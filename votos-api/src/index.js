@@ -184,6 +184,56 @@ export async function manejar(req, env, deps = {}) {
   }
 }
 
+// ── disparador puntual del workflow diario (Cron Trigger de Cloudflare) ──────────
+// GitHub retrasa 4-6 h sus crons gratuitos (medido en este repo). Cloudflare los ejecuta al
+// minuto, así que a las 04:52 y 11:52 hora de Guatemala (10:52 y 17:52 UTC, ver wrangler.toml)
+// este Worker pide a GitHub correr `daily-update.yml` con workflow_dispatch; el run tarda unos
+// 3-4 min y los datos quedan publicados hacia las 05:00 y las 12:00.
+// Necesita el secreto GITHUB_DISPATCH_TOKEN (token fino de GitHub, solo "Actions: write" sobre
+// este repositorio). El token nunca se registra en los logs.
+
+const esperar = (ms) => new Promise((r) => setTimeout(r, ms));
+
+export async function dispararWorkflow(env, deps = {}) {
+  const fetchFn = deps.fetchFn || ((...args) => fetch(...args));   // ojo: fetch suelto (ver manejar())
+  const pausa = deps.esperar || esperar;
+  const token = String(env.GITHUB_DISPATCH_TOKEN || '');
+  if (token.length < 20) {
+    console.error('[votos-api] disparador: falta el secreto GITHUB_DISPATCH_TOKEN; no se dispara el workflow.');
+    return { ok: false, motivo: 'sin_token' };
+  }
+  const repo = env.GITHUB_REPO || 'yartoorsdar/gasolina-gt';
+  const workflow = env.GITHUB_WORKFLOW || 'daily-update.yml';
+  const ref = env.GITHUB_REF || 'main';
+  const url = `https://api.github.com/repos/${repo}/actions/workflows/${workflow}/dispatches`;
+
+  let ultimo = { ok: false, motivo: 'red' };
+  for (let intento = 1; intento <= 2; intento++) {      // un reintento solo ante fallo de red o 5xx
+    try {
+      const r = await fetchFn(url, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'gasolina-votos-disparador',
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({ ref }),
+        signal: AbortSignal.timeout(15000),
+      });
+      if (r.status === 204) return { ok: true, estado: 204, intentos: intento };
+      console.error(`[votos-api] disparador: GitHub respondio HTTP ${r.status} (intento ${intento})`);
+      ultimo = { ok: false, motivo: `http_${r.status}`, estado: r.status };
+      if (r.status < 500) return ultimo;                 // 401/403/404/422: reintentar no arregla nada
+    } catch (err) {
+      console.error(`[votos-api] disparador: fallo de red (intento ${intento}):`, err?.name);
+      ultimo = { ok: false, motivo: 'red' };
+    }
+    if (intento === 1) await pausa(5000);
+  }
+  return ultimo;
+}
+
 export default {
   fetch: (req, env) => manejar(req, env),
+  scheduled: (event, env, ctx) => { ctx.waitUntil(dispararWorkflow(env)); },
 };

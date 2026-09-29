@@ -31,7 +31,7 @@ const d1 = spawnSync(npx, ['wrangler', 'd1', 'execute', 'gasolina-votos', '--loc
 if (d1.status !== 0) { console.error(d1.stdout, d1.stderr); process.exit(1); }
 
 console.log('[integracion] Levantando wrangler dev (workerd) ...');
-const srv = spawn(npx, ['wrangler', 'dev', '--local', '--port', String(PUERTO), '--persist-to', ESTADO],
+const srv = spawn(npx, ['wrangler', 'dev', '--local', '--test-scheduled', '--port', String(PUERTO), '--persist-to', ESTADO],
   { cwd: API, env, shell: process.platform === 'win32', stdio: ['ignore', 'pipe', 'pipe'] });
 let log = '';
 srv.stdout.on('data', (d) => { log += d; });
@@ -60,6 +60,13 @@ const tok = (n) => `integ${String(n).padStart(20, '0')}`;
 try {
   await esperarListo();
   paso('el Worker arrancó sobre workerd con D1 local');
+
+  // El Cron Trigger (disparador del workflow) está registrado y se ejecuta; sin token no sale a la red
+  const cron = await fetch(`${BASE}/__scheduled?cron=52+10+*+*+*`);
+  assert.equal(cron.status, 200);
+  await new Promise((r) => setTimeout(r, 800));
+  assert.ok(log.includes('GITHUB_DISPATCH_TOKEN'), 'el handler scheduled no se ejecutó en workerd');
+  paso('el Cron Trigger se ejecuta en workerd (sin token avisa y no llama a GitHub)');
 
   const pre = await fetch(`${BASE}/api/voto`, { method: 'OPTIONS', headers: { Origin: ORIGEN } });
   assert.equal(pre.status, 204);

@@ -1869,13 +1869,17 @@
             const wti = petroleo.find(p => p.referencia === 'wti');
             if (!wti) return;
 
+            // Aviso si el dato del petróleo está atrasado (con fin de semana, 3 días es normal)
+            const atrasoWTI = Math.round((Date.parse(new Date(Date.now() - 6 * 3600 * 1000).toISOString().slice(0, 10)) - Date.parse(String(wti.fecha).slice(0, 10))) / 86400000);
+            const avisoAtrasoWTI = atrasoWTI >= 4 ? ` <span style="color:#f0b03e;font-weight:700;">(dato de hace ${atrasoWTI} días)</span>` : '';
+
             // Mostrar precio WTI con card estilizada
             const priceEl = document.getElementById('wtiPriceCard');
             priceEl.innerHTML = `
                 <div class="wti-price-card">
                     <div class="wti-price-value">${fmtUSD(wti.usd_barril)}</div>
                     <small style="color:var(--text-muted);font-size:0.8rem;">Cada barril cuesta esa cantidad en dólares</small>
-                    <div class="wti-price-label">Es el precio de referencia para la gasolina en Guatemala · Dato del ${fmtFechaCorta(wti.fecha)}</div>
+                    <div class="wti-price-label">Es el precio de referencia para la gasolina en Guatemala · Dato del ${fmtFechaCorta(wti.fecha)}${avisoAtrasoWTI}</div>
                 </div>
             `;
 

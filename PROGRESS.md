@@ -101,3 +101,10 @@ Genera URL tipo `https://xxx.ngrok-free.app` compartible con clientes. Requiere 
 - Aclaración: `config.json` NO tenía caracteres rotos en las consultas del consejo; fue mi consola de Windows mostrando mal la é/ó.
 - Límite honesto: con ~1-2 medios descubribles por día la confianza puede quedar en "media"; si un día ningún medio publica precios, ese día queda sin referencia hasta que llegue una.
 - 2026-09-29 (después): primer run con el feed de Prensa Libre leyó 2 notas y extrajo 9 precios correctos (AS 43.29/45.29/49.39 el 28-sep), pero con UN solo medio la confianza quedó "baja" y no sirve de referencia. Se agregó el feed de Publinews (hallado en su robots.txt) como segundo medio independiente. Los demás feeds probados solo traen política.
+
+## 2026-09-29 — Programación a las 05:00 y 12:00 GT + cuidado de la cuota de OilPriceAPI
+- Medido: los crons de GitHub llegan 3h41-6h27 tarde; un cron a las 05:00 GT correría hacia las 09-11 GT. Solución: el Worker de Cloudflare (Cron Trigger) dispara `workflow_dispatch` a las 04:52 y 11:52 GT. Falta que el dueño cree el token fino de GitHub y lo cargue con `wrangler secret put GITHUB_DISPATCH_TOKEN` (ver `votos-api/README.md`).
+- El cron de GitHub pasó a `0 16 * * *` como red de seguridad con guarda `scripts/frescura.py` (salta si hay datos de < 6 h). El `push` solo dispara si cambian collector/scripts/config/requirements/workflow.
+- OilPriceAPI: 1 llamada por run (historial solo el lunes temprano, si faltan datos o forzado) + freno por saldo (`x-ratelimit-remaining`). La prueba gratuita termina 2026-09-30 00:30 GT (339 de 10 000 usadas al 09-29); después, plan gratuito ~100/mes.
+- Dashboard: aviso "(dato de hace N días)" en la tarjeta del WTI si el atraso es >= 4 días.
+- Tests: +16 Python (petróleo/cupo 13, frescura 7, menos ajustes) y +9 Node (disparador); integración workerd ahora verifica el Cron Trigger.

@@ -63,6 +63,49 @@ def crear_session(api_key: str) -> requests.Session:
 # Fetch desde OilPriceAPI
 # ──────────────────────────────────────────────
 
+# Cupo de la API (plan gratuito ~100 llamadas/mes): se lee de las cabeceras de cada respuesta
+# y frena las llamadas opcionales (historial) cuando queda poco.
+SALDO_MINIMO_HISTORIAL = 15
+saldo_api: int | None = None
+
+
+def _registrar_saldo(resp) -> None:
+    """Guarda el saldo que informa la API (x-ratelimit-remaining) y avisa si el plan/cupo falló."""
+    global saldo_api
+    try:
+        h = resp.headers
+        crudo = h.get("x-ratelimit-remaining") or h.get("x-calls-remaining")
+        if crudo is not None:
+            saldo_api = int(crudo)
+        if resp.status_code in (401, 402, 403, 429):
+            print(f"[petroleo] La API respondio HTTP {resp.status_code}: plan o cupo agotado; "
+                  "el WTI conserva su ultimo dato (no se inventa ninguno).")
+    except (AttributeError, TypeError, ValueError):
+        pass
+
+
+def _razon_historial(ahora: datetime | None = None) -> str | None:
+    """Por qué pedir hoy el historial (1 llamada extra), o None si no hace falta.
+
+    Antes se pedía en CADA run (2 llamadas/run). Ahora solo el lunes temprano, si faltan datos
+    en los últimos 7 días, o si se fuerza con FORZAR_HISTORIAL_WTI=1.
+    """
+    from collector.db import _GT, conectar, hace_dias_gt
+
+    if os.environ.get("FORZAR_HISTORIAL_WTI") == "1":
+        return "forzado"
+    ahora = ahora or datetime.now(_GT)
+    if ahora.weekday() == 0 and ahora.hour < 9:
+        return "refresco semanal (lunes)"
+    conn = conectar()
+    try:
+        n = conn.execute("SELECT COUNT(DISTINCT fecha) FROM precios WHERE producto='wti' AND fecha >= ?",
+                         (hace_dias_gt(7),)).fetchone()[0]
+    finally:
+        conn.close()
+    return "faltan datos de los ultimos 7 dias" if n < 3 else None
+
+
 def fetch_precio_petroleo(code: str, api_key: str) -> dict | None:
     """Obtiene el precio más reciente de un commodity.
 
@@ -78,6 +121,7 @@ def fetch_precio_petroleo(code: str, api_key: str) -> dict | None:
 
     try:
         resp = session.get(url, timeout=15)
+        _registrar_saldo(resp)
         resp.raise_for_status()
         data = resp.json()
     except requests.RequestException as exc:
@@ -171,6 +215,7 @@ def fetch_historial_wti(api_key: str, period: str = "past_month") -> list[dict]:
     url = f"{HISTORICAL_URL}?by_code=WTI_USD&period={period}&interval=daily"
     try:
         resp = session.get(url, timeout=60)
+        _registrar_saldo(resp)
         resp.raise_for_status()
         data = resp.json()
     except (requests.RequestException, ValueError) as exc:
@@ -262,10 +307,19 @@ def ejecutar(cfg: dict = None) -> dict:
 
     # Autocorrección: la serie diaria del último mes (días de mercado ya
     # cerrados) pisa huecos o valores malos de días anteriores.
-    serie = fetch_historial_wti(api_key)
-    if serie:
-        inserted += guardar_serie_petroleo(serie)
+    razon = _razon_historial()
+    serie = []
+    if razon is None:
+        print("[petroleo] Historial omitido: no hace falta hoy (ahorra 1 llamada de la cuota).")
+    elif saldo_api is not None and saldo_api < SALDO_MINIMO_HISTORIAL:
+        print(f"[petroleo] Historial omitido: quedan solo {saldo_api} llamadas de la cuota.")
+    else:
+        print(f"[petroleo] Pidiendo historial ({razon}).")
+        serie = fetch_historial_wti(api_key)
+        if serie:
+            inserted += guardar_serie_petroleo(serie)
     resultados["historial_dias"] = len(serie)
+    resultados["saldo_api"] = saldo_api
     resultados["insertados"] = inserted
 
     return resultados

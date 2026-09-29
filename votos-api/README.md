@@ -46,3 +46,19 @@ El freno por IP (`LIMITE_IP_HORA`, 120) es generoso porque muchas personas compa
 ## Login opcional a futuro
 La tabla `votos` ya trae `usuario_id` (vacío). Un login opcional (ej. Google) se agrega verificando
 un token en el Worker y enlazando el `dispositivo` anónimo con la cuenta; no requiere migrar datos.
+
+## Disparador puntual del workflow diario (Cron Trigger)
+GitHub retrasa 4-6 h sus crons gratuitos, así que este Worker dispara `daily-update.yml` a las
+**04:52 y 11:52 hora de Guatemala** (`[triggers]` en `wrangler.toml`, 10:52 y 17:52 UTC). Los datos
+quedan publicados hacia las 05:00 y las 12:00. El cron de GitHub queda solo como red de seguridad.
+
+Pasos (los haces tú; el token es tuyo y nunca se pega en el repositorio ni en el chat):
+1. GitHub -> tu foto -> Settings -> Developer settings -> Personal access tokens -> **Fine-grained tokens** -> Generate new token.
+2. Resource owner: tu cuenta. Repository access: **Only select repositories** -> `gasolina-gt`.
+3. Repository permissions -> **Actions: Read and write** (Metadata: Read-only se agrega solo). Expiración: la más larga que permita;
+   anota la fecha, porque al caducar el disparador deja de funcionar (el cron de GitHub sigue como respaldo, pero tardío).
+4. `cd votos-api` y `npx wrangler secret put GITHUB_DISPATCH_TOKEN` (pega el token cuando lo pida).
+5. `npx wrangler deploy` (registra los horarios; `[triggers]` ya está en `wrangler.toml`).
+6. Comprobar al día siguiente: `gh run list --workflow daily-update.yml --event workflow_dispatch --limit 4` debe mostrar runs creados a las 10:52 y 17:52 UTC.
+   Sin el secreto el Worker solo escribe en su log "falta el secreto GITHUB_DISPATCH_TOKEN" y no hace nada.
+
