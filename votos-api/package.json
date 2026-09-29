@@ -1,6 +1,7 @@
 {
   "name": "gasolina-gt-votos-api",
   "private": true,
+  "license": "UNLICENSED",
   "version": "0.1.0",
   "description": "API de votos ciudadanos (Cloudflare Workers + D1) de gasolinasogt.com",
   "type": "module",

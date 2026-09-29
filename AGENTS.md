@@ -12,6 +12,11 @@
   - PENDIENTE de decidir tras la fase de prueba: regla de desempate cuando MEM y Comunidad difieren (hoy `db.prioridad_fuente` da MEM=3, Consejo/manual=2, alternas=1 y "el MEM siempre gana"; una fuente `Comunidad` cambia esa premisa y habrá que revisarla en `db._FUENTES` y en `consenso_precios.py`). Mientras tanto, mostrar ambos por separado y nunca escribir votos en la serie oficial `precios` sin esa decisión.
 - Deuda conocida frente a este objetivo: el workflow diario NO corre `--mem-html` (Cloudflare da 403 al MEM, también desde PC), GlobalPetrolPrices falla el parser, y el consejo (`consenso_precios.py`) usa ventana de 7 días. Revisar estas piezas al añadir fuentes.
 
+## Licencia (decisión del dueño, 2026-09-29)
+- Repositorio PÚBLICO pero **todos los derechos reservados** (`LICENSE`, sin licencia concedida): se puede leer, NO copiar, revender, redistribuir ni crear obras derivadas. Motivo: evitar que alguien copie y venda la página. Aviso "© 2026 Gasolinasogt.com. Todos los derechos reservados" en el pie de `web/index.html`, `index.html` y `fuentes.html`, y `<meta name="copyright">`. `votos-api/package.json` lleva `"license": "UNLICENSED"`.
+- Los datos de terceros (MEM, medios, OilPriceAPI) NO se reclaman como propios; ver `fuentes.html`. No añadir dependencias ni código con licencias que obliguen a publicar bajo otra licencia (GPL/AGPL) sin consultar.
+- Ser público no impide que se copie el HTML/CSS/JS servido (siempre visible en el navegador); la protección es legal y de marca, no técnica. Hacerlo privado rompería la lectura de `consolidado.json` desde `raw.githubusercontent.com` (sitio y Worker).
+
 ## Quick start
 ```powershell
 cd C:\Users\manue\Documents\proyectos\web\Gasolina
