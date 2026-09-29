@@ -60,7 +60,7 @@ jobs:
       - name: Descargar votos ciudadanos
         continue-on-error: true
         env:
-          VOTOS_EXPORT_TOKEN: ${{ secrets.VOTOS_EXPORT_TOKEN }}
+          VOTOS_EXPORT_TOKEN: ${{ secrets.VOTOS_EXPORT_TOKEN || secrets.EXPORT_TOKEN }}
         run: python scripts/descargar_votos.py
 
       - name: Run GPP + petróleo + noticias + export JSONs
