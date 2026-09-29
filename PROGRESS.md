@@ -100,3 +100,4 @@ Genera URL tipo `https://xxx.ngrok-free.app` compartible con clientes. Requiere 
 - 11 tests nuevos (escalera, referencia tardía, feeds RSS, integración de `ejecutar`); suite 230.
 - Aclaración: `config.json` NO tenía caracteres rotos en las consultas del consejo; fue mi consola de Windows mostrando mal la é/ó.
 - Límite honesto: con ~1-2 medios descubribles por día la confianza puede quedar en "media"; si un día ningún medio publica precios, ese día queda sin referencia hasta que llegue una.
+- 2026-09-29 (después): primer run con el feed de Prensa Libre leyó 2 notas y extrajo 9 precios correctos (AS 43.29/45.29/49.39 el 28-sep), pero con UN solo medio la confianza quedó "baja" y no sirve de referencia. Se agregó el feed de Publinews (hallado en su robots.txt) como segundo medio independiente. Los demás feeds probados solo traen política.
