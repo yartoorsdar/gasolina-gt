@@ -111,3 +111,7 @@ Genera URL tipo `https://xxx.ngrok-free.app` compartible con clientes. Requiere 
 
 ## 2026-09-29 - Borde RGB de las cajas de votos
 - Bug: el borde de `.pc` era un arco corto (125 grados) sobre un aro gris; en escritorio pasaba rápido y en táctil (`pointer:coarse`, solo opacity) quedaba fijo en una esquina, así que parecía que el RGB no funcionaba. Ahora es un aro arcoíris COMPLETO (mismo estilo del barril) que gira en escritorio y queda fijo y visible en táctil. Editado en `web/index.html` e `index.html`.
+
+## 2026-09-29 - Iconos del bloque de votos
+- Botones: pulgar vectorial (Coincide) y moneda Q con flechas (Vi otro). Pixel art animado (opacity) para bomba (nombre), urna (gracias) y candado (pie). Editado igual en `web/index.html` e `index.html`.
+- Commit SIN `[skip ci]` a proposito: Vercel respeta `[skip ci]` y no desplegaria el cambio de UI.

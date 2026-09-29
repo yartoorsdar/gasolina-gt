@@ -686,7 +686,23 @@
 @keyframes pcPulse{0%,100%{opacity:1}50%{opacity:.6}}
 .pc-acts{display:-webkit-box;display:-webkit-flex;display:flex;gap:8px;margin-top:10px}
 .pc-acts button,.pc .enviar{-webkit-appearance:none;appearance:none;font:inherit;font-size:.85rem;font-weight:700;min-height:42px;padding:0 12px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#e8edf5;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-transition:-webkit-transform .15s ease,background .2s ease;transition:transform .15s ease,background .2s ease}
-.pc-acts button{-webkit-flex:1;flex:1}
+.pc-acts button{-webkit-flex:1;flex:1;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;gap:7px}
+.pc-acts svg{display:block;width:28px;height:28px;-webkit-flex:none;flex:none;shape-rendering:crispEdges}
+.pc-acts svg .f{opacity:0;-webkit-animation:pxF 1.2s steps(1,end) infinite;animation:pxF 1.2s steps(1,end) infinite}
+.pc-acts svg .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
+.pc-acts svg.vec{shape-rendering:auto;width:32px;height:32px}
+svg.ipx{display:block;-webkit-flex:none;flex:none;shape-rendering:crispEdges}
+svg.ipx .f{opacity:0;-webkit-animation:pxF 1.2s steps(1,end) infinite;animation:pxF 1.2s steps(1,end) infinite}
+svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
+.pc-name{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:6px}
+.pc-name svg.ipx{width:24px;height:24px}
+.gracias svg.ipx{width:32px;height:32px}
+.pulso-foot .cand{display:inline-block;width:18px;height:18px;vertical-align:-5px;margin-right:6px}
+.pulso-foot .cand svg.ipx{width:18px;height:18px}
+@media (prefers-reduced-motion:reduce){svg.ipx .f{-webkit-animation:none!important;animation:none!important}svg.ipx .f1{opacity:1}}
+@-webkit-keyframes pxF{0%,49.9%{opacity:1}50%,100%{opacity:0}}
+@keyframes pxF{0%,49.9%{opacity:1}50%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.pc-acts svg .f{-webkit-animation:none!important;animation:none!important}.pc-acts svg .f1{opacity:1}}
 .pc-acts button:active,.pc .enviar:active{-webkit-transform:scale(.96);transform:scale(.96)}
 .pc-acts .si{background:hsla(var(--h),90%,58%,.22);border-color:hsl(var(--h),90%,58%)}
 .tray{max-height:0;opacity:0;overflow:hidden;-webkit-transition:max-height .35s ease,opacity .25s ease,margin-top .35s ease;transition:max-height .35s ease,opacity .25s ease,margin-top .35s ease}
@@ -2738,6 +2754,47 @@
     return null;
   }
   function fmt(n) { return 'Q' + Number(n).toFixed(2); }
+  // Íconos pixel art 16x16 de los botones: pulgar (Coincide) y flechas (Vi otro). Destellos solo por opacity.
+  function px(x, y, c) { return '<rect x="' + x + '" y="' + y + '" width="1" height="1" fill="' + c + '"/>'; }
+  var MANO = ['', '......oo', '....ooaao', '....oaaao', '...oaaaao', '..ooaaaaooooo', '..oaaaaaaaaaao', '..oaaaaaaaaaao', '..oaaaaaaaaaao', '..oaaaaaaaaaao', '...oaaaaaaaaao', '...ooooooooooo'];
+  function flecha(cx, abajo, c) {
+    var o = '', y, ys = abajo ? [13, 12, 11] : [2, 3, 4];
+    for (y = 4; y <= 11; y++) o += px(cx, y, c) + px(cx + 1, y, c);
+    o += px(cx, ys[0], c) + px(cx + 1, ys[0], c);
+    o += px(cx - 1, ys[1], c) + px(cx, ys[1], c) + px(cx + 1, ys[1], c) + px(cx + 2, ys[1], c);
+    o += px(cx - 2, ys[2], c) + px(cx - 1, ys[2], c) + px(cx + 2, ys[2], c) + px(cx + 3, ys[2], c);
+    return o;
+  }
+  function icoSvg(cuerpo, f1, f2) {
+    return '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">' + cuerpo + '<g class="f f1">' + f1 + '</g><g class="f f2">' + f2 + '</g></svg>';
+  }
+  function icoCoincide() {
+    return '<svg class="vec" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 11v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h3a4 4 0 0 0 4-4V5a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a3 3 0 0 1-2 2.5h-7a3 3 0 0 1-3-3" fill="rgba(91,227,161,.28)" stroke="#5be3a1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 11v9" stroke="#5be3a1" stroke-width="1.8" stroke-linecap="round"/></svg>';
+  }
+  // Íconos pixel art por rejilla (bomba, urna, candado) en el tono del producto
+  var REJ = {
+    bomba: ['', '..oooooooo', '..oaaaaaaoo', '..owwwwwwo.oo', '..owwwwwwo.o.o', '..oaaaaaaoo..o', '..oaaaaaao...o', '..oaaaaaao..oao', '..oaaaaaao..oao', '..oaaaaaao..ooo', '..oaaaaaao', '..oaaaaaao', '.oooooooooo', '.oaaaaaaaao', '.oooooooooo'],
+    urna: ['', '', '', '', '..oooooooooooo', '..oaaooooooaao', '..oooooooooooo', '..oaaaaaaaaaao', '..oaaaaaaaaaao', '..oaawwwwwwaao', '..oaawwwwwwaao', '..oaaaaaaaaaao', '..oaaaaaaaaaao', '..oooooooooooo'],
+    candado: ['', '.....oooooo', '....oggggggo', '....og....go', '....og....go', '....og....go', '..oooooooooooo', '..oaaaaaaaaaao', '..oaaaaaaaaaao', '..oaaaooaaaaao', '..oaaaooaaaaao', '..oaaaaoaaaaao', '..oaaaaaaaaaao', '..oooooooooooo']
+  };
+  function sobre(y) {
+    var r = ['oooooo', 'owggwo', 'oooooo'], o = '', j, i, col = { o: 'hsl(0,0%,25%)', w: '#eef3fa', g: '#9aa7ba' };
+    for (j = 0; j < 3; j++) for (i = 0; i < 6; i++) o += px(5 + i, y + j, col[r[j][i]]);
+    return o;
+  }
+  var FRM = {
+    bomba: [px(13, 10, '#fff') + px(4, 3, '#0b1220') + px(6, 3, '#0b1220') + px(8, 3, '#0b1220'), px(13, 12, '#fff') + px(5, 4, '#0b1220') + px(7, 4, '#0b1220')],
+    urna: [sobre(0), sobre(2)],
+    candado: ['', px(7, 9, '#ffe14d') + px(8, 9, '#ffe14d')]
+  };
+  function icoRej(n, hue) {
+    var pal = { o: 'hsl(' + hue + ',70%,30%)', a: 'hsl(' + hue + ',90%,58%)', w: '#eef3fa', g: '#9aa7ba' }, g = REJ[n], o = '', y, x, c;
+    for (y = 0; y < g.length; y++) for (x = 0; x < g[y].length; x++) { c = g[y][x]; if (pal[c]) o += px(x, y, pal[c]); }
+    return '<svg class="ipx" viewBox="0 0 16 16" aria-hidden="true" focusable="false">' + o + '<g class="f f1">' + FRM[n][0] + '</g><g class="f f2">' + FRM[n][1] + '</g></svg>';
+  }
+  function icoOtro() {
+    return '<svg class="vec" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="9.5" cy="12" r="7.5" fill="rgba(255,200,92,.25)" stroke="#ffc85c" stroke-width="1.8"/><text x="9.5" y="15.6" text-anchor="middle" font-size="10" font-weight="800" font-family="Arial,sans-serif" fill="#ffc85c">Q</text><path d="M20 3.5v7M18 5.5l2-2 2 2M20 20.5v-7M18 18.5l2 2 2-2" stroke="#ffc85c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>';
+  }
   function resumenDe(id) {
     return (R && R[id]) || { n_votos: 0, n_coincide: 0, n_otro: 0, estado: 'sin', mediana: null, precio_oficial: null };
   }
@@ -2790,7 +2847,7 @@
       foot.textContent = 'Los votos no están disponibles por ahora; los precios de arriba siguen al día. Vuelve a intentar en unos minutos.';
       redibujar(); return;
     }
-    foot.textContent = 'Tu voto es anónimo, sin registro, y ayuda a que todos sepamos el precio de hoy.';
+    foot.innerHTML = '<span class="cand">' + icoRej('candado', 260) + '</span>Tu voto es anónimo, sin registro, y ayuda a que todos sepamos el precio de hoy.';
     var abiertos = {}, yaV = votado(), total = 0, html = '';
     [].forEach.call(grid.querySelectorAll('.pc.abierto'), function (c) { abiertos[c.getAttribute('data-p')] = true; });
     PRODS.forEach(function (p) {
@@ -2800,15 +2857,15 @@
       var dis = enviando ? ' disabled' : '';
       html += '<div class="pc' + (yo ? ' votado' : '') + (abiertos[p.id] && !yo ? ' abierto' : '') + (enviando ? ' enviando' : '') + '" data-p="' + p.id + '" style="--h:' + p.hue + ';--h2:' + ((p.hue + 55) % 360) + '">'
         + '<div class="pc-top"><div class="ring"><svg viewBox="0 0 48 48"><circle class="bg" cx="24" cy="24" r="18"/><circle class="fg" cx="24" cy="24" r="18" data-r="' + ratio + '"/></svg><b>' + r.n_votos + '</b></div>'
-        + '<div><div class="pc-name"><i></i>' + p.nombre + '</div><div class="pc-precio">' + fmt(of) + '</div></div></div>'
+        + '<div><div class="pc-name">' + icoRej('bomba', p.hue) + p.nombre + '</div><div class="pc-precio">' + fmt(of) + '</div></div></div>'
         + '<div class="pc-line">' + avisoHtml(r, of) + '</div>'
-        + '<div class="pc-acts"><button type="button" class="si" data-a="si"' + dis + '>Coincide</button><button type="button" data-a="otro"' + dis + '>Vi otro</button></div>'
+        + '<div class="pc-acts"><button type="button" class="si" data-a="si"' + dis + '>' + icoCoincide() + 'Coincide</button><button type="button" data-a="otro"' + dis + '>' + icoOtro() + 'Vi otro</button></div>'
         + '<div class="tray"><div class="stepper"><button type="button" data-a="menos" aria-label="Bajar diez centavos"' + dis + '>&minus;</button>'
         + '<input type="number" inputmode="decimal" step="0.01" min="10" max="100" value="' + Number(of).toFixed(2) + '" aria-label="Precio que viste"' + dis + '>'
         + '<button type="button" data-a="mas" aria-label="Subir diez centavos"' + dis + '>+</button></div>'
         + '<button type="button" class="enviar" data-a="enviar"' + dis + '>Enviar el precio que vi</button></div>'
         + '<div class="pc-err" role="status" aria-live="polite">' + (errores[p.id] || '') + '</div>'
-        + '<div class="gracias"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Gracias, tu voto ya cuenta</div>'
+        + '<div class="gracias">' + icoRej('urna', p.hue) + 'Gracias, tu voto ya cuenta</div>'
         + '</div>';
     });
     grid.innerHTML = html;
