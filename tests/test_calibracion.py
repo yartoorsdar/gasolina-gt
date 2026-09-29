@@ -180,10 +180,79 @@ def test_medir_dia_sin_referencia_mem_no_falla():
     assert m["estado"] == "coincide" and m["mediana"] == pytest.approx(43.29, abs=0.1)
 
 
-def test_referencia_es_solo_mem_no_otras_fuentes():
+def _consenso(conn, fecha, producto, precio, confianza="alta", n_coinciden=3):
+    conn.execute(
+        "INSERT INTO consenso (fecha, producto, modalidad, precio, confianza, n_coinciden, n_fuentes, fuentes, calculado_at) "
+        "VALUES (?, ?, 'autoservicio', ?, ?, ?, 3, '[]', '2026-09-29T10:00:00-06:00')",
+        (fecha, producto, precio, confianza, n_coinciden))
+    conn.commit()
+
+
+def test_referencia_no_usa_precios_de_otras_fuentes():
     conn = conectar_temporal()
     guardar_precios(conn, [{"producto": "regular", "fecha": "2026-09-29", "precio": 43.29}], "GlobalPetrolPrices")
-    assert cal._referencia(conn, "regular", "autoservicio", "2026-09-29") == (None, None)
+    assert cal._referencia(conn, "regular", "autoservicio", "2026-09-29") == (None, None, None)
+
+
+def test_referencia_cae_al_consejo_de_medios_si_el_mem_no_publico():
+    conn = conectar_temporal()
+    _consenso(conn, "2026-09-29", "regular", 38.69)
+    assert cal._referencia(conn, "regular", "autoservicio", "2026-09-29") == (38.69, "Consejo", None)
+
+
+def test_el_mem_gana_sobre_el_consejo():
+    conn = conectar_temporal()
+    _mem(conn, "regular", "2026-09-29", 43.29)
+    _consenso(conn, "2026-09-29", "regular", 38.69)
+    assert cal._referencia(conn, "regular", "autoservicio", "2026-09-29")[:2] == (43.29, "MEM")
+
+
+def test_consejo_media_solo_sirve_si_coinciden_al_menos_dos_medios_y_la_baja_nunca():
+    conn = conectar_temporal()
+    _consenso(conn, "2026-09-29", "regular", 38.69, confianza="media", n_coinciden=2)
+    _consenso(conn, "2026-09-29", "superior", 40.0, confianza="media", n_coinciden=1)   # media = solo el MEM
+    _consenso(conn, "2026-09-29", "diésel", 44.8, confianza="baja", n_coinciden=1)
+    assert cal._referencia(conn, "regular", "autoservicio", "2026-09-29") == (38.69, "Consejo", None)
+    assert cal._referencia(conn, "superior", "autoservicio", "2026-09-29") == (None, None, None)
+    assert cal._referencia(conn, "diésel", "autoservicio", "2026-09-29") == (None, None, None)
+
+
+def test_el_precio_previo_tambien_puede_venir_del_consejo():
+    conn = conectar_temporal()
+    _consenso(conn, "2026-09-24", "regular", 43.29)
+    _mem(conn, "regular", "2026-09-29", 38.69)
+    assert cal._referencia(conn, "regular", "autoservicio", "2026-09-29") == (38.69, "MEM", 43.29)
+
+
+def test_medir_usa_el_consejo_y_marca_su_fuente():
+    conn = conectar_temporal()
+    _consenso(conn, "2026-09-28", "regular", 43.29)
+    _consenso(conn, "2026-09-29", "regular", 38.69)
+    _cargar(conn, [_voto(i, precio=p) for i, p in enumerate(_ruido(12, 38.69))])
+    m = cal.medir_dia(conn, "2026-09-29", "regular")
+    assert m["ref_fuente"] == "Consejo" and m["ref_precio"] == 38.69 and m["ref_previo"] == 43.29
+    assert abs(m["error_mediana"]) < 0.1 and m["cambio_real"] == 1
+
+
+def test_una_referencia_que_llega_tarde_mejora_los_dias_anteriores_sola():
+    conn = conectar_temporal()
+    _cargar(conn, [_voto(i, precio=p) for i, p in enumerate(_ruido(12, 43.29))])
+    assert cal.medir(conn)[0]["ref_precio"] is None                     # hoy nadie publico nada
+    _consenso(conn, "2026-09-29", "regular", 43.29)                     # dias despues llegan los medios
+    m = cal.medir(conn)[0]                                              # el siguiente run recalcula
+    assert m["ref_fuente"] == "Consejo" and m["error_abs"] is not None
+    assert conn.execute("SELECT COUNT(*) FROM calibracion").fetchone()[0] == 1   # se actualiza, no duplica
+
+
+def test_sin_ninguna_referencia_el_veredicto_es_no_concluyente_no_aprobado():
+    conn = conectar_temporal()
+    for d in range(7):
+        f = (date(2026, 9, 29) + timedelta(days=d)).isoformat()
+        _cargar(conn, [_voto(i, fecha=f, precio=p, disp=f"{d:02d}{i:010x}") for i, p in enumerate(_ruido(12, 43.29, semilla=d))])
+    cal.medir(conn)
+    rep = cal.reporte(conn)
+    assert rep["listo"] is False and any("NO CONCLUYENTE" in m for m in rep["motivos"])
+    assert rep["productos"]["regular"]["dias_sin_referencia"] == 7
 
 
 def test_duplicados_y_fuera_de_rango():

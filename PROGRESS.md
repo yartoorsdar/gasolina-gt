@@ -93,3 +93,10 @@ Genera URL tipo `https://xxx.ngrok-free.app` compartible con clientes. Requiere 
 - Workflow: paso `Descargar votos ciudadanos` + `--calibracion`; nuevo `scripts/descargar_votos.py` con 4 tests. Falta que el dueño guarde el secreto `VOTOS_EXPORT_TOKEN` en GitHub.
 - ALLOWED_ORIGINS del Worker: gasolinasogt.com, www.gasolinasogt.com y localhost:8089.
 - Pendiente: probar en Safari real y en el navegador de Facebook; medir participación real los 7 días; decidir la regla de desempate MEM vs Comunidad; login opcional (no por ahora).
+
+## 2026-09-29 — Referencia autónoma para la calibración (sin pasar PDFs a mano)
+- Diagnóstico: el MEM no se descarga solo (Cloudflare 403 también en el navegador integrado; no se intenta saltar la verificación) y el consejo de medios tampoco producía referencia diaria: última observación 2026-09-23, "0 notas nuevas" en CI. Causa: Bing/Google News no muestran las notas diarias de precios.
+- Arreglo: `consenso_precios.descubrir_feeds` lee el feed directo de Prensa Libre (trae los precios del día y el extractor existente los lee). `calibracion._referencia` usa una escalera MEM -> consejo de medios (alta, o media con 2+ medios) -> sin referencia; `ref_fuente` lo registra y el veredicto sin referencia es "NO CONCLUYENTE". Se recalcula todo en cada run, así que las referencias tardías corrigen días pasados solas.
+- 11 tests nuevos (escalera, referencia tardía, feeds RSS, integración de `ejecutar`); suite 230.
+- Aclaración: `config.json` NO tenía caracteres rotos en las consultas del consejo; fue mi consola de Windows mostrando mal la é/ó.
+- Límite honesto: con ~1-2 medios descubribles por día la confianza puede quedar en "media"; si un día ningún medio publica precios, ese día queda sin referencia hasta que llegue una.

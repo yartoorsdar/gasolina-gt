@@ -63,6 +63,7 @@ def _cfg_consejo(cfg: dict | None) -> dict:
     base = {
         "consultas": CONSULTAS, "dias_articulo": DIAS_ARTICULO,
         "max_articulos_llm": MAX_ARTICULOS_LLM, "pausa_llm_seg": PAUSA_LLM_SEG,
+        "feeds_directos": [],
     }
     base.update((cfg or {}).get("consejo", {}))
     return base
@@ -108,6 +109,48 @@ def descubrir_articulos(consultas: list[str], dias: int = DIAS_ARTICULO) -> list
             vistos.add(url)
             notas.append({"url": url, "medio": _medio(url),
                           "titulo": (it.findtext("title") or "").strip(), "publicado": publicado})
+    notas.sort(key=lambda n: n["publicado"], reverse=True)
+    return notas
+
+
+_RE_TITULO_COMBUSTIBLE = re.compile(r"combustible|gasolina|di[eé]sel", re.I)
+
+
+def descubrir_feeds(feeds: list[str], dias: int = DIAS_ARTICULO, get=requests.get) -> list[dict]:
+    """Notas recientes de feeds RSS DIRECTOS de los medios (más frescos que Bing News).
+
+    Bing/Google News tardan o no indexan las notas diarias de "precios de hoy"; el feed
+    del propio medio sí las trae. Solo entran notas cuyo título habla de combustibles
+    (no se gasta LLM en el resto). La fecha se toma en hora de Guatemala.
+
+    Returns:
+        [{url, medio, titulo, publicado (YYYY-MM-DD)}] sin duplicados, más recientes primero.
+    """
+    import xml.etree.ElementTree as ET
+    from collector.db import _GT, hace_dias_gt
+
+    limite = hace_dias_gt(dias)
+    vistos, notas = set(), []
+    for feed in feeds or []:
+        try:
+            resp = get(feed, headers={"User-Agent": UA}, timeout=20)
+            resp.raise_for_status()
+            items = ET.fromstring(resp.content).findall(".//item")
+        except Exception as exc:
+            print(f"[consejo] feed {feed}: {type(exc).__name__}: {exc}")
+            continue
+        for it in items:
+            url = (it.findtext("link") or "").strip()
+            titulo = (it.findtext("title") or "").strip()
+            try:
+                publicado = parsedate_to_datetime(it.findtext("pubDate") or "").astimezone(_GT).strftime("%Y-%m-%d")
+            except (TypeError, ValueError):
+                continue
+            if (not url.startswith("http") or url in vistos or publicado < limite
+                    or not _RE_TITULO_COMBUSTIBLE.search(titulo)):
+                continue
+            vistos.add(url)
+            notas.append({"url": url, "medio": _medio(url), "titulo": titulo, "publicado": publicado})
     notas.sort(key=lambda n: n["publicado"], reverse=True)
     return notas
 
@@ -424,8 +467,15 @@ def ejecutar(cfg: dict = None) -> dict:
            "observaciones_nuevas": 0, "extractor": None, "veredictos": {}, "llm_error": None}
 
     # 1-3. Notas nuevas → observaciones
-    notas = [n for n in descubrir_articulos(params["consultas"], params["dias_articulo"])
-             if not articulo_procesado(conn, n["url"])]
+    # Feeds directos primero (los más frescos), luego Bing; sin duplicados por URL.
+    candidatas, vistas = [], set()
+    for n in (descubrir_feeds(params.get("feeds_directos", []), params["dias_articulo"])
+              + descubrir_articulos(params["consultas"], params["dias_articulo"])):
+        if n["url"] not in vistas:
+            vistas.add(n["url"])
+            candidatas.append(n)
+    candidatas.sort(key=lambda n: n["publicado"], reverse=True)
+    notas = [n for n in candidatas if not articulo_procesado(conn, n["url"])]
     res["notas_descubiertas"] = len(notas)
     usar_llm = _n._llm_available(cfg)
     res["extractor"] = "llm" if usar_llm else "regex"

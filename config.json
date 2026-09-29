@@ -55,6 +55,9 @@
     ],
     "dias_articulo": 10,
     "max_articulos_llm": 8,
-    "pausa_llm_seg": 20
+    "pausa_llm_seg": 20,
+    "feeds_directos": [
+      "https://www.prensalibre.com/feed/"
+    ]
   }
 }

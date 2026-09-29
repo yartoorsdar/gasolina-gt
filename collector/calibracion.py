@@ -10,7 +10,9 @@ Flujo (todo determinista y reproducible):
      data/inbox/votos/*.json|csv (contrato abajo) → tabla `votos` (idempotente
      por id_voto). Un voto inválido se cuenta por motivo, nunca se "arregla".
   2. `medir()` calcula, por día × producto × modalidad, la calidad de los votos
-     y la compara con el precio MEM de ese día → tabla `calibracion`.
+     y la compara con una referencia autónoma (MEM del día; si no hay, consejo de
+     medios con confianza alta, o media con 2+ medios) → tabla `calibracion`. Cada run RECALCULA todos los días
+     con votos, así que una referencia que llega tarde mejora los días anteriores sola.
   3. `reporte()` resume la ventana de prueba: error frente al MEM, sesgo,
      efecto ancla, matriz de alertas, curva "error vs nº de votos" y un
      veredicto explícito de si se cumplen los criterios de salida.
@@ -220,14 +222,36 @@ def clasificar(n_votos: int, n_coincide: int, escritos: list[float], ref: float 
 # ──────────────────────────────────────────────
 
 def _referencia(conn, producto: str, modalidad: str, fecha: str) -> tuple:
-    """(precio MEM del día, precio MEM previo). None donde no haya dato oficial."""
-    hoy = conn.execute(
-        "SELECT precio FROM precios WHERE producto=? AND modalidad=? AND fecha=? AND fuente='MEM'",
-        (producto, modalidad, fecha)).fetchone()
-    previo = conn.execute(
-        "SELECT precio FROM precios WHERE producto=? AND modalidad=? AND fecha<? AND fuente='MEM' "
-        "ORDER BY fecha DESC LIMIT 1", (producto, modalidad, fecha)).fetchone()
-    return (hoy["precio"] if hoy else None), (previo["precio"] if previo else None)
+    """(precio, fuente, precio previo) de referencia para medir los votos de ese día.
+
+    Escalera autónoma (sin que nadie cargue archivos a mano):
+      1. MEM oficial del mismo día (tabla precios, fuente MEM).
+      2. Si el MEM no tiene ese día: veredicto del consejo de medios (tabla consenso) con
+         confianza "alta", o "media" con >= 2 medios que coinciden. Con el MEM ausente son
+         medios independientes; queda marcado como ref_fuente = "Consejo" (no es el MEM).
+      3. Sin ninguna de las dos: None (el día se mide igual, sin error; se RECALCULA solo
+         en un run posterior si llega una referencia con esa fecha).
+    El previo (para saber si el precio "cambió de verdad") sale de la misma escalera.
+    """
+    def _mem(cond, params):
+        return conn.execute(
+            f"SELECT precio FROM precios WHERE producto=? AND modalidad=? AND fuente='MEM' AND {cond}",
+            (producto, modalidad, *params)).fetchone()
+
+    def _consejo(cond, params):
+        return conn.execute(
+            f"SELECT precio FROM consenso WHERE producto=? AND modalidad=? "
+            f"AND (confianza='alta' OR (confianza='media' AND n_coinciden>=2)) AND {cond}",
+            (producto, modalidad, *params)).fetchone()
+
+    fila, fuente = _mem("fecha=?", (fecha,)), "MEM"
+    if fila is None:
+        fila, fuente = _consejo("fecha=?", (fecha,)), "Consejo"
+    if fila is None:
+        fuente = None
+    prev = (_mem("fecha<? ORDER BY fecha DESC LIMIT 1", (fecha,))
+            or _consejo("fecha<? ORDER BY fecha DESC LIMIT 1", (fecha,)))
+    return (fila["precio"] if fila else None), fuente, (prev["precio"] if prev else None)
 
 
 def _votos_validos(conn, fecha, producto, modalidad, ref, u):
@@ -259,7 +283,7 @@ def medir_dia(conn, fecha: str, producto: str, modalidad: str = None, u: dict = 
     u = u or UMBRALES
     producto = canon_producto(producto)
     modalidad = canon_modalidad(modalidad, producto)
-    ref, previo = _referencia(conn, producto, modalidad, fecha)
+    ref, ref_fuente, previo = _referencia(conn, producto, modalidad, fecha)
     votos, n_dup, n_fuera = _votos_validos(conn, fecha, producto, modalidad, ref, u)
 
     escritos = [r["precio"] for r in votos if r["tipo"] == "otro"]
@@ -279,7 +303,7 @@ def medir_dia(conn, fecha: str, producto: str, modalidad: str = None, u: dict = 
     r4 = lambda x: None if x is None else round(x, 4)  # noqa: E731
     return {
         "fecha": fecha, "producto": producto, "modalidad": modalidad,
-        "ref_precio": ref, "ref_fuente": "MEM" if ref is not None else None, "ref_previo": previo,
+        "ref_precio": ref, "ref_fuente": ref_fuente, "ref_previo": previo,
         "n_votos": n, "n_coincide": n_coincide, "n_otro": len(escritos), "n_ciegos": len(ciegos),
         "n_zonas": len({r["zona"] for r in votos if r["zona"]}),
         "n_duplicados": n_dup, "n_fuera_rango": n_fuera,
@@ -334,7 +358,7 @@ def residuos(conn, desde: str = None, hasta: str = None, solo_ciegos: bool = Fal
         "WHERE (? IS NULL OR fecha >= ?) AND (? IS NULL OR fecha <= ?)", (desde, desde, hasta, hasta)).fetchall()
     res = []
     for c in claves:
-        ref, _ = _referencia(conn, c["producto"], c["modalidad"], c["fecha"])
+        ref, _, _ = _referencia(conn, c["producto"], c["modalidad"], c["fecha"])
         if ref is None:
             continue
         votos, _, _ = _votos_validos(conn, c["fecha"], c["producto"], c["modalidad"], ref, u)
@@ -404,6 +428,8 @@ def reporte(conn, hasta: str = None, criterios: dict = None, u: dict = None) -> 
             "pct_dias_ok": round(len(ok) / len(con_error), 4) if con_error else None,
             "pct_coincide": round(statistics.fmean(f["pct_coincide"] for f in fp if f["pct_coincide"] is not None), 4),
             "dias_sin_referencia": sum(1 for f in fp if f["ref_precio"] is None),
+            "dias_ref_mem": sum(1 for f in fp if f["ref_fuente"] == "MEM"),
+            "dias_ref_consejo": sum(1 for f in fp if f["ref_fuente"] == "Consejo"),
             "estados": {e: sum(1 for f in fp if f["estado"] == e) for e in ("sin", "debil", "coincide", "cambio")},
         }
 
@@ -429,7 +455,8 @@ def reporte(conn, hasta: str = None, criterios: dict = None, u: dict = None) -> 
         if p["votos_por_dia"] < criterios["min_votos_dia"]:
             motivos.append(f"{prod}: mediana de {p['votos_por_dia']:.0f} votos/día (mínimo {criterios['min_votos_dia']}).")
         if p["pct_dias_ok"] is None:
-            motivos.append(f"{prod}: sin días comparables con el MEM.")
+            motivos.append(f"{prod}: NO CONCLUYENTE, sin días con referencia (MEM o consejo de medios); "
+                           "se recalcula solo cuando llegue una.")
         elif p["pct_dias_ok"] < criterios["pct_dias_ok"]:
             motivos.append(f"{prod}: solo {p['pct_dias_ok']:.0%} de los días con error <= Q{criterios['mae_max']:.2f}.")
 
@@ -455,7 +482,8 @@ def imprimir_reporte(rep: dict) -> None:
         sesgo = "sin dato" if p["sesgo"] is None else f"Q{p['sesgo']:+.2f}"
         ok = "sin dato" if p["pct_dias_ok"] is None else f"{p['pct_dias_ok']:.0%}"
         print(f"  {prod:9s} votos/dia={p['votos_por_dia']:.0f}  error medio={mae}  sesgo={sesgo}  "
-              f"dias dentro de tolerancia={ok}  confirman={p['pct_coincide']:.0%}")
+              f"dias dentro de tolerancia={ok}  confirman={p['pct_coincide']:.0%}  "
+              f"ref: MEM={p['dias_ref_mem']} medios={p['dias_ref_consejo']} sin={p['dias_sin_referencia']}")
     c = rep["alertas"]
     print(f"  Alertas de cambio vs MEM: aciertos={c['vp'] + c['vn']}  falsas alarmas={c['fp']}  "
           f"cambios no detectados={c['fn']}  (una discrepancia puede ser que el MEM va atrasado: revisar)")
