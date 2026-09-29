@@ -647,6 +647,84 @@
         }
     </style>
     <link rel="stylesheet" href="style-glass.css">
+<style>
+/* ===== Votos de la comunidad: solo transform/opacity/stroke-dashoffset, con prefijos -webkit- ===== */
+.pulso{color:#e8edf5;margin:4px 0 18px;padding:14px 12px 12px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);text-align:left}
+.pulso-head{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:space-between;justify-content:space-between;gap:8px;margin-bottom:10px}
+.pulso-title{-webkit-flex:1;flex:1;min-width:0;font-weight:800;font-size:.95rem;letter-spacing:.01em}
+.pulso-live{white-space:nowrap;-webkit-flex:none;flex:none;font-size:.72rem;color:#b9c3d1;padding:3px 9px;border-radius:99px;border:1px solid rgba(255,255,255,.12)}
+.pulso-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.pc{position:relative;padding:14px;border-radius:14px;overflow:hidden;isolation:isolate;-webkit-mask-image:-webkit-radial-gradient(white,black);background:transparent}
+.pc>*{position:relative;z-index:2}
+/* borde vivo: un arco de color (tono del producto) recorre el marco. Solo transform en escritorio; en táctil/móvil solo opacity */
+.pc::before{content:"";position:absolute;z-index:0;left:50%;top:50%;width:800px;height:800px;margin:-400px 0 0 -400px;pointer-events:none;
+  background:conic-gradient(from 0deg,rgba(255,255,255,0) 0deg,rgba(255,255,255,0) 235deg,hsl(var(--h),95%,52%) 290deg,hsl(var(--h2),95%,66%) 335deg,#fff 360deg),linear-gradient(rgba(255,255,255,.12),rgba(255,255,255,.12));
+  -webkit-animation:pcGiro 5.5s linear infinite;animation:pcGiro 5.5s linear infinite}
+.pc:nth-child(2)::before{-webkit-animation-delay:-1.8s;animation-delay:-1.8s}
+.pc:nth-child(3)::before{-webkit-animation-delay:-3.6s;animation-delay:-3.6s}
+.pc::after{content:"";position:absolute;z-index:1;left:2px;right:2px;top:2px;bottom:2px;border-radius:12px;background:#0b1220;pointer-events:none}
+.pc.abierto::before{-webkit-animation-duration:2.6s;animation-duration:2.6s}
+@-webkit-keyframes pcGiro{to{-webkit-transform:rotate(360deg)}}
+@keyframes pcGiro{to{transform:rotate(360deg)}}
+@-webkit-keyframes pcRespira{0%,100%{opacity:1}50%{opacity:.5}}
+@keyframes pcRespira{0%,100%{opacity:1}50%{opacity:.5}}
+@media (pointer:coarse){.pc::before{-webkit-animation:pcRespira 3.4s ease-in-out infinite;animation:pcRespira 3.4s ease-in-out infinite}}
+.pc-top{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:10px}
+.ring{position:relative;width:48px;height:48px;-webkit-flex:none;flex:none}
+.ring svg{display:block;width:48px;height:48px;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}
+.ring .bg{fill:none;stroke:rgba(255,255,255,.1);stroke-width:5}
+.ring .fg{fill:none;stroke:hsl(var(--h),90%,58%);stroke-width:5;stroke-linecap:round;stroke-dasharray:113.1;stroke-dashoffset:113.1;-webkit-transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1);transition:stroke-dashoffset .9s cubic-bezier(.2,.8,.2,1)}
+.ring b{position:absolute;left:0;right:0;top:50%;margin-top:-.6em;text-align:center;font-size:.82rem;line-height:1.2em}
+.pc-name{font-weight:800;font-size:.95rem}
+.pc-name i{display:inline-block;width:8px;height:8px;border-radius:50%;background:hsl(var(--h),90%,58%);margin-right:6px}
+.pc-precio{font-size:1.2rem;font-weight:800;line-height:1.2}
+.pc-line{font-size:.78rem;color:#b9c3d1;margin-top:9px;min-height:2.5em;line-height:1.25em}
+.pc-line strong{color:#fff}
+.chip-cambio{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:99px;font-size:.7rem;font-weight:700;color:#2b1c00;background:#f0b03e;-webkit-animation:pcPulse 2.4s ease-in-out infinite;animation:pcPulse 2.4s ease-in-out infinite}
+@-webkit-keyframes pcPulse{0%,100%{opacity:1}50%{opacity:.6}}
+@keyframes pcPulse{0%,100%{opacity:1}50%{opacity:.6}}
+.pc-acts{display:-webkit-box;display:-webkit-flex;display:flex;gap:8px;margin-top:10px}
+.pc-acts button,.pc .enviar{-webkit-appearance:none;appearance:none;font:inherit;font-size:.85rem;font-weight:700;min-height:42px;padding:0 12px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#e8edf5;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-transition:-webkit-transform .15s ease,background .2s ease;transition:transform .15s ease,background .2s ease}
+.pc-acts button{-webkit-flex:1;flex:1}
+.pc-acts button:active,.pc .enviar:active{-webkit-transform:scale(.96);transform:scale(.96)}
+.pc-acts .si{background:hsla(var(--h),90%,58%,.22);border-color:hsl(var(--h),90%,58%)}
+.tray{max-height:0;opacity:0;overflow:hidden;-webkit-transition:max-height .35s ease,opacity .25s ease,margin-top .35s ease;transition:max-height .35s ease,opacity .25s ease,margin-top .35s ease}
+.pc.abierto .tray{max-height:120px;opacity:1;margin-top:10px}
+.stepper{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:6px}
+.stepper button{-webkit-appearance:none;appearance:none;width:38px;height:42px;font:inherit;font-size:1.1rem;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#e8edf5;cursor:pointer;touch-action:manipulation}
+.stepper input{-webkit-appearance:none;appearance:none;-moz-appearance:textfield;width:100%;min-width:0;height:42px;font-size:16px;text-align:center;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.35);color:#e8edf5}
+.pc .enviar{display:block;width:100%;margin-top:8px;background:hsl(var(--h),90%,58%);color:#0a0f1a;border-color:transparent}
+.gracias{display:none;-webkit-align-items:center;align-items:center;gap:8px;margin-top:10px;font-size:.85rem;font-weight:700;color:hsl(var(--h),90%,66%)}
+.pc.votado .gracias{display:-webkit-box;display:-webkit-flex;display:flex}
+.pc.votado .pc-acts,.pc.votado .tray{display:none}
+.gracias svg{width:20px;height:20px}
+.gracias path{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24}
+.pc.votado .gracias path{stroke-dashoffset:0;-webkit-transition:stroke-dashoffset .5s ease .1s;transition:stroke-dashoffset .5s ease .1s}
+.pulso-foot{margin-top:10px;font-size:.72rem;color:#b9c3d1;min-height:1.2em}
+.pulso-foot a{color:#b9c3d1;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.pulso-foot button{font:inherit;font-size:.72rem;margin-left:6px;padding:3px 9px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#e8edf5;cursor:pointer}
+.aviso-ia{margin:18px 0 0;padding:11px 13px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);text-align:left;font-size:.9rem;line-height:1.45;color:#eef2f8}
+.aviso-ia b{color:#fff}
+.fase{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:10px;margin:0 0 12px;padding:8px 10px;border-radius:10px;background:rgba(77,163,255,.1);border:1px solid rgba(77,163,255,.3);font-size:.76rem;line-height:1.3;color:#cfe3fb}
+.fase b{color:#fff}
+.puntos{display:-webkit-box;display:-webkit-flex;display:flex;gap:3px;-webkit-flex:none;flex:none}
+.puntos i{display:block;width:6px;height:18px;border-radius:3px;background:rgba(255,255,255,.18)}
+.puntos i.on{background:#4da3ff}
+.aviso{display:block;padding:8px 10px;border-radius:10px;border-left:4px solid #6b7686;background:rgba(255,255,255,.05);line-height:1.3}
+.aviso b{display:block;font-size:.8rem;color:#fff;margin-bottom:2px}
+.aviso span{display:block;font-size:.76rem;color:#c3ccd9}
+.aviso-debil{border-left-color:#7c9cc4}
+.aviso-coincide{border-left-color:#37c48a;background:rgba(55,196,138,.1)}
+.aviso-cambio{border-left-color:#f0b03e;background:rgba(240,176,62,.12)}
+.aviso-cambio b{color:#ffd48a;-webkit-animation:pcPulse 2.4s ease-in-out infinite;animation:pcPulse 2.4s ease-in-out infinite}
+.aviso-respaldado{border-left-color:#ff6b5b;background:rgba(255,107,91,.13)}
+.aviso-respaldado b{color:#ffb3aa}
+.pc-line{min-height:0}
+@media (prefers-reduced-motion:reduce){.aviso b{-webkit-animation:none!important;animation:none!important}.pc::before{-webkit-animation:none!important;animation:none!important}.pc,.pc *{-webkit-transition:none!important;transition:none!important;-webkit-animation:none!important;animation:none!important}}
+.pc-err{min-height:0;margin-top:8px;font-size:.78rem;line-height:1.3;color:#ffb3aa}
+.pc-err:empty{display:none}
+.pc.enviando{opacity:.75}
+</style>
     <!-- Ajustes visuales DESPUÉS de style-glass.css (si no, esa hoja los anula) -->
     <style>
         /* ── Legibilidad: el gris "atenuado" (#636e72) era para fondo blanco; sobre
@@ -801,7 +879,19 @@
                 <div class="card glass-card glass-card-animated" id="glassDemoCard">
                     <h2 style="text-align:center;"><span class="px-slot" data-px="bomba"></span> Precios Combustible</h2>
                     <p style="text-align:center;margin:-4px 0 12px;font-size:0.9rem;color:var(--text-muted);">(Área Metropolitana)</p>
+                    <!-- Votos de la comunidad (servidor: votos-api, Cloudflare Workers + D1) -->
+                    <div class="pulso" id="pulso">
+                        <div class="pulso-head">
+                            <span class="pulso-title">Si ya echaste gasolina hoy, ¡comparte cuánto pagaste!</span>
+                            <span class="pulso-live" id="pulsoLive">hoy</span>
+                        </div>
+                        <div class="fase" id="fase"><span class="puntos" id="fasePuntos"></span><span id="faseTexto"></span></div>
+                        <div class="pulso-grid" id="pulsoGrid"></div>
+                        <div class="pulso-foot" id="pulsoFoot">Tu voto es anónimo, sin registro, y ayuda a que todos sepamos el precio de hoy.</div>
+                    </div>
+
                     <div id="preciosCombustible"></div>
+                    <div class="aviso-ia" role="note"><b>Aviso:</b> esta página analiza los datos con inteligencia artificial y puede tener errores o fallos. Ningún modelo de IA es 100 % seguro en sus respuestas. Contrasta el precio con otras fuentes y con lo que ves en la bomba.</div>
                     <!-- Gráfica de tendencia semanal -->
                     <div style="text-align:center;margin-top:16px;">
                         <canvas id="weeklyPriceChart" style="display:block;width:100%;max-width:480px;height:200px;"></canvas>
@@ -1706,6 +1796,8 @@
                 ctx.shadowBlur = 0;
             }
 
+            if (window.__marcasComunidad) window.__marcasComunidad(ctx, {padLeft: padLeft, chartW: chartW, chartTop: chartTop, chartH: chartH, minPrice: minPrice, maxPrice: maxPrice, time: time});
+
             // ── Labels X (fechas): desde la más reciente hacia atrás, dejando
             // al menos 34 px entre etiquetas para que no se encimen ──
             ctx.fillStyle = 'rgba(200, 215, 235, 0.8)';
@@ -2600,5 +2692,201 @@
         llenarIconos();
         cargarDashboard();
     </script>
+<script>
+/* Votos de la comunidad: habla con votos-api (Cloudflare Workers + D1). Anónimo, sin login.
+   Un voto por producto y día; el servidor valida y fija fecha, hora y dispositivo. */
+(function () {
+  'use strict';
+  var API = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+    ? 'http://127.0.0.1:8787' : 'https://gasolina-votos.gasolinasogt.workers.dev';
+  var FASE_INICIO = '2026-09-29', FASE_DIAS = 7;   // fase de prueba: se oculta sola al terminar
+  var PRODS = [
+    { id: 'superior', nombre: 'Superior', hue: 20 },
+    { id: 'regular',  nombre: 'Regular',  hue: 260 },
+    { id: 'diésel',   nombre: 'Diésel',   hue: 145 }
+  ];
+  var R = null, apiCaida = false, enviando = false, errores = {}, tokenMem = null;
+
+  function hoy() { return new Date(Date.now() - 6 * 3600 * 1000).toISOString().slice(0, 10); }
+  function leer(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function escribir(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function token() {
+    if (tokenMem) return tokenMem;
+    var t = leer('gt_votos_token');
+    if (!(t && /^[A-Za-z0-9_-]{16,64}$/.test(t))) {
+      var a = new Uint8Array(24), s = '', i;
+      if (window.crypto && window.crypto.getRandomValues) window.crypto.getRandomValues(a);
+      else for (i = 0; i < a.length; i++) a[i] = Math.floor(Math.random() * 256);
+      for (i = 0; i < a.length; i++) s += ('0' + a[i].toString(16)).slice(-2);
+      t = s; escribir('gt_votos_token', t);
+    }
+    tokenMem = t; return t;
+  }
+  function votado() {
+    try { var v = JSON.parse(leer('gt_votado') || '{}'); return v.dia === hoy() ? (v.p || {}) : {}; } catch (e) { return {}; }
+  }
+  function marcarVotado(id) { var p = votado(); p[id] = 1; escribir('gt_votado', JSON.stringify({ dia: hoy(), p: p })); }
+  function oficial(id) {
+    var w = window.__weekData || [];
+    for (var i = 0; i < w.length; i++) if (w[i].producto === id) return w[i].precio;
+    return null;
+  }
+  function fmt(n) { return 'Q' + Number(n).toFixed(2); }
+  function resumenDe(id) {
+    return (R && R[id]) || { n_votos: 0, n_coincide: 0, n_otro: 0, estado: 'sin', mediana: null, precio_oficial: null };
+  }
+  function pedir(url, opts, ms) {
+    return Promise.race([
+      fetch(url, opts),
+      new Promise(function (_, rechazar) { setTimeout(function () { rechazar(new Error('tiempo')); }, ms || 10000); })
+    ]);
+  }
+
+  // ── textos de cada estado ──
+  function avisoHtml(r, of) {
+    var ref = (r.precio_oficial !== null && r.precio_oficial !== undefined) ? r.precio_oficial : of, t, x;
+    if (r.estado === 'coincide') {
+      t = 'La comunidad coincide';
+      x = r.n_votos + (r.n_votos === 1 ? ' persona votó' : ' personas votaron') + ' hoy y el precio oficial se mantiene.';
+    } else if (r.estado === 'cambio' || r.estado === 'respaldado') {
+      var med = Number(r.mediana), d = (ref !== null && ref !== undefined) ? Math.abs(med - ref) : null;
+      if (r.estado === 'respaldado') {
+        t = 'Cambio confirmado';
+        x = 'La comunidad y una fuente independiente reportan ' + fmt(med) + '. El dato oficial puede estar desactualizado.';
+      } else {
+        t = 'Posible cambio de precio';
+        x = 'La comunidad reporta ' + fmt(med) + (d !== null ? ' (Q' + d.toFixed(2) + (med < ref ? ' menos' : ' más') + ' que el dato oficial)' : '') + '. Aún sin confirmar: puede variar por estación.';
+      }
+    } else if (r.estado === 'debil') {
+      t = 'Pocos votos por ahora'; x = 'Se necesitan más votos para que el resultado sea concluyente.';
+    } else {
+      t = 'Aún sin votos suficientes'; x = 'Sé de los primeros en compartir cuánto pagaste hoy.';
+    }
+    return '<div class="aviso aviso-' + r.estado + '"><b>' + t + '</b><span>' + x + '</span></div>';
+  }
+
+  function pintarFase() {
+    var caja = document.getElementById('fase'); if (!caja) return;
+    var n = Math.round((Date.parse(hoy()) - Date.parse(FASE_INICIO)) / 86400000) + 1;
+    if (n < 1 || n > FASE_DIAS) { caja.style.display = 'none'; return; }
+    var p = '';
+    for (var i = 1; i <= FASE_DIAS; i++) p += '<i' + (i <= n ? ' class="on"' : '') + '></i>';
+    document.getElementById('fasePuntos').innerHTML = p;
+    document.getElementById('faseTexto').innerHTML = '<b>Fase de prueba, día ' + n + ' de ' + FASE_DIAS + '.</b> Estamos midiendo qué tan precisos son los votos para mejorar el sistema. Tu voto ya ayuda a afinarlo.';
+  }
+
+  function pintar() {
+    var grid = document.getElementById('pulsoGrid'); if (!grid) return;
+    var foot = document.getElementById('pulsoFoot');
+    if (apiCaida && !R) {
+      grid.innerHTML = '';
+      document.getElementById('pulsoLive').textContent = 'hoy';
+      foot.textContent = 'Los votos no están disponibles por ahora; los precios de arriba siguen al día. Vuelve a intentar en unos minutos.';
+      redibujar(); return;
+    }
+    foot.textContent = 'Tu voto es anónimo, sin registro, y ayuda a que todos sepamos el precio de hoy.';
+    var abiertos = {}, yaV = votado(), total = 0, html = '';
+    [].forEach.call(grid.querySelectorAll('.pc.abierto'), function (c) { abiertos[c.getAttribute('data-p')] = true; });
+    PRODS.forEach(function (p) {
+      var of = oficial(p.id); if (of === null) return;
+      var r = resumenDe(p.id), yo = !!yaV[p.id], ratio = r.n_votos ? r.n_coincide / r.n_votos : 0;
+      total += r.n_votos;
+      var dis = enviando ? ' disabled' : '';
+      html += '<div class="pc' + (yo ? ' votado' : '') + (abiertos[p.id] && !yo ? ' abierto' : '') + (enviando ? ' enviando' : '') + '" data-p="' + p.id + '" style="--h:' + p.hue + ';--h2:' + ((p.hue + 55) % 360) + '">'
+        + '<div class="pc-top"><div class="ring"><svg viewBox="0 0 48 48"><circle class="bg" cx="24" cy="24" r="18"/><circle class="fg" cx="24" cy="24" r="18" data-r="' + ratio + '"/></svg><b>' + r.n_votos + '</b></div>'
+        + '<div><div class="pc-name"><i></i>' + p.nombre + '</div><div class="pc-precio">' + fmt(of) + '</div></div></div>'
+        + '<div class="pc-line">' + avisoHtml(r, of) + '</div>'
+        + '<div class="pc-acts"><button type="button" class="si" data-a="si"' + dis + '>Coincide</button><button type="button" data-a="otro"' + dis + '>Vi otro</button></div>'
+        + '<div class="tray"><div class="stepper"><button type="button" data-a="menos" aria-label="Bajar diez centavos"' + dis + '>&minus;</button>'
+        + '<input type="number" inputmode="decimal" step="0.01" min="10" max="100" value="' + Number(of).toFixed(2) + '" aria-label="Precio que viste"' + dis + '>'
+        + '<button type="button" data-a="mas" aria-label="Subir diez centavos"' + dis + '>+</button></div>'
+        + '<button type="button" class="enviar" data-a="enviar"' + dis + '>Enviar el precio que vi</button></div>'
+        + '<div class="pc-err" role="status" aria-live="polite">' + (errores[p.id] || '') + '</div>'
+        + '<div class="gracias"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Gracias, tu voto ya cuenta</div>'
+        + '</div>';
+    });
+    grid.innerHTML = html;
+    var fgs = grid.querySelectorAll('.fg');
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+      [].forEach.call(fgs, function (c) { c.style.strokeDashoffset = (113.1 * (1 - parseFloat(c.getAttribute('data-r')))).toFixed(1); });
+    }); });
+    document.getElementById('pulsoLive').textContent = total ? total + (total === 1 ? ' voto hoy' : ' votos hoy') : 'hoy';
+    redibujar();
+  }
+
+  function refrescar() {
+    pedir(API + '/api/resumen', {}, 10000)
+      .then(function (r) { if (!r.ok) throw new Error('http'); return r.json(); })
+      .then(function (j) { R = j.productos; apiCaida = false; pintar(); })
+      .catch(function () { apiCaida = true; pintar(); });
+  }
+
+  function enviar(id, tipo, precio) {
+    if (enviando) return;
+    errores = {}; enviando = true; pintar();
+    var cuerpo = { producto: id, tipo: tipo, token: token() };
+    if (tipo === 'otro') cuerpo.precio = precio;
+    pedir(API + '/api/voto', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(cuerpo) }, 10000)
+      .then(function (r) { return r.json().then(function (j) { return { s: r.status, j: j }; }); })
+      .then(function (x) {
+        if (x.s === 201) { marcarVotado(id); R = x.j.resumen; }
+        else if (x.s === 409) { marcarVotado(id); errores[id] = 'Ya votaste hoy este producto. ¡Gracias!'; }
+        else if (x.j && x.j.error === 'precio_lejos_del_oficial') errores[id] = 'Ese precio se ve muy lejos del oficial. Revísalo, por favor.';
+        else if (x.j && x.j.error === 'precio_fuera_de_rango') errores[id] = 'Escribe un precio entre Q10 y Q100.';
+        else if (x.s === 429) errores[id] = 'Demasiados intentos por ahora. Intenta más tarde.';
+        else errores[id] = 'No pudimos guardar tu voto. Intenta de nuevo en unos minutos.';
+      })
+      .catch(function () { errores[id] = 'No hay conexión con el servidor de votos. Intenta de nuevo.'; })
+      .then(function () { enviando = false; pintar(); });
+  }
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('.pc button') : null; if (!b || b.disabled) return;
+    var c = b.closest('.pc'), id = c.getAttribute('data-p'), a = b.getAttribute('data-a'), inp = c.querySelector('input');
+    if (a === 'si') enviar(id, 'coincide');
+    else if (a === 'otro') c.classList.toggle('abierto');
+    else if (a === 'menos') inp.value = (parseFloat(inp.value || 0) - 0.10).toFixed(2);
+    else if (a === 'mas') inp.value = (parseFloat(inp.value || 0) + 0.10).toFixed(2);
+    else if (a === 'enviar') {
+      var v = parseFloat(inp.value);
+      if (!(v >= 10 && v <= 100)) { errores[id] = 'Escribe un precio entre Q10 y Q100.'; pintar(); return; }
+      enviar(id, 'otro', Math.round(v * 100) / 100);
+    }
+  });
+
+  function redibujar() { if (window.__weekData && typeof drawWeeklyPriceChartAnimated === 'function') drawWeeklyPriceChartAnimated(window.__weekData, 1.5); }
+
+  // Marcas sobre la gráfica principal: anillo si la comunidad coincide, rombo si ve otro precio
+  window.__marcasComunidad = function (ctx, g) {
+    var rev = Math.min(1, g.time / 1.5);
+    PRODS.forEach(function (p) {
+      var r = resumenDe(p.id), of = oficial(p.id);
+      if (of === null || (r.estado !== 'coincide' && r.estado !== 'cambio' && r.estado !== 'respaldado')) return;
+      var x = g.padLeft + g.chartW;
+      function yDe(v) { var y = g.chartTop + g.chartH - ((v - g.minPrice) / (g.maxPrice - g.minPrice)) * g.chartH; return Math.max(g.chartTop, Math.min(g.chartTop + g.chartH, y)); }
+      var yO = yDe(of), col = hslToHex(p.hue, 90, 60);
+      ctx.save(); ctx.shadowBlur = 0; ctx.lineWidth = 1.6; ctx.strokeStyle = col; ctx.fillStyle = col;
+      if (r.estado === 'coincide') {
+        ctx.globalAlpha = 0.9 * rev; ctx.beginPath(); ctx.arc(x, yO, 5 + 4 * rev, 0, Math.PI * 2); ctx.stroke();
+      } else {
+        var xc = x - 16, yc = yDe(Number(r.mediana));
+        ctx.setLineDash([3, 3]); ctx.globalAlpha = 0.8 * rev; ctx.beginPath(); ctx.moveTo(xc, yO); ctx.lineTo(xc, yO + (yc - yO) * rev); ctx.stroke(); ctx.setLineDash([]);
+        ctx.globalAlpha = rev; ctx.beginPath(); ctx.moveTo(xc, yc - 6); ctx.lineTo(xc + 6, yc); ctx.lineTo(xc, yc + 6); ctx.lineTo(xc - 6, yc); ctx.closePath(); ctx.fillStyle = '#0b1220'; ctx.fill(); ctx.stroke();
+        ctx.fillStyle = col; ctx.font = 'bold 9px -apple-system, sans-serif'; ctx.textAlign = 'right';
+        ctx.fillText('Comunidad ' + fmt(r.mediana), xc - 10, yc + 3);
+      }
+      ctx.restore();
+    });
+  };
+
+  // Engancha el render existente: al pintar los precios se construye el bloque de votos
+  var orig = window.renderPreciosCombustible;
+  if (typeof orig === 'function') {
+    window.renderPreciosCombustible = function (d) { orig(d); pintarFase(); pintar(); refrescar(); };
+  }
+  setInterval(function () { if (document.visibilityState === 'visible' && window.__weekData) refrescar(); }, 60000);
+})();
+</script>
+
 </body>
 </html>
