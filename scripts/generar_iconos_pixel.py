@@ -12,6 +12,7 @@ Cada ícono = lista de fotogramas (cuadrículas 16x16). Se emite SVG compacto:
 Un <path> por color por grupo; runs horizontales "M x y h n v1 h-n z".
 """
 import json
+import math
 import sys
 
 PALETA = {
@@ -19,7 +20,7 @@ PALETA = {
     "R": "#ff4d3d", "r": "#b3261b", "C": "#38d9f5", "c": "#1a8fb0", "G": "#35e07a",
     "g": "#1b8f4a", "Y": "#ffc233", "y": "#c98a00", "A": "#9fb3c8", "a": "#5f7189",
     "S": "#d6e2f0", "B": "#9c5b21", "L": "#e0a458", "D": "#2b3550", "E": "#38a8f5",
-    "e": "#1f5f99", "X": "currentColor", "x": "currentColor@0.35",
+    "e": "#1f5f99", "X": "currentColor", "x": "currentColor@0.35", "F": "#4997d0",
 }
 
 N = 16
@@ -344,6 +345,30 @@ punto = g(
 halo = pintar(punto, [(4, c) for c in range(6, 10)] + [(11, c) for c in range(6, 10)]
               + [(r, 4) for r in range(6, 10)] + [(r, 11) for r in range(6, 10)], "x")
 ICONOS["punto"] = {"dur": 1.2, "frames": [punto, halo]}
+
+
+# 12. Bandera de Guatemala ondeando: franjas azul-blanco-azul con escudo verde y dorado.
+#     Cada columna sube o baja 1 px segun una onda que avanza de un fotograma a otro.
+def _bandera(fase):
+    tela = [list("FFFFwwwwwFFFF") for _ in range(9)]      # 13 columnas x 9 filas
+    escudo = ["GGG", "GYG", "GGG"]
+    for i, fila in enumerate(escudo):
+        for j, ch in enumerate(fila):
+            tela[3 + i][5 + j] = ch
+    grid = [["."] * N for _ in range(N)]
+    for r in range(1, N):                                  # asta
+        grid[r][1] = "A"
+    grid[0][1] = "Y"
+    for col in range(13):
+        desfase = round(math.sin((col - fase * 13 / 4) * 0.55) * 0.9)
+        for r in range(9):
+            rr = 2 + r + desfase
+            if 0 <= rr < N:
+                grid[rr][2 + col] = tela[r][col]
+    return grid
+
+
+ICONOS["bandera"] = {"dur": 1.6, "frames": [_bandera(k) for k in range(4)]}
 
 
 # ──────────────────────────────────────────────
