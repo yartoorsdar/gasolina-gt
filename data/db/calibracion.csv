@@ -1,4 +1,4 @@
 fecha,producto,modalidad,ref_precio,ref_fuente,ref_previo,n_votos,n_coincide,n_otro,n_ciegos,n_zonas,n_duplicados,n_fuera_rango,mediana,mad,acuerdo,mediana_ciegos,pct_coincide,error_mediana,error_abs,estado,alerta,cambio_real,hora_primer_voto,hora_umbral
 2026-09-29,diésel,autoservicio,,,49.4,9,9,0,0,0,0,0,,,,,1.0,,,debil,0,,01:27,
 2026-09-29,regular,autoservicio,,,43.29,9,8,1,0,0,0,0,42.79,0.0,1.0,,0.8889,,,debil,0,,01:27,
-2026-09-29,superior,autoservicio,,,45.29,10,9,1,0,0,0,0,45.69,0.0,1.0,,0.9,,,coincide,0,,01:27,07:50
+2026-09-29,superior,autoservicio,,,45.29,12,10,2,0,0,0,0,45.09,0.6,0.0,,0.8333,,,coincide,0,,01:27,07:50
