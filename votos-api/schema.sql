@@ -26,3 +26,9 @@ CREATE TABLE IF NOT EXISTS limites (
     n INTEGER NOT NULL,
     PRIMARY KEY (clave, ventana)
 );
+
+-- Contador de visitas: una fila por dia GT, una sola escritura por visita (sin datos personales).
+CREATE TABLE IF NOT EXISTS visitas (
+    fecha TEXT PRIMARY KEY,
+    total INTEGER NOT NULL DEFAULT 0
+);

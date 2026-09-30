@@ -99,7 +99,7 @@ def test_iconos_pixel_art_animados_solo_por_opacidad():
         html = (raiz / archivo).read_text(encoding="utf-8")
         for entidad in ("&#x26FD;", "&#x1F6E1;", "&#x1F4C8;", "&#x1F4F0;", "&#x1F6E2;"):
             assert entidad not in html, f"{archivo}: quedó el emoji {entidad}"
-        for nombre in ("barril", "bomba", "gota", "grafica", "periodico", "alerta", "espadas", "caja", "globo", "rayo", "punto"):
+        for nombre in ("barril", "bomba", "gota", "grafica", "periodico", "alerta", "espadas", "caja", "globo", "rayo", "punto", "bandera"):
             assert f'"{nombre}":' in html, f"{archivo}: falta el ícono {nombre}"
         for n in (2, 3, 4):
             linea = next(l for l in html.splitlines() if f"@keyframes px{n} " in l)

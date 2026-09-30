@@ -145,9 +145,33 @@ async function postVoto(req, env, deps) {
   return responder(req, env, 201, { ok: true, resumen: await calcularResumen(env, fecha, deps) });
 }
 
+async function visitasDeHoy(env, fecha) {
+  const f = await env.DB.prepare('SELECT total FROM visitas WHERE fecha = ?1').bind(fecha).first();
+  return f ? f.total : 0;
+}
+
+// Cuenta una visita (el navegador avisa una vez por dispositivo y día). Una sola fila por día;
+// no guarda IP ni token. Freno por IP hasheada para que un script no infle el número.
+async function postVisita(req, env, deps) {
+  if (!origenPermitido(req, env)) return responder(req, env, 403, { error: 'origen_no_permitido' });
+  if (!env.VOTOS_SALT || String(env.VOTOS_SALT).length < 16) return responder(req, env, 503, { error: 'servidor_sin_configurar' });
+  const { fecha, ts } = ahoraGT(deps.ahora());
+  const ip = req.headers.get('CF-Connecting-IP') || req.headers.get('x-forwarded-for') || 'sin-ip';
+  const claveIp = 'v' + (await sha256hex(`${env.VOTOS_SALT}|visita|${ip}`)).slice(0, 15);
+  const ventana = ts.slice(0, 13);
+  const lim = await env.DB
+    .prepare('INSERT INTO limites (clave, ventana, n) VALUES (?1, ?2, 1) ON CONFLICT(clave, ventana) DO UPDATE SET n = n + 1 RETURNING n')
+    .bind(claveIp, ventana).first();
+  if (lim.n > Number(env.LIMITE_VISITAS_HORA || 30)) return responder(req, env, 200, { visitas_hoy: await visitasDeHoy(env, fecha), contada: false });
+  const f = await env.DB
+    .prepare('INSERT INTO visitas (fecha, total) VALUES (?1, 1) ON CONFLICT(fecha) DO UPDATE SET total = total + 1 RETURNING total')
+    .bind(fecha).first();
+  return responder(req, env, 200, { visitas_hoy: f.total, contada: true });
+}
+
 async function getResumen(req, env, deps) {
   const { fecha, ts } = ahoraGT(deps.ahora());
-  return responder(req, env, 200, { fecha, generado_at: ts, productos: await calcularResumen(env, fecha, deps) },
+  return responder(req, env, 200, { fecha, generado_at: ts, visitas_hoy: await visitasDeHoy(env, fecha), productos: await calcularResumen(env, fecha, deps) },
     { 'Cache-Control': 'public, max-age=15, s-maxage=30' });
 }
 
@@ -175,6 +199,7 @@ export async function manejar(req, env, deps = {}) {
     if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: encabezadosCors(req, env) });
     if (url.pathname === '/api/salud' && req.method === 'GET') return responder(req, env, 200, { ok: true });
     if (url.pathname === '/api/voto' && req.method === 'POST') return await postVoto(req, env, deps);
+    if (url.pathname === '/api/visita' && req.method === 'POST') return await postVisita(req, env, deps);
     if (url.pathname === '/api/resumen' && req.method === 'GET') return await getResumen(req, env, deps);
     if (url.pathname === '/api/exportar' && req.method === 'GET') return await getExportar(req, env, url);
     return responder(req, env, 404, { error: 'no_encontrado' });

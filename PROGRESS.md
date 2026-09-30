@@ -115,3 +115,8 @@ Genera URL tipo `https://xxx.ngrok-free.app` compartible con clientes. Requiere 
 ## 2026-09-29 - Iconos del bloque de votos
 - Botones: pulgar vectorial (Coincide) y moneda Q con flechas (Vi otro). Pixel art animado (opacity) para bomba (nombre), urna (gracias) y candado (pie). Editado igual en `web/index.html` e `index.html`.
 - Commit SIN `[skip ci]` a proposito: Vercel respeta `[skip ci]` y no desplegaria el cambio de UI.
+
+## 2026-09-30 - Contador de visitas (chapines del dia)
+- Worker: tabla D1 `visitas(fecha, total)` (una fila por dia GT, una escritura por visita, sin IP ni token), ruta `POST /api/visita` (freno 30/hora por IP hasheada) y `visitas_hoy` dentro de `GET /api/resumen`. El navegador avisa 1 vez por dispositivo y dia (`gt_visita` en localStorage). Se muestra bajo el titulo con bandera pixel art (`bandera`, en `scripts/generar_iconos_pixel.py`) solo desde `VISITAS_MIN = 50`.
+- D1 real sembrada con los visitantes unicos de Vercel Web Analytics (27-sep 139, 28-sep 229, 29-sep 123, 30-sep 68 hasta la publicacion). Aproximacion: Vercel agrupa por dia UTC, el contador por dia GT. Desde el despliegue solo cuenta el Worker (no se suma Vercel otra vez).
+- Commit de UI SIN `[skip ci]` (Vercel debe desplegar); el cambio del generador de iconos va aparte con `[skip ci]` para no gastar cuota del workflow (scripts/** lo dispararia).
