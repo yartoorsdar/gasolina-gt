@@ -557,6 +557,24 @@ def extraer_regex(texto: str, publicado: str) -> list[dict]:
     return obs
 
 
+# La cita habla en condicional o futuro: no puede ser un precio OBSERVADO en bomba.
+# El LLM a veces lo etiqueta "monitoreado" (Infobae 1-oct: "la gasolina superior
+# pasaría de Q45,29 a Q36,24"; en local salió referencia y en CI monitoreado).
+_RE_CITA_NO_OBSERVADA = re.compile(
+    r"pasar[íi]a|quedar[íi]a|ser[íi]a|costar[íi]a|estar[íi]a|podr[íi]a|"
+    r"costar[áa]n?\b|quedar[áa]n?\b|ser[áa]n?\b|estar[áa]n?\b|regir[áa]n?\b|a partir|"
+    r"estimad|proyecc|c[áa]lcul|"
+    # "de Q43,26 a Q34,93": un cambio, no una observación (el LLM recorta el verbo de la cita)
+    r"\bde\s+q\.?\s?\d{2}[.,]\d{1,2}\s+a\s+q", re.I)
+
+
+def _tipo_efectivo(tipo: str, cita: str | None) -> str:
+    """Tipo de la observación corregido por su cita (regla fija, no depende del LLM)."""
+    if tipo == "monitoreado" and _RE_CITA_NO_OBSERVADA.search(cita or ""):
+        return "referencia"
+    return tipo
+
+
 def _cifra_en_texto(precio, texto: str) -> bool:
     """¿El número aparece TEXTUAL en la nota? ("36.24", "36,24", "Q 36.2" para 36.20).
 
@@ -585,7 +603,7 @@ def normalizar_observaciones(crudas: list[dict], nota: dict, extractor: str,
     pub = datetime.strptime(nota["publicado"], "%Y-%m-%d")
     salida = []
     for o in crudas:
-        tipo = str(o.get("tipo", "")).lower()
+        tipo = _tipo_efectivo(str(o.get("tipo", "")).lower(), o.get("cita"))
         modalidad = str(o.get("modalidad", "")).lower().replace(" ", "_")
         if (tipo not in ("monitoreado", "referencia")
                 or modalidad not in ("autoservicio", "servicio_completo", MODALIDAD_DESCONOCIDA)):
@@ -747,10 +765,12 @@ def consejo(conn, producto: str, modalidad: str, hoy: str, precision: dict,
 
     desde = (datetime.strptime(hoy, "%Y-%m-%d") - timedelta(days=DIAS_VENTANA)).strftime("%Y-%m-%d")
     filas = [dict(r) for r in conn.execute(
-        "SELECT fecha, precio, medio, url, tipo, modalidad FROM observaciones "
+        "SELECT fecha, precio, medio, url, tipo, modalidad, cita FROM observaciones "
         "WHERE producto = ? AND fecha >= ? AND fecha <= ?",
         (producto, desde, hoy),
     )]
+    for f in filas:  # también corrige filas ya guardadas antes de la regla
+        f["tipo"] = _tipo_efectivo(f["tipo"], f.pop("cita"))
     cand = [f for f in filas if f["modalidad"] == modalidad]
     cand += [{"fecha": r[0], "precio": r[1], "medio": MEDIO_OFICIAL, "url": "https://mem.gob.gt/",
               "tipo": "oficial", "modalidad": modalidad}

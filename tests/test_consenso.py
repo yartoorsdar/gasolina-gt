@@ -284,6 +284,25 @@ class TestConsejoDecreto:
         ])
         assert consejo(conn, "diésel", "autoservicio", HOY_DECRETO, {}, DECRETO)["precio"] == 41.69
 
+    def test_cita_condicional_no_cuenta_como_monitoreado(self, conn):
+        """Infobae 1-oct: el LLM etiquetó "pasaría de Q45,29 a Q36,24" como monitoreado."""
+        guardar_observaciones(conn, [
+            _obs("publinews.gt", 36.19, HOY_DECRETO),
+            {**_desc("infobae.com", 36.24), "cita": "la gasolina superior pasaría de Q 45,29 a Q 36,24"},
+            {**_desc("emisoras.com", 36.19), "cita": "Súper Q36.19"},
+        ])
+        v = consejo(conn, "superior", "autoservicio", HOY_DECRETO, {}, DECRETO)
+        assert {f["medio"] for f in v["fuentes"]} == {"publinews.gt", "emisoras.com"}
+        crudas = [{"producto": "superior", "modalidad": "desconocida", "precio": 36.24, "tipo": "monitoreado",
+                   "cita": "a partir de este jueves costará Q36.24"}]
+        nota = {"url": "u", "medio": "m", "publicado": HOY_DECRETO}
+        assert normalizar_observaciones(crudas, nota, "llm")[0]["tipo"] == "referencia"
+        # Misma nota, el LLM recortó el verbo: "de Q 43,26 a Q 34,93" sigue siendo un cambio
+        from collector.consenso_precios import _tipo_efectivo
+        assert _tipo_efectivo("monitoreado", " de Q 43,26 a Q 34,93") == "referencia"
+        assert _tipo_efectivo("monitoreado", "Súper: Q36.19") == "monitoreado"
+        assert _tipo_efectivo("monitoreado", "Los precios amanecieron así: gasolina superior Q36.19") == "monitoreado"
+
     def test_medio_que_se_contradice_no_vota(self, conn, capsys):
         """Publinews 1-oct: diésel servicio completo Q42.79 en una nota y Q43.79 en otra."""
         guardar_observaciones(conn, [
