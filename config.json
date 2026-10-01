@@ -8,9 +8,9 @@
     }
   },
   "decreto_22_2026": {
-    "estado": "pendiente_sancion",
+    "estado": "vigente",
     "fecha_aprobacion_congreso": "2026-09-22",
-    "fecha_vigencia_inicio": null,
+    "fecha_vigencia_inicio": "2026-10-01",
     "fecha_vigencia_fin": "2026-12-31"
   },
   "regimenes": {

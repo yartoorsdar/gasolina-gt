@@ -317,14 +317,29 @@ def construir_consolidado(conn: sqlite3.Connection, dias_historial: int = 365) -
     )
     from collector.memoria import leer_mensual, leer_semilla_anual
 
+    from collector.impuestos import precio_incluye_impuestos
+    with open(Path(__file__).resolve().parent.parent / "config.json", "r", encoding="utf-8") as _f:
+        _cfg_decreto = json.load(_f)
+
     hoy = hoy_gt()
     desde = hace_dias_gt(dias_historial)
     semilla = leer_semilla_anual()
     mensual = leer_mensual()
 
-    def _actual(row):
-        return {"fecha": row["fecha"], "precio": row["precio"], "fuente": row["fuente"],
-                "fetched_at": row["fetched_at"]} if row else None
+    def _incluye(codigo, fecha):
+        """True/False si el precio de esa fecha lleva IVA+IDP (Decreto 22-2026); None si no es combustible."""
+        if PRODUCTOS[codigo]["categoria"] != "combustible":
+            return None
+        return precio_incluye_impuestos(fecha, _cfg_decreto)
+
+    def _actual(row, codigo=None):
+        if not row:
+            return None
+        d = {"fecha": row["fecha"], "precio": row["precio"], "fuente": row["fuente"],
+             "fetched_at": row["fetched_at"]}
+        if codigo:
+            d["incluye_impuestos"] = _incluye(codigo, row["fecha"])
+        return d
 
     def _consenso(row):
         if not row:
@@ -347,6 +362,7 @@ def construir_consolidado(conn: sqlite3.Connection, dias_historial: int = 365) -
                 "precio": ultimo["precio"],
                 "fuente": ultimo["fuente"],
                 "fetched_at": ultimo["fetched_at"],
+                "incluye_impuestos": _incluye(codigo, ultimo["fecha"]),
             } if ultimo else None,
             "historial": [
                 {"fecha": r["fecha"], "precio": r["precio"]}
@@ -360,7 +376,7 @@ def construir_consolidado(conn: sqlite3.Connection, dias_historial: int = 365) -
             "modalidades": {
                 mod: {
                     "nombre": MODALIDADES[mod],
-                    "actual": _actual(leer_ultimo(conn, codigo, mod)),
+                    "actual": _actual(leer_ultimo(conn, codigo, mod), codigo),
                     "consenso": _consenso(leer_consenso(conn, codigo, mod)),
                     "historial": [
                         {"fecha": r["fecha"], "precio": r["precio"]}

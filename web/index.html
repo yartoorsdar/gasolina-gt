@@ -129,13 +129,13 @@
             gap: 1px;
         }
 
-        /* ── Precio con impuestos → rojo fuego (estático: la animación
+        /* ── Precio principal → verde (estático: la animación
            infinita de text-shadow repinta cada frame y parpadea en móvil) ── */
         .price-value-main {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #ff4500;
-            text-shadow: 0 0 6px rgba(255,69,0,0.7), 0 0 12px rgba(255,69,0,0.3);
+            color: #4ade8a;
+            text-shadow: 0 0 6px rgba(74,222,138,0.6), 0 0 12px rgba(74,222,138,0.25);
         }
 
         /* ── Precio sin impuestos → verde dinero (estático: el scale()
@@ -919,7 +919,7 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
 
                     <!-- Advertencia decreto 22-2026 -->
                     <div class="decree-alert">
-                        <span class="px-slot" data-px="alerta"></span> <strong>Decreto 22-2026</strong> — Exención de IVA aún no en vigencia
+                        <span class="px-slot" data-px="alerta"></span> <strong>Decreto 22-2026 en vigencia desde el 1 de octubre</strong> — exención temporal de IVA e IDP hasta el 31 de diciembre de 2026. Los precios con fecha anterior al 1 de octubre incluyen impuestos.
                     </div>
                 </div>
 
@@ -1197,11 +1197,17 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
 
             // ── Constantes de impuestos (Decreto 38-92 + IVA) ──
             const IDP = { superior: 4.70, regular: 4.60, diésel: 1.30 };
+            const DECRETO_INICIO = '2026-10-01', DECRETO_FIN = '2026-12-31';
 
             const filaPrecio = (p) => {
                 const producto = p.producto || 'superior';
                 const idp = IDP[producto] ?? 4.60;
                 const precioFinal = p.precio;
+                // Decreto 22-2026: desde su vigencia el precio observado ya NO lleva IVA ni IDP
+                const exento = (typeof p.incluye_impuestos === 'boolean') ? !p.incluye_impuestos
+                    : (p.fecha >= DECRETO_INICIO && p.fecha <= DECRETO_FIN);
+                // Referencia con impuestos (solo para precios ya exentos): (precio + IDP) * 1.12
+                const conImpuestos = (precioFinal + idp) * 1.12;
 
                 // IVA incluido en precio final: IVA = (precioFinal - IDP) * 12/112
                 const ivamonto = Math.max(0, (precioFinal - idp) * 12 / 112);
@@ -1215,8 +1221,10 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                             ${badgeConfianza(p.consenso)}
                         </div>
                         <div class="price-values">
-                            <span class="price-value-main"><span style="font-size:0.75em;font-weight:400;margin-right:6px;">Con IVA+IDP</span>${fmtQ(precioFinal)}</span>
-                            <span class="price-value-exempt"><span style="font-size:0.85em;font-weight:400;margin-right:4px;">Sin IVA+IDP:</span>${fmtQ(baseSinImpuestos)}</span>
+                            <span class="price-value-main">${fmtQ(precioFinal)}</span>
+                            ${exento
+                                ? `<span class="price-value-exempt"><span style="font-size:0.85em;font-weight:400;margin-right:4px;">Con IVA+IDP (referencia):</span>${fmtQ(conImpuestos)}</span>`
+                                : `<span class="price-value-exempt"><span style="font-size:0.85em;font-weight:400;margin-right:4px;">Sin IVA+IDP:</span>${fmtQ(baseSinImpuestos)}</span>`}
                         </div>
                     </div>
                 `;
