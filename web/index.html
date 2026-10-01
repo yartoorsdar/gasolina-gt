@@ -215,9 +215,10 @@
         .consejo-fuentes a { color: inherit; }
         .consejo-fuentes a.coincide { color: #22c55e; }
         .consejo-fuentes a.difiere { text-decoration: line-through; opacity: 0.7; }
-        /* Fila sin dato del día (o con dato aún sin confirmar): no se presenta como vigente */
+        /* Fila sin dato del día: no se presenta como vigente. Aviso de servicio completo estimado */
         .price-sin-dato { font-size: 0.95rem; font-weight: 600; color: var(--text-muted); }
         .precio-nota { display: block; font-size: 0.7rem; color: var(--text-muted); text-align: right; margin-top: 2px; }
+        .precio-nota-bloque { font-size: 0.75rem; color: var(--text-muted); margin: 8px 0 0; line-height: 1.4; }
 
         /* ── Barril de petróleo con borde RGB animado ── */
         .barrel-frame {
@@ -1231,8 +1232,7 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                     const ivamonto = Math.max(0, (precioFinal - idp) * 12 / 112);
                     // Base = lo que queda despues de quitar IVA e IDP del precioFinal
                     const baseSinImpuestos = Math.max(0, precioFinal - ivamonto - idp);
-                    valor = `<span class="price-value-exempt">${etiqueta}${fmtQ(exento ? precioFinal : baseSinImpuestos)}</span>`
-                          + (p.estado === 'provisional' ? `<span class="precio-nota">Sin confirmar: falta una segunda fuente</span>` : '');
+                    valor = `<span class="price-value-exempt">${etiqueta}${fmtQ(exento ? precioFinal : baseSinImpuestos)}${p.estado === 'estimado' ? '*' : ''}</span>`;
                 }
 
                 return `
@@ -1253,33 +1253,59 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
             const porModalidad = data.precios_modalidades || { autoservicio: precios };
             const NOMBRE_MOD = { autoservicio: 'Autoservicio', servicio_completo: 'Servicio completo' };
             // Día de referencia = el dato más reciente de cualquier modalidad. Una fila de otro día
-            // no se presenta como vigente: si hay veredicto de hoy aún sin confirmar (1 fuente),
-            // se muestra ese precio real marcado "sin confirmar"; si no, "Sin dato de hoy".
-            // Etiqueta de confianza y fuentes solo si son del MISMO día que el precio mostrado
-            // (antes servicio completo mostraba el precio del 28-sep con las fuentes de otro día).
+            // no se presenta como vigente (antes servicio completo mostraba el precio del 28-sep
+            // con las fuentes de otro día):
+            //  - si hay veredicto de hoy (aunque sea de 1 fuente) → ese precio real, con su etiqueta;
+            //  - servicio completo sin dato de hoy → autoservicio de hoy + Q1.00 marcado con * y
+            //    aviso (decisión del dueño 2026-10-01; MEM/medios: diferencia Q0.87-1.20). Es solo
+            //    visual: el estimado nunca entra a la DB ni a la serie histórica;
+            //  - si tampoco hay base → "Sin dato de hoy" + último confirmado con su fecha.
+            // Etiqueta de confianza y fuentes solo si son del MISMO día que el precio mostrado.
+            const SOBRECARGO_SERVICIO_COMPLETO = 1.00;
             const fechaRef = Object.values(porModalidad).flat()
                 .map(p => p && p.fecha).filter(Boolean).sort().pop() || '';
-            const conEstado = (p) => {
+            const autoservicioDelDia = new Map((porModalidad.autoservicio || [])
+                .map(p => ({ ...p, producto: normalizar(p.producto) }))
+                .filter(p => p.fecha >= fechaRef && typeof p.precio === 'number' && isFinite(p.precio))
+                .map(p => [p.producto, p]));
+            const conEstado = (p, mod) => {
                 const c = p.consenso;
                 if (!fechaRef || p.fecha >= fechaRef) {
                     return { ...p, estado: 'vigente', consenso: c && c.fecha === p.fecha ? c : null };
                 }
                 if (c && c.fecha >= fechaRef && typeof c.precio === 'number') {
-                    return { ...p, estado: 'provisional', precio: c.precio, fecha: c.fecha,
+                    return { ...p, estado: 'vigente', precio: c.precio, fecha: c.fecha,
                              incluye_impuestos: undefined, consenso: c };
+                }
+                const base = mod === 'servicio_completo' && autoservicioDelDia.get(p.producto);
+                if (base) {
+                    return { ...p, estado: 'estimado', fecha: base.fecha, incluye_impuestos: base.incluye_impuestos,
+                             precio: Math.round((base.precio + SOBRECARGO_SERVICIO_COMPLETO) * 100) / 100, consenso: null };
                 }
                 return { ...p, estado: 'sin_dato', consenso: null };
             };
             for (const mod of ['autoservicio', 'servicio_completo']) {
                 const filas = (porModalidad[mod] || [])
                     .map(p => ({ ...p, producto: normalizar(p.producto) }))
-                    .filter(p => combustiblesPermitidos.has(p.producto) && typeof p.precio === 'number' && isFinite(p.precio))
+                    .filter(p => combustiblesPermitidos.has(p.producto) && typeof p.precio === 'number' && isFinite(p.precio));
+                if (mod === 'servicio_completo' && porModalidad.servicio_completo) {
+                    // Producto sin ningún dato de servicio completo: también se estima desde autoservicio
+                    const tiene = new Set(filas.map(p => p.producto));
+                    for (const prod of autoservicioDelDia.keys()) {
+                        if (!tiene.has(prod)) filas.push({ producto: prod, fecha: '', precio: 0, consenso: null });
+                    }
+                }
+                const conDia = filas
                     .sort((a, b) => (ordenMap.get(a.producto) ?? -1) - (ordenMap.get(b.producto) ?? -1))
-                    .map(conEstado);
-                if (!filas.length) continue;
+                    .map(p => conEstado(p, mod));
+                if (!conDia.length) continue;
+                const avisoEstimado = conDia.some(p => p.estado === 'estimado')
+                    ? `<p class="precio-nota-bloque">* Se sumó Q${SOBRECARGO_SERVICIO_COMPLETO.toFixed(2)} al precio de autoservicio porque hoy no se encontraron noticias ni datos que confirmen el precio en servicio completo.</p>`
+                    : '';
                 html += `<div class="modalidad-bloque"><div class="modalidad-titulo">${NOMBRE_MOD[mod]}</div>`
-                      + filas.map(filaPrecio).join('')
-                      + fuentesConsejo(filas, productos)
+                      + conDia.map(filaPrecio).join('')
+                      + avisoEstimado
+                      + fuentesConsejo(conDia, productos)
                       + '</div>';
             }
 
