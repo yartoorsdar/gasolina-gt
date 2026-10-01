@@ -660,7 +660,9 @@
 /* ===== Votos de la comunidad: solo transform/opacity/stroke-dashoffset, con prefijos -webkit- ===== */
 .pulso{color:#e8edf5;margin:4px 0 18px;padding:14px 12px 12px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);text-align:left}
 .pulso-head{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:space-between;justify-content:space-between;gap:8px;margin-bottom:10px}
-.pulso-modalidad{margin:0 0 10px}
+.pulso-modalidad{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:12px;margin:2px 0 12px;font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#b9c3d1}
+.pulso-modalidad::before,.pulso-modalidad::after{content:"";-webkit-flex:1;flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(185,195,209,.45))}
+.pulso-modalidad::after{background:linear-gradient(90deg,rgba(185,195,209,.45),transparent)}
 .pulso-title{-webkit-flex:1;flex:1;min-width:0;font-weight:800;font-size:.95rem;letter-spacing:.01em}
 .pulso-live{white-space:nowrap;-webkit-flex:none;flex:none;font-size:.72rem;color:#b9c3d1;padding:3px 9px;border-radius:99px;border:1px solid rgba(255,255,255,.12)}
 .pulso-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
@@ -908,13 +910,13 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                     <p style="text-align:center;margin:-4px 0 12px;font-size:0.9rem;color:var(--text-muted);">(Área Metropolitana)</p>
                     <!-- Votos de la comunidad (servidor: votos-api, Cloudflare Workers + D1) -->
                     <div class="pulso" id="pulso">
-                        <!-- Los votos son de AUTOSERVICIO: el navegador no envía modalidad y el Worker usa la principal -->
-                        <div class="modalidad-titulo pulso-modalidad">Autoservicio</div>
                         <div class="pulso-head">
                             <span class="pulso-title">Si ya echaste gasolina hoy, ¡comparte cuánto pagaste!</span>
                             <span class="pulso-live" id="pulsoLive">hoy</span>
                         </div>
                         <div class="fase" id="fase"><span class="puntos" id="fasePuntos"></span><span id="faseTexto"></span></div>
+                        <!-- Los votos son de AUTOSERVICIO: el navegador no envía modalidad y el Worker usa la principal -->
+                        <div class="pulso-modalidad">Autoservicio</div>
                         <div class="pulso-grid" id="pulsoGrid"></div>
                         <div class="pulso-foot" id="pulsoFoot">Tu voto es anónimo, sin registro, y ayuda a que todos sepamos el precio de hoy.</div>
                     </div>
