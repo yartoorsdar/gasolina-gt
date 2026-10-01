@@ -1212,9 +1212,18 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
             const IDP = { superior: 4.70, regular: 4.60, diésel: 1.30 };
             const DECRETO_INICIO = '2026-10-01', DECRETO_FIN = '2026-12-31';
 
+            // Precio que ve la persona: tal cual si ya no lleva IVA+IDP (Decreto 22-2026); si no, la base sin impuestos
+            const valorMostrado = (p) => {
+                const idp = IDP[p.producto] ?? 4.60;
+                const exento = (typeof p.incluye_impuestos === 'boolean') ? !p.incluye_impuestos
+                    : (p.fecha >= DECRETO_INICIO && p.fecha <= DECRETO_FIN);
+                // IVA incluido en precio final: IVA = (precioFinal - IDP) * 12/112; base = final - IVA - IDP
+                const iva = Math.max(0, (p.precio - idp) * 12 / 112);
+                return exento ? p.precio : Math.max(0, p.precio - iva - idp);
+            };
+
             const filaPrecio = (p) => {
                 const producto = p.producto || 'superior';
-                const idp = IDP[producto] ?? 4.60;
                 const etiqueta = `<span style="font-size:0.85em;font-weight:400;margin-right:4px;">Sin IVA+IDP:</span>`;
                 let valor;
                 if (p.estado === 'sin_dato') {
@@ -1224,15 +1233,10 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                     valor = `<span class="price-sin-dato">Sin dato de hoy</span>`
                           + `<span class="precio-nota">Último confirmado: ${fmtQ(p.precio)}${conImp ? ' con IVA+IDP' : ''} (${fmtFechaCorta(p.fecha)})</span>`;
                 } else {
-                    const precioFinal = p.precio;
-                    // Decreto 22-2026: desde su vigencia el precio observado ya NO lleva IVA ni IDP
-                    const exento = (typeof p.incluye_impuestos === 'boolean') ? !p.incluye_impuestos
-                        : (p.fecha >= DECRETO_INICIO && p.fecha <= DECRETO_FIN);
-                    // IVA incluido en precio final: IVA = (precioFinal - IDP) * 12/112
-                    const ivamonto = Math.max(0, (precioFinal - idp) * 12 / 112);
-                    // Base = lo que queda despues de quitar IVA e IDP del precioFinal
-                    const baseSinImpuestos = Math.max(0, precioFinal - ivamonto - idp);
-                    valor = `<span class="price-value-exempt">${etiqueta}${fmtQ(exento ? precioFinal : baseSinImpuestos)}${p.estado === 'estimado' ? '*' : ''}</span>`;
+                    // Estimado: Q1.00 sobre el precio de autoservicio TAL COMO SE MUESTRA (así cuadra la leyenda)
+                    const mostrado = p.estado === 'estimado'
+                        ? valorMostrado(p.base) + SOBRECARGO_SERVICIO_COMPLETO : valorMostrado(p);
+                    valor = `<span class="price-value-exempt">${etiqueta}${fmtQ(mostrado)}${p.estado === 'estimado' ? '*' : ''}</span>`;
                 }
 
                 return `
@@ -1280,7 +1284,8 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                 const base = mod === 'servicio_completo' && autoservicioDelDia.get(p.producto);
                 if (base) {
                     return { ...p, estado: 'estimado', fecha: base.fecha, incluye_impuestos: base.incluye_impuestos,
-                             precio: Math.round((base.precio + SOBRECARGO_SERVICIO_COMPLETO) * 100) / 100, consenso: null };
+                             precio: Math.round((base.precio + SOBRECARGO_SERVICIO_COMPLETO) * 100) / 100,
+                             base, consenso: null };
                 }
                 return { ...p, estado: 'sin_dato', consenso: null };
             };
@@ -1299,8 +1304,13 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                     .sort((a, b) => (ordenMap.get(a.producto) ?? -1) - (ordenMap.get(b.producto) ?? -1))
                     .map(p => conEstado(p, mod));
                 if (!conDia.length) continue;
-                const avisoEstimado = conDia.some(p => p.estado === 'estimado')
-                    ? `<p class="precio-nota-bloque">* Se sumó Q${SOBRECARGO_SERVICIO_COMPLETO.toFixed(2)} al precio de autoservicio porque hoy no se encontraron noticias ni datos que confirmen el precio en servicio completo.</p>`
+                // Leyenda: a qué producto se le sumó y sobre qué precio ("Diésel: Q41.69 de autoservicio + Q1.00 = Q42.69")
+                const estimados = conDia.filter(p => p.estado === 'estimado');
+                const avisoEstimado = estimados.length
+                    ? `<p class="precio-nota-bloque">* ${estimados.map(p => `${productos[p.producto] || p.producto}: `
+                        + `${fmtQ(valorMostrado(p.base))} de autoservicio + Q${SOBRECARGO_SERVICIO_COMPLETO.toFixed(2)} = `
+                        + fmtQ(valorMostrado(p.base) + SOBRECARGO_SERVICIO_COMPLETO)).join('; ')}. `
+                      + `Hoy no se encontraron noticias ni datos que confirmen ${estimados.length > 1 ? 'esos precios' : 'ese precio'} en servicio completo.</p>`
                     : '';
                 html += `<div class="modalidad-bloque"><div class="modalidad-titulo">${NOMBRE_MOD[mod]}</div>`
                       + conDia.map(filaPrecio).join('')
