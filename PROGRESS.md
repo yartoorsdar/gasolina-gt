@@ -123,3 +123,24 @@ Genera URL tipo `https://xxx.ngrok-free.app` compartible con clientes. Requiere 
 
 ## 2026-10-01 - Decreto 22-2026 en vigencia
 - `config.json`: estado "vigente", `fecha_vigencia_inicio` 2026-10-01 (fin 2026-12-31). Aviso del dashboard actualizado (web/index.html e index.html). Las filas con fecha >= 2026-10-01 se muestran como "Sin IVA+IDP (Decreto 22-2026)" sin recalcular nada; las anteriores conservan Con/Sin IVA+IDP. El ultimo dato (28-sep) sigue siendo previo al decreto: no se inventa ningun precio posterior.
+
+## 2026-10-01 - Bug: el consejo no vio los precios del 1-oct (rebaja del Decreto 22-2026)
+- Sintoma: a las 11:52 GT la DB seguia en el 28-sep (Q45.29/43.29/49.39 con impuestos) mientras Publinews, Soy502 y Emisoras Unidas ya publicaban autoservicio Q36.19 / Q34.89 / Q41.69 (servicio completo Publinews Q37.29 / Q35.99 / Q42.79). Los runs del dia leyeron 2 notas nuevas y sacaron 0 precios.
+- Causas (todas verificadas con las notas reales):
+  1. Publinews REESCRIBE la nota "Asi amanecieron los precios..." del 28-sep cada dia con la MISMA URL (titulo nuevo, pubDate nuevo); el consejo deduplicaba por URL y nunca la volvia a leer.
+  2. `texto_articulo` descartaba lineas de < 20 caracteres: la lista "Autoservicio / Super: Q36.19 / ..." no llegaba al LLM. Las tablas salian celda por celda, sin fila.
+  3. Solo 2 feeds (Prensa Libre, cuyo /feed/ cubre ~12 h, y Publinews) + 3 consultas de Bing sin `cc=GT`: Soy502, DCA, La Hora, La Red, Stereo 100 y Emisoras Unidas no entraban.
+  4. Casi todas las notas no dicen la modalidad: el filtro las tiraba y quedaba 1 sola fuente (confianza baja, no se escribe).
+  5. El prompt clasificaba "a partir del jueves 1 de octubre costara Q36.24" como estimado y no resolvia "este jueves".
+  6. Riesgo latente: el bloque de 3 dias del consejo mezclaba el 28-sep (con impuestos) con el 1-oct (sin impuestos).
+- Correccion (`collector/consenso_precios.py`, `config.json`, `db.py`):
+  - 14 feeds/sitemaps de noticias DECLARADOS por los medios (robots.txt o `<link rel=alternate>`; procedencia en `consejo._doc_feeds`), parser RSS/Atom/news-sitemap tolerante; Bing con `cc=GT` y 7 consultas; Google News solo como diagnostico en el log ("nota de hoy no descubierta").
+  - Relectura (`_hay_que_leer`): nota actualizada (fecha nueva), error reciente, sin cifras y de hoy/ayer, o 0 precios con un extractor anterior (`EXTRACTOR_LLM = "llm-v2"`). Sin cifra "Q00.00" no se gasta LLM; cupo 15 llamadas/run (antes 8 notas).
+  - `texto_de_html`: cuerpo de la nota, lineas cortas con cifra o modalidad, filas de tabla completas. Al LLM va recortado a lo relevante (4000 caracteres).
+  - Prompt v2 (Groq gpt-oss-120b, temperatura 0): dia de la semana, fechas relativas, precio anunciado con vigencia confirmada = referencia con su fecha, modalidad desde el encabezado de la lista, ahorros no son precios. Cada cifra del LLM debe aparecer TEXTUAL en la nota.
+  - Modalidad `desconocida` se guarda tal cual y solo RESPALDA un grupo con modalidad explicita del mismo tipo (monitoreado/referencia), dentro de +-Q0.20 y lejos de la otra modalidad. Nunca crea grupo sola.
+  - Consejo por regimen fiscal (`precio_incluye_impuestos`): no mezcla precios con y sin IVA+IDP. Monitoreado pesa 1.0, referencia 0.7 (el 1-oct el MEM anuncio diesel Q42.94 y en bomba amanecio Q41.69). Si un medio se contradice el mismo dia (Publinews: diesel SC Q42.79 y Q43.79 en dos notas) gana la mayoria; si empatan, no vota.
+  - Respaldo sin LLM: listas bajo encabezado de modalidad y oraciones con 2+ productos sin modalidad (desconocida), descartando futuro/estimados/precios pasados (casos reales de La Hora, DCA y Soy502 en tests).
+  - `noticias._llm_post`: parametro `temperature`; con 401/403/429 ya no reintenta plano al instante.
+- Prueba local sin LLM contra las notas reales: autoservicio 1-oct Q36.19 / Q34.89 / Q41.69 (confianza media, 2 medios). Tests: 274 pasan.
+- No es fuente: la plataforma del MEM para que las gasolineras reporten precio diario (comercializaciondgh.mem.gob.gt) es de acceso con login, no publica datos.

@@ -47,18 +47,41 @@
     "api_key": ""
   },
   "consejo": {
-    "_doc": "Consejo multifuente de precios (collector/consenso_precios.py): Bing News RSS -> notas -> LLM extrae precios -> veredicto con confianza.",
+    "_doc": "Consejo multifuente de precios (collector/consenso_precios.py): feeds/sitemaps de cada medio + Bing News RSS -> notas -> LLM (Groq) extrae precios -> veredicto con confianza.",
+    "_doc_feeds": "Solo feeds DECLARADOS por el medio (verificado 2026-10-01): robots.txt -> Sitemap (news-sitemap de Prensa Libre, Soy502, Emisoras Unidas, La Red, Republica; Publinews) o <link rel=alternate type=rss> de su portada (Prensa Libre, Emisoras Unidas, DCA, La Hora, Stereo 100, Perspectiva, Infobae, Prensa Latina). Sin feed util: AGN y Canal Antigua (no declaran), CRN (feed 403), Guatevision (feed sin notas nuevas), TN23 (sitemap vacio) -> llegan por Bing; consultas_google_news solo avisa en el log que notas de hoy no se descubrieron.",
     "consultas": [
       "precio gasolina superior regular diésel Guatemala",
       "precios combustibles Guatemala galón autoservicio",
-      "precio combustibles Guatemala hoy MEM"
+      "precio combustibles Guatemala hoy MEM",
+      "así amanecieron los precios de los combustibles Guatemala",
+      "combustibles Guatemala precios hoy gasolineras",
+      "combustibles bajan suben Guatemala galón",
+      "precios combustibles Guatemala sin IVA IDP"
+    ],
+    "consultas_google_news": [
+      "precios combustibles Guatemala",
+      "gasolina diésel Guatemala precio galón",
+      "combustibles Guatemala galón"
     ],
     "dias_articulo": 10,
-    "max_articulos_llm": 8,
+    "max_articulos_llm": 15,
+    "max_notas_lectura": 60,
     "pausa_llm_seg": 20,
     "feeds_directos": [
       "https://www.prensalibre.com/feed/",
-      "https://www.publinews.gt/arc/outboundfeeds/google-news-feed/?outputType=xml"
+      "https://www.prensalibre.com/news-sitemap.xml",
+      "https://www.publinews.gt/arc/outboundfeeds/google-news-feed/?outputType=xml",
+      "https://www.soy502.com/sitemaps/googlenews.php",
+      "https://emisorasunidas.com/sitemap/news-sitemap.xml",
+      "https://emisorasunidas.com/rss/global.xml",
+      "https://dca.gob.gt/feed/",
+      "https://lahora.gt/feed/",
+      "https://www.lared1061.com/sitemap-news.xml",
+      "https://republica.com/sitemap-news.xml",
+      "https://stereo100.com.gt/feed/",
+      "https://perspectiva.gt/feed/",
+      {"url": "https://www.infobae.com/arc/outboundfeeds/rss/centroamerica/", "filtro_url": "/guatemala/"},
+      "https://www.prensa-latina.cu/feed/"
     ]
   }
 }

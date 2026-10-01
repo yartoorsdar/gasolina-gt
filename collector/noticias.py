@@ -311,12 +311,14 @@ def _sanear_error(exc: Exception) -> str:
     return txt[:160]
 
 
-def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | None:
+def _llm_post(prompt: str, base_url: str, model: str, api_key: str,
+              temperature: float = 0.3) -> str | None:
     """Un request al LLM (una sola tentativa, modo plano).
 
     A propósito SIN reintento inmediato ni JSON-mode: los reintentos pegados
     disparan 429 (rate-limit) y dejan todo el lote en cero. El modo plano ya
     funcionó en producción; la limpieza de cercas la hace el parser.
+    `temperature` 0 para extraer cifras (consejo de precios): salida determinista.
     """
     try:
         if "generativelanguage" in base_url:
@@ -328,7 +330,7 @@ def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | Non
                             {"text": "Eres un analista de energia. Responde SOLO con JSON.\n\n" + prompt}
                         ]
                     }],
-                    "generationConfig": {"temperature": 0.3},
+                    "generationConfig": {"temperature": temperature},
                 },
                 timeout=60,
             )
@@ -348,7 +350,7 @@ def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | Non
                         {"role": "system", "content": "Eres un analista de energia. Responde solo con JSON."},
                         {"role": "user", "content": prompt},
                     ],
-                    "temperature": 0.3,
+                    "temperature": temperature,
                 }
                 if _json_mode:
                     body["response_format"] = {"type": "json_object"}
@@ -362,7 +364,10 @@ def _llm_post(prompt: str, base_url: str, model: str, api_key: str) -> str | Non
                 data = resp.json()
                 return data["choices"][0]["message"]["content"]
             except Exception as exc:
-                if _json_mode:
+                # Límite de cuota o key inválida: reintentar plano al instante solo
+                # gasta otra llamada y vuelve a fallar (el llamador espera y reintenta).
+                estado = getattr(getattr(exc, "response", None), "status_code", None)
+                if _json_mode and estado not in (401, 403, 429):
                     print(f"[noticias] json_mode no soportado, reintentando plano: {exc}")
                     continue
                 raise

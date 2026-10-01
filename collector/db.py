@@ -563,19 +563,26 @@ def leer_actuales(conn: sqlite3.Connection, modalidad: str = None) -> dict[str, 
 
 TIPOS_OBSERVACION = ("monitoreado", "referencia")
 PRECIO_COMBUSTIBLE_MIN, PRECIO_COMBUSTIBLE_MAX = 10.0, 120.0  # Q/galón plausibles
+# La nota da el precio pero no dice si es autoservicio o servicio completo. Se guarda
+# tal cual (nunca se le asigna una modalidad aquí); el consejo solo la usa como
+# respaldo de un grupo con modalidad explícita (ver consenso_precios.consejo).
+MODALIDAD_DESCONOCIDA = "desconocida"
 
 
 def guardar_observaciones(conn: sqlite3.Connection, filas) -> dict:
     """Guarda observaciones de precio (insert-or-ignore por url+producto+modalidad+fecha+tipo).
 
-    Valida: producto/modalidad del catálogo, tipo conocido, fecha ISO y precio
-    en rango plausible. Devuelve {insertadas, duplicadas, invalidas}.
+    Valida: producto/modalidad del catálogo (o `desconocida`), tipo conocido, fecha
+    ISO y precio en rango plausible. Devuelve {insertadas, duplicadas, invalidas}.
     """
     conteo = {"insertadas": 0, "duplicadas": 0, "invalidas": 0}
     ahora = ahora_gt_iso()
     for f in filas:
         producto = canon_producto(f.get("producto") or "")
-        modalidad = canon_modalidad(f.get("modalidad"), producto) if f.get("modalidad") else None
+        if str(f.get("modalidad") or "").strip().lower() == MODALIDAD_DESCONOCIDA:
+            modalidad = MODALIDAD_DESCONOCIDA
+        else:
+            modalidad = canon_modalidad(f.get("modalidad"), producto) if f.get("modalidad") else None
         fecha = (f.get("fecha") or "").strip()
         tipo = (f.get("tipo") or "").strip().lower()
         try:
@@ -627,6 +634,11 @@ def leer_observaciones(
 def articulo_procesado(conn: sqlite3.Connection, url: str) -> bool:
     """¿La nota ya se leyó en un run anterior?"""
     return conn.execute("SELECT 1 FROM articulos WHERE url = ?", (url,)).fetchone() is not None
+
+
+def leer_articulo(conn: sqlite3.Connection, url: str) -> sqlite3.Row | None:
+    """Registro de una nota ya leída (publicado, titulo, extractor, n_obs, error) o None."""
+    return conn.execute("SELECT * FROM articulos WHERE url = ?", (url,)).fetchone()
 
 
 def registrar_articulo(
