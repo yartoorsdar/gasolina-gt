@@ -268,8 +268,13 @@
             color: rgba(200, 220, 245, 0.7);
         }
 
-        .trend-up { color: #00ff88 !important; }
-        .trend-down { color: #ff4444 !important; }
+        /* sube = rojo (mas caro), baja = verde (mas barato) */
+        .trend-up { color: #ff4444 !important; }
+        .trend-down { color: #00ff88 !important; }
+        .trend-text span { white-space: nowrap; }
+        .rango-sel { display: flex; justify-content: center; gap: 6px; margin-bottom: 8px; }
+        .rango-btn { font: inherit; font-size: 0.78rem; padding: 4px 12px; border-radius: 999px; cursor: pointer; color: #c8d8f5; background: rgba(255,255,255,0.06); border: 1px solid rgba(200,216,245,0.25); }
+        .rango-btn[aria-pressed="true"] { color: #0b1220; background: #4ade8a; border-color: #4ade8a; font-weight: 700; }
 
         /* ── Advertencia decreto 22-2026 ── */
         .decree-alert {
@@ -911,6 +916,11 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                     <div class="aviso-ia" role="note"><b>Aviso:</b> esta página analiza los datos con inteligencia artificial y puede tener errores o fallos. Ningún modelo de IA es 100 % seguro en sus respuestas. Contrasta el precio con otras fuentes y con lo que ves en la bomba.</div>
                     <!-- Gráfica de tendencia semanal -->
                     <div style="text-align:center;margin-top:16px;">
+                        <div class="rango-sel" id="rangoSel" role="group" aria-label="Rango de la gráfica">
+                            <button type="button" class="rango-btn" data-dias="30" aria-pressed="true" onclick="aplicarRangoSemana(30)">30 días</button>
+                            <button type="button" class="rango-btn" data-dias="90" aria-pressed="false" onclick="aplicarRangoSemana(90)">90 días</button>
+                            <button type="button" class="rango-btn" data-dias="120" aria-pressed="false" onclick="aplicarRangoSemana(120)">120 días</button>
+                        </div>
                         <canvas id="weeklyPriceChart" style="display:block;width:100%;max-width:480px;height:200px;"></canvas>
                     </div>
                     <!-- Tendencia semanal RGB -->
@@ -1218,7 +1228,7 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                             ${badgeConfianza(p.consenso)}
                         </div>
                         <div class="price-values">
-                            <span class="price-value-main">${fmtQ(exento ? precioFinal : baseSinImpuestos)}</span>
+                            <span class="price-value-exempt"><span style="font-size:0.85em;font-weight:400;margin-right:4px;">Sin IVA+IDP:</span>${fmtQ(exento ? precioFinal : baseSinImpuestos)}</span>
                         </div>
                     </div>
                 `;
@@ -1262,8 +1272,9 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
 
             // ── Gráfica de barras comparativa ──
             window.__weekData = precios;
+            window.__weekHistTodo = data.combustibles_historial_todo || data.combustibles_historial || [];
             window.__weekHist = data.combustibles_historial || [];
-            startWeeklyAnimation();
+            aplicarRangoSemana(window.__weekRango || 30);
         }
 
         // Redibujar en estado final al cambiar tamaño (debounce 250ms).
@@ -1298,6 +1309,21 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
         let weeklyAnimId = null;
         let weeklyTime = 0;
         const WEEKLY_ANIM_DURATION = 1.5;
+
+        // Selector 30/90/120 dias: recorta el historial completo POR FECHA (no por indice)
+        function aplicarRangoSemana(n) {
+            var todo = window.__weekHistTodo || [];
+            var dia = function(f) { return Date.UTC(+f.slice(0, 4), +f.slice(5, 7) - 1, +f.slice(8, 10)) / 86400000; };
+            window.__weekRango = n;
+            if (todo.length && todo[0].iso) {
+                var ultima = dia(todo[todo.length - 1].iso);
+                window.__weekHist = todo.filter(function(d) { return ultima - dia(d.iso) <= n - 1; });
+            }
+            document.querySelectorAll('#rangoSel .rango-btn').forEach(function(b) {
+                b.setAttribute('aria-pressed', String(+b.dataset.dias === n));
+            });
+            if (window.__weekData) startWeeklyAnimation();
+        }
 
         function startWeeklyAnimation() {
             if (weeklyAnimId) cancelAnimationFrame(weeklyAnimId);
@@ -1570,7 +1596,7 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
             if (!canvas || !precios || precios.length === 0) return;
 
             // Tamaño fijo del canvas
-            var targetW = Math.max(500, parseInt(getComputedStyle(canvas).width) || 500);
+            var targetW = Math.max(280, Math.round(canvas.getBoundingClientRect().width) || 480); // ancho REAL en pantalla: sin escalar no se deforma el texto
             var targetH = 200;
 
             const dpr = window.devicePixelRatio || 1;
@@ -1590,7 +1616,12 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
             // tramos diarios; por índice, 7 días sin dato se verían como uno solo.
             var diaDe = function(iso) { return Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10)) / 86400000; };
             var t0 = dailyData[0].iso ? diaDe(dailyData[0].iso) : 0;
-            var tSpan = dailyData[0].iso ? Math.max(diaDe(dailyData[dailyData.length - 1].iso) - t0, 1) : Math.max(dailyData.length - 1, 1);
+            // Si el decreto ya entro en vigencia, el eje llega hasta su fecha aunque aun no haya precio nuevo
+            // (asi la linea divisoria se ve desde el primer dia; no se inventa ningun dato)
+            var hoyGT = new Date(Date.now() - 6 * 3600 * 1000).toISOString().slice(0, 10);
+            var finEje = dailyData[0].iso ? diaDe(dailyData[dailyData.length - 1].iso) : 0;
+            if (dailyData[0].iso && hoyGT >= '2026-10-01') finEje = Math.max(finEje, diaDe('2026-10-01'));
+            var tSpan = dailyData[0].iso ? Math.max(finEje - t0, 1) : Math.max(dailyData.length - 1, 1);
             var fraccionX = function(j) { return dailyData[j].iso ? (diaDe(dailyData[j].iso) - t0) / tSpan : j / tSpan; };
 
             var products = [
@@ -1601,7 +1632,9 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
 
             // ── MEDIR TEXTOS para calcular márgenes exactos ──
             ctx.font = 'bold 13px -apple-system, sans-serif';
-            var titleW = ctx.measureText('Precios de los últimos 30 días').width;
+            var rangoDias = window.__weekRango || 30;
+            var tituloGrafica = 'Precios de los últimos ' + rangoDias + ' días';
+            var titleW = ctx.measureText(tituloGrafica).width;
 
             ctx.font = '9px -apple-system, sans-serif';
             // Medir labels Y (Q50, Q48...)
@@ -1611,6 +1644,8 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
             });
             var maxPrice = Math.ceil(Math.max(...allPrices));
             var minPrice = Math.floor(Math.min(...allPrices)) - 1;
+            // Rango divisible por 5 -> las 6 marcas del eje Y caen en pesos enteros y parejos
+            while ((maxPrice - minPrice) % 5 !== 0) minPrice--;
             var stepsY = 5;
             var maxYLabelW = 0;
             for (var i = 0; i <= stepsY; i++) {
@@ -1636,7 +1671,7 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
 
             // ── CALCULAR márgenes basados en mediciones reales ──
             var padLeft = maxYLabelW + 16;      // ancho label Y + gap
-            var padRight = 55;                   // espacio para valores Qxx al final
+            var padRight = 64;                   // espacio para el recuadro del valor final (Qxx.xx)
             var titleY = 18;                     // posición del título (arriba)
             var legendGap = 20;                  // separación título-leyenda
             var legendH = 14;                    // altura de la leyenda
@@ -1651,7 +1686,7 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
             ctx.fillStyle = '#c8d8f5';
             ctx.font = 'bold 13px -apple-system, sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('Precios de los últimos 30 días', centerX, titleY);
+            ctx.fillText(tituloGrafica, centerX, titleY);
 
             // ── Leyenda RGB animada ──
             var legendY = chartTop - 6;
@@ -1708,6 +1743,63 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                 ctx.font = '9px -apple-system, sans-serif';
                 ctx.textAlign = 'right';
                 ctx.fillText('Q' + priceVal.toFixed(0), padLeft - 6, y + 3);
+            }
+
+            // -- Linea divisoria Decreto 22-2026: desde esa fecha los precios son SIN IVA+IDP --
+            // Solo se dibuja si la ventana de 30 dias ya incluye la fecha (sin datos no se inventa nada).
+            var fDec = (diaDe('2026-10-01') - t0) / tSpan; // inicio del Decreto 22-2026
+            if (dailyData[0].iso && fDec > 0 && fDec <= 1) {
+                var xDec = padLeft + chartW * fDec;
+                ctx.save();
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.75)';
+                ctx.lineWidth = 1.5;
+                ctx.setLineDash([5, 4]);
+                ctx.beginPath();
+                ctx.moveTo(xDec, chartTop - 4);
+                ctx.lineTo(xDec, chartTop + chartH);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.font = 'bold 9px -apple-system, sans-serif';
+                var wCon = ctx.measureText('Con IVA+IDP').width, wSin = ctx.measureText('Sin IVA+IDP').width;
+                var alBorde = fDec > 0.9; // linea pegada al borde derecho: no cabe texto a su derecha
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.65)';
+                if (alBorde) {
+                    var tAviso = 'Desde aquí: Sin IVA+IDP';
+                    var wAviso = ctx.measureText(tAviso).width;
+                    roundRect(ctx, xDec - 8 - wAviso, chartTop + chartH - 16, wAviso + 6, 13, 3);
+                    ctx.fill();
+                    ctx.textAlign = 'right';
+                    ctx.fillStyle = '#4ade8a';
+                    ctx.fillText(tAviso, xDec - 5, chartTop + chartH - 6);
+                } else {
+                    roundRect(ctx, xDec - 8 - wCon, chartTop + 3, wCon + 6, 13, 3);
+                    ctx.fill();
+                    roundRect(ctx, xDec + 2, chartTop + 3, wSin + 6, 13, 3);
+                    ctx.fill();
+                    ctx.textAlign = 'right';
+                    ctx.fillStyle = 'rgba(200, 215, 235, 0.95)';
+                    ctx.fillText('Con IVA+IDP', xDec - 5, chartTop + 13);
+                    ctx.textAlign = 'left';
+                    ctx.fillStyle = '#4ade8a';
+                    ctx.fillText('Sin IVA+IDP', xDec + 5, chartTop + 13);
+                }
+                ctx.restore();
+            }
+
+            // -- Posicion vertical de los valores finales: separados >= 14 px para no encimarse --
+            var labelY = {}, finales = [];
+            products.forEach(function(p) {
+                for (var jj = dailyData.length - 1; jj >= 0; jj--) {
+                    if (dailyData[jj][p.key] != null) {
+                        finales.push({ key: p.key, y: chartTop + chartH - ((dailyData[jj][p.key] - minPrice) / (maxPrice - minPrice)) * chartH });
+                        break;
+                    }
+                }
+            });
+            finales.sort(function(a, b) { return a.y - b.y; });
+            for (var fi = 0; fi < finales.length; fi++) {
+                if (fi > 0 && finales[fi].y - finales[fi - 1].y < 14) finales[fi].y = finales[fi - 1].y + 14;
+                labelY[finales[fi].key] = finales[fi].y;
             }
 
             // ── Líneas RGB animadas con gradiente y pulso ──
@@ -1801,7 +1893,7 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                         // Fondo oscuro detrás del valor
                         ctx.shadowBlur = 0;
                         ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
-                        roundRect(ctx, pt.x + 10 - 2, pt.y - 9, tw + 16, 15, 4);
+                        roundRect(ctx, pt.x + 8, (labelY[prod.key] || pt.y) - 9, tw + 12, 15, 4);
                         ctx.fill();
 
                         // Texto del valor
@@ -1809,7 +1901,7 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                         ctx.textAlign = 'left';
                         ctx.shadowColor = glowColor;
                         ctx.shadowBlur = 6 * pulseIntensity;
-                        ctx.fillText(text, pt.x + 12, pt.y + 3);
+                        ctx.fillText(text, pt.x + 14, (labelY[prod.key] || pt.y) + 3);
                         ctx.shadowBlur = 0;
                     }
                 }
@@ -1869,10 +1961,13 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
 
             var trendEl = document.getElementById('weeklyTrendText');
             if (trendEl) {
-                var html = '<div class="trend-text"><strong>Cambios en 30 días:</strong><br>';
+                var html = '<div class="trend-text"><strong>Cambios en ' + rangoDias + ' días:</strong><br>';
                 for (var ti = 0; ti < trendItems.length; ti++) {
                     if (ti > 0) html += ' &nbsp;|&nbsp; ';
                     html += trendItems[ti];
+                }
+                if (dailyData.some(function(d) { return d.calculado; })) {
+                    html += '<br><span style="font-size:0.72rem;color:#b9c3d1;font-weight:400;white-space:normal;">El punto de hoy está calculado: último precio publicado menos IVA e IDP (Decreto 22-2026), mientras no haya fuente del día.</span>';
                 }
                 html += '</div>';
                 trendEl.innerHTML = html;
@@ -2652,6 +2747,24 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
             const combustiblesHistorial = fechasHist
                 .filter(f => ultimaHist - diaUTC(f) <= 29)
                 .map(f => dias.get(f));
+            // Decreto 22-2026 ya en vigencia y aun sin precio publicado de hoy: punto CALCULADO en pantalla
+            // (ultimo precio publicado menos IVA e IDP). No se guarda en la base ni en consolidado.json.
+            const hoyGT = new Date(Date.now() - 6 * 3600 * 1000).toISOString().slice(0, 10);
+            const IDP_C = { superior: 4.70, regular: 4.60, 'diésel': 1.30 };
+            const pCalc = { fecha: fmtDiaMes(hoyGT), iso: hoyGT, calculado: true };
+            let hayCalc = false;
+            if (hoyGT >= '2026-10-01' && hoyGT <= '2026-12-31' && fechasHist.length && fechasHist[fechasHist.length - 1] < '2026-10-01') {
+                for (const [codigo, p] of Object.entries(P)) {
+                    if (p.categoria !== 'combustible' || !p.historial || !p.historial.length) continue;
+                    const ult = p.historial[p.historial.length - 1].precio;
+                    const idp = IDP_C[codigo] ?? 0;
+                    const iva = Math.max(0, (ult - idp) * 12 / 112);
+                    pCalc[codigo] = Math.round((ult - iva - idp) * 100) / 100;
+                    hayCalc = true;
+                }
+            }
+            if (hayCalc) { combustiblesHistorial.push(pCalc); }
+            const historialTodo = fechasHist.map(f => dias.get(f)).concat(hayCalc ? [pCalc] : []);
             return {
                 resumen: {
                     actualizado_at: c.actualizado_at,
@@ -2664,6 +2777,7 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                     wti_historial: (wti.historial || []).slice(-7),
                     wti_historial_30: (wti.historial || []).slice(-40),
                     combustibles_historial: combustiblesHistorial,
+                    combustibles_historial_todo: historialTodo,
                     ultimas_noticias: (c.noticias && c.noticias.top) || [],
                     noticias_count: (c.noticias && c.noticias.total) || 0
                 },
@@ -2751,9 +2865,18 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
     try { var v = JSON.parse(leer('gt_votado') || '{}'); return v.dia === hoy() ? (v.p || {}) : {}; } catch (e) { return {}; }
   }
   function marcarVotado(id) { var p = votado(); p[id] = 1; escribir('gt_votado', JSON.stringify({ dia: hoy(), p: p })); }
+  // Decreto 22-2026: desde su vigencia el precio en bomba va SIN IVA ni IDP. Si el ultimo precio publicado es
+  // anterior a la vigencia (aun con impuestos), se le quitan IVA e IDP; uno de la vigencia en adelante no se toca.
+  var DEC_INI = '2026-10-01', DEC_FIN = '2026-12-31', IDP_V = { superior: 4.70, regular: 4.60, 'diésel': 1.30 };
+  function sinImpuestos(id, precio, fecha) {
+    var h = hoy();
+    if (!fecha || h < DEC_INI || h > DEC_FIN || String(fecha).slice(0, 10) >= DEC_INI || IDP_V[id] === undefined) return precio;
+    var iva = Math.max(0, (precio - IDP_V[id]) * 12 / 112);
+    return Math.round((precio - iva - IDP_V[id]) * 100) / 100;
+  }
   function oficial(id) {
     var w = window.__weekData || [];
-    for (var i = 0; i < w.length; i++) if (w[i].producto === id) return w[i].precio;
+    for (var i = 0; i < w.length; i++) if (w[i].producto === id) return sinImpuestos(id, w[i].precio, w[i].fecha);
     return null;
   }
   function fmt(n) { return 'Q' + Number(n).toFixed(2); }
@@ -2810,7 +2933,7 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
 
   // ── textos de cada estado ──
   function avisoHtml(r, of) {
-    var ref = (r.precio_oficial !== null && r.precio_oficial !== undefined) ? r.precio_oficial : of, t, x;
+    var ref = (of !== null && of !== undefined) ? of : r.precio_oficial, t, x;
     if (r.estado === 'coincide') {
       t = 'La comunidad coincide';
       x = r.n_votos + (r.n_votos === 1 ? ' persona votó' : ' personas votaron') + ' hoy y el precio oficial se mantiene.';
@@ -2860,7 +2983,7 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
       var dis = enviando ? ' disabled' : '';
       html += '<div class="pc' + (yo ? ' votado' : '') + (abiertos[p.id] && !yo ? ' abierto' : '') + (enviando ? ' enviando' : '') + '" data-p="' + p.id + '" style="--h:' + p.hue + ';--h2:' + ((p.hue + 55) % 360) + '">'
         + '<div class="pc-top"><div class="ring"><svg viewBox="0 0 48 48"><circle class="bg" cx="24" cy="24" r="18"/><circle class="fg" cx="24" cy="24" r="18" data-r="' + ratio + '"/></svg><b>' + r.n_votos + '</b></div>'
-        + '<div><div class="pc-name">' + icoRej('bomba', p.hue) + p.nombre + '</div><div class="pc-precio">' + fmt(of) + '</div></div></div>'
+        + '<div><div class="pc-name">' + icoRej('bomba', p.hue) + p.nombre + '</div><div class="pc-precio">' + fmt(of) + (hoy() >= DEC_INI && hoy() <= DEC_FIN ? ' <small style="font-size:0.55em;font-weight:400;color:#4ade8a;">Sin IVA+IDP</small>' : '') + '</div></div></div>'
         + '<div class="pc-line">' + avisoHtml(r, of) + '</div>'
         + '<div class="pc-acts"><button type="button" class="si" data-a="si"' + dis + '>' + icoCoincide() + 'Coincide</button><button type="button" data-a="otro"' + dis + '>' + icoOtro() + 'Vi otro</button></div>'
         + '<div class="tray"><div class="stepper"><button type="button" data-a="menos" aria-label="Bajar diez centavos"' + dis + '>&minus;</button>'

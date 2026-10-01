@@ -9,7 +9,7 @@
 // secreta del token aleatorio que genera el navegador. La IP solo alimenta un contador
 // por hora (también hasheada) para frenar abuso.
 
-import { UMBRALES, PRODUCTOS, ahoraGT, clasificar, validarVoto } from './logica.js';
+import { UMBRALES, PRODUCTOS, ahoraGT, clasificar, validarVoto, referenciaSinImpuestos } from './logica.js';
 
 const MAX_CUERPO = 2048;      // bytes: un voto real pesa menos de 300
 const TTL_OFICIAL_MS = 5 * 60 * 1000;
@@ -72,8 +72,11 @@ async function precioOficial(env, producto, modalidad, deps) {
     }
   }
   const p = cacheOficial.datos?.productos?.[producto];
-  const v = p?.modalidades?.[modalidad]?.actual?.precio ?? (modalidad === 'autoservicio' ? p?.actual?.precio : null);
-  return typeof v === 'number' && Number.isFinite(v) ? v : null;
+  const act = p?.modalidades?.[modalidad]?.actual ?? (modalidad === 'autoservicio' ? p?.actual : null);
+  const v = act?.precio;
+  if (typeof v !== 'number' || !Number.isFinite(v)) return null;
+  // Decreto 22-2026: un precio publicado antes de la vigencia se compara sin IVA ni IDP
+  return referenciaSinImpuestos(producto, v, act?.fecha, ahoraGT(deps.ahora()).fecha);
 }
 
 export function _reiniciarCacheOficial() { cacheOficial = { t: 0, datos: null }; }

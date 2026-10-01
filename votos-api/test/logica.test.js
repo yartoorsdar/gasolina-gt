@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { clasificar, validarVoto, ahoraGT, mediana } from '../src/logica.js';
+import { clasificar, validarVoto, ahoraGT, mediana, referenciaSinImpuestos } from '../src/logica.js';
 
 const CASOS = JSON.parse(readFileSync(new URL('../../tests/fixtures/clasificar_casos.json', import.meta.url), 'utf8'));
 
@@ -34,4 +34,16 @@ test('validarVoto normaliza sinónimos y redondea a centavos', () => {
   assert.equal(voto.tipo, 'otro');
   assert.equal(voto.precio, 49.4);
   assert.equal(voto.modalidad, 'autoservicio');
+});
+
+test('referencia sin IVA+IDP desde el Decreto 22-2026', () => {
+  // precio publicado antes del decreto + hoy ya en vigencia -> se le quitan IVA e IDP
+  assert.equal(referenciaSinImpuestos('regular', 43.29, '2026-09-28', '2026-10-01'), 34.54);
+  assert.equal(referenciaSinImpuestos('superior', 45.29, '2026-09-28', '2026-10-01'), 36.24);
+  assert.equal(referenciaSinImpuestos('diésel', 49.39, '2026-09-28', '2026-10-01'), 42.94);
+  // antes de la vigencia, o precio ya de la vigencia, o sin fecha: no se toca
+  assert.equal(referenciaSinImpuestos('regular', 43.29, '2026-09-28', '2026-09-30'), 43.29);
+  assert.equal(referenciaSinImpuestos('regular', 34.5, '2026-10-01', '2026-10-01'), 34.5);
+  assert.equal(referenciaSinImpuestos('regular', 43.29, undefined, '2026-10-01'), 43.29);
+  assert.equal(referenciaSinImpuestos('regular', 43.29, '2026-09-28', '2027-01-02'), 43.29);
 });

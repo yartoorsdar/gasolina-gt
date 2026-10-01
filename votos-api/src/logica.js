@@ -52,6 +52,25 @@ export function clasificar(nVotos, nCoincide, escritos, ref, externo = false, u 
   return ['sin', med];
 }
 
+// Decreto 22-2026: desde su vigencia el precio en bomba es SIN IVA ni IDP (config.json -> decreto_22_2026).
+export const DECRETO = { inicio: '2026-10-01', fin: '2026-12-31' };
+const IDP = { superior: 4.70, regular: 4.60, 'diésel': 1.30 };
+
+/**
+ * Precio de referencia para comparar votos. Si el decreto ya rige (hoyGT en su rango) pero el precio
+ * oficial es de una fecha ANTERIOR (publicado con IVA+IDP), se le quitan IVA e IDP: la gente ya paga
+ * sin impuestos. Un precio con fecha de vigencia en adelante ya viene sin impuestos y no se toca.
+ * Sin fecha del precio no se convierte nada (no se adivina).
+ */
+export function referenciaSinImpuestos(producto, precio, fechaPrecio, hoyGT) {
+  if (typeof precio !== 'number' || !fechaPrecio || !hoyGT) return precio;
+  if (hoyGT < DECRETO.inicio || hoyGT > DECRETO.fin || fechaPrecio >= DECRETO.inicio) return precio;
+  const idp = IDP[producto];
+  if (idp === undefined) return precio;
+  const iva = Math.max(0, (precio - idp) * 12 / 112);
+  return Math.round((precio - iva - idp) * 100) / 100;
+}
+
 /** Fecha y hora de Guatemala (UTC-6, sin horario de verano) a partir de un instante UTC. */
 export function ahoraGT(ahora = new Date()) {
   const gt = new Date(ahora.getTime() - 6 * 3600 * 1000);

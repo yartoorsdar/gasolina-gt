@@ -112,7 +112,8 @@ def test_grafica_principal_30_dias_por_fecha():
     raiz = Path(__file__).resolve().parent.parent
     for archivo in ("index.html", "web/index.html"):
         html = (raiz / archivo).read_text(encoding="utf-8")
-        assert "Precios de los últimos 30 días" in html, archivo
+        assert "Precios de los últimos ' + rangoDias + ' días" in html, archivo
+        assert "aplicarRangoSemana(90)" in html and "aplicarRangoSemana(120)" in html, f"{archivo}: falta el selector 30/90/120"
         assert "ultimaHist - diaUTC(f) <= 29" in html, f"{archivo}: ventana no es de 30 días por fecha"
         assert "padLeft + chartW * fraccionX(j)" in html, f"{archivo}: eje X no proporcional a la fecha"
 
