@@ -8,3 +8,6 @@ fecha,producto,modalidad,ref_precio,ref_fuente,ref_previo,n_votos,n_coincide,n_o
 2026-10-01,diésel,autoservicio,41.69,Consejo,49.4,13,10,3,0,0,0,0,41.29,0.12,1.0,,0.7692,-0.4,0.4,coincide,0,1,00:51,19:00
 2026-10-01,regular,autoservicio,,,43.29,12,9,3,0,0,0,0,34.89,0.05,0.6667,,0.75,,,coincide,0,,00:51,19:00
 2026-10-01,superior,autoservicio,,,45.29,23,18,5,0,0,0,0,36.34,0.15,0.8,,0.7826,,,coincide,0,,00:52,09:00
+2026-10-02,diésel,autoservicio,41.69,Consejo,49.4,5,5,0,0,0,0,0,,,,,1.0,,,debil,0,1,07:45,
+2026-10-02,regular,autoservicio,,,43.29,5,5,0,0,0,0,0,,,,,1.0,,,debil,0,,07:45,
+2026-10-02,superior,autoservicio,,,45.29,5,5,0,0,0,0,0,,,,,1.0,,,debil,0,,07:44,
