@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-10-02T11:54:32-06:00",
+  "actualizado_at": "2026-10-03T04:54:20-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-10-02",
   "productos": {
@@ -13,14 +13,10 @@
         "fecha": "2026-10-01",
         "precio": 34.89,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-02T11:53:08-06:00",
+        "fetched_at": "2026-10-03T04:53:14-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-10-02",
-          "precio": 28.45
-        },
         {
           "fecha": "2025-10-03",
           "precio": 28.45
@@ -1347,7 +1343,7 @@
             "fecha": "2026-10-01",
             "precio": 34.89,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-02T11:53:08-06:00",
+            "fetched_at": "2026-10-03T04:53:14-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1444,7 +1440,7 @@
             "fecha": "2026-09-28",
             "precio": 44.23,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-02T11:53:08-06:00",
+            "fetched_at": "2026-10-03T04:53:14-06:00",
             "incluye_impuestos": true
           },
           "consenso": {
@@ -1492,14 +1488,10 @@
         "fecha": "2026-10-01",
         "precio": 36.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-02T11:53:08-06:00",
+        "fetched_at": "2026-10-03T04:53:14-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-10-02",
-          "precio": 29.95
-        },
         {
           "fecha": "2025-10-03",
           "precio": 29.95
@@ -2826,7 +2818,7 @@
             "fecha": "2026-10-01",
             "precio": 36.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-02T11:53:08-06:00",
+            "fetched_at": "2026-10-03T04:53:14-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2923,7 +2915,7 @@
             "fecha": "2026-09-28",
             "precio": 46.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-02T11:53:08-06:00",
+            "fetched_at": "2026-10-03T04:53:14-06:00",
             "incluye_impuestos": true
           },
           "consenso": {
@@ -2971,14 +2963,10 @@
         "fecha": "2026-10-02",
         "precio": 41.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-02T11:53:43-06:00",
+        "fetched_at": "2026-10-03T04:53:14-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-10-02",
-          "precio": 26.38
-        },
         {
           "fecha": "2025-10-03",
           "precio": 26.38
@@ -4305,7 +4293,7 @@
             "fecha": "2026-10-02",
             "precio": 41.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-02T11:53:43-06:00",
+            "fetched_at": "2026-10-03T04:53:14-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4412,7 +4400,7 @@
             "fecha": "2026-09-28",
             "precio": 50.49,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-02T11:53:08-06:00",
+            "fetched_at": "2026-10-03T04:53:14-06:00",
             "incluye_impuestos": true
           },
           "consenso": {
@@ -4457,17 +4445,13 @@
       "unidad": "USD/barril",
       "orden": 4,
       "actual": {
-        "fecha": "2026-10-02",
-        "precio": 91.39,
+        "fecha": "2026-10-03",
+        "precio": 91.26,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-10-02T11:53:44-06:00",
+        "fetched_at": "2026-10-03T04:53:37-06:00",
         "incluye_impuestos": null
       },
       "historial": [
-        {
-          "fecha": "2025-10-02",
-          "precio": 61.34
-        },
         {
           "fecha": "2025-10-03",
           "precio": 60.9
@@ -5519,6 +5503,10 @@
         {
           "fecha": "2026-10-02",
           "precio": 91.39
+        },
+        {
+          "fecha": "2026-10-03",
+          "precio": 91.26
         }
       ],
       "mensual": [],
@@ -5539,8 +5527,8 @@
         },
         {
           "anio": 2026,
-          "promedio": 83.53,
-          "dias": 199,
+          "promedio": 83.57,
+          "dias": 200,
           "meses": null,
           "fuente": "diario"
         }
@@ -5549,18 +5537,14 @@
         "spot": {
           "nombre": "Spot",
           "actual": {
-            "fecha": "2026-10-02",
-            "precio": 91.39,
+            "fecha": "2026-10-03",
+            "precio": 91.26,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-10-02T11:53:44-06:00",
+            "fetched_at": "2026-10-03T04:53:37-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
           "historial": [
-            {
-              "fecha": "2026-09-02",
-              "precio": 90.62
-            },
             {
               "fecha": "2026-09-03",
               "precio": 91.34
@@ -5656,6 +5640,10 @@
             {
               "fecha": "2026-10-02",
               "precio": 91.39
+            },
+            {
+              "fecha": "2026-10-03",
+              "precio": 91.26
             }
           ]
         }
@@ -5700,8 +5688,8 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 67,
-    "notas_leidas": 69,
+    "observaciones_7d": 70,
+    "notas_leidas": 75,
     "medios": [
       "dca.gob.gt",
       "elsalvador.com",
@@ -5714,20 +5702,20 @@
     ]
   },
   "noticias": {
-    "total": 52,
+    "total": 49,
     "top": [
       {
-        "id": 7,
+        "id": 8,
         "url": "https://oilprice.com/Energy/Crude-Oil/Dated-Brent-Above-120-Signals-a-Serious-Oil-Squeeze.html",
         "titulo": "Dated Brent Above $120 Signals a Serious Oil Squeeze",
-        "titulo_es": "Brent supera los 120 dólares, señal de presión en precios del petróleo",
+        "titulo_es": "Brent supera los 120 dólares, señal de fuerte presión sobre el mercado del petróleo",
         "medio": "OilPrice.com",
         "publicado_at": "2026-10-02T10:50:45-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "El Brent supera los 120 dólares por barril, señalando una fuerte presión en el mercado mundial que elevará los costos de los combustibles importados por Guatemala.",
-        "fetched_at": "2026-10-02T11:54:31-06:00"
+        "resumen_es": "El Brent cotiza por encima de 120 dólares, indicando una fuerte escasez de crudo que eleva los costos de importación para Guatemala, país dependiente de petróleo externo.",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
       },
       {
         "id": 1,
@@ -5739,50 +5727,37 @@
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "El Gobierno de Guatemala eliminará impuestos a los combustibles, lo que reducirá el precio al consumidor y afectará directamente el costo de importación.",
-        "fetched_at": "2026-10-02T11:54:31-06:00"
+        "resumen_es": "El gobierno eliminará impuestos a los combustibles, lo que reducirá el precio al consumidor y aliviará la inflación en Guatemala.",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
       },
       {
-        "id": 10,
-        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQcGNCX0VlMWRST1A0YVJxWVlHTGI2VGE2UUtRZXpnTTMwQW0zWmpDakdpTUI3ZFcwd0VLQ0xMemFfRkg1VkdjUGh1YUppeVNTdkZSbFVPX3lhMjZSR3ZITVJObHRJdC0ycklwUmF2d042VU5UeHlWWm1KNVJuVUQ4VW9PNHpfZHVRRW5iMzRiekdxWWhmWE42R011RXF6SjZUZktEdjZQZVdObkJXbVZqSlR3?oc=5",
-        "titulo": "Crude oil exports from strait of Hormuz largely return to pre-war levels - The Guardian",
-        "titulo_es": "Las exportaciones de petróleo crudo del estrecho de Ormuz vuelven en gran medida a los niveles anteriores a la guerra -",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-01T09:53:00-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Las exportaciones de petróleo crudo del estrecho de Ormuz vuelven en gran medida a los niveles anteriores a la guerra The Guardian",
-        "fetched_at": "2026-10-02T11:54:31-06:00"
-      },
-      {
-        "id": 2,
-        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZ2F1REJtMnRyV3U2dWlUeFpJYWk2YUp0Wng5dVd2T0ZlS3FYQnRCNzRBNmdkbDJ6aEVRcUY3bDdic181azdad3NmbEFLSzF3ZnFDNHlybnFHYlpNbi1MdWVIam9iMjV4cUNuTDA4SEZjRnhvN1RFWmpiNE1LakF0Tl9JbzYtYmNDZmRIZU4wNXFkdlk2RnFmMzlZbEwyM1p5Qm81dWR4Nm1XNC0x?oc=5",
-        "titulo": "Combustibles en Guatemala: precios actuales y perspectivas para el 2027 - Prensa Libre",
-        "titulo_es": "Precios actuales y proyecciones de combustibles en Guatemala hasta 2027",
+        "id": 4,
+        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPS0E5S0xaNF9mX0owRUk2LXdwZVg2REE1Mmh2UTJMdTdKWW82RUtpQmFXSV9SRDZsbWVTQ2pEN1VrVkxMSkJhMVNNaXV4YVg2cnk1Ym9POU1MUlMzeXdZZmJvcTdSSlNwS3puMnhESEY1b2NFWG01MDYzV2FEYl81cUR1WVBnOC1NWmJrOFJ0bHB6R2VyYXFkVU1GSWc5OFFfbDUzWVlWLVNvUVR2VFI3aTU4UEtOc2M5VS0xS1N1NGhpUW95bjk0?oc=5",
+        "titulo": "Combustibles en Guatemala: el diésel casi duplica su precio y las gasolinas suben más de 60% - Prensa Libre",
+        "titulo_es": "El diésel casi duplica su precio y la gasolina sube más del 60% en Guatemala",
         "medio": "Google News ES",
-        "publicado_at": "2026-09-29T00:10:00-06:00",
+        "publicado_at": "2026-09-19T01:00:00-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Se presentan los precios actuales de los combustibles y proyecciones hasta 2027, indicando posibles tendencias de costos para las importaciones guatemaltecas.",
-        "fetched_at": "2026-10-02T11:54:31-06:00"
+        "relevancia": 5,
+        "resumen_es": "El diésel casi duplica su precio y la gasolina sube más del 60%, lo que encarece significativamente el transporte y la economía guatemalteca.",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
       },
       {
-        "id": 8,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/US-Deploys-Patriots-to-Shield-Saudi-Oil-and-Qatari-Gas-Facilities.html",
-        "titulo": "U.S. Deploys Patriots to Shield Saudi Oil and Qatari Gas Facilities",
-        "titulo_es": "EE.UU. despliega Patriots para proteger instalaciones petroleras de Arabia Saudita y Qatar",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-02T08:30:00-06:00",
-        "categoria": "diplomacia",
+        "id": 11,
+        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQcGNCX0VlMWRST1A0YVJxWVlHTGI2VGE2UUtRZXpnTTMwQW0zWmpDakdpTUI3ZFcwd0VLQ0xMemFfRkg1VkdjUGh1YUppeVNTdkZSbFVPX3lhMjZSR3ZITVJObHRJdC0ycklwUmF2d042VU5UeHlWWm1KNVJuVUQ4VW9PNHpfZHVRRW5iMzRiekdxWWhmWE42R011RXF6SjZUZktEdjZQZVdObkJXbVZqSlR3?oc=5",
+        "titulo": "Crude oil exports from strait of Hormuz largely return to pre-war levels - The Guardian",
+        "titulo_es": "Exportaciones de crudo desde el estrecho de Hormuz vuelven a niveles prebélicos",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-01T09:53:00-06:00",
+        "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "EE.UU. despliega sistemas Patriot para proteger instalaciones petroleras saudíes y gasíferas qataríes, buscando asegurar el suministro que afecta los precios internacionales y a Guatemala.",
-        "fetched_at": "2026-10-02T11:54:31-06:00"
+        "relevancia": 4,
+        "resumen_es": "Las exportaciones de crudo desde el estrecho de Hormuz vuelven a niveles previos a la guerra, aliviando tensiones en el suministro mundial y moderando precios para importadores como Guatemala.",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
       },
       {
-        "id": 5,
+        "id": 6,
         "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE9PWHdOY01aU2ZxTUJ1ckdiMThGSDVieDF2eEtBMFBkWkZnVzdMbU9sa0ZrYndfOU1zeUpDMW5IMkgwQQ?oc=5",
         "titulo": "Exclusive: Iran Denies Involvement in Attack on Saudi Oil Pipeline - الحرة",
         "titulo_es": "Irán niega participación en ataque a oleoducto saudí",
@@ -5790,131 +5765,144 @@
         "publicado_at": "2026-09-29T19:08:15-06:00",
         "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Irán niega su participación en el ataque a un oleoducto saudí, generando incertidumbre sobre el flujo de petróleo del Golfo que puede influir en los precios internacionales.",
-        "fetched_at": "2026-10-02T11:54:31-06:00"
+        "relevancia": 4,
+        "resumen_es": "Irán desmiente su rol en el ataque a un oleoducto saudí, pero la incertidumbre sobre la seguridad del suministro de crudo en Oriente Medio puede afectar los precios globales y, por ende, los importados por Guatemala.",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
+      },
+      {
+        "id": 2,
+        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZ2F1REJtMnRyV3U2dWlUeFpJYWk2YUp0Wng5dVd2T0ZlS3FYQnRCNzRBNmdkbDJ6aEVRcUY3bDdic181azdad3NmbEFLSzF3ZnFDNHlybnFHYlpNbi1MdWVIam9iMjV4cUNuTDA4SEZjRnhvN1RFWmpiNE1LakF0Tl9JbzYtYmNDZmRIZU4wNXFkdlk2RnFmMzlZbEwyM1p5Qm81dWR4Nm1XNC0x?oc=5",
+        "titulo": "Combustibles en Guatemala: precios actuales y perspectivas para el 2027 - Prensa Libre",
+        "titulo_es": "Precios actuales de combustibles en Guatemala y proyecciones hasta 2027",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-29T00:10:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Se presentan los precios vigentes y proyecciones hasta 2027, indicando tendencias que influirán en los costos de importación de combustibles.",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
       },
       {
         "id": 3,
         "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOYVQzdWs1Ri1rTm5weExQdkRkc0ZQeHhSdFcwRmdIVDZsX2pUWlJ0S3ZaUGt6Z0h2Y09sS3BDQ3V3RUZjSWNsM3NtRUtsTmVRR0c2VkphRmtEeXNGNno2Rm1SLWpWdmR1SUxzSTdud0o1c3VBMGh1MGtKbTN4U19vckc3Ym5kVTJLaUhPWXVPSnJkSVRyaW9yS3ZuZnhHUWhsZ0JucjMySzJOUW5NOWdIMEJXdE1zbnJETGVwUGFTRWpBSWg1OUphNDJoTlFoRmN0cU00N2tWckhKZ1k?oc=5",
         "titulo": "Precio de los combustibles en Guatemala: estos son los precios de galón de regular y super en autoservicio - Prensa Libre",
-        "titulo_es": "Precios por galón de gasolina regular y super en Guatemala",
+        "titulo_es": "Precios por galón de gasolina regular y super en autoservicio en Guatemala",
         "medio": "Google News ES",
         "publicado_at": "2026-09-23T15:56:37-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Lista los precios por galón de gasolina regular y super en estaciones de autoservicio, estableciendo la referencia de costo para los importadores.",
-        "fetched_at": "2026-10-02T11:54:31-06:00"
+        "relevancia": 4,
+        "resumen_es": "Se detallan los precios por galón de gasolina regular y super en estaciones de autoservicio, información clave para el gasto de los guatemaltecos.",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
       },
       {
-        "id": 6,
+        "id": 7,
         "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQcl9NdjhFWE1TYmpyU3gtQnVnRmdRVU90dXVUYzR6d01yZTNQdjVCVkR1bDk5YnFNRWJ5LW1JTHRRMmtDR1ByTHNMT01HbnBVRkJycnNxYmo3cG1ocTlTZ3Rwa09FUnI2V3M5anNXZ3d5ZDFWeHFXT3VYbmdIb1lRVS12V3Y3VWEzcUU3Z3BOSllhYnF1alBOOWRQMnF3MUZFRkFoRHA5NVRtQ2Y4TUFIcHVKQy1UV3lHTGhoOEs2OXhSUWJLX1BGMjhCZ3JrMTFaSXhNYUZLMUJYMGxXV2JKRU1HclF5TkQ0WTFEaXRoWEFvdDB0Umc?oc=5",
         "titulo": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con las autoridades de ese país, los dispositivos impactaron la principal refinería de petróleo de la capital y un edificio residencial. El alcalde Sergei Sobyanin d - facebook.com",
-        "titulo_es": "Ucrania ataca con drones la principal refinería de Moscú",
+        "titulo_es": "Ucrania lanza mayor ataque con drones contra refinería principal en Moscú",
         "medio": "Google News ES",
         "publicado_at": "2026-09-21T01:00:00-06:00",
-        "categoria": "oferta",
+        "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Ucrania lanzó un gran ataque con drones contra la principal refinería de Moscú, lo que podría disminuir la oferta de crudo ruso y elevar los precios de importación en Guatemala.",
-        "fetched_at": "2026-10-02T11:54:31-06:00"
-      },
-      {
-        "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPNHdYWXdSMzQ2N0JWTjViS2Z3NlBGWVFCMGY2ZWMzY0dqLVgzZ00yM3dNLWpMbXhnd2Fva0VGenNMRGdKNnNMS3g2WXYwX2tiX0psd2ZNbDlMeGlYY2J4OHhTcUJfQlJlMGVfbXVVcXZ0V3JndHB1cFUybndFS0xfSTBjNmJ2Nk12RXhaUEpOTEVZTlVNekRyaWR3b0NJMU93SDQ2WnBJcWtoWk0?oc=5",
-        "titulo": "Fire Erupts Near Major Volgograd Refinery After Drone Attack - UNITED24 Media",
-        "titulo_es": "Incendio cerca de la refinería de Volgódsk tras ataque con drones",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-02T03:23:10-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Un incendio cerca de la refinería de Volgódsk tras un ataque con drones podría reducir la producción rusa, impactando levemente el suministro global y los precios para Guatemala.",
-        "fetched_at": "2026-10-02T11:54:31-06:00"
+        "relevancia": 4,
+        "resumen_es": "Ucrania realizó su mayor ataque con drones contra la principal refinería de Moscú, potencialmente disminuyendo la producción rusa y generando presión al alza en los precios del petróleo.",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
       },
       {
         "id": 9,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/US-Deploys-Patriots-to-Shield-Saudi-Oil-and-Qatari-Gas-Facilities.html",
+        "titulo": "U.S. Deploys Patriots to Shield Saudi Oil and Qatari Gas Facilities",
+        "titulo_es": "EE.UU. despliega sistemas Patriot para proteger instalaciones petroleras saudíes y gasíferas qataríes",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-02T08:30:00-06:00",
+        "categoria": "diplomacia",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "EE.UU. envía baterías Patriot para proteger refinerías saudíes y plantas de gas qataríes, reforzando la seguridad del suministro en la región y estabilizando los precios internacionales.",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
+      },
+      {
+        "id": 5,
+        "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5IVk11LWt4UUZSZkhXNVA4WjVCakRSeWhrZmF5WTRIenl5TmdSQThmWkx5N3FnWDhFR0tjMGlvRWZZNUU1anhLT3p3OHJGdkpmT2JvSG45LTB3T2M0ZE91NS1mRTnSAXBBVV95cUxQZ0tDdXpCY19iSGxUYzBDLWRkS2VGb1VzSm1IT29RQjM0YjMwS0R5ZjlhR2l3end2TjBTeWdybG15enZ2TWxKaDNtUjFHbFUzOGxIcDB4SjZiSGVGZEI2aVhLOEtzWndIb2hVd2Z0emFK?oc=5",
+        "titulo": "Drones attack Russia's Volgograd: fires reported near oil refinery and chemical plant – video - Українська правда",
+        "titulo_es": "Drones provocan incendios cerca de refinería de petróleo en Volgogrado, Rusia",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-01T22:38:00-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Drones provocaron incendios cerca de una refinería en Volgogrado, reduciendo la capacidad productiva rusa y presionando los precios internacionales del crudo, lo que puede elevar los costos de importación en Guatemala.",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
+      },
+      {
+        "id": 10,
         "url": "https://www.eia.gov/todayinenergy/detail.php?id=68225",
         "titulo": "U.S. natural gas production reached a record high in July 2026",
-        "titulo_es": "EE.UU. registra producción récord de gas natural en julio 2026",
+        "titulo_es": "Producción de gas natural de EE.UU. alcanza récord en julio de 2026",
         "medio": "EIA Today in Energy",
         "publicado_at": "2026-10-02T08:00:00-06:00",
         "categoria": "oferta",
         "pais": null,
         "relevancia": 1,
-        "resumen_es": "EE.UU. alcanza una producción récord de gas natural, lo que podría bajar los precios del gas a nivel global, aunque su efecto directo sobre los combustibles importados por Guatemala es limitado.",
-        "fetched_at": "2026-10-02T11:54:31-06:00"
+        "resumen_es": "La producción de gas natural en EE.UU. alcanza un máximo histórico, pero su impacto directo en los precios de los combustibles importados por Guatemala es limitado.",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
       },
       {
-        "id": 36,
-        "url": "https://oilprice.com/Energy/Crude-Oil/US-Oil-Drilling-Inches-Up-As-Prices-Fall.html",
-        "titulo": "U.S. Oil Drilling Inches Up As Prices Fall",
+        "id": 33,
+        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNWXg2UF9MYWljRE1UM2szLVZfU3FIaVV6dm1pT2xqQzRCLUpGck94Z1RpRzlaZHhxWlptdFdlay1Kdjh6SUhGTVhEYWV4RWthcE1HTHhUSjhsR29HeGR6V2N0cDZyR0toaEN3R0RmRGRMMENuRGs0R244d0NmMXVfQnBOdkFLQmdEUENOSVhzOHRuN2d0YlJaeTB6czB1ZndObVhCbVhBRGZpV25UY1djM0lucVIxWi05Ync?oc=5",
+        "titulo": "US-Russia talks on Ukraine involve multi-billion dollar oil deal, NYT reports - The Straits Times",
         "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-02T11:16:00-06:00",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-03T04:33:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "The total number of active drilling rigs for oil and gas in the United States fell this week, according to new data that Baker Hughes published on Friday, with the total rig count in the US falling to 598, up 49 from this same time last year. The number of active oil rigs rose by 1, reaching 456 during the latest reporting period, according to the data. This is 34 above this same time last year. The number of gas rigs fell by 2 to 133, which is 15 more than this time last year. Miscellaneous rig",
-        "fetched_at": "2026-10-02T11:54:32-06:00"
+        "resumen_es": "US-Russia talks on Ukraine involve multi-billion dollar oil deal, NYT reports The Straits Times",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
       },
       {
-        "id": 18,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/G7-Moves-to-Release-100-Million-Barrels-to-Counter-Diesel-Crisis.html",
-        "titulo": "G7 Moves to Release 100 Million Barrels to Counter Diesel Crisis",
+        "id": 34,
+        "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNUExYZk9hQzBJWE9DS0UxQ1RfNUttN3NIY2xuNS1PN0dkZVBlODRMMkVmbGFDNXZ1RDU2aU5rM3dGc3ZtR3Z6RHZSSGxpME5TSGJ0OE1vWUdHNWZUTVdQQjhLYVV3MW9XUExPYUJBbHhieUlmTmw5QmJ0YXdjMjh2c3dBeG91d2d5dHRB?oc=5",
+        "titulo": "U.S.-Russia Talks on Ukraine Now Involve an Oil Deal Tied to Trump Allies - The New York Times",
         "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-02T09:23:00-06:00",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-03T03:02:23-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "The G7 and its partners have agreed to release as much as 100 million barrels of emergency diesel and crude stocks over the next four months, putting government inventories into a fuel market that has been running short of refinery output for months. French President Emmanuel Macron said Friday that the release would be coordinated through the International Energy Agency, with an emphasis on diesel. European countries had discussed releasing 50 million barrels of diesel while IEA members would s",
-        "fetched_at": "2026-10-02T11:54:32-06:00"
+        "resumen_es": "U.S.-Russia Talks on Ukraine Now Involve an Oil Deal Tied to Trump Allies The New York Times",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
       },
       {
-        "id": 19,
-        "url": "https://oilprice.com/Energy/Energy-General/LNG-Shipments-Through-Hormuz-Hit-Highest-Level-Since-Iran-War-Began.html",
-        "titulo": "LNG Shipments Through Hormuz Hit Highest Level Since Iran War Began",
+        "id": 35,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Trump-Says-South-Korea-Deal-Includes-84-Billion-US-Oil-Project.html",
+        "titulo": "Trump Says South Korea Deal Includes $8.4 Billion U.S. Oil Project",
         "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-10-02T09:00:00-06:00",
+        "publicado_at": "2026-10-02T15:30:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "A total of 21 LNG cargoes are estimated to have exited the Strait of Hormuz in September, the highest monthly number since the Iran war began, yet well below pre-war levels, shipping data compiled by Reuters showed on Friday. Shipment analytics firm Kpler has estimated that 21 cargoes managed to squeeze last month through the chokepoint, which handled one fifth of global LNG supply before the war. This week, three Qatari LNG cargoes from Ras Laffan reappeared outside the Strait of Hormuz, accord",
-        "fetched_at": "2026-10-02T11:54:32-06:00"
+        "resumen_es": "President Donald Trump said Friday that South Korea’s investment agreement with the United States now includes $8.4 billion for an enhanced oil recovery project. Seoul says it agreed to no such thing. “The Republic of Korea Deal keeps getting BETTER! 8.4 Billion Dollars for an enhanced Oil Recovery Project. Producing more Oil and Gas means American Energy Dominance and Energy Security in the World for the Future!” Trump wrote on Truth Social. Enhanced oil recovery (EOR) is used to squeeze more p",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
       },
       {
-        "id": 20,
-        "url": "https://oilprice.com/Energy/Energy-General/WTI-Whipsaws-as-Gulf-Supply-Improves-and-Middle-East-Risk-Returns.html",
-        "titulo": "WTI Whipsaws as Gulf Supply Improves and Middle East Risk Returns",
+        "id": 15,
+        "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBYMy1MRUcxdVE5ckNIc2pJemt3TnNrVGNXaDZuYmZzUHFYNDN1RUE1eVNwdW00UXFxZDNIWVpkcU1uZklYSmk5TDBnTQ?oc=5",
+        "titulo": "Macron: No Export Bans Among Allies as G7 Agrees to Release 100M Barrels of Oil and Diesel After US Pressure - kyivpost.com",
         "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-02T08:45:00-06:00",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-02T13:38:08-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "November WTI crude oil futures spent the week caught between two opposing trades. Gulf crude flows improved as Saudi Arabia restored export routes and producers found ways around the Strait of Hormuz disruption. That was the supply relief sellers needed. The fuel market would not let them run with it. Diesel, gasoline and jet-fuel flows remain constrained, Russia has restricted diesel exports, and China has pulled refined-product cargoes from the export market. Reports Thursday that the United S",
-        "fetched_at": "2026-10-02T11:54:32-06:00"
-      },
-      {
-        "id": 21,
-        "url": "https://oilprice.com/Energy/Energy-General/US-Exit-Leaves-Iraq-With-a-Militia-Problem.html",
-        "titulo": "U.S. Exit Leaves Iraq With a Militia Problem",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-02T08:45:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Politics, Geopolitics & Conflict U.S. troops have withdrawn from Iraq, but this isn’t Biden’s Iraq. The withdrawal was agreed in 2024 when Biden determined that Iraqi forces could handle the remaining ISIS threat and that Washington could replace the coalition mission with bilateral training, intelligence sharing, and military assistance. Trump inherited that agreement and has now carried it out in a very different security environment, with the U.S. at war with Iran and Iran-aligned militias st",
-        "fetched_at": "2026-10-02T11:54:32-06:00"
+        "resumen_es": "Macron: No Export Bans Among Allies as G7 Agrees to Release 100M Barrels of Oil and Diesel After US Pressure kyivpost.com",
+        "fetched_at": "2026-10-03T04:54:20-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 10,
-      "total_hoy": 52,
+      "titulos_es_hoy": 11,
+      "total_hoy": 49,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
