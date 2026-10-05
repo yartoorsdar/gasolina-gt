@@ -503,9 +503,10 @@ fecha,modalidad,precio,fuente
 2026-09-26,spot,92.44,OilPriceAPI
 2026-09-27,spot,92.41,OilPriceAPI
 2026-09-28,spot,94.05,OilPriceAPI
-2026-09-29,spot,90.3,OilPriceAPI
-2026-09-30,spot,90.94,OilPriceAPI
-2026-10-01,spot,93.0,OilPriceAPI
-2026-10-02,spot,91.39,OilPriceAPI
+2026-09-29,spot,91.89,OilPriceAPI
+2026-09-30,spot,90.21,OilPriceAPI
+2026-10-01,spot,91.32,OilPriceAPI
+2026-10-02,spot,91.15,OilPriceAPI
 2026-10-03,spot,91.26,OilPriceAPI
 2026-10-04,spot,90.82,OilPriceAPI
+2026-10-05,spot,90.79,OilPriceAPI
