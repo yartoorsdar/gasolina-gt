@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-10-06T04:54:53-06:00",
+  "actualizado_at": "2026-10-06T11:56:07-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-10-05",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-10-05",
         "precio": 34.87,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-06T04:53:42-06:00",
+        "fetched_at": "2026-10-06T11:53:45-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -1335,33 +1335,23 @@
             "fecha": "2026-10-05",
             "precio": 34.87,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-06T04:53:42-06:00",
+            "fetched_at": "2026-10-06T11:53:45-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-05",
-            "precio": 34.87,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 2,
+            "fecha": "2026-10-06",
+            "precio": 34.89,
+            "confianza": "baja",
+            "n_coinciden": 1,
+            "n_fuentes": 1,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-02",
-                "medio": "emisorasunidas.com",
-                "modalidad_inferida": true,
-                "peso": 1.0,
-                "precio": 34.89,
-                "tipo": "monitoreado",
-                "url": "https://emisorasunidas.com/nacional/2026/10/02/gremiales-transportistas-buses-precios-combustibles-tarifas-pasaje/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-10-05",
+                "fecha": "2026-10-06",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
-                "precio": 34.87,
+                "precio": 34.89,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
               }
@@ -1432,11 +1422,11 @@
             "fecha": "2026-09-28",
             "precio": 44.23,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-06T04:53:42-06:00",
+            "fetched_at": "2026-10-06T11:53:45-06:00",
             "incluye_impuestos": true
           },
           "consenso": {
-            "fecha": "2026-10-02",
+            "fecha": "2026-10-06",
             "precio": 35.99,
             "confianza": "baja",
             "n_coinciden": 1,
@@ -1444,7 +1434,7 @@
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-02",
+                "fecha": "2026-10-06",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
@@ -1480,7 +1470,7 @@
         "fecha": "2026-10-05",
         "precio": 36.17,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-06T04:53:42-06:00",
+        "fetched_at": "2026-10-06T11:53:45-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -2802,33 +2792,23 @@
             "fecha": "2026-10-05",
             "precio": 36.17,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-06T04:53:42-06:00",
+            "fetched_at": "2026-10-06T11:53:45-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-05",
-            "precio": 36.17,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 2,
+            "fecha": "2026-10-06",
+            "precio": 36.19,
+            "confianza": "baja",
+            "n_coinciden": 1,
+            "n_fuentes": 1,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-02",
-                "medio": "emisorasunidas.com",
-                "modalidad_inferida": true,
-                "peso": 1.0,
-                "precio": 36.19,
-                "tipo": "monitoreado",
-                "url": "https://emisorasunidas.com/nacional/2026/10/02/gremiales-transportistas-buses-precios-combustibles-tarifas-pasaje/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-10-05",
+                "fecha": "2026-10-06",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
-                "precio": 36.17,
+                "precio": 36.19,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
               }
@@ -2899,11 +2879,11 @@
             "fecha": "2026-09-28",
             "precio": 46.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-06T04:53:42-06:00",
+            "fetched_at": "2026-10-06T11:53:45-06:00",
             "incluye_impuestos": true
           },
           "consenso": {
-            "fecha": "2026-10-02",
+            "fecha": "2026-10-06",
             "precio": 37.29,
             "confianza": "baja",
             "n_coinciden": 1,
@@ -2911,7 +2891,7 @@
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-02",
+                "fecha": "2026-10-06",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
@@ -2947,7 +2927,7 @@
         "fecha": "2026-10-05",
         "precio": 41.67,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-06T04:53:42-06:00",
+        "fetched_at": "2026-10-06T11:53:45-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -4269,33 +4249,23 @@
             "fecha": "2026-10-05",
             "precio": 41.67,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-06T04:53:42-06:00",
+            "fetched_at": "2026-10-06T11:53:45-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-05",
-            "precio": 41.67,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 2,
+            "fecha": "2026-10-06",
+            "precio": 41.69,
+            "confianza": "baja",
+            "n_coinciden": 1,
+            "n_fuentes": 1,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-02",
-                "medio": "emisorasunidas.com",
-                "modalidad_inferida": true,
-                "peso": 1.0,
-                "precio": 41.69,
-                "tipo": "monitoreado",
-                "url": "https://emisorasunidas.com/nacional/2026/10/02/gremiales-transportistas-buses-precios-combustibles-tarifas-pasaje/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-10-05",
+                "fecha": "2026-10-06",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
-                "precio": 41.67,
+                "precio": 41.69,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
               }
@@ -4366,11 +4336,11 @@
             "fecha": "2026-09-28",
             "precio": 50.49,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-06T04:53:42-06:00",
+            "fetched_at": "2026-10-06T11:53:45-06:00",
             "incluye_impuestos": true
           },
           "consenso": {
-            "fecha": "2026-10-02",
+            "fecha": "2026-10-06",
             "precio": 42.79,
             "confianza": "baja",
             "n_coinciden": 1,
@@ -4378,7 +4348,7 @@
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-02",
+                "fecha": "2026-10-06",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
@@ -4412,9 +4382,9 @@
       "orden": 4,
       "actual": {
         "fecha": "2026-10-06",
-        "precio": 87.46,
+        "precio": 89.58,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-10-06T04:54:08-06:00",
+        "fetched_at": "2026-10-06T11:54:38-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5480,7 +5450,7 @@
         },
         {
           "fecha": "2026-10-06",
-          "precio": 87.46
+          "precio": 89.58
         }
       ],
       "mensual": [],
@@ -5501,7 +5471,7 @@
         },
         {
           "anio": 2026,
-          "promedio": 83.65,
+          "promedio": 83.66,
           "dias": 203,
           "meses": null,
           "fuente": "diario"
@@ -5512,9 +5482,9 @@
           "nombre": "Spot",
           "actual": {
             "fecha": "2026-10-06",
-            "precio": 87.46,
+            "precio": 89.58,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-10-06T04:54:08-06:00",
+            "fetched_at": "2026-10-06T11:54:38-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
@@ -5621,7 +5591,7 @@
             },
             {
               "fecha": "2026-10-06",
-              "precio": 87.46
+              "precio": 89.58
             }
           ]
         }
@@ -5666,8 +5636,8 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 59,
-    "notas_leidas": 81,
+    "observaciones_7d": 65,
+    "notas_leidas": 88,
     "medios": [
       "dca.gob.gt",
       "elsalvador.com",
@@ -5680,207 +5650,207 @@
     ]
   },
   "noticias": {
-    "total": 61,
+    "total": 56,
     "top": [
-      {
-        "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNSlY5Q3JIaWdjWS1TaHJwU3pGMTVieVNONmFtNzVTcGl3OTVpUkdoTkluUzN4S1NFSDNlUkRUVnNKRlBiZXpJQ0NLemFQN0ljVkhiMGVEdlNDLVVNOTIteWNSSXl1N0E4dFB1V19SaTN5UkZ1YmRZNEJrajZjRWNiTzRpVEpvS3BXU1ZFWVRXbzZPd0UzLVpoYnhiLXU1dlozdVl1ZlliZXNyRHdfYUdrdFF5dUZwclhHeWFpVTVCbjlSQXE4cnNWUXEwTjA5elp5NDZnUG9UQ2VXSzFPOHhNb29UdnVhbHNLZzlLYldHZF9JNmdX?oc=5",
-        "titulo": "A new explosion reported at the Saudi Jeddah oil refinery, Tasnim reports; sources attributing the blast to a Yemeni missile attack - Newsquawk",
-        "titulo_es": "Explosión en refinería saudí de Jeddah tras presunto ataque con misil yemení",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-06T00:19:30-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Una explosión en la refinería saudí de Jeddah, atribuida a un misil yemení, podría reducir la producción de crudo y elevar los precios internacionales que paga Guatemala.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
-      },
-      {
-        "id": 13,
-        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNT2hraFI5MEVFZ3FxU2stNUZEbUN0UGVfeVB4RldNLWRxb3NQMUhVZkpXOUtSeXZOelM0dkh1SzJCWWRFQ2RDbjVIdVNiY3VxYno4MjI3RTFwS04tWmxfTG5oN3lCdkVSanJ4Y0lWeVdubUdsZ1B4TkxqbDd0c1lrd1ZGYlBSclNramxqVHRVYmJiZlA3MW9ycmJ0dm1RUm5zTkRGMnBqWXVZY0JqcmF1eDRxX19VYy1SLWZVQklRdHFjLTVz?oc=5",
-        "titulo": "Ukraine war briefing: Kyiv claims half of Russia’s oil refining capacity destroyed - The Guardian",
-        "titulo_es": "Ucrania afirma que la mitad de la capacidad de refinación rusa está destruida",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-05T21:19:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Ucrania afirma que la mitad de la capacidad de refinación rusa está destruida, lo que reduce la oferta mundial de productos petrolíferos y presiona al alza los precios importados por Guatemala.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
-      },
-      {
-        "id": 14,
-        "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9zUGtnLWtEN25sRkdURjlsME52c1B5bU41WHk2LXJtaWdVQXppazRiQjBtNVRDWGkxT0Q0QjZibVNwZ2k1aUs1ak9jQUtEeTdpZERCNkZOUDhiS0pMU05tMVp2akJBZWlUd0Rxc2FtT0NRREg4RGozaXR0YXQ?oc=5",
-        "titulo": "El oleoducto Este-Oeste ha sido paralizado tras un reciente ataque. - Vietnam.vn",
-        "titulo_es": "Oleoducto Este‑Oeste paralizado tras reciente ataque",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-05T19:19:39-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Un reciente ataque paraliza el oleoducto Este‑Oeste de Arabia Saudita, limitando el flujo de crudo y aumentando la incertidumbre de precios para el país importador.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNVkYtVlAxWGV0NXVJc3l0WkEtR2lHdUVIMFZ5QlJqTUNDcVN6dkdUMUFCMDNONFhma0hXOW5qbWxDR2NSR3J4Qm5aSDNJWWhZa20waW01RzZWMTdtLTMxb1hBSVZkdHo1R1VTRHExZDhMb1hwb2VPUTFKT1AwRmk2WjA1N1h5LXdOZDlld29Ybk1iQ2gxYUlVLWxmYU9yRC01aEptdm5yZ3lJdl8tbHdEVC01ZmxLWXdlZmVDV1VR?oc=5",
-        "titulo": "Saudi Arabia's East-West oil pipeline halted again after fresh attack - The Business Standard",
-        "titulo_es": "Nuevo ataque detiene nuevamente el oleoducto Este‑Oeste de Arabia Saudita",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-05T06:17:49-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Un nuevo ataque detiene el oleoducto Este‑Oeste de Arabia Saudita, limitando el flujo de crudo y presionando al alza los precios del combustible importado por Guatemala.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
-      },
-      {
-        "id": 8,
-        "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQUTBtd2FSLWhxbVpFOXY0MHVzbFowV0p2TkVmRU02cDY4Zms2YjV2VFd5TnNrMklCUGtURHZoU18tRkY4bHhNRUR1MzNOVlp4ek9yaDJpczlTekhXWE1wc1Z0N19RV29NMjloM3VLZnB4blBFdmVDdkZMSF9TOF85Q3Z0Szk1TWU1YVZONHpPaWRkQTI0Um4yNUZ6QjlaNzRmNG1XWEJ6YUIxbDA?oc=5",
-        "titulo": "East-West oil pipeline pumping halted after new attack - L'Orient Today",
-        "titulo_es": "Se suspende el bombeo del oleoducto Este‑Oeste tras nuevo ataque",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-05T02:44:41-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Un nuevo ataque obliga a suspender el bombeo del oleoducto Este‑Oeste, reduciendo la capacidad de exportación saudí y potencialmente encareciendo el combustible en Guatemala.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
-      },
-      {
-        "id": 11,
-        "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQcl9NdjhFWE1TYmpyU3gtQnVnRmdRVU90dXVUYzR6d01yZTNQdjVCVkR1bDk5YnFNRWJ5LW1JTHRRMmtDR1ByTHNMT01HbnBVRkJycnNxYmo3cG1ocTlTZ3Rwa09FUnI2V3M5anNXZ3d5ZDFWeHFXT3VYbmdIb1lRVS12V3Y3VWEzcUU3Z3BOSllhYnF1alBOOWRQMnF3MUZFRkFoRHA5NVRtQ2Y4TUFIcHVKQy1UV3lHTGhoOEs2OXhSUWJLX1BGMjhCZ3JrMTFaSXhNYUZLMUJYMGxXV2JKRU1HclF5TkQ0WTFEaXRoWEFvdDB0Umc?oc=5",
-        "titulo": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con las autoridades de ese país, los dispositivos impactaron la principal refinería de petróleo de la capital y un edificio residencial. El alcalde Sergei Sobyanin d - facebook.com",
-        "titulo_es": "Ucrania ataca con drones la principal refinería de Moscú",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-21T01:00:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Un ataque con drones destruye la principal refinería de Moscú, reduciendo la capacidad de refinado rusa y estrechando la oferta global, lo que eleva los precios para Guatemala.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
-      },
-      {
-        "id": 15,
-        "url": "https://oilprice.com/Energy/Crude-Oil/Standard-Chartered-Says-Hormuz-Oil-Flows-Are-Far-From-Normal.html",
-        "titulo": "Standard Chartered Says Hormuz Oil Flows Are Far From Normal",
-        "titulo_es": "Flujos de petróleo por el estrecho de Hormuz siguen muy por debajo de lo normal",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-05T18:00:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Standard Chartered indica que los flujos de petróleo por el estrecho de Hormuz siguen muy por debajo de lo normal, señalando restricciones que pueden elevar los precios del combustible en Guatemala.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
-      },
-      {
-        "id": 5,
-        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQb3N4eE5MbUF4VmxobUVweFhObUM0QWtndFBzVDBYMlFoTGQ5VGlkTF9pY0ZwNFRPZTNMUFFkbTFnblMyUVFfeEI4YWoxaDludEYxUWE0SDNWRU9zVmxCUGNRcVZvYlZqXzBqeHBCeW56a3NIdXlKX0NKbWpyNU1ZallKcFZoaUF5a0p3WmlxVQ?oc=5",
-        "titulo": "Oil exports top pre-war levels, tanker attacks increase - aapnews.aap.com.au",
-        "titulo_es": "Exportaciones de petróleo alcanzan niveles prebélicos mientras aumentan ataques a petroleros",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-05T15:48:53-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Las exportaciones mundiales de petróleo vuelven a niveles prebélicos, pero el aumento de ataques a petroleros eleva los riesgos y los precios para los importadores guatemaltecos.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
-      },
       {
         "id": 1,
         "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxOdTRqR0tyQWl6REVWcUxpU3hTVXYzS0J1eVk5UVZ5dWF6bmZaSVYwVHVPUXY1RGs5RDFRQ1MtNFdrSVNkajVqcHRVQ21JdXpqRXQwNnJWUHBGX3EzOWlUUy1sRnpYaWx1dlM1NG01a2lodmU2eWJTR1dsaVJyckNRcU8tRk9rMEtMTmd4ZkdLRnhZTXYyRms4RlNhYnZ0dUI4UUo3Z1oxVVVVTHRxQ2ZPQVJCV0JpQXNnaHBYSTNSWkhxMTJra21tY0lHYlBjbGdIQlhkZERIbmlON0FqYms4alB0T0RpQTlhUl9xRk44QVM5S3gwVDJpUERGQ3h1U09mZENB?oc=5",
         "titulo": "¿Desde cuándo bajarán los precios de los combustibles en Guatemala por la exención de impuestos? Esto dice el Gobierno - Prensa Libre",
-        "titulo_es": "Gobierno anuncia exención de impuestos que reducirá precios de combustibles en Guatemala",
+        "titulo_es": "Gobierno de Guatemala exime impuestos y bajará precios de combustibles",
         "medio": "Google News ES",
         "publicado_at": "2026-09-30T17:02:14-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El Gobierno eliminará impuestos a los combustibles, lo que reducirá su precio interno y aliviará la inflación en Guatemala.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
+        "relevancia": 5,
+        "resumen_es": "El Gobierno de Guatemala anunció la exención de impuestos a la gasolina y diésel, lo que reducirá los precios al consumidor a partir de la fecha indicada, aliviando la inflación y el costo del transporte.",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
       },
       {
         "id": 2,
+        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxObXMtWWQ3M1NTWGhjT2FXNGVrbFNlZzFGUFBjVVUxUTNWbmJyMnpkOVJLWUpIQ1pjQWIzbVR1MEZ3Rk82TDFQY01FNnJ6VjQ4akN4TGctVk9DVEdCUGRmd2dlbmU2azJ5QmR3b0Q5NlUtZ3dWbzJ0UXpkbkpxRkxTMm9Nc0o4eHJtcFViOHdZMFpfMkxTQnMwUzZXUVFEV1NHOGpFa2ZJYXU?oc=5",
+        "titulo": "Guatemala suspende por tres meses los impuestos al combustible para bajar su precio - LaPrensa.hn",
+        "titulo_es": "Guatemala suspende impuestos al combustible por tres meses para bajar precios",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-30T14:08:29-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "El gobierno guatemalteco suspende por tres meses los impuestos a la gasolina y diésel para reducir su precio al consumidor. La medida busca aliviar la inflación y el costo del transporte.",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
+      },
+      {
+        "id": 3,
         "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNMHNOa1M5c1lGblVEdGJ2bmxJczloM0g1X20zQnlPS1ZUbV9ISDU3d1NyNEkxUHRjQkRVTlVtaGRBdTBYM2xKUlAyRmp4SXNIVnRtem81V1MtTW9NU0tjN2xRaFZVX1B0bE9wY3dHQ21mNEFOU1hENDBRbXloUDNCZGoyM0JBeThfVVQ0b0E3blk4cklpYTUydmx2VTVzQ29DTTFWcGpwbEhFbUwzQ21OWmJaQmN0MUJ3RHJ6UmNXeFl2czNVQTZHNzROeTgxQQ?oc=5",
         "titulo": "¿Por qué sube el diésel en Guatemala? Banguat identifica tres factores que presionan la inflación - Prensa Libre",
-        "titulo_es": "Banguat explica tres factores que impulsan el aumento del diésel en Guatemala",
+        "titulo_es": "Banguat explica tres causas del alza del diésel que impulsa la inflación en Guatemala",
         "medio": "Google News ES",
         "publicado_at": "2026-09-30T05:00:00-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Banguat señala que el tipo de cambio, los impuestos y los precios internacionales impulsan el aumento del diésel, encareciendo la energía para los guatemaltecos.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
-      },
-      {
-        "id": 9,
-        "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTE9PWHdOY01aU2ZxTUJ1ckdiMThGSDVieDF2eEtBMFBkWkZnVzdMbU9sa0ZrYndfOU1zeUpDMW5IMkgwQQ?oc=5",
-        "titulo": "Exclusive: Iran Denies Involvement in Attack on Saudi Oil Pipeline - الحرة",
-        "titulo_es": "Irán niega participación en el ataque al oleoducto saudí",
-        "medio": "Google News EN",
-        "publicado_at": "2026-09-29T19:08:15-06:00",
-        "categoria": "diplomacia",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Irán niega su implicación en el ataque al oleoducto saudí, lo que mantiene tensiones regionales que pueden afectar la estabilidad del suministro de petróleo mundial.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
+        "relevancia": 5,
+        "resumen_es": "Banguat señala que la subida del diésel en Guatemala se debe a la devaluación del quetzal, al aumento de los precios internacionales del crudo y a la carga tributaria, lo que eleva la inflación.",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
       },
       {
         "id": 10,
-        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOaTVUSFBrQkQ3YUtqM1hlendocHBpM2k5WC12U3lzd0Z5TGhYc2MzQ2xQREhaYU83ZDNVdDJmRWxRb3lpRjl1MWNRV0lZTDROWjdYdEZ2c0NhOXV0WHhxU2xNUmJMeVdtMnNkLXlvWXVnbGJCNjFjZHFOdzdjcWxFTlpzYXlrZlpBdElvX3c0YUpQckVIRGlUZjdwdUZYRnlZaDE5U1pmb0dSTlNDX2c?oc=5",
-        "titulo": "Saudi Oil Loaded from Port at Yanbu after Pipeline Attack - Industrial Info",
-        "titulo_es": "Petróleo saudí cargado en Yanbu tras ataque al oleoducto",
-        "medio": "Google News EN",
-        "publicado_at": "2026-09-24T01:00:00-06:00",
-        "categoria": "infraestructura",
+        "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQcl9NdjhFWE1TYmpyU3gtQnVnRmdRVU90dXVUYzR6d01yZTNQdjVCVkR1bDk5YnFNRWJ5LW1JTHRRMmtDR1ByTHNMT01HbnBVRkJycnNxYmo3cG1ocTlTZ3Rwa09FUnI2V3M5anNXZ3d5ZDFWeHFXT3VYbmdIb1lRVS12V3Y3VWEzcUU3Z3BOSllhYnF1alBOOWRQMnF3MUZFRkFoRHA5NVRtQ2Y4TUFIcHVKQy1UV3lHTGhoOEs2OXhSUWJLX1BGMjhCZ3JrMTFaSXhNYUZLMUJYMGxXV2JKRU1HclF5TkQ0WTFEaXRoWEFvdDB0Umc?oc=5",
+        "titulo": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con las autoridades de ese país, los dispositivos impactaron la principal refinería de petróleo de la capital y un edificio residencial. El alcalde Sergei Sobyanin d - Facebook",
+        "titulo_es": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo con las autoridades de ese",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-21T01:00:00-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Ucrania lanzó su “mayor ataque” con drones contra la región de Moscú, según Rusia. De acuerdo co",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
+      },
+      {
+        "id": 13,
+        "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNYWxXRm1iTnNxWm5EcHNveHpTMDBBd0V1ZmZldktDSTVPUGJzTkZsblJaUGI3XzlhQVBPWmVXdUo1VTZLRFNTWmM2TlVfS1hzT1dCZFFSa19NOG5palhOUlkwMXgwMmdfQkQ2aGJObWlpZDZfbnl5b0kxM0tVR1hQdlp3TGpOOENTN1NHVnowMHdrZUhaX3JHODVRd1Z0czdLeDRuZU5pX0xrVnEyM2ZtdDcxSURsMEhkeEEtUWpIRkZyZGdFcWNFMkIydnV5eXI1UE0zVGtJVnpWeVFIZWFIV003VVZkNkE?oc=5",
+        "titulo": "Hutíes de Yemen reivindican ataque al aeropuerto de Riad y una refinería de Aramco; niegan haber perdido territorio - El Universal",
+        "titulo_es": "Hutíes de Yemen reivindican ataque al aeropuerto de Riad y una refinería de Aramco; niegan haber perdido territorio - El",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-06T07:45:35-06:00",
+        "categoria": "otro",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Tras el ataque al oleoducto, Arabia Saudita redirige crudo al puerto de Yanbu, manteniendo exportaciones pero con costos logísticos que pueden repercutir en los precios internacionales.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
+        "resumen_es": "Hutíes de Yemen reivindican ataque al aeropuerto de Riad y una refinería de Aramco; niegan haber perdido territorio<",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
+      },
+      {
+        "id": 21,
+        "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNQ0YxeG5HTEh3NlAzS3d2VVJWTDhVa1lab2xzYnFSZTZqcVZfQWpnWTZLTzRhSEF1a2JON1FWT084WFhjU2dOdG5JTGQ5cURiLWwwUUJ5c29oRmxYT21vX2ZyODNMREt4MjVpMkIwYTc5ZEZQTXFDdkI0MlJYbnhwS3hlanZfQm5fbDlQZkZmSlprVzQ?oc=5",
+        "titulo": "Ucrania ha anunciado que intensificará sus ataques contra las refinerías de petróleo rusas. - Vietnam.vn",
+        "titulo_es": "Ucrania ha anunciado que intensificará sus ataques contra las refinerías de petróleo rusas. - Vietnam.vn",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-03T19:48:43-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Ucrania ha anunciado que intensificará sus ataques contra las refinerías de petróleo rusas. Vietnam.vn",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
+      },
+      {
+        "id": 4,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-East-West-Pipeline-Moves-58-Million-Barrels-as-Red-Sea-Route-Recovers.html",
+        "titulo": "Saudi East-West Pipeline Moves 5.8 Million Barrels as Red Sea Route Recovers",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-06T10:30:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Saudi Arabia’s East-West pipeline had moved 5.8 million barrels of crude as of Tuesday morning, Energy Minister Prince Abdulaziz bin Salman said, adding more oil to the kingdom’s Red Sea export route as Gulf producers continue working around the Strait of Hormuz. The pipeline carries crude across Saudi Arabia to Yanbu on the Red Sea. Riyadh had been moving roughly 4 million barrels per day through the system after the Iran war disrupted normal exports through Hormuz. Drone attacks shut the line",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
+      },
+      {
+        "id": 36,
+        "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOUEN1Vm1lVFBZdmZaeHpqakxzTHZpMGgxWEVXSGVSMUlnY25tcmQzSUVEUkg1cllMSUxTRWNlVmo3WG96eEthY2g4VWROUFNBN0syZWhWYWNFYmtXeW1fSWNsWW9Ldjh6d0YzTVJhbmdpcXlWOXFxdzJ0dmRpV0hyN1pXWUJCeGVsdGY4bVRnU0NsS1BCY0Y3a0haYlNvRmNjTU1tQVQ3VF9hemkydnZBNVBzOHJEX0xxSzY3OG4wNEZ6aGVYSExlYnZYaVdIVXF2Qm9WUQ?oc=5",
+        "titulo": "Petróleo de Texas baja a US$87.2 el barril mientras aumenta el tráfico por el estrecho de Ormuz - Prensa Libre",
+        "titulo_es": null,
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-06T10:10:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Petróleo de Texas baja a US$87.2 el barril mientras aumenta el tráfico por el estrecho de Ormuz Prensa L",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
       },
       {
         "id": 12,
-        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQcThldmdWd2c5aHdfck8zYk1XMWtsa3kweWlXaTNQWEpnV2NIUHhiNTh2cHhoSndCV2Z2QkhwNl9DZEJObFJha2pXWG1JcUZpVXlZU1RqQ2diZUJ0YVV2alRBRmRCampGOGdQQnM4UVV2R2ZMQ2p6WC1QSk5iOGJEWDZ2YXdaSzlLeGtZYnNuVld5MGZESG1tenNaMFlFcExWeVhlZjJBTlJOeHNmVkhBYzFkejJkNno5VWEwU05hRHU4NGlqT1U5UXcxUzU?oc=5",
-        "titulo": "Saudi Arabia ramps up Gulf oil exports after pipeline attack, data shows - Reuters",
-        "titulo_es": "Arabia Saudita incrementa exportaciones de crudo tras ataque al oleoducto",
-        "medio": "Google News EN",
-        "publicado_at": "2026-09-21T01:00:00-06:00",
-        "categoria": "oferta",
+        "url": "https://oilprice.com/Energy/Crude-Oil/The-Hidden-Cost-of-Saudi-Arabias-Oil-Export-Recovery.html",
+        "titulo": "The Hidden Cost of Saudi Arabia’s Oil Export Recovery",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-06T10:05:00-06:00",
+        "categoria": null,
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Arabia Saudita aumenta sus exportaciones de crudo desde el Golfo para compensar la pérdida del oleoducto, lo que ayuda a estabilizar el mercado y moderar precios en Guatemala.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
+        "relevancia": null,
+        "resumen_es": "Brent holds near $100 as recovering Gulf oil flows collide with record freight costs and mounting tanker risks. Asia’s Product Market Loses Its Chinese Safety Valve - China has been at the forefront of this month’s refined product rally after the country’s Ministry of Commerce stopped issuing licenses for refined product exports, prompting several state-owned firms to cancel October-loading cargoes. - With Chinese product exports initially expected to average 750,000 b/d this month, Beijing’s (t",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
       },
       {
-        "id": 7,
-        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOT0ZkRktzZ2Z4S1RoZXY0NFZEZHJtRG9MX20xWW5lMU1NRG1RX3RhUDRSbVBvbnE1Uy0wZUxLNFlsQTVRejRlcnlZVVFzZ0NwOFBCREZadlltWmFndWRwZEQtWTlhbndhdWpZYTN3M3pNTl82aTBoX3FMY0g2dFZHd0Vua3Q2M3ZseGpUUGRBbjNBV1c5QWxkTEVhNA?oc=5",
-        "titulo": "Saudi oil pipeline operates normally after attack report - Yeni Şafak English",
-        "titulo_es": "Oleoducto saudí vuelve a operar con normalidad tras informe de ataque",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-05T05:40:23-06:00",
-        "categoria": "infraestructura",
+        "id": 26,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Gulf-Producers-Say-Importers-Should-Share-the-Cost-of-Hormuz-Workarounds.html",
+        "titulo": "Gulf Producers Say Importers Should Share the Cost of Hormuz Workarounds",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-06T08:30:00-06:00",
+        "categoria": null,
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Se informa que el oleoducto saudí ha vuelto a operar con normalidad tras el ataque, aliviando momentáneamente la preocupación por el suministro global.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
+        "relevancia": null,
+        "resumen_es": "The top executives of some of the biggest Gulf oil-producing companies called for external investments into new routes to bypass the Strait of Hormuz and create and expand crude and fuel storage capacity outside the region and closer to consumers. “While the Kingdom is capable and confident, and its systems are coping, no country should face this alone,” Saudi Aramco’s CEO Amin Nasser said at the 2026 Energy Intelligence Forum in London this week. “Every attack comes with a global price: weaker",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
       },
       {
-        "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZ2F1REJtMnRyV3U2dWlUeFpJYWk2YUp0Wng5dVd2T0ZlS3FYQnRCNzRBNmdkbDJ6aEVRcUY3bDdic181azdad3NmbEFLSzF3ZnFDNHlybnFHYlpNbi1MdWVIam9iMjV4cUNuTDA4SEZjRnhvN1RFWmpiNE1LakF0Tl9JbzYtYmNDZmRIZU4wNXFkdlk2RnFmMzlZbEwyM1p5Qm81dWR4Nm1XNC0x?oc=5",
-        "titulo": "Combustibles en Guatemala: precios actuales y perspectivas para el 2027 - Prensa Libre",
-        "titulo_es": "Precios actuales y proyecciones de combustibles en Guatemala hasta 2027",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-29T00:10:00-06:00",
-        "categoria": "precios",
+        "id": 56,
+        "url": "https://oilprice.com/Metals/Commodities/Energy-Shock-Wipes-264-Billion-Off-the-Worlds-Top-Mining-Stocks.html",
+        "titulo": "Energy Shock Wipes $264 Billion Off the World's Top Mining Stocks",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-06T08:00:00-06:00",
+        "categoria": null,
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "El artículo detalla los precios actuales de los combustibles y proyecta su evolución hasta 2027, indicando posibles tendencias de costo para el país importador.",
-        "fetched_at": "2026-10-06T04:54:53-06:00"
+        "relevancia": null,
+        "resumen_es": "The world's 50 most valuable mining companies lost $264 billion in market value in September as oil-driven inflation fears pushed bond yields to their highest since 2008 and the Federal Reserve into its first rate hike in three years, dragging gold and the stocks tied to it sharply lower. The group ended the month worth $2.26 trillion, according to MINING.COM's Top 50 ranking, the second-largest monthly decline since the ranking began at the end of 2019, behind only March's $434 billion drop. Se",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
+      },
+      {
+        "id": 5,
+        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQaUF0WklvZ3JSS0F3NHRqRTFVVHJOZHZWbmtOQmxseVVicGVHN0hmeWtDNGFYTExIbXJBakZ5NlZZNXlQdFdMeG9NcldRNGFFdFJpejk4ZmVDMTVaTnJ3SkctSHRuNTQ5Vlp4dGd0czhWLVhVTUxMdVJwOVNMMzBFZ1lDOUtjR21lM2xDYkd3WExPdjlYNjFiQTBFSk1LXzkyb2UtMDhkcW1pWlYtYm5FRm10a0dIbWFKVTBYQXpjUGU3MTdkQXg4VA?oc=5",
+        "titulo": "Key oil pipeline to Red Sea port up and running after attack, says Saudi Arabia - TradeWinds News",
+        "titulo_es": null,
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-06T07:34:52-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Key oil pipeline to Red Sea port up and running after attack, says Saudi Arabia TradeWinds News",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
+      },
+      {
+        "id": 6,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/EU-Delays-Methane-Rules-Opens-Refinery-Talks-as-Fuel-Prices-Hit-Records.html",
+        "titulo": "EU Delays Methane Rules, Opens Refinery Talks as Fuel Prices Hit Records",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-06T07:30:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "The European Union will give energy exporters an extra year to prepare for the EU’s methane regulation as the bloc looks to avoid adding costs to energy supply in the second crisis in four years, European Commission President Ursula von der Leyen told the European Parliament on Tuesday. “We will give flexibility to exporters for one more year on methane. This saves additional costs at a moment of crisis,” von der Leyen said in a speech to European lawmakers on how the EU plans to curb soaring e",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
+      },
+      {
+        "id": 37,
+        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOY0NSUnpZYzg2NnNLV3hZajUtU2hzeUpEOFpWbk1hZFlDNzlKbW92dDJ2N2s4dUNlU19sNG5HVjZkV3I0cUw4Qnc3bU5GUmVYd2Y4dGttelYzWThiZHI4VHJKOTBTeml2SThWYVl2X2tGeFZHMGRueUpLc21FY2UzREZwRlN4aTRyUWs0b1B6T2lCYUhEQjJ0bmluZm4?oc=5",
+        "titulo": "Ukraine criticizes S. Korea for oil supplies to Russia - Naharnet",
+        "titulo_es": null,
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-06T07:25:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Ukraine criticizes S. Korea for oil supplies to Russia Naharnet",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
+      },
+      {
+        "id": 38,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/India-Could-Boost-Crude-and-Critical-Minerals-Supply-from-Ecuador.html",
+        "titulo": "India Could Boost Crude and Critical Minerals Supply from Ecuador",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-06T06:30:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "India and Ecuador are discussing increasing sales of Ecuadorean crude oil, copper, and other critical minerals to India, Fernando Buchelli, the Ecuadorean ambassador to India, told Indian news outlet Mint in an interview published on Tuesday. Ecuador plans to invite Indian companies to invest in its oil and minerals sector, while the South American country seeks to buy medical products from state-held healthcare product manufacturing group HLL Lifecare Limited, the official said. India, the worl",
+        "fetched_at": "2026-10-06T11:56:07-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 15,
-      "total_hoy": 61,
+      "titulos_es_hoy": 6,
+      "total_hoy": 56,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
