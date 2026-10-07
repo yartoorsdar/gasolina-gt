@@ -169,3 +169,4 @@ id_voto,fecha,producto,modalidad,tipo,precio,precio_mostrado,vio_oficial,disposi
 2026-10-06|regular|autoservicio|9aee861fc85c2f7df025f4c33eda674e,2026-10-06,regular,autoservicio,coincide,,34.87,1,9aee861fc85c2f7df025f4c33eda674e,,2026-10-06T07:40:41-06:00
 2026-10-06|superior|autoservicio|6ee9c25a6f6f95c636b1ce8e07cfc6e7,2026-10-06,superior,autoservicio,coincide,,36.17,1,6ee9c25a6f6f95c636b1ce8e07cfc6e7,,2026-10-06T04:50:45-06:00
 2026-10-06|superior|autoservicio|8d90bfd969edacee7d7ae8620a6741df,2026-10-06,superior,autoservicio,otro,35.57,36.17,1,8d90bfd969edacee7d7ae8620a6741df,,2026-10-06T08:38:04-06:00
+2026-10-06|superior|autoservicio|e591c87cf797a01d2a7c37b95ed1b624,2026-10-06,superior,autoservicio,coincide,,36.17,1,e591c87cf797a01d2a7c37b95ed1b624,,2026-10-06T12:10:25-06:00
