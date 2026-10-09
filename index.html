@@ -944,13 +944,28 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                 }
                 window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); ev = e; });
                 window.addEventListener('appinstalled', function () { btn.style.display = 'none'; tip.style.display = 'none'; ev = null; });
+                function decir(t) { tip.textContent = t; tip.style.display = 'block'; }
                 btn.addEventListener('click', function () {
-                    if (ev) { ev.prompt(); ev.userChoice.then(function () { ev = null; }); return; }
-                    var ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-                    tip.textContent = ios
-                        ? 'En Safari toca el botón Compartir y elige "Agregar a inicio".'
-                        : 'Abre el menú del navegador y elige "Instalar app" o "Agregar a pantalla de inicio".';
-                    tip.style.display = tip.style.display === 'block' ? 'none' : 'block';
+                    if (ev) {
+                        ev.prompt();
+                        ev.userChoice.then(function (r) {
+                            ev = null;
+                            decir(r && r.outcome === 'accepted' ? 'Instalada. Si no aparece en el inicio, busca "Gasolina GT" en tus aplicaciones, mantén presionado el ícono y arrástralo al inicio.' : 'Cancelaste la instalación. Toca el botón cuando quieras.');
+                        });
+                        return;
+                    }
+                    var ua = navigator.userAgent;
+                    var ios = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+                    var otraApp = /FBAN|FBAV|Instagram|TikTok|Line\/|Messenger|; wv\)/i.test(ua);
+                    if (otraApp) {
+                        decir('Estás dentro de otra aplicación. Abre gasolinasogt.com en ' + (ios ? 'Safari' : 'Chrome') + ' y vuelve a tocar este botón.');
+                    } else if (ios) {
+                        decir(/CriOS|FxiOS|EdgiOS/i.test(ua)
+                            ? 'En iPhone solo Safari puede instalarla: abre gasolinasogt.com en Safari, toca Compartir y elige "Agregar a inicio".'
+                            : 'Toca el botón Compartir de Safari (el cuadro con la flecha) y elige "Agregar a inicio".');
+                    } else {
+                        decir('Abre el menú del navegador (los tres puntos) y elige "Instalar app" o "Agregar a pantalla de inicio". Si ya la instalaste, búscala en tus aplicaciones.');
+                    }
                 });
             })();
             </script>
