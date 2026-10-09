@@ -762,7 +762,9 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
         .wti-explica b{color:#eef3fa}
         .btn-app{display:flex;align-items:center;gap:8px;margin:12px auto 0;padding:8px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);color:#eef3fa;font:700 .85rem inherit;font-family:inherit;cursor:pointer}
         .btn-app:hover,.btn-app:focus-visible{background:rgba(255,255,255,.2)}
-        .tip-app{max-width:320px;margin:8px auto 0;font-size:.8rem;color:var(--text-muted)}
+        .tip-app{max-width:320px;margin:8px auto 0;font-size:.8rem;color:var(--text-muted);align-items:center;gap:10px;text-align:left}
+        .tip-app b{color:#eef3fa}
+        .tip-ico{border-radius:10px;flex:none;image-rendering:pixelated}
         /* ── Árbol de empresas (importan -> venden al público). Animación SOLO de opacity ── */
         .arbol-emp{margin:18px 8px 4px;text-align:center}
         .arbol-emp h3{font-size:.95rem;margin:0 0 6px;color:#eef3fa !important}
@@ -944,13 +946,23 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
                 }
                 window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); ev = e; });
                 window.addEventListener('appinstalled', function () { btn.style.display = 'none'; tip.style.display = 'none'; ev = null; });
-                function decir(t) { tip.textContent = t; tip.style.display = 'block'; }
+                function decir(t) {
+                    tip.textContent = '';
+                    var img = document.createElement('img');
+                    img.src = '/iconos/icon-192.png'; img.alt = ''; img.width = 44; img.height = 44; img.className = 'tip-ico';
+                    var box = document.createElement('span');
+                    var nombre = document.createElement('b');
+                    nombre.textContent = 'Gasolinasogt.com';
+                    box.appendChild(nombre); box.appendChild(document.createElement('br')); box.appendChild(document.createTextNode(t));
+                    tip.appendChild(img); tip.appendChild(box);
+                    tip.style.display = 'flex';
+                }
                 btn.addEventListener('click', function () {
                     if (ev) {
                         ev.prompt();
                         ev.userChoice.then(function (r) {
                             ev = null;
-                            decir(r && r.outcome === 'accepted' ? 'Instalada. Si no aparece en el inicio, busca "Gasolina GT" en tus aplicaciones, mantén presionado el ícono y arrástralo al inicio.' : 'Cancelaste la instalación. Toca el botón cuando quieras.');
+                            decir(r && r.outcome === 'accepted' ? 'Instalada. Si no aparece en el inicio, busca "Gasolinasogt.com" en tus aplicaciones, mantén presionado el ícono y arrástralo al inicio.' : 'Cancelaste la instalación. Toca el botón cuando quieras.');
                         });
                         return;
                     }
