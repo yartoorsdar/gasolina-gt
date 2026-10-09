@@ -285,54 +285,206 @@ TRANS = {"r": "", "l": " scale(-1,1)", "d": " rotate(90)", "u": " rotate(-90)"}
 ESC = 1.6
 
 
-def camion(pts, n, dur, off, simbolo_id, cx, cy, extra=""):
-    """Un vehiculo recorriendo pts; n fotogramas que se encienden uno tras otro."""
+def camion(pts, n, dur, off, simbolo_id, cx, cy, esc=None, dwell=0):
+    """Un vehiculo recorriendo pts; n fotogramas que se encienden uno tras otro.
+    Con dwell > 0 los ultimos fotogramas se quedan en el destino (descarga)."""
+    esc = esc or ESC
+    pos = muestras(pts, n - dwell)
+    if dwell:
+        pos += [(pts[-1][0], pts[-1][1], pos[-1][2])] * dwell
     s = ""
-    for i, (x, y, dire) in enumerate(muestras(pts, n)):
+    for i, (x, y, dire) in enumerate(pos):
         s += ('<g transform="translate(%.1f %.1f)%s"><use href="#%s" x="%.1f" y="%.1f" width="%.1f" height="%.1f" '
               'class="pf pf%d" style="--d:%ss;--n:%d;--i:%d;--o:%.2f"/></g>'
-              % (x, y, TRANS[dire], simbolo_id, -cx * ESC, -cy * ESC, cx * 2 * ESC, cy * 2 * ESC, n, dur, n, i, off))
+              % (x, y, TRANS[dire], simbolo_id, -cx * esc, -cy * esc, cx * 2 * esc, cy * 2 * esc, n, dur, n, i, off))
     return s
+
+
+# ---- aduana, grua, contenedores, tanque subterraneo
+AW, AH = 36, 22
+GW, GH = 30, 38
+CW, CH = 12, 8
+EW, EH = 36, 23
+ADUANA_Y = 48
+CONT_COLORES = ("#d8261c", "#2f6fb0", "#e08a1e")
+
+
+def aduana():
+    g = {}
+    for y, (a, b) in zip(range(2, 6), ((8, 27), (5, 30), (2, 33), (1, 34))):
+        for x in range(a, b + 1):
+            g[(x, y)] = "#a8392e" if y == 2 else "#8b2b22"
+    for y in range(6, 20):
+        for x in range(3, 33):
+            g[(x, y)] = "#e8dcc8" if y < 16 else "#d3c6ae"
+    for y in range(7, 11):
+        for x in range(5, 31):
+            g[(x, y)] = "#7a2a22"
+    for y in range(13, 20):
+        for x in range(15, 21):
+            g[(x, y)] = "#5a3d2b"
+    for x0 in (6, 24):
+        for y in range(12, 17):
+            for x in range(x0, x0 + 6):
+                g[(x, y)] = "#5aa9e6"
+        for y in range(12, 17):
+            g[(x0 + 2, y)] = "#e8dcc8"
+        for x in range(x0, x0 + 6):
+            g[(x, 14)] = "#e8dcc8"
+    for x in range(2, 34):
+        g[(x, 20)] = "#9a8f7e"
+        g[(x, 21)] = "#7d735f"
+    for y in (0, 1):
+        g[(17, y)] = "#2a2f38"
+    for x in (18, 19, 20):
+        g[(x, 0)] = "#2f7fd1"
+    return g
+
+
+def grua():
+    g = {}
+    amar, osc = "#f2b705", "#b88a00"
+    for x in range(2, 28):
+        for y in range(8, 11):
+            g[(x, y)] = amar if y < 10 else osc
+    for x in range(0, 4):
+        for y in range(8, 13):
+            g[(x, y)] = "#7b8696"
+    for y in range(11, 35):
+        for x in (6, 9):
+            g[(x, y)] = amar
+        if y % 3 == 0:
+            for x in (7, 8):
+                g[(x, y)] = osc
+    for x in range(10, 13):
+        for y in range(12, 16):
+            g[(x, y)] = "#2b4a6f"
+    g[(11, 13)] = "#bfe3ff"
+    for x in range(4, 12):
+        for y in (34, 35):
+            g[(x, y)] = "#4a5260"
+    for p in ((26, 11), (27, 11), (26, 12), (27, 12)):
+        g[p] = "#2a2f38"
+    return g
+
+
+def contenedor(color):
+    g = {}
+    for x in range(1, 11):
+        for y in range(1, 7):
+            g[(x, y)] = color
+        g[(x, 1)] = "#ffffff"
+    for x in (3, 5, 7, 9):
+        for y in range(2, 7):
+            g[(x, y)] = OUT
+    return g
+
+
+def estacion(color):
+    g = {}
+    luz, osc = "#ffffff", "#2a2f38"
+    for x in range(0, 36):
+        g[(x, 0)] = luz
+        for y in (1, 2, 3):
+            g[(x, y)] = color
+        g[(x, 4)] = osc
+    for x in range(1, 35):
+        g[(x, 5)] = "#fff1a8"
+    for x0 in (4, 30):
+        for y in range(5, 21):
+            g[(x0, y)] = "#e6edf5"
+            g[(x0 + 1, y)] = "#9aa7b6"
+    for x0 in (11, 21):
+        for y in range(11, 21):
+            for x in range(x0, x0 + 5):
+                g[(x, y)] = "#f4f7fb" if y != 15 else color
+        for x in range(x0 + 1, x0 + 4):
+            g[(x, 12)] = "#2b4a6f"
+            g[(x, 13)] = "#5aa9e6"
+        g[(x0 + 5, 14)] = osc
+        for y in range(15, 19):
+            g[(x0 + 6, y)] = osc
+        for x in range(x0 - 1, x0 + 6):
+            g[(x, 20)] = osc
+    for x in range(0, 36):
+        for y in (21, 22):
+            g[(x, y)] = "#3b4250" if y == 21 else "#2b313c"
+    for x in range(2, 34, 6):
+        g[(x, 22)] = "#ffd24a"
+    return g
+
+
+EST_COLORES = ("#e2231a", "#fbce07", "#f58220", "#e30613")
 
 
 def svg_barcos():
     h = 92
     s = ['<svg class="ae-red" viewBox="0 0 %d %d" aria-hidden="true">' % (W, h)]
-    s.append('<rect x="0" y="0" width="%d" height="42" fill="#2f7fd1" opacity=".28"/>' % W)
+    s.append('<rect x="0" y="0" width="%d" height="44" fill="#2f7fd1" opacity=".28"/>' % W)
+    s.append('<rect x="0" y="44" width="%d" height="4" fill="#7a6a55"/>' % W)
     for fase, hh in ((0, 0), (1, 1)):
         olas = "".join('<rect x="%d" y="%d" width="6" height="1" fill="#9fd0ff"/>' % (x, 18 + hh * 12) for x in range(4 + hh * 12, W, 24))
         s.append('<g class="ola ola%d">%s</g>' % (fase, olas))
-    # tuberias de descarga desde el puerto a cada importador (gotas que bajan)
-    for j, xi in enumerate(X_IMP):
-        s.append('<rect x="%.1f" y="42" width="3" height="50" fill="#ffffff" opacity=".22"/>' % (xi - 1.5))
-        n = 6
-        for i in range(n):
-            y = 46 + i * (42 / (n - 1))
-            s.append('<rect class="pf pf%d" style="--d:1.8s;--n:%d;--i:%d;--o:%.2f" x="%.1f" y="%.1f" width="5" height="5" fill="#ffd24a"/>'
-                     % (n, n, i, j * 0.31, xi - 2.5, y - 2.5))
     # dos barcos en sentido opuesto
     n = 16
     s.append(camion([(-20, 13), (W + 20, 13)], n, 18, 0.0, "pix-barco", BW // 2, BH // 2))
     s.append(camion([(W + 20, 31), (-20, 31)], n, 18, 0.5, "pix-barco", BW // 2, BH // 2))
+    for j, xi in enumerate(X_IMP):
+        # tuberia de descarga hacia el importador, con gotas que bajan
+        s.append('<rect x="%.1f" y="48" width="3" height="44" fill="#ffffff" opacity=".22"/>' % (xi - 1.5))
+        n = 6
+        for i in range(n):
+            y = 52 + i * (36 / (n - 1))
+            s.append('<rect class="pf pf%d" style="--d:1.8s;--n:%d;--i:%d;--o:%.2f" x="%.1f" y="%.1f" width="5" height="5" fill="#ffd24a"/>'
+                     % (n, n, i, j * 0.31, xi - 2.5, y - 2.5))
+        # grua: baja un contenedor del barco hasta el muelle y lo lleva a la aduana
+        s.append('<use href="#pix-grua" x="%.1f" y="%.1f" width="%d" height="%d"/>' % (xi - 26.5, 48 - 36, GW, GH))
+        n = 14
+        esc = 1.3
+        ruta = [(xi + 0.5, 27), (xi + 0.5, 50), (xi + 14, 55), (xi + 28, 55)]
+        for i, (x, y, dire) in enumerate(muestras(ruta, n)):
+            cable = ('<rect x="%.1f" y="24" width="1" height="%.1f" fill="#cfd8e3"/>' % (x, max(0, y - CH * esc / 2 - 24))) if dire == "d" else ""
+            s.append('<g class="pf pf%d" style="--d:9s;--n:%d;--i:%d;--o:%.2f">%s<use href="#pix-cont%d" x="%.1f" y="%.1f" width="%.1f" height="%.1f"/></g>'
+                     % (n, n, i, 0.08 + j * 0.33, cable, j, x - CW * esc / 2, y - CH * esc / 2, CW * esc, CH * esc))
+        # aduana (delante del contenedor: el contenedor entra a inspeccion)
+        ax = xi + 10
+        s.append('<use href="#pix-aduana" x="%d" y="%d" width="%d" height="%d"/>' % (ax, ADUANA_Y, AW, AH))
+        s.append('<text class="ae-txt" x="%.1f" y="%.1f" text-anchor="middle" shape-rendering="auto">ADUANA</text>' % (ax + AW / 2, ADUANA_Y + 9.8))
+        s.append('<g class="ola ola0"><rect x="%d" y="%d" width="3" height="3" fill="#41d37a"/></g>' % (ax + 2, ADUANA_Y + 12))
+        s.append('<g class="ola ola1"><rect x="%d" y="%d" width="3" height="3" fill="#f0b03e"/></g>' % (ax + 2, ADUANA_Y + 12))
     s.append("</svg>")
     return "".join(s)
 
 
 def svg_pipas():
-    h = 100
+    h = 132
+    fin = 86
     s = ['<svg class="ae-red" viewBox="0 0 %d %d" aria-hidden="true">' % (W, h)]
     carriles = []
     for k, (a, b) in enumerate(RUTAS):
         xi, xs = X_IMP[a], X_EST[b]
-        baja = [(xi - 7, 0), (xi - 7, 34), (xs - 7, 34), (xs - 7, h)]
-        sube = [(xs + 7, h), (xs + 7, 66), (xi + 7, 66), (xi + 7, 0)]
-        carriles.append((k, baja, sube))
-    for k, baja, sube in carriles:
+        baja = [(xi - 7, 0), (xi - 7, 34), (xs - 13, 34), (xs - 13, fin)]
+        sube = [(xs - 3, fin), (xs - 3, 66), (xi + 7, 66), (xi + 7, 0)]
+        carriles.append((k, xs, baja, sube))
+    for i, xs in enumerate(X_EST):
+        s.append('<use href="#pix-est%d" x="%.1f" y="%d" width="%.1f" height="%.1f"/>' % (i, xs - 6, 102, EW * 1.25, EH * 1.25))
+        # boca del tanque subterraneo donde la pipa descarga
+        s.append('<rect x="%.1f" y="124" width="10" height="7" fill="#3b4250"/><rect x="%.1f" y="126" width="6" height="3" fill="#ffd24a"/>' % (xs - 18, xs - 16))
+    for k, xs, baja, sube in carriles:
         for pts in (baja, sube):
             d = "M" + " L".join("%.1f %.1f" % p for p in pts)
             s.append('<path d="%s" fill="none" stroke="#ffffff" stroke-opacity=".2" stroke-width="1" stroke-dasharray="3 3"/>' % d)
-    for k, baja, sube in carriles:
-        s.append(camion(baja, 12, 7, 0.12 + k * 0.23, "pix-pipa", PW // 2, PH // 2))
+    for k, xs, baja, sube in carriles:
+        off = 0.12 + k * 0.23
+        n = 14
+        s.append(camion(baja, n, 8, off, "pix-pipa", PW // 2, PH // 2, dwell=3))
+        # descarga: manguera con gasolina que pasa de la pipa al tanque de la gasolinera
+        x = xs - 13
+        s.append('<g class="pf pfe%d" style="--d:8s;--n:%d;--i:%d;--o:%.2f">'
+                 '<rect x="%.1f" y="100" width="3" height="26" fill="#2a2f38"/>'
+                 '<g class="gt gt0"><rect x="%.1f" y="104" width="3" height="3" fill="#ffd24a"/></g>'
+                 '<g class="gt gt1"><rect x="%.1f" y="114" width="3" height="3" fill="#ffd24a"/></g></g>'
+                 % (n, n, n - 3, off, x - 1.5, x - 1.5, x - 1.5))
         s.append('<g opacity=".55">' + camion(sube, 12, 7, 0.55 + k * 0.17, "pix-pipa", PW // 2, PH // 2) + "</g>")
     s.append("</svg>")
     return "".join(s)
@@ -348,7 +500,11 @@ FUENTES = (
 def bloque():
     sprite = ('<svg width="0" height="0" style="position:absolute" aria-hidden="true">'
               + "".join(simbolo("lg-" + k, f()) for k, f in LOGOS.items())
-              + simbolo("pix-pipa", pipa(), PW, PH) + simbolo("pix-barco", barco(), BW, BH) + "</svg>")
+              + simbolo("pix-pipa", pipa(), PW, PH) + simbolo("pix-barco", barco(), BW, BH)
+              + simbolo("pix-aduana", aduana(), AW, AH) + simbolo("pix-grua", grua(), GW, GH)
+              + "".join(simbolo("pix-est%d" % i, estacion(c), EW, EH) for i, c in enumerate(EST_COLORES))
+              + "".join(simbolo("pix-cont%d" % i, contenedor(c), CW, CH) for i, c in enumerate(CONT_COLORES))
+              + "</svg>")
     imp = [("chevron", "Chevron Guatemala", "#0054a4", "Importador"),
            ("uno", "UNO Guatemala", "#f58220", "Importador"),
            ("puma", "Puma Energy", "#e30613", "Importador")]
@@ -362,7 +518,7 @@ def bloque():
         '                        ' + sprite + '\n'
         '                        <h3>Quién trae y quién vende la gasolina en Guatemala</h3>\n'
         '                        <div class="ae-red-wrap">\n'
-        '                        <div class="ae-nivel">Llega en barco: ≈80 % por el Pacífico y ≈20 % por el Atlántico (MEM)</div>\n'
+        '                        <div class="ae-nivel">Llega en barco (≈80 % Pacífico, ≈20 % Atlántico, MEM) y pasa por aduana</div>\n'
         '                        ' + svg_barcos() + '\n'
         '                        <div class="ae-nivel">Importan combustible</div>\n'
         '                        <div class="ae-fila g3">' + "".join(emp(*i) for i in imp) + '</div>\n'
@@ -370,7 +526,7 @@ def bloque():
         '                        <div class="ae-nivel">Venden al público (gasolineras)</div>\n'
         '                        <div class="ae-fila g4">' + "".join(emp(*v) for v in ven) + '</div>\n'
         '                        </div>\n'
-        '                        <div class="ae-fuente">Pipa llena baja a la gasolinera; pipa vacía regresa. '
+        '                        <div class="ae-fuente">La grúa baja la carga en la aduana; la pipa llena descarga en la gasolinera y la vacía regresa. '
         'Dibujos ilustrativos en pixel art, no son los logos oficiales. '
         'Empresas citadas por el MEM y la prensa; no es un ranking de volumen. Fuentes: ' + FUENTES + '.</div>\n'
         '                    </div><!-- /Empresas -->')
@@ -378,9 +534,10 @@ def bloque():
 
 def css():
     kf = ""
-    for n in (6, 12, 16):
+    for n in (6, 12, 14, 16):
         kf += "        @keyframes trf%d{0%%{opacity:1}%.3f%%{opacity:0}100%%{opacity:0}}\n" % (n, 100.0 / n)
-    cls = "".join(".pf%d{animation-name:trf%d}" % (n, n) for n in (6, 12, 16))
+    kf += "        @keyframes ent14{0%{opacity:1}21.429%{opacity:0}100%{opacity:0}}\n"
+    cls ="".join(".pf%d{animation-name:trf%d}" % (n, n) for n in (6, 12, 14, 16)) + ".pfe14{animation-name:ent14}"
     return (
         "/* ── Árbol de empresas (importan -> venden al público). Animación SOLO de opacity ── */\n"
         "        .arbol-emp{margin:18px 8px 4px;text-align:center}\n"
@@ -403,9 +560,11 @@ def css():
         "        .ov.ovb{animation-name:ovb;animation-duration:4.2s}\n"
         "        @keyframes ovf{0%{opacity:0}8%{opacity:.95}16%{opacity:0}100%{opacity:0}}\n"
         "        @keyframes ovb{0%{opacity:0}90%{opacity:0}92%{opacity:1}97%{opacity:0}100%{opacity:0}}\n"
+        "        .gt{animation:ola .5s steps(1,end) infinite}.gt1{animation-delay:.25s}\n"
+        "        .ae-txt{font:700 5.4px sans-serif;letter-spacing:.4px;fill:#f4ead8}\n"
         "        .ola{animation:ola 1.6s steps(1,end) infinite}.ola1{animation-delay:.8s}\n"
         "        @keyframes ola{0%{opacity:1}50%{opacity:0}100%{opacity:0}}\n"
-        "        @media (prefers-reduced-motion:reduce){.pf,.ov,.ola{animation:none !important}.ola0{opacity:1}}\n"
+        "        @media (prefers-reduced-motion:reduce){.pf,.ov,.ola,.gt{animation:none !important}.ola0{opacity:1}}\n"
     )
 
 
