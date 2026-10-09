@@ -765,6 +765,8 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
         .tip-app{max-width:320px;margin:8px auto 0;font-size:.8rem;color:var(--text-muted);align-items:center;gap:10px;text-align:left}
         .tip-app b{color:#eef3fa}
         .tip-ico{border-radius:10px;flex:none;image-rendering:pixelated}
+        .prog-app{width:200px;max-width:100%;height:6px;margin-top:6px;border-radius:99px;background:rgba(255,255,255,.15);overflow:hidden}
+        .prog-bar{height:100%;width:0;background:linear-gradient(90deg,#41d37a,#9be15d);transition:width .4s linear}
         /* ── Árbol de empresas (importan -> venden al público). Animación SOLO de opacity ── */
         .arbol-emp{margin:18px 8px 4px;text-align:center}
         .arbol-emp h3{font-size:.95rem;margin:0 0 6px;color:#eef3fa !important}
@@ -937,32 +939,89 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
             <p class="tip-app" id="tipInstalarApp" role="status" style="display:none"></p>
             <script>
             (function () {
-                var btn = document.getElementById('btnInstalarApp'), tip = document.getElementById('tipInstalarApp'), ev = null;
+                var NOMBRE = 'Gasolinasogt.com';
+                var btn = document.getElementById('btnInstalarApp'), tip = document.getElementById('tipInstalarApp'), ev = null, timer = null, avance = 0;
                 if (!btn) return;
                 var instalada = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
                 if (instalada) { btn.style.display = 'none'; return; }
                 if ('serviceWorker' in navigator) {
                     window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });
                 }
-                window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); ev = e; });
-                window.addEventListener('appinstalled', function () { btn.style.display = 'none'; tip.style.display = 'none'; ev = null; });
-                function decir(t) {
+
+                // Aviso con icono + nombre; con barra opcional (el navegador NO informa el avance real: es una estimacion)
+                function decir(texto, conBarra) {
                     tip.textContent = '';
                     var img = document.createElement('img');
                     img.src = '/iconos/icon-192.png'; img.alt = ''; img.width = 44; img.height = 44; img.className = 'tip-ico';
-                    var box = document.createElement('span');
+                    var caja = document.createElement('span');
+                    caja.className = 'tip-caja';
                     var nombre = document.createElement('b');
-                    nombre.textContent = 'Gasolinasogt.com';
-                    box.appendChild(nombre); box.appendChild(document.createElement('br')); box.appendChild(document.createTextNode(t));
-                    tip.appendChild(img); tip.appendChild(box);
+                    nombre.textContent = NOMBRE;
+                    caja.appendChild(nombre);
+                    caja.appendChild(document.createElement('br'));
+                    var txt = document.createElement('span');
+                    txt.id = 'tipTexto';
+                    txt.textContent = texto;
+                    caja.appendChild(txt);
+                    if (conBarra) {
+                        var pista = document.createElement('div');
+                        pista.className = 'prog-app';
+                        pista.setAttribute('role', 'progressbar');
+                        var barra = document.createElement('div');
+                        barra.className = 'prog-bar'; barra.id = 'progBar';
+                        pista.appendChild(barra);
+                        caja.appendChild(pista);
+                    }
+                    tip.appendChild(img); tip.appendChild(caja);
                     tip.style.display = 'flex';
                 }
+                function pintar(p) {
+                    var b = document.getElementById('progBar');
+                    if (b) b.style.width = p + '%';
+                    if (b && b.parentNode) b.parentNode.setAttribute('aria-valuenow', Math.round(p));
+                }
+                function detener() { if (timer) { clearInterval(timer); timer = null; } }
+
+                function empezarProgreso() {
+                    btn.style.display = 'none';
+                    decir('Instalación en progreso...', true);
+                    avance = 5; pintar(avance);
+                    detener();
+                    timer = setInterval(function () {
+                        avance += (90 - avance) * 0.12;      // se acerca a 90 % y espera el aviso real del navegador
+                        pintar(avance);
+                    }, 400);
+                    setTimeout(function () {                 // si el navegador no avisa, no dejar la barra colgada
+                        if (timer) { detener(); decir('Instalación aceptada. Busca ' + NOMBRE + ' en tus aplicaciones; si no está en el inicio, mantén presionado su ícono y arrástralo.'); }
+                    }, 25000);
+                }
+                function terminar() {
+                    btn.style.display = 'none';
+                    detener();
+                    decir('¡Instalada! Busca ' + NOMBRE + ' en tus aplicaciones; si no está en el inicio, mantén presionado su ícono y arrástralo.', true);
+                    pintar(100);
+                }
+
+                window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); ev = e; });
+                window.addEventListener('appinstalled', function () { ev = null; terminar(); });
+
+                // ¿Ya está instalada en este dispositivo? (Chrome en Android la detecta; otros navegadores no permiten saberlo)
+                if (navigator.getInstalledRelatedApps) {
+                    navigator.getInstalledRelatedApps().then(function (apps) {
+                        if (apps && apps.length) {
+                            btn.style.display = 'none';
+                            decir('Ya tienes la app instalada en este dispositivo. Búscala en tus aplicaciones.');
+                        }
+                    }).catch(function () {});
+                }
+
                 btn.addEventListener('click', function () {
                     if (ev) {
                         ev.prompt();
                         ev.userChoice.then(function (r) {
                             ev = null;
-                            decir(r && r.outcome === 'accepted' ? 'Instalada. Si no aparece en el inicio, busca "Gasolinasogt.com" en tus aplicaciones, mantén presionado el ícono y arrástralo al inicio.' : 'Cancelaste la instalación. Toca el botón cuando quieras.');
+                            if (r && r.outcome === 'accepted') empezarProgreso();
+                            else decir('Cancelaste la instalación. Toca el botón cuando quieras.');
                         });
                         return;
                     }
