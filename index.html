@@ -11,7 +11,9 @@
     <script defer src="/_vercel/insights/script.js"></script>
     <link rel="icon" href="iconos/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="iconos/favicon-32.png">
-    <link rel="apple-touch-icon" href="iconos/favicon-32.png">
+    <link rel="apple-touch-icon" href="/iconos/icon-180.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#0b1220">
     <style>
         /* ──────────────────────────────────────────
            Variables y reset
@@ -758,6 +760,9 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
         .wti-explica{margin-top:12px;text-align:left;font-size:.78rem;line-height:1.4;color:var(--text-muted)}
         .wti-explica p{margin:0 0 7px}
         .wti-explica b{color:#eef3fa}
+        .btn-app{display:flex;align-items:center;gap:8px;margin:12px auto 0;padding:8px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);color:#eef3fa;font:700 .85rem inherit;font-family:inherit;cursor:pointer}
+        .btn-app:hover,.btn-app:focus-visible{background:rgba(255,255,255,.2)}
+        .tip-app{max-width:320px;margin:8px auto 0;font-size:.8rem;color:var(--text-muted)}
         /* ── Árbol de empresas (importan -> venden al público). Animación SOLO de opacity ── */
         .arbol-emp{margin:18px 8px 4px;text-align:center}
         .arbol-emp h3{font-size:.95rem;margin:0 0 6px;color:#eef3fa !important}
@@ -926,6 +931,29 @@ svg.ipx .f2{-webkit-animation-delay:-.6s;animation-delay:-.6s}
         <header>
             <h1><span class="px-slot" data-px="barril"></span>Gasolinasogt.com</h1>
             <p class="subtitle">Seguimiento a los precios diarios de los combustibles en Guatemala</p>
+            <button type="button" class="btn-app" id="btnInstalarApp" aria-describedby="tipInstalarApp"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" shape-rendering="crispEdges"><path fill="currentColor" d="M7 1h2v7h2v1H9v1H7V9H5V8h2zM2 12h12v3H2z"/></svg>Instalar como app</button>
+            <p class="tip-app" id="tipInstalarApp" role="status" style="display:none"></p>
+            <script>
+            (function () {
+                var btn = document.getElementById('btnInstalarApp'), tip = document.getElementById('tipInstalarApp'), ev = null;
+                if (!btn) return;
+                var instalada = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+                if (instalada) { btn.style.display = 'none'; return; }
+                if ('serviceWorker' in navigator) {
+                    window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); });
+                }
+                window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); ev = e; });
+                window.addEventListener('appinstalled', function () { btn.style.display = 'none'; tip.style.display = 'none'; ev = null; });
+                btn.addEventListener('click', function () {
+                    if (ev) { ev.prompt(); ev.userChoice.then(function () { ev = null; }); return; }
+                    var ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+                    tip.textContent = ios
+                        ? 'En Safari toca el botón Compartir y elige "Agregar a inicio".'
+                        : 'Abre el menú del navegador y elige "Instalar app" o "Agregar a pantalla de inicio".';
+                    tip.style.display = tip.style.display === 'block' ? 'none' : 'block';
+                });
+            })();
+            </script>
             <p class="visitas-web" id="pulsoVisitas" hidden style="display:none;width:fit-content;margin:10px auto 0;padding:4px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);font-size:.85rem;color:var(--text-secondary,var(--text-muted));"></p>
         </header>
 

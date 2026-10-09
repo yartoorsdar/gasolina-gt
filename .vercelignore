@@ -8,6 +8,8 @@
 !/iconos
 !/sprites
 !/vercel.json
+!/manifest.webmanifest
+!/sw.js
 !/web
 /web/*
 !/web/index.html
