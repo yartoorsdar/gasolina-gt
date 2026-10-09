@@ -1,12 +1,46 @@
-"""Genera los iconos de la app instalable (PWA): barril pixel art + el nombre de la web.
+"""Genera los iconos de la app instalable (PWA): el logo de la web (barril pixel art naranja del
+encabezado, el mismo del favicon) + el nombre de la web.
 Uso: python scripts/generar_iconos_app.py   (usa Segoe UI Bold de Windows para las letras)
 """
 from PIL import Image, ImageDraw, ImageFont
 
-FONDO = (11, 18, 32, 255)
+FONDO = (20, 32, 56, 255)
 AZUL = (77, 179, 255, 255)
 BLANCO = (238, 243, 250, 255)
 FUENTE = "C:/Windows/Fonts/segoeuib.ttf"
+
+# Logo de la web: primer fotograma de "barril" en scripts/generar_iconos_pixel.py (16x16)
+LOGO = (
+    "....KKKKKKKK....",
+    "...KooooooooK...",
+    "...KOOOOOOOOK...",
+    "...KKKKKKKKKK...",
+    "...KOOOOOOOOK...",
+    "...KOOOOOOOOK...",
+    "...KOOOKKOOOK...",
+    "...KOOKKKKOOK...",
+    "...KOOOKKOOOK...",
+    "...KKKKKKKKKK...",
+    "...KOOOOOOOOK...",
+    "...KOOOOOOOOK...",
+    "...KooooooooK...",
+    "....KKKKKKKK....",
+)
+COLORES = {"K": (13, 20, 34, 255), "O": (255, 138, 31, 255), "o": (196, 95, 12, 255)}
+
+
+def logo(alto):
+    """Logo escalado sin suavizar (pixel art nitido) a `alto` px de alto."""
+    ancho_celdas = len(LOGO[0])
+    im = Image.new("RGBA", (ancho_celdas, len(LOGO)), (0, 0, 0, 0))
+    for y, fila in enumerate(LOGO):
+        for x, c in enumerate(fila):
+            if c in COLORES:
+                im.putpixel((x, y), COLORES[c])
+    caja = im.getbbox()
+    im = im.crop(caja)
+    k = max(1, alto // im.height)
+    return im.resize((im.width * k, im.height * k), Image.NEAREST)
 
 
 def ajustar(fuente_ruta, textos, ancho_max):
@@ -22,10 +56,9 @@ def ajustar(fuente_ruta, textos, ancho_max):
 
 def icono(lado, alto_barril, ancho_texto, y_barril):
     base = Image.new("RGBA", (lado, lado), FONDO)
-    barril = Image.open("sprites/barrel-oil.png").convert("RGBA")
-    alto = int(lado * alto_barril)
-    ancho = int(barril.width * alto / barril.height)
-    barril = barril.resize((ancho, alto), Image.NEAREST)
+    barril = logo(int(lado * alto_barril))
+    alto, ancho = barril.height, barril.width
+    alto_barril = alto / lado
     base.alpha_composite(barril, ((lado - ancho) // 2, int(lado * y_barril)))
     textos = [("Gasolinasogt", AZUL), (".com", BLANCO)]
     f = ajustar(FUENTE, textos, lado * ancho_texto)
