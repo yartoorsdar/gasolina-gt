@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-10-10T04:54:48-06:00",
+  "actualizado_at": "2026-10-10T11:55:54-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-10-05",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-10-05",
         "precio": 34.87,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-10T04:53:40-06:00",
+        "fetched_at": "2026-10-10T11:53:46-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -1319,7 +1319,7 @@
             "fecha": "2026-10-05",
             "precio": 34.87,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-10T04:53:40-06:00",
+            "fetched_at": "2026-10-10T11:53:46-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1402,7 +1402,7 @@
             "fecha": "2026-09-28",
             "precio": 44.23,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-10T04:53:40-06:00",
+            "fetched_at": "2026-10-10T11:53:46-06:00",
             "incluye_impuestos": true
           },
           "consenso": {
@@ -1450,7 +1450,7 @@
         "fecha": "2026-10-05",
         "precio": 36.17,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-10T04:53:40-06:00",
+        "fetched_at": "2026-10-10T11:53:46-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -2756,7 +2756,7 @@
             "fecha": "2026-10-05",
             "precio": 36.17,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-10T04:53:40-06:00",
+            "fetched_at": "2026-10-10T11:53:46-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2839,7 +2839,7 @@
             "fecha": "2026-10-06",
             "precio": 37.26,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-10T04:53:40-06:00",
+            "fetched_at": "2026-10-10T11:53:46-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2891,7 +2891,7 @@
         "fecha": "2026-10-05",
         "precio": 41.67,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-10T04:53:40-06:00",
+        "fetched_at": "2026-10-10T11:53:46-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -4197,7 +4197,7 @@
             "fecha": "2026-10-05",
             "precio": 41.67,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-10T04:53:40-06:00",
+            "fetched_at": "2026-10-10T11:53:46-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4280,7 +4280,7 @@
             "fecha": "2026-10-06",
             "precio": 42.76,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-10T04:53:40-06:00",
+            "fetched_at": "2026-10-10T11:53:46-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4332,7 +4332,7 @@
         "fecha": "2026-10-10",
         "precio": 91.66,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-10-10T04:54:04-06:00",
+        "fetched_at": "2026-10-10T11:53:46-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5432,7 +5432,7 @@
             "fecha": "2026-10-10",
             "precio": 91.66,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-10-10T04:54:04-06:00",
+            "fetched_at": "2026-10-10T11:53:46-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
@@ -5602,140 +5602,179 @@
     ]
   },
   "noticias": {
-    "total": 62,
+    "total": 60,
     "top": [
       {
         "id": 1,
         "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNNC01TE5nTi1BVXhramhiQjhuNlZmRTlPT05rQ2luV2E0bnYxV0h0ZFVIOTRRUFZmOUtMN3hPQkJVWkJ4TGZkSXlseWJWSWVwN2NCVEJySk9tNkFHMllERDVQYW1HeDFxa29BWkNiZUdqaW5kTGJqU3RwWVhabW83SkxBYnhLQy00cDROYTgzcy02dWgydjRMVGZPNjYwTmhiZ1FDNENHNERPeDlxWG14Sml1ZGoyX3VpdGhUZHduZk9JaEJSU1pYQ2dhaGcwWWRyNU9RUzRfTXJTYnRfTDN2dw?oc=5",
         "titulo": "MEM publica reglamento de ley que exonera temporalmente de impuestos a los combustibles en Guatemala - Prensa Libre",
-        "titulo_es": "MEM publica reglamento que exime temporalmente de impuestos a los combustibles",
+        "titulo_es": "MEM exime temporalmente de impuestos a combustibles, bajan precios en Guatemala",
         "medio": "Google News ES",
         "publicado_at": "2026-10-05T11:13:17-06:00",
-        "categoria": "finanzas",
+        "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "El MEM aprueba un reglamento que elimina temporalmente los impuestos a los combustibles, reduciendo su precio al consumidor y aliviando la carga de importación en Guatemala.",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://oilprice.com/Energy/Crude-Oil/Trump-Puts-Iran-Strikes-on-Hold-as-Hurricane-Threatens-Oil-Supply.html",
-        "titulo": "Trump Puts Iran Strikes on Hold as Hurricane Threatens Oil Supply",
-        "titulo_es": "Trump suspende ataques a Irán mientras huracán amenaza suministro de petróleo",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-09T10:35:22-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "EE. UU. decide no atacar Irán mientras un huracán amenaza el Golfo, reduciendo la incertidumbre y la oferta de crudo, lo que puede estabilizar o elevar los precios que paga Guatemala.",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
+        "resumen_es": "El MEM aprobó un reglamento que elimina temporalmente los impuestos a gasolina y diésel, reduciendo su costo para los consumidores y aliviando la presión de precios en un país importador.",
+        "fetched_at": "2026-10-10T11:55:54-06:00"
       },
       {
         "id": 4,
         "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNVkYtVlAxWGV0NXVJc3l0WkEtR2lHdUVIMFZ5QlJqTUNDcVN6dkdUMUFCMDNONFhma0hXOW5qbWxDR2NSR3J4Qm5aSDNJWWhZa20waW01RzZWMTdtLTMxb1hBSVZkdHo1R1VTRHExZDhMb1hwb2VPUTFKT1AwRmk2WjA1N1h5LXdOZDlld29Ybk1iQ2gxYUlVLWxmYU9yRC01aEptdm5yZ3lJdl8tbHdEVC01ZmxLWXdlZmVDV1VR?oc=5",
         "titulo": "Saudi Arabia's East-West oil pipeline halted again after fresh attack - The Business Standard",
-        "titulo_es": "Se interrumpe nuevamente el oleoducto Este-Oeste de Arabia Saudí tras nuevo ataque",
+        "titulo_es": "El oleoducto Este-Oeste de Arabia Saudita se detuvo de nuevo después de un nuevo ataque - The Business Standard",
         "medio": "Google News EN",
         "publicado_at": "2026-10-05T06:17:49-06:00",
-        "categoria": "infraestructura",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "El oleoducto Este-Oeste de Arabia Saudí se detuvo de nuevo tras un nuevo ataque The Business Standard",
+        "fetched_at": "2026-10-10T11:55:54-06:00"
+      },
+      {
+        "id": 5,
+        "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFB5QlROSjNLSmJtUnBFZllYUThZazZHMFczNlprdXdXN1BENmNNVHdWODFsZUM0dnNiWVpzLUdRV2dqVHBNVURlVGdFYw?oc=5",
+        "titulo": "Ukrainian Drones Strike Major Rostov Oil Hub, Sparking Blaze - Kyiv Post",
+        "titulo_es": "Drones ucranianos atacan el principal centro petrolero de Rostov, provocando un incendio - Kyiv Post",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-10T01:18:49-06:00",
+        "categoria": "otro",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Un nuevo ataque obliga a cerrar el oleoducto Este-Oeste de Arabia Saudí, reduciendo la oferta mundial de crudo y presionando al alza los precios del combustible importado por Guatemala.",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
+        "resumen_es": "Drones ucranianos atacan el principal centro petrolero de Rostov, provocando un incendio en Kyiv",
+        "fetched_at": "2026-10-10T11:55:54-06:00"
       },
       {
         "id": 2,
         "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxONWU2RWJiVUNmUUxzMHQwNm5DVjRmaVpYbVR1ME9GTW5SVzFnU04wRlVoeHFMSkRDbG1qR3JYOWZYZ1gxRTFPdGdGY2R2V3VYNWNPOVlSUHBMRjc1bFE0SFRxQzlERkYtRUFjbkh3X2NRRm5yWlhZUEpZREVuem9RSjBhRHhiaGN1YlhpM185M2NmQ09YeF9qdXNDaXhXVE0tNFZBRmRta1dTeTRBcWlEclE5RXZMVUg2Zng5bFdTRWh5WVhXb1R3Ty0ydEM0MWF0?oc=5",
         "titulo": "Major fire reported at oil terminal linked to Russia's Novoshakhtinsk refinery after suspected drone strike - The Kyiv Independent",
-        "titulo_es": "Incendio en terminal de petróleo vinculada a la refinería rusa Novoshakhtinsk",
+        "titulo_es": "Incendio en terminal rusa tras presunto ataque con dron amenaza suministro de crudo",
         "medio": "Google News EN",
         "publicado_at": "2026-10-09T21:22:53-06:00",
-        "categoria": "infraestructura",
+        "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Un incendio tras un presunto ataque con drones afecta una terminal de exportación rusa, disminuyendo la oferta de crudo y pudiendo elevar los precios internacionales que paga Guatemala.",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
+        "relevancia": 4,
+        "resumen_es": "Un incendio en la terminal de petróleo vinculada a la refinería rusa de Novoshakhtinsk, tras un presunto ataque con dron, podría reducir la oferta de crudo ruso y presionar al alza los precios internacionales, afectando a Guatemala, que importa todo su combustible.",
+        "fetched_at": "2026-10-10T11:55:54-06:00"
       },
       {
-        "id": 5,
+        "id": 6,
         "url": "https://oilprice.com/Energy/Energy-General/5-Stocks-Cashing-In-as-100-Oil-Pushes-Drivers-Toward-Electric.html",
         "titulo": "5 Stocks Cashing In as $100 Oil Pushes Drivers Toward Electric",
-        "titulo_es": "El petróleo supera los $100 y acelera la adopción de vehículos eléctricos",
+        "titulo_es": "5 acciones cobrando a medida que el petróleo de $ 100 empuja a los conductores hacia lo eléctrico",
         "medio": "OilPrice.com",
         "publicado_at": "2026-10-09T14:00:00-06:00",
-        "categoria": "precios",
+        "categoria": "otro",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Los precios del crudo rondan los $100 el barril, encareciendo la gasolina y motivando a los consumidores a considerar vehículos eléctricos, lo que podría reducir la demanda de combustibles en Guatemala.",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
-      },
-      {
-        "id": 10,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Asian-Refiners-Ditch-US-Oil-as-Supertanker-Rates-Hit-82-Million.html",
-        "titulo": "Asian Refiners Ditch U.S. Oil as Supertanker Rates Hit $82 Million",
-        "titulo_es": "Refinerías asiáticas abandonan crudo estadounidense por costos récord de buques",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-09T05:30:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Los fletes récord hacen que los refinadores asiáticos prefieran crudo del Medio Oriente, reduciendo la demanda de petróleo estadounidense y presionando los precios internacionales que paga Guatemala.",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
+        "relevancia": 4,
+        "resumen_es": "La gasolina superó los $ 4.40 por galón en los EE. UU. en septiembre, y el Brent ha superado los $ 100 por barril desde principios de septiembre, frente a los $ 60 antes de que comenzara la guerra de Irán. Los socios de la App respondieron sobre cómo esperarías. Las ventas de nuevos híbridos en EE. UU. aumentaron un 24% durante el tercer trimestre, los registros de baterías eléctricas aumentaron un 52% en toda Europa en agosto y la Agencia Internacional de Energía calcula que los vehículos eléct",
+        "fetched_at": "2026-10-10T11:55:54-06:00"
       },
       {
         "id": 7,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Canadas-New-Oil-Pipeline-Challenged-by-Cold-Lake-First-Nations.html",
-        "titulo": "Canada’s New Oil Pipeline Challenged by Cold Lake First Nations",
-        "titulo_es": "Primeras naciones de Cold Lake impugnan nuevo oleoducto canadiense",
+        "url": "https://oilprice.com/Energy/Crude-Oil/Trump-Puts-Iran-Strikes-on-Hold-as-Hurricane-Threatens-Oil-Supply.html",
+        "titulo": "Trump Puts Iran Strikes on Hold as Hurricane Threatens Oil Supply",
+        "titulo_es": "Trump suspende las huelgas en Irán mientras el huracán amenaza el suministro de petróleo",
         "medio": "OilPrice.com",
-        "publicado_at": "2026-10-09T08:30:00-06:00",
-        "categoria": "infraestructura",
+        "publicado_at": "2026-10-09T10:35:22-06:00",
+        "categoria": "otro",
         "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Comunidades indígenas cuestionan la aprobación de un nuevo oleoducto canadiense, generando incertidumbre sobre la capacidad de exportación, con escaso efecto sobre los precios guatemaltecos.",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
+        "relevancia": 4,
+        "resumen_es": "El petróleo retrocede desde los 110 $, ya que Trump descarta que Irán ataque antes de las elecciones legislativas, pero los ataques de los petroleros y un huracán en el Golfo amenazan con una nueva volatilidad. Viernes, 09 de octubre de 2026 Donald Trump parece estar combatiendo el incendio de Oriente Medio, prometiendo no atacar a Irán antes de las elecciones de mitad de período justo cuando los precios del petróleo se acercaban a los $ 110 por barril en medio de un deterioro de la situación de",
+        "fetched_at": "2026-10-10T11:55:54-06:00"
+      },
+      {
+        "id": 13,
+        "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPNnY1ZWpNRmZadm9Tc1ZpQmVjZVZoSkZ3R2pCVVQxTnF6VGtzTXNSWVRkZjlwa1hMTURrWlp2M0NzblV3ZmFqdGdTT2Z2cjFvcEJkV3dtOUZKeGEyMVN4ZnRYVEpwcTZadk9DMWhNdjlpWnZMT2hnLU1ZbWw3SGVGbGdSeWxTNXRIV1lDb084ZnlpUk12dlN4TnlGbW4ydw?oc=5",
+        "titulo": "Petróleo de Texas sube tras ataque cerca de Ormuz - Gestión",
+        "titulo_es": "Petróleo de Texas sube tras ataque cerca de Ormuz - Gestión",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-08T16:04:30-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Petróleo de Texas sube tras ataque cerca de Ormuz Gestión",
+        "fetched_at": "2026-10-10T11:55:54-06:00"
+      },
+      {
+        "id": 15,
+        "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPdk4wb3FiemFjZXhTUndXR0J2MTdVNVNZOHRra2ZqR3BmSmhNbjkzY2xpTE1zRVVCQTdKLTc0Rlg3RzZiNEFaZ3RUM3MwQ3MwUE9hNlB6RTBuNEV6R1NiUEVhWG9FZGphVE0wS1R3eTF2dUV0UHNmRzFCUlJaX3BxbE13S3Iwdw?oc=5",
+        "titulo": "Los precios del petróleo se disparan tras una cifra récord de ataques a buques petroleros en el estrecho de Ormuz - CNN en Español",
+        "titulo_es": "Los precios del petróleo se disparan tras una cifra récord de ataques a buques petroleros en el estrecho de Ormuz - CNN",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-08T07:18:00-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Los precios del petróleo se disparan tras una cifra récord de ataques a buques petroleros en el estrecho de Ormuz CNN en Español",
+        "fetched_at": "2026-10-10T11:55:54-06:00"
+      },
+      {
+        "id": 16,
+        "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOWnZfWVVLNjA0ZU8zZlpqNjVVTHJfVEtMcEU2LWxDYzFZR0Z3VFFIZElZWVYzUFFQX2l0ZzRWakJtcGJiWmVjQXdZaVdOTUo3LWxBeGwwOXNKVFBOSm82SzQ1U1A4aXRvWmJoLTZab3ZtRkQxc1lSdEpZeUlWbW8zUGRhVzJWdzM0czc3N0duRWktbkNpNTZyZzg5akt4T0FGQjZ4dWphMHBLcVhoQVhJcjVYZFhHWkRlNDVOcms5bw?oc=5",
+        "titulo": "El petróleo sube 5% tras informes sobre posibles ataques de EE.UU. contra Irán - DiarioBitcoin",
+        "titulo_es": "El petróleo sube 5% tras informes sobre posibles ataques de EE.UU. contra Irán - DiarioBitcoin",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-08T06:49:05-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El petróleo sube 5% tras informes sobre posibles ataques de EE.UU. contra Irán DiarioBitcoin",
+        "fetched_at": "2026-10-10T11:55:54-06:00"
       },
       {
         "id": 3,
         "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOS2laZU1KbElBSUtCektTbEU0TjdNakU0MDV3emZLTlFURWxrMjB1MzZ6SHdqUVBFRmNIeW9nTTBrMFlWTGxPNnppelVCWTNrbXZILVVUcmN0Qjc4YTN4N1dqNDlMSWQ2WDZqR093NWgzV1lpelhmMGFNWE5XbHptQ2FjSWo3OXN4TmpvWVJCSGdtWlJRTUVKejlnWUIyZU0tLW8tNzIyeGhkMjBrSGJkclc3U1g0U0xv?oc=5",
         "titulo": "Syria says oil pipeline damaged in ‘sabotage attack,’ perpetrators arrested - Anadolu Ajansı",
-        "titulo_es": "Siria informa que un sabotaje daña su oleoducto de petróleo",
+        "titulo_es": "Siria denuncia sabotaje en oleoducto y arresta a los autores",
         "medio": "Google News EN",
         "publicado_at": "2026-10-07T12:03:34-06:00",
         "categoria": "geopolitica",
         "pais": null,
         "relevancia": 2,
-        "resumen_es": "El sabotaje a un oleoducto sirio corta parte del flujo de crudo, pero su impacto en el mercado global es limitado, con escasa repercusión en los precios que paga Guatemala.",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
+        "resumen_es": "Siria informó que un sabotaje dañó un oleoducto y arrestó a los responsables; la interrupción podría reducir temporalmente la oferta regional de crudo.",
+        "fetched_at": "2026-10-10T11:55:54-06:00"
       },
       {
-        "id": 8,
-        "url": "https://oilprice.com/Geopolitics/International/Rubio-Warns-Ukraine-Stalemate-Could-Turn-Into-Wider-Conflict.html",
-        "titulo": "Rubio Warns Ukraine Stalemate Could Turn Into Wider Conflict",
-        "titulo_es": "Rubio advierte que el estancamiento en Ucrania podría expandirse",
+        "id": 24,
+        "url": "https://oilprice.com/Energy/Energy-General/The-Iran-War-Is-Fueling-a-Boom-in-Clean-Energy.html",
+        "titulo": "The Iran War Is Fueling a Boom in Clean Energy",
+        "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-10-09T08:00:00-06:00",
-        "categoria": "geopolitica",
+        "publicado_at": "2026-10-10T09:00:00-06:00",
+        "categoria": null,
         "pais": null,
-        "relevancia": 1,
-        "resumen_es": "El senador Rubio advierte que el estancamiento en Ucrania podría ampliarse, pero su impacto directo en los precios del combustible en Guatemala es mínimo.",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
+        "relevancia": null,
+        "resumen_es": "The Iran war might have done exactly what President Trump was trying to avoid: turning the world away from fossil fuels to alternative energy sources, because of the wide range of vulnerabilities it has exposed in the international energy system. Restrictions on trade through the Strait of Hormuz have underscored just how dependent many countries are on this waterway for fossil fuel imports, prompting governments to seek alternative suppliers and accelerate the deployment of renewable energy sou",
+        "fetched_at": "2026-10-10T11:55:54-06:00"
       },
       {
-        "id": 9,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Petronas-to-Raise-Malaysia-Dividend-19-to-78-Billion-for-2027.html",
-        "titulo": "Petronas to Raise Malaysia Dividend 19% to $7.8 Billion for 2027",
-        "titulo_es": "Petronas incrementa dividendos en un 19% para 2027",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-09T07:30:00-06:00",
-        "categoria": "finanzas",
+        "id": 45,
+        "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOQUdDa1B3RVd3V1Z3bUI2R0tLekY0alRNYmduRzVaNElDbWs0WnVuOWdCY0RJX2ljUEZiODZzVkphZWNvSGtWdk40ZXFvYjUzdnprbkNhVGR0YU5scWJkWGVteWw5S0stanVpT2hhU2dsUDdRb19kS3FacjdlX0lzSTRFUXNpR0xGZVVINVdEUm9JY28?oc=5",
+        "titulo": "Ucrania golpea una terminal rusa de petróleo tras el acuerdo entre Trump y Putin para exportar diésel - La Región",
+        "titulo_es": null,
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-10T06:45:00-06:00",
+        "categoria": null,
         "pais": null,
-        "relevancia": 1,
-        "resumen_es": "Petronas aumenta su dividendo gracias al alza del crudo, pero el efecto sobre el mercado de combustibles guatemalteco es insignificante.",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
+        "relevancia": null,
+        "resumen_es": "Ucrania golpea una terminal rusa de petróleo tras el acuerdo entre Trump y Putin para exportar diésel La Región",
+        "fetched_at": "2026-10-10T11:55:54-06:00"
       },
       {
-        "id": 26,
+        "id": 46,
+        "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE45R1VMR0FnSGE4WGFsYTRYOGpkSlRhXzByUjdPUklvbHUzeFBwcHFGLWhGb1lPWTBYZXpLZEpocXlfc0xTUU5qbVhoX1lhWEwwRmp3N3lkd2QwOFVhQWRxc2ZTTm11dmdNN01qVUVyc2xoU2ljOGlBUXF0cE9EUQ?oc=5",
+        "titulo": "Trump announces major diesel deal with Putin, infuriating Ukraine - Axios",
+        "titulo_es": null,
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-10T03:34:16-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Trump announces major diesel deal with Putin, infuriating Ukraine Axios",
+        "fetched_at": "2026-10-10T11:55:54-06:00"
+      },
+      {
+        "id": 25,
         "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQbHppdEVZZHB1S3dFRFRhTlBSd19MQWJ5ZGNOeFBrWVE4a2lZeTVQcmVibDR0WEUyN2h1YlpfVTFCVUc0LXdseUdiSDl4ZXZaNEZsdzRfVjZ4WnRJa2FpWW9BZUliMEdVM3dCR1BXTVVEbnNMc01RcGlEb2xqY2FGSDU1ZTEwbGJWRkpIekc2YlN4WVd2Sno4?oc=5",
         "titulo": "US threatens to cut off intelligence sharing with Ukraine over strikes on Russian oil refineries - RBC-Ukraine",
         "titulo_es": null,
@@ -5745,10 +5784,10 @@
         "pais": null,
         "relevancia": null,
         "resumen_es": "US threatens to cut off intelligence sharing with Ukraine over strikes on Russian oil refineries RBC-Ukraine",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
+        "fetched_at": "2026-10-10T11:55:54-06:00"
       },
       {
-        "id": 46,
+        "id": 47,
         "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPSjZFUm54SlFoNWZvRHdYVXE5Z1JDc0h5eE96V2JmVk41eWs2TlRkcjRXaW1nb3Vfa08yeUlFSE15NlFpeTExekZRLXY3WHdGZDdOMHY2ZkpuWjA5cEhsZkUzNUVwTDNySS1hQW8yeWtSejk5TzJTbm84SVVtazFnM0ZaUk5sekE0SUhQTFFkUU5oczQ1QXR5TXYzdGpNYmRuVFRPeDJuMA?oc=5",
         "titulo": "Trump announces diesel deal with Russia in bid to lower prices - The Washington Post",
         "titulo_es": null,
@@ -5758,51 +5797,12 @@
         "pais": null,
         "relevancia": null,
         "resumen_es": "Trump announces diesel deal with Russia in bid to lower prices The Washington Post",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
-      },
-      {
-        "id": 47,
-        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE8wcnFjektkMWUyTmdFdm8zWnRVRkJXNTlaeGk0YXdzRVZuVFFocTlUdFVuanhHUmhjYkFUWmhVaXlIZUhQQ25QZGl0YzFRckRDbGc0eWliMzB0QW540gFiQVVfeXFMTWRiQVpRSUt0Q1NFMWQ2TFZ6a3RreWNIVDE4Z3BBR1ZTZ3RpU3d1ZnNOMjM2YU9DRVROcDItQ01RbFdVbUNlZXdJNFh2eUFObGRxSklfYmdMbjdsLUEzb3VlX3c?oc=5",
-        "titulo": "Trump anuncia un acuerdo con Putin para que Rusia libere miles de toneladas de diésel al mercado mundial - BBC",
-        "titulo_es": null,
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-09T17:16:11-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Trump anuncia un acuerdo con Putin para que Rusia libere miles de toneladas de diésel al mercado mundial BBC",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
-      },
-      {
-        "id": 48,
-        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQOU9vd2d5dXpmMng1Z1ZrTWdoS3ZaZjJvanZCNzZBeUdkU2owcTk1WWZFWm4wb21vdm9TSlFxZ2p2VldIUmc3VjM4QWVJdmFLNmEwbmNJYV9SYVg0ejlQTGphRXhNMUxCcVF4YUN5MlgzNTFnVjZZRHNNTnU4T3pfNVRiOUVUUS1MNG9YWXo1dmk5RkZQcHI0MFBSVkQ0QTJiWTZ1dW1tQXc1R2Raa1FuMFVB?oc=5",
-        "titulo": "Trump strikes deal with Putin for Russia to supply diesel to US - ABC News & Headlines – Australian Broadcasting Corporation",
-        "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-09T16:43:29-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Trump strikes deal with Putin for Russia to supply diesel to US ABC News & Headlines – Australian Broadcasting Corporation",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
-      },
-      {
-        "id": 27,
-        "url": "https://oilprice.com/Energy/Crude-Oil/Why-Record-Crude-Output-Cant-Solve-Americas-Diesel-Crisis.html",
-        "titulo": "Why Record Crude Output Can’t Solve America’s Diesel Crisis",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-09T16:00:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "The United States is producing more crude oil than ever. According to the Energy Information Administration, U.S. crude production is on track to average a record 13.8 million barrels per day in 2026, surpassing the previous record set last year. Yet diesel prices recently climbed to record highs, while distillate inventories remain unusually low. The EIA expects those inventories to stay below the five-year range through much of 2027, with stocks falling below 100 million barrels for the first",
-        "fetched_at": "2026-10-10T04:54:48-06:00"
+        "fetched_at": "2026-10-10T11:55:54-06:00"
       }
     ],
     "llm": {
       "titulos_es_hoy": 10,
-      "total_hoy": 62,
+      "total_hoy": 60,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
