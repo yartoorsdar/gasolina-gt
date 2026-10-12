@@ -189,3 +189,13 @@ id_voto,fecha,producto,modalidad,tipo,precio,precio_mostrado,vio_oficial,disposi
 2026-10-10|superior|autoservicio|4a4943fd846120ce46fec3998df8de4f,2026-10-10,superior,autoservicio,otro,36.19,36.17,1,4a4943fd846120ce46fec3998df8de4f,,2026-10-10T13:13:09-06:00
 2026-10-11|superior|autoservicio|0f752cfe0323cce34bcfb3877960f290,2026-10-11,superior,autoservicio,otro,36.16,36.19,1,0f752cfe0323cce34bcfb3877960f290,,2026-10-11T13:13:42-06:00
 2026-10-11|superior|autoservicio|cbc041cbb0a6618b00fc5b75ff7c13c7,2026-10-11,superior,autoservicio,coincide,,36.19,1,cbc041cbb0a6618b00fc5b75ff7c13c7,,2026-10-11T19:16:02-06:00
+2026-10-12|diésel|autoservicio|7eabe9ca52a5eda26090f5440978e9f3,2026-10-12,diésel,autoservicio,coincide,,41.69,1,7eabe9ca52a5eda26090f5440978e9f3,,2026-10-12T10:44:52-06:00
+2026-10-12|diésel|autoservicio|817ec1cce1c87372e34012e87e525fd7,2026-10-12,diésel,autoservicio,coincide,,41.69,1,817ec1cce1c87372e34012e87e525fd7,,2026-10-12T11:17:25-06:00
+2026-10-12|regular|autoservicio|2ebe474b6917ccb0b09113cdb9197840,2026-10-12,regular,autoservicio,coincide,,34.89,1,2ebe474b6917ccb0b09113cdb9197840,,2026-10-12T09:46:36-06:00
+2026-10-12|regular|autoservicio|7eabe9ca52a5eda26090f5440978e9f3,2026-10-12,regular,autoservicio,coincide,,34.89,1,7eabe9ca52a5eda26090f5440978e9f3,,2026-10-12T10:45:00-06:00
+2026-10-12|regular|autoservicio|817ec1cce1c87372e34012e87e525fd7,2026-10-12,regular,autoservicio,coincide,,34.89,1,817ec1cce1c87372e34012e87e525fd7,,2026-10-12T11:17:24-06:00
+2026-10-12|superior|autoservicio|e591c87cf797a01d2a7c37b95ed1b624,2026-10-12,superior,autoservicio,otro,36.49,36.19,1,e591c87cf797a01d2a7c37b95ed1b624,,2026-10-12T07:13:38-06:00
+2026-10-12|superior|autoservicio|4628bea03827cb9318e0a27a1e19e2d9,2026-10-12,superior,autoservicio,coincide,,36.19,1,4628bea03827cb9318e0a27a1e19e2d9,,2026-10-12T09:39:53-06:00
+2026-10-12|superior|autoservicio|1625fa4ff64efd03a8fc9471493356b6,2026-10-12,superior,autoservicio,coincide,,36.19,1,1625fa4ff64efd03a8fc9471493356b6,,2026-10-12T09:51:08-06:00
+2026-10-12|superior|autoservicio|7eabe9ca52a5eda26090f5440978e9f3,2026-10-12,superior,autoservicio,coincide,,36.19,1,7eabe9ca52a5eda26090f5440978e9f3,,2026-10-12T10:45:03-06:00
+2026-10-12|superior|autoservicio|817ec1cce1c87372e34012e87e525fd7,2026-10-12,superior,autoservicio,coincide,,36.19,1,817ec1cce1c87372e34012e87e525fd7,,2026-10-12T11:17:21-06:00
