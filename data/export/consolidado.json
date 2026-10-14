@@ -1,8 +1,8 @@
 {
   "version": 3,
-  "actualizado_at": "2026-10-14T04:55:02-06:00",
+  "actualizado_at": "2026-10-14T11:55:23-06:00",
   "precios_actualizados": true,
-  "max_fecha_precios": "2026-10-12",
+  "max_fecha_precios": "2026-10-14",
   "productos": {
     "regular": {
       "nombre": "Regular",
@@ -10,10 +10,10 @@
       "unidad": "GTQ/galón",
       "orden": 1,
       "actual": {
-        "fecha": "2026-10-12",
+        "fecha": "2026-10-14",
         "precio": 34.89,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-14T04:53:58-06:00",
+        "fetched_at": "2026-10-14T11:54:40-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -728,6 +728,10 @@
         {
           "fecha": "2026-10-12",
           "precio": 34.89
+        },
+        {
+          "fecha": "2026-10-14",
+          "precio": 34.89
         }
       ],
       "mensual": [
@@ -1308,22 +1312,32 @@
         "autoservicio": {
           "nombre": "Autoservicio",
           "actual": {
-            "fecha": "2026-10-12",
+            "fecha": "2026-10-14",
             "precio": 34.89,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-14T04:53:58-06:00",
+            "fetched_at": "2026-10-14T11:54:40-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-12",
+            "fecha": "2026-10-14",
             "precio": 34.89,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 2,
+            "confianza": "alta",
+            "n_coinciden": 4,
+            "n_fuentes": 4,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-12",
+                "fecha": "2026-10-13",
+                "medio": "emisorasunidas.com",
+                "modalidad_inferida": false,
+                "peso": 1.0,
+                "precio": 34.89,
+                "tipo": "referencia",
+                "url": "https://emisorasunidas.com/nacional/2026/10/14/aumento-precio-diesel-combustibles-octubre-2026/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-10-14",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
@@ -1340,6 +1354,16 @@
                 "precio": 34.95,
                 "tipo": "referencia",
                 "url": "https://lahora.gt/nacionales/dguzman/2026/10/11/precios-de-combustibles-bajan-en-primeros-dias-de-octubre-segun-reportes-de-expendedores-al-mem/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-10-14",
+                "medio": "lared1061.com",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 34.89,
+                "tipo": "monitoreado",
+                "url": "https://lared1061.com/posts/diesel-registra-aumento-y-gasolinas-mantienen-precios-estables"
               }
             ]
           },
@@ -1403,28 +1427,32 @@
             {
               "fecha": "2026-10-12",
               "precio": 34.89
+            },
+            {
+              "fecha": "2026-10-14",
+              "precio": 34.89
             }
           ]
         },
         "servicio_completo": {
           "nombre": "Servicio completo",
           "actual": {
-            "fecha": "2026-10-12",
+            "fecha": "2026-10-14",
             "precio": 35.99,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-14T04:53:58-06:00",
+            "fetched_at": "2026-10-14T11:54:40-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-12",
+            "fecha": "2026-10-14",
             "precio": 35.99,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 2,
+            "confianza": "alta",
+            "n_coinciden": 3,
+            "n_fuentes": 3,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-12",
+                "fecha": "2026-10-14",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
@@ -1441,6 +1469,16 @@
                 "precio": 35.98,
                 "tipo": "referencia",
                 "url": "https://lahora.gt/nacionales/dguzman/2026/10/11/precios-de-combustibles-bajan-en-primeros-dias-de-octubre-segun-reportes-de-expendedores-al-mem/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-10-14",
+                "medio": "lared1061.com",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 35.99,
+                "tipo": "monitoreado",
+                "url": "https://lared1061.com/posts/diesel-registra-aumento-y-gasolinas-mantienen-precios-estables"
               }
             ]
           },
@@ -1464,6 +1502,10 @@
             {
               "fecha": "2026-10-12",
               "precio": 35.99
+            },
+            {
+              "fecha": "2026-10-14",
+              "precio": 35.99
             }
           ]
         }
@@ -1475,10 +1517,10 @@
       "unidad": "GTQ/galón",
       "orden": 2,
       "actual": {
-        "fecha": "2026-10-12",
+        "fecha": "2026-10-14",
         "precio": 36.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-14T04:53:58-06:00",
+        "fetched_at": "2026-10-14T11:54:40-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -2193,6 +2235,10 @@
         {
           "fecha": "2026-10-12",
           "precio": 36.19
+        },
+        {
+          "fecha": "2026-10-14",
+          "precio": 36.19
         }
       ],
       "mensual": [
@@ -2773,22 +2819,32 @@
         "autoservicio": {
           "nombre": "Autoservicio",
           "actual": {
-            "fecha": "2026-10-12",
+            "fecha": "2026-10-14",
             "precio": 36.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-14T04:53:58-06:00",
+            "fetched_at": "2026-10-14T11:54:40-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-12",
+            "fecha": "2026-10-14",
             "precio": 36.19,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 2,
+            "confianza": "alta",
+            "n_coinciden": 4,
+            "n_fuentes": 4,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-12",
+                "fecha": "2026-10-13",
+                "medio": "emisorasunidas.com",
+                "modalidad_inferida": false,
+                "peso": 1.0,
+                "precio": 36.19,
+                "tipo": "referencia",
+                "url": "https://emisorasunidas.com/nacional/2026/10/14/aumento-precio-diesel-combustibles-octubre-2026/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-10-14",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
@@ -2805,6 +2861,16 @@
                 "precio": 36.33,
                 "tipo": "referencia",
                 "url": "https://lahora.gt/nacionales/dguzman/2026/10/11/precios-de-combustibles-bajan-en-primeros-dias-de-octubre-segun-reportes-de-expendedores-al-mem/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-10-14",
+                "medio": "lared1061.com",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 36.19,
+                "tipo": "monitoreado",
+                "url": "https://lared1061.com/posts/diesel-registra-aumento-y-gasolinas-mantienen-precios-estables"
               }
             ]
           },
@@ -2868,24 +2934,28 @@
             {
               "fecha": "2026-10-12",
               "precio": 36.19
+            },
+            {
+              "fecha": "2026-10-14",
+              "precio": 36.19
             }
           ]
         },
         "servicio_completo": {
           "nombre": "Servicio completo",
           "actual": {
-            "fecha": "2026-10-12",
-            "precio": 37.11,
+            "fecha": "2026-10-14",
+            "precio": 37.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-14T04:54:20-06:00",
+            "fetched_at": "2026-10-14T11:54:40-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-12",
-            "precio": 37.11,
+            "fecha": "2026-10-14",
+            "precio": 37.29,
             "confianza": "alta",
-            "n_coinciden": 3,
-            "n_fuentes": 3,
+            "n_coinciden": 4,
+            "n_fuentes": 4,
             "fuentes": [
               {
                 "coincide": true,
@@ -2899,7 +2969,7 @@
               },
               {
                 "coincide": true,
-                "fecha": "2026-10-12",
+                "fecha": "2026-10-14",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
@@ -2916,6 +2986,16 @@
                 "precio": 37.1,
                 "tipo": "referencia",
                 "url": "https://lahora.gt/nacionales/dguzman/2026/10/11/precios-de-combustibles-bajan-en-primeros-dias-de-octubre-segun-reportes-de-expendedores-al-mem/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-10-14",
+                "medio": "lared1061.com",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 37.29,
+                "tipo": "monitoreado",
+                "url": "https://lared1061.com/posts/diesel-registra-aumento-y-gasolinas-mantienen-precios-estables"
               }
             ]
           },
@@ -2943,6 +3023,10 @@
             {
               "fecha": "2026-10-12",
               "precio": 37.11
+            },
+            {
+              "fecha": "2026-10-14",
+              "precio": 37.29
             }
           ]
         }
@@ -2954,10 +3038,10 @@
       "unidad": "GTQ/galón",
       "orden": 3,
       "actual": {
-        "fecha": "2026-10-12",
-        "precio": 41.69,
+        "fecha": "2026-10-14",
+        "precio": 42.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-14T04:53:58-06:00",
+        "fetched_at": "2026-10-14T11:54:40-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -3672,6 +3756,10 @@
         {
           "fecha": "2026-10-12",
           "precio": 41.69
+        },
+        {
+          "fecha": "2026-10-14",
+          "precio": 42.69
         }
       ],
       "mensual": [
@@ -4242,7 +4330,7 @@
         },
         {
           "anio": 2026,
-          "promedio": 36.85,
+          "promedio": 36.95,
           "dias": null,
           "meses": 10,
           "fuente": "MEM mensual + último diario"
@@ -4252,31 +4340,51 @@
         "autoservicio": {
           "nombre": "Autoservicio",
           "actual": {
-            "fecha": "2026-10-12",
-            "precio": 41.69,
+            "fecha": "2026-10-14",
+            "precio": 42.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-14T04:53:58-06:00",
+            "fetched_at": "2026-10-14T11:54:40-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-12",
-            "precio": 41.69,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 2,
+            "fecha": "2026-10-14",
+            "precio": 42.69,
+            "confianza": "alta",
+            "n_coinciden": 3,
+            "n_fuentes": 4,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-12",
+                "fecha": "2026-10-13",
+                "medio": "emisorasunidas.com",
+                "modalidad_inferida": false,
+                "peso": 1.0,
+                "precio": 42.69,
+                "tipo": "referencia",
+                "url": "https://emisorasunidas.com/nacional/2026/10/14/aumento-precio-diesel-combustibles-octubre-2026/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-10-14",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
-                "precio": 41.69,
+                "precio": 42.69,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
               },
               {
                 "coincide": true,
+                "fecha": "2026-10-14",
+                "medio": "lared1061.com",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 42.69,
+                "tipo": "monitoreado",
+                "url": "https://lared1061.com/posts/diesel-registra-aumento-y-gasolinas-mantienen-precios-estables"
+              },
+              {
+                "coincide": false,
                 "fecha": "2026-10-11",
                 "medio": "lahora.gt",
                 "modalidad_inferida": false,
@@ -4347,27 +4455,51 @@
             {
               "fecha": "2026-10-12",
               "precio": 41.69
+            },
+            {
+              "fecha": "2026-10-14",
+              "precio": 42.69
             }
           ]
         },
         "servicio_completo": {
           "nombre": "Servicio completo",
           "actual": {
-            "fecha": "2026-10-12",
-            "precio": 42.64,
+            "fecha": "2026-10-14",
+            "precio": 43.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-14T04:54:20-06:00",
+            "fetched_at": "2026-10-14T11:54:40-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-12",
-            "precio": 42.64,
-            "confianza": "alta",
-            "n_coinciden": 3,
-            "n_fuentes": 3,
+            "fecha": "2026-10-14",
+            "precio": 43.79,
+            "confianza": "media",
+            "n_coinciden": 2,
+            "n_fuentes": 4,
             "fuentes": [
               {
                 "coincide": true,
+                "fecha": "2026-10-14",
+                "medio": "publinews.gt",
+                "modalidad_inferida": false,
+                "peso": 0.631,
+                "precio": 43.79,
+                "tipo": "monitoreado",
+                "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-10-14",
+                "medio": "lared1061.com",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 43.79,
+                "tipo": "monitoreado",
+                "url": "https://lared1061.com/posts/diesel-registra-aumento-y-gasolinas-mantienen-precios-estables"
+              },
+              {
+                "coincide": false,
                 "fecha": "2026-10-12",
                 "medio": "globalpetrolprices.com",
                 "modalidad_inferida": false,
@@ -4377,17 +4509,7 @@
                 "url": "https://globalpetrolprices.com/Guatemala/"
               },
               {
-                "coincide": true,
-                "fecha": "2026-10-12",
-                "medio": "publinews.gt",
-                "modalidad_inferida": false,
-                "peso": 0.631,
-                "precio": 42.79,
-                "tipo": "monitoreado",
-                "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
-              },
-              {
-                "coincide": true,
+                "coincide": false,
                 "fecha": "2026-10-11",
                 "medio": "lahora.gt",
                 "modalidad_inferida": false,
@@ -4422,6 +4544,10 @@
             {
               "fecha": "2026-10-12",
               "precio": 42.64
+            },
+            {
+              "fecha": "2026-10-14",
+              "precio": 43.79
             }
           ]
         }
@@ -4434,9 +4560,9 @@
       "orden": 4,
       "actual": {
         "fecha": "2026-10-14",
-        "precio": 95.41,
+        "precio": 95.76,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-10-14T04:54:20-06:00",
+        "fetched_at": "2026-10-14T11:54:41-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5510,7 +5636,7 @@
         },
         {
           "fecha": "2026-10-14",
-          "precio": 95.41
+          "precio": 95.76
         }
       ],
       "mensual": [],
@@ -5542,9 +5668,9 @@
           "nombre": "Spot",
           "actual": {
             "fecha": "2026-10-14",
-            "precio": 95.41,
+            "precio": 95.76,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-10-14T04:54:20-06:00",
+            "fetched_at": "2026-10-14T11:54:41-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
@@ -5663,7 +5789,7 @@
             },
             {
               "fecha": "2026-10-14",
-              "precio": 95.41
+              "precio": 95.76
             }
           ]
         }
@@ -5708,8 +5834,8 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 20,
-    "notas_leidas": 110,
+    "observaciones_7d": 35,
+    "notas_leidas": 112,
     "medios": [
       "dca.gob.gt",
       "elsalvador.com",
@@ -5717,29 +5843,56 @@
       "globalpetrolprices.com",
       "infobae.com",
       "lahora.gt",
+      "lared1061.com",
       "prensa-latina.cu",
       "prensalibre.com",
       "publinews.gt"
     ]
   },
   "noticias": {
-    "total": 62,
+    "total": 57,
     "top": [
       {
         "id": 4,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Aramco-Headquarters-Hit-as-Houthi-Attacks-Escalate.html",
-        "titulo": "Saudi Aramco Headquarters Hit as Houthi Attacks Escalate",
-        "titulo_es": "Ataques hutíes golpean sede de Saudi Aramco en Arabia Saudí",
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Houthis-Vow-More-Attacks-After-Strike-on-Aramco-Headquarters.html",
+        "titulo": "Houthis Vow More Attacks After Strike on Aramco Headquarters",
+        "titulo_es": "Hutíes prometen más ataques a instalaciones petroleras saudíes",
         "medio": "OilPrice.com",
-        "publicado_at": "2026-10-14T03:30:00-06:00",
-        "categoria": "infraestructura",
+        "publicado_at": "2026-10-14T11:30:00-06:00",
+        "categoria": "geopolitica",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Los ataques hutíes golpean la sede de Saudi Aramco, señalando una escalada que podría interrumpir la producción saudí y elevar los precios internacionales del crudo, repercutiendo en Guatemala.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
+        "resumen_es": "Los hutíes prometen más ataques a instalaciones petroleras saudíes tras un bombardeo a la sede de Aramco, lo que podría reducir la oferta mundial y elevar los precios del combustible importado por Guatemala.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
       },
       {
         "id": 9,
+        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOSHFMQTVsQU9rQUE0RTQ4d0d4a1JyNVlEd0NMRTRPc3VXaGpzZDkxYURmZi1pTWtGc0NzY05NT0M5TWotd0ZYVmdGdlRpSU02eHlmYktJM1VzZXRXbGg0MFphRnFxQlAyeHRORGJHNTEtUjFNR2VIREdIY0FZNnJxYXdDTkJmZFdxUHU2Mi1henY0TFdZS2MzTXBpNnBwNk51TEk2Sm9B?oc=5",
+        "titulo": "Fire Spreads at Rostov Oil Terminal After Drone Attack - The Moscow Times",
+        "titulo_es": "Incendio en terminal petrolero de Rostov tras ataque con drones",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-14T06:59:02-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Un incendio en el terminal petrolero de Rostov tras un ataque con drones interrumpe la exportación de crudo ruso, reduciendo la oferta global y presionando al alza los precios del combustible que importa Guatemala.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
+      },
+      {
+        "id": 11,
+        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQWTNxZlFXcF9qLU5RbXFxUXZLY1BLNDZRRVZVYzlWanhqRjk1MTFpRmRralQzNjFXc2ZTbzBUUDhXOHpiTWtqeElKR2IxT3VXUnUxNU1qUW1hVVZib1dzOWJHYXp5bnBURUNsclA4ZWtmMzlQYzZFYV9kbzhiWFRaVnp5bWU5OXl4LVVqb2ZjWS15X1hOM2o5dTB4WlozdVMzcVpzbw?oc=5",
+        "titulo": "Suben los precios del petróleo tras los supuestos ataques a barcos en Ormuz - Yahoo Finanzas",
+        "titulo_es": "Aumentan precios del petróleo tras supuestos ataques en Ormuz",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-14T00:47:29-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Aumentan los precios del petróleo tras presuntos ataques a buques en el estrecho de Ormuz, una zona clave de tránsito, lo que eleva los costos de los combustibles importados por Guatemala.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
+      },
+      {
+        "id": 12,
         "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9xZEdEa0JmSzFtZ3ctM0pxbzUzU2dZWlptcldWMmNEQkxwRnMzak9HSzZNN2tDVEo5RjNIY05SX1BBajJ5NTJoQ21EdXkwR29OYWJjbG1Kdkd4cmpaQ3JDXy1wUFJFSXJmYUJZNVVqQVRJZ2dMelE?oc=5",
         "titulo": "Middle East Diesel Exports Plunge 52%: Persian Gulf Shipping Bottleneck Hits Oil Market Harder Than Russia-Ukraine War - BigGo Finance",
         "titulo_es": "Exportaciones de diésel del Medio Oriente caen 52% por cuellos de botella",
@@ -5748,86 +5901,73 @@
         "categoria": "oferta",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Las exportaciones de diésel del Medio Oriente caen 52% por cuellos de botella en el transporte, reduciendo la oferta mundial y elevando los precios que paga Guatemala.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
+        "resumen_es": "Las exportaciones de diésel del Medio Oriente caen 52% por cuellos de botella en el Golfo Pérsico, reduciendo la oferta mundial y elevando los precios del diésel que importa Guatemala.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
+      },
+      {
+        "id": 14,
+        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOSUJHZmdtNzBaNVpScE45eVZOOEtsVldzSmdVT1FpQ3ZHQnRtZ0Z0NUNIaklzeVI0WXV1bVdMZDhGd3RTZFVzdlVPa1ZiS29FVGxvRDdKSVQxcEc0aXUwZ0NvS1RydHY2a2J4LUlVc3g3MmpiRFVjUXJUVGRVV3NBYzNia1NMa2tsZG9YMXpkMm9zS0djTHc2d2hGTFYxWEFtVHBKTW0wODIxQQ?oc=5",
+        "titulo": "Petróleo sube tras ataques hutíes a Arabia Saudita - Clarin.com",
+        "titulo_es": "Petróleo sube tras ataques hutíes a Arabia Saudita",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-12T14:10:17-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "El petróleo sube después de los ataques hutíes a instalaciones saudíes, lo que reduce la oferta y eleva los precios del combustible importado por Guatemala.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
       },
       {
         "id": 5,
         "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNVkYtVlAxWGV0NXVJc3l0WkEtR2lHdUVIMFZ5QlJqTUNDcVN6dkdUMUFCMDNONFhma0hXOW5qbWxDR2NSR3J4Qm5aSDNJWWhZa20waW01RzZWMTdtLTMxb1hBSVZkdHo1R1VTRHExZDhMb1hwb2VPUTFKT1AwRmk2WjA1N1h5LXdOZDlld29Ybk1iQ2gxYUlVLWxmYU9yRC01aEptdm5yZ3lJdl8tbHdEVC01ZmxLWXdlZmVDV1VR?oc=5",
         "titulo": "Saudi Arabia's East-West oil pipeline halted again after fresh attack - The Business Standard",
-        "titulo_es": "Nuevo ataque detiene oleoducto Este-Oeste de Arabia Saudí",
+        "titulo_es": "Nuevo ataque detiene oleoducto Este-Oeste de Arabia Saudita",
         "medio": "Google News EN",
         "publicado_at": "2026-10-05T06:17:49-06:00",
         "categoria": "infraestructura",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Un nuevo ataque detiene nuevamente el oleoducto Este-Oeste de Arabia Saudí, reduciendo la capacidad de exportación de crudo y presionando al alza los precios mundiales, afectando a Guatemala importador.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
-      },
-      {
-        "id": 7,
-        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQWTNxZlFXcF9qLU5RbXFxUXZLY1BLNDZRRVZVYzlWanhqRjk1MTFpRmRralQzNjFXc2ZTbzBUUDhXOHpiTWtqeElKR2IxT3VXUnUxNU1qUW1hVVZib1dzOWJHYXp5bnBURUNsclA4ZWtmMzlQYzZFYV9kbzhiWFRaVnp5bWU5OXl4LVVqb2ZjWS15X1hOM2o5dTB4WlozdVMzcVpzbw?oc=5",
-        "titulo": "Suben los precios del petróleo tras los supuestos ataques a barcos en Ormuz - Yahoo Finanzas",
-        "titulo_es": "Precios del petróleo suben tras supuestos ataques en Ormuz",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-14T00:47:29-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Los supuestos ataques a buques en el estrecho de Ormuz elevan los precios del petróleo, lo que puede traducirse en mayores costos de importación para Guatemala.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
+        "resumen_es": "Un nuevo ataque detiene nuevamente el oleoducto Este-Oeste de Arabia Saudita, reduciendo la capacidad de exportación de crudo y presionando al alza los precios del combustible que importa Guatemala.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
       },
       {
         "id": 8,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Climb-Above-106-as-Iran-Threatens-More-Tanker-Attacks.html",
-        "titulo": "Oil Prices Climb Above $106 as Iran Threatens More Tanker Attacks",
-        "titulo_es": "Precios del crudo superan $106 por amenazas de Irán a petroleros",
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Russian-Strikes-Cut-Power-to-600000-Ukrainians-Days-After-US-Diesel-Deal.html",
+        "titulo": "Russian Strikes Cut Power to 600,000 Ukrainians Days After U.S. Diesel Deal",
+        "titulo_es": "Ataques rusos dejan sin energía a 600,000 ucranianos tras acuerdo de diésel EE.UU.",
         "medio": "OilPrice.com",
-        "publicado_at": "2026-10-13T23:31:31-06:00",
-        "categoria": "precios",
+        "publicado_at": "2026-10-14T07:30:00-06:00",
+        "categoria": "geopolitica",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Amenazas de Irán de intensificar ataques a petroleros hacen subir el crudo por encima de $106, presionando al alza los precios de los combustibles importados por Guatemala.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
-      },
-      {
-        "id": 10,
-        "url": "https://oilprice.com/Energy/Crude-Oil/Record-Tanker-Rates-Leave-Heavy-Crude-Stranded-in-the-Americas.html",
-        "titulo": "Record Tanker Rates Leave Heavy Crude Stranded in the Americas",
-        "titulo_es": "Tarifas récord de buques dejan crudo pesado varado en América",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-13T17:00:00-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Las tarifas récord de buques dejan crudo pesado varado en América, limitando la disponibilidad y pudiendo subir los precios de los combustibles en Guatemala.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
+        "resumen_es": "Los ataques rusos dejan sin energía a 600,000 ucranianos y se producen tras la autorización EE.UU. de importaciones de diésel ruso, lo que podría afectar la oferta mundial de diésel y los precios que paga Guatemala.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
       },
       {
         "id": 13,
-        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOSUJHZmdtNzBaNVpScE45eVZOOEtsVldzSmdVT1FpQ3ZHQnRtZ0Z0NUNIaklzeVI0WXV1bVdMZDhGd3RTZFVzdlVPa1ZiS29FVGxvRDdKSVQxcEc0aXUwZ0NvS1RydHY2a2J4LUlVc3g3MmpiRFVjUXJUVGRVV3NBYzNia1NMa2tsZG9YMXpkMm9zS0djTHc2d2hGTFYxWEFtVHBKTW0wODIxQQ?oc=5",
-        "titulo": "Petróleo sube tras ataques hutíes a Arabia Saudita - Clarin.com",
-        "titulo_es": "Petróleo sube tras ataques hutíes a Arabia Saudí",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-12T14:10:17-06:00",
-        "categoria": "precios",
+        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNOVIwNmNCdG1jLWtWYkNTZW9EOGM1MnozMGlWTXNBVEFiaWlXU28yc3NjWVlXMkF0SXJJXzFlSllzZ24tRWVTTHhRcFN0RTk1NHlHWEwwQWN1SG5lWExtc1paNHhHNHhxa01uekw3Zk9BR3ZMNzQ0T0k1YkZlNXpVelU1MVB3VTl2c3dwWlZSOFRvNnhRWXZlTHpORXZoYnlCS2s3RXB5c2s1QXFwN1E?oc=5",
+        "titulo": "U.S. and NATO commander vows to thwart Moscow, warns Kyiv over refinery strikes - The Washington Post",
+        "titulo_es": "Comandante EE.UU. y OTAN advierten a Kiev sobre ataques a refinerías",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-12T22:51:50-06:00",
+        "categoria": "geopolitica",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Los ataques hutíes a Arabia Saudí impulsan al alza el precio del petróleo, lo que probablemente aumentará los costos de importación de combustibles en Guatemala.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
+        "resumen_es": "El comandante de EE. UU. y la OTAN advierten a Kiev sobre ataques a refinerías, señalando posibles represalias que podrían afectar la producción global de combustible y los precios que paga Guatemala.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
       },
       {
-        "id": 14,
-        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOd1VhVTdzdVF2RmhsbGxfVEt0TlVJTGdDYW9CdlZWcERDUXVvRkMwRDZsSFZqeEh4VmhoY2k3Q3FSZi1GUnBtb3B5ckpqWlF1Ym5oT2xMY2tvcVZsMmdvRmpMWjhhMlhacnJhODVsOGNmeXBTbXlQbWhLT3RKdUY2N1FhMW8yTGlCRkZxNVpsb2c4RFhUc3ZlMTU3ZE1zNzROXzg4ZkJQVUt1STdSclBRdjhJMHFXY3VyM0RFUW41MG4yZC1P?oc=5",
-        "titulo": "Rostov Oil Terminal Burns for Third Day After Reported Ukrainian Drone Attack - The Moscow Times",
-        "titulo_es": "Terminal petrolero de Rostov arde tras ataque con dron ucraniano",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-12T08:40:24-06:00",
-        "categoria": "infraestructura",
+        "id": 7,
+        "url": "https://oilprice.com/Geopolitics/Europe/Nord-Stream-Sabotage-Trial-Begins-With-Explosive-Allegations-Against-Ukraine.html",
+        "titulo": "Nord Stream Sabotage Trial Begins With Explosive Allegations Against Ukraine",
+        "titulo_es": "Empieza el juicio por sabotaje del gasoducto Nord Stream",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-14T08:00:00-06:00",
+        "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El terminal petrolero de Rostov arde tras un ataque con dron ucraniano, reduciendo la capacidad de exportación rusa y presionando los precios internacionales, afectando a Guatemala.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
+        "relevancia": 3,
+        "resumen_es": "El juicio por el sabotaje del gasoducto Nord Stream genera incertidumbre en el suministro de gas europeo y posibles repercusiones en los precios energéticos globales, incluidos los combustibles importados por Guatemala.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
       },
       {
         "id": 2,
@@ -5838,9 +5978,48 @@
         "publicado_at": "2026-09-30T01:00:00-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El Gobierno anunció una exención de impuestos que reducirá el precio de los combustibles en Guatemala, bajando los costos para los consumidores.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
+        "relevancia": 3,
+        "resumen_es": "El Gobierno anuncia una exención de impuestos que reducirá los precios de los combustibles en Guatemala, beneficiando a los consumidores sin afectar la oferta internacional.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
+      },
+      {
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZ2F1REJtMnRyV3U2dWlUeFpJYWk2YUp0Wng5dVd2T0ZlS3FYQnRCNzRBNmdkbDJ6aEVRcUY3bDdic181azdad3NmbEFLSzF3ZnFDNHlybnFHYlpNbi1MdWVIam9iMjV4cUNuTDA4SEZjRnhvN1RFWmpiNE1LakF0Tl9JbzYtYmNDZmRIZU4wNXFkdlk2RnFmMzlZbEwyM1p5Qm81dWR4Nm1XNC0x?oc=5",
+        "titulo": "Combustibles en Guatemala: precios actuales y perspectivas para el 2027 - Prensa Libre",
+        "titulo_es": "Precios de combustibles en Guatemala y perspectivas hasta 2027",
+        "medio": "Google News ES",
+        "publicado_at": "2026-09-29T01:00:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Análisis de precios actuales y proyecciones hasta 2027, importante para planificar costos de importación y presupuestos energéticos en Guatemala.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
+      },
+      {
+        "id": 6,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Indias-Gas-Demand-Drops-as-Iran-War-Hikes-LNG-Spot-Prices.html",
+        "titulo": "India’s Gas Demand Drops as Iran War Hikes LNG Spot Prices",
+        "titulo_es": "La guerra en Irán reduce demanda de gas de India y eleva precios del LNG",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-14T08:30:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "La guerra en Irán reduce la demanda de gas de India y eleva los precios spot del LNG, lo que podría influir ligeramente en los costos energéticos de Guatemala.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
+      },
+      {
+        "id": 10,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Taiwan-Commits-Up-to-44-Billion-to-Alaska-LNG-Megaproject.html",
+        "titulo": "Taiwan Commits Up to $4.4 Billion to Alaska LNG Megaproject",
+        "titulo_es": "Taiwán invierte 4.4 mil millones en proyecto de LNG de Alaska",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-14T02:15:00-06:00",
+        "categoria": "finanzas",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "Taiwán invierte 4.4 mil millones en el proyecto de LNG de Alaska, ampliando la capacidad de suministro de gas que podría influir en los precios internacionales y, en menor medida, en los costos energéticos de Guatemala.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
       },
       {
         "id": 1,
@@ -5851,79 +6030,27 @@
         "publicado_at": "2026-10-13T18:00:00-06:00",
         "categoria": "demanda",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Guatemala estudia sustituir autobuses diésel por eléctricos, lo que reduciría la demanda interna de diésel y podría presionar a la baja los precios locales.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
-      },
-      {
-        "id": 11,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/OPEC-Sees-Oil-Demand-Growth-Surging-to-26-Million-Bpd-in-2027.html",
-        "titulo": "OPEC Sees Oil Demand Growth Surging to 2.6 Million Bpd in 2027",
-        "titulo_es": "OPEC prevé crecimiento de demanda de petróleo a 2.6 mmbpd en 2027",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-13T15:30:00-06:00",
-        "categoria": "demanda",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "OPEC proyecta un crecimiento de demanda de 2.6 millones de barriles diarios para 2027, lo que indica presión al alza sobre los precios internacionales que afectará a Guatemala.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
-      },
-      {
-        "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZ2F1REJtMnRyV3U2dWlUeFpJYWk2YUp0Wng5dVd2T0ZlS3FYQnRCNzRBNmdkbDJ6aEVRcUY3bDdic181azdad3NmbEFLSzF3ZnFDNHlybnFHYlpNbi1MdWVIam9iMjV4cUNuTDA4SEZjRnhvN1RFWmpiNE1LakF0Tl9JbzYtYmNDZmRIZU4wNXFkdlk2RnFmMzlZbEwyM1p5Qm81dWR4Nm1XNC0x?oc=5",
-        "titulo": "Combustibles en Guatemala: precios actuales y perspectivas para el 2027 - Prensa Libre",
-        "titulo_es": "Precios actuales y proyecciones de combustibles en Guatemala hasta 2027",
-        "medio": "Google News ES",
-        "publicado_at": "2026-09-29T01:00:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Se presentan los precios actuales de combustibles y proyecciones hasta 2027, indicando posibles variaciones que impactarán el mercado guatemalteco.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
-      },
-      {
-        "id": 12,
-        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNOVIwNmNCdG1jLWtWYkNTZW9EOGM1MnozMGlWTXNBVEFiaWlXU28yc3NjWVlXMkF0SXJJXzFlSllzZ24tRWVTTHhRcFN0RTk1NHlHWEwwQWN1SG5lWExtc1paNHhHNHhxa01uekw3Zk9BR3ZMNzQ0T0k1YkZlNXpVelU1MVB3VTl2c3dwWlZSOFRvNnhRWXZlTHpORXZoYnlCS2s3RXB5c2s1QXFwN1E?oc=5",
-        "titulo": "U.S. and NATO commander vows to thwart Moscow, warns Kyiv over refinery strikes - The Washington Post",
-        "titulo_es": "EE. UU. y OTAN advierten a Kiev sobre ataques a refinerías rusas",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-12T22:51:50-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
         "relevancia": 2,
-        "resumen_es": "EE. UU. y la OTAN advierten a Kiev sobre ataques a refinerías rusas, lo que podría afectar la oferta global de crudo y, en menor medida, los precios en Guatemala.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
+        "resumen_es": "Guatemala evalúa reemplazar buses diésel por eléctricos, lo que reduciría la demanda de diésel importado y podría bajar el consumo nacional.",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
       },
       {
-        "id": 15,
-        "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOV0laVDJsUXJ5N0hFeGlVcTgxeGpWYjAtNk4xNTVXQTJ5TFd4ajhuTi1qYTkyWmdqMW9sSlVmZ0Ywc2VWZzBOR1BCcFFoRm9Lc2ExaU9sc0UwbVEwX2hlOWMyZ1VfSUR4RW5GMlFxOTk5eF9CNUJjRTJwT2ZtejNMUG1XWFB4QnJMcl9uQXRQaUpWTkFxSGc?oc=5",
-        "titulo": "Según informan los medios estadounidenses: Trump está \"furioso\" por el ataque de Ucrania a la refinería de petróleo rusa. - Vietnam.vn",
-        "titulo_es": "Trump enfadado por ataque ucraniano a refinería rusa",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-12T02:56:55-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Trump expresa enojo por el ataque ucraniano a una refinería rusa, reflejando tensiones que pueden influir en la estabilidad del suministro global de petróleo y, a largo plazo, en los precios en Guatemala.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Taiwan-Commits-Up-to-44-Billion-to-Alaska-LNG-Megaproject.html",
-        "titulo": "Taiwan Commits Up to $4.4 Billion to Alaska LNG Megaproject",
-        "titulo_es": "Taiwán invierte 4.4 mil millones en proyecto de LNG en Alaska",
+        "id": 40,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Novak-Calls-US-Diesel-Deal-a-Positive-Signal-for-Russias-Economy.html",
+        "titulo": "Novak Calls U.S. Diesel Deal a 'Positive Signal' for Russia's Economy",
+        "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-10-14T02:15:00-06:00",
-        "categoria": "finanzas",
+        "publicado_at": "2026-10-14T10:30:00-06:00",
+        "categoria": null,
         "pais": null,
-        "relevancia": 1,
-        "resumen_es": "Taiwán invierte 4.4 mil millones en proyecto de LNG en Alaska, ampliando la oferta de gas natural, sin impacto directo en los combustibles importados por Guatemala.",
-        "fetched_at": "2026-10-14T04:55:02-06:00"
+        "relevancia": null,
+        "resumen_es": "Russian Deputy Prime Minister Alexander Novak said on Wednesday that the diesel agreement with the United States is linked to higher Russian refining and production and means additional taxes for the budget. He spoke to journalists at Russian Energy Week in Moscow, calling the agreement \"a positive signal for our economy\", and saying it brings spending on the social sphere and opportunities for investment. Russian Finance Minister Anton Siluanov said on Tuesday that Russia has no export duties o",
+        "fetched_at": "2026-10-14T11:55:23-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 15,
-      "total_hoy": 62,
+      "titulos_es_hoy": 14,
+      "total_hoy": 57,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
