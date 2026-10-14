@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-10-13T11:55:08-06:00",
+  "actualizado_at": "2026-10-14T04:55:02-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-10-12",
   "productos": {
@@ -13,14 +13,10 @@
         "fecha": "2026-10-12",
         "precio": 34.89,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-13T11:53:50-06:00",
+        "fetched_at": "2026-10-14T04:53:58-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-10-13",
-          "precio": 28.05
-        },
         {
           "fecha": "2025-10-14",
           "precio": 28.05
@@ -1315,7 +1311,7 @@
             "fecha": "2026-10-12",
             "precio": 34.89,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-13T11:53:50-06:00",
+            "fetched_at": "2026-10-14T04:53:58-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1416,7 +1412,7 @@
             "fecha": "2026-10-12",
             "precio": 35.99,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-13T11:53:50-06:00",
+            "fetched_at": "2026-10-14T04:53:58-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1482,14 +1478,10 @@
         "fecha": "2026-10-12",
         "precio": 36.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-13T11:53:50-06:00",
+        "fetched_at": "2026-10-14T04:53:58-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-10-13",
-          "precio": 29.55
-        },
         {
           "fecha": "2025-10-14",
           "precio": 29.55
@@ -2784,7 +2776,7 @@
             "fecha": "2026-10-12",
             "precio": 36.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-13T11:53:50-06:00",
+            "fetched_at": "2026-10-14T04:53:58-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2883,18 +2875,28 @@
           "nombre": "Servicio completo",
           "actual": {
             "fecha": "2026-10-12",
-            "precio": 37.29,
+            "precio": 37.11,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-13T11:53:50-06:00",
+            "fetched_at": "2026-10-14T04:54:20-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
             "fecha": "2026-10-12",
-            "precio": 37.29,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 2,
+            "precio": 37.11,
+            "confianza": "alta",
+            "n_coinciden": 3,
+            "n_fuentes": 3,
             "fuentes": [
+              {
+                "coincide": true,
+                "fecha": "2026-10-12",
+                "medio": "globalpetrolprices.com",
+                "modalidad_inferida": false,
+                "peso": 1.0,
+                "precio": 37.11,
+                "tipo": "monitoreado",
+                "url": "https://globalpetrolprices.com/Guatemala/"
+              },
               {
                 "coincide": true,
                 "fecha": "2026-10-12",
@@ -2940,7 +2942,7 @@
             },
             {
               "fecha": "2026-10-12",
-              "precio": 37.29
+              "precio": 37.11
             }
           ]
         }
@@ -2955,14 +2957,10 @@
         "fecha": "2026-10-12",
         "precio": 41.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-13T11:53:50-06:00",
+        "fetched_at": "2026-10-14T04:53:58-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-10-13",
-          "precio": 25.97
-        },
         {
           "fecha": "2025-10-14",
           "precio": 25.97
@@ -4257,7 +4255,7 @@
             "fecha": "2026-10-12",
             "precio": 41.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-13T11:53:50-06:00",
+            "fetched_at": "2026-10-14T04:53:58-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4356,18 +4354,28 @@
           "nombre": "Servicio completo",
           "actual": {
             "fecha": "2026-10-12",
-            "precio": 42.79,
+            "precio": 42.64,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-13T11:53:50-06:00",
+            "fetched_at": "2026-10-14T04:54:20-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
             "fecha": "2026-10-12",
-            "precio": 42.79,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 2,
+            "precio": 42.64,
+            "confianza": "alta",
+            "n_coinciden": 3,
+            "n_fuentes": 3,
             "fuentes": [
+              {
+                "coincide": true,
+                "fecha": "2026-10-12",
+                "medio": "globalpetrolprices.com",
+                "modalidad_inferida": false,
+                "peso": 1.0,
+                "precio": 42.64,
+                "tipo": "monitoreado",
+                "url": "https://globalpetrolprices.com/Guatemala/"
+              },
               {
                 "coincide": true,
                 "fecha": "2026-10-12",
@@ -4413,7 +4421,7 @@
             },
             {
               "fecha": "2026-10-12",
-              "precio": 42.79
+              "precio": 42.64
             }
           ]
         }
@@ -4425,17 +4433,13 @@
       "unidad": "USD/barril",
       "orden": 4,
       "actual": {
-        "fecha": "2026-10-13",
-        "precio": 94.16,
+        "fecha": "2026-10-14",
+        "precio": 95.41,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-10-13T11:54:24-06:00",
+        "fetched_at": "2026-10-14T04:54:20-06:00",
         "incluye_impuestos": null
       },
       "historial": [
-        {
-          "fecha": "2025-10-13",
-          "precio": 59.74
-        },
         {
           "fecha": "2025-10-14",
           "precio": 58.85
@@ -5503,6 +5507,10 @@
         {
           "fecha": "2026-10-13",
           "precio": 94.16
+        },
+        {
+          "fecha": "2026-10-14",
+          "precio": 95.41
         }
       ],
       "mensual": [],
@@ -5523,8 +5531,8 @@
         },
         {
           "anio": 2026,
-          "promedio": 83.93,
-          "dias": 210,
+          "promedio": 83.99,
+          "dias": 211,
           "meses": null,
           "fuente": "diario"
         }
@@ -5533,10 +5541,10 @@
         "spot": {
           "nombre": "Spot",
           "actual": {
-            "fecha": "2026-10-13",
-            "precio": 94.16,
+            "fecha": "2026-10-14",
+            "precio": 95.41,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-10-13T11:54:24-06:00",
+            "fetched_at": "2026-10-14T04:54:20-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
@@ -5652,6 +5660,10 @@
             {
               "fecha": "2026-10-13",
               "precio": 94.16
+            },
+            {
+              "fecha": "2026-10-14",
+              "precio": 95.41
             }
           ]
         }
@@ -5696,8 +5708,8 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 24,
-    "notas_leidas": 107,
+    "observaciones_7d": 20,
+    "notas_leidas": 110,
     "medios": [
       "dca.gob.gt",
       "elsalvador.com",
@@ -5711,207 +5723,207 @@
     ]
   },
   "noticias": {
-    "total": 65,
+    "total": 62,
     "top": [
       {
-        "id": 1,
+        "id": 4,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Aramco-Headquarters-Hit-as-Houthi-Attacks-Escalate.html",
+        "titulo": "Saudi Aramco Headquarters Hit as Houthi Attacks Escalate",
+        "titulo_es": "Ataques hutíes golpean sede de Saudi Aramco en Arabia Saudí",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-14T03:30:00-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Los ataques hutíes golpean la sede de Saudi Aramco, señalando una escalada que podría interrumpir la producción saudí y elevar los precios internacionales del crudo, repercutiendo en Guatemala.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
+      },
+      {
+        "id": 9,
+        "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9xZEdEa0JmSzFtZ3ctM0pxbzUzU2dZWlptcldWMmNEQkxwRnMzak9HSzZNN2tDVEo5RjNIY05SX1BBajJ5NTJoQ21EdXkwR29OYWJjbG1Kdkd4cmpaQ3JDXy1wUFJFSXJmYUJZNVVqQVRJZ2dMelE?oc=5",
+        "titulo": "Middle East Diesel Exports Plunge 52%: Persian Gulf Shipping Bottleneck Hits Oil Market Harder Than Russia-Ukraine War - BigGo Finance",
+        "titulo_es": "Exportaciones de diésel del Medio Oriente caen 52% por cuellos de botella",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-13T22:35:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Las exportaciones de diésel del Medio Oriente caen 52% por cuellos de botella en el transporte, reduciendo la oferta mundial y elevando los precios que paga Guatemala.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
+      },
+      {
+        "id": 5,
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNVkYtVlAxWGV0NXVJc3l0WkEtR2lHdUVIMFZ5QlJqTUNDcVN6dkdUMUFCMDNONFhma0hXOW5qbWxDR2NSR3J4Qm5aSDNJWWhZa20waW01RzZWMTdtLTMxb1hBSVZkdHo1R1VTRHExZDhMb1hwb2VPUTFKT1AwRmk2WjA1N1h5LXdOZDlld29Ybk1iQ2gxYUlVLWxmYU9yRC01aEptdm5yZ3lJdl8tbHdEVC01ZmxLWXdlZmVDV1VR?oc=5",
+        "titulo": "Saudi Arabia's East-West oil pipeline halted again after fresh attack - The Business Standard",
+        "titulo_es": "Nuevo ataque detiene oleoducto Este-Oeste de Arabia Saudí",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-05T06:17:49-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Un nuevo ataque detiene nuevamente el oleoducto Este-Oeste de Arabia Saudí, reduciendo la capacidad de exportación de crudo y presionando al alza los precios mundiales, afectando a Guatemala importador.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
+      },
+      {
+        "id": 7,
+        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQWTNxZlFXcF9qLU5RbXFxUXZLY1BLNDZRRVZVYzlWanhqRjk1MTFpRmRralQzNjFXc2ZTbzBUUDhXOHpiTWtqeElKR2IxT3VXUnUxNU1qUW1hVVZib1dzOWJHYXp5bnBURUNsclA4ZWtmMzlQYzZFYV9kbzhiWFRaVnp5bWU5OXl4LVVqb2ZjWS15X1hOM2o5dTB4WlozdVMzcVpzbw?oc=5",
+        "titulo": "Suben los precios del petróleo tras los supuestos ataques a barcos en Ormuz - Yahoo Finanzas",
+        "titulo_es": "Precios del petróleo suben tras supuestos ataques en Ormuz",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-14T00:47:29-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Los supuestos ataques a buques en el estrecho de Ormuz elevan los precios del petróleo, lo que puede traducirse en mayores costos de importación para Guatemala.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
+      },
+      {
+        "id": 8,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Climb-Above-106-as-Iran-Threatens-More-Tanker-Attacks.html",
+        "titulo": "Oil Prices Climb Above $106 as Iran Threatens More Tanker Attacks",
+        "titulo_es": "Precios del crudo superan $106 por amenazas de Irán a petroleros",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-13T23:31:31-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Amenazas de Irán de intensificar ataques a petroleros hacen subir el crudo por encima de $106, presionando al alza los precios de los combustibles importados por Guatemala.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
+      },
+      {
+        "id": 10,
+        "url": "https://oilprice.com/Energy/Crude-Oil/Record-Tanker-Rates-Leave-Heavy-Crude-Stranded-in-the-Americas.html",
+        "titulo": "Record Tanker Rates Leave Heavy Crude Stranded in the Americas",
+        "titulo_es": "Tarifas récord de buques dejan crudo pesado varado en América",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-13T17:00:00-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Las tarifas récord de buques dejan crudo pesado varado en América, limitando la disponibilidad y pudiendo subir los precios de los combustibles en Guatemala.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
+      },
+      {
+        "id": 13,
+        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOSUJHZmdtNzBaNVpScE45eVZOOEtsVldzSmdVT1FpQ3ZHQnRtZ0Z0NUNIaklzeVI0WXV1bVdMZDhGd3RTZFVzdlVPa1ZiS29FVGxvRDdKSVQxcEc0aXUwZ0NvS1RydHY2a2J4LUlVc3g3MmpiRFVjUXJUVGRVV3NBYzNia1NMa2tsZG9YMXpkMm9zS0djTHc2d2hGTFYxWEFtVHBKTW0wODIxQQ?oc=5",
+        "titulo": "Petróleo sube tras ataques hutíes a Arabia Saudita - Clarin.com",
+        "titulo_es": "Petróleo sube tras ataques hutíes a Arabia Saudí",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-12T14:10:17-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Los ataques hutíes a Arabia Saudí impulsan al alza el precio del petróleo, lo que probablemente aumentará los costos de importación de combustibles en Guatemala.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
+      },
+      {
+        "id": 14,
+        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOd1VhVTdzdVF2RmhsbGxfVEt0TlVJTGdDYW9CdlZWcERDUXVvRkMwRDZsSFZqeEh4VmhoY2k3Q3FSZi1GUnBtb3B5ckpqWlF1Ym5oT2xMY2tvcVZsMmdvRmpMWjhhMlhacnJhODVsOGNmeXBTbXlQbWhLT3RKdUY2N1FhMW8yTGlCRkZxNVpsb2c4RFhUc3ZlMTU3ZE1zNzROXzg4ZkJQVUt1STdSclBRdjhJMHFXY3VyM0RFUW41MG4yZC1P?oc=5",
+        "titulo": "Rostov Oil Terminal Burns for Third Day After Reported Ukrainian Drone Attack - The Moscow Times",
+        "titulo_es": "Terminal petrolero de Rostov arde tras ataque con dron ucraniano",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-12T08:40:24-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El terminal petrolero de Rostov arde tras un ataque con dron ucraniano, reduciendo la capacidad de exportación rusa y presionando los precios internacionales, afectando a Guatemala.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
+      },
+      {
+        "id": 2,
         "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxOdTRqR0tyQWl6REVWcUxpU3hTVXYzS0J1eVk5UVZ5dWF6bmZaSVYwVHVPUXY1RGs5RDFRQ1MtNFdrSVNkajVqcHRVQ21JdXpqRXQwNnJWUHBGX3EzOWlUUy1sRnpYaWx1dlM1NG01a2lodmU2eWJTR1dsaVJyckNRcU8tRk9rMEtMTmd4ZkdLRnhZTXYyRms4RlNhYnZ0dUI4UUo3Z1oxVVVVTHRxQ2ZPQVJCV0JpQXNnaHBYSTNSWkhxMTJra21tY0lHYlBjbGdIQlhkZERIbmlON0FqYms4alB0T0RpQTlhUl9xRk44QVM5S3gwVDJpUERGQ3h1U09mZENB?oc=5",
         "titulo": "¿Desde cuándo bajarán los precios de los combustibles en Guatemala por la exención de impuestos? Esto dice el Gobierno - Prensa Libre",
-        "titulo_es": "Gobierno anuncia exención de impuestos que reducirá precios de combustibles en Guatemala",
+        "titulo_es": "Gobierno anuncia exención de impuestos que bajará precios de combustibles",
         "medio": "Google News ES",
         "publicado_at": "2026-09-30T01:00:00-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 5,
-        "resumen_es": "El Gobierno eliminará impuestos a los combustibles, lo que reducirá su precio para los consumidores guatemaltecos.",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
+        "relevancia": 4,
+        "resumen_es": "El Gobierno anunció una exención de impuestos que reducirá el precio de los combustibles en Guatemala, bajando los costos para los consumidores.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
       },
       {
-        "id": 10,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Super-El-Nio-Could-Ease-Asias-LNG-Supply-Concerns.html",
-        "titulo": "Super El Niño Could Ease Asia’s LNG Supply Concerns",
-        "titulo_es": "Super El Niño Could Ease Asia’s LNG Supply Concerns",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-13T07:30:00-06:00",
-        "categoria": "otro",
+        "id": 1,
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQN3loTFhFUkdodXZRek5VQURrRVQ1Y3NOd0pIcXhlV2VWU09EMVlzZ2NpZzVUcGx1VkFGdFZkdEdfTXUwUjZFcTcydnVzTExtYTNRaWRHN1lfeGEwd2stQTNER2p1UHAzRjlEOVBxTzM5Qjc1bEYxUll2bFd4cTBTSUd2aDJXTkN1QUxmY3dpRlMtakZST2hURmRuVUR0YzhYR3JKTmloZHlHaWZRYWN4ams2Y2FUalhRNUd5X2dn?oc=5",
+        "titulo": "¿Puede Guatemala reemplazar los buses diésel por eléctricos? - Prensa Libre",
+        "titulo_es": "Guatemala evalúa reemplazar buses diésel por eléctricos",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-13T18:00:00-06:00",
+        "categoria": "demanda",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "The super El Niño is expected to raise the winter temperatures in South Korea, Japan, and parts of China, potentially easing the gas supply needs in these key Asian LNG importers and leaving more cargoes for Europe, which struggles to fill its gas storage sites to adequate levels for this time of year. The record El Niño weather pattern in the Pacific is expected to bring warmer winter weather in Japan, South Korea, Vietnam, Taiwan, Thailand, and parts of China, Bloomberg reports, citing major",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
-      },
-      {
-        "id": 3,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Arabia-Shoots-Down-Houthi-Missiles-as-Regional-Conflict-Escalates.html",
-        "titulo": "Saudi Arabia Shoots Down Houthi Missiles as Regional Conflict Escalates",
-        "titulo_es": "Arabia Saudí derriba misiles Houthi y el conflicto regional amenaza el suministro de energía",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-13T04:30:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Arabia Saudí interceptó misiles Houthi, intensificando la tensión que podría interrumpir flujos de petróleo y elevar los precios internacionales que paga Guatemala.",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
-      },
-      {
-        "id": 4,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Arabia-Plans-Massive-Expansion-of-Oil-Pipeline-to-Bypass-Hormuz.html",
-        "titulo": "Saudi Arabia Plans Massive Expansion of Oil Pipeline to Bypass Hormuz",
-        "titulo_es": "Arabia Saudí planea ampliar su oleoducto este‑oeste para evitar el estrecho de Hormuz",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-13T03:20:00-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "La ampliación del oleoducto aumentará su capacidad a 10 mmbpd, reduciendo la dependencia del estrecho de Hormuz y potencialmente estabilizando los precios del crudo importado.",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
+        "relevancia": 3,
+        "resumen_es": "Guatemala estudia sustituir autobuses diésel por eléctricos, lo que reduciría la demanda interna de diésel y podría presionar a la baja los precios locales.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
       },
       {
         "id": 11,
-        "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPX1hOQ0lrOXdzNThrdlVsaEstUXZjeE5uckN6UjhSYVgtbFJlbXVqek5MT2d0SjYtTnl2dG9oMEp0dmppOEY4SC1PalVDOU9RVWl5TUxWR19QcWVfT3BSY1hnWHFUR1BpRURQVTFoWVpoVjFKLWl3a1FBc1lZeXNEcU1vUklQWGhXOWFRSWpaNnEzc2p0aHdaZkxwekNpTzYzNUE?oc=5",
-        "titulo": "Muere segundo guardia, lesionado en ataque a refinería de Pemex - Amexi",
-        "titulo_es": "Muere segundo guardia, lesionado en ataque a refinería de Pemex - Amexi",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-12T23:16:50-06:00",
-        "categoria": "otro",
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/OPEC-Sees-Oil-Demand-Growth-Surging-to-26-Million-Bpd-in-2027.html",
+        "titulo": "OPEC Sees Oil Demand Growth Surging to 2.6 Million Bpd in 2027",
+        "titulo_es": "OPEC prevé crecimiento de demanda de petróleo a 2.6 mmbpd en 2027",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-13T15:30:00-06:00",
+        "categoria": "demanda",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Muere segundo guardia, lesionado en ataque a refinería de Pemex Amexi",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
+        "relevancia": 3,
+        "resumen_es": "OPEC proyecta un crecimiento de demanda de 2.6 millones de barriles diarios para 2027, lo que indica presión al alza sobre los precios internacionales que afectará a Guatemala.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
       },
       {
-        "id": 13,
-        "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNblpaM2cwMm1WbHU1TlNjdC01alljd1NqNkRjRjdsWnE2SlBNbFRlR3AyRTVyc0QzVnROOHNWSUEySGl5dFFzQUJKNDF6bmFZdVRlcWNlSXBqd045dHZTQjNISDBqbUt3aTFjWkQzZmowQnNFYzZmT0RhMFdQdmpTM3NKbmU0N2R0cEdEdDBreFVfX0ZocG5feDM5SFllOEhaTko1cmc0NlZrTjlGRVNDa0RBSldsYzBqODZwVlFSZE11c3N5YWZaMTRiSktSMjlXYzQ4?oc=5",
-        "titulo": "Precios del petróleo suben mientras ataques a Arabia Saudita eclipsan anuncios de Trump sobre suministro ruso - PortalPortuario",
-        "titulo_es": "Precios del petróleo suben mientras ataques a Arabia Saudita eclipsan anuncios de Trump sobre suministro ruso - PortalPo",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-12T19:00:07-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Precios del petróleo suben mientras ataques a Arabia Saudita eclipsan anuncios de Trump sobre suministro ruso <font color=\"#6f6f",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
-      },
-      {
-        "id": 14,
-        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOSUJHZmdtNzBaNVpScE45eVZOOEtsVldzSmdVT1FpQ3ZHQnRtZ0Z0NUNIaklzeVI0WXV1bVdMZDhGd3RTZFVzdlVPa1ZiS29FVGxvRDdKSVQxcEc0aXUwZ0NvS1RydHY2a2J4LUlVc3g3MmpiRFVjUXJUVGRVV3NBYzNia1NMa2tsZG9YMXpkMm9zS0djTHc2d2hGTFYxWEFtVHBKTW0wODIxQQ?oc=5",
-        "titulo": "Petróleo sube tras ataques hutíes a Arabia Saudita - Clarin.com",
-        "titulo_es": "Petróleo sube tras ataques hutíes a Arabia Saudita - Clarin.com",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-12T14:10:17-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Petróleo sube tras ataques hutíes a Arabia Saudita Clarin.com",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
-      },
-      {
-        "id": 16,
-        "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOV0laVDJsUXJ5N0hFeGlVcTgxeGpWYjAtNk4xNTVXQTJ5TFd4ajhuTi1qYTkyWmdqMW9sSlVmZ0Ywc2VWZzBOR1BCcFFoRm9Lc2ExaU9sc0UwbVEwX2hlOWMyZ1VfSUR4RW5GMlFxOTk5eF9CNUJjRTJwT2ZtejNMUG1XWFB4QnJMcl9uQXRQaUpWTkFxSGc?oc=5",
-        "titulo": "Según informan los medios estadounidenses: Trump está \"furioso\" por el ataque de Ucrania a la refinería de petróleo rusa. - Vietnam.vn",
-        "titulo_es": "Según informan los medios estadounidenses: Trump está \"furioso\" por el ataque de Ucrania a la refinería de petróleo rusa",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-12T02:56:55-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Según informan los medios estadounidenses: Trump está \"furioso\" por el ataque de Ucrania a la refinería de petróleo rusa. Vietnam.vn",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
-      },
-      {
-        "id": 17,
-        "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQTkM1S21lVUxRaF8tR1prTS1Va3MxY21KWHlXYVJld25UckUwaVhFc0dabjVNZVV5cHJpNHYxeFk2bUZNZUhuWUppZEw3U2x0VFN6RWF0V2p4UU9fOWRUNjB5bTN5VGZwZGhZX2VtM3BJQWI3UFgxUzZ3MExucTFOVl8xa1l0UzQ2aENMNXBhZ25SaENTam5YVF9n?oc=5",
-        "titulo": "FTSE 100 hoy: Acciones suben mientras el petróleo cae pese a ataques - Yahoo Finanzas",
-        "titulo_es": "FTSE 100 hoy: Acciones suben mientras el petróleo cae pese a ataques - Yahoo Finanzas",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-12T01:48:26-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "FTSE 100 hoy: Acciones suben mientras el petróleo cae pese a ataques Yahoo Finanzas",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
-      },
-      {
-        "id": 2,
+        "id": 3,
         "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZ2F1REJtMnRyV3U2dWlUeFpJYWk2YUp0Wng5dVd2T0ZlS3FYQnRCNzRBNmdkbDJ6aEVRcUY3bDdic181azdad3NmbEFLSzF3ZnFDNHlybnFHYlpNbi1MdWVIam9iMjV4cUNuTDA4SEZjRnhvN1RFWmpiNE1LakF0Tl9JbzYtYmNDZmRIZU4wNXFkdlk2RnFmMzlZbEwyM1p5Qm81dWR4Nm1XNC0x?oc=5",
         "titulo": "Combustibles en Guatemala: precios actuales y perspectivas para el 2027 - Prensa Libre",
-        "titulo_es": "Precios de combustibles en Guatemala y proyecciones hasta 2027",
+        "titulo_es": "Precios actuales y proyecciones de combustibles en Guatemala hasta 2027",
         "medio": "Google News ES",
         "publicado_at": "2026-09-29T01:00:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 3,
-        "resumen_es": "Se presentan los precios actuales y proyecciones hasta 2027, indicando posibles aumentos futuros que afectarán el costo de importación.",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
+        "resumen_es": "Se presentan los precios actuales de combustibles y proyecciones hasta 2027, indicando posibles variaciones que impactarán el mercado guatemalteco.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
       },
       {
-        "id": 43,
-        "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxPX21NcHVBOGlrWTdRbEZ5eG1iRzZqdlBEajhjNnlwaU01NmFyUjVkUmhnVFF0QVV4cFBtcFRUNWdmd2Q3a0x1ZHlZWk5WZFlQVVNzQ0FVVW5keDBQc3p3NHdGYzRFSHRQdFdzb25xOE5vVm9ENjlQeXhDTkJoSVpVT3lYc21uQjlQSUlGUHFqZ1BZcnRvQkRnRDI2S3hyR3ROc3g4ZEpTV0MzbkZSZk9xMkd1amhpWTZWLVNGT2s5dU1mS1F0TmdFbEE1U0VRWXd1M1JieGRmNE9lWGU4aUJETFQ2azFTUlRpYWE1WFA0UnlXZVU3LVMyYV9JM3NYZmdoZllJ?oc=5",
-        "titulo": "Oil prices mixed as US-Russia diesel deal hopes offset Saudi Yemen attacks - Central Oregon Daily",
-        "titulo_es": null,
+        "id": 12,
+        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNOVIwNmNCdG1jLWtWYkNTZW9EOGM1MnozMGlWTXNBVEFiaWlXU28yc3NjWVlXMkF0SXJJXzFlSllzZ24tRWVTTHhRcFN0RTk1NHlHWEwwQWN1SG5lWExtc1paNHhHNHhxa01uekw3Zk9BR3ZMNzQ0T0k1YkZlNXpVelU1MVB3VTl2c3dwWlZSOFRvNnhRWXZlTHpORXZoYnlCS2s3RXB5c2s1QXFwN1E?oc=5",
+        "titulo": "U.S. and NATO commander vows to thwart Moscow, warns Kyiv over refinery strikes - The Washington Post",
+        "titulo_es": "EE. UU. y OTAN advierten a Kiev sobre ataques a refinerías rusas",
         "medio": "Google News EN",
-        "publicado_at": "2026-10-13T11:31:22-06:00",
-        "categoria": null,
+        "publicado_at": "2026-10-12T22:51:50-06:00",
+        "categoria": "geopolitica",
         "pais": null,
-        "relevancia": null,
-        "resumen_es": "Oil prices mixed as US-Russia diesel deal hopes offset Saudi Yemen attacks &",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
+        "relevancia": 2,
+        "resumen_es": "EE. UU. y la OTAN advierten a Kiev sobre ataques a refinerías rusas, lo que podría afectar la oferta global de crudo y, en menor medida, los precios en Guatemala.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
       },
       {
-        "id": 44,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Argentina-Takes-Falklands-Oil-Fight-to-International-Tribunal.html",
-        "titulo": "Argentina Takes Falklands Oil Fight to International Tribunal",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-13T11:30:00-06:00",
-        "categoria": null,
+        "id": 15,
+        "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOV0laVDJsUXJ5N0hFeGlVcTgxeGpWYjAtNk4xNTVXQTJ5TFd4ajhuTi1qYTkyWmdqMW9sSlVmZ0Ywc2VWZzBOR1BCcFFoRm9Lc2ExaU9sc0UwbVEwX2hlOWMyZ1VfSUR4RW5GMlFxOTk5eF9CNUJjRTJwT2ZtejNMUG1XWFB4QnJMcl9uQXRQaUpWTkFxSGc?oc=5",
+        "titulo": "Según informan los medios estadounidenses: Trump está \"furioso\" por el ataque de Ucrania a la refinería de petróleo rusa. - Vietnam.vn",
+        "titulo_es": "Trump enfadado por ataque ucraniano a refinería rusa",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-12T02:56:55-06:00",
+        "categoria": "geopolitica",
         "pais": null,
-        "relevancia": null,
-        "resumen_es": "Argentina has moved its fight over Falklands oil from threats to the courtroom, asking an international maritime tribunal to halt development of Sea Lion, the islands’ first commercial oil project. The government filed for provisional measures with the International Tribunal for the Law of the Sea on Tuesday, seeking to stop British-authorized hydrocarbon activity in the Northern Falklands Basin. The specific project in question is Sea Lion, a 315-million-barrel development operated by Navitas P",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
+        "relevancia": 2,
+        "resumen_es": "Trump expresa enojo por el ataque ucraniano a una refinería rusa, reflejando tensiones que pueden influir en la estabilidad del suministro global de petróleo y, a largo plazo, en los precios en Guatemala.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
       },
       {
-        "id": 45,
-        "url": "https://oilprice.com/Energy/Natural-Gas/Chinas-3-Billion-Qatar-LNG-Deal-Raises-an-Awkward-Question.html",
-        "titulo": "China’s $3 Billion Qatar LNG Deal Raises an Awkward Question",
-        "titulo_es": null,
+        "id": 6,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Taiwan-Commits-Up-to-44-Billion-to-Alaska-LNG-Megaproject.html",
+        "titulo": "Taiwan Commits Up to $4.4 Billion to Alaska LNG Megaproject",
+        "titulo_es": "Taiwán invierte 4.4 mil millones en proyecto de LNG en Alaska",
         "medio": "OilPrice.com",
-        "publicado_at": "2026-10-13T11:00:00-06:00",
-        "categoria": null,
+        "publicado_at": "2026-10-14T02:15:00-06:00",
+        "categoria": "finanzas",
         "pais": null,
-        "relevancia": null,
-        "resumen_es": "Qatar’s highly sensitive geographical positioning -- between a western land border with Saudi Arabia and a northeastern maritime border with Iran -- has necessitated it treading a delicate diplomatic path between regional superpowers and their global superpower backers since it gained independence from being a British protectorate in 1971. For much of the period from the 1945 landmark relationship foundation deal between Riyadh and Washington was signed, as fully analysed in my latest book on th",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
-      },
-      {
-        "id": 8,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Dangote-Swings-to-47-Billion-Profit-Ahead-of-Africas-Biggest-IPO.html",
-        "titulo": "Dangote Swings to $4.7 Billion Profit Ahead of Africa’s Biggest IPO",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-13T10:30:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Nigeria’s Dangote refinery has gone from losing money to posting a $4.73 billion profit in less than a year, just as it asks investors for $1.6 billion in what would be Africa’s largest IPO. Dangote Petroleum Refinery reported net profit of $4.73 billion for the first nine months of 2026, reversing a $117.2 million loss during the same period last year. Revenue more than doubled to $22.48 billion from $9.19 billion. EBITDA jumped to $5.52 billion from $627.6 million as the refinery processed mor",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
-      },
-      {
-        "id": 46,
-        "url": "https://oilprice.com/Energy/Energy-General/Why-Diesel-Prices-Are-So-Much-Higher-Than-Gasoline.html",
-        "titulo": "Why Diesel Prices Are So Much Higher Than Gasoline",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-13T10:00:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "There was a time when diesel fuel was usually cheaper than gasoline in the United States. That relationship began to change about 20 years ago, and since then diesel has generally traded at a premium. Today, that premium is not just persistent but unusually large, which raises an obvious question: how did we get from gasoline typically costing more than diesel to diesel costing substantially more than gasoline? The answer has two parts. The first is structural and goes back to the mid-2000s, whe",
-        "fetched_at": "2026-10-13T11:55:08-06:00"
+        "relevancia": 1,
+        "resumen_es": "Taiwán invierte 4.4 mil millones en proyecto de LNG en Alaska, ampliando la oferta de gas natural, sin impacto directo en los combustibles importados por Guatemala.",
+        "fetched_at": "2026-10-14T04:55:02-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 10,
-      "total_hoy": 65,
+      "titulos_es_hoy": 15,
+      "total_hoy": 62,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
