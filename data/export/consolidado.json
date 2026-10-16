@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-10-16T04:54:41-06:00",
+  "actualizado_at": "2026-10-16T11:54:51-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-10-15",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-10-14",
         "precio": 34.89,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-16T04:53:33-06:00",
+        "fetched_at": "2026-10-16T11:53:30-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -1307,7 +1307,7 @@
             "fecha": "2026-10-14",
             "precio": 34.89,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-16T04:53:33-06:00",
+            "fetched_at": "2026-10-16T11:53:30-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1428,7 +1428,7 @@
             "fecha": "2026-10-14",
             "precio": 35.99,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-16T04:53:33-06:00",
+            "fetched_at": "2026-10-16T11:53:30-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1508,7 +1508,7 @@
         "fecha": "2026-10-14",
         "precio": 36.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-16T04:53:33-06:00",
+        "fetched_at": "2026-10-16T11:53:30-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -2802,7 +2802,7 @@
             "fecha": "2026-10-14",
             "precio": 36.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-16T04:53:33-06:00",
+            "fetched_at": "2026-10-16T11:53:30-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2923,7 +2923,7 @@
             "fecha": "2026-10-14",
             "precio": 37.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-16T04:53:33-06:00",
+            "fetched_at": "2026-10-16T11:53:30-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -3017,7 +3017,7 @@
         "fecha": "2026-10-15",
         "precio": 42.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-16T04:53:33-06:00",
+        "fetched_at": "2026-10-16T11:53:30-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -4315,7 +4315,7 @@
             "fecha": "2026-10-15",
             "precio": 42.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-16T04:53:33-06:00",
+            "fetched_at": "2026-10-16T11:53:30-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4444,7 +4444,7 @@
             "fecha": "2026-10-14",
             "precio": 43.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-16T04:53:33-06:00",
+            "fetched_at": "2026-10-16T11:53:30-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4536,9 +4536,9 @@
       "orden": 4,
       "actual": {
         "fecha": "2026-10-16",
-        "precio": 97.42,
+        "precio": 101.21,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-10-16T04:53:59-06:00",
+        "fetched_at": "2026-10-16T11:54:07-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5612,7 +5612,7 @@
         },
         {
           "fecha": "2026-10-16",
-          "precio": 97.42
+          "precio": 101.21
         }
       ],
       "mensual": [],
@@ -5633,7 +5633,7 @@
         },
         {
           "anio": 2026,
-          "promedio": 84.11,
+          "promedio": 84.13,
           "dias": 213,
           "meses": null,
           "fuente": "diario"
@@ -5644,9 +5644,9 @@
           "nombre": "Spot",
           "actual": {
             "fecha": "2026-10-16",
-            "precio": 97.42,
+            "precio": 101.21,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-10-16T04:53:59-06:00",
+            "fetched_at": "2026-10-16T11:54:07-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
@@ -5765,7 +5765,7 @@
             },
             {
               "fecha": "2026-10-16",
-              "precio": 97.42
+              "precio": 101.21
             }
           ]
         }
@@ -5811,7 +5811,7 @@
       }
     },
     "observaciones_7d": 44,
-    "notas_leidas": 120,
+    "notas_leidas": 122,
     "medios": [
       "dca.gob.gt",
       "elsalvador.com",
@@ -5827,33 +5827,20 @@
     ]
   },
   "noticias": {
-    "total": 63,
+    "total": 69,
     "top": [
       {
-        "id": 12,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Global-Fuel-Oil-Shortage-Deepens-as-Middle-East-and-Russia-Supplies-Collapse.html",
-        "titulo": "Global Fuel Oil Shortage Deepens as Middle East and Russia Supplies Collapse",
-        "titulo_es": "Escasez mundial de fuel oil se profundiza por caída de suministros",
+        "id": 4,
+        "url": "https://oilprice.com/Energy/Oil-Prices/Oil-Prices-Are-Stuck-at-105-as-Geopolitical-Risks-Mount.html",
+        "titulo": "Oil Prices Are Stuck at $105 as Geopolitical Risks Mount",
+        "titulo_es": "El crudo Brent se mantiene cerca de 105 dólares por riesgos geopolíticos",
         "medio": "OilPrice.com",
-        "publicado_at": "2026-10-16T01:00:00-06:00",
-        "categoria": "oferta",
+        "publicado_at": "2026-10-16T10:13:00-06:00",
+        "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "La escasez mundial de fuel oil se agudiza por la caída de suministros del Medio Oriente y Rusia, reduciendo la disponibilidad y elevando los precios que paga Guatemala por combustibles importados.",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
-      },
-      {
-        "id": 3,
-        "url": "https://oilprice.com/Energy/Crude-Oil/The-Diesel-Crunch-Will-Persist-Well-into-2027.html",
-        "titulo": "The Diesel Crunch Will Persist Well into 2027",
-        "titulo_es": "El déficit de diésel persistirá hasta 2027",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-15T17:00:00-06:00",
-        "categoria": "demanda",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "El déficit global de diésel persistirá hasta 2027, con suministros insuficientes frente a la demanda, manteniendo los precios del combustible altos para Guatemala.",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
+        "resumen_es": "El crudo Brent se mantiene cerca de 105 dólares tras ataques iraníes y tensiones en el estrecho de Hormuz; estos riesgos mantienen altos los precios internacionales que paga Guatemala.",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
       },
       {
         "id": 1,
@@ -5865,169 +5852,182 @@
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Los precios de los combustibles en Guatemala subieron entre el 12 y 15 de octubre, indicando una tendencia al alza que afectará a los consumidores locales.",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
+        "resumen_es": "Los precios de los combustibles en Guatemala aumentaron del 12 al 15 de octubre, indicando una tendencia al alza que afectará el costo al consumidor.",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
       },
       {
-        "id": 9,
-        "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE0zaThla0dqOHZ5ZFdfN3lqamw4MDNNOUhuOVhxUlhzLVViX1l3ZVdIV0R3NXJsU0lBeFZHYnVveW1HOGPSAUJBVV95cUxNdE1kMlZMSzBKaEFGT3dRaEd6WUQ3QjZ6c21hRnc4NExsYzBHVHFNbXNsNU9mQmhneEJyV21mQXJ4cmc?oc=5",
-        "titulo": "Ukraine Continues to Attack Russian Oil Refinery Despite US Demands - VOI.ID",
-        "titulo_es": "Ucrania prosigue ataques a refinerías rusas",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-16T03:18:09-06:00",
-        "categoria": "oferta",
+        "id": 7,
+        "url": "https://oilprice.com/Geopolitics/Europe/Ukraine-Defies-Trump-With-Renewed-Attacks-on-Russian-Oil-Infrastructure.html",
+        "titulo": "Ukraine Defies Trump With Renewed Attacks on Russian Oil Infrastructure",
+        "titulo_es": "Ucrania ataca la refinería de Ryazan en Rusia",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-16T08:00:00-06:00",
+        "categoria": "infraestructura",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Ucrania sigue atacando refinerías rusas, manteniendo la presión sobre la producción de crudo y elevando los precios internacionales que paga Guatemala.",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
+        "resumen_es": "Ucrania lanza ataques a una refinería en Ryazan, Rusia, interrumpiendo la producción de crudo; la reducción de oferta puede subir los precios internacionales que paga Guatemala.",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
+      },
+      {
+        "id": 10,
+        "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOS3VvbXFBQnpJYnhCWkRwWmFhczdEV0l1QTVfTE9iM0VTM0VUOE9FSFlEUmloTnVxeUNSbUViS0FzZVQ5eGlTT1Jna1hrVC1XQlNUeHNKSFJPbnNMN3VHbXcwYWZLU2Exd2hhSUFDOGVIWmJoaWpwRlh1Zk12TUZxUXY5Y19TMVlPZVFKUkpKZi1LQkJjM2pYLWZNb2FZeDVUeDVLbVRuT1UwNG80azRxMGsxaFZPeXpOUGxMY1Vxa1Q?oc=5",
+        "titulo": "Trump calificó de \"vergonzosos\" los renovados ataques de Ucrania contra las refinerías de petróleo rusas. - Vietnam.vn",
+        "titulo_es": "Trump calificó de \"vergonzosos\" los renovados ataques de Ucrania contra las refinerías de petróleo rusas. - Vietnam.vn",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-16T04:56:38-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Trump calificó de \"vergonzosos\" los renovados ataques de Ucrania contra las refinerías de petróleo rusas. Vietnam.vn",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
+      },
+      {
+        "id": 13,
+        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9PY0JFSm1hN3E1bHNMeWlVRmk1YUZ2RW83N2hEbmpHZkZlQTBIRzdPX3FjTnM5NDdNdVRrb2VpU1VubkowNHJjOG5fb0VfYmwyUVFNd0JoejRZUy1Z0gFiQVVfeXFMTTdNS3UzWWFzNEZsVjd0LUNtR3ZlWEFWb0pHcDdkZGg3YzZ3bjFEUVlvUkg5eTZDbE1kb0JDNjgyT2QyRnRBR3RaNDVDSWkyaVM5ZVBlV1Nna1lYVVU4Mnp6dGc?oc=5",
+        "titulo": "Por qué el internet de Starlink es clave en la guerra de drones de Ucrania contra Rusia - BBC",
+        "titulo_es": "Por qué el internet de Starlink es clave en la guerra de drones de Ucrania contra Rusia - BBC",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-16T03:58:25-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Por qué el internet de Starlink es clave en la guerra de drones de Ucrania contra Rusia BBC",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
       },
       {
         "id": 2,
         "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOZ0xhNUk0ekJtRzZZMjRQQUhPQTBEYVgxR2RGU3hiQi1GeVpXZXgzaTBad3o4TmZoNFM0d0NUT0I0TEtaMUxjT3FEdGdwb0Z1UXAtZ2hiVF9pcFM4MTdVUFJUVEJwamFydDFNaXBfb0pBS2xrcmFwb2p4TnFOSWw2NU51eE00N0h6S0dJVkt5QnNTT3gxWGRVNmViZG1wTHJ0WHc?oc=5",
         "titulo": "Drones have been attacking the Ryazan Oil Refinery for the second day in a row: the fire has been burning since last night - shelter.in.ua",
-        "titulo_es": "Drones atacan la refinería rusa de Ryazan y provocan incendio",
+        "titulo_es": "Drones atacan la refinería de Ryazan en Rusia y provocan incendio",
         "medio": "Google News EN",
         "publicado_at": "2026-10-16T01:26:35-06:00",
-        "categoria": "oferta",
+        "categoria": "infraestructura",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Drones atacan la refinería rusa de Ryazan provocando un incendio; la interrupción de la producción reduce la oferta mundial y puede elevar los precios en Guatemala.",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
-      },
-      {
-        "id": 4,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Ukraine-Strikes-Major-Russian-Oil-Refinery.html",
-        "titulo": "Ukraine Strikes Major Russian Oil Refinery",
-        "titulo_es": "Ucrania ataca una importante refinería rusa",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-15T13:30:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Ucrania lanzó un ataque con drones contra una importante refinería rusa, reduciendo la capacidad de producción y potencialmente elevando los precios del combustible importado por Guatemala.",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
-      },
-      {
-        "id": 7,
-        "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPZ05oMG1laEctM1Jab1g1NmctdXZ5anBqYnhBZzhySEpwQjBOYkVhd0xRc3BSZmx6bVRudGVwWmZqUWl3VmxOa0s2OTEtV3JHYnc4Y0haV1RIcUpfYm4tVnhCWnNlNi04STBPYmEtV21BQkpWNUNiMU93UnlqbVNQbGNSdGRJQ1FCYmIzbFYxOFNQcUpnU2x3U1ZaMjRET1NzcHFHSnB3?oc=5",
-        "titulo": "Russia talks up refinery attack as Trump blames Ukraine for expensive fuel - The Mighty 790 KFGO",
-        "titulo_es": "Rusia destaca ataque a refinería y EE. UU. culpa a Ucrania",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-16T04:51:34-06:00",
-        "categoria": "diplomacia",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Rusia enfatiza el ataque a su refinería mientras EE. UU. culpa a Ucrania por el alza del combustible, lo que podría influir en políticas que afecten los precios en Guatemala.",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
-      },
-      {
-        "id": 11,
-        "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOcVNsRkkzZm8yWlo5dVdlMzB4akN6dTI3bDV4MExWVHFsX3ZhdzYtdWl5ZllSRmMwbjNNM0RiZUNhZTZjVTZCYlQ3TE1obk43bkJ3ZnJzcW1ENW8xdGRqcGtqUVZ0RGRyUE9BSjBKRnpIMHZReDBoRFJLQ0VTNW94WVBrVW9YR3JoV1p5REtzMnN5Rmd3WkkwLWFid0FVbzg?oc=5",
-        "titulo": "Trump criticó a Zelensky por el ataque de Ucrania contra las refinerías de petróleo rusas. - Vietnam.vn",
-        "titulo_es": "Trump critica a Zelensky por ataques a refinerías rusas",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-16T01:19:53-06:00",
-        "categoria": "diplomacia",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Trump critica a Zelensky por los ataques a refinerías rusas, generando tensiones que podrían influir en los precios internacionales del petróleo para Guatemala.",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
-      },
-      {
-        "id": 13,
-        "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQT0txOHZNZmNybzloUlRnNFVDQTNLUEZKVlJsMHV2NWFQV21lMFFnSlpLRWZnTDl1VERFdHN4ekUtUno3ZEd2Y0RKZVZjamhMWVZPMWNqQXNwOW9wQ1BfeV9oQ3NXcXlWMEtZQXlIc2x6WTRCcENyQW9DWm5BSVJqRk5IbWRnRHhDMk9JRGd1UkFwX2t0QzRpVmFETEdiLXl3WUZGYjdpWjhzSjVXVy1XRF80ZWNTb2ZlMjNUQU80NmtOSDFyQmNiTkpLY0VhVklrY2VN?oc=5",
-        "titulo": "Ucrania reanuda los ataques contra refinerías de petróleo rusas; Zelenskyy afirma sentirse traicionado por Trump. - Vietnam.vn",
-        "titulo_es": "Ucrania reanuda ataques a refinerías rusas y Zelenskyy se siente traicionado",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-16T00:02:28-06:00",
-        "categoria": "diplomacia",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Ucrania retoma los ataques a refinerías rusas mientras Zelenskyy se siente traicionado por Trump, lo que podría mantener la presión sobre los precios internacionales del petróleo para Guatemala.",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
-      },
-      {
-        "id": 8,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/South-Korea-Turns-Back-to-Coal-as-LNG-Crisis-Deepens.html",
-        "titulo": "South Korea Turns Back to Coal as LNG Crisis Deepens",
-        "titulo_es": "Corea del Sur recurre al carbón por crisis de LNG",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-16T04:30:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Corea del Sur recurre al carbón ante la escasez y altos precios del LNG, señalando presión en los mercados energéticos que podría repercutir en los costos de combustibles importados por Guatemala.",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
+        "resumen_es": "Drones atacan la refinería de Ryazan en Rusia provocando incendio; la interrupción de producción puede reducir la oferta mundial y elevar precios de importación para Guatemala.",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
       },
       {
         "id": 5,
-        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOMDZnYTJXZGJLWUxwUVFaQTljN21WS0hPOHdmdVlraFN4eEM0MjYzNTFHc1V3T201MUd2elJHazRXSjROdEdKNHF1UjZpSHQ3OVVfTHFuRFNOdVhMRWhUcjNiVlZ3NklHNmpDQ2p6cG5zNUFKM0Q3cU5UN1ljY0oyaUVoUTBCc0lvQjJ0ajZZa0hkUVNDczV0Z0VUYlJDTF94?oc=5",
-        "titulo": "Syrian gas pipeline targeted in another sabotage attack - Daily Sabah",
-        "titulo_es": "Sabotaje afecta gasoducto sirio",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-15T12:35:00-06:00",
-        "categoria": "infraestructura",
+        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOVTlBdWJETmhzN0IzNi1JZl9QRUlBd3V6d0MxNkZCemlwT2xHRWVSZDQtdnl6R0EtUHBZQVg4YnUxRWZXTWRFUk5VZVZlaUwtUHA3TDJrdkNJbVRQRHdUcEVkaVRlLUt6X1J4eU4tMzF2TlJfX0VpX1lDMFR5T0t3Q3NkVndLOE5rQVp0SjJERlJSTFZhNV9XS19GNzF1a0xmT2gwRU9tdjhkT01WZ1pkRUdxUjdObW5YanladDhhQVg3a3BuZm9J?oc=5",
+        "titulo": "Rusia destaca ataque a refinería mientras Trump culpa a Ucrania por el encarecimiento de los combustibles - Forbes México",
+        "titulo_es": "Rusia denuncia ataque a refinería y Trump culpa a Ucrania del alza de combustibles",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-16T08:57:00-06:00",
+        "categoria": "diplomacia",
         "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Un sabotaje dañó un gasoducto sirio, interrumpiendo el suministro regional de gas; el impacto sobre los precios de combustibles en Guatemala es limitado.",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
+        "relevancia": 3,
+        "resumen_es": "Rusia señala un ataque a una refinería y Trump culpa a Ucrania del alza de combustibles; la disputa política puede influir en sanciones que afecten los precios de importación guatemaltecos.",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
+      },
+      {
+        "id": 8,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Iran-War-Set-To-Push-PetroChinas-Trading-Profit-to-Record-3-Billion.html",
+        "titulo": "Iran War Set To Push PetroChina’s Trading Profit to Record $3 Billion",
+        "titulo_es": "Crisis en Irán lleva a PetroChina a récord de ganancias en trading",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-16T07:30:00-06:00",
+        "categoria": "finanzas",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "La crisis en Irán impulsa a PetroChina a registrar ganancias récord en trading, reflejando el aumento de precios del crudo; este movimiento indica presión al alza que afecta los precios de importación guatemaltecos.",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
       },
       {
         "id": 6,
-        "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPaHR3Rl95d3ROTUdWeTVFM1hoMmVWaUlqTTE4UHpoUUlVQ2ZNeE1taUNwQVhXU0g1WTlucU1mampncWhRWmhfeldTRHZ5TS1BSUFFU1U1M25uanUzSFJ0TFZtbHlyUUw0ZFJtMVE3Q2dJb19PbEZiOEFwWm9zaFdVczNubDQ3LThmTUhNUE5sWFZzZEpLU29IeDlfYW02WDRiS0FPbElqVHljRnQtOHFYSV9TVno4VUFsbENZWQ?oc=5",
-        "titulo": "Explosion hits Syria gas pipeline in latest attack on energy infrastructure - Arab News",
-        "titulo_es": "Explosión daña gasoducto en Siria",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-15T11:25:33-06:00",
-        "categoria": "infraestructura",
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Global-Gas-Crunch-Makes-Europes-Remaining-Coal-Plants-Profitable.html",
+        "titulo": "Global Gas Crunch Makes Europe’s Remaining Coal Plants Profitable",
+        "titulo_es": "Escasez de gas LNG vuelve rentables las plantas de carbón en Europa",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-16T08:30:00-06:00",
+        "categoria": "oferta",
         "pais": null,
         "relevancia": 2,
-        "resumen_es": "Una explosión golpeó un gasoducto en Siria, provocando una interrupción local del suministro de gas con escaso efecto directo en Guatemala.",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
+        "resumen_es": "La escasez mundial de gas LNG vuelve rentables las plantas de carbón en Europa; la presión sobre el gas eleva precios internacionales, lo que puede repercutir en los costos de importación de energía en Guatemala.",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
       },
       {
-        "id": 31,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/India-Slashes-Diesel-Export-Tax-as-Global-Fuel-Crunch-Deepens.html",
-        "titulo": "India Slashes Diesel Export Tax as Global Fuel Crunch Deepens",
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOMDZnYTJXZGJLWUxwUVFaQTljN21WS0hPOHdmdVlraFN4eEM0MjYzNTFHc1V3T201MUd2elJHazRXSjROdEdKNHF1UjZpSHQ3OVVfTHFuRFNOdVhMRWhUcjNiVlZ3NklHNmpDQ2p6cG5zNUFKM0Q3cU5UN1ljY0oyaUVoUTBCc0lvQjJ0ajZZa0hkUVNDczV0Z0VUYlJDTF94?oc=5",
+        "titulo": "Syrian gas pipeline targeted in another sabotage attack - Daily Sabah",
+        "titulo_es": "Sabotaje afecta el gasoducto sirio",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-15T12:35:00-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "Un sabotaje afecta el gasoducto sirio, reduciendo el suministro regional de gas; aunque indirecto, podría elevar precios del gas y del petróleo, impactando ligeramente a Guatemala.",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
+      },
+      {
+        "id": 34,
+        "url": "https://oilprice.com/Energy/Energy-General/US-Oil-Drillers-Back-Off-Even-As-Prices-Soar.html",
+        "titulo": "U.S. Oil Drillers Back Off Even As Prices Soar",
         "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-10-16T03:30:00-06:00",
+        "publicado_at": "2026-10-16T11:29:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "India has nearly halved its export duty on diesel for the next two weeks while it hiked the levy on gasoline exports fivefold, effective October 16. The lower diesel export levy could encourage additional supply to the international market, which is reeling from a diesel crunch and price shocks, while the hike in the gasoline export duty appears to be intended to discourage gasoline exports. India reviews its export duty policy every fortnight to account for the prevailing domestic and internati",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
+        "resumen_es": "The total number of active drilling rigs for oil and gas in the United States remained unchanged this week, according to new data that Baker Hughes published on Friday, with the total rig count in the US staying at 603, up 55 from this same time last year. The number of active oil rigs fell by 3, to 459 during the latest reporting period, according to the data. This is 41 above this same time last year. The number of gas rigs rose by 1 to 133, which is 12 more than this time last year. Miscellan",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
       },
       {
-        "id": 32,
-        "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOOGlmVmZvMDNPb3VjRGN2ckNvY1ZaaHRxQmdENlI4U1hLX2tNZlVHR2lzdEt1cTN1RnZldFQwRlFzMW5jMkNsbXlYYVhmWktsRXBtdU1EN0E2ODFpWWNtenBSSjVIYS1QWHluTzFiT3BiV0pzbl9IVEZHcmNWZGEyUWUtYXFONDhBYURjdHc5WDdzZFlEZ042YVJkMUFiaTNQX0hTd01hZFdqMG9yNXIzQ0ZFUGs3cms?oc=5",
-        "titulo": "‘We’re done’: Ukraine resumes strikes on Russian oil refineries as anger at Trump mounts - NBC News",
+        "id": 35,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Equatorial-Guinea-Rewrites-Oil-Law-After-Production-Collapses-85.html",
+        "titulo": "Equatorial Guinea Rewrites Oil Law After Production Collapses 85%",
         "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-16T03:22:00-06:00",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-16T10:30:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "‘We’re done’: Ukraine resumes strikes on Russian oil refineries as anger at Trump mounts NBC News",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
+        "resumen_es": "Equatorial Guinea will approve a new hydrocarbon law on Monday after crude production collapsed to just 20,000 barrels per day in September, down from roughly 140,000 bpd in 2020. The 120,000-bpd loss has reduced OPEC’s smallest producer to a fraction of its former output and contributed to an economy the International Monetary Fund expects to shrink 1.7% this year. Hydrocarbons Minister Antonio Oburu Ondo said the new law will make contractual terms more flexible and offer oil companies a wider",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
       },
       {
-        "id": 33,
-        "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9OeTc1VE5lcEx0QzNhVlh6TnBVZUhfdi1MR0xZQnJOLWo2U3dHb09ucVhPNXctSTFXNTF6R3EwZEJXSl96SF9zS2FPUWFwcHpHeFVMaGtUckZiaGIydHc1SFMwT3U1R1h5WnMtY2RGUkdtYm1jV2VUMWFB?oc=5",
-        "titulo": "Saudis Accuse Iran Of Encouraging Houthi Attacks On Riyadh - Radio Free Europe/Radio Liberty",
+        "id": 36,
+        "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOX1hmREthUWlLd1pQZC1aUDJkU01kQzAyb2RFZkI0WUJiMzN1NmZraFlVdGl5LXBtZ2UwLUJGOW5uRG5sWXlBUHlXc3pYVThGbzBkMlJyekxFRHZqckFJd1NOTWU4cElUYWk5TlRlWkVLSEFFQWE5S3E5RmZmSm1ENDlWYlhMUWF4SWpVeU5xM2FxTzNOVFBNU0lYRnJfNF9fT1E3bEM5X0NYa0lQbmVZS2lzam5MMlJ0cXdzN0kyWmtDd2NLUEdGdGhLblRPNjZsLVJUUXpYQ0FYZWpwVF8xQ21uMUJtOWd6YVNIaWZFQXZsMXBUeS05c0Y5VzQ?oc=5",
+        "titulo": "Trump quiere frenar los ataques de Ucrania contra el petróleo ruso. Ahora una decisión tomada en Washington está complicando su defensa - Gizmodo en Español",
         "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-16T00:55:30-06:00",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-16T10:21:34-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "Saudis Accuse Iran Of Encouraging Houthi Attacks On Riyadh Radio Free Europe/Radio Liberty",
-        "fetched_at": "2026-10-16T04:54:41-06:00"
+        "resumen_es": "Trump quiere frenar los ataques de Ucrania contra el petróleo ruso. Ahora una decisión t",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
+      },
+      {
+        "id": 37,
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOV2lGT0kxWDBzNTJiVmJEdWV4TkR5N19kajA5aW94cTg0YjlfYWNUX0ZKZVA0eDFWRDZ1a194NWNtczA3MmZ3aEVRS041QVhwMjJyM0VDWVVvUTczWThnTTNhWVY4aVc1WC1QOU1CV1VFajRKUVYtQzNiVUszYnFZX1ptZ3Y?oc=5",
+        "titulo": "Estados Unidos exige que Ucrania deje de atacar las refinerías de petróleo rusas. - Vietnam.vn",
+        "titulo_es": null,
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-16T09:10:36-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Estados Unidos exige que Ucrania deje de atacar las refinerías de petróleo rusas. Vietnam.vn",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
+      },
+      {
+        "id": 56,
+        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNdkFPSkx6UEp5R2NaRkxRRFViX3hhOFQ0ajM3VWxDZGVTajdSUkdoOUwtS1l3Y1ZmeFJBcXh0ME0yRzFZVEVYY1Vjc0RpOTRWbWd6Yk5yRTJqVGVKYl82ZzRxSkZyUWNMTjVTSjR1UUJxanVkX3ZibHhMRW0zd3pKS21vLWdXdjVQM2VzQ3AzeHpSSzFjZWJIaUlfZlBmWHhiN1JMblNSdWJPUzV0SndHT2t4aEQ5Zw?oc=5",
+        "titulo": "Oil prices head for weekly gains amid Middle East risks, US inventory draw - Anadolu Ajansı",
+        "titulo_es": null,
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-16T07:49:28-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Oil prices head for weekly gains amid Middle East risks, US inventory draw Anadolu Ajansı",
+        "fetched_at": "2026-10-16T11:54:51-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 13,
-      "total_hoy": 63,
+      "titulos_es_hoy": 10,
+      "total_hoy": 69,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
