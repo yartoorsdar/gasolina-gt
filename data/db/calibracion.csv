@@ -42,3 +42,4 @@ fecha,producto,modalidad,ref_precio,ref_fuente,ref_previo,n_votos,n_coincide,n_o
 2026-10-16,diésel,autoservicio,,,49.4,1,1,0,0,0,0,0,,,,,1.0,,,sin,0,,13:57,
 2026-10-16,regular,autoservicio,,,43.29,1,1,0,0,0,0,0,,,,,1.0,,,sin,0,,13:57,
 2026-10-16,superior,autoservicio,,,45.29,1,1,0,0,0,0,0,,,,,1.0,,,sin,0,,13:57,
+2026-10-17,superior,autoservicio,,,45.29,2,1,1,0,0,0,0,35.89,0.0,1.0,,0.5,,,sin,0,,13:20,
