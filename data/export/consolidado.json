@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-10-23T11:55:32-06:00",
+  "actualizado_at": "2026-10-24T04:54:27-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-10-21",
   "productos": {
@@ -13,14 +13,10 @@
         "fecha": "2026-10-19",
         "precio": 34.21,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-23T11:53:25-06:00",
+        "fetched_at": "2026-10-24T04:53:24-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-10-23",
-          "precio": 27.58
-        },
         {
           "fecha": "2025-10-24",
           "precio": 27.58
@@ -1283,7 +1279,7 @@
             "fecha": "2026-10-19",
             "precio": 34.21,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-23T11:53:25-06:00",
+            "fetched_at": "2026-10-24T04:53:24-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1306,10 +1302,6 @@
             ]
           },
           "historial": [
-            {
-              "fecha": "2026-09-23",
-              "precio": 43.29
-            },
             {
               "fecha": "2026-09-24",
               "precio": 43.29
@@ -1350,7 +1342,7 @@
             "fecha": "2026-10-14",
             "precio": 35.99,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-23T11:53:25-06:00",
+            "fetched_at": "2026-10-24T04:53:24-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1402,14 +1394,10 @@
         "fecha": "2026-10-21",
         "precio": 35.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-23T11:53:25-06:00",
+        "fetched_at": "2026-10-24T04:53:24-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-10-23",
-          "precio": 29.09
-        },
         {
           "fecha": "2025-10-24",
           "precio": 29.09
@@ -2680,7 +2668,7 @@
             "fecha": "2026-10-21",
             "precio": 35.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-23T11:53:25-06:00",
+            "fetched_at": "2026-10-24T04:53:24-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2703,10 +2691,6 @@
             ]
           },
           "historial": [
-            {
-              "fecha": "2026-09-23",
-              "precio": 45.29
-            },
             {
               "fecha": "2026-09-24",
               "precio": 45.29
@@ -2755,7 +2739,7 @@
             "fecha": "2026-10-19",
             "precio": 37.11,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-23T11:53:25-06:00",
+            "fetched_at": "2026-10-24T04:53:24-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2815,14 +2799,10 @@
         "fecha": "2026-10-19",
         "precio": 41.36,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-23T11:53:25-06:00",
+        "fetched_at": "2026-10-24T04:53:24-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-10-23",
-          "precio": 25.89
-        },
         {
           "fecha": "2025-10-24",
           "precio": 25.89
@@ -4089,7 +4069,7 @@
             "fecha": "2026-10-19",
             "precio": 41.36,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-23T11:53:25-06:00",
+            "fetched_at": "2026-10-24T04:53:24-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4112,10 +4092,6 @@
             ]
           },
           "historial": [
-            {
-              "fecha": "2026-09-23",
-              "precio": 49.4
-            },
             {
               "fecha": "2026-09-24",
               "precio": 49.4
@@ -4164,7 +4140,7 @@
             "fecha": "2026-10-19",
             "precio": 42.64,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-23T11:53:25-06:00",
+            "fetched_at": "2026-10-24T04:53:24-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4221,17 +4197,13 @@
       "unidad": "USD/barril",
       "orden": 4,
       "actual": {
-        "fecha": "2026-10-23",
-        "precio": 103.13,
+        "fecha": "2026-10-24",
+        "precio": 103.2,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-10-23T11:54:00-06:00",
+        "fetched_at": "2026-10-24T04:53:53-06:00",
         "incluye_impuestos": null
       },
       "historial": [
-        {
-          "fecha": "2025-10-23",
-          "precio": 61.17
-        },
         {
           "fecha": "2025-10-24",
           "precio": 61.7
@@ -5307,6 +5279,10 @@
         {
           "fecha": "2026-10-23",
           "precio": 103.13
+        },
+        {
+          "fecha": "2026-10-24",
+          "precio": 103.2
         }
       ],
       "mensual": [],
@@ -5327,8 +5303,8 @@
         },
         {
           "anio": 2026,
-          "promedio": 84.58,
-          "dias": 220,
+          "promedio": 84.66,
+          "dias": 221,
           "meses": null,
           "fuente": "diario"
         }
@@ -5337,18 +5313,14 @@
         "spot": {
           "nombre": "Spot",
           "actual": {
-            "fecha": "2026-10-23",
-            "precio": 103.13,
+            "fecha": "2026-10-24",
+            "precio": 103.2,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-10-23T11:54:00-06:00",
+            "fetched_at": "2026-10-24T04:53:53-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
           "historial": [
-            {
-              "fecha": "2026-09-23",
-              "precio": 90.7
-            },
             {
               "fecha": "2026-09-24",
               "precio": 93.3
@@ -5468,6 +5440,10 @@
             {
               "fecha": "2026-10-23",
               "precio": 103.13
+            },
+            {
+              "fecha": "2026-10-24",
+              "precio": 103.2
             }
           ]
         }
@@ -5513,7 +5489,7 @@
       }
     },
     "observaciones_7d": 29,
-    "notas_leidas": 130,
+    "notas_leidas": 132,
     "medios": [
       "dca.gob.gt",
       "elsalvador.com",
@@ -5530,207 +5506,207 @@
     ]
   },
   "noticias": {
-    "total": 50,
+    "total": 51,
     "top": [
+      {
+        "id": 7,
+        "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOQXhxcHpLMGVfU0xUazZ3YXAwMm1WRS05NU5lcTlSa3FqM3ZWVFZSM3pqUVZyZU0zWUY4V1JMX3hERERsUjNWamctV0VEaU5uZzN3TFVKc2hRczlFS2g0X0hESktzbnJocHNqSFYzLVNsVzNDRGVZWkJDZW4wTnMzakRLUHkteGp6VDhyaTRDUjdCZ2dnXzgzMWJfQnAxQlN2aDJBZXZWaHBGMHhKX2VHWXVJNkJIWGFrQTJGRnNpMA?oc=5",
+        "titulo": "Middle East war: Trump accuses Iran of raising oil prices as Saudi Aramco evacuates headquarters amid Houthi attacks - Gulf News",
+        "titulo_es": "Trump culpa a Irán y Saudi Aramco evacua sede por ataques hutíes",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-22T21:34:14-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Trump acusó a Irán de inflar precios del petróleo mientras Saudi Aramco evacua su sede por ataques hutíes, lo que podría elevar los precios internacionales y repercutir en Guatemala.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
+      },
+      {
+        "id": 8,
+        "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPOVo5NGVvb09wSzBSTFVOa21PVVRNWWlEYUd1ZEU2U0tjTm55R3hYQ2Ezd1lUWUYwbFNpVUhJVDBxNlZaamJKaDJvblV1dl83LVhSX21rMkZuUXQtWFZmZmpZbXRrMkwwRzloVnA0QUs0cjN5MXNiZDBKR2MwaW9Sa1BKUGlaRUlQeG5PYnNPcTQ3YXZFc3QybjE1ZmVCYVJmY0doag?oc=5",
+        "titulo": "Iran says 7 oil tankers attacked in the Strait of Hormuz as fears grow of a return to war - AP News",
+        "titulo_es": "Irán reporta ataque a siete petroleros en el estrecho de Hormuz",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-22T12:55:00-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Irán informó que siete petroleros fueron atacados en el estrecho de Hormuz, una zona clave de tránsito que, si se interrumpe, puede encarecer el crudo importado por Guatemala.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
+      },
       {
         "id": 1,
         "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPWFJYX1dLRlhNS2xFNm9GeW1MT2l3VVc0WFhrNzd4UVRyZFBxU3NTYVdlUVBEZUg2azRTaDR2Qmw2cnlab29wX0RiZFVjWXB1dHlkQVZSZnI0TzNaMUJ2ZU16ZGdtekhYZUpSUEtoclJxY2ZWSmtfT3N1Y29xNGdoQWtuVVRELWVxNzBKVGtIS2Zwck9vaHJNMkg0ekRfT0xjSGUwNnpwZWtqMDZCNlFoNEJnTTdXMThFUkVJNFBHSU41eGJrYWtkeVItWDdoVUQ0S1V1ZmtmZy1lMGc0d1lCa2lPZzAxMnBldVRv?oc=5",
         "titulo": "Diésel y gasolinas apuntan a una rebaja en Guatemala: estos serían los precios por galón para el domingo 18 de octubre - Prensa Libre",
-        "titulo_es": "Guatemala reduce precios de diésel y gasolina para el 18 de octubre",
+        "titulo_es": "Diésel y gasolina bajarán en Guatemala el 18 de octubre",
         "medio": "Google News ES",
         "publicado_at": "2026-10-18T06:10:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "El gobierno anunció una rebaja del precio del diésel y la gasolina para el 18‑oct, lo que reducirá el costo por galón para los consumidores.",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
+        "resumen_es": "Los precios de diésel y gasolina bajarán en Guatemala el domingo 18 de octubre, reduciendo el costo para los consumidores.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
       },
       {
-        "id": 4,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/6-Million-Barrels-in-Two-Minutes-Draws-CFTC-Scrutiny.html",
-        "titulo": "6 Million Barrels in Two Minutes Draws CFTC Scrutiny",
-        "titulo_es": "6 millones de barriles en dos minutos atraen el escrutinio de la CFTC",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-23T11:20:00-06:00",
-        "categoria": "otro",
+        "id": 2,
+        "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPNHNHUEd0MnlRRjZfM1FNeWtFUmVzd1Bwb3BMZVhQOWNsYkdmYTdzcjVCZUUtdldWV1VlMVZfaEhzNW51LWRjb2VMb3hQUHlfVzlVTmktbi05UHJDZE1mRnhGdkVVYzNMeG5QSHJ0VTcwZHF6dWtKSFZkdEZ2bzU1Tmc1Qm10Sk1xYzdCRDRraFI2SmtpMzgxQ2hrZDA0RkFxanY0WHZYbjNOY2JJekU3STd4aGNRRG9xWURuZUlrMmFqUG9ZZndWVjMzcEtrNmRLZDBVcDU0dmZtYmZB?oc=5",
+        "titulo": "Precios de combustibles en Guatemala suben entre el 12 y 15 de octubre: ¿qué se prevé para los próximos días? - Prensa Libre",
+        "titulo_es": "Suben precios de combustibles en Guatemala del 12 al 15 de octubre",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-14T01:00:00-06:00",
+        "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Los operadores de petróleo vendieron futuros equivalentes a al menos 6 millones de barriles de crudo en solo dos minutos el 23 de marzo, poco antes de que el presidente Donald Trump retrocediera ante las amenazas de atacar las centrales eléctricas iraníes. Ahora, el regulador federal que supervisa esas operaciones dice que ha estado investigando la actividad. El presidente de la Comisión de Comercio de Futuros de Productos Básicos, Michael Selig, dijo el viernes que la aplicación de la agencia",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
+        "relevancia": 5,
+        "resumen_es": "Los precios de combustibles subieron del 12 al 15 de octubre y se espera que continúen al alza, impactando el gasto de los guatemaltecos.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
       },
       {
-        "id": 5,
-        "url": "https://oilprice.com/Energy/Energy-General/Space-War-Fears-Rise-as-Russian-Satellite-Makes-Dangerous-Maneuver.html",
-        "titulo": "Space War Fears Rise as Russian Satellite Makes Dangerous Maneuver",
-        "titulo_es": "Los temores de guerra espacial aumentan a medida que el satélite ruso realiza maniobras peligrosas",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-23T10:00:00-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Funcionarios estadounidenses acusaron públicamente a Rusia de amenazar a un satélite comercial operado por Finlandia que proporciona imágenes e inteligencia a Ucrania y otras naciones, calificando la medida de \"deliberadamente imprudente\". \"En respuesta a las acusaciones, hechas durante un debate de las Naciones Unidas el 21 de octubre, Rusia describió ampliamente las afirmaciones de Estados Unidos como\" absurdas \"y acusó a Washington de su propia\" agresiva ambicia espacial militar",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-India-Strikes-Natural-Gas-in-Shallow-Offshore-Basin.html",
-        "titulo": "Oil India Strikes Natural Gas in Shallow Offshore Basin",
-        "titulo_es": "Oil India alcanza el gas natural en una cuenca poco profunda en alta mar",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-23T08:30:00-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El explorador estatal Oil India Limited (OIL) ha encontrado gas natural en una formación previamente inexplorada en la cuenca poco profunda de Krishna-Godavari, dijo la compañía india el viernes. PETRÓLEO ha hecho el descubrimiento en el pozo de evaluación Godavari-1 en la formación Matsyapuri en la cuenca Krishna-Godavari frente a la costa este de la India, registrando un flujo de prueba máximo de 200,000 metros cúbicos estándar por día (SCMD). La compañía",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
-      },
-      {
-        "id": 7,
-        "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPbjhUWEhFUEhXV2ZVbHVLbmtmUVdDeUxTRzlsZEdYY3JYd09YdVBYOTE0RVFlYnZZUkNNSmZ2MkRTamo3c0g4bTJrNllYbWpXWXBVMHl2MnNrNnlwVGJMdWYwN3I0alFzaTE4M2FXdWM5WEp2ZXFLWHdDUGRsOGRQWG53R2hwTTg5b1RqenVCNkEyd2NzZ3lmdm8yQWRBUQ?oc=5",
-        "titulo": "Oil price rises above $117 a barrel amid fears US will renew strikes on Iran - The Guardian",
-        "titulo_es": "El precio del petróleo sube por encima de los 117 $ el barril en medio de temores de que Estados Unidos renueve los ataq",
+        "id": 9,
+        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQSkEyT2MxcnpyTV9nYUk1TXh1WlV5cUc5NWd1b1FZVjM3Q21KY1cwS1FuLWFsaGNVWTlHZzBuU2VxckxiLXdRcjZuQWliQVY5dTUwUG42RkJfZEpid2l6c3FQcmsxbi1BUU9kWUg2OEFEQlExTF9SdWRjdFYtamVfbVZ2bUZFZXhHTlRTTnRhZk0zaTdYaHZCTEdxTGVvM1RfbVFGX01vczM?oc=5",
+        "titulo": "Iran threatens to strike oil and AI facilities across Gulf if US and Israel renew attacks - The Guardian",
+        "titulo_es": "Irán advierte ataques a instalaciones petroleras del Golfo ante acciones de EE. UU. e Israel",
         "medio": "Google News EN",
-        "publicado_at": "2026-10-23T05:35:00-06:00",
-        "categoria": "otro",
+        "publicado_at": "2026-10-22T12:12:00-06:00",
+        "categoria": "geopolitica",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "El precio del petróleo sube por encima de los 117 $ el barril en medio de temores de que Estados Unidos renueve los ataques contra Irán The Guardian",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
+        "resumen_es": "Irán amenazó con atacar instalaciones petroleras y de IA en el Golfo si EE. UU. e Israel continúan los ataques, lo que podría desestabilizar el suministro de crudo y elevar precios en Guatemala.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
+      },
+      {
+        "id": 10,
+        "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbWdMUzNWQmZTODNaWmpQZWJZbG8xT2J1ZjhVRnV6U0pDdXpzZUVMbE8yUjNoYjBYSXN2U3RnMnd0SWx0YXpBQjBVYlFjb3dxNkNRS003Q0FuMkNjOTBCajRmVXl5RXZSY2RLblR5NERfNURTOUZVSUZ3VDBOQzZjOXU2M1lRcUFMWXk4VHktN1l5ZkQ4SzJ5R1dhUXRHM3JYWDRQU3FjcUZFNXlvYzljdVc0RWR1TlU?oc=5",
+        "titulo": "Petróleo de Texas sube a US$99.61 por barril tras ataques en Arabia Saudí - Prensa Libre",
+        "titulo_es": "Crudo de Texas sube a 99,61 USD tras ataques en Arabia Saudí",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-22T08:55:36-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El crudo de Texas subió a 99,61 USD por barril tras ataques en Arabia Saudí, impulsando los precios internacionales que impactan el costo de los combustibles en Guatemala.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
+      },
+      {
+        "id": 13,
+        "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQYjN3d3BIbjZZR1JMMXVyaklucVVEdW05SlRjMGxFSWpRZGh4X0UwM29iQ0tSTjRqZ0JPc0syRVk5WmJ1aV82d0IwZDBLVmxUX0pwNUxkTnY1eGFjVkZSaWZ6dXVWMlNfV3I2NFdrelhOSDdSUXh3ZFJzeGxwV0ZoalpRaGR1MVFzb01USnhaRlpSTmhUNUhxZE5LWnBwcGZiUWgzNFpKM0V1Z21KcDVlaHBTNHNYbWk4eVJPeDVpYl9yTWk1RjVTQmtfTkViTU1WUW9CNm9wb2U1T2d2RlZvNg?oc=5",
+        "titulo": "Ukraine sets Saint Petersburg refinery ablaze in large-scale drone attack - Le Monde.fr",
+        "titulo_es": "Ucrania incendia gran refinería de San Petersburgo con drones",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-18T07:21:47-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Ucrania atacó con drones la refinería de San Petersburgo, reduciendo su capacidad de producción y presionando al alza los precios internacionales del combustible.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
+      },
+      {
+        "id": 14,
+        "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPTmtPdm9rSi11UG1qeUZNZERmYlBTV2JBZFlfcGVLWUt5d0JiTlVVUXo0akQ1b2ZTNWZxNE1vX2k3MkpCLVh5UkwwMExmZ1RXN2Q3YWlLNWpyVFVuSW9abG5GV2M5Rmc5X0FXNndqRlp6V1JyamgwRHBnLXlVcWlfRDFJeFVLUlZsWHhiREdrbWl1WEMwbG5ZOGVjTWdtT2NTc2h5eWw5bE9xc0V6bFN5bXNaMmgxRVpEaFd2NA?oc=5",
+        "titulo": "Russian Ryazan oil refinery halts operations of one main unit after drone attack, Reuters reports - The Kyiv Independent",
+        "titulo_es": "Dron obliga a Ryazan a detener una unidad clave de su refinería",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-17T04:18:15-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Un dron dañó una unidad principal de la refinería Ryazan en Rusia, limitando su producción y contribuyendo al aumento de los precios del crudo.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
+      },
+      {
+        "id": 15,
+        "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQNEIyVDItZjJtU1kxNlBBZWU1eEpadHhlaHJRMUN3WUVTbnNibUgyemJ6V1NQZGdiN1NocU40ald3bEJYbGhZNmRZMm9kNEZxR3NVX21wc1UwSDZuQklaWVBWQ1c2MVItNTBidDR3eDlyRUxwU044SFhoSUNJVjNZQzlORzlwV0NZQ2FaNGRhQXVOSnotNGZRakR4bnpBRDVwUmxuTDBHMWZTcVhUeVlzTWxKWnRzYVB6WFJr?oc=5",
+        "titulo": "Russia talks up refinery attack as Trump blames Ukraine for expensive fuel - Reuters",
+        "titulo_es": "Rusia destaca ataque a refinería y Trump culpa a Ucrania del combustible caro",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-16T04:29:49-06:00",
+        "categoria": "diplomacia",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Rusia enfatiza el ataque a refinerías mientras Trump culpa a Ucrania del alto costo del combustible, generando tensiones que pueden afectar los precios del petróleo.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
+      },
+      {
+        "id": 11,
+        "url": "https://www.eia.gov/todayinenergy/detail.php?id=68344",
+        "titulo": "U.S. refineries have been running at very high rates in 2026",
+        "titulo_es": "Refinerías de EE. UU. operan a más del 95 % de su capacidad en 2026",
+        "medio": "EIA Today in Energy",
+        "publicado_at": "2026-10-22T08:00:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Las refinerías estadounidenses operan a más del 95 % de capacidad, reduciendo la escasez global de productos y moderando los precios que paga Guatemala.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
+      },
+      {
+        "id": 12,
+        "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOZDhBTUs4YlBHOU56b0RHbldocTVIdzBKSHdSQi1RaUFSOWtwbmhCZ09fUnlZeGVaLXh4ZlpydmtLRkhVRXMwNm53SmM1eUtzUjNMVHYyaUl2Y21YZDVWZjlyWTVjXzRMbmVVM0lScW1JX01UMllTMFcxcVJYOGRGOFExYnJyQjkzaVdCdHF6bFRIYzd6MlYySmpqLXE1X2Y3ZHlFd1U5aHVyVW9qUklubHNiNHVtZ3lWRm1N?oc=5",
+        "titulo": "Ukrainian Drone Strike Sparks Fire at Oil Transit Hub in Tambov Region - The Moscow Times",
+        "titulo_es": "Dron ucraniano incendia hub de tránsito de petróleo en Tambov, Rusia",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-20T02:28:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Un dron ucraniano provocó un incendio en un hub de tránsito de petróleo en Tambov, Rusia, interrumpiendo temporalmente el flujo de crudo y pudiendo influir en los precios mundiales.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
       },
       {
         "id": 3,
         "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNX01fOGhuNWdYYzMwOXl0RTNqYmIyRmZfNDJpYmdBSXlIOElrV1FrS0E1NXB5Nm5VWFIxRzRINHJSQkJYaTNkOVdyZlRtWDJLcnVTTVdCQU9qT0pjclRLdk9SRUVDUFNRY1lwNkxPUVJXTTJpaENzVndtYjVleEVlUmhmaURYeDM1bEVhT1BadmRPSk9ZekNwSWxJSGJDWTE1SThDWUx3Q0RFTVQ2dDZha1FCOHU?oc=5",
         "titulo": "Drone Attack Sparks Fire at Nikolskoe Oil Pumping Station Serving Druzhba Pipeline - Мілітарний",
-        "titulo_es": "Incendio por dron en estación Nikolskoe de la tubería Druzhba afecta suministro de crudo",
+        "titulo_es": "Incendio por dron en estación Nikolskoe afecta la línea Druzhba",
         "medio": "Google News EN",
         "publicado_at": "2026-10-20T00:39:29-06:00",
         "categoria": "oferta",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Un dron incendió la estación de bombeo Nikolskoe de la línea Druzhba, reduciendo temporalmente el flujo de crudo ruso hacia Europa y presionando los precios internacionales del petróleo.",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
+        "relevancia": 3,
+        "resumen_es": "Un dron provocó un incendio en la estación de bombeo Nikolskoe de la línea Druzhba, reduciendo temporalmente el flujo de crudo y pudiendo presionar los precios internacionales del petróleo.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
       },
       {
-        "id": 19,
-        "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQY04xTTZJc01oNmp4bGRSb0kydF9aYTZfREZaU3RZRWpMYUhsOXZFNUlfWExfM29fQnhPT0ozMUVSRFl0TWxNQ1RvdEFvQVpyNl9TX3Z4QXFaVUw4RUlXdkR6V2k4X01JNkptZTYxdkxCU3dlZUs3Y25WZU1kNnNxTjlOQ0s3MkJrQWNuRWVCMnBDaUtWWnVRaUNxNHZQTlFYbWkwd3p5MndIRDFRcUNzTjVlbDlyZFJENW9kUmFBRWNuTDZ3cWdRYi04aml1bWN4UjFYVmViLU1pbTNQaDc4S2pR?oc=5",
-        "titulo": "Petróleo, Irán y Arabia Saudita bajo ataque: 4 claves para entender por qué Trump evalúa abrir otro frente de guerra - Telemundo",
-        "titulo_es": "Petróleo, Irán y Arabia Saudita bajo ataque: 4 claves para entender por qué Trump evalúa abrir otro frente de guerra - T",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-11T01:00:00-06:00",
+        "id": 4,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/6-Million-Barrels-in-Two-Minutes-Draws-CFTC-Scrutiny.html",
+        "titulo": "6 Million Barrels in Two Minutes Draws CFTC Scrutiny",
+        "titulo_es": "CFTC investiga venta de futuros de 6 millones de barriles en dos minutos",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-23T11:20:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "La CFTC investiga una operación de futuros de 6 millones de barriles realizada en dos minutos, lo que evidencia alta volatilidad en los mercados de crudo.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
+      },
+      {
+        "id": 5,
+        "url": "https://oilprice.com/Energy/Energy-General/Space-War-Fears-Rise-as-Russian-Satellite-Makes-Dangerous-Maneuver.html",
+        "titulo": "Space War Fears Rise as Russian Satellite Makes Dangerous Maneuver",
+        "titulo_es": "Rusia maniobra satélite provocando temores de guerra espacial",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-23T10:00:00-06:00",
         "categoria": "otro",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Petróleo, Irán y Arabia Saudita bajo ataque: 4 claves para entender por qué Trump evalúa abrir otro frente de guerra &nb",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
+        "relevancia": 1,
+        "resumen_es": "Rusia realizó una maniobra peligrosa con un satélite que EE.UU. calificó de amenaza, un conflicto que no afecta directamente al mercado de combustibles.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
       },
       {
-        "id": 20,
-        "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPc2x3NzFtYml1V1o3LXU2MldSaGNadlMtd0JGc2NpYU4tdjlBZlE1X3dBMmlMM2F3LWNjTDNLWWpDYW10TC1yMkNqdHZtcUVHMVhFVHN5QUN1YU1KVUREamdadEFLUVRyVUJaVndSOExPS2dmT1dPbWZHRHhLdmdHN3R6bFZDQ2VJOERkbUotQmgzLWwtMDNfZ3dSOUNDRWY2VXhtSVFKdFdmZnNZV2lSVmM3UVRQLVk0?oc=5",
-        "titulo": "Bitcoin cae por debajo de $83,000 mientras el petróleo sube tras informe sobre plan de ataque en Irán - CoinDesk",
-        "titulo_es": "Bitcoin cae por debajo de $83,000 mientras el petróleo sube tras informe sobre plan de ataque en Irán - CoinDesk",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-08T01:00:00-06:00",
+        "id": 6,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-India-Strikes-Natural-Gas-in-Shallow-Offshore-Basin.html",
+        "titulo": "Oil India Strikes Natural Gas in Shallow Offshore Basin",
+        "titulo_es": "Oil India descubre gas natural en cuenca offshore de la India",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-23T08:30:00-06:00",
         "categoria": "otro",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Bitcoin cae por debajo de $83,000 mientras el petróleo sube tras informe sobre plan de ataque en Irán CoinDesk",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
-      },
-      {
-        "id": 21,
-        "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPdk4wb3FiemFjZXhTUndXR0J2MTdVNVNZOHRra2ZqR3BmSmhNbjkzY2xpTE1zRVVCQTdKLTc0Rlg3RzZiNEFaZ3RUM3MwQ3MwUE9hNlB6RTBuNEV6R1NiUEVhWG9FZGphVE0wS1R3eTF2dUV0UHNmRzFCUlJaX3BxbE13S3Iwdw?oc=5",
-        "titulo": "Los precios del petróleo se disparan tras una cifra récord de ataques a buques petroleros en el estrecho de Ormuz - CNN en Español",
-        "titulo_es": "Los precios del petróleo se disparan tras una cifra récord de ataques a buques petroleros en el estrecho de Ormuz - CNN",
-        "medio": "Google News ES",
-        "publicado_at": "2026-10-08T01:00:00-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Los precios del petróleo se disparan tras una cifra récord de ataques a buques petroleros en el estrecho de Ormuz CNN en Español",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
-      },
-      {
-        "id": 22,
-        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOZXdRdW1Db041UUN4dlYyNURUdmFWS0V0V1hCc0hnNVBZWlIxYk5Pdkg0Nks0Ri01UkRsM0NVR3VVTEVzc2psaWhpZDk1ZlRTTG0tcHgzcEZkTURsUDFoejN3MVl0NVBKZXNwU1ZVeDI0VWY5TEJ2M2dqSXBDcFpRTzRvSExKWEtVQlNzLUZINnZsT3phZ0xROHd3VXc?oc=5",
-        "titulo": "Iran War Updates: Trump envoy says war could last another year as oil prices continue rising - CBS News",
-        "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-23T11:44:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Iran War Updates: Trump envoy says war could last another year as oil prices continue rising CBS News",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
-      },
-      {
-        "id": 37,
-        "url": "https://oilprice.com/Energy/Energy-General/US-Rig-Count-Holds-Steady-as-Oil-Prices-Surge.html",
-        "titulo": "U.S. Rig Count Holds Steady as Oil Prices Surge",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-23T11:16:20-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "The total number of active drilling rigs for oil and gas in the United States remained unchanged for the second week in a row this week, according to new data that Baker Hughes published on Friday, with the total rig count in the US staying at 603, up 53 from this same time last year. The number of active oil rigs rose by 1, to 460 during the latest reporting period, according to the data. This is 40 above this same time last year. The number of gas rigs fell by 1 to 132, which is 11 more than t",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
-      },
-      {
-        "id": 38,
-        "url": "https://oilprice.com/Energy/Energy-General/120-Oil-Is-Almost-Here-and-Trump-Has-Few-Good-Options.html",
-        "titulo": "$120 Oil Is Almost Here, and Trump Has Few Good Options",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-23T10:30:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Brent crude nears $120 as escalating Saudi-Houthi tensions fuel another weekly oil price rally, putting fresh pressure on Trump. Friday, October 23, 2026 The slow creep of oil prices towards the $120 per barrel mark is a nightmarish scenario for US President Trump, even though there has been little fundamental change in the crude oil markets. A slight drop in freight rates and a ubiquitous flattening of backwardated curves lowered differentials of most grades globally, offsetting some of the pre",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
-      },
-      {
-        "id": 39,
-        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQTUN1YWxBZ1o0ekpfdm1VSGhHLTY3VmF6d19saE40Y1ZiRjE4eXRhMXlLRjBKWkxlVnlDdk5UMTdWenNMTG1VMjNtLWpneklWZGhxRU5hZDl6dnc4bU1EWHVOempPWkgwZVc5Y2V5TEZDa1JTZWgtWjdHaGpGWjdIdWh4blVPakVSUWQxN0k5ajBycnMtTDFQZkNjMHREQUNkdnJ6UHNTZjd3Mk5LNlE?oc=5",
-        "titulo": "SLB Sees Growth Driven by ME Oil Field Recovery - Rigzone",
-        "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-23T09:52:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "SLB Sees Growth Driven by ME Oil Field Recovery Rigzone",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
-      },
-      {
-        "id": 40,
-        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQYnFyay1FcWVRTTBfODhEYXl0WGt5TWxSak02UHFNRE5FYUl4LXA0QU5mWW5jenplUzBfSHZOQzRnUXE3X0NJYkZfYVNQcmRHRnJ0cjFsbzl1S1NtMUVVNkdfbzB5aEhpd2I4cEJ0cEhoQ2txdFdHamZKUDhReUN4bVR5WHUxNE9zVENRMFBneTFHZHhkdlAyTzBjckZFUzVKVTBjSkgzZ0J1SXlGUmdNQldYTFpFaFVqU2ZTUk0wVENrNEdRbTNR?oc=5",
-        "titulo": "White House report card: Rallies, grievances and rising oil prices - Washington Examiner",
-        "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-23T09:45:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "White House report card: Rallies, grievances and rising oil prices Washington Examiner",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
-      },
-      {
-        "id": 41,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Middle-East-Physical-Crude-Slides-While-Brent-Hits-Five-Month-High.html",
-        "titulo": "Middle East Physical Crude Slides While Brent Hits Five-Month High",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-23T09:30:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "In contrast with the international benchmark futures prices, the prices of physical crudes from the Middle East have softened this week, as oil continues to flow out of the Persian Gulf in ship-to-ship transfers offshore Oman and producers offer competitive prices to Asian buyers. Some crude grades from Iraq and Oman have sunk into deep discounts to the physical Dubai benchmark. Iraq’s Basrah Medium, for example, was recently sold at a discount of $10 per barrel to the Dubai benchmark, compared",
-        "fetched_at": "2026-10-23T11:55:32-06:00"
+        "relevancia": 1,
+        "resumen_es": "Oil India encontró gas natural en la cuenca Krishna‑Godavari, ampliando reservas pero sin impacto inmediato en los precios guatemaltecos.",
+        "fetched_at": "2026-10-24T04:54:27-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 10,
-      "total_hoy": 50,
+      "titulos_es_hoy": 15,
+      "total_hoy": 51,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
