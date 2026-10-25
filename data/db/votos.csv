@@ -223,3 +223,4 @@ id_voto,fecha,producto,modalidad,tipo,precio,precio_mostrado,vio_oficial,disposi
 2026-10-23|diésel|autoservicio|4a4943fd846120ce46fec3998df8de4f,2026-10-23,diésel,autoservicio,coincide,,41.36,1,4a4943fd846120ce46fec3998df8de4f,,2026-10-23T11:29:42-06:00
 2026-10-23|regular|autoservicio|4a4943fd846120ce46fec3998df8de4f,2026-10-23,regular,autoservicio,otro,35.29,34.21,1,4a4943fd846120ce46fec3998df8de4f,,2026-10-23T09:57:55-06:00
 2026-10-23|superior|autoservicio|4a4943fd846120ce46fec3998df8de4f,2026-10-23,superior,autoservicio,otro,35.59,35.19,1,4a4943fd846120ce46fec3998df8de4f,,2026-10-23T09:58:09-06:00
+2026-10-25|superior|autoservicio|49ed989905b5074e7c665e2e50b32878,2026-10-25,superior,autoservicio,otro,35.79,35.19,1,49ed989905b5074e7c665e2e50b32878,,2026-10-25T11:11:25-06:00
