@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-10-28T11:54:41-06:00",
+  "actualizado_at": "2026-10-29T04:54:41-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-10-28",
   "productos": {
@@ -13,14 +13,10 @@
         "fecha": "2026-10-28",
         "precio": 31.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-28T11:54:07-06:00",
+        "fetched_at": "2026-10-29T04:53:39-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-10-28",
-          "precio": 26.83
-        },
         {
           "fecha": "2025-10-29",
           "precio": 26.83
@@ -1275,7 +1271,7 @@
             "fecha": "2026-10-28",
             "precio": 31.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-28T11:54:07-06:00",
+            "fetched_at": "2026-10-29T04:53:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1329,10 +1325,6 @@
           },
           "historial": [
             {
-              "fecha": "2026-09-28",
-              "precio": 43.29
-            },
-            {
               "fecha": "2026-10-01",
               "precio": 34.89
             },
@@ -1376,7 +1368,7 @@
             "fecha": "2026-10-14",
             "precio": 35.99,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-28T11:53:41-06:00",
+            "fetched_at": "2026-10-29T04:53:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1399,10 +1391,6 @@
             ]
           },
           "historial": [
-            {
-              "fecha": "2026-09-28",
-              "precio": 44.23
-            },
             {
               "fecha": "2026-10-11",
               "precio": 35.99
@@ -1428,14 +1416,10 @@
         "fecha": "2026-10-28",
         "precio": 34.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-28T11:54:07-06:00",
+        "fetched_at": "2026-10-29T04:53:39-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-10-28",
-          "precio": 28.32
-        },
         {
           "fecha": "2025-10-29",
           "precio": 28.32
@@ -2698,7 +2682,7 @@
             "fecha": "2026-10-28",
             "precio": 34.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-28T11:54:07-06:00",
+            "fetched_at": "2026-10-29T04:53:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2752,10 +2736,6 @@
           },
           "historial": [
             {
-              "fecha": "2026-09-28",
-              "precio": 45.29
-            },
-            {
               "fecha": "2026-10-01",
               "precio": 36.19
             },
@@ -2807,7 +2787,7 @@
             "fecha": "2026-10-19",
             "precio": 37.11,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-28T11:53:41-06:00",
+            "fetched_at": "2026-10-29T04:53:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2841,10 +2821,6 @@
           },
           "historial": [
             {
-              "fecha": "2026-09-28",
-              "precio": 46.29
-            },
-            {
               "fecha": "2026-10-06",
               "precio": 37.26
             },
@@ -2877,14 +2853,10 @@
         "fecha": "2026-10-28",
         "precio": 42.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-28T11:54:07-06:00",
+        "fetched_at": "2026-10-29T04:53:39-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-10-28",
-          "precio": 25.36
-        },
         {
           "fecha": "2025-10-29",
           "precio": 25.36
@@ -4139,7 +4111,7 @@
             "fecha": "2026-10-28",
             "precio": 42.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-28T11:54:07-06:00",
+            "fetched_at": "2026-10-29T04:53:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4182,10 +4154,6 @@
             ]
           },
           "historial": [
-            {
-              "fecha": "2026-09-28",
-              "precio": 49.39
-            },
             {
               "fecha": "2026-10-01",
               "precio": 41.69
@@ -4234,7 +4202,7 @@
             "fecha": "2026-10-26",
             "precio": 43.68,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-28T11:53:41-06:00",
+            "fetched_at": "2026-10-29T04:53:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4267,10 +4235,6 @@
             ]
           },
           "historial": [
-            {
-              "fecha": "2026-09-28",
-              "precio": 50.49
-            },
             {
               "fecha": "2026-10-06",
               "precio": 42.76
@@ -4305,17 +4269,13 @@
       "unidad": "USD/barril",
       "orden": 4,
       "actual": {
-        "fecha": "2026-10-28",
-        "precio": 102.83,
+        "fecha": "2026-10-29",
+        "precio": 101.28,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-10-28T11:54:08-06:00",
+        "fetched_at": "2026-10-29T04:54:08-06:00",
         "incluye_impuestos": null
       },
       "historial": [
-        {
-          "fecha": "2025-10-28",
-          "precio": 60.61
-        },
         {
           "fecha": "2025-10-29",
           "precio": 60.32
@@ -5399,6 +5359,10 @@
         {
           "fecha": "2026-10-28",
           "precio": 102.83
+        },
+        {
+          "fecha": "2026-10-29",
+          "precio": 101.28
         }
       ],
       "mensual": [],
@@ -5419,8 +5383,8 @@
         },
         {
           "anio": 2026,
-          "promedio": 84.97,
-          "dias": 225,
+          "promedio": 85.04,
+          "dias": 226,
           "meses": null,
           "fuente": "diario"
         }
@@ -5429,18 +5393,14 @@
         "spot": {
           "nombre": "Spot",
           "actual": {
-            "fecha": "2026-10-28",
-            "precio": 102.83,
+            "fecha": "2026-10-29",
+            "precio": 101.28,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-10-28T11:54:08-06:00",
+            "fetched_at": "2026-10-29T04:54:08-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
           "historial": [
-            {
-              "fecha": "2026-09-28",
-              "precio": 94.05
-            },
             {
               "fecha": "2026-09-29",
               "precio": 91.89
@@ -5560,6 +5520,10 @@
             {
               "fecha": "2026-10-28",
               "precio": 102.83
+            },
+            {
+              "fecha": "2026-10-29",
+              "precio": 101.28
             }
           ]
         }
@@ -5604,8 +5568,8 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 29,
-    "notas_leidas": 141,
+    "observaciones_7d": 23,
+    "notas_leidas": 143,
     "medios": [
       "agn.gt",
       "dca.gob.gt",
@@ -5624,207 +5588,207 @@
     ]
   },
   "noticias": {
-    "total": 34,
+    "total": 45,
     "top": [
       {
-        "id": 2,
+        "id": 5,
+        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNaldzakpwdnNPdVBvcUw2WmlXOGFPU0hSaktBa0RtLUFscVVkZGV1QmtNbDZXQks3UGVQNWlxTmQ1VFJqNUlCT2tZeHpMTGxOemgxN1J2M3JJWTJnUTFZUURrNEpjTGJ2Q1JoMmVPVUVkSE1Qb0NIRlhqMWFVbFpmVlhtXzBsa1o5UlctX2U0Y18yemFBWUROQmNWV2g?oc=5",
+        "titulo": "Iran War Updates: Ship on fire in Strait of Hormuz as Hegseth fires top general accused of leaking war info - CBS News",
+        "titulo_es": "Incendio de buque en el estrecho de Hormuz eleva riesgos para el suministro de petróleo",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-29T04:19:00-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Un barco se incendia en el estrecho de Hormuz tras acciones iraníes, aumentando riesgos de interrupción del flujo de crudo y pudiendo encarecer los precios en Guatemala.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
+      },
+      {
+        "id": 6,
+        "url": "https://oilprice.com/Energy/Energy-General/Oil-Refineries-Become-Prime-Targets-as-Global-Fuel-Shortage-Worsens.html",
+        "titulo": "Oil Refineries Become Prime Targets as Global Fuel Shortage Worsens",
+        "titulo_es": "Refinerías atacadas en guerras EE.UU.-Israel-Irán agravan escasez de combustible",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-28T17:00:00-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Los ataques a refinerías en la guerra entre EE.UU., Israel e Irán reducen la capacidad de producción mundial, limitando la oferta y presionando al alza los precios que paga Guatemala.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
+      },
+      {
+        "id": 4,
         "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOeTJrdGtjODlJZlV2UG0tZ3gzYl9MenJKWGhTaWx6X0s2UWNQOXpHTm03NmZMX0xqMUhJVldlYjR0Z0tzRlhTYzlmOGdFLWpHcTRFdllQLUJFTkFycERpUUlXRzdoSC1ZM1VCQVhkRlNnSUtIRkFmMUVXZ01EaXlxRzVYcw?oc=5",
         "titulo": "Los precios del petróleo suben después de que los hutíes reivindican el ataque a la refinería de Ras Tanura. - Quartz",
-        "titulo_es": "Hutíes reivindican ataque a la refinería Ras Tanura y los precios del petróleo suben",
+        "titulo_es": "Precios del petróleo suben tras ataque hutí a refinería Ras Tanura",
         "medio": "Google News ES",
         "publicado_at": "2026-10-28T08:14:02-06:00",
         "categoria": "geopolitica",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Los hutíes admitieron haber atacado la refinería saudí Ras Tanura, reduciendo la oferta mundial y disparando los precios del crudo, lo que encarecerá los combustibles importados por Guatemala.",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
+        "resumen_es": "Los precios del crudo suben tras el ataque hutí a la refinería saudí Ras Tanura, reduciendo la oferta mundial y elevando los costos de importación para Guatemala.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
+      },
+      {
+        "id": 9,
+        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPaVd2eTdrcWl2RWhpLWxwRjB3Vl85Q25ybDFJQTZMVzlRZmpXVEFidVpXcUNDZ2k4U3FVdkwyOEQ0eUFKcjhGaEJRNy1HamRzX3FXRE1hbzJIQ0ZBanBZRzFTNkp2RkRqUEhjYnFUZFNfbEI3NllRNnNKUlUxN0h6QlpzRjBuaHZQb3R0dmRsTjIyS0VrU2JHVUhxR2QtcGxXRnF5aGpkOFFnTWlvQmphMVlSaWZMTm5wVlVrNExnb2JhUzFZMk41Wk04Qjk?oc=5",
+        "titulo": "Donald Trump Has a Problem: Iran Is Attacking Ships in the Strait of Hormuz Now at Record Levels - National Security Journal",
+        "titulo_es": "Iran intensifica ataques a buques en el estrecho de Hormuz",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-27T09:47:40-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Iran intensifica ataques a buques en el estrecho de Hormuz, aumentando la incertidumbre del transporte de petróleo y potencialmente elevando los precios de importación en Guatemala.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
       },
       {
         "id": 1,
+        "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPWFJYX1dLRlhNS2xFNm9GeW1MT2l3VVc0WFhrNzd4UVRyZFBxU3NTYVdlUVBEZUg2azRTaDR2Qmw2cnlab29wX0RiZFVjWXB1dHlkQVZSZnI0TzNaMUJ2ZU16ZGdtekhYZUpSUEtoclJxY2ZWSmtfT3N1Y29xNGdoQWtuVVRELWVxNzBKVGtIS2Zwck9vaHJNMkg0ekRfT0xjSGUwNnpwZWtqMDZCNlFoNEJnTTdXMThFUkVJNFBHSU41eGJrYWtkeVItWDdoVUQ0S1V1ZmtmZy1lMGc0d1lCa2lPZzAxMnBldVRv?oc=5",
+        "titulo": "Diésel y gasolinas apuntan a una rebaja en Guatemala: estos serían los precios por galón para el domingo 18 de octubre - Prensa Libre",
+        "titulo_es": "Diésel y gasolina bajan en Guatemala para el 18 de octubre",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-18T01:00:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Se anuncian precios más bajos para diésel y gasolina el 18 de octubre, reduciendo el costo para los consumidores guatemaltecos.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
+      },
+      {
+        "id": 2,
         "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPNHNHUEd0MnlRRjZfM1FNeWtFUmVzd1Bwb3BMZVhQOWNsYkdmYTdzcjVCZUUtdldWV1VlMVZfaEhzNW51LWRjb2VMb3hQUHlfVzlVTmktbi05UHJDZE1mRnhGdkVVYzNMeG5QSHJ0VTcwZHF6dWtKSFZkdEZ2bzU1Tmc1Qm10Sk1xYzdCRDRraFI2SmtpMzgxQ2hrZDA0RkFxanY0WHZYbjNOY2JJekU3STd4aGNRRG9xWURuZUlrMmFqUG9ZZndWVjMzcEtrNmRLZDBVcDU0dmZtYmZB?oc=5",
         "titulo": "Precios de combustibles en Guatemala suben entre el 12 y 15 de octubre: ¿qué se prevé para los próximos días? - Prensa Libre",
-        "titulo_es": "Precios de combustibles en Guatemala suben del 12 al 15 de octubre",
+        "titulo_es": "Suben precios de combustibles en Guatemala del 12 al 15 de octubre",
         "medio": "Google News ES",
         "publicado_at": "2026-10-14T01:00:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Los precios de gasolina y diésel en Guatemala aumentaron entre el 12 y 15 de octubre, lo que indica presión al alza en el costo de los combustibles importados.",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
+        "resumen_es": "Los precios subieron a finales de octubre y se anticipan nuevas alzas, lo que incrementará el gasto de los guatemaltecos en combustible.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
       },
       {
-        "id": 9,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/UBS-Sees-110-Brent-by-Year-End-as-Gulf-Flows-Stay-Below-Prewar-Levels.html",
-        "titulo": "UBS Sees $110 Brent by Year-End as Gulf Flows Stay Below Prewar Levels",
-        "titulo_es": "UBS pronostica Brent a 110 dólares a fin de año mientras los flujos del Golfo siguen bajos",
+        "id": 13,
+        "url": "https://oilprice.com/Energy/Crude-Oil/Peace-Talks-Wont-Save-Oil-Buyers-From-100-Plus-Oil.html",
+        "titulo": "Peace Talks Won’t Save Oil Buyers From $100-Plus Oil",
+        "titulo_es": "Negociaciones de paz no evitan crudo por encima de $100",
         "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T11:30:00-06:00",
+        "publicado_at": "2026-10-28T18:00:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "UBS proyecta que el Brent cotizará a 110 dólares a fin de 2026, reflejando expectativas de oferta limitada en el Golfo, lo que elevará los precios de importación en Guatemala.",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
+        "resumen_es": "A pesar de negociaciones de paz en Oriente Medio, el crudo supera los $100, encareciendo las importaciones de Guatemala.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
       },
       {
-        "id": 4,
-        "url": "https://oilprice.com/Energy/Energy-General/UBS-Data-Shows-Russian-Oil-Exports-Only-10-Below-Pre-War-Levels.html",
-        "titulo": "UBS Data Shows Russian Oil Exports Only 10% Below Pre-War Levels",
-        "titulo_es": "Exportaciones de petróleo ruso apenas 10% por debajo de niveles prebélicos, según UBS",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T10:00:00-06:00",
-        "categoria": "oferta",
+        "id": 14,
+        "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQMTAtQ19McEJXRVg0bmN2S1JaMm9lX2VsbUpzSjZnZi1md09fZnBoREF1U2lKT25ybDRzR0lxcC13XzcxRU1UTFFFUXRzem9TVjdNMHA4cjVPel9Rdk02UHk4M1BDUXFZcGRyR0FqcnlhUDNtTFczdy1Nd0VNNktvM3V0bUEzNC1qdXNLQngwOE9HVGtydEFIa1hqdm5sWjRHVHNNaFVteUZSbnVwa2U0MWxvd2RleGJpaXIxeg?oc=5",
+        "titulo": "Iran sees only unacceptable ideas in latest mediation to end war, official says - Reuters",
+        "titulo_es": "Irán descarta ideas de mediación para terminar la guerra",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-28T14:37:00-06:00",
+        "categoria": "diplomacia",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Según UBS, las exportaciones de petróleo ruso están solo 10% por debajo de los niveles previos a la guerra, manteniendo una oferta significativa que influye en los precios globales y en Guatemala.",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
+        "resumen_es": "Irán rechaza propuestas de mediación, prolongando el conflicto que reduce la oferta de petróleo y mantiene altos precios para Guatemala.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
+      },
+      {
+        "id": 8,
+        "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBSbWtxdXpjZ01aaXBRcS1WQkxmR2tGbkwyTER1REp4X3dhQUhGT1ZEaENVNUVOVi1XeTBUd05YdWpLYzFWT3VKR2FWOXpMUy1qZFpjeXdHbDBtcXRybGRGdGlIanZ0bmJ5SmhDdDRzUWZNN1N3dWc?oc=5",
+        "titulo": "World Bank Forecasts 23% Rise in Commodity Prices in 2026 as Middle East War Cuts Oil Supply by 5.2% - BigGo Finance",
+        "titulo_es": "Banco Mundial prevé alza del 23% en precios de commodities por guerra en Oriente Medio",
+        "medio": "Google News EN",
+        "publicado_at": "2026-10-28T08:05:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El Banco Mundial prevé un aumento del 23% en precios de commodities en 2026 por la guerra en Oriente Medio que reducirá la oferta de crudo, lo que podría encarecer las importaciones guatemaltecas.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
       },
       {
         "id": 10,
-        "url": "https://oilprice.com/Energy/Crude-Oil/US-Oil-Inventories-Fall-Again-As-Prices-Rise.html",
-        "titulo": "US Oil Inventories Fall Again As Prices Rise",
-        "titulo_es": "Inventarios de crudo en EE. UU. caen y los precios del petróleo aumentan",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T08:44:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Las reservas de crudo en EE. UU. disminuyeron 1.9 millones de barriles, reduciendo el suministro global y contribuyendo al aumento de los precios del petróleo.",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
-      },
-      {
-        "id": 7,
         "url": "https://www.eia.gov/todayinenergy/detail.php?id=68344",
         "titulo": "U.S. refineries have been running at very high rates in 2026",
-        "titulo_es": "Refinerías estadounidenses operan a más del 95% de capacidad, estrechando suministros globales",
+        "titulo_es": "Refinerías estadounidenses operan al 95% de capacidad, limitando oferta global",
         "medio": "EIA Today in Energy",
         "publicado_at": "2026-10-22T08:00:00-06:00",
         "categoria": "oferta",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Las refinerías de EE. UU. operan a más del 95% de capacidad, limitando la disponibilidad de productos refinados y presionando al alza los precios internacionales que paga Guatemala.",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
+        "resumen_es": "Las refinerías estadounidenses operan al 95% de capacidad, reduciendo la disponibilidad global de productos refinados y presionando al alza los precios que paga Guatemala.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
+      },
+      {
+        "id": 12,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/EU-Scrambles-to-Contain-Energy-Price-Crisis-Ahead-of-Winter.html",
+        "titulo": "EU Scrambles to Contain Energy Price Crisis Ahead of Winter",
+        "titulo_es": "UE busca contener crisis de precios energéticos antes del invierno",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-29T01:30:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "La UE busca medidas para contener la crisis de precios energéticos antes del invierno, lo que puede influir en los precios internacionales del petróleo y afectar a Guatemala.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
       },
       {
         "id": 3,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Equinor-Raises-Oil-and-Gas-Output-Forecast-as-Operating-Profit-Doubles.html",
-        "titulo": "Equinor Raises Oil and Gas Output Forecast as Operating Profit Doubles",
-        "titulo_es": "Equinor eleva su pronóstico de producción de petróleo y gas para 2026",
+        "url": "https://oilprice.com/Energy/Natural-Gas/US-Natural-Gas-Production-Hits-New-Records-as-Demand-Surges.html",
+        "titulo": "U.S. Natural Gas Production Hits New Records as Demand Surges",
+        "titulo_es": "EE.UU. registra récord de producción de gas natural ante creciente demanda",
         "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T10:30:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Equinor elevó su previsión de crecimiento de producción de petróleo y gas a 4% para 2026, señalando mayor oferta futura que podría moderar los precios internacionales.",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
-      },
-      {
-        "id": 5,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/PetroChina-Q3-Profit-Jumps-to-778-Billion.html",
-        "titulo": "PetroChina Q3 Profit Jumps to $7.78 Billion",
-        "titulo_es": "PetroChina aumenta ganancias gracias a precios del petróleo inflados por la guerra en Irán",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T09:30:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "PetroChina aumentó sus ganancias gracias a los precios altos provocados por la guerra en Irán, aunque su producción de crudo y ventas de diésel disminuyeron, lo que reduce la oferta global.",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Indias-Gasoline-Demand-Could-Peak-by-2035-as-EVs-Gain-Ground.html",
-        "titulo": "India's Gasoline Demand Could Peak by 2035 as EVs Gain Ground",
-        "titulo_es": "Demanda de gasolina en India podría alcanzar su pico en 2035 con el auge de los EV",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T05:30:00-06:00",
-        "categoria": "demanda",
+        "publicado_at": "2026-10-28T16:00:00-06:00",
+        "categoria": "precios",
         "pais": null,
         "relevancia": 2,
-        "resumen_es": "Se prevé que la demanda de gasolina en India alcance su máximo en 2035, impulsada por el aumento de vehículos eléctricos y la mezcla de etanol, reduciendo la presión de demanda mundial sobre los precios.",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
+        "resumen_es": "EE.UU. alcanza récord de producción de gas natural ante alta demanda, lo que presiona a la baja los precios internacionales y podría reducir costos de importación de gas para Guatemala.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
       },
       {
-        "id": 8,
-        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9PY0JFSm1hN3E1bHNMeWlVRmk1YUZ2RW83N2hEbmpHZkZlQTBIRzdPX3FjTnM5NDdNdVRrb2VpU1VubkowNHJjOG5fb0VfYmwyUVFNd0JoejRZUy1Z?oc=5",
+        "id": 15,
+        "url": "https://oilprice.com/Energy/Natural-Gas/China-Secures-Massive-Discount-on-Russian-Gas-as-Moscows-Leverage-Weakens.html",
+        "titulo": "China Secures Massive Discount on Russian Gas as Moscow’s Leverage Weakens",
+        "titulo_es": "China consigue gran descuento en gas ruso ante debilitamiento de Moscú",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-28T12:00:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "China obtiene un gran descuento en gas ruso, reflejando cambios en precios del gas que pueden influir ligeramente en los costos de energía en Guatemala.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
+      },
+      {
+        "id": 7,
+        "url": "https://oilprice.com/Energy/Natural-Gas/Indias-Record-LNG-Buying-Meets-Record-High-Prices.html",
+        "titulo": "India’s Record LNG Buying Meets Record-High Prices",
+        "titulo_es": "India compra LNG a precios récord pese a caída de producción interna",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-28T14:00:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 1,
+        "resumen_es": "India compra LNG a precios récord, reflejando presión global que poco afecta al mercado de combustibles de Guatemala.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
+      },
+      {
+        "id": 11,
+        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9PY0JFSm1hN3E1bHNMeWlVRmk1YUZ2RW83N2hEbmpHZkZlQTBIRzdPX3FjTnM5NDdNdVRrb2VpU1VubkowNHJjOG5fb0VfYmwyUVFNd0JoejRZUy1Z0gFiQVVfeXFMTTdNS3UzWWFzNEZsVjd0LUNtR3ZlWEFWb0pHcDdkZGg3YzZ3bjFEUVlvUkg5eTZDbE1kb0JDNjgyT2QyRnRBR3RaNDVDSWkyaVM5ZVBlV1Nna1lYVVU4Mnp6dGc?oc=5",
         "titulo": "Por qué el internet de Starlink es clave en la guerra de drones de Ucrania contra Rusia - BBC",
-        "titulo_es": "Internet de Starlink se vuelve clave en la guerra de drones entre Ucrania y Rusia",
+        "titulo_es": "Starlink es clave en la guerra de drones de Ucrania contra Rusia",
         "medio": "Google News ES",
         "publicado_at": "2026-10-16T01:00:00-06:00",
         "categoria": "otro",
         "pais": null,
         "relevancia": 1,
-        "resumen_es": "Starlink provee conectividad esencial para los drones ucranianos, influyendo en la dinámica del conflicto, pero sin relación directa con los combustibles.",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
-      },
-      {
-        "id": 24,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Chinas-Refiners-Turn-to-Africa-and-Brazil-Crude-as-Freight-Rates-Ease.html",
-        "titulo": "China’s Refiners Turn to Africa and Brazil Crude as Freight Rates Ease",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T08:30:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "China’s refiners are buying crude oil from West Africa and Brazil after freight rates eased in the past two weeks, while competition for Russian supply is stronger and Iranian barrels have disappeared. Following a decline in shipping rates from all-time highs, some Chinese refiners have bought West African and Brazilian crude grades at premiums of up to $20 per barrel above ICE Brent for delivery in December, trading sources told Bloomberg on Wednesday. In early October, the freight rates of cru",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
-      },
-      {
-        "id": 25,
-        "url": "https://oilprice.com/Energy/Energy-General/Iran-Eyes-130-Oil-While-at-Least-50-Tankers-Sit-Stuck-in-the-Gulf.html",
-        "titulo": "Iran Eyes $130 Oil While at Least 50 Tankers Sit Stuck in the Gulf",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T08:00:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "An oil price of $130 per barrel could be one of the scenarios of Iran’s economic planners preparing the budget for the next Iranian year starting March 2027, according to Iranian media. It is not clear yet what baseline Iranian economists will use in next year’s budget, but the Plan and Budget Organization may include a scenario assuming $130 a barrel oil, according to Fars News Agency, which is close to the Islamic Revolutionary Guard Corps (IRGC). It is highly unlikely the baseline would be",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
-      },
-      {
-        "id": 26,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/QatarEnergy-Extends-LNG-Force-Majeure-to-End-of-2026.html",
-        "titulo": "QatarEnergy Extends LNG Force Majeure to End of 2026",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T07:30:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "State-owned firm QatarEnergy has extended the force majeure on LNG deliveries to the end of the year, leaving Europe and Asia without certain term supply heading into the winter, in a move that drove European natural gas prices to the highest level since the autumn of 2022. Italy’s gas importer and energy provider Edison said it had received a notice from QatarEnergy confirming the extension of the force majeure on deliveries – in force since April 2026 – until the end of the year. QatarEnergy",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
-      },
-      {
-        "id": 27,
-        "url": "https://oilprice.com/Energy/Energy-General/US-Lawmakers-Warn-Banks-Against-Trumps-Russian-Diesel-Deal.html",
-        "titulo": "U.S. Lawmakers Warn Banks Against Trump's Russian Diesel Deal",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T07:00:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "A bipartisan group of US lawmakers has warned American banks, port authorities, and fuel-industry groups against facilitating imports of Russian diesel, raising the prospect of congressional investigations and legal action over President Donald Trump’s decision to ease restrictions on Russian fuel. In letters sent to the chief executives of major US banks and the heads of several port authorities, the lawmakers warned that importing Russian diesel could violate federal law and expose companies t",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
-      },
-      {
-        "id": 11,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Bahri-Profit-Hits-136-Billion-as-the-World-Scrambles-for-Tankers.html",
-        "titulo": "Bahri Profit Hits $1.36 Billion as the World Scrambles for Tankers",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T06:30:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Surging tanker rates amid the oil and shipping crisis helped Saudi Arabia’s shipping giant Bahri post a tenfold jump in net profit for the third quarter from a year earlier. Bahri booked a net profit of $1.36 billion (5.1 billion Saudi riyals) for the third quarter, ten times higher than the profit of $137 million (513 million riyals) for the same period in 2025, driven in particular by the Bahri Oil business unit, the Saudi shipping firm said on Wednesday. Compared to the second quarter, Bahri’",
-        "fetched_at": "2026-10-28T11:54:41-06:00"
+        "resumen_es": "El internet satelital de Starlink apoya a Ucrania en su conflicto con Rusia, tema sin relación directa con los combustibles de Guatemala.",
+        "fetched_at": "2026-10-29T04:54:41-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 10,
-      "total_hoy": 34,
+      "titulos_es_hoy": 15,
+      "total_hoy": 45,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
