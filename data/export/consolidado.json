@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-10-29T04:54:41-06:00",
+  "actualizado_at": "2026-10-29T11:54:39-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-10-28",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-10-28",
         "precio": 31.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-29T04:53:39-06:00",
+        "fetched_at": "2026-10-29T11:53:38-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -1271,7 +1271,7 @@
             "fecha": "2026-10-28",
             "precio": 31.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-29T04:53:39-06:00",
+            "fetched_at": "2026-10-29T11:53:38-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1368,7 +1368,7 @@
             "fecha": "2026-10-14",
             "precio": 35.99,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-29T04:53:39-06:00",
+            "fetched_at": "2026-10-29T11:53:38-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1416,7 +1416,7 @@
         "fecha": "2026-10-28",
         "precio": 34.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-29T04:53:39-06:00",
+        "fetched_at": "2026-10-29T11:53:38-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -2682,7 +2682,7 @@
             "fecha": "2026-10-28",
             "precio": 34.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-29T04:53:39-06:00",
+            "fetched_at": "2026-10-29T11:53:38-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2787,7 +2787,7 @@
             "fecha": "2026-10-19",
             "precio": 37.11,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-29T04:53:39-06:00",
+            "fetched_at": "2026-10-29T11:53:38-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2853,7 +2853,7 @@
         "fecha": "2026-10-28",
         "precio": 42.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-10-29T04:53:39-06:00",
+        "fetched_at": "2026-10-29T11:53:38-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -4111,7 +4111,7 @@
             "fecha": "2026-10-28",
             "precio": 42.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-29T04:53:39-06:00",
+            "fetched_at": "2026-10-29T11:53:38-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4202,7 +4202,7 @@
             "fecha": "2026-10-26",
             "precio": 43.68,
             "fuente": "Consejo",
-            "fetched_at": "2026-10-29T04:53:39-06:00",
+            "fetched_at": "2026-10-29T11:53:38-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4270,9 +4270,9 @@
       "orden": 4,
       "actual": {
         "fecha": "2026-10-29",
-        "precio": 101.28,
+        "precio": 102.03,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-10-29T04:54:08-06:00",
+        "fetched_at": "2026-10-29T11:54:06-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5362,7 +5362,7 @@
         },
         {
           "fecha": "2026-10-29",
-          "precio": 101.28
+          "precio": 102.03
         }
       ],
       "mensual": [],
@@ -5394,9 +5394,9 @@
           "nombre": "Spot",
           "actual": {
             "fecha": "2026-10-29",
-            "precio": 101.28,
+            "precio": 102.03,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-10-29T04:54:08-06:00",
+            "fetched_at": "2026-10-29T11:54:06-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
@@ -5523,7 +5523,7 @@
             },
             {
               "fecha": "2026-10-29",
-              "precio": 101.28
+              "precio": 102.03
             }
           ]
         }
@@ -5588,207 +5588,207 @@
     ]
   },
   "noticias": {
-    "total": 45,
+    "total": 36,
     "top": [
       {
-        "id": 5,
-        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNaldzakpwdnNPdVBvcUw2WmlXOGFPU0hSaktBa0RtLUFscVVkZGV1QmtNbDZXQks3UGVQNWlxTmQ1VFJqNUlCT2tZeHpMTGxOemgxN1J2M3JJWTJnUTFZUURrNEpjTGJ2Q1JoMmVPVUVkSE1Qb0NIRlhqMWFVbFpmVlhtXzBsa1o5UlctX2U0Y18yemFBWUROQmNWV2g?oc=5",
-        "titulo": "Iran War Updates: Ship on fire in Strait of Hormuz as Hegseth fires top general accused of leaking war info - CBS News",
-        "titulo_es": "Incendio de buque en el estrecho de Hormuz eleva riesgos para el suministro de petróleo",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-29T04:19:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Un barco se incendia en el estrecho de Hormuz tras acciones iraníes, aumentando riesgos de interrupción del flujo de crudo y pudiendo encarecer los precios en Guatemala.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://oilprice.com/Energy/Energy-General/Oil-Refineries-Become-Prime-Targets-as-Global-Fuel-Shortage-Worsens.html",
-        "titulo": "Oil Refineries Become Prime Targets as Global Fuel Shortage Worsens",
-        "titulo_es": "Refinerías atacadas en guerras EE.UU.-Israel-Irán agravan escasez de combustible",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T17:00:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Los ataques a refinerías en la guerra entre EE.UU., Israel e Irán reducen la capacidad de producción mundial, limitando la oferta y presionando al alza los precios que paga Guatemala.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
-      },
-      {
-        "id": 4,
+        "id": 3,
         "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOeTJrdGtjODlJZlV2UG0tZ3gzYl9MenJKWGhTaWx6X0s2UWNQOXpHTm03NmZMX0xqMUhJVldlYjR0Z0tzRlhTYzlmOGdFLWpHcTRFdllQLUJFTkFycERpUUlXRzdoSC1ZM1VCQVhkRlNnSUtIRkFmMUVXZ01EaXlxRzVYcw?oc=5",
         "titulo": "Los precios del petróleo suben después de que los hutíes reivindican el ataque a la refinería de Ras Tanura. - Quartz",
-        "titulo_es": "Precios del petróleo suben tras ataque hutí a refinería Ras Tanura",
+        "titulo_es": "Precios del petróleo suben tras ataque huthí a la refinería saudí de Ras Tanura",
         "medio": "Google News ES",
         "publicado_at": "2026-10-28T08:14:02-06:00",
         "categoria": "geopolitica",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Los precios del crudo suben tras el ataque hutí a la refinería saudí Ras Tanura, reduciendo la oferta mundial y elevando los costos de importación para Guatemala.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
-      },
-      {
-        "id": 9,
-        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPaVd2eTdrcWl2RWhpLWxwRjB3Vl85Q25ybDFJQTZMVzlRZmpXVEFidVpXcUNDZ2k4U3FVdkwyOEQ0eUFKcjhGaEJRNy1HamRzX3FXRE1hbzJIQ0ZBanBZRzFTNkp2RkRqUEhjYnFUZFNfbEI3NllRNnNKUlUxN0h6QlpzRjBuaHZQb3R0dmRsTjIyS0VrU2JHVUhxR2QtcGxXRnF5aGpkOFFnTWlvQmphMVlSaWZMTm5wVlVrNExnb2JhUzFZMk41Wk04Qjk?oc=5",
-        "titulo": "Donald Trump Has a Problem: Iran Is Attacking Ships in the Strait of Hormuz Now at Record Levels - National Security Journal",
-        "titulo_es": "Iran intensifica ataques a buques en el estrecho de Hormuz",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-27T09:47:40-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Iran intensifica ataques a buques en el estrecho de Hormuz, aumentando la incertidumbre del transporte de petróleo y potencialmente elevando los precios de importación en Guatemala.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
+        "resumen_es": "Los hutíes admitieron el ataque a la refinería saudí de Ras Tanura, reduciendo la oferta mundial de crudo y elevando los precios internacionales, encareciendo las importaciones de combustible en Guatemala.",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
       },
       {
         "id": 1,
-        "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPWFJYX1dLRlhNS2xFNm9GeW1MT2l3VVc0WFhrNzd4UVRyZFBxU3NTYVdlUVBEZUg2azRTaDR2Qmw2cnlab29wX0RiZFVjWXB1dHlkQVZSZnI0TzNaMUJ2ZU16ZGdtekhYZUpSUEtoclJxY2ZWSmtfT3N1Y29xNGdoQWtuVVRELWVxNzBKVGtIS2Zwck9vaHJNMkg0ekRfT0xjSGUwNnpwZWtqMDZCNlFoNEJnTTdXMThFUkVJNFBHSU41eGJrYWtkeVItWDdoVUQ0S1V1ZmtmZy1lMGc0d1lCa2lPZzAxMnBldVRv?oc=5",
-        "titulo": "Diésel y gasolinas apuntan a una rebaja en Guatemala: estos serían los precios por galón para el domingo 18 de octubre - Prensa Libre",
-        "titulo_es": "Diésel y gasolina bajan en Guatemala para el 18 de octubre",
+        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPZlZKbHlEYkdyTnR1N21iWVdWejZ0V0V4UDFDZGJiSHU4cF9xVzFnVDFTdm9GcWxyUWx6SHVCY0tCQms1VHNPdU9aTWliSUdyTXpkclZYSnpXNUlXcU16SzBTMWM3N2xFSjlZU19PbTF2bWY1NkpidTRQeHBDeF9EcDV4OVJsdkFa?oc=5",
+        "titulo": "¿Por qué los combustibles no bajarán de precio en el corto plazo en Guatemala? - Soy502",
+        "titulo_es": "¿Por qué los combustibles no bajarán de precio en el corto plazo en Guatemala?",
         "medio": "Google News ES",
-        "publicado_at": "2026-10-18T01:00:00-06:00",
+        "publicado_at": "2026-10-16T01:00:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Se anuncian precios más bajos para diésel y gasolina el 18 de octubre, reduciendo el costo para los consumidores guatemaltecos.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
+        "resumen_es": "Factores como costos de importación y tipo de cambio mantienen altos los precios, por lo que no se esperan descensos pronto, impactando el costo del combustible en Guatemala.",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
       },
       {
         "id": 2,
         "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPNHNHUEd0MnlRRjZfM1FNeWtFUmVzd1Bwb3BMZVhQOWNsYkdmYTdzcjVCZUUtdldWV1VlMVZfaEhzNW51LWRjb2VMb3hQUHlfVzlVTmktbi05UHJDZE1mRnhGdkVVYzNMeG5QSHJ0VTcwZHF6dWtKSFZkdEZ2bzU1Tmc1Qm10Sk1xYzdCRDRraFI2SmtpMzgxQ2hrZDA0RkFxanY0WHZYbjNOY2JJekU3STd4aGNRRG9xWURuZUlrMmFqUG9ZZndWVjMzcEtrNmRLZDBVcDU0dmZtYmZB?oc=5",
         "titulo": "Precios de combustibles en Guatemala suben entre el 12 y 15 de octubre: ¿qué se prevé para los próximos días? - Prensa Libre",
-        "titulo_es": "Suben precios de combustibles en Guatemala del 12 al 15 de octubre",
+        "titulo_es": "Precios de combustibles en Guatemala suben del 12 al 15 de octubre y pronóstico",
         "medio": "Google News ES",
         "publicado_at": "2026-10-14T01:00:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Los precios subieron a finales de octubre y se anticipan nuevas alzas, lo que incrementará el gasto de los guatemaltecos en combustible.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
-      },
-      {
-        "id": 13,
-        "url": "https://oilprice.com/Energy/Crude-Oil/Peace-Talks-Wont-Save-Oil-Buyers-From-100-Plus-Oil.html",
-        "titulo": "Peace Talks Won’t Save Oil Buyers From $100-Plus Oil",
-        "titulo_es": "Negociaciones de paz no evitan crudo por encima de $100",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T18:00:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "A pesar de negociaciones de paz en Oriente Medio, el crudo supera los $100, encareciendo las importaciones de Guatemala.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
-      },
-      {
-        "id": 14,
-        "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQMTAtQ19McEJXRVg0bmN2S1JaMm9lX2VsbUpzSjZnZi1md09fZnBoREF1U2lKT25ybDRzR0lxcC13XzcxRU1UTFFFUXRzem9TVjdNMHA4cjVPel9Rdk02UHk4M1BDUXFZcGRyR0FqcnlhUDNtTFczdy1Nd0VNNktvM3V0bUEzNC1qdXNLQngwOE9HVGtydEFIa1hqdm5sWjRHVHNNaFVteUZSbnVwa2U0MWxvd2RleGJpaXIxeg?oc=5",
-        "titulo": "Iran sees only unacceptable ideas in latest mediation to end war, official says - Reuters",
-        "titulo_es": "Irán descarta ideas de mediación para terminar la guerra",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-28T14:37:00-06:00",
-        "categoria": "diplomacia",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Irán rechaza propuestas de mediación, prolongando el conflicto que reduce la oferta de petróleo y mantiene altos precios para Guatemala.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
+        "resumen_es": "Los precios subieron entre el 12 y 15 de octubre por aumentos internacionales y costos de transporte, indicando una tendencia al alza que afectará a los consumidores guatemaltecos.",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
       },
       {
         "id": 8,
-        "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBSbWtxdXpjZ01aaXBRcS1WQkxmR2tGbkwyTER1REp4X3dhQUhGT1ZEaENVNUVOVi1XeTBUd05YdWpLYzFWT3VKR2FWOXpMUy1qZFpjeXdHbDBtcXRybGRGdGlIanZ0bmJ5SmhDdDRzUWZNN1N3dWc?oc=5",
-        "titulo": "World Bank Forecasts 23% Rise in Commodity Prices in 2026 as Middle East War Cuts Oil Supply by 5.2% - BigGo Finance",
-        "titulo_es": "Banco Mundial prevé alza del 23% en precios de commodities por guerra en Oriente Medio",
-        "medio": "Google News EN",
-        "publicado_at": "2026-10-28T08:05:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El Banco Mundial prevé un aumento del 23% en precios de commodities en 2026 por la guerra en Oriente Medio que reducirá la oferta de crudo, lo que podría encarecer las importaciones guatemaltecas.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
-      },
-      {
-        "id": 10,
-        "url": "https://www.eia.gov/todayinenergy/detail.php?id=68344",
-        "titulo": "U.S. refineries have been running at very high rates in 2026",
-        "titulo_es": "Refinerías estadounidenses operan al 95% de capacidad, limitando oferta global",
-        "medio": "EIA Today in Energy",
-        "publicado_at": "2026-10-22T08:00:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Las refinerías estadounidenses operan al 95% de capacidad, reduciendo la disponibilidad global de productos refinados y presionando al alza los precios que paga Guatemala.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
-      },
-      {
-        "id": 12,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/EU-Scrambles-to-Contain-Energy-Price-Crisis-Ahead-of-Winter.html",
-        "titulo": "EU Scrambles to Contain Energy Price Crisis Ahead of Winter",
-        "titulo_es": "UE busca contener crisis de precios energéticos antes del invierno",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-29T01:30:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "La UE busca medidas para contener la crisis de precios energéticos antes del invierno, lo que puede influir en los precios internacionales del petróleo y afectar a Guatemala.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
-      },
-      {
-        "id": 3,
-        "url": "https://oilprice.com/Energy/Natural-Gas/US-Natural-Gas-Production-Hits-New-Records-as-Demand-Surges.html",
-        "titulo": "U.S. Natural Gas Production Hits New Records as Demand Surges",
-        "titulo_es": "EE.UU. registra récord de producción de gas natural ante creciente demanda",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T16:00:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "EE.UU. alcanza récord de producción de gas natural ante alta demanda, lo que presiona a la baja los precios internacionales y podría reducir costos de importación de gas para Guatemala.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
-      },
-      {
-        "id": 15,
-        "url": "https://oilprice.com/Energy/Natural-Gas/China-Secures-Massive-Discount-on-Russian-Gas-as-Moscows-Leverage-Weakens.html",
-        "titulo": "China Secures Massive Discount on Russian Gas as Moscow’s Leverage Weakens",
-        "titulo_es": "China consigue gran descuento en gas ruso ante debilitamiento de Moscú",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T12:00:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "China obtiene un gran descuento en gas ruso, reflejando cambios en precios del gas que pueden influir ligeramente en los costos de energía en Guatemala.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
-      },
-      {
-        "id": 7,
-        "url": "https://oilprice.com/Energy/Natural-Gas/Indias-Record-LNG-Buying-Meets-Record-High-Prices.html",
-        "titulo": "India’s Record LNG Buying Meets Record-High Prices",
-        "titulo_es": "India compra LNG a precios récord pese a caída de producción interna",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-10-28T14:00:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 1,
-        "resumen_es": "India compra LNG a precios récord, reflejando presión global que poco afecta al mercado de combustibles de Guatemala.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
-      },
-      {
-        "id": 11,
         "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9PY0JFSm1hN3E1bHNMeWlVRmk1YUZ2RW83N2hEbmpHZkZlQTBIRzdPX3FjTnM5NDdNdVRrb2VpU1VubkowNHJjOG5fb0VfYmwyUVFNd0JoejRZUy1Z0gFiQVVfeXFMTTdNS3UzWWFzNEZsVjd0LUNtR3ZlWEFWb0pHcDdkZGg3YzZ3bjFEUVlvUkg5eTZDbE1kb0JDNjgyT2QyRnRBR3RaNDVDSWkyaVM5ZVBlV1Nna1lYVVU4Mnp6dGc?oc=5",
         "titulo": "Por qué el internet de Starlink es clave en la guerra de drones de Ucrania contra Rusia - BBC",
-        "titulo_es": "Starlink es clave en la guerra de drones de Ucrania contra Rusia",
+        "titulo_es": "Por qué el internet de Starlink es clave en la guerra de drones de Ucrania contra Rusia - BBC",
         "medio": "Google News ES",
         "publicado_at": "2026-10-16T01:00:00-06:00",
         "categoria": "otro",
         "pais": null,
-        "relevancia": 1,
-        "resumen_es": "El internet satelital de Starlink apoya a Ucrania en su conflicto con Rusia, tema sin relación directa con los combustibles de Guatemala.",
-        "fetched_at": "2026-10-29T04:54:41-06:00"
+        "relevancia": 4,
+        "resumen_es": "Por qué el internet de Starlink es clave en la guerra de drones de Ucrania contra Rusia BBC",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
+      },
+      {
+        "id": 16,
+        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOVlk2aXlnTC1TMU83eWVCRWxFWUJhdURhX1p0SjlHeDNYbGRhbGNKd1lmMzJZMWNaaXJ6ak5UYU1ycjh4SmVIcDdvM0RkaDRCaXVjc2twNE1XZ0E2eWZvTm5mRl9NSzY1anNlSHdBYktERVlTdDFETU1NbFBqRmJRbzdDb0VfdU1fYVdJYXF6Rm9BMWpyYW5NczJTaDdOTTVFYnZmUk5ZNnZLempWX2dXUFFB?oc=5",
+        "titulo": "El petróleo se dispara un 2%: Trump prepara nuevos ataques contra Irán - Negocios.com",
+        "titulo_es": "El petróleo se dispara un 2%: Trump prepara nuevos ataques contra Irán - Negocios.com",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-28T03:19:37-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "El petróleo se dispara un 2%: Trump prepara nuevos ataques contra Irán Negocios.com",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
+      },
+      {
+        "id": 17,
+        "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNU095aGlZblJOR2JEZXVpTWhHTzBJY1ptTTFETlNaYXJpUUhYT3U2UDNnNnNtTW1kMEhITVF4MXdFUmdqcjRZMkhsc2UweUc2NWlEbER4VnItdXFkcWVqdUwtRjA3X2lmbEsxZTRvTUllNUV5N0ZkanlPVi1vYnFfenp5R3BWa216NXlBbWNDUC1zd3lJMURUeG5nMTBaUWJ4UHJVcTEwTnZXbE1yempLZldPdVlIckRabmlSdC1ZbG94bUJLWDRabzA4V1NsbHRoTlhVOVZVQUVUYUlQX1BzbDVsMTRLcE9iTmxmMENSM0F0SmxDX050S2Q4dDRnMUU?oc=5",
+        "titulo": "Los hutíes de Yemen atacan la mayor refinería de petróleo de Arabia y el Ministerio de Defensa en Riad - France 24",
+        "titulo_es": "Los hutíes de Yemen atacan la mayor refinería de petróleo de Arabia y el Ministerio de Defensa en Riad - France 24",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-28T02:28:37-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Los hutíes de Yemen atacan la mayor refinería de petróleo de Arabia y el Ministerio",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
+      },
+      {
+        "id": 20,
+        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5VYXlMSExsejlWbF9jMUk3ZXdXYXJRY3owMUpyNS16Y3pFbFFaV2M5NVIwU2ZnbVkwb19KNDFLOUtvcHl6bDJFRUhjalFNZl9nOVdDRS1HTGY3c2M00gFiQVVfeXFMTjBYRTFCX01BbWpRaG9kZTZLOGoyRHdrRl9Fd1dxeU5tdlBLdm5Jc2xBNFp2N0JHZHk0VE1oRFVPRW5Sdmhibkhxa2RZVksyUlNjdjU5cThJZVNQQ2d2eVloZ1E?oc=5",
+        "titulo": "Quién es Gadi Eisenkot, el general retirado que perdió un hijo en Gaza y desafía a Netanyahu en las primeras elecciones en Israel desde el ataque del 7 de octubre - BBC",
+        "titulo_es": "Quién es Gadi Eisenkot, el general retirado que perdió un hijo en Gaza y desafía a Netanyahu en las primeras elecciones",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-24T22:05:42-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Quién es Gadi Eisenkot, el general retirado que perdió un hijo en Gaza y desafía a Netanyahu en las primeras elecciones en Israel desde el ataque del 7 de octubre &n",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
+      },
+      {
+        "id": 21,
+        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9LT2dvSWlHeHdpSlZRSXlDcmR4Y0FjMzdic3JWQzdaS1haX25MY3lyX3Q4enBFWEE3YTJnS2w0aGx1eV9BYmxSWkVKYUp6RG54UWFKRVVmZ1h2SDFG0gFiQVVfeXFMUDhtczFleUxGeWg1UVVtSmJxNUlDUTVNUTVCOHFJU1RYRVB1ZTlyREYzMHV4aHNUTzFwcDZVeTRiWWd6QWxIV3NfYkhSZEkybG1IV0VvdklMd3JwbzlNMXdodUE?oc=5",
+        "titulo": "Los gemelos recién nacidos que tratan de sobrevivir a la guerra y el hambre en Yemen - BBC",
+        "titulo_es": "Los gemelos recién nacidos que tratan de sobrevivir a la guerra y el hambre en Yemen - BBC",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-23T16:40:39-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Los gemelos recién nacidos que tratan de sobrevivir a la guerra y el hambre en Yemen BBC",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
+      },
+      {
+        "id": 22,
+        "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxObVJjelAwWVdPOVN3R3Jua1psV0ZXYXlyUjhMUHljekhjeTM2OWhqRzdtYlo4eG16UGNrRGNaclFhWWNyWGVibDhidGptX1N3eE9IUXUxS0RfNUV3Ylg3Y2RWWW1YNW1PZ2NYbWFvLWJUVnF5VHN3SWEza1Q1alhIUmktZFQxNXdGUXl5ekxLOERTeFdyTGtkQlRfUVkwM25fbll0WUxoNXZCRzBGTkxxcU5hbmljNEEzNkN6c2dfMXJ5Nkk3cjdkbk13?oc=5",
+        "titulo": "Petróleo de Texas sube a US$103 por temor a una escalada del conflicto en Oriente Medio - Prensa Libre",
+        "titulo_es": "Petróleo de Texas sube a US$103 por temor a una escalada del conflicto en Oriente Medio - Prensa Libre",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-23T14:12:11-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Petróleo de Texas sube a US$103 por temor a una escalada del conflicto en Oriente Medio Prensa Libre",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
+      },
+      {
+        "id": 23,
+        "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNSWxRUTVMWWdsQ3ljSnpCM1V1Z3N5VEVNaEg5SkY4OXptenpfelZCbEJVZ3NBZEQ1SElKS2JoZV9YTWtVVkhvUFg0LTIyZl9lTUJxTGlQd1BTcXhGRkZUOTFYYUZOZGxLVEdnelJEUVVnNmN5X0RrQ2k1T3ZxdzRpcml3SjFDREl3WEFadE1QT052ZXREYm9YM0NPblM3Q25lNThOc2JVT3Z2QmMxTVhBLXkyRWhMdUZiWFhmSmRKSnZVd1dGckljOHV3a3VhRy1EUjRaUGJiRUJzQzVHZllQOUxCRC1pN1U2?oc=5",
+        "titulo": "El petróleo rebasa los 111 dólares tras un ataque contra un campo petrolífero en Arabia Saudita - ORAIN",
+        "titulo_es": "El petróleo rebasa los 111 dólares tras un ataque contra un campo petrolífero en Arabia Saudita - ORAIN",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-22T02:49:52-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "El petróleo rebasa los 111 dólares tras un ataque contra un campo petrolífero en Arabia Saudita <fon",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
+      },
+      {
+        "id": 9,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Mexicos-Richest-Man-Sells-115-Billion-in-Oil-Stocks.html",
+        "titulo": "Mexico’s Richest Man Sells $1.15 Billion in Oil Stocks",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-29T11:30:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Carlos Slim has sold more than $1.15 billion of U.S. oil stocks this year as the Iran war sends crude prices and energy shares higher. The Mexican billionaire has cut his stakes in PBF Energy and Talos Energy roughly in half, yet the shares he still owns are worth about $1.4 billion—roughly what his holdings were worth in January. Much of his estimated $124 billion fortune is tied to telecommunications giant América Móvil. Slim, the richest man in Mexico, collected around $820 million selling PB",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
+      },
+      {
+        "id": 27,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Europe-to-Release-42-Million-Barrels-of-Oil.html",
+        "titulo": "Europe to Release 42 Million Barrels of Oil",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-29T11:30:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Europe will release 42 million barrels of emergency oil stocks over the next three months, half of it diesel, as governments try to bring down fuel prices before winter, French Economy Minister Roland Lescure said Thursday. France's share includes 10 million barrels of diesel, which Lescure said will begin reaching the market in the coming days. The fuel will be supplied at cost, with Lescure forecasting a reduction of 12 to 18 cents per liter. He expects prices to respond as early as next week.",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
+      },
+      {
+        "id": 10,
+        "url": "https://oilprice.com/Energy/Energy-General/The-CCS-Project-That-Passed-Every-Test-Except-the-Investment-Test.html",
+        "titulo": "The CCS Project That Passed Every Test Except the Investment Test",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-29T11:00:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Heidelberg Materials’ proposed carbon capture project in Edmonton appeared to contain almost every ingredient policymakers say a successful CCS development needs. It targeted cement, a hard-to-abate industry where most emissions come from the chemistry of producing clinker rather than simply burning fuel. A pilot confirmed that capture was technically feasible. The Canadian government offered substantial support. A pipeline and geological storage route had been identified. Alberta already operat",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
+      },
+      {
+        "id": 4,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Sinopec-Third-Quarter-Profit-Jumps-64-as-Oil-Prices-Climb.html",
+        "titulo": "Sinopec Third-Quarter Profit Jumps 64% as Oil Prices Climb",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-29T10:30:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Higher oil prices helped raise Sinopec’s third-quarter earnings by 64% from a year earlier, even as China’s top refiner couldn’t fully capture the record-high global refining margins. China Petroleum & Chemical Corporation, as Sinopec is officially known, said on Thursday that its profit attributable to the shareholders of the company surged by 63.6% on the year to $2 billion (13.6 billion Chinese yuan) for the third quarter. Revenues rose by 9.3% to $115 billion (769.7 billion yuan). For the",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
+      },
+      {
+        "id": 28,
+        "url": "https://oilprice.com/Energy/Energy-General/UK-Budget-Signals-Wave-of-New-North-Sea-Oil-and-Gas-Drilling.html",
+        "titulo": "UK Budget Signals Wave of New North Sea Oil and Gas Drilling",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-10-29T10:00:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "John Healey’s Budget has assumed the government will approve North Sea discovery drilling projects that produce in excess of a billion barrels of oil and gas, in the clearest sign yet that ministers plan to rubber-stamp a wave of new drilling after Jackdaw and Rosebank. In its scorecard for the Chancellor’s maiden fiscal event, the Office for Budget Responsibility accounted for a boost in tax receipts from the “development of new fields” that not only include the controversial Rosebank oil field",
+        "fetched_at": "2026-10-29T11:54:39-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 15,
-      "total_hoy": 45,
+      "titulos_es_hoy": 10,
+      "total_hoy": 36,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
