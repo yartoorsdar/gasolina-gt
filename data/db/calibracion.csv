@@ -57,4 +57,5 @@ fecha,producto,modalidad,ref_precio,ref_fuente,ref_previo,n_votos,n_coincide,n_o
 2026-10-26,superior,autoservicio,34.19,Consejo,45.29,2,2,0,0,0,0,0,,,,,1.0,,,sin,0,1,04:42,
 2026-10-27,superior,autoservicio,,,45.29,1,1,0,0,0,0,0,,,,,1.0,,,sin,0,,00:33,
 2026-10-28,superior,autoservicio,34.19,Consejo,45.29,1,1,0,0,0,0,0,,,,,1.0,,,sin,0,1,18:19,
-2026-10-29,superior,autoservicio,,,45.29,1,0,1,0,0,0,0,35.2,0.0,1.0,,0.0,,,sin,0,,04:19,
+2026-10-29,regular,autoservicio,,,43.29,1,1,0,0,0,0,0,,,,,1.0,,,sin,0,,20:12,
+2026-10-29,superior,autoservicio,,,45.29,2,1,1,0,0,0,0,35.2,0.0,1.0,,0.5,,,sin,0,,04:19,
