@@ -1,8 +1,8 @@
 {
   "version": 3,
-  "actualizado_at": "2026-11-02T04:54:17-06:00",
+  "actualizado_at": "2026-11-02T11:55:24-06:00",
   "precios_actualizados": true,
-  "max_fecha_precios": "2026-10-28",
+  "max_fecha_precios": "2026-11-02",
   "productos": {
     "regular": {
       "nombre": "Regular",
@@ -10,10 +10,10 @@
       "unidad": "GTQ/galón",
       "orden": 1,
       "actual": {
-        "fecha": "2026-10-28",
-        "precio": 31.69,
+        "fecha": "2026-11-02",
+        "precio": 30.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-02T04:53:24-06:00",
+        "fetched_at": "2026-11-02T11:54:46-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -672,6 +672,10 @@
         {
           "fecha": "2026-10-28",
           "precio": 31.69
+        },
+        {
+          "fecha": "2026-11-02",
+          "precio": 30.69
         }
       ],
       "mensual": [
@@ -1242,9 +1246,9 @@
         },
         {
           "anio": 2026,
-          "promedio": 34.95,
+          "promedio": 34.56,
           "dias": null,
-          "meses": 10,
+          "meses": 11,
           "fuente": "MEM mensual + último diario"
         }
       ],
@@ -1252,28 +1256,48 @@
         "autoservicio": {
           "nombre": "Autoservicio",
           "actual": {
-            "fecha": "2026-10-28",
-            "precio": 31.69,
+            "fecha": "2026-11-02",
+            "precio": 30.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-02T04:53:24-06:00",
+            "fetched_at": "2026-11-02T11:54:46-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-30",
-            "precio": 32.07,
-            "confianza": "baja",
-            "n_coinciden": 1,
-            "n_fuentes": 1,
+            "fecha": "2026-11-02",
+            "precio": 30.69,
+            "confianza": "alta",
+            "n_coinciden": 3,
+            "n_fuentes": 3,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-30",
+                "fecha": "2026-11-02",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
-                "precio": 32.07,
+                "precio": 30.69,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-11-02",
+                "medio": "lahora.gt",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 30.69,
+                "tipo": "referencia",
+                "url": "https://lahora.gt/lh-economia/jveliz/2026/11/02/combustibles-bajan-de-precio-en-guatemala-mientras-factura-petrolera-alcanza-los-usd-4-mil-850-millones/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-11-02",
+                "medio": "lared1061.com",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 30.69,
+                "tipo": "monitoreado",
+                "url": "https://lared1061.com/posts/baja-la-gasolina-estos-son-los-nuevos-precios-este-lunes"
               }
             ]
           },
@@ -1309,34 +1333,48 @@
             {
               "fecha": "2026-10-28",
               "precio": 31.69
+            },
+            {
+              "fecha": "2026-11-02",
+              "precio": 30.69
             }
           ]
         },
         "servicio_completo": {
           "nombre": "Servicio completo",
           "actual": {
-            "fecha": "2026-10-14",
-            "precio": 35.99,
+            "fecha": "2026-11-02",
+            "precio": 31.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-02T04:53:24-06:00",
+            "fetched_at": "2026-11-02T11:54:46-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-30",
-            "precio": 33.0,
-            "confianza": "baja",
-            "n_coinciden": 1,
-            "n_fuentes": 1,
+            "fecha": "2026-11-02",
+            "precio": 31.79,
+            "confianza": "media",
+            "n_coinciden": 2,
+            "n_fuentes": 2,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-30",
+                "fecha": "2026-11-02",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
-                "precio": 33.0,
+                "precio": 31.79,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-11-02",
+                "medio": "lared1061.com",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 31.79,
+                "tipo": "monitoreado",
+                "url": "https://lared1061.com/posts/baja-la-gasolina-estos-son-los-nuevos-precios-este-lunes"
               }
             ]
           },
@@ -1352,6 +1390,10 @@
             {
               "fecha": "2026-10-14",
               "precio": 35.99
+            },
+            {
+              "fecha": "2026-11-02",
+              "precio": 31.79
             }
           ]
         }
@@ -1363,10 +1405,10 @@
       "unidad": "GTQ/galón",
       "orden": 2,
       "actual": {
-        "fecha": "2026-10-28",
-        "precio": 34.19,
+        "fecha": "2026-11-02",
+        "precio": 33.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-02T04:53:24-06:00",
+        "fetched_at": "2026-11-02T11:54:46-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -2033,6 +2075,10 @@
         {
           "fecha": "2026-10-28",
           "precio": 34.19
+        },
+        {
+          "fecha": "2026-11-02",
+          "precio": 33.19
         }
       ],
       "mensual": [
@@ -2603,9 +2649,9 @@
         },
         {
           "anio": 2026,
-          "promedio": 36.3,
+          "promedio": 36.02,
           "dias": null,
-          "meses": 10,
+          "meses": 11,
           "fuente": "MEM mensual + último diario"
         }
       ],
@@ -2613,28 +2659,48 @@
         "autoservicio": {
           "nombre": "Autoservicio",
           "actual": {
-            "fecha": "2026-10-28",
-            "precio": 34.19,
+            "fecha": "2026-11-02",
+            "precio": 33.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-02T04:53:24-06:00",
+            "fetched_at": "2026-11-02T11:54:46-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-30",
-            "precio": 34.49,
-            "confianza": "baja",
-            "n_coinciden": 1,
-            "n_fuentes": 1,
+            "fecha": "2026-11-02",
+            "precio": 33.19,
+            "confianza": "alta",
+            "n_coinciden": 3,
+            "n_fuentes": 3,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-30",
+                "fecha": "2026-11-02",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
-                "precio": 34.49,
+                "precio": 33.19,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-11-02",
+                "medio": "lahora.gt",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 33.19,
+                "tipo": "referencia",
+                "url": "https://lahora.gt/lh-economia/jveliz/2026/11/02/combustibles-bajan-de-precio-en-guatemala-mientras-factura-petrolera-alcanza-los-usd-4-mil-850-millones/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-11-02",
+                "medio": "lared1061.com",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 33.19,
+                "tipo": "monitoreado",
+                "url": "https://lared1061.com/posts/baja-la-gasolina-estos-son-los-nuevos-precios-este-lunes"
               }
             ]
           },
@@ -2678,34 +2744,48 @@
             {
               "fecha": "2026-10-28",
               "precio": 34.19
+            },
+            {
+              "fecha": "2026-11-02",
+              "precio": 33.19
             }
           ]
         },
         "servicio_completo": {
           "nombre": "Servicio completo",
           "actual": {
-            "fecha": "2026-10-19",
-            "precio": 37.11,
+            "fecha": "2026-11-02",
+            "precio": 34.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-02T04:53:24-06:00",
+            "fetched_at": "2026-11-02T11:54:46-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-30",
-            "precio": 35.47,
-            "confianza": "baja",
-            "n_coinciden": 1,
-            "n_fuentes": 1,
+            "fecha": "2026-11-02",
+            "precio": 34.29,
+            "confianza": "media",
+            "n_coinciden": 2,
+            "n_fuentes": 2,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-30",
+                "fecha": "2026-11-02",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
-                "precio": 35.47,
+                "precio": 34.29,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-11-02",
+                "medio": "lared1061.com",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 34.29,
+                "tipo": "monitoreado",
+                "url": "https://lared1061.com/posts/baja-la-gasolina-estos-son-los-nuevos-precios-este-lunes"
               }
             ]
           },
@@ -2729,6 +2809,10 @@
             {
               "fecha": "2026-10-19",
               "precio": 37.11
+            },
+            {
+              "fecha": "2026-11-02",
+              "precio": 34.29
             }
           ]
         }
@@ -2740,10 +2824,10 @@
       "unidad": "GTQ/galón",
       "orden": 3,
       "actual": {
-        "fecha": "2026-10-28",
-        "precio": 42.69,
+        "fecha": "2026-11-02",
+        "precio": 41.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-02T04:53:24-06:00",
+        "fetched_at": "2026-11-02T11:54:46-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -3402,6 +3486,10 @@
         {
           "fecha": "2026-10-28",
           "precio": 42.69
+        },
+        {
+          "fecha": "2026-11-02",
+          "precio": 41.69
         }
       ],
       "mensual": [
@@ -3972,9 +4060,9 @@
         },
         {
           "anio": 2026,
-          "promedio": 36.95,
+          "promedio": 37.38,
           "dias": null,
-          "meses": 10,
+          "meses": 11,
           "fuente": "MEM mensual + último diario"
         }
       ],
@@ -3982,28 +4070,48 @@
         "autoservicio": {
           "nombre": "Autoservicio",
           "actual": {
-            "fecha": "2026-10-28",
-            "precio": 42.69,
+            "fecha": "2026-11-02",
+            "precio": 41.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-02T04:53:24-06:00",
+            "fetched_at": "2026-11-02T11:54:46-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-30",
-            "precio": 42.69,
-            "confianza": "baja",
-            "n_coinciden": 1,
-            "n_fuentes": 1,
+            "fecha": "2026-11-02",
+            "precio": 41.69,
+            "confianza": "alta",
+            "n_coinciden": 3,
+            "n_fuentes": 3,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-30",
+                "fecha": "2026-11-02",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
-                "precio": 42.69,
+                "precio": 41.69,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-11-02",
+                "medio": "lahora.gt",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 41.69,
+                "tipo": "referencia",
+                "url": "https://lahora.gt/lh-economia/jveliz/2026/11/02/combustibles-bajan-de-precio-en-guatemala-mientras-factura-petrolera-alcanza-los-usd-4-mil-850-millones/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-11-02",
+                "medio": "lared1061.com",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 41.69,
+                "tipo": "monitoreado",
+                "url": "https://lared1061.com/posts/baja-la-gasolina-estos-son-los-nuevos-precios-este-lunes"
               }
             ]
           },
@@ -4039,34 +4147,48 @@
             {
               "fecha": "2026-10-28",
               "precio": 42.69
+            },
+            {
+              "fecha": "2026-11-02",
+              "precio": 41.69
             }
           ]
         },
         "servicio_completo": {
           "nombre": "Servicio completo",
           "actual": {
-            "fecha": "2026-10-26",
-            "precio": 43.68,
+            "fecha": "2026-11-02",
+            "precio": 42.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-02T04:53:24-06:00",
+            "fetched_at": "2026-11-02T11:54:46-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-10-30",
-            "precio": 43.68,
-            "confianza": "baja",
-            "n_coinciden": 1,
-            "n_fuentes": 1,
+            "fecha": "2026-11-02",
+            "precio": 42.79,
+            "confianza": "media",
+            "n_coinciden": 2,
+            "n_fuentes": 2,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-10-30",
+                "fecha": "2026-11-02",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
-                "precio": 43.68,
+                "precio": 42.79,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
+              },
+              {
+                "coincide": true,
+                "fecha": "2026-11-02",
+                "medio": "lared1061.com",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 42.79,
+                "tipo": "monitoreado",
+                "url": "https://lared1061.com/posts/baja-la-gasolina-estos-son-los-nuevos-precios-este-lunes"
               }
             ]
           },
@@ -4094,6 +4216,10 @@
             {
               "fecha": "2026-10-26",
               "precio": 43.68
+            },
+            {
+              "fecha": "2026-11-02",
+              "precio": 42.79
             }
           ]
         }
@@ -4106,9 +4232,9 @@
       "orden": 4,
       "actual": {
         "fecha": "2026-11-02",
-        "precio": 100.71,
+        "precio": 96.54,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-11-02T04:53:45-06:00",
+        "fetched_at": "2026-11-02T11:54:47-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5202,7 +5328,7 @@
         },
         {
           "fecha": "2026-11-02",
-          "precio": 100.71
+          "precio": 96.54
         }
       ],
       "mensual": [],
@@ -5223,7 +5349,7 @@
         },
         {
           "anio": 2026,
-          "promedio": 85.35,
+          "promedio": 85.33,
           "dias": 230,
           "meses": null,
           "fuente": "diario"
@@ -5234,9 +5360,9 @@
           "nombre": "Spot",
           "actual": {
             "fecha": "2026-11-02",
-            "precio": 100.71,
+            "precio": 96.54,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-11-02T04:53:45-06:00",
+            "fetched_at": "2026-11-02T11:54:47-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
@@ -5363,7 +5489,7 @@
             },
             {
               "fecha": "2026-11-02",
-              "precio": 100.71
+              "precio": 96.54
             }
           ]
         }
@@ -5408,8 +5534,8 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 14,
-    "notas_leidas": 147,
+    "observaciones_7d": 29,
+    "notas_leidas": 151,
     "medios": [
       "agn.gt",
       "dca.gob.gt",
@@ -5428,10 +5554,10 @@
     ]
   },
   "noticias": {
-    "total": 50,
+    "total": 46,
     "top": [
       {
-        "id": 11,
+        "id": 13,
         "url": "https://oilprice.com/Latest-Energy-News/World-News/Goldman-Sachs-Raises-Brent-Oil-Price-Forecast-to-105.html",
         "titulo": "Goldman Sachs Raises December Brent Oil Price Forecast to $105",
         "titulo_es": "Goldman Sachs eleva pronóstico de Brent a $105 para diciembre",
@@ -5441,75 +5567,75 @@
         "pais": null,
         "relevancia": 5,
         "resumen_es": "Goldman Sachs eleva su pronóstico de Brent a $105 para diciembre, indicando expectativas de precios altos que impactarán el costo del combustible importado por Guatemala.",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
+        "fetched_at": "2026-11-02T11:55:24-06:00"
       },
       {
         "id": 1,
         "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOUExzem1feGR5UVFqaDhuMDVCNGNuZHNrVV81b0UtZ2JUY1E5LVFqU0tUdmtOS2hGamdjbURIbEFISURnYm16X1Nmd01pN1RCVVZBYnlZS1lyWW9JRHhaclVYLWktNlFjSHJ3LUFfVkQxS05PVnZJR05sY08yZG1TWTAyTExPcG4wTFJIYUF6YUxqbW1Nd1Y0SnIyZWVrR0pRR04xdUhXd2NxUnhmNnZabUZUR1Q2dmotWXRnUk1iWkZ2bU51aWFSd1ZUeTdHYVZSeFNPQzBVdVF1MTA?oc=5",
         "titulo": "Factura petrolera de Guatemala sube 46.4% y revela un cambio en el consumo de gasolinas regular y superior - Prensa Libre",
-        "titulo_es": "Factura de combustible de Guatemala sube 46.4% y cambia consumo de gasolina",
+        "titulo_es": "Factura de combustible de Guatemala sube 46.4% y cambia consumo de gasolinas",
         "medio": "Google News ES",
         "publicado_at": "2026-11-02T00:08:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "La factura de combustible de Guatemala sube 46.4%, indicando costos más altos y un cambio hacia gasolina premium, lo que eleva el precio que pagan los consumidores.",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
+        "resumen_es": "La factura de combustible de Guatemala sube 46.4% y cambia el consumo de gasolina regular y superior, elevando los costos para importadores y consumidores locales.",
+        "fetched_at": "2026-11-02T11:55:23-06:00"
       },
       {
-        "id": 3,
+        "id": 10,
+        "url": "https://oilprice.com/Energy/Energy-General/How-Iran-Just-Broke-the-US-Oil-Shield-In-Saudi-Arabia-Yet-Again.html",
+        "titulo": "How Iran Just Broke the U.S. Oil Shield In Saudi Arabia Yet Again",
+        "titulo_es": "Irán rompe el escudo petrolero de EE.UU. atacando refinería saudí",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-02T10:00:00-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Ataques iraníes a la refinería saudí de Ras Tanura interrumpen la producción de crudo, generando alzas en los precios internacionales que afectan a Guatemala.",
+        "fetched_at": "2026-11-02T11:55:24-06:00"
+      },
+      {
+        "id": 11,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Ukraine-Has-Hit-Three-Russian-Refineries-Since-Friday.html",
+        "titulo": "Ukraine Has Hit Three Russian Refineries Since Friday",
+        "titulo_es": "Ucrania ataca tres refinerías rusas en una semana",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-02T09:30:00-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Ucrania ha atacado tres refinerías rusas, reduciendo la capacidad de producción de petróleo y elevando los precios globales que paga Guatemala.",
+        "fetched_at": "2026-11-02T11:55:24-06:00"
+      },
+      {
+        "id": 2,
         "url": "https://oilprice.com/Latest-Energy-News/World-News/Iraqs-Oil-Exports-via-Turkey-Surge-to-500000-Bpd.html",
         "titulo": "Iraq's Oil Exports via Turkey Surge to 500,000 Bpd",
-        "titulo_es": "Exportaciones de crudo de Irak a Turquía aumentan a 500,000 bpd",
+        "titulo_es": "Exportaciones de crudo de Irak aumentan a 500,000 bpd vía Turquía",
         "medio": "OilPrice.com",
         "publicado_at": "2026-11-02T04:00:00-06:00",
         "categoria": "oferta",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Irak incrementa exportaciones a Turquía a 500,000 bpd, ampliando la oferta mundial y presionando a la baja los precios del crudo importado por Guatemala.",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
-      },
-      {
-        "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQLXJZc2hZcS00MDVPcWpZU2dab3ZQSmtub1UwTm1hQkFOZm5Ydm9ZbWs2am1EMmc4UXJMcmNCd3h5eU5wMy11aFJETlVMSkR5dmN3TkhBTllyMEkxcTV4aVQ5ZTlhZkZrTnEwbk9fdXZMNjU5YnRfT0R4QVIwSnNxbXpVRUIzbFNkR3JWVzBmRFkxNEtwd3lac0M5SXBXTUk0UWlSR1ROMDNNUUJUTmxMXzJvc0M?oc=5",
-        "titulo": "Video: Drones attacked an oil pipeline station in the Samara Region of the Russian Federation, causing a fire - UA.NEWS",
-        "titulo_es": "Drones incendian estación de oleoducto en Samara, Rusia",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-02T01:25:48-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Drones destruyen una estación de oleoducto en Samara, Rusia, interrumpiendo el flujo de petróleo y potencialmente elevando los precios internacionales que paga Guatemala.",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
-      },
-      {
-        "id": 12,
-        "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQcTZWUFByWDZyUHpnOXdZSm44LW5DTWZoQkFuS2FWdDNqQnRKS08wR1FDWW9CVnZJZVNhX2JhbWZHYi1hYWp0NDlEbzYzTnNxVkFlTUlZZkM3WWs4Tkt4MXJ4ZmRwSGY2Zm83VzdVTmRGQUxTUTZZRkNOTkFLd2R2ZDFvcS1IZklwUXk1eXBhVmwzNHl1NmFlb3dRR3FuUEJObWgwLVNReWNyTlljZnc?oc=5",
-        "titulo": "Ucrania reanuda los ataques contra las refinerías de petróleo rusas - FXStreet",
-        "titulo_es": "Ucrania reanuda ataques a refinerías rusas",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-01T19:50:23-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Ucrania retoma los ataques a refinerías rusas, lo que podría disminuir la oferta de productos refinados y encarecer los combustibles importados por Guatemala.",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
+        "resumen_es": "Irak incrementa sus exportaciones de crudo por Turquía a 500,000 barriles diarios, aumentando la oferta mundial y presionando a la baja los precios que paga Guatemala.",
+        "fetched_at": "2026-11-02T11:55:24-06:00"
       },
       {
         "id": 15,
         "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPcHc1VDd1SWJ5RjhueG0zMVRPcWZSOC1GOWtGMVJFNkFiVXlqQmVzUEtzZEpDT3dMeTU2MExSLWlOOUNkdFBnUTdGcl9jSk9rb05ZVFNkcXlhbUFMYjRFVHlBSXREcnoxTUN6dGpuUHBaYWxOZHVHVU1QZXdUajJBZ0g3eWt3bENkeGx3eTVQd3dvZU5aVjJtYjg3ZlgtbG4yYXY3akJxY1o5czJDU0VXanFmSzE?oc=5",
         "titulo": "Drones ucranianos atacan una tercera refinería rusa en tres días - DiarioBitcoin",
-        "titulo_es": "Ucrania ataca tercera refinería rusa en tres días con drones",
+        "titulo_es": "Drones ucranianos atacan tercera refinería rusa en tres días",
         "medio": "Google News ES",
         "publicado_at": "2026-11-01T14:07:16-06:00",
         "categoria": "infraestructura",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Ucrania lanza su tercer ataque de drones en tres días contra refinerías rusas, reduciendo la capacidad de producción y presionando al alza los precios del combustible importado por Guatemala.",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
+        "resumen_es": "Drones ucranianos atacan una tercera refinería rusa en tres días, reduciendo la capacidad de producción y presionando al alza los precios internacionales que paga Guatemala.",
+        "fetched_at": "2026-11-02T11:55:24-06:00"
       },
       {
-        "id": 5,
+        "id": 4,
         "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQeHVwclhUTkx5SDdyeWdiUHRaQm1nc0N3d094cDBwZ1BBLWQzNTA4WWtDTTQ1ck9PSzJTVjFxTmtaVWotYl9VV3dMTHJkN24xZnlkamZubi1xZmNiZVdzRDBkU0NMM0h4Y1NseGdRbVNSZnVYMmFkbE5zaXY3S2Y5TUZOUjJVNG55TV8zWnIxeEs1dFBtR09IZ3F2aE5CUkJZMlVJRkZ2OXdyMFc5SklSMkVwUUhOLVRhem1xSi1ldVY?oc=5",
         "titulo": "Ukraine war latest: Russian oil refinery in Kstovo ablaze after reported overnight drone strike - The Kyiv Independent",
         "titulo_es": "Incendio en refinería rusa de Kstovo tras ataque con drones",
@@ -5518,117 +5644,117 @@
         "categoria": "infraestructura",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Un ataque con drones provoca incendio en la refinería de Kstovo, Rusia, reduciendo la capacidad de procesamiento y presionando al alza los precios del combustible importado por Guatemala.",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
-      },
-      {
-        "id": 14,
-        "url": "https://oilprice.com/Energy/Oil-Prices/Oil-Prices-No-Longer-Follow-Headlines.html",
-        "titulo": "Oil Prices No Longer Follow Headlines",
-        "titulo_es": "Los precios del petróleo siguen subiendo pese a noticias de mayor oferta",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-01T18:00:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Análisis muestra que los precios del petróleo siguen subiendo pese a informes de mayor oferta, indicando tendencias que pueden mantener altos los costos de combustible en Guatemala.",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
+        "resumen_es": "Un ataque con drones incendia la refinería de Kstovo en Rusia, reduciendo la capacidad de procesamiento de crudo y presionando al alza los precios del combustible importado por Guatemala.",
+        "fetched_at": "2026-11-02T11:55:24-06:00"
       },
       {
         "id": 6,
+        "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOd0Q2Mk5nMDRjWDh2S0dkUU5IR2ZNZmZHNC1kVzhEM29qTUNEblFnZGw1YklxUFdhZU9UUW5LVWxwdUdHUGk1VmhNVFFRUVRMSjJoZHY5dll3Yk4zRXNTQ3BhTUNxdmMzUmJfSGtLa0tTQ3pkdDlheFpUeE5hcG9qUTJsaXRxNHo3a2FzUEJNT0RyNGgxYS1SZnBvd09wMjVBRFlCYkxkd2t3ekdLa19PNTZpVTYxXzR4eXF2Tg?oc=5",
+        "titulo": "Ukraine reportedly strikes major Russian oil refinery in massive drone attack - Türkiye Today",
+        "titulo_es": "Ucrania ataca gran refinería rusa con drones",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-01T01:01:19-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Ucrania ataca una importante refinería rusa con drones, interrumpiendo la producción y elevando los precios internacionales que afectan a Guatemala.",
+        "fetched_at": "2026-11-02T11:55:24-06:00"
+      },
+      {
+        "id": 12,
+        "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQa2dOS2NMcnZqcG1uTVpkZzVNYVh2ZDFQUzFIQUE0eEluTnJ4dkhfaFZhMnlaVVVta0I3djk0S1NaVXNkc2FnbzdJRG1yakxnekhTcncyeFA1eXY1QlNlUjhOUGFpeC1NM2t2aUV2dlJFU05MYjZCUG9GR1ZPQ1ZqbXB5YmZjMjJ4MzNuaW9OdGsxeGpiTlVzbFhkcFpQWVk?oc=5",
+        "titulo": "Ucrania reanuda ataques contra refinerías rusas antes de las elecciones en Estados Unidos - Enfoque Noticias",
+        "titulo_es": "Ucrania reanuda ataques a refinerías rusas antes de elecciones en EE.UU.",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-02T06:18:55-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Ucrania retoma ataques a refinerías rusas antes de las elecciones en EE.UU., generando incertidumbre en la oferta mundial y posibles aumentos de precios para Guatemala.",
+        "fetched_at": "2026-11-02T11:55:24-06:00"
+      },
+      {
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQLXJZc2hZcS00MDVPcWpZU2dab3ZQSmtub1UwTm1hQkFOZm5Ydm9ZbWs2am1EMmc4UXJMcmNCd3h5eU5wMy11aFJETlVMSkR5dmN3TkhBTllyMEkxcTV4aVQ5ZTlhZkZrTnEwbk9fdXZMNjU5YnRfT0R4QVIwSnNxbXpVRUIzbFNkR3JWVzBmRFkxNEtwd3lac0M5SXBXTUk0UWlSR1ROMDNNUUJUTmxMXzJvc0M?oc=5",
+        "titulo": "Video: Drones attacked an oil pipeline station in the Samara Region of the Russian Federation, causing a fire - UA.NEWS",
+        "titulo_es": "Drones incendian estación de oleoducto en Samara, Rusia",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-02T01:25:48-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Drones provocan incendio en una estación de oleoducto en la región de Samara, Rusia, reduciendo temporalmente la capacidad de transporte de crudo y pudiendo elevar precios internacionales para Guatemala.",
+        "fetched_at": "2026-11-02T11:55:24-06:00"
+      },
+      {
+        "id": 5,
         "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPcHMzMXk4dHkwMkpoWXI3NUg4ek44akMwX3BHcDRTOXpKcTNJN0htcnp3al9VV1VVLThKdlFya0NnMlNIdnpoMGtMVEVvMzA5RlBiTFNubjVZRmpUMlJNdDhETTBsOS0waEQwNkljYjFrV0Fiam84QkJIZG9XT3VQYVBjTnNnS2JIVng5OWhud1VUODdNREk0X01xeTZBWmZ2WmNJeDFKR0JiRkZJSG1CcExTSEFNTVY2UG5XWGsyNzkzc2xi?oc=5",
         "titulo": "Russia says 'massive' drone attack targeted 'industrial enterprise' amid reports oil refinery hit - Euronews.com",
-        "titulo_es": "Rusia denuncia ataque masivo de drones a empresa industrial petrolera",
+        "titulo_es": "Rusia denuncia ataque masivo de drones a empresa industrial, posible refinería",
         "medio": "Google News EN",
         "publicado_at": "2026-11-01T01:13:00-06:00",
         "categoria": "infraestructura",
         "pais": null,
         "relevancia": 3,
-        "resumen_es": "Rusia informa de un gran ataque de drones a una instalación industrial petrolera, lo que podría afectar la producción de crudo y los precios internacionales.",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
+        "resumen_es": "Rusia informa de un ataque masivo de drones a una instalación industrial que podría ser una refinería, generando incertidumbre en la oferta mundial y posible impacto en los precios guatemaltecos.",
+        "fetched_at": "2026-11-02T11:55:24-06:00"
       },
       {
-        "id": 2,
-        "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE93VE0wek1Idk9iTS03ejZRMWQwX0tSY1hGMElFY05iTWliblJ0WnpDckgzb2VUV3dBYXRjM1Utd1BBcXczenY1M2VoNUVaQzI5TERoU1dPNkdVTWhMSllKMFZUWmZtSHhGYkE?oc=5",
-        "titulo": "Evolución de medidas ante alza de combustibles en Guatemala - Ojoconmipisto.com",
-        "titulo_es": "Evolución de medidas ante alza de combustibles en Guatemala",
+        "id": 14,
+        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNNkt2LUY3dHZPVkx4Y1VLTTZqem5XZUNkcnE5akZlemxfTDlsRng3Q3ppODlLQ1RvckpjM2puaVdCaVk4cTRaaVB3V1ZkQW9MM3hMOEVLQ28xS295bjY0ckVCZGRPSDBEVXZtZ1VkSnlYYjJ5dHZPMnNVTml0RUhCT2J5dkI0aFJq?oc=5",
+        "titulo": "Ucrania establece condiciones para detener los ataques contra las refinerías de petróleo rusas. - Vietnam.vn",
+        "titulo_es": "Ucrania fija condiciones para detener ataques a refinerías rusas",
         "medio": "Google News ES",
-        "publicado_at": "2026-10-23T14:02:17-06:00",
-        "categoria": "finanzas",
+        "publicado_at": "2026-11-01T19:18:17-06:00",
+        "categoria": "diplomacia",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "El gobierno implementa medidas para mitigar el alza de combustibles, lo que podría moderar los precios para los guatemaltecos.",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
+        "relevancia": 2,
+        "resumen_es": "Ucrania propone condiciones para detener sus ataques a refinerías rusas, lo que podría estabilizar la oferta mundial y moderar los precios en Guatemala.",
+        "fetched_at": "2026-11-02T11:55:24-06:00"
       },
       {
-        "id": 9,
+        "id": 8,
         "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPdjdQMjVXV0ZPMXZKM3QxeVpOcWNaZEhUa04ySUd2dmd6Q3NVUnR6LVEyVWRib21LLVlOLUo3MF9ock5mRUVxNmZaQmNDd1JVcEhHckxMd0puaHlHT1luWTUyUE96czJvWF9hcDcxR0Q2NlBMbVo5MUtPN2t6VF92bnFNQTd4TWlVdWfSAY8BQVVfeXFMTzh2MVJFNHF1R2E5WFhBVDZWSGt5RjZhTjFWV1p5MENLOW0wLUx1RXNLUnQ5VUM3cHZ2aTdnYVJJdElzYlBObEtHSzVNZlVqTHBRTVBtNmFLdnRqYk0xR1FmLWxxWV9iZG02VmpBV21wRDJSSDJHNnhPOHBhUUdFelNEN0NUaGJzQUZNMlFVS2M?oc=5",
         "titulo": "Russian strikes plunge Ukrainian city into blackout as Zelenskyy warns of more missile attacks - CNBC",
-        "titulo_es": "Ataques rusos dejan a ciudad ucraniana sin energía",
+        "titulo_es": "Ataques rusos dejan a ciudad ucraniana sin luz",
         "medio": "Google News EN",
         "publicado_at": "2026-10-30T05:29:59-06:00",
-        "categoria": "geopolitica",
+        "categoria": "otro",
         "pais": null,
         "relevancia": 1,
-        "resumen_es": "Ataques rusos causan apagón en ciudad ucraniana, reflejando la escalada del conflicto, pero sin impacto directo en el suministro de combustible para Guatemala.",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
+        "resumen_es": "Los ataques rusos causan apagón en una ciudad ucraniana, sin relación directa con el suministro de combustible a Guatemala.",
+        "fetched_at": "2026-11-02T11:55:24-06:00"
       },
       {
-        "id": 31,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/US-Pushes-to-Restore-Russian-Gas-Flows-to-Europe.html",
-        "titulo": "U.S. Pushes to Restore Russian Gas Flows to Europe",
+        "id": 36,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/TotalEnergies-Now-Sees-Oil-Demand-Peaking-Between-2035-and-2040.html",
+        "titulo": "TotalEnergies Now Sees Oil Demand Peaking Between 2035 and 2040",
         "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-02T01:50:00-06:00",
+        "publicado_at": "2026-11-02T11:30:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "The United States has discussed with Russia the possibility of restoring natural gas flows to Europe via pipelines running through Ukraine, the Wall Street Journal has reported, citing unnamed sources involved in the talks. The idea came from President Trump’s envoys Jared Kushner and Steve Witkoff and was floated during trips to Moscow and Kyiv in September, the report said. The proposal would involve selling Russian gas through a U.S. intermediary, although such an arrangement would still face",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
+        "resumen_es": "A year after forecasting that oil demand would keep rising until 2040, TotalEnergies has moved its peak forward to between 2035 and 2040, and says the Iran war could accelerate the energy transition. The company’s annual energy outlook, released on Monday, projects demand for petroleum products plateauing through the 2030s before a slow decline. Chief sustainability officer Aurélien Hamelle told reporters that demand could fall faster if EV sales keep growing. In November 2025, TotalEnergies for",
+        "fetched_at": "2026-11-02T11:55:24-06:00"
       },
       {
-        "id": 42,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Slide-3-as-Hopes-for-Iran-Peace-Deal-Grow.html",
-        "titulo": "Oil Prices Slide 3% as Hopes for Iran Peace Deal Grow",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-02T00:30:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Crude oil prices started the week with a dip on renewed optimism about a possible peace deal between the United States and Iran, following reports about mediation talks between Iran and Qatar over the weekend. At the time of writing, Brent crude was trading at $109.82 per barrel, and West Texas Intermediate was changing hands for $100.57 per barrel, despite a statement by Iran’s Foreign Minister Abbas Araqchi that said Tehran was prepared for \"both defence and diplomacy\", as cited by Reuters. IN",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
-      },
-      {
-        "id": 43,
-        "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQeFUtVUJ5cHdSV1pKYXhtdmQ2d3NVbXdDQUhQYW1oNFF6WnQ4VHVFeWlLeC1FNVczTUQxZmZOVlRUaGdfWUEyZHRVN2lUdk13STRYQnk1LWJ1cWt0aG5NdmNJbmlENlNhWE5UTGU0SXRZUXR0MXFUcXQ1UzN4VG9ybVBKMFhpR0k2TDlzbW4zS2swZW8wZERjV1dsMzFiUHJjNzFyRkw0QzRZN2NsbDZqd3UyZW9zSEYwRERiRTYwbw?oc=5",
-        "titulo": "Goldman lifts December Brent forecast to $105 on Middle East and Russia supply risks - investingLive",
+        "id": 24,
+        "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNRGZjWGZWLUMtOWtmZHhPb01ReEpiR3FjX2lnajgwTEhEMGk3REYwYzZWZy1WeFU3OVlMeEQzeWR1YzVfcG5xNll2T3U5V3o5dDhnYm1WQV8xajhhVDdLaE4wSld4bWIzaWxaemxreFNTMXdBZ1VyV3lYbEFCV3gtTktZTEo2eUFYN1VmaXk1d0pnMEhSMlRqZHNB?oc=5",
+        "titulo": "US oil firms reap $130 billion windfall as Iran war drives up energy costs - Latest news from Azerbaijan",
         "titulo_es": null,
         "medio": "Google News EN",
-        "publicado_at": "2026-11-01T22:09:57-06:00",
+        "publicado_at": "2026-11-02T10:59:13-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "Goldman lifts December Brent forecast to $105 on Middle East and Russia supply risks investingLive",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
-      },
-      {
-        "id": 16,
-        "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQb0h6VV9wOURhOVRTd3h0cHlad3ROZXZQSTJ0TERoZTlZRU1STVJPOHhUUUpOcU5VdXRjUDhrT19vVWh0anRHQy1heldzNXFkaF9iRTJQb1p5bk1ObHhMcU9feWFpSU5FSl9aVkFWdW5BdUN2c2cxVFBTQVFmOHY1c05n?oc=5",
-        "titulo": "Zelensky says Putin is 'losing the war' as Russian oil refinery burns in huge strike - AOL.com",
-        "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-01T11:53:31-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Zelensky says Putin is 'losing the war' as Russian oil refinery burns in huge strike AOL.com",
-        "fetched_at": "2026-11-02T04:54:17-06:00"
+        "resumen_es": "US oil firms reap $130 billion windfall as Iran war drives up energy costs Latest news from Azerbaijan",
+        "fetched_at": "2026-11-02T11:55:24-06:00"
       }
     ],
     "llm": {
       "titulos_es_hoy": 15,
-      "total_hoy": 50,
+      "total_hoy": 46,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
