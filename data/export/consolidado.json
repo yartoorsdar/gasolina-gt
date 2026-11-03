@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-11-02T11:55:24-06:00",
+  "actualizado_at": "2026-11-03T04:54:52-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-11-02",
   "productos": {
@@ -13,14 +13,10 @@
         "fecha": "2026-11-02",
         "precio": 30.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-02T11:54:46-06:00",
+        "fetched_at": "2026-11-03T04:53:27-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-02",
-          "precio": 26.83
-        },
         {
           "fecha": "2025-11-03",
           "precio": 26.69
@@ -1259,16 +1255,26 @@
             "fecha": "2026-11-02",
             "precio": 30.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-02T11:54:46-06:00",
+            "fetched_at": "2026-11-03T04:53:27-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
             "fecha": "2026-11-02",
             "precio": 30.69,
             "confianza": "alta",
-            "n_coinciden": 3,
-            "n_fuentes": 3,
+            "n_coinciden": 4,
+            "n_fuentes": 5,
             "fuentes": [
+              {
+                "coincide": true,
+                "fecha": "2026-11-02",
+                "medio": "emisorasunidas.com",
+                "modalidad_inferida": true,
+                "peso": 1.0,
+                "precio": 30.69,
+                "tipo": "monitoreado",
+                "url": "https://emisorasunidas.com/nacional/2026/11/02/precios-combustibles-gasolina-noviembre-2026-guatemala/"
+              },
               {
                 "coincide": true,
                 "fecha": "2026-11-02",
@@ -1298,6 +1304,16 @@
                 "precio": 30.69,
                 "tipo": "monitoreado",
                 "url": "https://lared1061.com/posts/baja-la-gasolina-estos-son-los-nuevos-precios-este-lunes"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-11-02",
+                "medio": "prensalibre.com",
+                "modalidad_inferida": false,
+                "peso": 0.772,
+                "precio": 31.71,
+                "tipo": "monitoreado",
+                "url": "https://www.prensalibre.com/economia/gasolinas-bajan-hasta-q3-82-en-guatemala-estos-son-los-precios-al-2-de-noviembre/"
               }
             ]
           },
@@ -1346,7 +1362,7 @@
             "fecha": "2026-11-02",
             "precio": 31.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-02T11:54:46-06:00",
+            "fetched_at": "2026-11-03T04:53:27-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1408,14 +1424,10 @@
         "fecha": "2026-11-02",
         "precio": 33.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-02T11:54:46-06:00",
+        "fetched_at": "2026-11-03T04:53:27-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-02",
-          "precio": 28.32
-        },
         {
           "fecha": "2025-11-03",
           "precio": 28.2
@@ -2662,16 +2674,26 @@
             "fecha": "2026-11-02",
             "precio": 33.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-02T11:54:46-06:00",
+            "fetched_at": "2026-11-03T04:53:27-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
             "fecha": "2026-11-02",
             "precio": 33.19,
             "confianza": "alta",
-            "n_coinciden": 3,
-            "n_fuentes": 3,
+            "n_coinciden": 4,
+            "n_fuentes": 5,
             "fuentes": [
+              {
+                "coincide": true,
+                "fecha": "2026-11-02",
+                "medio": "emisorasunidas.com",
+                "modalidad_inferida": true,
+                "peso": 1.0,
+                "precio": 33.19,
+                "tipo": "monitoreado",
+                "url": "https://emisorasunidas.com/nacional/2026/11/02/precios-combustibles-gasolina-noviembre-2026-guatemala/"
+              },
               {
                 "coincide": true,
                 "fecha": "2026-11-02",
@@ -2701,6 +2723,16 @@
                 "precio": 33.19,
                 "tipo": "monitoreado",
                 "url": "https://lared1061.com/posts/baja-la-gasolina-estos-son-los-nuevos-precios-este-lunes"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-11-02",
+                "medio": "prensalibre.com",
+                "modalidad_inferida": false,
+                "peso": 0.772,
+                "precio": 34.35,
+                "tipo": "monitoreado",
+                "url": "https://www.prensalibre.com/economia/gasolinas-bajan-hasta-q3-82-en-guatemala-estos-son-los-precios-al-2-de-noviembre/"
               }
             ]
           },
@@ -2757,7 +2789,7 @@
             "fecha": "2026-11-02",
             "precio": 34.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-02T11:54:46-06:00",
+            "fetched_at": "2026-11-03T04:53:27-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2827,14 +2859,10 @@
         "fecha": "2026-11-02",
         "precio": 41.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-02T11:54:46-06:00",
+        "fetched_at": "2026-11-03T04:53:27-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-02",
-          "precio": 25.36
-        },
         {
           "fecha": "2025-11-03",
           "precio": 26.21
@@ -4073,16 +4101,26 @@
             "fecha": "2026-11-02",
             "precio": 41.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-02T11:54:46-06:00",
+            "fetched_at": "2026-11-03T04:53:27-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
             "fecha": "2026-11-02",
             "precio": 41.69,
             "confianza": "alta",
-            "n_coinciden": 3,
-            "n_fuentes": 3,
+            "n_coinciden": 4,
+            "n_fuentes": 5,
             "fuentes": [
+              {
+                "coincide": true,
+                "fecha": "2026-11-02",
+                "medio": "emisorasunidas.com",
+                "modalidad_inferida": true,
+                "peso": 1.0,
+                "precio": 41.69,
+                "tipo": "monitoreado",
+                "url": "https://emisorasunidas.com/nacional/2026/11/02/precios-combustibles-gasolina-noviembre-2026-guatemala/"
+              },
               {
                 "coincide": true,
                 "fecha": "2026-11-02",
@@ -4112,6 +4150,16 @@
                 "precio": 41.69,
                 "tipo": "monitoreado",
                 "url": "https://lared1061.com/posts/baja-la-gasolina-estos-son-los-nuevos-precios-este-lunes"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-11-02",
+                "medio": "prensalibre.com",
+                "modalidad_inferida": false,
+                "peso": 0.772,
+                "precio": 42.43,
+                "tipo": "monitoreado",
+                "url": "https://www.prensalibre.com/economia/gasolinas-bajan-hasta-q3-82-en-guatemala-estos-son-los-precios-al-2-de-noviembre/"
               }
             ]
           },
@@ -4160,7 +4208,7 @@
             "fecha": "2026-11-02",
             "precio": 42.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-02T11:54:46-06:00",
+            "fetched_at": "2026-11-03T04:53:27-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4231,10 +4279,10 @@
       "unidad": "USD/barril",
       "orden": 4,
       "actual": {
-        "fecha": "2026-11-02",
-        "precio": 96.54,
+        "fecha": "2026-11-03",
+        "precio": 97.77,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-11-02T11:54:47-06:00",
+        "fetched_at": "2026-11-03T04:54:19-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5329,6 +5377,10 @@
         {
           "fecha": "2026-11-02",
           "precio": 96.54
+        },
+        {
+          "fecha": "2026-11-03",
+          "precio": 97.77
         }
       ],
       "mensual": [],
@@ -5349,8 +5401,8 @@
         },
         {
           "anio": 2026,
-          "promedio": 85.33,
-          "dias": 230,
+          "promedio": 85.39,
+          "dias": 231,
           "meses": null,
           "fuente": "diario"
         }
@@ -5359,18 +5411,14 @@
         "spot": {
           "nombre": "Spot",
           "actual": {
-            "fecha": "2026-11-02",
-            "precio": 96.54,
+            "fecha": "2026-11-03",
+            "precio": 97.77,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-11-02T11:54:47-06:00",
+            "fetched_at": "2026-11-03T04:54:19-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
           "historial": [
-            {
-              "fecha": "2026-10-03",
-              "precio": 91.26
-            },
             {
               "fecha": "2026-10-04",
               "precio": 90.82
@@ -5490,6 +5538,10 @@
             {
               "fecha": "2026-11-02",
               "precio": 96.54
+            },
+            {
+              "fecha": "2026-11-03",
+              "precio": 97.77
             }
           ]
         }
@@ -5534,8 +5586,8 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 29,
-    "notas_leidas": 151,
+    "observaciones_7d": 30,
+    "notas_leidas": 153,
     "medios": [
       "agn.gt",
       "dca.gob.gt",
@@ -5554,207 +5606,207 @@
     ]
   },
   "noticias": {
-    "total": 46,
+    "total": 50,
     "top": [
       {
-        "id": 13,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Goldman-Sachs-Raises-Brent-Oil-Price-Forecast-to-105.html",
-        "titulo": "Goldman Sachs Raises December Brent Oil Price Forecast to $105",
-        "titulo_es": "Goldman Sachs eleva pronóstico de Brent a $105 para diciembre",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-02T03:00:00-06:00",
+        "id": 6,
+        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNR2dWNkJBQVZLREZWZDZuQXB4LVFTNGN3VHNzRjhFb3dLOXZVcHBCX0F2X2MxdlZyQWwxQnlSNkx4ZGdOUGsxeGp4UnRLWXFHYWR5amZDMVJLZVFoeFpnWnVtb1VmVHhoM0I2M2szbjdsakRlU1lMQ1l2NExnR2ZqZGoycGZlclltbW1CUXhIbVJqN3F4Wm55RnQ3dERwV0U4ekdlTGhnQ0RnZTh4Yi1TaG5vVDJGWVRLNkE?oc=5",
+        "titulo": "Gasolinas bajan hasta Q3.82 en Guatemala: estos son los precios al 2 de noviembre - Prensa Libre",
+        "titulo_es": "Gasolinas bajan a Q3.82 en Guatemala al 2 de noviembre",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-02T15:34:31-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Goldman Sachs eleva su pronóstico de Brent a $105 para diciembre, indicando expectativas de precios altos que impactarán el costo del combustible importado por Guatemala.",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
+        "resumen_es": "Los precios de la gasolina en Guatemala cayeron a Q3.82 al 2 de noviembre, reduciendo el costo para los consumidores y reflejando la caída del crudo internacional.",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
+      },
+      {
+        "id": 7,
+        "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQdnJIOFN1eHVOU0NSUkwwZEpJb1RJcC03bWo4UVBFX2h3OWxBM2hXTk1hQmM1OVRoRjlZUHU3V3pxejhkZnNQX2t2OHVFR1ZVUFpFVkpmb0QxVjdrX1prdzM1NWJRWDhRdE5vUENjQm5TRUg5Q2tNQzdtb21CUlVlaHkwd3gtcFV2Qld4ZllfS0RSV01yV1dlNFVrcUJnaWhLdkJHWVNyUjhTV0hBbG9sUDBXNWpmMGhDcl9nUUIzXzlYV0Z4bVhHcko0ekVmM2Ywc3YtWTkxS3BQaGpSYkVZbnQtdDNEUTQ?oc=5",
+        "titulo": "Combustibles bajan de precio en Guatemala, mientras factura petrolera alcanza los USD 4 mil 850 millones - La Hora",
+        "titulo_es": "Combustibles bajan de precio en Guatemala mientras factura alcanza USD 4.85 mil millones",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-02T11:09:26-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Los combustibles bajaron de precio en Guatemala mientras la factura petrolera nacional alcanzó USD 4.85 mil millones, indicando presión de precios internacionales.",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
       },
       {
         "id": 1,
         "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOUExzem1feGR5UVFqaDhuMDVCNGNuZHNrVV81b0UtZ2JUY1E5LVFqU0tUdmtOS2hGamdjbURIbEFISURnYm16X1Nmd01pN1RCVVZBYnlZS1lyWW9JRHhaclVYLWktNlFjSHJ3LUFfVkQxS05PVnZJR05sY08yZG1TWTAyTExPcG4wTFJIYUF6YUxqbW1Nd1Y0SnIyZWVrR0pRR04xdUhXd2NxUnhmNnZabUZUR1Q2dmotWXRnUk1iWkZ2bU51aWFSd1ZUeTdHYVZSeFNPQzBVdVF1MTA?oc=5",
         "titulo": "Factura petrolera de Guatemala sube 46.4% y revela un cambio en el consumo de gasolinas regular y superior - Prensa Libre",
-        "titulo_es": "Factura de combustible de Guatemala sube 46.4% y cambia consumo de gasolinas",
+        "titulo_es": "Factura petrolera de Guatemala sube 46.4% y cambia consumo de gasolinas",
         "medio": "Google News ES",
         "publicado_at": "2026-11-02T00:08:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "La factura de combustible de Guatemala sube 46.4% y cambia el consumo de gasolina regular y superior, elevando los costos para importadores y consumidores locales.",
-        "fetched_at": "2026-11-02T11:55:23-06:00"
-      },
-      {
-        "id": 10,
-        "url": "https://oilprice.com/Energy/Energy-General/How-Iran-Just-Broke-the-US-Oil-Shield-In-Saudi-Arabia-Yet-Again.html",
-        "titulo": "How Iran Just Broke the U.S. Oil Shield In Saudi Arabia Yet Again",
-        "titulo_es": "Irán rompe el escudo petrolero de EE.UU. atacando refinería saudí",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-02T10:00:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Ataques iraníes a la refinería saudí de Ras Tanura interrumpen la producción de crudo, generando alzas en los precios internacionales que afectan a Guatemala.",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
-      },
-      {
-        "id": 11,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Ukraine-Has-Hit-Three-Russian-Refineries-Since-Friday.html",
-        "titulo": "Ukraine Has Hit Three Russian Refineries Since Friday",
-        "titulo_es": "Ucrania ataca tres refinerías rusas en una semana",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-02T09:30:00-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Ucrania ha atacado tres refinerías rusas, reduciendo la capacidad de producción de petróleo y elevando los precios globales que paga Guatemala.",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
-      },
-      {
-        "id": 2,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Iraqs-Oil-Exports-via-Turkey-Surge-to-500000-Bpd.html",
-        "titulo": "Iraq's Oil Exports via Turkey Surge to 500,000 Bpd",
-        "titulo_es": "Exportaciones de crudo de Irak aumentan a 500,000 bpd vía Turquía",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-02T04:00:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Irak incrementa sus exportaciones de crudo por Turquía a 500,000 barriles diarios, aumentando la oferta mundial y presionando a la baja los precios que paga Guatemala.",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
-      },
-      {
-        "id": 15,
-        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPcHc1VDd1SWJ5RjhueG0zMVRPcWZSOC1GOWtGMVJFNkFiVXlqQmVzUEtzZEpDT3dMeTU2MExSLWlOOUNkdFBnUTdGcl9jSk9rb05ZVFNkcXlhbUFMYjRFVHlBSXREcnoxTUN6dGpuUHBaYWxOZHVHVU1QZXdUajJBZ0g3eWt3bENkeGx3eTVQd3dvZU5aVjJtYjg3ZlgtbG4yYXY3akJxY1o5czJDU0VXanFmSzE?oc=5",
-        "titulo": "Drones ucranianos atacan una tercera refinería rusa en tres días - DiarioBitcoin",
-        "titulo_es": "Drones ucranianos atacan tercera refinería rusa en tres días",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-01T14:07:16-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Drones ucranianos atacan una tercera refinería rusa en tres días, reduciendo la capacidad de producción y presionando al alza los precios internacionales que paga Guatemala.",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
-      },
-      {
-        "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQeHVwclhUTkx5SDdyeWdiUHRaQm1nc0N3d094cDBwZ1BBLWQzNTA4WWtDTTQ1ck9PSzJTVjFxTmtaVWotYl9VV3dMTHJkN24xZnlkamZubi1xZmNiZVdzRDBkU0NMM0h4Y1NseGdRbVNSZnVYMmFkbE5zaXY3S2Y5TUZOUjJVNG55TV8zWnIxeEs1dFBtR09IZ3F2aE5CUkJZMlVJRkZ2OXdyMFc5SklSMkVwUUhOLVRhem1xSi1ldVY?oc=5",
-        "titulo": "Ukraine war latest: Russian oil refinery in Kstovo ablaze after reported overnight drone strike - The Kyiv Independent",
-        "titulo_es": "Incendio en refinería rusa de Kstovo tras ataque con drones",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-01T10:59:37-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Un ataque con drones incendia la refinería de Kstovo en Rusia, reduciendo la capacidad de procesamiento de crudo y presionando al alza los precios del combustible importado por Guatemala.",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOd0Q2Mk5nMDRjWDh2S0dkUU5IR2ZNZmZHNC1kVzhEM29qTUNEblFnZGw1YklxUFdhZU9UUW5LVWxwdUdHUGk1VmhNVFFRUVRMSjJoZHY5dll3Yk4zRXNTQ3BhTUNxdmMzUmJfSGtLa0tTQ3pkdDlheFpUeE5hcG9qUTJsaXRxNHo3a2FzUEJNT0RyNGgxYS1SZnBvd09wMjVBRFlCYkxkd2t3ekdLa19PNTZpVTYxXzR4eXF2Tg?oc=5",
-        "titulo": "Ukraine reportedly strikes major Russian oil refinery in massive drone attack - Türkiye Today",
-        "titulo_es": "Ucrania ataca gran refinería rusa con drones",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-01T01:01:19-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Ucrania ataca una importante refinería rusa con drones, interrumpiendo la producción y elevando los precios internacionales que afectan a Guatemala.",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
-      },
-      {
-        "id": 12,
-        "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQa2dOS2NMcnZqcG1uTVpkZzVNYVh2ZDFQUzFIQUE0eEluTnJ4dkhfaFZhMnlaVVVta0I3djk0S1NaVXNkc2FnbzdJRG1yakxnekhTcncyeFA1eXY1QlNlUjhOUGFpeC1NM2t2aUV2dlJFU05MYjZCUG9GR1ZPQ1ZqbXB5YmZjMjJ4MzNuaW9OdGsxeGpiTlVzbFhkcFpQWVk?oc=5",
-        "titulo": "Ucrania reanuda ataques contra refinerías rusas antes de las elecciones en Estados Unidos - Enfoque Noticias",
-        "titulo_es": "Ucrania reanuda ataques a refinerías rusas antes de elecciones en EE.UU.",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-02T06:18:55-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Ucrania retoma ataques a refinerías rusas antes de las elecciones en EE.UU., generando incertidumbre en la oferta mundial y posibles aumentos de precios para Guatemala.",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
+        "resumen_es": "La factura petrolera de Guatemala sube 46.4%, indicando mayor gasto y cambio en consumo de gasolinas, lo que eleva los precios locales.",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
       },
       {
         "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQLXJZc2hZcS00MDVPcWpZU2dab3ZQSmtub1UwTm1hQkFOZm5Ydm9ZbWs2am1EMmc4UXJMcmNCd3h5eU5wMy11aFJETlVMSkR5dmN3TkhBTllyMEkxcTV4aVQ5ZTlhZkZrTnEwbk9fdXZMNjU5YnRfT0R4QVIwSnNxbXpVRUIzbFNkR3JWVzBmRFkxNEtwd3lac0M5SXBXTUk0UWlSR1ROMDNNUUJUTmxMXzJvc0M?oc=5",
-        "titulo": "Video: Drones attacked an oil pipeline station in the Samara Region of the Russian Federation, causing a fire - UA.NEWS",
-        "titulo_es": "Drones incendian estación de oleoducto en Samara, Rusia",
+        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOYnhPV2lNWHRXeHVKYWRqXzFSYlN6TW9DSzF3d3dCaC1iakt3eVhpNlh1XzltT0JseGo3cm9sVmFjOUl3aERVRmR2LWVYamhieFJfanhnSElyMjl2TXhqeVBsVDJzcFU2QWtqZWlTeklPQzdhWXZZb0huRmpNOS1oN21GSE5mZ0lOeVVxdzZaMHNIc2NOcEpPTFNSLXo?oc=5",
+        "titulo": "Fire Breaks Out at Yaroslavl Oil Refinery Following Drone Strike - Мілітарний",
+        "titulo_es": "Incendio en refinería rusa de Yaroslavl tras ataque con drones",
         "medio": "Google News EN",
-        "publicado_at": "2026-11-02T01:25:48-06:00",
-        "categoria": "infraestructura",
+        "publicado_at": "2026-11-03T01:35:48-06:00",
+        "categoria": "oferta",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Drones provocan incendio en una estación de oleoducto en la región de Samara, Rusia, reduciendo temporalmente la capacidad de transporte de crudo y pudiendo elevar precios internacionales para Guatemala.",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
+        "relevancia": 4,
+        "resumen_es": "Incendio en la refinería rusa de Yaroslavl tras ataque con drones reduce la capacidad de producción de crudo, presionando precios internacionales que impactan a Guatemala.",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
+      },
+      {
+        "id": 9,
+        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPZXBvbnZnMUxrUkdlcThsQVJUNXlLdjM0ZHZmYmpUcWc1R1JZQUY3c2JsdDVYWFp6blZRZVNKQmZFMXc2Wnc3YktRV2FhNzJUQjdsM0VVRkNDbzBYWXVXS09nU2lUQjJEbEFKMHZwcUlLT0xaX1JJUm92VFpUejhTZjhXY1EtZmM1YWdsX2FHbExRLXR3TjdpRWY3RTFuNzZPWlBtMjN1WDdKNjdIQkdmdjYwcjRhQQ?oc=5",
+        "titulo": "El petróleo sube tras ataque de EE.UU. en isla Qeshm de Irán - Investing.com México - Finanzas, Bolsa y Forex",
+        "titulo_es": "El petróleo sube tras ataque estadounidense en la isla Qeshm de Irán",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-03T01:20:20-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Un ataque estadounidense en la isla Qeshm de Irán elevó los precios del crudo al generar temores de interrupciones en el flujo del Golfo, afectando costos de importación guatemaltecos.",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
       },
       {
         "id": 5,
-        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPcHMzMXk4dHkwMkpoWXI3NUg4ek44akMwX3BHcDRTOXpKcTNJN0htcnp3al9VV1VVLThKdlFya0NnMlNIdnpoMGtMVEVvMzA5RlBiTFNubjVZRmpUMlJNdDhETTBsOS0waEQwNkljYjFrV0Fiam84QkJIZG9XT3VQYVBjTnNnS2JIVng5OWhud1VUODdNREk0X01xeTZBWmZ2WmNJeDFKR0JiRkZJSG1CcExTSEFNTVY2UG5XWGsyNzkzc2xi?oc=5",
-        "titulo": "Russia says 'massive' drone attack targeted 'industrial enterprise' amid reports oil refinery hit - Euronews.com",
-        "titulo_es": "Rusia denuncia ataque masivo de drones a empresa industrial, posible refinería",
+        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNZTlaZTlIaThQZlNwQlktYUJRalZMSVBZc25MUjBXTmFMU1hwemh6YXFycDJ5Qy1hVmMyeXpOVW1jYVFrNDN0LVJxamhXUXlZcUE2NUVqSUVDQzlPUUhydW9EQ2NhRjRrZTV1R3lkZXJubXdDVVM0ZURaSnpEeURJQkRhZ0p0dU1nOWhDMmxfeHpRdThWaGNHS0xBS0N0RmZnMjVVRGxDbDlyUQ?oc=5",
+        "titulo": "Drone attack and fire reported at Russia's Novokuibyshevsk oil refinery - Euronews.com",
+        "titulo_es": "Refinería rusa de Novokuibyshevsk sufre ataque con drones y fuego",
         "medio": "Google News EN",
-        "publicado_at": "2026-11-01T01:13:00-06:00",
-        "categoria": "infraestructura",
+        "publicado_at": "2026-10-30T02:57:34-06:00",
+        "categoria": "oferta",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Rusia informa de un ataque masivo de drones a una instalación industrial que podría ser una refinería, generando incertidumbre en la oferta mundial y posible impacto en los precios guatemaltecos.",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
-      },
-      {
-        "id": 14,
-        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNNkt2LUY3dHZPVkx4Y1VLTTZqem5XZUNkcnE5akZlemxfTDlsRng3Q3ppODlLQ1RvckpjM2puaVdCaVk4cTRaaVB3V1ZkQW9MM3hMOEVLQ28xS295bjY0ckVCZGRPSDBEVXZtZ1VkSnlYYjJ5dHZPMnNVTml0RUhCT2J5dkI0aFJq?oc=5",
-        "titulo": "Ucrania establece condiciones para detener los ataques contra las refinerías de petróleo rusas. - Vietnam.vn",
-        "titulo_es": "Ucrania fija condiciones para detener ataques a refinerías rusas",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-01T19:18:17-06:00",
-        "categoria": "diplomacia",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Ucrania propone condiciones para detener sus ataques a refinerías rusas, lo que podría estabilizar la oferta mundial y moderar los precios en Guatemala.",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
+        "relevancia": 4,
+        "resumen_es": "Un ataque con drones provocó fuego en la refinería rusa de Novokuibyshevsk, reduciendo la capacidad de procesamiento y presionando al alza los precios del petróleo.",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
       },
       {
         "id": 8,
-        "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPdjdQMjVXV0ZPMXZKM3QxeVpOcWNaZEhUa04ySUd2dmd6Q3NVUnR6LVEyVWRib21LLVlOLUo3MF9ock5mRUVxNmZaQmNDd1JVcEhHckxMd0puaHlHT1luWTUyUE96czJvWF9hcDcxR0Q2NlBMbVo5MUtPN2t6VF92bnFNQTd4TWlVdWfSAY8BQVVfeXFMTzh2MVJFNHF1R2E5WFhBVDZWSGt5RjZhTjFWV1p5MENLOW0wLUx1RXNLUnQ5VUM3cHZ2aTdnYVJJdElzYlBObEtHSzVNZlVqTHBRTVBtNmFLdnRqYk0xR1FmLWxxWV9iZG02VmpBV21wRDJSSDJHNnhPOHBhUUdFelNEN0NUaGJzQUZNMlFVS2M?oc=5",
-        "titulo": "Russian strikes plunge Ukrainian city into blackout as Zelenskyy warns of more missile attacks - CNBC",
-        "titulo_es": "Ataques rusos dejan a ciudad ucraniana sin luz",
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Saudi-Aramco-Profit-Beats-Expectations-as-Oil-Prices-Soar.html",
+        "titulo": "Saudi Aramco Profit Beats Expectations as Oil Prices Soar",
+        "titulo_es": "Saudi Aramco reporta ganancias récord mientras suben los precios del petróleo",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-03T03:45:00-06:00",
+        "categoria": "finanzas",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Saudi Aramco superó estimaciones de ganancias impulsado por el aumento del crudo tras interrupciones de suministro, lo que puede elevar precios importados por Guatemala.",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
+      },
+      {
+        "id": 2,
+        "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPRHdXZnJKM05INU02OXYzUWdKRjAwcWdBZTZxUVhmSjRaUDVOY0Yzc0ZGT3lkZmc2d0xLVzFFRkdVNkxIQzY3b0NtakZvQXdDNnpJd2lWRm5VM1QtOE0xYUc4Z19RT1BYYWNSSGN1V0tyeHdJZWFya3RrSGhmUFYzbWFZWFUwRVRpRXE5NVVIZWd0R0c2QU9sUzNuLUUxOE5BdXlOX1NoM0xnWHBYQllfNEx2Q2x0Tl8xODdYQW5zSTdTMll3N05ISm1kTnl5THBmUUtaaE5NdGcxSk4tZ2MzX2NFU215eWNM?oc=5",
+        "titulo": "Kazakhstan restarts oil export pipeline after new attack sparks major fire at Russian facility - Upstream Online",
+        "titulo_es": "Kazajistán reinicia oleoducto de exportación tras ataque e incendio en Rusia",
         "medio": "Google News EN",
-        "publicado_at": "2026-10-30T05:29:59-06:00",
+        "publicado_at": "2026-11-03T02:35:44-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Kazajistán reanudó su oleoducto de exportación tras un ataque que provocó incendio en una instalación rusa, ayudando a estabilizar el suministro mundial de crudo.",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
+      },
+      {
+        "id": 10,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/US-LNG-Exports-Near-Record-High-as-Europe-Scrambles-for-Winter-Supply.html",
+        "titulo": "U.S. LNG Exports Near Record High as Europe Scrambles for Winter Supply",
+        "titulo_es": "Exportaciones de GNL de EE.UU. alcanzan niveles récord mientras Europa busca suministro",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-03T01:00:00-06:00",
         "categoria": "otro",
         "pais": null,
         "relevancia": 1,
-        "resumen_es": "Los ataques rusos causan apagón en una ciudad ucraniana, sin relación directa con el suministro de combustible a Guatemala.",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
+        "resumen_es": "Las exportaciones estadounidenses de GNL alcanzan niveles récord para abastecer a Europa, con escaso impacto directo en los precios de los combustibles en Guatemala.",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
       },
       {
-        "id": 36,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/TotalEnergies-Now-Sees-Oil-Demand-Peaking-Between-2035-and-2040.html",
-        "titulo": "TotalEnergies Now Sees Oil Demand Peaking Between 2035 and 2040",
+        "id": 20,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/CVR-Energy-Nears-4-Billion-Refinery-Deal-With-Marathon.html",
+        "titulo": "CVR Energy Nears $4 Billion Refinery Deal With Marathon",
         "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-02T11:30:00-06:00",
+        "publicado_at": "2026-11-03T02:15:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "A year after forecasting that oil demand would keep rising until 2040, TotalEnergies has moved its peak forward to between 2035 and 2040, and says the Iran war could accelerate the energy transition. The company’s annual energy outlook, released on Monday, projects demand for petroleum products plateauing through the 2030s before a slow decline. Chief sustainability officer Aurélien Hamelle told reporters that demand could fall faster if EV sales keep growing. In November 2025, TotalEnergies for",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
+        "resumen_es": "Marathon Petroleum is nearing a deal for the sale of several refineries to CVR Energy, with the sale expected to be worth $4 billion, the Wall Street Journal has reported, citing unnamed sources. The deal could be announced later today. The refining sector has become the star of the oil industry this year as the wars in the Persian Gulf and Russia-Ukraine have severely crippled global fuel supply, prompting refiners outside the war zones to boost their output. The market situation has driven a s",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
       },
       {
-        "id": 24,
-        "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNRGZjWGZWLUMtOWtmZHhPb01ReEpiR3FjX2lnajgwTEhEMGk3REYwYzZWZy1WeFU3OVlMeEQzeWR1YzVfcG5xNll2T3U5V3o5dDhnYm1WQV8xajhhVDdLaE4wSld4bWIzaWxaemxreFNTMXdBZ1VyV3lYbEFCV3gtTktZTEo2eUFYN1VmaXk1d0pnMEhSMlRqZHNB?oc=5",
-        "titulo": "US oil firms reap $130 billion windfall as Iran war drives up energy costs - Latest news from Azerbaijan",
+        "id": 11,
+        "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPa1RQS3BnX0N5MjdUalBYS1dGcGhXY204NzluTW0wTG9rMEpDSHhOZWpxWmtaYmxHZnJSWXNGV2trWmViWWFnd1k2c1FlbEdXNGVFaHg4TzVjaVU0d2k2bHU5Y01EN2FKMGN0RGY2cVFRdE9HRmJXeXZtTmJnbDZ5WHVkd2h1Mi1PWGdnSjgtNGpVV0RobzFpcG1UeERGTkhraGJSeGU3N1NlZ19Zem9HUXB5SQ?oc=5",
+        "titulo": "Drones Hit Russia’s Yanos Refinery as Ukraine Steps Up Strikes - Bloomberg.com",
         "titulo_es": null,
         "medio": "Google News EN",
-        "publicado_at": "2026-11-02T10:59:13-06:00",
+        "publicado_at": "2026-11-03T00:47:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "US oil firms reap $130 billion windfall as Iran war drives up energy costs Latest news from Azerbaijan",
-        "fetched_at": "2026-11-02T11:55:24-06:00"
+        "resumen_es": "Drones Hit Russia’s Yanos Refinery as Ukraine Steps Up Strikes Bloomberg.com",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
+      },
+      {
+        "id": 21,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Bounce-Back-Following-Reports-of-US-Strikes-on-Iran.html",
+        "titulo": "Oil Prices Bounce Back Following Reports of U.S. Strikes on Iran",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-02T23:25:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "After shedding 7% yesterday, crude oil prices inched up earlier today following a Wall Street Journal report about a U.S. strike on Iran’s Qeshm Island. Brent crude traded at $105.26 per barrel at the time of writing, and West Texas Intermediate traded at $97.07 per barrel, after the WSJ cited unnamed U.S. officials as saying Iran’s Qeshm Island became a target in what they said was the latest in a series of “ limited strikes Washington has secretly carried out” over the past few weeks on Iran.",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
+      },
+      {
+        "id": 22,
+        "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPeWYyNUljYnFWb2VONXk4Q09tVzdlNkFoZ2VTYnFKNnlDU2FSaTczaEdlZ1l3YS1pbmN3UWNjSm9mdzNWTTBQakhLZFRLWGY2dUVzcmFJbUNVLS1iRGhIU21BSXVXcFNIUkJjeEJpV2Z5TkNCUWlrZVFod2hxWUx3Wk5pSWx5X3JVRTI5WGVwbFh6RDltNkNHWVM4YU1wbXd4VE9fbHEydXFheVJFa1E2TVl5OA?oc=5",
+        "titulo": "Precios del petróleo repuntan tras ataque de EE.UU. - Tribuna Económica",
+        "titulo_es": null,
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-02T22:37:41-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Precios del petróleo repuntan tras ataque de EE.UU. Tribuna Económica",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
+      },
+      {
+        "id": 12,
+        "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9oc1Y0dEc4cVpUc1pxRjE1dHY1bFZYd0dKRk5LVTRUb0U5UnIyeDRDbGo2M2VTWFhLY25DNEQ1anhwN2NYOGFyQVFNYlZCSklnNDVDdnlLR0VkMWNKQlp0TkotU3bSAXBBVV95cUxPY1pnMXV1MExGUGhidW9HNDJQcE5IOGdEaFcta1NQLXV6TDRhck5lUlFzdDh4bllxbnpHYS1VX3cwellwekkyZ1o5b21xTlFpbEhJMlpFLXcxcnphdE5QTUkydUNKUzR0c0VRYU5LdzhO?oc=5",
+        "titulo": "Drones attack one of Russia's five largest oil refineries supplying its defence industry – photos, videos - Українська правда",
+        "titulo_es": null,
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-02T22:16:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Drones attack one of Russia's five largest oil refineries supplying its defence industry – photos, videos <font color=\"#6f6f",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
+      },
+      {
+        "id": 23,
+        "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQTFpzbEJURFlBbkE1RzNfclduVWpDY29HaWY3dnZJNUFuTHFsckZXSU5iTGJHdUFzQkVmeVhvdk9IME9Hdkxwc0NQZzg4dFFzckltYVlzcGdWY2xhYmJWMWlMVmFyNml3YmFoSDBZMGdPZWlpU25IM3UtMW5iR3d1dGZrMGF4SzQ2MklEeG5lWU1iRUZjVDd5Nnhjc0dQamdDdEtUc3NMcFZDMTQ?oc=5",
+        "titulo": "Oil rises as peace prospects dim after US hits Iran's Qeshm Island - Reuters",
+        "titulo_es": null,
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-02T19:27:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Oil rises as peace prospects dim after US hits Iran's Qeshm Island Reuters",
+        "fetched_at": "2026-11-03T04:54:52-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 15,
-      "total_hoy": 46,
+      "titulos_es_hoy": 10,
+      "total_hoy": 50,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
