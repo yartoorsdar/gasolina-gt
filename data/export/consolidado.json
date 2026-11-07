@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-11-07T04:53:50-06:00",
+  "actualizado_at": "2026-11-07T11:54:17-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-11-06",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-11-06",
         "precio": 30.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-07T04:52:59-06:00",
+        "fetched_at": "2026-11-07T11:53:19-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -1251,7 +1251,7 @@
             "fecha": "2026-11-06",
             "precio": 30.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-07T04:52:59-06:00",
+            "fetched_at": "2026-11-07T11:53:19-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1336,7 +1336,7 @@
             "fecha": "2026-11-05",
             "precio": 31.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-07T04:52:59-06:00",
+            "fetched_at": "2026-11-07T11:53:19-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1396,7 +1396,7 @@
         "fecha": "2026-11-06",
         "precio": 33.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-07T04:52:59-06:00",
+        "fetched_at": "2026-11-07T11:53:19-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -2642,7 +2642,7 @@
             "fecha": "2026-11-06",
             "precio": 33.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-07T04:52:59-06:00",
+            "fetched_at": "2026-11-07T11:53:19-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2735,7 +2735,7 @@
             "fecha": "2026-11-05",
             "precio": 34.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-07T04:52:59-06:00",
+            "fetched_at": "2026-11-07T11:53:19-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2799,7 +2799,7 @@
         "fecha": "2026-11-06",
         "precio": 41.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-07T04:52:59-06:00",
+        "fetched_at": "2026-11-07T11:53:19-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -4037,7 +4037,7 @@
             "fecha": "2026-11-06",
             "precio": 41.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-07T04:52:59-06:00",
+            "fetched_at": "2026-11-07T11:53:19-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4122,7 +4122,7 @@
             "fecha": "2026-11-05",
             "precio": 42.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-07T04:52:59-06:00",
+            "fetched_at": "2026-11-07T11:53:19-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4190,7 +4190,7 @@
         "fecha": "2026-11-07",
         "precio": 90.48,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-11-07T04:53:17-06:00",
+        "fetched_at": "2026-11-07T11:53:19-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5322,7 +5322,7 @@
             "fecha": "2026-11-07",
             "precio": 90.48,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-11-07T04:53:17-06:00",
+            "fetched_at": "2026-11-07T11:53:19-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
@@ -5514,20 +5514,124 @@
     ]
   },
   "noticias": {
-    "total": 54,
+    "total": 51,
     "top": [
+      {
+        "id": 11,
+        "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9IbC0zMklRSXA5d3l4amdvTVRFODlJd3Foc0pxamdwUHprdmlZNlZiX2l0aUFXT1NMVHl5alNoX3hsMDFWQTduXzdnTGlOSElXaHVOMm5KNG0?oc=5",
+        "titulo": "Middle East war's energy shock twice 1973 oil embargo: Turkish finance minister - TRT World",
+        "titulo_es": "Guerra en Oriente Medio genera choque energético similar al embargo de 1973",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-07T11:30:50-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "El ministro de Finanzas de Turquía comparó el choque energético de la guerra en Oriente Medio con el embargo petrolero de 1973, señalando riesgos de interrupciones que pueden elevar los precios importados por Guatemala.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
+      },
+      {
+        "id": 15,
+        "url": "https://oilprice.com/Energy/Energy-General/The-Iran-War-Isnt-Over-but-Oil-Traders-Are-Already-Pricing-In-Peace.html",
+        "titulo": "The Iran War Isn't Over, but Oil Traders Are Already Pricing In Peace",
+        "titulo_es": "Operadores de petróleo ya cotizan paz pese a guerra en Irán",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-06T09:28:00-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "A pesar de la continuación de la guerra en Irán, los traders ya están valorando una posible paz, lo que provocó una caída del 15% en los precios del petróleo, afectando los costos de importación guatemaltecos.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
+      },
+      {
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPUndQUXhXZ1VZeVJ0QVB3ZmhYekEyeUNVU3JEdlBNaDNqT0E2bWotN0txMno0VFJEUEhsY29ZSEtLUUJKZkVaZ2xlaGc4dEdyRmZsay1MQmM2b3JPdFo3TmtYeDQ3bExrVGk4UFlhQ2RzVGJ4ekc2MmpBVzRNMXVpeXl2cHczSE1USTRxci0wYzJMaHJUdnNQcE9LUXFHVFgxbUlSMHhlUmZDbzhCSXRHNUppS2Y4SGREMzhHakxHbWRQWnlDT01HN2VkLVRJM0psYkktMg?oc=5",
+        "titulo": "Seven Strikes in One Year: Russia’s Afipsky Oil Refinery Faces Another Ukrainian Drone Attack - UNITED24 Media",
+        "titulo_es": "Ataque con drones a la refinería rusa Afipsky",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-06T03:55:40-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "La refinería Afipsky en Rusia sufrió otro ataque con drones ucranianos, interrumpiendo su producción. Reduce la oferta mundial de crudo y productos, lo que puede elevar los precios de importación para Guatemala.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
+      },
+      {
+        "id": 4,
+        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOZ0xBdC1pVzNQRnVaZUduQnc0dHBDYlFjRmg4eEwwZnJyQXRnb2c5ekYtQkxZQm9MUDAzR3ljSlF4WTQ0Q2Z6R1pnM2tfTGlybG04OHR2dnY3VVhQWUZJVzRJOFBNLVgwSU5ZcW45TDRDdERvc0dZS3dKTFl5a1F5a0dOTVlCdkJJbHh4dmp6SDRDWG9yZEtqTU1reGlZSHhpTHJwalRUQXFEcHliQ2ZFeA?oc=5",
+        "titulo": "Ukraine strikes Oryol factory with Neptune missile, reportedly Saratov Oil Refinery in mass attack on Russian regions - The Kyiv Independent",
+        "titulo_es": "Ucrania ataca fábrica en Oryol y refinería Saratov en Rusia",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-05T08:34:01-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Ucrania atacó una fábrica en Oryol y una refinería en Saratov, Rusia, en una ofensiva masiva. Afecta la capacidad de producción rusa y puede presionar al alza los precios internacionales del combustible.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
+      },
+      {
+        "id": 5,
+        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPQURNNEQ3RS1fVGMxUU1XTWVqb2VMLTNnUDlKdzZ1ZVFvUGVfdDJ2Z3RxX1E2RGVzSi1QMTR0SFFyNUd1N1FPQVA0OTZ0NWZ2QWEyMEdaeVI2Tk4wM3NxNUtYa2ZQNGV4X0J4T2lTTGdSWjVuOGlfSDZwUTU2Yy1kYVkzaGpDLTdPbk9rT3BSaXBBRTA4ZUtQRmhJSQ?oc=5",
+        "titulo": "Drone attack sparks fires at industrial facilities in Russia's Ryazan, oil refinery reportedly targeted - The Kyiv Independent",
+        "titulo_es": "Drones provocan incendios y atacan refinería en Ryazan, Rusia",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-04T20:05:00-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Drones provocaron incendios en instalaciones industriales de Ryazan y atacaron una refinería de petróleo. La interrupción parcial de la producción rusa impacta la oferta global y los precios en Guatemala.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
+      },
+      {
+        "id": 12,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Traders-Want-US-to-Release-Sanctioned-Tankers-as-Freight-Costs-Soar.html",
+        "titulo": "Oil Traders Want U.S. to Release Sanctioned Tankers as Freight Costs Soar",
+        "titulo_es": "Comerciantes de petróleo piden a EE.UU. liberar buques sancionados ante alza de fletes",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-06T14:30:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Grandes traders de petróleo solicitan a EE.UU. liberar buques sancionados para aliviar la escasez de transporte, lo que podría reducir los costos de flete y el precio final del crudo importado por Guatemala.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
+      },
+      {
+        "id": 14,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Energy-Aspects-Slashes-Forecast-of-Chinas-November-Diesel-Exports.html",
+        "titulo": "Energy Aspects Slashes Forecast of China’s November Diesel Exports",
+        "titulo_es": "China recorta pronóstico de exportaciones de diésel en noviembre",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-06T09:30:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Energy Aspects redujo su pronóstico de exportaciones de diésel de China para noviembre, lo que disminuirá la disponibilidad global y podría presionar al alza los precios del diésel importado por Guatemala.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
+      },
+      {
+        "id": 7,
+        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNN0tYRk9sOGpxbEZMUldQTDBwNngyQkNKdVRkaDY4Vk43eFhWaHc2MkE0TnFRVzZhRmtDdHAyQ2tUV1I3cGxyR3FmbENIVnczZWFGWE1SRG4waDlzUmNQUVl4ZGhZZGNEQkp0TXZHWkY5NVJhQnllbW15V1BielAzeDNYN0Fjc25XTHhOeFhpWmVwaVc4UjRSakxhcWZXNl9LeGRvVmN3NTdZcEpzWkJMa21vdjVBYmNFZnhEVTZqQnZjTVh6b2lNVw?oc=5",
+        "titulo": "Chixoy se recupera y bajan los combustibles en Guatemala: ¿cuánto durará el alivio energético? - Prensa Libre",
+        "titulo_es": "Recuperación de Chixoy y descenso de precios de combustibles en Guatemala",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-06T00:10:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "La recuperación de la planta de Chixoy permitió una reducción de los precios de los combustibles en Guatemala, aunque se cuestiona la duración del alivio para los consumidores.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
+      },
       {
         "id": 8,
         "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNa0tNXzZaYS1oYVFNbEVoSDFlUVd0TGpGWE4tcnNuZGpiZ2MtM2w2Q2JYRnAwQUtFbE5YSlQ2dmlNUjVpdERZVDU5djlPaEdFbGZhRmRFMUUyemR2VXM4OXFPZjI3cl82Y1Njc2N6ODN6S3BBUFktWkpaTktuSjF0enVrd2FrdXFXZ0pQSEtHMjJsVjVORzFJSzdxQ2w0S2U4cUNDb0w2ak1NVFFhR0FGWHNDT2hWalZySzBQMzFicmJaZjM3VGZXb3haWExWTXBjRWRWQg?oc=5",
         "titulo": "Gasolinas en Guatemala: bajan los precios durante la semana y esto costará el galón el 6 de noviembre - Prensa Libre",
-        "titulo_es": "Bajan precios de gasolina en Guatemala; nuevo galón será el 6 de noviembre",
+        "titulo_es": "Bajan precios de gasolina en Guatemala; precio del galón el 6 de noviembre",
         "medio": "Google News ES",
         "publicado_at": "2026-11-05T12:00:46-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Durante la semana los precios de la gasolina disminuyeron, lo que reducirá el costo por galón a partir del 6 de noviembre, beneficiando a los consumidores.",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
+        "relevancia": 4,
+        "resumen_es": "Durante la semana los precios de la gasolina en Guatemala disminuyeron, y se anunció el costo del galón para el 6 de noviembre, lo que afecta directamente el gasto de los usuarios.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
       },
       {
         "id": 1,
@@ -5538,35 +5642,35 @@
         "publicado_at": "2026-11-04T13:35:07-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Se publicaron los precios de la gasolina en la Ciudad de Guatemala, información clave para consumidores y para anticipar la evolución del costo del combustible.",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
+        "relevancia": 4,
+        "resumen_es": "Se publicaron los precios de la gasolina en la Ciudad de Guatemala para este miércoles, mostrando la tarifa actual. Indica el costo que enfrentarán los consumidores y su impacto en la inflación.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
       },
       {
-        "id": 9,
-        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNR2dWNkJBQVZLREZWZDZuQXB4LVFTNGN3VHNzRjhFb3dLOXZVcHBCX0F2X2MxdlZyQWwxQnlSNkx4ZGdOUGsxeGp4UnRLWXFHYWR5amZDMVJLZVFoeFpnWnVtb1VmVHhoM0I2M2szbjdsakRlU1lMQ1l2NExnR2ZqZGoycGZlclltbW1CUXhIbVJqN3F4Wm55RnQ3dERwV0U4ekdlTGhnQ0RnZTh4Yi1TaG5vVDJGWVRLNkE?oc=5",
-        "titulo": "Gasolinas bajan hasta Q3.82 en Guatemala: estos son los precios al 2 de noviembre - Prensa Libre",
-        "titulo_es": "Gasolina baja hasta Q3.82 en Guatemala al 2 de noviembre",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-02T15:34:31-06:00",
-        "categoria": "precios",
+        "id": 6,
+        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNakM4TW5zV2U1aXh0MmFLQTZHVFZLejFjdjdrWlpIWlVLUTVicWR1bFREc056blBjM21COFZFQm5YZGp1VmxlbXpLWGpuVThEN3ZoR1Q1UkN2TmdQZkJUU0U3MGpfemZwck85YWZUU3hCbjFwOGIyd1NqdERUMDdYVS1hY3p5MkFFWkQyajZBb3BLSjl1VU9LVXFJUEJqTUxzckJrN0lhaFZCQmx4a09hbURFX1VEQ1AzU3Zjc1dzdDNEUWtiTmM4?oc=5",
+        "titulo": "Oil transit via Atyrau-Samara pipeline resumes after drone attack, Kazakhstan says - Reuters",
+        "titulo_es": "Reanudado el tránsito de crudo por el oleoducto Atyrau‑Samara tras ataque",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-03T00:22:00-06:00",
+        "categoria": "infraestructura",
         "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Los precios de la gasolina alcanzan Q3.82 el 2 de noviembre, reflejando la tendencia a la baja del mercado interno y aliviando la presión sobre los usuarios.",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
+        "relevancia": 4,
+        "resumen_es": "Kazajistán informó que el tránsito de crudo por el oleoducto Atyrau‑Samara se reanudó tras un ataque con drones. Restablecer la ruta ayuda a estabilizar el suministro mundial que Guatemala importa.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
       },
       {
         "id": 10,
         "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQdnJIOFN1eHVOU0NSUkwwZEpJb1RJcC03bWo4UVBFX2h3OWxBM2hXTk1hQmM1OVRoRjlZUHU3V3pxejhkZnNQX2t2OHVFR1ZVUFpFVkpmb0QxVjdrX1prdzM1NWJRWDhRdE5vUENjQm5TRUg5Q2tNQzdtb21CUlVlaHkwd3gtcFV2Qld4ZllfS0RSV01yV1dlNFVrcUJnaWhLdkJHWVNyUjhTV0hBbG9sUDBXNWpmMGhDcl9nUUIzXzlYV0Z4bVhHcko0ekVmM2Ywc3YtWTkxS3BQaGpSYkVZbnQtdDNEUTQ?oc=5",
         "titulo": "Combustibles bajan de precio en Guatemala, mientras factura petrolera alcanza los USD 4 mil 850 millones - La Hora",
-        "titulo_es": "Combustibles bajan de precio en Guatemala mientras factura petrolera alcanza US$4,850 mil millones",
+        "titulo_es": "Combustibles bajan en Guatemala mientras factura petrolera alcanza US$4.85 mil millones",
         "medio": "Google News ES",
         "publicado_at": "2026-11-02T11:09:26-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 5,
-        "resumen_es": "A pesar del récord en la factura de importación de petróleo, los precios internos de los combustibles disminuyeron, indicando que el ajuste de costos no se traslada totalmente al consumidor.",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
+        "relevancia": 4,
+        "resumen_es": "Los combustibles redujeron su precio en Guatemala mientras la factura petrolera del país alcanzó US$4.85 mil millones, indicando mayor gasto estatal pero precios más bajos para la población.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
       },
       {
         "id": 2,
@@ -5575,146 +5679,42 @@
         "titulo_es": "Factura petrolera de Guatemala sube 46.4% y cambia consumo de gasolina",
         "medio": "Google News ES",
         "publicado_at": "2026-11-02T00:08:00-06:00",
-        "categoria": "finanzas",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "La factura de importación de petróleo aumenta 46.4%, reflejando mayores costos de adquisición y presionando al alza los precios al consumidor.",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
-      },
-      {
-        "id": 7,
-        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNN0tYRk9sOGpxbEZMUldQTDBwNngyQkNKdVRkaDY4Vk43eFhWaHc2MkE0TnFRVzZhRmtDdHAyQ2tUV1I3cGxyR3FmbENIVnczZWFGWE1SRG4waDlzUmNQUVl4ZGhZZGNEQkp0TXZHWkY5NVJhQnllbW15V1BielAzeDNYN0Fjc25XTHhOeFhpWmVwaVc4UjRSakxhcWZXNl9LeGRvVmN3NTdZcEpzWkJMa21vdjVBYmNFZnhEVTZqQnZjTVh6b2lNVw?oc=5",
-        "titulo": "Chixoy se recupera y bajan los combustibles en Guatemala: ¿cuánto durará el alivio energético? - Prensa Libre",
-        "titulo_es": "Recuperación de Chixoy impulsa bajada de combustibles en Guatemala",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-06T00:10:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "El repunte del embalse Chixoy permite mayor generación hidroeléctrica, reduciendo costos de producción de energía y contribuyendo a la disminución de precios de los combustibles.",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
+        "resumen_es": "La factura petrolera de Guatemala aumentó 46.4%, revelando mayor gasto y un cambio en la preferencia entre gasolina regular y superior. Señala presión al alza de los precios locales.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
       },
       {
-        "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQcnRZT25SY3BZeFFEOVdsM293MjBhZHFiNm82VHE4UUU4cV9WdXYyTlFPdnYxYnJlMExRTVN5M25wR2xuZWJPWXQ1Q2plMzJxOWRFdE9LdHhINUgxaE9Ca2RUaEdpS1dQbmNUeXNBUnQ0NDdaR19FanRLM0ZMV1ptUTRVVjhVZlhwdEE2a1BrbXc5LTU2ZWQwUldNa0hWQWtBM09oZ1E2cXpzZWVBTzNzelp4dEZJZw?oc=5",
-        "titulo": "Drones attacked oil refinery in Saratov: fire broke out - Цензор.НЕТ",
-        "titulo_es": "Drones atacan refinería de petróleo en Saratov, Rusia",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-07T00:18:00-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Un ataque con drones provoca incendio en una refinería rusa, lo que podría reducir la oferta mundial de crudo y elevar precios internacionales que paga Guatemala.",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
-      },
-      {
-        "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPUndQUXhXZ1VZeVJ0QVB3ZmhYekEyeUNVU3JEdlBNaDNqT0E2bWotN0txMno0VFJEUEhsY29ZSEtLUUJKZkVaZ2xlaGc4dEdyRmZsay1MQmM2b3JPdFo3TmtYeDQ3bExrVGk4UFlhQ2RzVGJ4ekc2MmpBVzRNMXVpeXl2cHczSE1USTRxci0wYzJMaHJUdnNQcE9LUXFHVFgxbUlSMHhlUmZDbzhCSXRHNUppS2Y4SGREMzhHakxHbWRQWnlDT01HN2VkLVRJM0psYkktMg?oc=5",
-        "titulo": "Seven Strikes in One Year: Russia’s Afipsky Oil Refinery Faces Another Ukrainian Drone Attack - UNITED24 Media",
-        "titulo_es": "Refinería Afipsky en Rusia sufre nuevo ataque de drones ucranianos",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-06T03:55:40-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "La sexta incursión contra la refinería Afipsky interrumpe su producción, generando incertidumbre en el suministro global de petróleo y posibles alzas de precios para importadores guatemaltecos.",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
-      },
-      {
-        "id": 5,
-        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPQURNNEQ3RS1fVGMxUU1XTWVqb2VMLTNnUDlKdzZ1ZVFvUGVfdDJ2Z3RxX1E2RGVzSi1QMTR0SFFyNUd1N1FPQVA0OTZ0NWZ2QWEyMEdaeVI2Tk4wM3NxNUtYa2ZQNGV4X0J4T2lTTGdSWjVuOGlfSDZwUTU2Yy1kYVkzaGpDLTdPbk9rT3BSaXBBRTA4ZUtQRmhJSQ?oc=5",
-        "titulo": "Drone attack sparks fires at industrial facilities in Russia's Ryazan, oil refinery reportedly targeted - The Kyiv Independent",
-        "titulo_es": "Ataque con drones genera incendios en instalaciones industriales y refinería de Ryazan, Rusia",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-04T20:05:00-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Los drones provocan incendios en la zona industrial de Ryazan, incluida una refinería, lo que afecta la capacidad de procesamiento de crudo y puede impactar los precios internacionales del combustible.",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNakM4TW5zV2U1aXh0MmFLQTZHVFZLejFjdjdrWlpIWlVLUTVicWR1bFREc056blBjM21COFZFQm5YZGp1VmxlbXpLWGpuVThEN3ZoR1Q1UkN2TmdQZkJUU0U3MGpfemZwck85YWZUU3hCbjFwOGIyd1NqdERUMDdYVS1hY3p5MkFFWkQyajZBb3BLSjl1VU9LVXFJUEJqTUxzckJrN0lhaFZCQmx4a09hbURFX1VEQ1AzU3Zjc1dzdDNEUWtiTmM4?oc=5",
-        "titulo": "Oil transit via Atyrau-Samara pipeline resumes after drone attack, Kazakhstan says - Reuters",
-        "titulo_es": "Reanuda tránsito de petróleo por el oleoducto Atyrau‑Samara tras ataque de drones",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-03T00:22:00-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Kazajistán informa que el flujo de crudo por el oleoducto Atyrau‑Samara volvió a operar, aliviando una interrupción que había presionado al alza los precios globales del petróleo.",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
-      },
-      {
-        "id": 38,
-        "url": "https://oilprice.com/Energy/Natural-Gas/Wall-Streets-Energy-Transition-Funds-Are-Packed-With-Natural-Gas.html",
-        "titulo": "Wall Street’s “Energy Transition” Funds Are Packed With Natural Gas",
+        "id": 36,
+        "url": "https://oilprice.com/Energy/Energy-General/Americas-Hydrogen-Revolution-Stalls-Amid-Funding-Cuts-and-Weak-Demand.html",
+        "titulo": "America’s Hydrogen Revolution Stalls Amid Funding Cuts and Weak Demand",
         "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-06T17:00:00-06:00",
+        "publicado_at": "2026-11-07T10:00:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "As we head into the United Nations’ 31st annual flagship climate conference (COP31), to be held next week in Antalya, Türkiye, greenwashing presents a large and growing problem in the private sector. As the tech sector’s greenhouse gas emissions explode against the backdrop of the artificial intelligence boom and the clean energy incentives dry up under the Trump administration, Big Tech and Wall Street alike are funding a boom in natural gas, all under the guise of funding the future of clean e",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
+        "resumen_es": "Just a few years ago, the United States was developing new hydrogen hubs to support energy diversification and help achieve a green transition. However, the development of these fuel hubs has not proceeded as expected, with several major projects stalling and political support faltering. The Biden administration showed broad support for hydrogen production, aiming to massively expand the sector and advance green hydrogen development. In November 2024, the Biden administration announced up to $2.",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
       },
       {
-        "id": 39,
-        "url": "https://oilprice.com/Alternative-Energy/Nuclear-Power/Americas-Nuclear-Revival-Is-Running-Into-a-Fuel-Supply-Wall.html",
-        "titulo": "America’s Nuclear Revival Is Running Into a Fuel Supply Wall",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-06T15:00:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "The United States boasts the largest nuclear power production capacity in the world, but decades of insufficient funding and policy support is now posing an existential threat to the ageing sector. In the past decade, the United States has added just one new nuclear power plant to its fleet, while many more plants are drawing close to being decommissioned, at a time when clean, round-the-clock energy production has never been more needed. The Trump administration has been bullish about restoring",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
-      },
-      {
-        "id": 11,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Traders-Want-US-to-Release-Sanctioned-Tankers-as-Freight-Costs-Soar.html",
-        "titulo": "Oil Traders Want U.S. to Release Sanctioned Tankers as Freight Costs Soar",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-06T14:30:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Some of the world's biggest oil traders are asking Washington for permission to put sanctioned tankers back to work, as a global vessel shortage pushes oil transportation costs to extraordinary levels. Trafigura, Vitol, Mercuria and Abu Dhabi National Oil Co. are negotiating with U.S. officials for licenses to purchase or lease blacklisted oil tankers, Bloomberg reported Friday, citing people familiar with the discussions. The talks involve approximately 50 vessels currently under U.S. sanctions",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
-      },
-      {
-        "id": 12,
-        "url": "https://oilprice.com/Energy/Energy-General/Energy-Reliability-Is-Becoming-More-Important-Than-Energy-Politics.html",
-        "titulo": "Energy Reliability Is Becoming More Important Than Energy Politics",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-06T13:00:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "For much of the past decade, energy debates often pitted fossil fuels against clean energy. Governments announced dates for phasing out technologies, investors tried to anticipate which industries would lose favor, and energy policy increasingly became entangled with political identity. The war with Iran has exposed the limitations of approaching energy policy that way. When supplies are disrupted and prices rise sharply, governments become much less interested in ideological consistency and mu",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
-      },
-      {
-        "id": 25,
-        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOang4bWpWa1pIeDBMQlo0MzhWRVAzY0JURlFwX09PVjlBVmhEbDBLTndoWFU1NTA2MXNhT0xYdkstQ1dlMFU4Z1FBYkdhVXBRRHp0NlAxcmhyV19hQ1NkZzdoMU9NOVFCQWF5UURPUzVQWlBjYkt4T1RuRG9lRE0zbkZLX1k2RWJJQW1YM3dReEhMdUVWZ1RDeGdDY1d1NUtEbDZxMUwyenRrNE5UOVpRWkI2aVdMa1M4bEFEX2FiYnJ5dw?oc=5",
-        "titulo": "Zelenskiy says Ukraine is continuing attacks on Russia's oil refining sector - Reuters",
+        "id": 37,
+        "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQanp1N2JJamNMMmJrYl9icTNEaTlyMU5oRUs2NFViTURncTZRR1U1NEJVLU1RcE5ROWdYclpqdzVrbFZxbkVqMi0zdVFQOXBGR2tNTlE2Z2E1R0hDaTQ4ZXV2cmZ5UUFxb0Fub3ZHQkdMNGVTTUhmR19GNHNMRHVDZkc1d01FWEk0OGFjYklVSFY3UQ?oc=5",
+        "titulo": "Putin May Lose Oil Revenues: What Could Break Russia's Economy - 24 Канал",
         "titulo_es": null,
         "medio": "Google News EN",
-        "publicado_at": "2026-11-06T12:59:43-06:00",
+        "publicado_at": "2026-11-07T04:00:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "Zelenskiy says Ukraine is continuing attacks on Russia's oil refining sector Reuters",
-        "fetched_at": "2026-11-07T04:53:49-06:00"
+        "resumen_es": "Putin May Lose Oil Revenues: What Could Break Russia's Economy 24 Канал",
+        "fetched_at": "2026-11-07T11:54:17-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 10,
-      "total_hoy": 54,
+      "titulos_es_hoy": 15,
+      "total_hoy": 52,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
