@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-11-08T11:54:46-06:00",
+  "actualizado_at": "2026-11-09T04:54:57-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-11-06",
   "productos": {
@@ -13,14 +13,10 @@
         "fecha": "2026-11-06",
         "precio": 30.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-08T11:53:54-06:00",
+        "fetched_at": "2026-11-09T04:53:44-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-08",
-          "precio": 26.69
-        },
         {
           "fecha": "2025-11-09",
           "precio": 26.69
@@ -1247,18 +1243,28 @@
             "fecha": "2026-11-06",
             "precio": 30.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-08T11:53:54-06:00",
+            "fetched_at": "2026-11-09T04:53:44-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-11-06",
-            "precio": 30.69,
-            "confianza": "media",
-            "n_coinciden": 2,
+            "fecha": "2026-11-08",
+            "precio": 29.69,
+            "confianza": "baja",
+            "n_coinciden": 1,
             "n_fuentes": 2,
             "fuentes": [
               {
                 "coincide": true,
+                "fecha": "2026-11-08",
+                "medio": "publinews.gt",
+                "modalidad_inferida": false,
+                "peso": 0.631,
+                "precio": 29.69,
+                "tipo": "referencia",
+                "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
+              },
+              {
+                "coincide": false,
                 "fecha": "2026-11-06",
                 "medio": "prensalibre.com",
                 "modalidad_inferida": false,
@@ -1266,16 +1272,6 @@
                 "precio": 30.83,
                 "tipo": "referencia",
                 "url": "https://www.prensalibre.com/economia/gasolinas-en-guatemala-bajan-los-precios-durante-la-semana-y-esto-costara-el-galon-el-6-de-noviembre/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-11-06",
-                "medio": "publinews.gt",
-                "modalidad_inferida": false,
-                "peso": 0.631,
-                "precio": 30.69,
-                "tipo": "monitoreado",
-                "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
               }
             ]
           },
@@ -1332,7 +1328,7 @@
             "fecha": "2026-11-05",
             "precio": 31.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-08T11:53:54-06:00",
+            "fetched_at": "2026-11-09T04:53:44-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1392,14 +1388,10 @@
         "fecha": "2026-11-06",
         "precio": 33.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-08T11:53:54-06:00",
+        "fetched_at": "2026-11-09T04:53:44-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-08",
-          "precio": 28.2
-        },
         {
           "fecha": "2025-11-09",
           "precio": 28.2
@@ -2634,18 +2626,28 @@
             "fecha": "2026-11-06",
             "precio": 33.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-08T11:53:54-06:00",
+            "fetched_at": "2026-11-09T04:53:44-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-11-06",
-            "precio": 33.19,
-            "confianza": "media",
-            "n_coinciden": 2,
+            "fecha": "2026-11-08",
+            "precio": 32.19,
+            "confianza": "baja",
+            "n_coinciden": 1,
             "n_fuentes": 2,
             "fuentes": [
               {
                 "coincide": true,
+                "fecha": "2026-11-08",
+                "medio": "publinews.gt",
+                "modalidad_inferida": false,
+                "peso": 0.631,
+                "precio": 32.19,
+                "tipo": "referencia",
+                "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
+              },
+              {
+                "coincide": false,
                 "fecha": "2026-11-06",
                 "medio": "prensalibre.com",
                 "modalidad_inferida": false,
@@ -2653,16 +2655,6 @@
                 "precio": 33.38,
                 "tipo": "referencia",
                 "url": "https://www.prensalibre.com/economia/gasolinas-en-guatemala-bajan-los-precios-durante-la-semana-y-esto-costara-el-galon-el-6-de-noviembre/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-11-06",
-                "medio": "publinews.gt",
-                "modalidad_inferida": false,
-                "peso": 0.631,
-                "precio": 33.19,
-                "tipo": "monitoreado",
-                "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
               }
             ]
           },
@@ -2727,7 +2719,7 @@
             "fecha": "2026-11-05",
             "precio": 34.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-08T11:53:54-06:00",
+            "fetched_at": "2026-11-09T04:53:44-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2791,14 +2783,10 @@
         "fecha": "2026-11-06",
         "precio": 41.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-08T11:53:54-06:00",
+        "fetched_at": "2026-11-09T04:53:44-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-08",
-          "precio": 26.21
-        },
         {
           "fecha": "2025-11-09",
           "precio": 26.21
@@ -4025,18 +4013,28 @@
             "fecha": "2026-11-06",
             "precio": 41.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-08T11:53:54-06:00",
+            "fetched_at": "2026-11-09T04:53:44-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-11-06",
-            "precio": 41.69,
-            "confianza": "media",
-            "n_coinciden": 2,
+            "fecha": "2026-11-08",
+            "precio": 40.69,
+            "confianza": "baja",
+            "n_coinciden": 1,
             "n_fuentes": 2,
             "fuentes": [
               {
                 "coincide": true,
+                "fecha": "2026-11-08",
+                "medio": "publinews.gt",
+                "modalidad_inferida": false,
+                "peso": 0.631,
+                "precio": 40.69,
+                "tipo": "monitoreado",
+                "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
+              },
+              {
+                "coincide": false,
                 "fecha": "2026-11-06",
                 "medio": "prensalibre.com",
                 "modalidad_inferida": false,
@@ -4044,16 +4042,6 @@
                 "precio": 41.85,
                 "tipo": "referencia",
                 "url": "https://www.prensalibre.com/economia/gasolinas-en-guatemala-bajan-los-precios-durante-la-semana-y-esto-costara-el-galon-el-6-de-noviembre/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-11-06",
-                "medio": "publinews.gt",
-                "modalidad_inferida": false,
-                "peso": 0.631,
-                "precio": 41.69,
-                "tipo": "monitoreado",
-                "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
               }
             ]
           },
@@ -4110,7 +4098,7 @@
             "fecha": "2026-11-05",
             "precio": 42.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-08T11:53:54-06:00",
+            "fetched_at": "2026-11-09T04:53:44-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4175,10 +4163,10 @@
       "unidad": "USD/barril",
       "orden": 4,
       "actual": {
-        "fecha": "2026-11-08",
-        "precio": 90.48,
+        "fecha": "2026-11-09",
+        "precio": 89.95,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-11-08T11:53:54-06:00",
+        "fetched_at": "2026-11-09T04:54:24-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5277,6 +5265,10 @@
         {
           "fecha": "2026-11-08",
           "precio": 90.48
+        },
+        {
+          "fecha": "2026-11-09",
+          "precio": 89.95
         }
       ],
       "mensual": [],
@@ -5297,8 +5289,8 @@
         },
         {
           "anio": 2026,
-          "promedio": 85.47,
-          "dias": 236,
+          "promedio": 85.49,
+          "dias": 237,
           "meses": null,
           "fuente": "diario"
         }
@@ -5307,18 +5299,14 @@
         "spot": {
           "nombre": "Spot",
           "actual": {
-            "fecha": "2026-11-08",
-            "precio": 90.48,
+            "fecha": "2026-11-09",
+            "precio": 89.95,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-11-08T11:53:54-06:00",
+            "fetched_at": "2026-11-09T04:54:24-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
           "historial": [
-            {
-              "fecha": "2026-10-09",
-              "precio": 91.16
-            },
             {
               "fecha": "2026-10-10",
               "precio": 91.66
@@ -5438,6 +5426,10 @@
             {
               "fecha": "2026-11-08",
               "precio": 90.48
+            },
+            {
+              "fecha": "2026-11-09",
+              "precio": 89.95
             }
           ]
         }
@@ -5482,8 +5474,8 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 45,
-    "notas_leidas": 168,
+    "observaciones_7d": 51,
+    "notas_leidas": 170,
     "medios": [
       "agn.gt",
       "dca.gob.gt",
@@ -5502,85 +5494,33 @@
     ]
   },
   "noticias": {
-    "total": 48,
+    "total": 49,
     "top": [
       {
-        "id": 15,
-        "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPU1hEU2xwRUlIQk56YjRKSkRtWkJVWUJZaGR5aHRYWU1SNDN4UmZKUUJRNG90dXczdmdQVTY4YjA2TlBQSVhuMF9XNDJCWk9CT1pvVEx0RTBNRDRWN3hHODRRQVVESkZ5UXBzLWJfY29MV1RMV29waGx3bHhVSWpTZlJlaUVubXhKdm1fOEozajdXZk9wQTN5TjNnQzlYaDdQbW82UWFjSm9ScGNsazhzR0FEdDJvcUxGbkIyTU50NEdvUmRkVG8tRnc3LUJqOUFRV3RjbTFNTmM?oc=5",
-        "titulo": "80% de probabilidad de ataque mutuo Irán-Estados Unidos, el petróleo Brent sube a US$99,90 - IDNFinancials",
-        "titulo_es": "Brent sube a US$99,90 ante 80% de probabilidad de ataque Irán‑EE. UU.",
+        "id": 6,
+        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNN0tYRk9sOGpxbEZMUldQTDBwNngyQkNKdVRkaDY4Vk43eFhWaHc2MkE0TnFRVzZhRmtDdHAyQ2tUV1I3cGxyR3FmbENIVnczZWFGWE1SRG4waDlzUmNQUVl4ZGhZZGNEQkp0TXZHWkY5NVJhQnllbW15V1BielAzeDNYN0Fjc25XTHhOeFhpWmVwaVc4UjRSakxhcWZXNl9LeGRvVmN3NTdZcEpzWkJMa21vdjVBYmNFZnhEVTZqQnZjTVh6b2lNVw?oc=5",
+        "titulo": "Chixoy se recupera y bajan los combustibles en Guatemala: ¿cuánto durará el alivio energético? - Prensa Libre",
+        "titulo_es": "Recuperación de Chixoy permite bajar precios de combustibles en Guatemala",
         "medio": "Google News ES",
-        "publicado_at": "2026-11-06T03:00:00-06:00",
+        "publicado_at": "2026-11-06T00:10:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "El aumento de la tensión entre Irán y EE. UU. eleva la probabilidad de conflicto, impulsando el Brent a casi US$100, lo que encarece el combustible importado por Guatemala.",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
-      },
-      {
-        "id": 2,
-        "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOUExzem1feGR5UVFqaDhuMDVCNGNuZHNrVV81b0UtZ2JUY1E5LVFqU0tUdmtOS2hGamdjbURIbEFISURnYm16X1Nmd01pN1RCVVZBYnlZS1lyWW9JRHhaclVYLWktNlFjSHJ3LUFfVkQxS05PVnZJR05sY08yZG1TWTAyTExPcG4wTFJIYUF6YUxqbW1Nd1Y0SnIyZWVrR0pRR04xdUhXd2NxUnhmNnZabUZUR1Q2dmotWXRnUk1iWkZ2bU51aWFSd1ZUeTdHYVZSeFNPQzBVdVF1MTA?oc=5",
-        "titulo": "Factura petrolera de Guatemala sube 46.4% y revela un cambio en el consumo de gasolinas regular y superior - Prensa Libre",
-        "titulo_es": "Factura petrolera de Guatemala sube 46.4% y cambia consumo de gasolinas",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-02T00:08:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "La factura petrolera sube 46.4%, reflejando un fuerte aumento de precios y un cambio en el consumo de gasolina regular y premium, lo que encarece el gasto de los guatemaltecos.",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
-      },
-      {
-        "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOZ0xBdC1pVzNQRnVaZUduQnc0dHBDYlFjRmg4eEwwZnJyQXRnb2c5ekYtQkxZQm9MUDAzR3ljSlF4WTQ0Q2Z6R1pnM2tfTGlybG04OHR2dnY3VVhQWUZJVzRJOFBNLVgwSU5ZcW45TDRDdERvc0dZS3dKTFl5a1F5a0dOTVlCdkJJbHh4dmp6SDRDWG9yZEtqTU1reGlZSHhpTHJwalRUQXFEcHliQ2ZFeA?oc=5",
-        "titulo": "Ukraine strikes Oryol factory with Neptune missile, reportedly Saratov Oil Refinery in mass attack on Russian regions - The Kyiv Independent",
-        "titulo_es": "Ucrania ataca refinería de Saratov en Rusia",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-06T21:01:27-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Ucrania atacó la refinería de Saratov en Rusia, reduciendo la oferta de crudo y productos, lo que puede presionar al alza los precios internacionales del combustible importado por Guatemala.",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
-      },
-      {
-        "id": 14,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Energy-Aspects-Slashes-Forecast-of-Chinas-November-Diesel-Exports.html",
-        "titulo": "Energy Aspects Slashes Forecast of China’s November Diesel Exports",
-        "titulo_es": "China recorta pronóstico de exportaciones de diésel para noviembre",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-06T09:30:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "China recortó sus exportaciones de diésel en noviembre, reduciendo la oferta mundial y potencialmente elevando los precios del diésel que importa Guatemala.",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
+        "resumen_es": "La represa de Chixoy volvió a operar, lo que permitió reducir los precios de los combustibles en Guatemala. Este alivio depende de la continuidad del suministro de energía y puede afectar el gasto de los consumidores.",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
       },
       {
         "id": 7,
         "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNa0tNXzZaYS1oYVFNbEVoSDFlUVd0TGpGWE4tcnNuZGpiZ2MtM2w2Q2JYRnAwQUtFbE5YSlQ2dmlNUjVpdERZVDU5djlPaEdFbGZhRmRFMUUyemR2VXM4OXFPZjI3cl82Y1Njc2N6ODN6S3BBUFktWkpaTktuSjF0enVrd2FrdXFXZ0pQSEtHMjJsVjVORzFJSzdxQ2w0S2U4cUNDb0w2ak1NVFFhR0FGWHNDT2hWalZySzBQMzFicmJaZjM3VGZXb3haWExWTXBjRWRWQg?oc=5",
         "titulo": "Gasolinas en Guatemala: bajan los precios durante la semana y esto costará el galón el 6 de noviembre - Prensa Libre",
-        "titulo_es": "Bajan precios de gasolina en Guatemala; tarifa del galón para 6 de noviembre",
+        "titulo_es": "Bajan precios de gasolina en Guatemala; precio del galón para 6 de noviembre",
         "medio": "Google News ES",
         "publicado_at": "2026-11-05T12:00:46-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Los precios de la gasolina disminuyeron durante la semana y se anunció el costo del galón para el 6 de noviembre, aliviando el gasto de los consumidores guatemaltecos.",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
-      },
-      {
-        "id": 5,
-        "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1Ka3dLNGR0Y1lZTWs1WmkwMXRLWlJnQkN5RUJKbk12UUxEZkQ5TjJVYzBraWF2MGVIVFJRdkpydjliT05ZUW1MdmM5ZWFjMjh3UGstRFpGZTY5SEtjWENZekZhb2vSAXBBVV95cUxOLVVVYVFIdFdWZXpmSlRoQ1lOTTUxbXctWGNPSm1JSmFiMElNVWFxd3JkLU43cjVIZWk3MGx1RTVFZDN5MXlLZEVUbEdEM0V1MDVsTXRCSFJvMDNnU1RDcllwY09qeG1pOXM3R0R4SnlI?oc=5",
-        "titulo": "Fire breaks out after drone attack on Ryazan oil refinery supplying aviation fuel and diesel to Russian military – videos - Українська правда",
-        "titulo_es": "Incendio tras ataque con dron a refinería de Ryazan, suministradora de combustible militar",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-04T20:24:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Un ataque con dron provocó incendio en la refinería de Ryazan, que suministra combustible aéreo y diésel al ejército ruso, reduciendo la oferta global y presionando precios internacionales.",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
+        "relevancia": 5,
+        "resumen_es": "Los precios de la gasolina disminuyeron durante la semana y se anunció el costo del galón para el 6 de noviembre. La reducción beneficia a los usuarios y refleja la tendencia del mercado internacional.",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
       },
       {
         "id": 1,
@@ -5591,118 +5531,170 @@
         "publicado_at": "2026-11-04T13:35:07-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Se publicaron los precios de la gasolina en la capital para este miércoles, mostrando la variación actual del costo del combustible para los guatemaltecos.",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
+        "relevancia": 5,
+        "resumen_es": "Los precios de la gasolina en la capital se publicaron este miércoles, indicando la tarifa actual. Afecta directamente el costo del combustible para los guatemaltecos.",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
+      },
+      {
+        "id": 8,
+        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNR2dWNkJBQVZLREZWZDZuQXB4LVFTNGN3VHNzRjhFb3dLOXZVcHBCX0F2X2MxdlZyQWwxQnlSNkx4ZGdOUGsxeGp4UnRLWXFHYWR5amZDMVJLZVFoeFpnWnVtb1VmVHhoM0I2M2szbjdsakRlU1lMQ1l2NExnR2ZqZGoycGZlclltbW1CUXhIbVJqN3F4Wm55RnQ3dERwV0U4ekdlTGhnQ0RnZTh4Yi1TaG5vVDJGWVRLNkE?oc=5",
+        "titulo": "Gasolinas bajan hasta Q3.82 en Guatemala: estos son los precios al 2 de noviembre - Prensa Libre",
+        "titulo_es": "Gasolina baja a Q3.82 en Guatemala al 2 de noviembre",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-02T15:34:31-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "El precio de la gasolina llegó a Q3.82 el 2 de noviembre, la cifra más baja reciente. Esta caída impacta directamente el costo del combustible para los guatemaltecos.",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
       },
       {
         "id": 9,
         "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQdnJIOFN1eHVOU0NSUkwwZEpJb1RJcC03bWo4UVBFX2h3OWxBM2hXTk1hQmM1OVRoRjlZUHU3V3pxejhkZnNQX2t2OHVFR1ZVUFpFVkpmb0QxVjdrX1prdzM1NWJRWDhRdE5vUENjQm5TRUg5Q2tNQzdtb21CUlVlaHkwd3gtcFV2Qld4ZllfS0RSV01yV1dlNFVrcUJnaWhLdkJHWVNyUjhTV0hBbG9sUDBXNWpmMGhDcl9nUUIzXzlYV0Z4bVhHcko0ekVmM2Ywc3YtWTkxS3BQaGpSYkVZbnQtdDNEUTQ?oc=5",
         "titulo": "Combustibles bajan de precio en Guatemala, mientras factura petrolera alcanza los USD 4 mil 850 millones - La Hora",
-        "titulo_es": "Combustibles bajan en Guatemala mientras factura petrolera supera USD 4.85 mil millones",
+        "titulo_es": "Bajan precios de combustibles en Guatemala mientras factura supera US$4.85 mil millones",
         "medio": "Google News ES",
         "publicado_at": "2026-11-02T11:09:26-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Los combustibles bajaron de precio en Guatemala, aunque la factura petrolera del país superó los 4.85 mil millones de dólares, indicando alta demanda pese a precios menores.",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
+        "relevancia": 5,
+        "resumen_es": "Los precios de los combustibles disminuyeron en Guatemala pese a que la factura petrolera nacional alcanzó US$4,850 millones, indicando presión de precios internacionales. Beneficia a los consumidores locales.",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
       },
       {
-        "id": 11,
-        "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9IbC0zMklRSXA5d3l4amdvTVRFODlJd3Foc0pxamdwUHprdmlZNlZiX2l0aUFXT1NMVHl5alNoX3hsMDFWQTduXzdnTGlOSElXaHVOMm5KNG0?oc=5",
-        "titulo": "Middle East war's energy shock twice 1973 oil embargo: Turkish finance minister - TRT World",
-        "titulo_es": "Choque energético de la guerra en Oriente Medio comparado con embargo de 1973",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-07T11:30:50-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "El ministro de finanzas turco compara el shock energético de la guerra en Oriente Medio con el embargo de 1973, lo que puede elevar los precios internacionales del crudo importado por Guatemala.",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
-      },
-      {
-        "id": 12,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Traders-Want-US-to-Release-Sanctioned-Tankers-as-Freight-Costs-Soar.html",
-        "titulo": "Oil Traders Want U.S. to Release Sanctioned Tankers as Freight Costs Soar",
-        "titulo_es": "Comerciantes de petróleo piden a EE. UU. liberar buques sancionados ante alza de fletes",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-06T14:30:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Grandes traders solicitan a EE. UU. liberar buques sancionados para aliviar la escasez de embarcaciones, ya que los altos fletes de transporte elevan los costos del crudo importado por Guatemala.",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNN0tYRk9sOGpxbEZMUldQTDBwNngyQkNKdVRkaDY4Vk43eFhWaHc2MkE0TnFRVzZhRmtDdHAyQ2tUV1I3cGxyR3FmbENIVnczZWFGWE1SRG4waDlzUmNQUVl4ZGhZZGNEQkp0TXZHWkY5NVJhQnllbW15V1BielAzeDNYN0Fjc25XTHhOeFhpWmVwaVc4UjRSakxhcWZXNl9LeGRvVmN3NTdZcEpzWkJMa21vdjVBYmNFZnhEVTZqQnZjTVh6b2lNVw?oc=5",
-        "titulo": "Chixoy se recupera y bajan los combustibles en Guatemala: ¿cuánto durará el alivio energético? - Prensa Libre",
-        "titulo_es": "Recuperación de Chixoy impulsa baja de combustibles en Guatemala",
+        "id": 2,
+        "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOUExzem1feGR5UVFqaDhuMDVCNGNuZHNrVV81b0UtZ2JUY1E5LVFqU0tUdmtOS2hGamdjbURIbEFISURnYm16X1Nmd01pN1RCVVZBYnlZS1lyWW9JRHhaclVYLWktNlFjSHJ3LUFfVkQxS05PVnZJR05sY08yZG1TWTAyTExPcG4wTFJIYUF6YUxqbW1Nd1Y0SnIyZWVrR0pRR04xdUhXd2NxUnhmNnZabUZUR1Q2dmotWXRnUk1iWkZ2bU51aWFSd1ZUeTdHYVZSeFNPQzBVdVF1MTA?oc=5",
+        "titulo": "Factura petrolera de Guatemala sube 46.4% y revela un cambio en el consumo de gasolinas regular y superior - Prensa Libre",
+        "titulo_es": "Factura petrolera de Guatemala sube 46.4% y cambia consumo de gasolinas",
         "medio": "Google News ES",
-        "publicado_at": "2026-11-06T00:10:00-06:00",
-        "categoria": "precios",
+        "publicado_at": "2026-11-02T00:08:00-06:00",
+        "categoria": "finanzas",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "El nivel del embalse Chixoy mejora, permitiendo mayor generación hidroeléctrica y reduciendo costos de energía, lo que se traduce en precios más bajos de combustibles, aunque la duración es incierta.",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
+        "relevancia": 5,
+        "resumen_es": "La factura petrolera nacional aumentó 46.4%, reflejando mayor costo del combustible y cambios en consumo de gasolina regular y superior, lo que impacta el gasto de los guatemaltecos.",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
+      },
+      {
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOcjd1NFEycUJETTMteENIMTNqR2hvXzZqY2VzQnR1UFJ1X3Q5cUE3OFR3cHRXUzl6MGR3UjUyMXBOWjhEdW92d0NsZk5CbWdzZ0dOcjMtbEh0MFpENFlwSXNadl9tS212MzgyeXlUODV5LWNuWndkcVBpNGZ0VHhKYmNUbzQ2ODMtWEtKX1VxNVNOYlNuYTJUei1kLUhELWVtc3NLRXo4c19LUXRkNHlsNVZ3d3ZROHg2SGVPcUh3czFwMGc1YlV4ZzN6RQ?oc=5",
+        "titulo": "Ukrainian Drone Attack Sets Russia’s Major Kirishi Oil Refinery on Fire, Governor Says - ASHARQ AL-AWSAT English",
+        "titulo_es": "Dron ucraniano incendia refinería Kirishi en Rusia",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-09T03:56:15-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Un dron ucraniano incendió la refinería Kirishi en Rusia, reduciendo la capacidad de producción de crudo. La caída de oferta mundial puede elevar los precios del combustible importado por Guatemala.",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
       },
       {
         "id": 10,
-        "url": "https://oilprice.com/Energy/Energy-General/Wars-May-Spur-Faster-Electrification.html",
-        "titulo": "Wars May Spur Faster Electrification",
-        "titulo_es": "Guerras podrían acelerar la electrificación y reducir demanda de combustible",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-07T18:00:00-06:00",
-        "categoria": "geopolitica",
+        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxORHhrRVktNHFJd2k2MmxWd0VaS1hvOG4xT2Vmc1o2WHVEUFpJYzlQczhhWEdtSUVVbVRWdnZHeVFJVzNLMnpKRjdmYVZPTGgxWEs1LW9xOWZoUzlLcllTTjJpNzJXVnBTSHR3QkI4d0l3ZVVaS3VrZmNwUEdYRmVPWmhDSEwtVDF1TUh0N0ZIWTBaZlZIc1pEX3F5dGFOd0JCSmU4UFBoU3ZXV0J1cEU0UndDb2Y1UnBMbXZlZmFkUVhyM2RiWngwUG5hZng?oc=5",
+        "titulo": "How Could Ukraine's Strike on Russia's Biggest Oil Refineries Affect the War and Energy Markets? - Modern Diplomacy",
+        "titulo_es": "Impacto de los ataques ucranianos a refinerías rusas en los mercados energéticos",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-09T03:38:55-06:00",
+        "categoria": "oferta",
         "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Los conflictos en Ucrania y Oriente Medio impulsan la venta de vehículos eléctricos, lo que a largo plazo podría reducir la demanda de gasolina y diésel en Guatemala.",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
+        "relevancia": 4,
+        "resumen_es": "El ataque ucraniano a las mayores refinerías rusas podría reducir la oferta global de crudo y gasolina, elevando los precios internacionales. Guatemala, como importador, podría ver aumentos en sus precios de combustible.",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
+      },
+      {
+        "id": 5,
+        "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOZ0xBdC1pVzNQRnVaZUduQnc0dHBDYlFjRmg4eEwwZnJyQXRnb2c5ekYtQkxZQm9MUDAzR3ljSlF4WTQ0Q2Z6R1pnM2tfTGlybG04OHR2dnY3VVhQWUZJVzRJOFBNLVgwSU5ZcW45TDRDdERvc0dZS3dKTFl5a1F5a0dOTVlCdkJJbHh4dmp6SDRDWG9yZEtqTU1reGlZSHhpTHJwalRUQXFEcHliQ2ZFeA?oc=5",
+        "titulo": "Ukraine strikes Oryol factory with Neptune missile, reportedly Saratov Oil Refinery in mass attack on Russian regions - The Kyiv Independent",
+        "titulo_es": "Ucrania ataca fábrica de Oryol y refinería Saratov en Rusia",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-06T21:01:27-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Ucrania atacó la fábrica de Oryol y la refinería Saratov en Rusia, dañando la producción de gasolina y diésel. La reducción de oferta mundial podría presionar al alza los precios del combustible en Guatemala.",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
       },
       {
         "id": 13,
-        "url": "https://oilprice.com/Energy/Energy-General/Energy-Reliability-Is-Becoming-More-Important-Than-Energy-Politics.html",
-        "titulo": "Energy Reliability Is Becoming More Important Than Energy Politics",
-        "titulo_es": "Confiabilidad energética supera a la política energética",
+        "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPU1hEU2xwRUlIQk56YjRKSkRtWkJVWUJZaGR5aHRYWU1SNDN4UmZKUUJRNG90dXczdmdQVTY4YjA2TlBQSVhuMF9XNDJCWk9CT1pvVEx0RTBNRDRWN3hHODRRQVVESkZ5UXBzLWJfY29MV1RMV29waGx3bHhVSWpTZlJlaUVubXhKdm1fOEozajdXZk9wQTN5TjNnQzlYaDdQbW82UWFjSm9ScGNsazhzR0FEdDJvcUxGbkIyTU50NEdvUmRkVG8tRnc3LUJqOUFRV3RjbTFNTmM?oc=5",
+        "titulo": "80% de probabilidad de ataque mutuo Irán-Estados Unidos, el petróleo Brent sube a US$99,90 - IDNFinancials",
+        "titulo_es": "Brent sube a US$99,90 ante alta probabilidad de conflicto Irán-EE.UU.",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-06T03:00:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El aumento de tensiones entre Irán y EE. UU. hizo subir el Brent a US$99,90, elevando los precios internacionales del crudo. Guatemala, que importa combustible, podría ver mayores costos.",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
+      },
+      {
+        "id": 14,
+        "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNWFFQOXdVbDZLaVowN1dINlJwQkYyaVpDMWdjLUlXb3gzd29LVHkybC1YUXRhWlMwazlkTmhBQ05RQ0VqVGN4blEyeEVOMjhVdTNvR0RiVFBpVnlCRnphY2hjMVhyV2VtMWhUR3pqVmdfOUpNUFI2V05VclZKeElUTnhkMnEtMmJmQm12ZlBxZ09wRGFITURTRmFrZzJvd2pST0c3YldmV3JpVGZXLWRJa2h3dGowdGw0ckxnY3V3d3l5aC1IWkx2dmc4LTVqNXllcGdJeXpmNmMteERkVzRwU2s5VzQzNEIxRlE?oc=5",
+        "titulo": "Materias primas en Canadá: el petróleo sube tras el ataque a varios petroleros en el estrecho de Ormuz - MarketScreener España",
+        "titulo_es": "Petróleo sube tras ataques a buques en el estrecho de Ormuz",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-05T10:46:27-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Ataques a buques petroleros en el estrecho de Ormuz provocaron alza del petróleo, incrementando los precios internacionales. Esto afecta el costo de importación de combustibles en Guatemala.",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
+      },
+      {
+        "id": 4,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Iraq-Strikes-US-Deal-to-Boost-Oil-Exports-Through-Hormuz.html",
+        "titulo": "Iraq Strikes U.S. Deal to Boost Oil Exports Through Hormuz",
+        "titulo_es": "Irak firma acuerdo con EE. UU. para aumentar exportaciones de crudo vía Hormuz",
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-06T13:00:00-06:00",
+        "publicado_at": "2026-11-09T03:10:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Irak firmó un acuerdo con EE. UU. para transportar crudo por el corredor de Hormuz, incrementando sus exportaciones. Un mayor flujo de petróleo puede influir en los precios internacionales que paga Guatemala.",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
+      },
+      {
+        "id": 12,
+        "url": "https://oilprice.com/Energy/Energy-General/Wars-May-Spur-Faster-Electrification.html",
+        "titulo": "Wars May Spur Faster Electrification",
+        "titulo_es": "Guerras impulsan una electrificación más rápida",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-07T18:00:00-06:00",
         "categoria": "otro",
         "pais": null,
         "relevancia": 2,
-        "resumen_es": "El enfoque se desplaza hacia la seguridad del suministro energético, lo que podría influir en las decisiones de importación de combustibles en Guatemala.",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
+        "resumen_es": "Los conflictos en Ucrania y Oriente Medio impulsan la venta de vehículos eléctricos, reduciendo la demanda de gasolina. A largo plazo, podría disminuir la necesidad de importaciones de combustibles en Guatemala.",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
       },
       {
-        "id": 35,
-        "url": "https://oilprice.com/Energy/Energy-General/How-New-York-Plans-to-Turn-Waste-Heat-Into-Clean-Energy.html",
-        "titulo": "How New York Plans to Turn Waste Heat Into Clean Energy",
+        "id": 19,
+        "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5UNm1JTGhxR1lJbWlXTEpySG04ZGtxa0hvTUhUbEpwcEV1V200R1ctZk9zZmlwT2Q2bjVGZkhBcXVBTDJFMTRIdjVwUmpvR3F3aEZpRENBbU1aNE1mMDZ4OGRCdDBsbnZ5c0NQdDFpekUzQzJQRVR2THd3TQ?oc=5",
+        "titulo": "Oil falls as Trump signals restraint on Iran despite fresh shipping attacks - Yahoo Finance",
         "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-08T10:00:00-06:00",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-09T04:22:32-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "District heating has been around for almost 150 years, with the first commercial system established in New York in 1877, yet it is still not widely used. The original systems used steam produced by a central fossil-fuel boiler. However, systems have evolved over time, and modern heating networks have more flexible infrastructure that can connect multiple energy and storage solutions to supply both heating and cooling. At present, district heating supplies approximately 10 per cent of global buil",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
+        "resumen_es": "Oil falls as Trump signals restraint on Iran despite fresh shipping attacks Yahoo Finance",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
       },
       {
-        "id": 36,
-        "url": "https://oilprice.com/Alternative-Energy/Nuclear-Power/The-US-Has-50-Billion-for-Nuclear-Waste-and-Nowhere-to-Put-It.html",
-        "titulo": "The U.S. Has $50 Billion for Nuclear Waste and Nowhere to Put It",
+        "id": 20,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Nordic-Power-Prices-Could-Soar-This-Winter-as-Hydropower-Reserves-Plunge.html",
+        "titulo": "Nordic Power Prices Could Soar This Winter as Hydropower Reserves Plunge",
         "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-07T16:00:00-06:00",
+        "publicado_at": "2026-11-09T04:20:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "Finland and the United States are exemplifying two opposing approaches to managing the mounting problem of spent nuclear fuel. Finland is about to open the world’s first permanent nuclear waste disposal facility. The United States is stuck in a cycle of endless political turnover and resultant gridlock about how to address the more than 90,000 metric tons of spent fuel sitting in temporary facilities around the country, posing a mounting public health hazard and tax dollar sink. The Onkalo site",
-        "fetched_at": "2026-11-08T11:54:46-06:00"
+        "resumen_es": "Low water levels in hydropower reservoirs and soaring natural gas prices are putting upward pressure on power prices in the Nordic countries as winter approaches, Denmark-based energy trader Mind Energy says. The surge in gas prices and potentially reduced hydropower generation in southern Norway and Sweden could lead to price spikes this winter, especially if there are prolonged periods of low wind speeds, the analysts said. In its November recap insight, Mind Energy said that “Winter is upon",
+        "fetched_at": "2026-11-09T04:54:57-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 15,
-      "total_hoy": 48,
+      "titulos_es_hoy": 14,
+      "total_hoy": 49,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
