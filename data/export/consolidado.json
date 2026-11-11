@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-11-10T11:54:32-06:00",
+  "actualizado_at": "2026-11-11T04:55:19-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-11-09",
   "productos": {
@@ -13,14 +13,10 @@
         "fecha": "2026-11-09",
         "precio": 29.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-10T11:53:21-06:00",
+        "fetched_at": "2026-11-11T04:53:36-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-10",
-          "precio": 27.45
-        },
         {
           "fecha": "2025-11-11",
           "precio": 27.45
@@ -1243,7 +1239,7 @@
             "fecha": "2026-11-09",
             "precio": 29.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-10T11:53:21-06:00",
+            "fetched_at": "2026-11-11T04:53:36-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1286,10 +1282,6 @@
             ]
           },
           "historial": [
-            {
-              "fecha": "2026-10-11",
-              "precio": 34.89
-            },
             {
               "fecha": "2026-10-12",
               "precio": 34.89
@@ -1342,7 +1334,7 @@
             "fecha": "2026-11-09",
             "precio": 30.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-10T11:53:21-06:00",
+            "fetched_at": "2026-11-11T04:53:36-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1375,10 +1367,6 @@
             ]
           },
           "historial": [
-            {
-              "fecha": "2026-10-11",
-              "precio": 35.99
-            },
             {
               "fecha": "2026-10-12",
               "precio": 35.99
@@ -1416,14 +1404,10 @@
         "fecha": "2026-11-09",
         "precio": 32.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-10T11:53:21-06:00",
+        "fetched_at": "2026-11-11T04:53:36-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-10",
-          "precio": 28.46
-        },
         {
           "fecha": "2025-11-11",
           "precio": 28.46
@@ -2654,7 +2638,7 @@
             "fecha": "2026-11-09",
             "precio": 32.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-10T11:53:21-06:00",
+            "fetched_at": "2026-11-11T04:53:36-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2697,10 +2681,6 @@
             ]
           },
           "historial": [
-            {
-              "fecha": "2026-10-11",
-              "precio": 36.19
-            },
             {
               "fecha": "2026-10-12",
               "precio": 36.19
@@ -2759,18 +2739,28 @@
           "nombre": "Servicio completo",
           "actual": {
             "fecha": "2026-11-09",
-            "precio": 33.29,
+            "precio": 33.44,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-10T11:53:21-06:00",
+            "fetched_at": "2026-11-11T04:54:00-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
             "fecha": "2026-11-09",
-            "precio": 33.29,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 2,
+            "precio": 33.44,
+            "confianza": "alta",
+            "n_coinciden": 3,
+            "n_fuentes": 3,
             "fuentes": [
+              {
+                "coincide": true,
+                "fecha": "2026-11-09",
+                "medio": "globalpetrolprices.com",
+                "modalidad_inferida": false,
+                "peso": 1.0,
+                "precio": 33.44,
+                "tipo": "monitoreado",
+                "url": "https://globalpetrolprices.com/Guatemala/"
+              },
               {
                 "coincide": true,
                 "fecha": "2026-11-09",
@@ -2794,10 +2784,6 @@
             ]
           },
           "historial": [
-            {
-              "fecha": "2026-10-11",
-              "precio": 37.29
-            },
             {
               "fecha": "2026-10-12",
               "precio": 37.11
@@ -2824,7 +2810,7 @@
             },
             {
               "fecha": "2026-11-09",
-              "precio": 33.29
+              "precio": 33.44
             }
           ]
         }
@@ -2839,14 +2825,10 @@
         "fecha": "2026-11-09",
         "precio": 40.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-10T11:53:21-06:00",
+        "fetched_at": "2026-11-11T04:53:36-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-10",
-          "precio": 26.96
-        },
         {
           "fecha": "2025-11-11",
           "precio": 26.96
@@ -4069,7 +4051,7 @@
             "fecha": "2026-11-09",
             "precio": 40.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-10T11:53:21-06:00",
+            "fetched_at": "2026-11-11T04:53:36-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4112,10 +4094,6 @@
             ]
           },
           "historial": [
-            {
-              "fecha": "2026-10-11",
-              "precio": 41.69
-            },
             {
               "fecha": "2026-10-12",
               "precio": 41.69
@@ -4166,18 +4144,28 @@
           "nombre": "Servicio completo",
           "actual": {
             "fecha": "2026-11-09",
-            "precio": 41.79,
+            "precio": 41.95,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-10T11:53:21-06:00",
+            "fetched_at": "2026-11-11T04:54:00-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
             "fecha": "2026-11-09",
-            "precio": 41.79,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 2,
+            "precio": 41.95,
+            "confianza": "alta",
+            "n_coinciden": 3,
+            "n_fuentes": 3,
             "fuentes": [
+              {
+                "coincide": true,
+                "fecha": "2026-11-09",
+                "medio": "globalpetrolprices.com",
+                "modalidad_inferida": false,
+                "peso": 1.0,
+                "precio": 41.95,
+                "tipo": "monitoreado",
+                "url": "https://globalpetrolprices.com/Guatemala/"
+              },
               {
                 "coincide": true,
                 "fecha": "2026-11-09",
@@ -4201,10 +4189,6 @@
             ]
           },
           "historial": [
-            {
-              "fecha": "2026-10-11",
-              "precio": 42.79
-            },
             {
               "fecha": "2026-10-12",
               "precio": 42.64
@@ -4235,7 +4219,7 @@
             },
             {
               "fecha": "2026-11-09",
-              "precio": 41.79
+              "precio": 41.95
             }
           ]
         }
@@ -4247,17 +4231,13 @@
       "unidad": "USD/barril",
       "orden": 4,
       "actual": {
-        "fecha": "2026-11-10",
-        "precio": 86.33,
+        "fecha": "2026-11-11",
+        "precio": 87.32,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-11-10T11:53:55-06:00",
+        "fetched_at": "2026-11-11T04:54:00-06:00",
         "incluye_impuestos": null
       },
       "historial": [
-        {
-          "fecha": "2025-11-10",
-          "precio": 60.06
-        },
         {
           "fecha": "2025-11-11",
           "precio": 60.49
@@ -5357,6 +5337,10 @@
         {
           "fecha": "2026-11-10",
           "precio": 86.33
+        },
+        {
+          "fecha": "2026-11-11",
+          "precio": 87.32
         }
       ],
       "mensual": [],
@@ -5377,8 +5361,8 @@
         },
         {
           "anio": 2026,
-          "promedio": 85.48,
-          "dias": 238,
+          "promedio": 85.49,
+          "dias": 239,
           "meses": null,
           "fuente": "diario"
         }
@@ -5387,18 +5371,14 @@
         "spot": {
           "nombre": "Spot",
           "actual": {
-            "fecha": "2026-11-10",
-            "precio": 86.33,
+            "fecha": "2026-11-11",
+            "precio": 87.32,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-11-10T11:53:55-06:00",
+            "fetched_at": "2026-11-11T04:54:00-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
           "historial": [
-            {
-              "fecha": "2026-10-11",
-              "precio": 91.85
-            },
             {
               "fecha": "2026-10-12",
               "precio": 92.29
@@ -5518,6 +5498,10 @@
             {
               "fecha": "2026-11-10",
               "precio": 86.33
+            },
+            {
+              "fecha": "2026-11-11",
+              "precio": 87.32
             }
           ]
         }
@@ -5562,8 +5546,8 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 48,
-    "notas_leidas": 178,
+    "observaciones_7d": 50,
+    "notas_leidas": 180,
     "medios": [
       "agn.gt",
       "dca.gob.gt",
@@ -5582,207 +5566,207 @@
     ]
   },
   "noticias": {
-    "total": 43,
+    "total": 61,
     "top": [
       {
-        "id": 2,
-        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOZDZVUGRHRGg1QkZuUHp0QXZjbTYxdTU0ekpEZ1J5TnVpUkpQZ3dRWWl3YktVWUpjZENjMnNvX2F2WDZHZVBzX0k3NUNUMlRtcEhZWjlrZmVTdlVfd1ZSWmhGZWtGTElIVG01V0JlMjB2TTBYUkpraDNmczluTElFQllYekttTDQ4NnhlNGpKUDJmeHNYQU4w?oc=5",
-        "titulo": "Attack Targets Saudi Arabia’s East-West Oil Pipeline in Medina - Egypt Oil & Gas",
-        "titulo_es": "Ataque daña oleoducto Este-Oeste de Arabia Saudí",
+        "id": 4,
+        "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBreWFXRXR4UHNFMDRFbTlseDRCbmdoSlJ1NG5wSXRESzg1SFEtTmdpQThMdXhMbXRoQW41dFlZU1V1QTB6M21WZEhMX3RzUVA3WUhPbVYyM0tNM1pFVTFjTmdFSTk3RzJfeTlaZQ?oc=5",
+        "titulo": "Saudi Arabia says East-West oil pipeline targeted, remains operational despite attack - Rudaw",
+        "titulo_es": "Arabia Saudita dice que el oleoducto Este-Oeste fue atacado y sigue operativo a pesar del ataque - Rudaw",
         "medio": "Google News EN",
-        "publicado_at": "2026-11-10T01:47:23-06:00",
-        "categoria": "infraestructura",
+        "publicado_at": "2026-11-10T07:52:59-06:00",
+        "categoria": "otro",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Un ataque dañó el oleoducto Este‑Oeste de Arabia Saudí, lo que podría limitar la oferta mundial de crudo y presionar al alza los precios del combustible importado por Guatemala.",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
+        "resumen_es": "Arabia Saudí dice que el oleoducto Este-Oeste sigue en funcionamiento a pesar del ataque a Rudaw",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
+      },
+      {
+        "id": 2,
+        "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOUExzem1feGR5UVFqaDhuMDVCNGNuZHNrVV81b0UtZ2JUY1E5LVFqU0tUdmtOS2hGamdjbURIbEFISURnYm16X1Nmd01pN1RCVVZBYnlZS1lyWW9JRHhaclVYLWktNlFjSHJ3LUFfVkQxS05PVnZJR05sY08yZG1TWTAyTExPcG4wTFJIYUF6YUxqbW1Nd1Y0SnIyZWVrR0pRR04xdUhXd2NxUnhmNnZabUZUR1Q2dmotWXRnUk1iWkZ2bU51aWFSd1ZUeTdHYVZSeFNPQzBVdVF1MTA?oc=5",
+        "titulo": "Factura petrolera de Guatemala sube 46.4% y revela un cambio en el consumo de gasolinas regular y superior - Prensa Libre",
+        "titulo_es": "Factura de combustible de Guatemala sube 46.4% y altera consumo de gasolina",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-02T02:00:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "La factura de combustible de Guatemala aumentó 46.4% y muestra que la demanda de gasolina regular supera a la superior, lo que presiona al alza los precios internos.",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
+      },
+      {
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE43SW5mVWVCTUI1WDRDYzVKRGI2aWxhYUNKQTRLblROT1FnT0psM3FiajgyYnpGSm1TUnRYWHVLT0c1VGQwQnR5SzJrNA?oc=5",
+        "titulo": "Massive Drone Attack Sparks Fire at Russia’s Baltic Oil Export Hub - Kyiv Post",
+        "titulo_es": "Ataque con drones incendia hub de exportación de crudo ruso en el Báltico",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-10T23:36:59-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Un ataque con drones incendió el hub de exportación de crudo ruso en el Báltico, lo que podría reducir la oferta mundial y presionar al alza los precios del combustible importado por Guatemala.",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
+      },
+      {
+        "id": 16,
+        "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxORTFWbnU4OFFTLWxQbXdqdnN5RUc1MkZGMjFHRm82dkIyOExueXJReFBUYjhZNWFZOFByRW1oWDZUTlVYTHhWNUthYWJYMTJLekJLVnplRmNkWndDWktERjNPNUxWRVlIVmswdXNYUGg5NDZJR05ZYUNkc3lhekcwNG95TUV6WlBZLXJFWEVMUzBPV0JJd0lFVDN4VDRFNW94N0JGX1UwTC04Y2NkcFY1VVJ6YU1OT3NpZmlXczhUQ3R6NmdnYUdSLW1zbmIway10SjFtRWtSc0FHakNHV2ViWENleG9XS2xtZnFfZktwakFlOWR4MmVJcmlKYXFScnJmemZIcw?oc=5",
+        "titulo": "Camión cisterna extraía petróleo crudo del Oleoducto Norperuano mediante conexión clandestina: Petroperú denuncia nuevo ataque - RPP Noticias",
+        "titulo_es": "Camión cisterna extraía petróleo crudo del Oleoducto Norperuano mediante conexión clandestina: Petroperú denuncia nuevo",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-10T11:44:45-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Camión cisterna extraía petróleo crudo del Oleoducto Norperuano mediante cone",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
       },
       {
         "id": 1,
         "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQbURFN2Y0WFBUT2pPOWZsczQxT3NHeC1xdVJMUVhKSW55ODEtWUxWQ0w3aDJkd2tYbDJhXzR4NXAxbHNNN1RNbFlHd3dTczdaZ1FjRnNMeUlFbXVkcHJucWZCN3dCb21hbGpYSHplbFIta1N5ZEM5SXhYSUk4Qmd6LV9GVkVzS2d6NFdlYmc2WkxtWTRmRGNsdU01d0ZxaDhzSWQ4NktaYVIwXzFzblBmaDQzblNKZnlReURfYmlhN2xvNVFWQmhnTXpPNHltLWFiTnhGSnB3?oc=5",
         "titulo": "Precio del galón de gasolina en Guatemala: se reporta nuevas bajas en el promedio del MEM y estaciones - Prensa Libre",
-        "titulo_es": "Precio del galón de gasolina baja en Guatemala según MEM",
+        "titulo_es": "Bajan nuevamente los precios del galón de gasolina en Guatemala según MEM y estaciones",
         "medio": "Google News ES",
         "publicado_at": "2026-11-09T19:14:57-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Se reportan nuevas bajas en el precio promedio del galón de gasolina en Guatemala, reduciendo el costo para los consumidores.",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
-      },
-      {
-        "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPZXFRRXlHU0NYRUVYQWlxaDZVVDRJSEhmZWZHVzlETHhVR3hteGxMRTg4aWNWcUNRMlhYdFh4cTY4N1MzMmJJWGlqVV9rZjVvSlVXcmdTaUtwWjBFaS1BX242SGZhRFNtWXc4elFSZ1JQalBVM2ZCSEh1eEczZ1lDb2FWdHB1cDNpZ3FRRg?oc=5",
-        "titulo": "Attack on Saudi oil pipeline causes fire, no casualties reported - Latest news from Azerbaijan",
-        "titulo_es": "Incendio en oleoducto saudí tras ataque, sin víctimas",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-09T11:58:05-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Un ataque provocó un incendio en un oleoducto saudí sin víctimas, generando incertidumbre sobre la continuidad del suministro de petróleo y posibles alzas de precios en Guatemala.",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
-      },
-      {
-        "id": 11,
-        "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPU1hEU2xwRUlIQk56YjRKSkRtWkJVWUJZaGR5aHRYWU1SNDN4UmZKUUJRNG90dXczdmdQVTY4YjA2TlBQSVhuMF9XNDJCWk9CT1pvVEx0RTBNRDRWN3hHODRRQVVESkZ5UXBzLWJfY29MV1RMV29waGx3bHhVSWpTZlJlaUVubXhKdm1fOEozajdXZk9wQTN5TjNnQzlYaDdQbW82UWFjSm9ScGNsazhzR0FEdDJvcUxGbkIyTU50NEdvUmRkVG8tRnc3LUJqOUFRV3RjbTFNTmM?oc=5",
-        "titulo": "80% de probabilidad de ataque mutuo Irán-Estados Unidos, el petróleo Brent sube a US$99,90 - IDNFinancials",
-        "titulo_es": "Probabilidad del 80% de conflicto Irán‑EEUU eleva Brent a US$99,90",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-06T03:00:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Un 80% de probabilidad de conflicto entre Irán y EE.UU. eleva el Brent a US$99,90, lo que presiona al alza los precios del petróleo importado por Guatemala.",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
-      },
-      {
-        "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOcjd1NFEycUJETTMteENIMTNqR2hvXzZqY2VzQnR1UFJ1X3Q5cUE3OFR3cHRXUzl6MGR3UjUyMXBOWjhEdW92d0NsZk5CbWdzZ0dOcjMtbEh0MFpENFlwSXNadl9tS212MzgyeXlUODV5LWNuWndkcVBpNGZ0VHhKYmNUbzQ2ODMtWEtKX1VxNVNOYlNuYTJUei1kLUhELWVtc3NLRXo4c19LUXRkNHlsNVZ3d3ZROHg2SGVPcUh3czFwMGc1YlV4ZzN6RQ?oc=5",
-        "titulo": "Ukrainian Drone Attack Sets Russia’s Major Kirishi Oil Refinery on Fire, Governor Says - ASHARQ AL-AWSAT English",
-        "titulo_es": "Dron ucraniano incendia refinería rusa Kirishi",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-09T10:29:39-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
         "relevancia": 4,
-        "resumen_es": "Un dron ucraniano incendió la refinería Kirishi en Rusia, afectando la capacidad de producción de crudo y pudiendo elevar los precios internacionales que paga Guatemala.",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
-      },
-      {
-        "id": 10,
-        "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxORHhrRVktNHFJd2k2MmxWd0VaS1hvOG4xT2Vmc1o2WHVEUFpJYzlQczhhWEdtSUVVbVRWdnZHeVFJVzNLMnpKRjdmYVZPTGgxWEs1LW9xOWZoUzlLcllTTjJpNzJXVnBTSHR3QkI4d0l3ZVVaS3VrZmNwUEdYRmVPWmhDSEwtVDF1TUh0N0ZIWTBaZlZIc1pEX3F5dGFOd0JCSmU4UFBoU3ZXV0J1cEU0UndDb2Y1UnBMbXZlZmFkUVhyM2RiWngwUG5hZng?oc=5",
-        "titulo": "How Could Ukraine's Strike on Russia's Biggest Oil Refineries Affect the War and Energy Markets? - Modern Diplomacy",
-        "titulo_es": "Impacto de los ataques ucranianos a refinerías rusas en mercados energéticos",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-09T03:38:55-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Los ataques ucranianos a las mayores refinerías rusas podrían reducir la oferta de crudo, generando incertidumbre y posibles aumentos de precios en los mercados que abastecen a Guatemala.",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
-      },
-      {
-        "id": 12,
-        "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBjbXRNdDF2V3NJVFU3N2Y4VVdMS1BiOTI0eW9KYmpMM3VXazZMVG12ZDBlUHVkRmx6LWM0Q2xpRUNzVE94eHB3eUc1WHNKYVR6eDNXeS1fOXN4VFlqbFVxci0tRHpqY1N2NHVTekRuM0pKZw?oc=5",
-        "titulo": "Ucrania ataca con drones una refinería en el sur de Rusia, según medios - EFE - Agencia de noticias",
-        "titulo_es": "Ucrania lanza drones contra refinería rusa en el sur",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-06T01:36:56-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Ucrania utilizó drones contra una refinería rusa del sur, dañando la instalación y potencialmente reduciendo la producción de crudo, lo que puede impactar los precios internacionales.",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
-      },
-      {
-        "id": 5,
-        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNN0tYRk9sOGpxbEZMUldQTDBwNngyQkNKdVRkaDY4Vk43eFhWaHc2MkE0TnFRVzZhRmtDdHAyQ2tUV1I3cGxyR3FmbENIVnczZWFGWE1SRG4waDlzUmNQUVl4ZGhZZGNEQkp0TXZHWkY5NVJhQnllbW15V1BielAzeDNYN0Fjc25XTHhOeFhpWmVwaVc4UjRSakxhcWZXNl9LeGRvVmN3NTdZcEpzWkJMa21vdjVBYmNFZnhEVTZqQnZjTVh6b2lNVw?oc=5",
-        "titulo": "Chixoy se recupera y bajan los combustibles en Guatemala: ¿cuánto durará el alivio energético? - Prensa Libre",
-        "titulo_es": "Recuperación de Chixoy y descenso de precios de combustibles en Guatemala",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-06T00:10:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El repunte del embalse de Chixoy permite bajar los precios de los combustibles en Guatemala, aunque se desconoce la duración del alivio para los consumidores.",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
-      },
-      {
-        "id": 14,
-        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOWk03bDJPMTdlbGlRNi1YMHRCNHlsMWllWWt4Slk4dEZzeExCbUs5QmtjbG56TzlIWHg2eHZCbEF2U3hucml0UXBIeVoyamdhVlhqWjJTaENueW1tYjdhN1k5dy00NEk3UWJtUG45cmxiOHphOEJkNXJ2dG84UlpFYV8zOWpfMVFnY1dNWVV5Q083Q2VucHFfdG1PeWVtcW9nT216LVJwUlFnbE0wMEhDT3kzVUhnU2NLZ1k2US1R?oc=5",
-        "titulo": "Attack appears to hit Russia's Ryazan oil refinery, Reuters analysis finds - Reuters",
-        "titulo_es": "Ataque afecta refinería rusa de Ryazan, según Reuters",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-05T07:19:51-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Un ataque parece haber dañado la refinería de Ryazan en Rusia, afectando su capacidad de procesamiento y pudiendo influir en los precios del crudo a nivel global.",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
-      },
-      {
-        "id": 9,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/LNG-Traffic-Through-Hormuz-Hits-Highest-Level-Since-Iran-War-Began.html",
-        "titulo": "LNG Traffic Through Hormuz Hits Highest Level Since Iran War Began",
-        "titulo_es": "Tráfico de GNL por el estrecho de Hormuz alcanza nivel máximo desde 1980",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-10T00:45:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "El tráfico de GNL por el estrecho de Hormuz llegó a 31 buques, el nivel más alto desde la guerra Irán‑Irak, señalando una mayor demanda que podría afectar los precios del gas.",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
-      },
-      {
-        "id": 13,
-        "url": "https://www.eia.gov/todayinenergy/detail.php?id=68424",
-        "titulo": "Refineries have shifted production away from gasoline to middle distillates",
-        "titulo_es": "Refinerías reducen producción de gasolina a favor de destilados medios",
-        "medio": "EIA Today in Energy",
-        "publicado_at": "2026-11-05T08:00:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Las refinerías están reduciendo la producción de gasolina en favor de destilados medios, lo que disminuye la oferta de gasolina y puede elevar su precio en mercados importadores como Guatemala.",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
-      },
-      {
-        "id": 8,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/ADNOC-Gas-Posts-Stunning-Profit-Recovery-as-Energy-Exports-Rebound.html",
-        "titulo": "ADNOC Gas Posts Stunning Profit Recovery as Energy Exports Rebound",
-        "titulo_es": "ADNOC Gas registra fuerte recuperación de ganancias y exportaciones",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-10T03:30:00-06:00",
-        "categoria": "finanzas",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "ADNOC Gas duplicó sus ganancias y aumentó sus exportaciones de gas y LNG, lo que indica una mayor oferta global de gas y podría influir en los precios energéticos internacionales.",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
-      },
-      {
-        "id": 17,
-        "url": "https://oilprice.com/Energy/Crude-Oil/Oil-Falls-to-Lowest-Level-Since-August.html",
-        "titulo": "Oil Falls to Lowest Level Since August",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-10T10:34:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Brent crude briefly falls below $90 as hopes of diplomatic breakthroughs in Iran and Ukraine accelerate the oil market selloff. Crude Says Peace, Tanker Rates Say Not So Fast - Crude oil prices have plunged by almost $30 per barrel since the US midterm elections, however, stubbornly high freight rates in the Gulf suggest not every segment of the oil markets deems the US-Iran war to be ‘effectively over’. - The cost of chartering a VLCC for a voyage from the Persian Gulf to China has dipped o",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
-      },
-      {
-        "id": 43,
-        "url": "https://oilprice.com/Energy/Gas-Prices/Regular-gasoline-averaged-39788-a-gallon-on-Tuesday-per-AAA-the-first-readin.html",
-        "titulo": "Average U.S. Gasoline Price Dips below $4 for First Time since July",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-10T10:00:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "The average price of regular gasoline in the United States dropped below $4 per gallon for the first time since the middle of July, amid a decline in international crude oil prices and a seasonal drop in demand. As of early Tuesday, the national average gasoline price stood at $3.9788 per gallon, according to AAA data. That’s down from $4.1493 a week ago and from $4.3669 per gallon a month ago, but well above the seasonal norms. At this time last year, the national average gasoline price was a",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
+        "resumen_es": "El precio promedio del galón de gasolina en Guatemala cayó nuevamente, según el MEM y las estaciones, lo que indica una tendencia a la baja en el costo del combustible para los consumidores.",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
       },
       {
         "id": 18,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Iran-War-Set-to-Drive-A-Drop-in-Global-Fossil-Fuel-Emissions-in-2026.html",
-        "titulo": "Iran War Set to Drive A Drop in Global Fossil Fuel Emissions in 2026",
+        "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPU1hEU2xwRUlIQk56YjRKSkRtWkJVWUJZaGR5aHRYWU1SNDN4UmZKUUJRNG90dXczdmdQVTY4YjA2TlBQSVhuMF9XNDJCWk9CT1pvVEx0RTBNRDRWN3hHODRRQVVESkZ5UXBzLWJfY29MV1RMV29waGx3bHhVSWpTZlJlaUVubXhKdm1fOEozajdXZk9wQTN5TjNnQzlYaDdQbW82UWFjSm9ScGNsazhzR0FEdDJvcUxGbkIyTU50NEdvUmRkVG8tRnc3LUJqOUFRV3RjbTFNTmM?oc=5",
+        "titulo": "80% de probabilidad de ataque mutuo Irán-Estados Unidos, el petróleo Brent sube a US$99,90 - IDNFinancials",
+        "titulo_es": "80% de probabilidad de ataque mutuo Irán-Estados Unidos, el petróleo Brent sube a US$99,90 - IDNFinancials",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-06T03:00:00-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "80% de probabilidad de ataque mutuo Irán-Estados Unidos, el petróleo Brent sube a US$99,90 IDNFinan",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
+      },
+      {
+        "id": 7,
+        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNN0tYRk9sOGpxbEZMUldQTDBwNngyQkNKdVRkaDY4Vk43eFhWaHc2MkE0TnFRVzZhRmtDdHAyQ2tUV1I3cGxyR3FmbENIVnczZWFGWE1SRG4waDlzUmNQUVl4ZGhZZGNEQkp0TXZHWkY5NVJhQnllbW15V1BielAzeDNYN0Fjc25XTHhOeFhpWmVwaVc4UjRSakxhcWZXNl9LeGRvVmN3NTdZcEpzWkJMa21vdjVBYmNFZnhEVTZqQnZjTVh6b2lNVw?oc=5",
+        "titulo": "Chixoy se recupera y bajan los combustibles en Guatemala: ¿cuánto durará el alivio energético? - Prensa Libre",
+        "titulo_es": "Chixoy se recupera y bajan los combustibles en Guatemala: ¿cuánto durará el alivio energético? - Prensa Libre",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-06T00:10:00-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Chixoy se recupera y bajan los combustibles en Guatemala: ¿cuánto durará el alivio energético? Prensa Libre",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
+      },
+      {
+        "id": 8,
+        "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNa0tNXzZaYS1oYVFNbEVoSDFlUVd0TGpGWE4tcnNuZGpiZ2MtM2w2Q2JYRnAwQUtFbE5YSlQ2dmlNUjVpdERZVDU5djlPaEdFbGZhRmRFMUUyemR2VXM4OXFPZjI3cl82Y1Njc2N6ODN6S3BBUFktWkpaTktuSjF0enVrd2FrdXFXZ0pQSEtHMjJsVjVORzFJSzdxQ2w0S2U4cUNDb0w2ak1NVFFhR0FGWHNDT2hWalZySzBQMzFicmJaZjM3VGZXb3haWExWTXBjRWRWQg?oc=5",
+        "titulo": "Gasolinas en Guatemala: bajan los precios durante la semana y esto costará el galón el 6 de noviembre - Prensa Libre",
+        "titulo_es": "Gasolinas en Guatemala: bajan los precios durante la semana y esto costará el galón el 6 de noviembre - Prensa Libre",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-05T12:00:46-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Gasolinas en Guatemala: bajan los precios durante la semana y esto costará el galón el 6 de noviembre Pr",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
+      },
+      {
+        "id": 21,
+        "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPSEdmV2Q1bkh1ZjlYLW5sUnlJY0Jld19NZzFGTU9sVy01aE1IaGR6eE5FeDAzUE8wWDE3dWhDNXVwSTFSb09mZXl6aGFOeXdtZERkay1naFR1UjNtOUR2a0RLZ0p1V0JUUnRPU2ZwaUFDVFE1WkxZQldPOUctX3V1Z2hwNm51WTd1Z2RXcGV3Q2NwUU9XelRGcE94LXItYl9PenRRX1VOdkloWUJRVEtHQXh4WG5JZw?oc=5",
+        "titulo": "El movimiento Ansar Allah se atribuye un ataque contra la refinería de petróleo más grande de Arabia Saudí - Democracy Now!",
+        "titulo_es": "El movimiento Ansar Allah se atribuye un ataque contra la refinería de petróleo más grande de Arabia Saudí - Democracy N",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-28T01:00:00-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El movimiento Ansar Allah se atribuye un ataque contra la refinería de petróleo más grande de Arabia Saudí Democracy Now!",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
+      },
+      {
+        "id": 22,
+        "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQV1lJUVJLTXR5a0RfVEVoUVh4TDUzMWx6X1h0UFQ3Wmx2YTViVHZkVm9BSllNY014S1dwdnYzOWxwdWs2VVc3eTJwWE9RXzhicGJ3MkpTQzdSNDRDTUFSZ09jSkVfWFdjTXR3Sk1uRHJod1JEWVpMYW9KXzY3YUpOX3BiM3NkMi1TMFU1ZWZJVFdQU3A1WnpsOHpOTmtUM21Nc3cwVkNYMlB5a09kMzNtN3h0UnhhZDA2dTJBOHYzbDFkZW9LY21MdmctY3V1bGVoUFhYdFR3OENDcVJ3OTVCZk5YU0FrTTA4RWtRMDItY2c?oc=5",
+        "titulo": "Petróleo sube más de 1% tras presunto ataque a refinería saudita y nuevas preocupaciones por el suministro - Revista ADVFN",
+        "titulo_es": "Petróleo sube más de 1% tras presunto ataque a refinería saudita y nuevas preocupaciones por el suministro - Revista ADV",
+        "medio": "Google News ES",
+        "publicado_at": "2026-10-28T01:00:00-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Petróleo sube más de 1% tras presunto ataque a refinería saudita y nuevas preocupaciones por el suminist",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
+      },
+      {
+        "id": 46,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Polands-Orlen-Becomes-First-Buyer-to-Cancel-Long-Term-Qatar-LNG-Deal.html",
+        "titulo": "Poland's Orlen Becomes First Buyer to Cancel Long-Term Qatar LNG Deal",
         "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-10T08:30:00-06:00",
+        "publicado_at": "2026-11-11T01:30:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "Global carbon dioxide emissions from fossil fuels are expected to drop by 0.4% in 2026 from a year earlier, due to the oil shock from the Iran war and increased solar and wind power generation, new research by the Global Carbon Project showed on Tuesday. The 2026 Global Carbon Budget projects 38.2 billion tons of fossil carbon dioxide (CO2) emissions this year, down by 0.4% from last year, amid a slump in emissions from oil as a result of the Hormuz trade and energy price shock, the scientists",
-        "fetched_at": "2026-11-10T11:54:32-06:00"
+        "resumen_es": "Polish state-owned energy firm Orlen has become the first long-term client of QatarEnergy to cancel an LNG supply contract with the Qatari company amid the continued force majeure on exports. In a regulatory filing from late Tuesday, the Polish firm noted that QatarEnergy has become unable to meet its contractual obligations to supply Orlen with 1 million tons of superchilled gas annually. The contract was signed in 2009, The National noted in a report on the news, and deliveries began in 2016,",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
+      },
+      {
+        "id": 9,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Rise-as-Iran-Peace-Optimism-Fades.html",
+        "titulo": "Oil Prices Rise as Iran Peace Optimism Fades",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-10T23:45:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Crude oil prices reversed their fall from earlier this week as traders grew less optimistic about a peace deal between the United States and Iran amid continuing tanker attacks in the Strait of Hormuz, with a record number of such attacks in October. At the time of writing, Brent crude was trading at $92.43 per barrel, with West Texas Intermediate at $86.62 per barrel, both up from the start of the week but still sharply down from the end of October, when Brent crude was over $110 per barrel, an",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
+      },
+      {
+        "id": 24,
+        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPRnp2T2NvaFVwT05pV1Q0ay0tcENiWU5HTGpwckZrT0I3OVhuN2JwYm12RkViWVBFU3hoYVZScHlDdVFuNVY1WWJPbDNfY2RJRHEzNGs1aFNsZG1aR2RvVnBpcm5SQXQyV01QUnRDejV4am5odXZubzRSa01Jb2N2ak55NHNRejY3ZlNVa2JWUHFDUEE1bFltUQ?oc=5",
+        "titulo": "Oil rebounds as Hormuz shipping attacks blunt hopes for Iran truce - Yahoo Finance",
+        "titulo_es": null,
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-10T22:55:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Oil rebounds as Hormuz shipping attacks blunt hopes for Iran truce Yahoo Finance",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
+      },
+      {
+        "id": 25,
+        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQT2F5dklIUm9LbGw1WUJ6c2NKMEpZMkVGdnkzekZJUkVHWTFCWXdwdHpJbnVLQU5hRXY5V3dycEltY1p5VVpCWHBJM0JaUlktcVh6c3FKZWpHdXdqN0RLanVDc2VXVUc1dmN1aThRZjI4OUdEZ19KUm93Vm1wMklHRVFuMkhvemFGNnhrVTk4MkRraUhvT0hqVGRSRDhJdl9UYk9pTGxDc2hkVEg3cWRz?oc=5",
+        "titulo": "Oil Is Stuck in Limbo, With No More Iran War But No Peace - Bloomberg.com",
+        "titulo_es": null,
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-10T22:00:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Oil Is Stuck in Limbo, With No More Iran War But No Peace Bloomberg.com",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
+      },
+      {
+        "id": 47,
+        "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxNM1Z4OGJKcXVBQU00ZnJoY01wQTZEU1ltWldLNjZVenBMNFBQa3dxRDdwQVpSdTF2UXg0SW5BOVpTNjhXM1NKU1ZQRlNWX3JULXp6RnlLREM4X3I4ZWpzR1F6bHZmOXhnNXA3N2FoWEMwVmZRRkFfV3pOcFBIb2hvNlhnWFpuVXVyOHZQT3d2SmdzaklIT0NHQzFsZUdUdHhiQkFlSFg2b19wdDBxWWtobXJmMmhZQmlUTTNydmRhRmVoUm5VQnFKTUVDS0VaaHVsN0Q2UHFHZWtIRG5OQVQ1TDl0RTBpVWVwUEh3d2F3OU1JcldMcG9jb3dxTU91QQ?oc=5",
+        "titulo": "Transportistas solicitan extender la exención de impuestos a los combustibles y advierten de posibles aumentos en tarifas - Prensa Libre",
+        "titulo_es": null,
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-10T20:38:17-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Transportistas solicitan extender la exención de impuestos a los combustibles y advie",
+        "fetched_at": "2026-11-11T04:55:18-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 14,
-      "total_hoy": 43,
+      "titulos_es_hoy": 10,
+      "total_hoy": 61,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
