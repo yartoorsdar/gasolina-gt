@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-11-13T04:54:44-06:00",
+  "actualizado_at": "2026-11-13T11:55:29-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-11-12",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-11-12",
         "precio": 29.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-13T04:53:48-06:00",
+        "fetched_at": "2026-11-13T11:54:02-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -1239,45 +1239,25 @@
             "fecha": "2026-11-12",
             "precio": 29.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-13T04:53:48-06:00",
+            "fetched_at": "2026-11-13T11:54:02-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-11-12",
+            "fecha": "2026-11-13",
             "precio": 29.69,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 3,
+            "confianza": "baja",
+            "n_coinciden": 1,
+            "n_fuentes": 1,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-11-12",
+                "fecha": "2026-11-13",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
                 "precio": 29.69,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-11-09",
-                "medio": "lared1061.com",
-                "modalidad_inferida": false,
-                "peso": 0.5,
-                "precio": 29.69,
-                "tipo": "referencia",
-                "url": "https://lared1061.com/posts/gasolina-regular-vuelve-a-costar-menos-de-q30-en-guatemala"
-              },
-              {
-                "coincide": false,
-                "fecha": "2026-11-09",
-                "medio": "prensalibre.com",
-                "modalidad_inferida": false,
-                "peso": 0.772,
-                "precio": 30.48,
-                "tipo": "referencia",
-                "url": "https://www.prensalibre.com/economia/precio-del-galon-de-gasolina-en-guatemala-se-reporta-nuevas-bajas-en-el-promedio-del-mem-y-estaciones/"
               }
             ]
           },
@@ -1338,35 +1318,25 @@
             "fecha": "2026-11-12",
             "precio": 30.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-13T04:53:48-06:00",
+            "fetched_at": "2026-11-13T11:54:02-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-11-12",
+            "fecha": "2026-11-13",
             "precio": 30.79,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 2,
+            "confianza": "baja",
+            "n_coinciden": 1,
+            "n_fuentes": 1,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-11-12",
+                "fecha": "2026-11-13",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
                 "precio": 30.79,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-11-09",
-                "medio": "lared1061.com",
-                "modalidad_inferida": false,
-                "peso": 0.5,
-                "precio": 30.79,
-                "tipo": "referencia",
-                "url": "https://lared1061.com/posts/gasolina-regular-vuelve-a-costar-menos-de-q30-en-guatemala"
               }
             ]
           },
@@ -1412,7 +1382,7 @@
         "fecha": "2026-11-12",
         "precio": 32.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-13T04:53:48-06:00",
+        "fetched_at": "2026-11-13T11:54:02-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -2646,45 +2616,25 @@
             "fecha": "2026-11-12",
             "precio": 32.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-13T04:53:48-06:00",
+            "fetched_at": "2026-11-13T11:54:02-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-11-12",
+            "fecha": "2026-11-13",
             "precio": 32.19,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 3,
+            "confianza": "baja",
+            "n_coinciden": 1,
+            "n_fuentes": 1,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-11-12",
+                "fecha": "2026-11-13",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
                 "precio": 32.19,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-11-09",
-                "medio": "lared1061.com",
-                "modalidad_inferida": false,
-                "peso": 0.5,
-                "precio": 32.19,
-                "tipo": "referencia",
-                "url": "https://lared1061.com/posts/gasolina-regular-vuelve-a-costar-menos-de-q30-en-guatemala"
-              },
-              {
-                "coincide": false,
-                "fecha": "2026-11-09",
-                "medio": "prensalibre.com",
-                "modalidad_inferida": false,
-                "peso": 0.772,
-                "precio": 32.97,
-                "tipo": "referencia",
-                "url": "https://www.prensalibre.com/economia/precio-del-galon-de-gasolina-en-guatemala-se-reporta-nuevas-bajas-en-el-promedio-del-mem-y-estaciones/"
               }
             ]
           },
@@ -2753,45 +2703,25 @@
             "fecha": "2026-11-12",
             "precio": 33.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-13T04:53:48-06:00",
+            "fetched_at": "2026-11-13T11:54:02-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-11-12",
+            "fecha": "2026-11-13",
             "precio": 33.29,
-            "confianza": "alta",
-            "n_coinciden": 3,
-            "n_fuentes": 3,
+            "confianza": "baja",
+            "n_coinciden": 1,
+            "n_fuentes": 1,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-11-09",
-                "medio": "globalpetrolprices.com",
-                "modalidad_inferida": false,
-                "peso": 1.0,
-                "precio": 33.44,
-                "tipo": "monitoreado",
-                "url": "https://globalpetrolprices.com/Guatemala/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-11-12",
+                "fecha": "2026-11-13",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
                 "precio": 33.29,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-11-09",
-                "medio": "lared1061.com",
-                "modalidad_inferida": false,
-                "peso": 0.5,
-                "precio": 33.29,
-                "tipo": "referencia",
-                "url": "https://lared1061.com/posts/gasolina-regular-vuelve-a-costar-menos-de-q30-en-guatemala"
               }
             ]
           },
@@ -2841,7 +2771,7 @@
         "fecha": "2026-11-12",
         "precio": 40.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-13T04:53:48-06:00",
+        "fetched_at": "2026-11-13T11:54:02-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -4067,45 +3997,25 @@
             "fecha": "2026-11-12",
             "precio": 40.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-13T04:53:48-06:00",
+            "fetched_at": "2026-11-13T11:54:02-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-11-12",
+            "fecha": "2026-11-13",
             "precio": 40.69,
-            "confianza": "media",
-            "n_coinciden": 2,
-            "n_fuentes": 3,
+            "confianza": "baja",
+            "n_coinciden": 1,
+            "n_fuentes": 1,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-11-12",
+                "fecha": "2026-11-13",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
                 "precio": 40.69,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-11-09",
-                "medio": "lared1061.com",
-                "modalidad_inferida": false,
-                "peso": 0.5,
-                "precio": 40.69,
-                "tipo": "referencia",
-                "url": "https://lared1061.com/posts/gasolina-regular-vuelve-a-costar-menos-de-q30-en-guatemala"
-              },
-              {
-                "coincide": false,
-                "fecha": "2026-11-09",
-                "medio": "prensalibre.com",
-                "modalidad_inferida": false,
-                "peso": 0.772,
-                "precio": 41.38,
-                "tipo": "referencia",
-                "url": "https://www.prensalibre.com/economia/precio-del-galon-de-gasolina-en-guatemala-se-reporta-nuevas-bajas-en-el-promedio-del-mem-y-estaciones/"
               }
             ]
           },
@@ -4166,45 +4076,25 @@
             "fecha": "2026-11-12",
             "precio": 41.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-13T04:53:48-06:00",
+            "fetched_at": "2026-11-13T11:54:02-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
-            "fecha": "2026-11-12",
+            "fecha": "2026-11-13",
             "precio": 41.79,
-            "confianza": "alta",
-            "n_coinciden": 3,
-            "n_fuentes": 3,
+            "confianza": "baja",
+            "n_coinciden": 1,
+            "n_fuentes": 1,
             "fuentes": [
               {
                 "coincide": true,
-                "fecha": "2026-11-09",
-                "medio": "globalpetrolprices.com",
-                "modalidad_inferida": false,
-                "peso": 1.0,
-                "precio": 41.95,
-                "tipo": "monitoreado",
-                "url": "https://globalpetrolprices.com/Guatemala/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-11-12",
+                "fecha": "2026-11-13",
                 "medio": "publinews.gt",
                 "modalidad_inferida": false,
                 "peso": 0.631,
                 "precio": 41.79,
                 "tipo": "monitoreado",
                 "url": "https://www.publinews.gt/noticias/2026/09/28/asi-amanecieron-los-precios-de-la-gasolina-este-lunes-en-guatemala/"
-              },
-              {
-                "coincide": true,
-                "fecha": "2026-11-09",
-                "medio": "lared1061.com",
-                "modalidad_inferida": false,
-                "peso": 0.5,
-                "precio": 41.79,
-                "tipo": "referencia",
-                "url": "https://lared1061.com/posts/gasolina-regular-vuelve-a-costar-menos-de-q30-en-guatemala"
               }
             ]
           },
@@ -4256,9 +4146,9 @@
       "orden": 4,
       "actual": {
         "fecha": "2026-11-13",
-        "precio": 87.94,
+        "precio": 88.59,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-11-13T04:54:12-06:00",
+        "fetched_at": "2026-11-13T11:54:57-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5364,7 +5254,7 @@
         },
         {
           "fecha": "2026-11-13",
-          "precio": 87.94
+          "precio": 88.59
         }
       ],
       "mensual": [],
@@ -5396,9 +5286,9 @@
           "nombre": "Spot",
           "actual": {
             "fecha": "2026-11-13",
-            "precio": 87.94,
+            "precio": 88.59,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-11-13T04:54:12-06:00",
+            "fetched_at": "2026-11-13T11:54:57-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
@@ -5525,7 +5415,7 @@
             },
             {
               "fecha": "2026-11-13",
-              "precio": 87.94
+              "precio": 88.59
             }
           ]
         }
@@ -5570,7 +5460,7 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 50,
+    "observaciones_7d": 56,
     "notas_leidas": 187,
     "medios": [
       "agn.gt",
@@ -5590,34 +5480,8 @@
     ]
   },
   "noticias": {
-    "total": 53,
+    "total": 56,
     "top": [
-      {
-        "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPOHNyWUhKaHR2QmJXUjJ6S0xNdDZnZmpKRzJQak9SWVc3cmttUGVfbk13NzBZclpqNnp5N1JFc0JYakw2Wl9hV3BYdm1mMnJQR3BKRFI2Zzh3cVRhTFFxejBSVWtTMkt2WTRGRUxFSkVocF83aFlIOU10Vk11d29TRERPcnFVWHRJYktFOUlGU0x4c0Q0UWVtT3JkUE91ZVNPQ09NTnhaMGxJajZxQnkwWTFvTzN4WnNpMTBYalNZOHFZdnUtX1VHeUVR?oc=5",
-        "titulo": "Yemen's Houthis say they attacked pumping station on Saudi Arabia's East-West oil pipeline - Reuters",
-        "titulo_es": "Hutíes atacan estación del oleoducto Este-Oeste saudí",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-12T14:18:21-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Los hutíes atacaron una estación de bombeo del oleoducto Este-Oeste de Arabia Saudita, interrumpiendo el flujo de crudo y generando incertidumbre en los mercados, lo que puede subir los precios del combustible importado por Guatemala.",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
-      },
-      {
-        "id": 9,
-        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNRDRINWVzWFhkTXhpdXhnb01kMFZFQjJCcmFSY0JHOWZNZTlWU0hMX0EzQkxzaFVISHk0aUxtWXVuMzVXd21TaDhHWlhzVzZ6NnQ5T05CTnowWkdNaDZ6NmZfa082YnRaYkpCMGMtMzBnczEyX3dmMkNxdUtjcDM3b3RaclNKUUg5S0lBNDFFZk1jTUh0THFmajVCRUIyNGRjTG9LV0VrcEQ5UGRPRllvamhR?oc=5",
-        "titulo": "Russia's largest oil refinery slammed by drones in 8-hour attack, Ukraine confirms - The Kyiv Independent",
-        "titulo_es": "Drones atacan ocho horas a la mayor refinería rusa",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-11T16:41:46-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Drones ucranianos atacaron durante ocho horas la mayor refinería rusa, interrumpiendo una parte clave de la producción mundial de crudo y elevando los precios internacionales que paga Guatemala.",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
-      },
       {
         "id": 1,
         "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQbURFN2Y0WFBUT2pPOWZsczQxT3NHeC1xdVJMUVhKSW55ODEtWUxWQ0w3aDJkd2tYbDJhXzR4NXAxbHNNN1RNbFlHd3dTczdaZ1FjRnNMeUlFbXVkcHJucWZCN3dCb21hbGpYSHplbFIta1N5ZEM5SXhYSUk4Qmd6LV9GVkVzS2d6NFdlYmc2WkxtWTRmRGNsdU01d0ZxaDhzSWQ4NktaYVIwXzFzblBmaDQzblNKZnlReURfYmlhN2xvNVFWQmhnTXpPNHltLWFiTnhGSnB3?oc=5",
@@ -5628,169 +5492,195 @@
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Bajas en el precio promedio del galón de gasolina según MEM, reducen costos de importación y benefician a los consumidores guatemaltecos.",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
-      },
-      {
-        "id": 2,
-        "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPcTVzYmZBZlpGQ1NrNzRkZzAzQTgyS09SUW1NbWpqNEdzMXNkd0RSb2NNWVdXaEt6RXdtMDR2UW9kSXJkUnF2MjFNVmZNTUYwRmZ1b0QwUi1QOG5FYzFKN1hONHpMb3lscnJmODhMa1gwMDRsXzA3VVpiRTZPQjZmSzFNOXJkYmw3SHpMZlkwcV85VTNUcXAtTG0tQXpZSXJUeFBjRTk1S21zYVZFWkcxUXhyR0VaUjdZcjRWeXRzcmdpTnM?oc=5",
-        "titulo": "Ukrainian Drone Attack Kills 4 Workers, Sparks Fire at Volgograd Oil Refinery - The Moscow Times",
-        "titulo_es": "Ataque con dron ucraniano incendia refinería de Volgograd",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-13T03:26:00-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Un dron ucraniano incendió la refinería de Volgograd, reduciendo la capacidad de producción rusa y presionando al alza los precios internacionales del crudo, lo que puede encarecer las importaciones guatemaltecas.",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
+        "resumen_es": "El promedio del precio del galón de gasolina en Guatemala disminuye, reduciendo el costo para los consumidores y reflejando la caída del MEM.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
       },
       {
         "id": 7,
-        "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQYW9aXzFyZU1mSktrMGNyaVpTZG14ZGU4ZnJfbGxscXFsakJCV3NBU09KYWtYNnAzUWxtalRrU3pnQ0ZfS0oxaE95NkcyeHdLMnpuckVfM05VTDBsWTY1TzBVQjNvbnptdkJxczBYdy10SWZfOFNaZWYzRDV2aTEzOVcwX0Q2ckNaekRjTkMzNmltMExQc0E?oc=5",
-        "titulo": "El petróleo sube después de que Irán reporta ataques - investingLive",
-        "titulo_es": "El crudo sube tras ataques reportados en Irán",
+        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNN0tYRk9sOGpxbEZMUldQTDBwNngyQkNKdVRkaDY4Vk43eFhWaHc2MkE0TnFRVzZhRmtDdHAyQ2tUV1I3cGxyR3FmbENIVnczZWFGWE1SRG4waDlzUmNQUVl4ZGhZZGNEQkp0TXZHWkY5NVJhQnllbW15V1BielAzeDNYN0Fjc25XTHhOeFhpWmVwaVc4UjRSakxhcWZXNl9LeGRvVmN3NTdZcEpzWkJMa21vdjVBYmNFZnhEVTZqQnZjTVh6b2lNVw?oc=5",
+        "titulo": "Chixoy se recupera y bajan los combustibles en Guatemala: ¿cuánto durará el alivio energético? - Prensa Libre",
+        "titulo_es": "Recuperación de Chixoy permite bajar precios de combustibles en Guatemala",
         "medio": "Google News ES",
-        "publicado_at": "2026-11-12T13:51:36-06:00",
+        "publicado_at": "2026-11-06T00:10:00-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El crudo aumentó tras reportes de ataques en Irán, lo que reduce la oferta del Oriente Medio y eleva los precios internacionales, repercutiendo en el costo de los combustibles importados por Guatemala.",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
-      },
-      {
-        "id": 10,
-        "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNWVl4QjNFcFhZd1N4V2ZIQlM0ejAwcEVmbUxqXzdmamFJeUE0QXBNU3FoQW9ldGNYdF95QnU2MVZxTGlMX1NiYWZrUVY0S2hKTFlVSGJBZTExY0xfWGl1Q2RobDlQa0M5a1ozU1VYSlBNd2lDYzQwS2FKV0pNNnpJUnNUNDV1RmJYZENBNWVXcVM0R0MyVWfSAZsBQVVfeXFMTVdoNlkwaFM0R0ZuOExoUHowckk2eFNRejVwY1NUM1pnZEp1RDdMdVdGLXM3ZFFCeEJIOE5zdWJZeXJwcTlHLVk5azdLUTV2R0EtaGJ1VHMyb0tiTmp3MHhJVzBZSjBJRURLcF8yWkJvcXhHY2UwTS1wd1JFbkZGMkY1eXcwNk9LTlBkNDh6clNWSUlRRXppdG5QelE?oc=5",
-        "titulo": "Oil production nears pre-Iran war levels, OPEC says - Al Jazeera",
-        "titulo_es": "La OPEP indica que la producción vuelve a niveles preguerra con Irán",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-11T15:13:47-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "La OPEP informó que la producción de petróleo vuelve a niveles previos a la guerra con Irán, lo que podría estabilizar precios internacionales y moderar el costo de los combustibles importados por Guatemala.",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
+        "relevancia": 5,
+        "resumen_es": "La recuperación del embalse de Chixoy permite bajar los precios de los combustibles en Guatemala, aliviando temporalmente la presión sobre los consumidores.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
       },
       {
         "id": 11,
-        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOdFYyR25XMVp1RExGXzcwSWFueWtMTGFrcWYtOGpoRk84Q0ZSU1RjdnE3VWU5MGVRVWQxN2ZkcFJlQlFITzlrM2RhenhpSTI0VUwxRm5zVWNRY2JnUU40NklDUFFHX3UxN1huMkpsTTQ1TzdqbnlGWnRWOWpwS3BIT0djdVlmWlNqLUxKUTdEX0ttczI1VkN5Rw?oc=5",
-        "titulo": "Fire Rages at Omsk Oil Refinery as Attack Enters Seventh Hour - Мілітарний",
-        "titulo_es": "Incendio persiste en la refinería rusa de Omsk",
+        "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9TNHkyenpmSGtib05LSXZsMWJqMmlHZmpoeGVIMEVidERMdDFiZ21fei1hT0xBUDRmRjFEYUYydTdvbE1KZ0E3RS1ZR1NERVFJVmFYaEFLMkVYMXRKd3U2Wml0RkpOaDE3bzk0YnNWcw?oc=5",
+        "titulo": "Russia's October oil revenues jumped about 65% as Iran war pushed crude past $100 - Quartz",
+        "titulo_es": "Ingresos petroleros de Rusia suben 65% al superar $100 por barril por guerra en Irán",
         "medio": "Google News EN",
-        "publicado_at": "2026-11-11T13:01:09-06:00",
+        "publicado_at": "2026-11-13T07:58:36-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Los ingresos petroleros de Rusia crecieron 65% al superar los $100 por barril tras la guerra en Irán, indicando presión al alza en los precios del crudo.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
+      },
+      {
+        "id": 12,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Iran-Says-Gas-Tanker-Hit-Mine-in-Strait-of-Hormuz.html",
+        "titulo": "Iran Says Gas Tanker Hit Mine in Strait of Hormuz",
+        "titulo_es": "Buque de gas golpeado por mina en el estrecho de Hormuz, según Irán",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-13T06:45:00-06:00",
         "categoria": "infraestructura",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Un incendio prolongado en la refinería de Omsk, tras un ataque, reduce la capacidad de refinado ruso, limitando la oferta global y potencialmente aumentando los precios del crudo para Guatemala.",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
+        "resumen_es": "Irán informó que un buque de gas chocó una mina en el estrecho de Hormuz, amenazando una vía crucial de tránsito de energía y pudiendo elevar los precios.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
+      },
+      {
+        "id": 14,
+        "url": "https://oilprice.com/Energy/Energy-General/WTI-Stages-Sharp-Comeback-as-Middle-East-Supply-Risks-Intensify.html",
+        "titulo": "WTI Stages Sharp Comeback as Middle East Supply Risks Intensify",
+        "titulo_es": "WTI se recupera mientras aumentan los riesgos de suministro en Oriente Medio",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-13T06:30:00-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El futuro del WTI se recupera mientras los riesgos de suministro en Oriente Medio aumentan, lo que puede impulsar los precios del crudo.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
+      },
+      {
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPNWktdEhLRGZUbEh4cTZkeElFeUxKREpudWVqdHhjX2FXMVpIODlyblJSLXUtdlBYMXFHa21PUnA3THdqZ1l2eFFDdm1ITUVWaXpmX1BkVEUwNjh5Q1hvOUVwVkpoZFRQdF9FRmFYSjdXSnpTSWRvQmkzelh3Nm1mM1lNbUVVLVZncVVTRzJmcFJaSTVpWTJsLWxVZW5QRWZhaDBSR1kyT0dsYVp3M3Nr?oc=5",
+        "titulo": "Yemeni drones attack Saudi Arabia's East-West oil pipeline, Press TV reports; Sabereen adds, potentially in relation to this, \"Recording the disclosure report and on behalf of the committee: Three crude oil lines, and none of them have a problem.\" - Newsquawk",
+        "titulo_es": "Drones yemeníes atacan el oleoducto Este-Oeste de Arabia Saudita",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-13T05:11:57-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Drones yemeníes atacaron el oleoducto Este-Oeste de Arabia Saudita, amenazando una ruta clave de exportación de crudo y pudiendo elevar precios globales.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
       },
       {
         "id": 5,
         "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQZjlONFE4RnhjZk9hYXhnX0dfdy1pYVBEMnpyajJuUkZ5bUZ6UTQ2NW1GNGdydER1M2xKbEtDQVh5eEpPSnJleVBRaFNpYWdmLVhvUXZGTFJBR3NoZTY4THcyeG1kNHpCeXFfUUNmREVDdmloY2RjN1VxLUx0aGVxSm8yVjBKMHZxSTNZQVpna1BSZDY5UzA3aW9FaGpzRFlWM1Z6akVOTGc0aHprTGhGUHF5UnhyMEt1eGpOYlJvVHlGSkxzMHNtMVI5N3JjMG5ULVc5NkZ5dEFONGRQcDEtdzlIYk9fc0czYnFLQ1BFMjBPT2NfdjY3LTNGVXBQZw?oc=5",
         "titulo": "Fuego sobre el crudo: Un masivo enjambre de 81 drones desata un incendio en la gigantesca refinería de Kirishi - UNITED24 Media",
-        "titulo_es": "81 drones provocan incendio en la refinería rusa de Kirishi",
+        "titulo_es": "Enjambre de 81 drones provoca incendio en la refinería de Kirishi",
         "medio": "Google News ES",
         "publicado_at": "2026-11-09T05:48:02-06:00",
         "categoria": "infraestructura",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Un enjambre de 81 drones provocó un incendio en la refinería de Kirishi, reduciendo la capacidad de producción rusa y presionando al alza los precios internacionales del crudo, afectando a Guatemala.",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
+        "resumen_es": "Un enjambre de 81 drones provocó un incendio en la gran refinería de Kirishi, reduciendo temporalmente su capacidad y elevando riesgos de suministro.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
       },
       {
-        "id": 3,
+        "id": 6,
+        "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQNmM0aWNYYUR4eFdtT0V5R2YyWEI4QXV1REh4dGRyaWJLV0FWaEt5akZmb18ybGxORHlVR0FxSjJCcVc0aVBTMzhZTGtPNWJkdUNSaDFONFhyZVRyYVdxaW1TVFpXUUF2aS1ZbmdFaU9pUi1TaVJaRHFkb0EwdDA0bXNyXzduNUtkMHpWUmRJa3l0d0RvczlPUDdKOWRyRTc5d2E4ZWNydG0xR1lPWHBjZE10SVZiaXkxUVhaWi1HYmlITE0?oc=5",
+        "titulo": "Ukraine strikes Russia's second-largest oil refinery in overnight drone attack, Russian governor says - The Kyiv Independent",
+        "titulo_es": "Ucrania ataca la segunda mayor refinería rusa con drones",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-08T22:05:17-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Ucrania lanzó un ataque con drones contra la segunda mayor refinería rusa, afectando su producción y potencialmente presionando al alza los precios del crudo.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
+      },
+      {
+        "id": 8,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Iraqs-Oil-Production-Soars-to-2019-High-as-Hormuz-Flows-Surge.html",
+        "titulo": "Iraq’s Oil Production Soars to 2019 High as Hormuz Flows Surge",
+        "titulo_es": "Producción de crudo de Irak alcanza nivel más alto desde 2019",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-13T11:30:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Irak incrementó su producción de crudo a 4.6 millones de barriles diarios, lo que aumenta la oferta mundial y puede moderar los precios internacionales.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
+      },
+      {
+        "id": 10,
+        "url": "https://oilprice.com/Energy/Energy-General/How-Global-Energy-Markets-Survived-Eight-Months-of-Iran-War-Disruptions.html",
+        "titulo": "How Global Energy Markets Survived Eight Months of Iran War Disruptions",
+        "titulo_es": "Mercados energéticos sobreviven ocho meses de interrupciones por la guerra en Irán",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-13T08:30:00-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Los mercados energéticos lograron mantener el suministro pese a ocho meses de interrupciones por la guerra en Irán, aunque la incertidumbre mantiene precios volátiles.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
+      },
+      {
+        "id": 2,
+        "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9aOWR5dV9HSmZtVF84ZUcxOWdMLUQ2b2VjTEZyclctdWNwY0Q2cTZwZVQxZHgtbERwTFVtWTAzSmlhb0FDQlo2ZEpFSQ?oc=5",
+        "titulo": "Ukraine Confirms Volgograd Refinery Strike as Russia Claims 1,198 Drones Downed in Massive Overnight Attack - Kyiv Post",
+        "titulo_es": "Ucrania confirma ataque con drones a la refinería de Volgogrado",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-13T08:01:55-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Ucrania confirmó que drones impactaron la refinería de Volgogrado, lo que podría reducir la oferta de crudo ruso y afectar precios internacionales.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
+      },
+      {
+        "id": 15,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Asian-Refiners-Turn-Back-to-Gulf-Oil-Despite-War-Risks.html",
+        "titulo": "Asian Refiners Turn Back to Gulf Oil Despite War Risks",
+        "titulo_es": "Refinerías asiáticas vuelven a comprar crudo del Golfo pese a riesgos de guerra",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-13T05:30:00-06:00",
+        "categoria": "demanda",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Refinerías de Asia incrementan compras de crudo del Golfo pese a riesgos de guerra, reforzando la demanda de petróleo mediooriental.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
+      },
+      {
+        "id": 4,
         "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNWEtRUHNYaTh1QTJsVDlidmhDZVVSTVJqVzdMdDd1MzAyTm83WHhJeTZDM05scWRKemdobTVNV2ZXQ0lmMXRYbkF2a2tSbEVWb19ZeS1RZTZ1T0c2RUMwYWpuZl9vcG9hWDlnR0dza3p5MlV2OEtNNXJqcVZEVDVVVkY0bWpCa19tNmQ00gGQAUFVX3lxTFBrWkxUOU5yVk5PTFc2czlhNjY3bWNqeGRBZEd3NHpDcVBoNHZMY1hmT0R4NzRtbXltd0MwNzFBY01TN1RiSDZNVnZybmU3UGtkS0RITzkyR2pyUV9uRDJxa2p5QkNzcUpsVXc4SnA2MFA1SmhxTFcxNFU3cDV4QTFrRkVpS2VLLXFtc2htaEIzTQ?oc=5",
         "titulo": "Oil Refinery And Pipeline Infrastructure Attacked In Russia - REFORM.news",
-        "titulo_es": "Atacan refinerías y oleoductos de Rusia",
+        "titulo_es": "Infraestructura petrolera y refinerías atacadas en Rusia",
         "medio": "Google News EN",
         "publicado_at": "2026-11-13T01:58:02-06:00",
         "categoria": "infraestructura",
         "pais": null,
         "relevancia": 3,
-        "resumen_es": "Ataques a refinerías y oleoductos rusos dañan la infraestructura de exportación, limitando la oferta mundial de crudo y pudiendo elevar los precios de importación en Guatemala.",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
+        "resumen_es": "Refinerías y oleoductos en Rusia fueron objetivo de ataques, generando incertidumbre en la oferta de petróleo y posibles repercusiones en los precios.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
       },
       {
-        "id": 8,
-        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxON295allBekR4ZFBCVDBpakhuYm9MREJBTGhyY2U0eUprY19FVThpTzVub2UycHBLRUpuWENqRlYtRVdoZnNlOXg0cFU1RWp2N0ZoeVRBclVjdG1XTlgwV3BKTUdVRnpnOGFvQ19aQWhVOENzTlUySEI0Zm13UUsyVi1oZkQ5TkRFcF8yc2tob1owQ3Mzd3ZfNUFWOUpJTURWZzZBcVhUaWY?oc=5",
-        "titulo": "October 2026 — Monthly analysis of Russian fossil fuel exports and sanctions - Centre for Research on Energy and Clean Air",
-        "titulo_es": "Análisis mensual de exportaciones rusas y sanciones",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-12T01:00:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "El informe muestra cómo las sanciones reducen las exportaciones rusas de combustibles, limitando la oferta mundial y presionando al alza los precios que paga Guatemala por sus importaciones.",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://oilprice.com/Energy/Crude-Oil/More-Drilling-Wont-Shield-US-Consumers-From-Oil-Price-Shocks.html",
-        "titulo": "More Drilling Won’t Shield U.S. Consumers From Oil Price Shocks",
-        "titulo_es": "Más perforación no protege a EE.UU. de subidas de precios del petróleo",
+        "id": 9,
+        "url": "https://oilprice.com/Energy/Energy-General/Germany-Is-Dismantling-a-Nord-Stream-Power-Plant-for-Ukraine.html",
+        "titulo": "Germany Is Dismantling a Nord Stream Power Plant for Ukraine",
+        "titulo_es": "Alemania desmantela planta de energía de Nord Stream para Ucrania",
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-12T16:00:00-06:00",
-        "categoria": "precios",
+        "publicado_at": "2026-11-13T10:10:00-06:00",
+        "categoria": "geopolitica",
         "pais": null,
         "relevancia": 2,
-        "resumen_es": "Aun con mayor perforación, los consumidores estadounidenses siguen expuestos a aumentos de precios del petróleo, reflejando la volatilidad global que también impacta los costos de importación en Guatemala.",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
+        "resumen_es": "Alemania está desmantelando una planta de energía vinculada a Nord Stream, una medida que refleja tensiones energéticas pero con escaso impacto directo en el suministro de combustibles a Guatemala.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
       },
       {
-        "id": 38,
-        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNQnZ6S3ByLTczdmR0V09oMzdYLUVUZmN3Um53OU9YZW5HVUx4STdzVDRTVDlqbVhYN25xb1VkenVVZHFDbl9rTklKS3VpbUVBUlh0MDY0bGZZeWp1Y1JjZkNwdHdLQUNhSjRtd0ZuQ01lU0s3djJ5MzJlY2tLLWdWTHAxeFg1OFBYWkRoMDRGWGl1ejQ5U2pHNDNEdmVGVjNsTkVCVmdnbGJ1alpJU1BHdUgycWNpMWFFYnlSQXBPUEVXYzRwQTBoVw?oc=5",
-        "titulo": "Russia’s Oil Refineries Keep Burning—This Time, a Major Lukoil Facility in Volgograd - UNITED24 Media",
-        "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-13T04:27:27-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Russia’s Oil Refineries Keep Burning—This Time, a Major Lukoil Facility in Volgograd UNITED24 Media",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
-      },
-      {
-        "id": 39,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/India-Seeks-Private-Investors-for-910-Million-Oil-Reserve.html",
-        "titulo": "India Seeks Private Investors for $910 Million Oil Reserve",
-        "titulo_es": null,
+        "id": 13,
+        "url": "https://oilprice.com/Energy/Energy-General/Nvidia-Spy-Scandal-Threatens-the-Gulfs-AI-Ambitions.html",
+        "titulo": "Nvidia Spy Scandal Threatens the Gulf’s AI Ambitions",
+        "titulo_es": "Escándalo de espionaje de Nvidia amenaza ambiciones de IA en el Golfo",
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-13T04:15:00-06:00",
-        "categoria": null,
+        "publicado_at": "2026-11-13T06:30:00-06:00",
+        "categoria": "otro",
         "pais": null,
-        "relevancia": null,
-        "resumen_es": "India is looking for private investors to build and operate the nation’s largest strategic petroleum reserve site, which will boost India’s SPR capacity by 80% and cost an estimated $910 million, local media reported on Friday, citing tender documents. The proposed SPR site will be located at Chandikhol in the eastern Indian state of Odisha on the Bay of Bengal, and will be capable of holding up to 4 million tons of crude oil. The Indian government is offering a grant of $546 million (51.4 bil",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
-      },
-      {
-        "id": 14,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Asian-Airlines-Face-a-148-a-Barrel-Fuel-Gamble.html",
-        "titulo": "Asian Airlines Face a $148-a-Barrel Fuel Gamble",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-13T02:50:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Asian airlines are facing expiring jet fuel hedge contracts and need to make a choice about whether to hedge at exorbitant prices or risk them going even higher without a hedge. Citing industry executives, Reuters reported today that jet fuel prices in Asia are currently about 75% higher than they were before the war in the Middle East started, and that the chance of that changing dramatically in the observable future appears to be slim. “Our view is that we are facing a new normal where the fue",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
-      },
-      {
-        "id": 15,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Head-for-Second-Weekly-Loss-Despite-Fresh-Middle-East-Attacks.html",
-        "titulo": "Oil Prices Head for Second Weekly Loss Despite Fresh Middle East Attacks",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-12T23:45:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Crude oil prices were on course to book their second week of losses today, after two consecutive days of gains on news from the Middle East. At the time of writing, Brent crude was trading at $95.87 per barrel, with West Texas Intermediate at $88.49 per barrel. These price levels are a sharp decline from the peaks hit in mid-October, but are still significantly higher than what Brent crude and WTI traded at in February, before the war started. Signals about that war remain mixed. There appears t",
-        "fetched_at": "2026-11-13T04:54:44-06:00"
+        "relevancia": 1,
+        "resumen_es": "Un escándalo de espionaje en Nvidia afecta las ambiciones de IA del Golfo, tema sin relación directa con los combustibles.",
+        "fetched_at": "2026-11-13T11:55:29-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 11,
-      "total_hoy": 53,
+      "titulos_es_hoy": 15,
+      "total_hoy": 56,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
