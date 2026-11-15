@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-11-15T04:53:50-06:00",
+  "actualizado_at": "2026-11-15T11:54:03-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-11-12",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-11-12",
         "precio": 29.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-15T04:52:55-06:00",
+        "fetched_at": "2026-11-15T11:53:03-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -1231,7 +1231,7 @@
             "fecha": "2026-11-12",
             "precio": 29.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-15T04:52:55-06:00",
+            "fetched_at": "2026-11-15T11:53:03-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1306,7 +1306,7 @@
             "fecha": "2026-11-12",
             "precio": 30.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-15T04:52:55-06:00",
+            "fetched_at": "2026-11-15T11:53:03-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1366,7 +1366,7 @@
         "fecha": "2026-11-12",
         "precio": 32.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-15T04:52:55-06:00",
+        "fetched_at": "2026-11-15T11:53:03-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -2592,7 +2592,7 @@
             "fecha": "2026-11-12",
             "precio": 32.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-15T04:52:55-06:00",
+            "fetched_at": "2026-11-15T11:53:03-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2675,7 +2675,7 @@
             "fecha": "2026-11-12",
             "precio": 33.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-15T04:52:55-06:00",
+            "fetched_at": "2026-11-15T11:53:03-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2739,7 +2739,7 @@
         "fecha": "2026-11-12",
         "precio": 40.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-15T04:52:55-06:00",
+        "fetched_at": "2026-11-15T11:53:03-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -3957,7 +3957,7 @@
             "fecha": "2026-11-12",
             "precio": 40.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-15T04:52:55-06:00",
+            "fetched_at": "2026-11-15T11:53:03-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4028,7 +4028,7 @@
             "fecha": "2026-11-12",
             "precio": 41.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-15T04:52:55-06:00",
+            "fetched_at": "2026-11-15T11:53:03-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4096,7 +4096,7 @@
         "fecha": "2026-11-15",
         "precio": 89.15,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-11-15T04:53:17-06:00",
+        "fetched_at": "2026-11-15T11:53:03-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5236,7 +5236,7 @@
             "fecha": "2026-11-15",
             "precio": 89.15,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-11-15T04:53:17-06:00",
+            "fetched_at": "2026-11-15T11:53:03-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
@@ -5428,207 +5428,207 @@
     ]
   },
   "noticias": {
-    "total": 44,
+    "total": 42,
     "top": [
+      {
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPNWktdEhLRGZUbEh4cTZkeElFeUxKREpudWVqdHhjX2FXMVpIODlyblJSLXUtdlBYMXFHa21PUnA3THdqZ1l2eFFDdm1ITUVWaXpmX1BkVEUwNjh5Q1hvOUVwVkpoZFRQdF9FRmFYSjdXSnpTSWRvQmkzelh3Nm1mM1lNbUVVLVZncVVTRzJmcFJaSTVpWTJsLWxVZW5QRWZhaDBSR1kyT0dsYVp3M3Nr?oc=5",
+        "titulo": "Yemeni drones attack Saudi Arabia's East-West oil pipeline, Press TV reports; Sabereen adds, potentially in relation to this, \"Recording the disclosure report and on behalf of the committee: Three crude oil lines, and none of them have a problem.\" - Newsquawk",
+        "titulo_es": "Drones yemeníes atacan oleoducto Este-Oeste de Arabia Saudita",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-13T05:11:57-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Drones yemeníes atacan el oleoducto Este-Oeste de Arabia Saudita, amenazando el flujo de crudo y pudiendo elevar los precios del combustible en Guatemala.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
+      },
       {
         "id": 1,
         "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQbURFN2Y0WFBUT2pPOWZsczQxT3NHeC1xdVJMUVhKSW55ODEtWUxWQ0w3aDJkd2tYbDJhXzR4NXAxbHNNN1RNbFlHd3dTczdaZ1FjRnNMeUlFbXVkcHJucWZCN3dCb21hbGpYSHplbFIta1N5ZEM5SXhYSUk4Qmd6LV9GVkVzS2d6NFdlYmc2WkxtWTRmRGNsdU01d0ZxaDhzSWQ4NktaYVIwXzFzblBmaDQzblNKZnlReURfYmlhN2xvNVFWQmhnTXpPNHltLWFiTnhGSnB3?oc=5",
         "titulo": "Precio del galón de gasolina en Guatemala: se reporta nuevas bajas en el promedio del MEM y estaciones - Prensa Libre",
-        "titulo_es": "Bajas en el precio del galón de gasolina en Guatemala según MEM",
+        "titulo_es": "Bajan los precios del galón de gasolina en Guatemala",
         "medio": "Google News ES",
         "publicado_at": "2026-11-09T19:14:57-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "El precio promedio del galón de gasolina disminuyó según el MEM, lo que reduce el costo para los guatemaltecos.",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
+        "resumen_es": "Se reportan nuevas bajas en el precio promedio del galón de gasolina en Guatemala, reduciendo el costo para los consumidores y reflejando la caída del MEM.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
+      },
+      {
+        "id": 14,
+        "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxON0psOEhKb1RWeXdFZ21OWldISWlPZmhORk14bVRHSkZVeG5pRG03M01xcGZFdm9Sa1BSN29tazFVWDhObTh2LVJGQ2tfVmJKbFRaRW9JZ1pETXNpNUdDemFmMWFReWd5ODJOMXlpQUZxRXZhUDlnZjQ4RUlsdl90QlNDTzlmOXVjS2JxNHc5cHdfc1JaZXdWSUpDSjdIdV9CNTUtSUI5SEpHdGRjMEVWQjJkemo4azBqUFdQTk5kUkVzQm5CbXFYZHJGY0NyQQ?oc=5",
+        "titulo": "Global Diesel Shortage Keeps Prices Elevated As Supply Disruptions Persist - Forbes Middle East",
+        "titulo_es": "Escasez global de diésel mantiene precios altos",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-15T07:57:52-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "La escasez mundial de diésel mantiene los precios elevados, lo que repercute en el costo del diésel importado por Guatemala.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
+      },
+      {
+        "id": 15,
+        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNOTJSbjdPSWFhQ2J3MDctNWNqM1VUY2haSDFvY01sekdsSDlzQW16NFpvSS1sVjUwaHdnSkh6ZEJNUVgxU2t5STRGbEU2NHBoZnRJSzBwcFBLX194czgwY0lkelh3TWZ1ajdGMHJHSFFtcWtoZ0p5aTRCLWtFalV4dm14UERUU2xXME9ySmcxY3MtdUpXZkU4QUhJUTRfQ0FfTFdrWEY0Yw?oc=5",
+        "titulo": "Ukraine strikes major Russian petrochemical and oil refining plants, helicopter manufacturer, military confirms - The Kyiv Independent",
+        "titulo_es": "Ucrania ataca plantas petroquímicas y refinerías rusas",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-14T21:23:36-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Ucrania ataca importantes plantas petroquímicas y refinerías rusas, generando interrupciones en la producción de combustibles y posibles aumentos de precios en Guatemala.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
       },
       {
         "id": 2,
         "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNUU1OMlBhNE5vbVlNaGNXYzFCMzROSDBnTjRaVlJyRk05UmxzejhiM0NRUlM3YkFhQWd0Z3BRQjZaa013MXMza1lENVh2M25SUm1JLXlBMjYxazB0VWV5NXpiNEhvYW96ZmI4VklZRXU5clhiLW41MF9sRDg2NnlrZ3FvbmU5VWY4Y19zTmVWV2paS285T05RUWJEVUpsajU1SU5EaUwzdU5VWGdMX0ZkaVo1X1ozS284N0pVeEFReFpocnRjREdxaFk0Z2FVWlFDMHhQbnlUZkc4QmVfYTNjUUtSR0w?oc=5",
         "titulo": "Un ataque con drones ucranianos contra una refinería rusa dejó cuatro trabajadores muertos y provocó un incendio - Itón Gadol",
-        "titulo_es": "Ataque con drones ucranianos a refinería rusa deja cuatro muertos",
+        "titulo_es": "Drones ucranianos atacan refinería rusa, dejan cuatro muertos",
         "medio": "Google News ES",
         "publicado_at": "2026-11-14T09:33:29-06:00",
         "categoria": "geopolitica",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Drones ucranianos bombardearon una refinería rusa, matando a cuatro trabajadores; el daño a la capacidad de refinado puede presionar al alza los precios del crudo importado por Guatemala.",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
+        "resumen_es": "Drones ucranianos atacan una refinería rusa, matan a cuatro trabajadores y provocan incendio, lo que podría reducir la oferta mundial de crudo y afectar precios en Guatemala.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
       },
       {
-        "id": 8,
+        "id": 4,
+        "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNWEtRUHNYaTh1QTJsVDlidmhDZVVSTVJqVzdMdDd1MzAyTm83WHhJeTZDM05scWRKemdobTVNV2ZXQ0lmMXRYbkF2a2tSbEVWb19ZeS1RZTZ1T0c2RUMwYWpuZl9vcG9hWDlnR0dza3p5MlV2OEtNNXJqcVZEVDVVVkY0bWpCa19tNmQ00gGQAUFVX3lxTFBrWkxUOU5yVk5PTFc2czlhNjY3bWNqeGRBZEd3NHpDcVBoNHZMY1hmT0R4NzRtbXltd0MwNzFBY01TN1RiSDZNVnZybmU3UGtkS0RITzkyR2pyUV9uRDJxa2p5QkNzcUpsVXc4SnA2MFA1SmhxTFcxNFU3cDV4QTFrRkVpS2VLLXFtc2htaEIzTQ?oc=5",
+        "titulo": "Oil Refinery And Pipeline Infrastructure Attacked In Russia - REFORM.news",
+        "titulo_es": "Atacan refinerías y oleoductos de petróleo en Rusia",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-13T00:26:58-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Ataques a refinerías y oleoductos en Rusia generan interrupciones en la producción y transporte de petróleo, lo que puede impactar los precios internacionales y el costo del combustible en Guatemala.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
+      },
+      {
+        "id": 9,
+        "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE44WmZxZEthdU12SDVmbDVaMFJpUGtyUjlsOWhuenFrR1JWOXlPM1FLNjhvTWRiQnJlU0xRcG04ME1XOEp3YUtETHppYw?oc=5",
+        "titulo": "Ukraine’s Spec Ops Strikes Russia’s Largest Oil Refinery for 3rd Time, 2,500 km From Border - Kyiv Post",
+        "titulo_es": "Ucrania ataca tercera vez la mayor refinería rusa",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-12T07:30:42-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Operaciones especiales ucranianas atacan por tercera vez la mayor refinería rusa, generando incertidumbre en la oferta de crudo y posible alza de precios en Guatemala.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
+      },
+      {
+        "id": 10,
+        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNRDRINWVzWFhkTXhpdXhnb01kMFZFQjJCcmFSY0JHOWZNZTlWU0hMX0EzQkxzaFVISHk0aUxtWXVuMzVXd21TaDhHWlhzVzZ6NnQ5T05CTnowWkdNaDZ6NmZfa082YnRaYkpCMGMtMzBnczEyX3dmMkNxdUtjcDM3b3RaclNKUUg5S0lBNDFFZk1jTUh0THFmajVCRUIyNGRjTG9LV0VrcEQ5UGRPRllvamhR?oc=5",
+        "titulo": "Russia's largest oil refinery slammed by drones in 8-hour attack, Ukraine confirms - The Kyiv Independent",
+        "titulo_es": "Drones atacan ocho horas la mayor refinería rusa",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-11T16:41:46-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Drones atacan durante ocho horas la mayor refinería rusa, creando dudas sobre la continuidad del suministro de crudo y presionando al alza los precios en Guatemala.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
+      },
+      {
+        "id": 11,
+        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOdFYyR25XMVp1RExGXzcwSWFueWtMTGFrcWYtOGpoRk84Q0ZSU1RjdnE3VWU5MGVRVWQxN2ZkcFJlQlFITzlrM2RhenhpSTI0VUwxRm5zVWNRY2JnUU40NklDUFFHX3UxN1huMkpsTTQ1TzdqbnlGWnRWOWpwS3BIT0djdVlmWlNqLUxKUTdEX0ttczI1VkN5Rw?oc=5",
+        "titulo": "Fire Rages at Omsk Oil Refinery as Attack Enters Seventh Hour - Мілітарний",
+        "titulo_es": "Incendio prolongado en refinería de Omsk tras ataque",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-11T13:01:09-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Un incendio en la refinería de Omsk, tras un ataque, interrumpe la producción de petróleo, lo que puede reducir la oferta global y elevar precios en Guatemala.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
+      },
+      {
+        "id": 7,
         "url": "https://oilprice.com/Latest-Energy-News/World-News/Iraqs-Oil-Production-Soars-to-2019-High-as-Hormuz-Flows-Surge.html",
         "titulo": "Iraq’s Oil Production Soars to 2019 High as Hormuz Flows Surge",
-        "titulo_es": "Producción de crudo de Irak alcanza máximo de 2019 mientras aumenta flujo por Hormuz",
+        "titulo_es": "Producción de crudo de Irak alcanza máximo desde 2019",
         "medio": "OilPrice.com",
         "publicado_at": "2026-11-13T11:30:00-06:00",
         "categoria": "oferta",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Irak elevó su producción de crudo a 4.6 mmb/d, el nivel más alto desde 2019, incrementando la oferta mundial y aliviando presiones sobre los precios que paga Guatemala.",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
-      },
-      {
-        "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPNWktdEhLRGZUbEh4cTZkeElFeUxKREpudWVqdHhjX2FXMVpIODlyblJSLXUtdlBYMXFHa21PUnA3THdqZ1l2eFFDdm1ITUVWaXpmX1BkVEUwNjh5Q1hvOUVwVkpoZFRQdF9FRmFYSjdXSnpTSWRvQmkzelh3Nm1mM1lNbUVVLVZncVVTRzJmcFJaSTVpWTJsLWxVZW5QRWZhaDBSR1kyT0dsYVp3M3Nr?oc=5",
-        "titulo": "Yemeni drones attack Saudi Arabia's East-West oil pipeline, Press TV reports; Sabereen adds, potentially in relation to this, \"Recording the disclosure report and on behalf of the committee: Three crude oil lines, and none of them have a problem.\" - Newsquawk",
-        "titulo_es": "Drones yemeníes atacan el oleoducto Este-Oeste de Arabia Saudí",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-13T05:11:57-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Drones yemeníes atacaron el oleoducto Este‑Oeste de Arabia Saudí, interrumpiendo temporalmente el flujo de crudo; la incertidumbre en el suministro global puede elevar los precios en Guatemala.",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
-      },
-      {
-        "id": 11,
-        "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQYW9aXzFyZU1mSktrMGNyaVpTZG14ZGU4ZnJfbGxscXFsakJCV3NBU09KYWtYNnAzUWxtalRrU3pnQ0ZfS0oxaE95NkcyeHdLMnpuckVfM05VTDBsWTY1TzBVQjNvbnptdkJxczBYdy10SWZfOFNaZWYzRDV2aTEzOVcwX0Q2ckNaekRjTkMzNmltMExQc0E?oc=5",
-        "titulo": "El petróleo sube después de que Irán reporta ataques - investingLive",
-        "titulo_es": "El petróleo sube tras reportes de ataques en Irán",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-12T13:51:36-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Los precios del petróleo subieron tras reportes de ataques en Irán, lo que eleva el costo del crudo importado por Guatemala.",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
-      },
-      {
-        "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOM3ljbEN1UTh6QXkzRGhvZFRaa0U1dlBvX09ycFp1enNER0dwSGlJQzFwaW8wWlV0QUJIZE9lS1hHcFg4bHEyZHBXaGdQQ3A5STRQa004VDdaTGtROTFRazhIZnpTMFNGbkRHemtHWWhuaXpZWnNHVVBCUUg5ZnBpMm80c01vX1JMS2tyZ0t6Rm9UOFZtZnZpOTlDUjNRb0I3eGhlSE1zaEZEeDZkZHljSWRQZ3VPLVlHZDBj?oc=5",
-        "titulo": "Ukrainian drones reportedly target Russia's largest oil refinery, strike Baltic Sea port, missile boat - The Kyiv Independent",
-        "titulo_es": "Drones ucranianos apuntan a la mayor refinería rusa y a un puerto del Báltico",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-10T18:59:32-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Drones ucranianos intentaron dañar la mayor refinería rusa y un puerto báltico, generando riesgos de interrupciones en la producción de petróleo que pueden impactar los precios internacionales y, por ende, a Guatemala.",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
-      },
-      {
-        "id": 5,
-        "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQNmM0aWNYYUR4eFdtT0V5R2YyWEI4QXV1REh4dGRyaWJLV0FWaEt5akZmb18ybGxORHlVR0FxSjJCcVc0aVBTMzhZTGtPNWJkdUNSaDFONFhyZVRyYVdxaW1TVFpXUUF2aS1ZbmdFaU9pUi1TaVJaRHFkb0EwdDA0bXNyXzduNUtkMHpWUmRJa3l0d0RvczlPUDdKOWRyRTc5d2E4ZWNydG0xR1lPWHBjZE10SVZiaXkxUVhaWi1HYmlITE0?oc=5",
-        "titulo": "Ukraine strikes Russia's second-largest oil refinery in overnight drone attack, Russian governor says - The Kyiv Independent",
-        "titulo_es": "Ucrania ataca la segunda mayor refinería rusa en un asalto nocturno",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-08T22:05:17-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Ucrania lanzó un ataque nocturno contra la segunda refinería más grande de Rusia, afectando su producción; la posible reducción de oferta mundial puede encarecer los combustibles importados por Guatemala.",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNOTJSbjdPSWFhQ2J3MDctNWNqM1VUY2haSDFvY01sekdsSDlzQW16NFpvSS1sVjUwaHdnSkh6ZEJNUVgxU2t5STRGbEU2NHBoZnRJSzBwcFBLX194czgwY0lkelh3TWZ1ajdGMHJHSFFtcWtoZ0p5aTRCLWtFalV4dm14UERUU2xXME9ySmcxY3MtdUpXZkU4QUhJUTRfQ0FfTFdrWEY0Yw?oc=5",
-        "titulo": "Fire reported at industrial facility in Russia's Tatarstan amid drone attack - The Kyiv Independent",
-        "titulo_es": "Incendio en instalación industrial de Tataristán tras ataque con drones",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-14T21:23:36-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
         "relevancia": 3,
-        "resumen_es": "Un incendio se desató en una instalación industrial de Tataristán durante un ataque con drones, afectando potencialmente la capacidad de procesamiento de crudo en Rusia y la oferta global.",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
+        "resumen_es": "La producción de crudo de Irak alcanza su nivel más alto desde 2019, incrementando la oferta mundial y pudiendo moderar los precios del combustible importado por Guatemala.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
       },
       {
-        "id": 10,
+        "id": 8,
         "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9TNHkyenpmSGtib05LSXZsMWJqMmlHZmpoeGVIMEVidERMdDFiZ21fei1hT0xBUDRmRjFEYUYydTdvbE1KZ0E3RS1ZR1NERVFJVmFYaEFLMkVYMXRKd3U2Wml0RkpOaDE3bzk0YnNWcw?oc=5",
         "titulo": "Russia oil revenues jumped about 65% in October on Iran war - Quartz",
-        "titulo_es": "Ingresos petroleros de Rusia suben 65% en octubre por la guerra en Irán",
+        "titulo_es": "Ingresos petroleros de Rusia suben 65% por guerra en Irán",
         "medio": "Google News EN",
         "publicado_at": "2026-11-13T07:58:36-06:00",
         "categoria": "finanzas",
         "pais": null,
         "relevancia": 3,
-        "resumen_es": "Los ingresos petroleros de Rusia aumentaron 65 % en octubre gracias a la guerra en Irán, indicando mayores precios del crudo que repercuten en los costos de importación guatemaltecos.",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
+        "resumen_es": "Los ingresos petroleros de Rusia suben 65% en octubre debido a la guerra en Irán, reflejando mayores precios del crudo que pueden repercutir en el costo del combustible en Guatemala.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
       },
       {
-        "id": 7,
+        "id": 12,
+        "url": "https://www.eia.gov/todayinenergy/detail.php?id=68424",
+        "titulo": "Refineries have shifted production away from gasoline to middle distillates",
+        "titulo_es": "Refinerías reducen producción de gasolina en favor de diésel",
+        "medio": "EIA Today in Energy",
+        "publicado_at": "2026-11-05T08:00:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Las refinerías reducen la producción de gasolina a favor de diésel y combustible de aviación, limitando la disponibilidad de gasolina y presionando precios en Guatemala.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
+      },
+      {
+        "id": 13,
+        "url": "https://www.eia.gov/todayinenergy/detail.php?id=68404",
+        "titulo": "Global refinery inputs fell sharply in the second quarter of 2026 before modest recovery",
+        "titulo_es": "Disminuye insumos de refinerías globales en 2T 2026",
+        "medio": "EIA Today in Energy",
+        "publicado_at": "2026-11-03T08:00:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "La caída del 6% en los volúmenes de crudo procesados por refinerías globales en el segundo trimestre de 2026 reduce la oferta de productos refinados, lo que puede subir precios del combustible en Guatemala.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
+      },
+      {
+        "id": 6,
         "url": "https://oilprice.com/Energy/Energy-General/Iran-War-Accelerates-Southeast-Asias-Renewable-Energy-Push.html",
         "titulo": "Iran War Accelerates Southeast Asia’s Renewable Energy Push",
-        "titulo_es": "Guerra en Irán impulsa la transición a energías renovables en el Sudeste Asiático",
+        "titulo_es": "Guerra en Irán impulsa energía renovable en Sudeste Asiático",
         "medio": "OilPrice.com",
         "publicado_at": "2026-11-14T14:00:00-06:00",
-        "categoria": "geopolitica",
+        "categoria": "otro",
         "pais": null,
         "relevancia": 2,
-        "resumen_es": "El conflicto en Oriente Medio ha reducido el comercio de combustibles, motivando a países del Sudeste Asiático a acelerar proyectos renovables; aunque indirecto, puede disminuir la demanda de importaciones de petróleo en Guatemala.",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
+        "resumen_es": "El conflicto en Irán impulsa a países del sudeste asiático a acelerar energías renovables, reduciendo su dependencia de importaciones de combustibles, pero con escaso efecto directo en Guatemala.",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
       },
       {
-        "id": 9,
-        "url": "https://oilprice.com/Energy/Energy-General/Germany-Is-Dismantling-a-Nord-Stream-Power-Plant-for-Ukraine.html",
-        "titulo": "Germany Is Dismantling a Nord Stream Power Plant for Ukraine",
-        "titulo_es": "Alemania desmantela planta de energía del gasoducto Nord Stream para enviarla a Ucrania",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-13T10:10:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Alemania desmonta una planta de energía asociada al gasoducto Nord Stream y la envía a Ucrania, reflejando tensiones energéticas que pueden influir en los mercados de gas y petróleo.",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
-      },
-      {
-        "id": 16,
-        "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPREdVN2lkREJIaFF5ZDlqa0NIaGhxZnpnMXQ1OHhIa1NyaHo4T2JkcGIzdTJ1T051WEF4M05UTFp2ODQ0ZkN3ZnNQWW5IN0h4WThtY0hOcUZwWFJJWGtrUlhsVGwwS2hvc2FDNnRNb09KSVpMWW1EQ0hycEJ1VURRNmtFZUthdnNySzFqQWgyTGRybVFhSl80NkY3WXJGcDNEa3g3RE9SNzM3NVU?oc=5",
-        "titulo": "Ukraine hits key Russian oil hub, military airbase in latest long-range strikes - The Kyiv Independent",
-        "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-14T07:29:02-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Ukraine hits key Russian oil hub, military airbase in latest long-range strikes The Kyiv Independent",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
-      },
-      {
-        "id": 31,
-        "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOdXd5OUJXZUROaW44SURvS1M0Q293bFhjcmZXbHVldVF2cUxFNDlkMXU3dzUzbWdncHE5V2JHaktvalJKRFZMOUt1bDhKNEZGRXRjWVhQbXNCc1hybXAzOEpsSWFSamNma053djNFYjV6NUxFNXdiRnZGMHA3cEZqNUl5VGs1dGhZQk84a3RNYVZaUTZjbHFfN19xelQ1NjNfSHlHT0xobHExZ3VfbUl4VzdOaHlRZXM1MjJPR2FtNWlwMzlnTFhRcGlZV3JlbVgxLW1sbVFEcmRJVXo3amc?oc=5",
-        "titulo": "Petróleo, fenómeno de El Niño y tasas de interés: los tres riesgos que amenazan las finanzas de Centroamérica - Prensa Libre",
-        "titulo_es": null,
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-14T00:10:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Petróleo, fenómeno de El Niño y tasas de interés: los tres riesgos que amenazan las finanzas de Centroamérica <fo",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
-      },
-      {
-        "id": 32,
-        "url": "https://oilprice.com/Energy/Energy-General/Iran-Braces-for-a-Budget-Without-Oil-Revenue.html",
-        "titulo": "Iran Braces for a Budget Without Oil Revenue",
+        "id": 28,
+        "url": "https://oilprice.com/Energy/Energy-General/How-Brazil-Plans-to-Accelerate-the-Global-Shift-Away-From-Fossil-Fuels.html",
+        "titulo": "How Brazil Plans to Accelerate the Global Shift Away From Fossil Fuels",
         "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-13T17:00:00-06:00",
+        "publicado_at": "2026-11-15T10:00:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "Iran is drafting next year’s budget under the premise that oil revenue could fall to zero, with senior budget official Mohammad Ghasemi telling the government on Monday to prepare for that scenario, as the country appears to be weeks away from that eventuality. Iran has loaded no crude since August 25, according to the US Treasury, and the oil it held at sea outside the US blockade fell from 88.8 million barrels in mid-July to zero by mid-October. Chinese buyers pay one to two months after deliv",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
-      },
-      {
-        "id": 17,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Trump-Extends-Jones-Act-Waiver-For-Another-90-Days.html",
-        "titulo": "Trump Extends Jones Act Waiver For Another 90 Days",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-13T13:30:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "President Donald Trump extended the Jones Act waiver for another 90 days on Friday, keeping foreign-flagged tankers eligible to move oil and other commodities between U.S. ports as the war with Iran continues to drive up fuel costs. The extension, confirmed by a White House official who spoke to Reuters, continues what is already the longest waiver in the shipping law's history. Foreign vessels will still need approval for individual voyages due to a restriction introduced in August after earlie",
-        "fetched_at": "2026-11-15T04:53:50-06:00"
+        "resumen_es": "Brazil has launched two roadmaps to encourage other countries around the globe to accelerate the phasing out of fossil fuels and plan for a green transition. The roadmaps offer broad frameworks to encourage countries to develop their own, more specific, national climate and energy plans. Brazil, the host of last year’s UN COP30 climate summit, announced the launch of its roadmaps in early November, ahead of COP31, which is being held in Turkey from 9th to 20th November. This follows the win of P",
+        "fetched_at": "2026-11-15T11:54:02-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 11,
-      "total_hoy": 44,
+      "titulos_es_hoy": 15,
+      "total_hoy": 42,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
