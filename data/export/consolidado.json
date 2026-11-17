@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-11-16T11:55:48-06:00",
+  "actualizado_at": "2026-11-16T18:06:05-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-11-16",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-11-16",
         "precio": 28.49,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-16T11:54:57-06:00",
+        "fetched_at": "2026-11-16T18:04:39-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -1231,7 +1231,7 @@
             "fecha": "2026-11-16",
             "precio": 28.49,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-16T11:54:57-06:00",
+            "fetched_at": "2026-11-16T18:04:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1239,7 +1239,7 @@
             "precio": 28.49,
             "confianza": "alta",
             "n_coinciden": 3,
-            "n_fuentes": 3,
+            "n_fuentes": 5,
             "fuentes": [
               {
                 "coincide": true,
@@ -1270,6 +1270,26 @@
                 "precio": 28.49,
                 "tipo": "monitoreado",
                 "url": "https://lared1061.com/posts/combustibles-registran-otra-rebaja-asi-quedan-los-nuevos-precios"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-11-16",
+                "medio": "prensalibre.com",
+                "modalidad_inferida": false,
+                "peso": 0.772,
+                "precio": 29.55,
+                "tipo": "monitoreado",
+                "url": "https://www.prensalibre.com/economia/gasolina-regular-llega-a-q28-49-en-guatemala-asi-estan-los-precios-de-los-combustibles-este-16-de-noviembre/"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-11-16",
+                "medio": "lahora.gt",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 29.55,
+                "tipo": "referencia",
+                "url": "https://lahora.gt/lh-economia/jveliz/2026/11/16/gasolinas-y-diesel-acumulan-nuevas-bajas-mientras-exencion-estara-vigente-hasta-el-31-de-diciembre-now/"
               }
             ]
           },
@@ -1330,7 +1350,7 @@
             "fecha": "2026-11-16",
             "precio": 29.59,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-16T11:54:57-06:00",
+            "fetched_at": "2026-11-16T18:04:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1404,7 +1424,7 @@
         "fecha": "2026-11-16",
         "precio": 30.99,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-16T11:54:57-06:00",
+        "fetched_at": "2026-11-16T18:04:39-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -2630,7 +2650,7 @@
             "fecha": "2026-11-16",
             "precio": 30.99,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-16T11:54:57-06:00",
+            "fetched_at": "2026-11-16T18:04:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2638,7 +2658,7 @@
             "precio": 30.99,
             "confianza": "alta",
             "n_coinciden": 3,
-            "n_fuentes": 3,
+            "n_fuentes": 5,
             "fuentes": [
               {
                 "coincide": true,
@@ -2669,6 +2689,26 @@
                 "precio": 30.99,
                 "tipo": "monitoreado",
                 "url": "https://lared1061.com/posts/combustibles-registran-otra-rebaja-asi-quedan-los-nuevos-precios"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-11-16",
+                "medio": "prensalibre.com",
+                "modalidad_inferida": false,
+                "peso": 0.772,
+                "precio": 32.07,
+                "tipo": "monitoreado",
+                "url": "https://www.prensalibre.com/economia/gasolina-regular-llega-a-q28-49-en-guatemala-asi-estan-los-precios-de-los-combustibles-este-16-de-noviembre/"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-11-16",
+                "medio": "lahora.gt",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 32.07,
+                "tipo": "referencia",
+                "url": "https://lahora.gt/lh-economia/jveliz/2026/11/16/gasolinas-y-diesel-acumulan-nuevas-bajas-mientras-exencion-estara-vigente-hasta-el-31-de-diciembre-now/"
               }
             ]
           },
@@ -2737,7 +2777,7 @@
             "fecha": "2026-11-12",
             "precio": 33.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-16T11:53:18-06:00",
+            "fetched_at": "2026-11-16T18:04:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2801,7 +2841,7 @@
         "fecha": "2026-11-16",
         "precio": 39.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-16T11:54:57-06:00",
+        "fetched_at": "2026-11-16T18:04:39-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -4019,7 +4059,7 @@
             "fecha": "2026-11-16",
             "precio": 39.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-16T11:54:57-06:00",
+            "fetched_at": "2026-11-16T18:04:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4027,7 +4067,7 @@
             "precio": 39.69,
             "confianza": "alta",
             "n_coinciden": 3,
-            "n_fuentes": 3,
+            "n_fuentes": 5,
             "fuentes": [
               {
                 "coincide": true,
@@ -4058,6 +4098,26 @@
                 "precio": 39.69,
                 "tipo": "monitoreado",
                 "url": "https://lared1061.com/posts/combustibles-registran-otra-rebaja-asi-quedan-los-nuevos-precios"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-11-16",
+                "medio": "prensalibre.com",
+                "modalidad_inferida": false,
+                "peso": 0.772,
+                "precio": 40.51,
+                "tipo": "monitoreado",
+                "url": "https://www.prensalibre.com/economia/gasolina-regular-llega-a-q28-49-en-guatemala-asi-estan-los-precios-de-los-combustibles-este-16-de-noviembre/"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-11-16",
+                "medio": "lahora.gt",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 40.51,
+                "tipo": "referencia",
+                "url": "https://lahora.gt/lh-economia/jveliz/2026/11/16/gasolinas-y-diesel-acumulan-nuevas-bajas-mientras-exencion-estara-vigente-hasta-el-31-de-diciembre-now/"
               }
             ]
           },
@@ -4114,7 +4174,7 @@
             "fecha": "2026-11-12",
             "precio": 41.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-16T11:53:18-06:00",
+            "fetched_at": "2026-11-16T18:04:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4180,9 +4240,9 @@
       "orden": 4,
       "actual": {
         "fecha": "2026-11-16",
-        "precio": 86.13,
+        "precio": 85.28,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-11-16T11:54:58-06:00",
+        "fetched_at": "2026-11-16T18:05:33-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5292,7 +5352,7 @@
         },
         {
           "fecha": "2026-11-16",
-          "precio": 86.13
+          "precio": 85.28
         }
       ],
       "mensual": [],
@@ -5324,9 +5384,9 @@
           "nombre": "Spot",
           "actual": {
             "fecha": "2026-11-16",
-            "precio": 86.13,
+            "precio": 85.28,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-11-16T11:54:58-06:00",
+            "fetched_at": "2026-11-16T18:05:33-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
@@ -5453,7 +5513,7 @@
             },
             {
               "fecha": "2026-11-16",
-              "precio": 86.13
+              "precio": 85.28
             }
           ]
         }
@@ -5498,8 +5558,8 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 51,
-    "notas_leidas": 192,
+    "observaciones_7d": 57,
+    "notas_leidas": 196,
     "medios": [
       "agn.gt",
       "dca.gob.gt",
@@ -5518,207 +5578,207 @@
     ]
   },
   "noticias": {
-    "total": 43,
+    "total": 39,
     "top": [
       {
         "id": 1,
+        "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQLWF6Q2pLWVRqZk9NMXB6VnlJM3dVZEhZbkdQalltZXRkVGttbTE0eGZiUWZELUJ4cEw1N3ozbkFaRklpUjJCd3p0eXhhWDkxVEN1bEZGaTk4bXlxNmtlU0lOTmxRNWgxNnZyOU5QbFVYQVZTNDRzS1lCeDl6eV9fbC1WQmJRR3pfZzVVSHRBaV9La3F5WDR4U0JudURRYjdRSElJOTFoYTloTWxiZzRTV2NYYmdvQzcyeEtBcjQ1ZG91OXU3NGtEdEd6NXNwZFMtMzBmMTg3NVl3VFRqVEE?oc=5",
+        "titulo": "Gasolina regular llega a Q28.49 en Guatemala: así están los precios de los combustibles este 16 de noviembre - Prensa Libre",
+        "titulo_es": "Gasolina regular alcanza Q28.49 en Guatemala",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-16T15:37:14-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Gasolina regular sube a Q28.49, reflejando costos de importación y afectando a los consumidores guatemaltecos.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
+      },
+      {
+        "id": 10,
+        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPenJfWV9sVzd3Y0VKZUZwQllodlNacUhTLVpIc2NObXJVNkhmdmo3QXoydFVXVzdIeVdfbnZQV3l4YnAxYUlqZlJYejYtUks0TzVlMXVlNW9LaTBrNWVsdXBOdjVnbGw1ajQtQTJDT3JER3pxTklnRF9rcEZnTFhkWGhOclIxcjZ0N3pKSkl0VUJ4aldXM0NoSUxvdXByV1RIQy1QbVJwcDRwMU1hM1RRRVpvQlc?oc=5",
+        "titulo": "Ukrainian drone attacks 'neutralized' 55% of Russia's oil refining capacity, Zelensky says - The Kyiv Independent",
+        "titulo_es": "Ataques ucranianos dejan inoperativo 55% de la capacidad de refinación rusa",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-15T17:30:24-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Ucrania afirma que ataques con drones han dejado inoperativa el 55% de la capacidad de refinación rusa, reduciendo la oferta mundial y presionando al alza los precios en Guatemala.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
+      },
+      {
+        "id": 13,
+        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxORUZXUjR5dWRzUFJTSHRXMlk1b29PMXhhQzlxb0k1c3pfTG4xeXNyRWFjWVZJYnZ4cS1SZjJEc0F5akoxNFhETFJYa0l3MnRUd2ZuYUNuSjNiWEJjM25SME5KQXh3Nm54dUpSaDZUN25BWnhZTlBVWmxNZXJ5T29uZTg1OXd1dS01SVI5YzJnOHBkYmF0NVVOSHY4SQ?oc=5",
+        "titulo": "Ukrainian Drones Strike All Primary Refining Units at Russia’s Sixth-Largest Oil Refinery - Мілітарний",
+        "titulo_es": "Drones destruyen unidades de refinación en la sexta mayor refinería rusa",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-14T11:06:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Drones ucranianos destruyen todas las unidades de refinación de la sexta mayor refinería rusa, disminuyendo significativamente la oferta global de gasolina y diésel, lo que afecta precios en Guatemala.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
+      },
+      {
+        "id": 2,
         "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQbURFN2Y0WFBUT2pPOWZsczQxT3NHeC1xdVJMUVhKSW55ODEtWUxWQ0w3aDJkd2tYbDJhXzR4NXAxbHNNN1RNbFlHd3dTczdaZ1FjRnNMeUlFbXVkcHJucWZCN3dCb21hbGpYSHplbFIta1N5ZEM5SXhYSUk4Qmd6LV9GVkVzS2d6NFdlYmc2WkxtWTRmRGNsdU01d0ZxaDhzSWQ4NktaYVIwXzFzblBmaDQzblNKZnlReURfYmlhN2xvNVFWQmhnTXpPNHltLWFiTnhGSnB3?oc=5",
         "titulo": "Precio del galón de gasolina en Guatemala: se reporta nuevas bajas en el promedio del MEM y estaciones - Prensa Libre",
-        "titulo_es": "Bajas en el precio promedio del galón de gasolina en Guatemala",
+        "titulo_es": "Bajan los precios del galón de gasolina en Guatemala",
         "medio": "Google News ES",
         "publicado_at": "2026-11-09T19:14:57-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Se reportó una nueva caída del precio promedio del galón de gasolina en Guatemala, indicando menores costos para los consumidores y reflejando posibles cambios en la oferta internacional que afectan el precio del combustible importado.",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
-      },
-      {
-        "id": 8,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/China-Turns-to-Iraqi-Oil-as-US-Blockade-Chokes-Iranian-Supply.html",
-        "titulo": "China Turns to Iraqi Oil as U.S. Blockade Chokes Iranian Supply",
-        "titulo_es": "China recurre al petróleo iraquí mientras el bloqueo estadounidense ahoga el suministro iraní",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-16T01:30:00-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Las refinerías independientes chinas están buscando cargamentos de crudo de Irak utilizando los servicios de empresas internacionales de comercialización de materias primas, lo que supone un cambio respecto a sus prácticas habituales de abastecimiento de petróleo, según ha informado Bloomberg, que señala el continuo bloqueo estadounidense de los puertos iraníes. Las llamadas «refinerías boutique» han disfrutado durante años de crudo iraní y ruso con descuento, pero este año, la guerra entre Esta",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
-      },
-      {
-        "id": 9,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Fall-as-Fears-of-a-Global-Supply-Glut-Return.html",
-        "titulo": "Oil Prices Fall as Fears of a Global Supply Glut Return",
-        "titulo_es": "Los precios del petróleo caen al reaparecer los temores de un exceso de oferta mundial",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-15T23:25:32-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Los precios del petróleo comenzaron la semana con nuevas pérdidas en medio de informaciones que apuntan a que el mercado mundial del petróleo está volviendo a la situación de exceso de oferta, pese a que continúan los ataques a petroleros en el estrecho de Ormuz e Irak se ve obligado a exportar crudo por carretera a través de Siria. En el momento de redactar este artículo, el barril de crudo Brent cotizaba a 95,24 $ y el de West Texas Intermediate a 88,31 $, ambos ligeramente por debajo del cier",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
-      },
-      {
-        "id": 10,
-        "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOaWFrVTdMX1YtSi15aUdyaU1HRnVhdXZubVc5NWVWWjNMOTFWQUpTY0VORk1OLTBXVlN6cEE1MXdBVzBKOVFjSVF6UDFra1FJX2lZNkFLclJEUGNUUHlxRkIyRFZQazVFNVJCVmFJOTlUZlZCRnYzbnRKQnVkS0YyYUdvSlYzNWhwYllvczRyREZYRHh5N20xY3RHMDNyOGZPbzEyOUt3cXJJMDJPM0hvSndCRHhJMmhrdkV5V3dqUF9PUndnZGhqT2hZRHhubDdZemRMUQ?oc=5",
-        "titulo": "U.S. sanctions fail to stop Russia, China and India as Putin's oil revenues hit their highest level since the Ukraine war began and 2 African nations emerge in his shadow fleet - Business Insider Africa",
-        "titulo_es": "Las sanciones de EE. UU. no consiguen detener a Rusia, China e India, ya que los ingresos petroleros de Putin alcanzan s",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-15T16:54:17-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Las sanciones de EE. UU. no consiguen detener a Rusia, China e India, ya que los ingresos petrolíferos de Putin alcanzan su nivel más alto desde el inicio de la guerra de Ucrania y 2 países africanos",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
-      },
-      {
-        "id": 2,
-        "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNUU1OMlBhNE5vbVlNaGNXYzFCMzROSDBnTjRaVlJyRk05UmxzejhiM0NRUlM3YkFhQWd0Z3BRQjZaa013MXMza1lENVh2M25SUm1JLXlBMjYxazB0VWV5NXpiNEhvYW96ZmI4VklZRXU5clhiLW41MF9sRDg2NnlrZ3FvbmU5VWY4Y19zTmVWV2paS285T05RUWJEVUpsajU1SU5EaUwzdU5VWGdMX0ZkaVo1X1ozS284N0pVeEFReFpocnRjREdxaFk0Z2FVWlFDMHhQbnlUZkc4QmVfYTNjUUtSR0w?oc=5",
-        "titulo": "Un ataque con drones ucranianos contra una refinería rusa dejó cuatro trabajadores muertos y provocó un incendio - Itón Gadol",
-        "titulo_es": "Ataque con drones ucranianos contra refinería rusa deja cuatro muertos y provoca incendio",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-14T09:33:29-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Un ataque con drones ucranianos destruyó parte de una refinería rusa, provocando incendio y cuatro muertos; la interrupción de la producción rusa puede reducir la oferta mundial y presionar al alza los precios del combustible importado por Guatemala.",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
+        "resumen_es": "Bajan los precios del galón de gasolina en el promedio del MEM, reduciendo el gasto de los guatemaltecos.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
       },
       {
         "id": 5,
+        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQZkZseFdKMWN4R0xWMU8zZzlnZTg3QlRTc0pobVNwc2xsNTVZTWRCaDZBeWt1dklkLXJyY2sxaGNjT1owWktrcEJiaENrdXhRQTZTQXZVcWs0Xzh2V19PRy1vVFpsYWFFSGZESUVDa3owS21zVXNTSURlRDd6ZmlqOFRPNGwyZXFQRTNMamFIM1FDYzV3RVdkY3N2OFhRUVNmcWU3QmdxUkNXaEV3OFdmS3owd2c?oc=5",
+        "titulo": "Ukraine war latest: Crimean Bridge hit in reported attack, traffic restrictions imposed - The Kyiv Independent",
+        "titulo_es": "Daño al puente de Crimea interrumpe tránsito de petróleo ruso",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-16T13:15:13-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Daño al puente de Crimea interrumpe el flujo de petróleo ruso hacia Europa, lo que puede elevar los precios de importación en Guatemala.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
+      },
+      {
+        "id": 8,
         "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOTmhGNVhidkt3TlpMM3l5UmpTaGYyRnEyZ0pDQnhydG0wWm9sS3VGN0pndWVSODhUbFhYTW5EalBIMEljZEVsNndnbVVNd1dmVzNOMVNHYmtpOEZjVXBaOHNfQ0dzQjlva0QyNEU5OS1vMm50TmhuVEFaZDZ0THpwTDUtX3dpeV9HUEYwOEZaVkhBNzBrZXg1dXljcmVFRC1CT0hqclh2cU9uSklvSTRnSUxXVTlmQmNhNlI1Q1E0S2hSdzF3?oc=5",
         "titulo": "Ukraine launches biggest drone attack on Russia since war began, defence ministry data shows - Reuters",
-        "titulo_es": "Ucrania lanza el mayor ataque con drones a Rusia desde el inicio de la guerra",
+        "titulo_es": "Ucrania lanza el mayor ataque con drones contra Rusia",
         "medio": "Google News EN",
         "publicado_at": "2026-11-16T07:53:57-06:00",
         "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Ucrania realizó su mayor ataque con drones contra instalaciones rusas, lo que podría interrumpir la producción de petróleo y elevar los precios internacionales, afectando indirectamente a Guatemala.",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
+        "relevancia": 4,
+        "resumen_es": "Ucrania lleva a cabo el mayor ataque con drones contra instalaciones rusas, potencialmente reduciendo la producción de petróleo y elevando precios internacionales.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
       },
       {
-        "id": 6,
+        "id": 11,
+        "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQMEpUQUJJR2NBbnZNekVuLXBZRnhveUZOSWk4WXZBRVQ3UEFEMC1BNE5zNDF5UkhyS3J3ODZkOU81aUdqaG9zYWZZeklzQWpDczJ1Z0FHNklUT25jb25EcDZMajZ4X0M5c0RxbGE2aFVxdGxlNEFHcDRyQjlTNm1JME03Tlc0N3BUVHFQZHRzMHB6eXZqX3JCSnlNaEZjajBfZmZaYUozVDd0WVlIaFA1eUhZUDZmRFRpaTlZ?oc=5",
+        "titulo": "Ukrainian drones strike Russia's petrochemical capital in overnight assault - France 24",
+        "titulo_es": "Drones ucranianos atacan la capital petroquímica de Rusia",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-15T07:36:53-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Drones ucranianos atacan la capital petroquímica de Rusia, afectando la producción de derivados y pudiendo encarecer los combustibles importados por Guatemala.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
+      },
+      {
+        "id": 12,
+        "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFAwbVlfdVF4MWY0bHp6Q0ZhLUlzdkw4WmxaWjhNVGZlU1pCWXNySjR6LTJsbUJLN01DQUVkYmZ6V3ZSRVRJQjBVM3h0azRWSkRmTFhWNEV2TVFIb0RJVXJFRDgzRFTSAXBBVV95cUxPdlJLck9Pd3lDcE1oTXJNSDR4MlhGZFB5Y0RkVHdSRW5GVG1CckdPM3Z5THdaRXhqcm50dTlaOWwyVkhKNVFEeGtEMjN4aFhsN3JTVGdoYXBwcDZvQjJZLVFYV3loM2RWM3FOMFFTeDRs?oc=5",
+        "titulo": "Drone attack on Russia's Tatarstan causes fire at one of Europe's largest petrochemical plants – photo - Українська правда",
+        "titulo_es": "Ataque con drones incendia planta petroquímica en Tataristán",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-14T23:51:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Un ataque con drones provoca incendio en una de las mayores plantas petroquímicas de Europa en Tataristán, reduciendo el suministro de productos refinados y elevando precios internacionales.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
+      },
+      {
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNUU1OMlBhNE5vbVlNaGNXYzFCMzROSDBnTjRaVlJyRk05UmxzejhiM0NRUlM3YkFhQWd0Z3BRQjZaa013MXMza1lENVh2M25SUm1JLXlBMjYxazB0VWV5NXpiNEhvYW96ZmI4VklZRXU5clhiLW41MF9sRDg2NnlrZ3FvbmU5VWY4Y19zTmVWV2paS285T05RUWJEVUpsajU1SU5EaUwzdU5VWGdMX0ZkaVo1X1ozS284N0pVeEFReFpocnRjREdxaFk0Z2FVWlFDMHhQbnlUZkc4QmVfYTNjUUtSR0w?oc=5",
+        "titulo": "Un ataque con drones ucranianos contra una refinería rusa dejó cuatro trabajadores muertos y provocó un incendio - Itón Gadol",
+        "titulo_es": "Ataque con drones ucranianos deja muertos e incendio en refinería rusa",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-14T09:33:29-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Ataque con drones ucranianos destruye parte de una refinería rusa, reduciendo la oferta mundial y pudiendo elevar precios de importación en Guatemala.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
+      },
+      {
+        "id": 15,
+        "url": "https://www.eia.gov/todayinenergy/detail.php?id=68404",
+        "titulo": "Global refinery inputs fell sharply in the second quarter of 2026 before modest recovery",
+        "titulo_es": "Caen inputs de refinería globales en Q2 2026 tras conflicto en Oriente Medio",
+        "medio": "EIA Today in Energy",
+        "publicado_at": "2026-11-03T08:00:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "La caída del 6% en los inputs de refinería globales en el segundo trimestre de 2026, tras conflicto en Oriente Medio, reduce la oferta de crudo y presiona al alza los precios de los combustibles importados por Guatemala.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
+      },
+      {
+        "id": 9,
         "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPRThLWndRQk03NE9jTVQtX3FNd1lxOS1IeW54dFhVdC1nVjZYNk5YMWlmZy1PaDhvZzFRQjFMa3VpbnJBai15MVhWT2c2VV9Pa2k1OGdneVBfSjgzQmIxUDgzc1hjbjB0alRQdkU5TUFVcW1DTDZHbVZTVVNHSVpnNUVZRFk2cmt4cFE0SE5lSHk3cGduQXlULUM5S0J0Q1Q2VzlQeGpTM3gwNDBTemJra2c3RGtBOXl5TF95Qk5tRQ?oc=5",
         "titulo": "Rusia intercepta más de 1,300 drones ucranianos en un ataque a gran escala - El Nuevo Día",
-        "titulo_es": "Rusia intercepta más de 1,300 drones ucranianos en gran ataque",
+        "titulo_es": "Rusia intercepta más de 1300 drones ucranianos",
         "medio": "Google News ES",
         "publicado_at": "2026-11-16T07:20:00-06:00",
         "categoria": "geopolitica",
         "pais": null,
         "relevancia": 3,
-        "resumen_es": "Rusia derribó más de 1,300 drones ucranianos en un amplio ataque, mostrando la escalada del conflicto que podría amenazar infraestructuras energéticas rusas y presionar al alza los precios del crudo importado por Guatemala.",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
-      },
-      {
-        "id": 4,
-        "url": "https://oilprice.com/Geopolitics/Europe/Ukraine-Braces-for-Pivotal-Week-of-Defense-Talks-Amid-Fresh-Russian-Attacks.html",
-        "titulo": "Ukraine Braces for Pivotal Week of Defense Talks Amid Fresh Russian Attacks",
-        "titulo_es": "Ucrania se prepara para cruciales conversaciones de defensa ante nuevos ataques rusos",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-16T09:00:00-06:00",
-        "categoria": "diplomacia",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Ucrania se prepara para reuniones internacionales de defensa mientras Rusia intensifica sus ataques; las decisiones podrían influir en la estabilidad del mercado energético, pero el impacto directo en Guatemala es limitado.",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
-      },
-      {
-        "id": 7,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/US-LNG-Flows-Hit-Record-High-as-Global-Gas-Supply-Crisis-Deepens.html",
-        "titulo": "U.S. LNG Flows Hit Record High as Global Gas Supply Crisis Deepens",
-        "titulo_es": "Flujos de GNL de EE. UU. alcanzan récord mientras se profundiza crisis global de gas",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-16T06:30:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Los envíos de GNL desde EE. UU. alcanzaron niveles históricos para abastecer a Europa y Asia, reflejando mayor demanda de gas que puede desviar recursos y mantener altos los precios energéticos, con efecto indirecto en Guatemala.",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
-      },
-      {
-        "id": 3,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Illinois-Ethanol-Plant-Bomb-Is-the-Latest-Threat-to-US-Energy-Sites.html",
-        "titulo": "Illinois Ethanol Plant Bomb Is the Latest Threat to U.S. Energy Sites",
-        "titulo_es": "Explosión de bomba en planta de etanol de Illinois obliga a evacuación",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-16T11:30:00-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 1,
-        "resumen_es": "Una bomba explotó en una planta de etanol en Illinois, EE. UU., obligando a evacuación y cierre temporal; aunque afecta la producción local, tiene escasa repercusión en el suministro de combustibles para Guatemala.",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
-      },
-      {
-        "id": 31,
-        "url": "https://oilprice.com/Energy/Energy-General/Venezuelas-Oil-Comeback-Faces-a-New-Threat-From-Washington.html",
-        "titulo": "Venezuela’s Oil Comeback Faces a New Threat From Washington",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-16T11:00:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "The Democratic victory in the 2026 US midterm elections has given the party control of both chambers of Congress, limiting President Trump’s domestic agenda from January 2027. However, foreign policy remains largely within the president’s remit, as demonstrated by his interventions in Venezuela this year, from the capture of Nicolas Maduro to the reopening of the country’s oil sector. These developments have highlighted how closely Venezuela’s oil recovery is tied to decisions in Washington. How",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
-      },
-      {
-        "id": 32,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Europe-Has-Already-Drained-10-of-Its-Summer-Gas-Injections.html",
-        "titulo": "Europe Has Already Drained 10% of Its Summer Gas Injections",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-16T10:30:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Europe has not only entered the heating season with the lowest gas levels in storage sites in decades, but it has also withdrawn in recent weeks 10% of the natural gas injected during the summer filling season, leaving supply vulnerable to potentially extreme cold winter weather. So far into the heating season, which has just started, the net withdrawals of European countries have reached about 10% of the 51.2 billion cubic meters of gas they had injected into storage sites this summer, Azeri ou",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
-      },
-      {
-        "id": 33,
-        "url": "https://oilprice.com/Energy/Energy-General/Houthi-Advance-Puts-Saudi-Crude-Exports-at-Risk.html",
-        "titulo": "Houthi Advance Puts Saudi Crude Exports at Risk",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-16T10:00:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Houthi fighters have advanced to within 100 km of Aden, the temporary capital of Yemen’s Saudi-backed government, after government forces withdrew from positions near the Bab el-Mandeb Strait, Yemeni military sources said on Monday. Tankers carrying Saudi crude from the Red Sea port of Yanbu to buyers in Asia pass through the strait. Brent crude futures fell 2.32% to $93.62 a barrel at 9:43 a.m. ET, and West Texas Intermediate (WTI) dropped 1.93% to 86.85. Murban, Abu Dhabi’s benchmark crude, ro",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
+        "resumen_es": "Rusia neutraliza más de 1300 drones ucranianos, indicando una escalada del conflicto que puede presionar los mercados de energía.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
       },
       {
         "id": 14,
-        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNUUl1RFNGS203aGdsdy1FNHFMMkN2bi1zakRQWF9iclBMZHB1bnZQX195cmh5TVhSNUtMd2xHUmlpUXRpN2J0NzY4TlE0RWpvbHRTdVU3YXZzbENkcjVObVBDZEZKaHc2dkNhZ1RZbERnbVpkT0lxUHBDdzItcUd6dnF1MUFGOXN5Q1lLMGtHTQ?oc=5",
-        "titulo": "Calls for diplomatic end to Iran conflict as oil tanker attacked - The Independent",
-        "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-16T09:51:00-06:00",
-        "categoria": null,
+        "url": "https://www.eia.gov/todayinenergy/detail.php?id=68424",
+        "titulo": "Refineries have shifted production away from gasoline to middle distillates",
+        "titulo_es": "Refinerías reducen producción de gasolina a favor de diésel y jet fuel",
+        "medio": "EIA Today in Energy",
+        "publicado_at": "2026-11-05T08:00:00-06:00",
+        "categoria": "oferta",
         "pais": null,
-        "relevancia": null,
-        "resumen_es": "Calls for diplomatic end to Iran conflict as oil tanker attacked The Independent",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
+        "relevancia": 3,
+        "resumen_es": "Las refinerías aumentan la producción de diésel y combustible de aviación a costa de la gasolina, lo que puede reducir la disponibilidad de gasolina importada a Guatemala y afectar precios.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
       },
       {
-        "id": 34,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Chinas-Coal-Power-Generation-Slumps-as-Wind-and-Solar-Surge.html",
-        "titulo": "China’s Coal Power Generation Slumps as Wind and Solar Surge",
-        "titulo_es": null,
+        "id": 4,
+        "url": "https://oilprice.com/Energy/Crude-Oil/Uganda-Pushes-First-Oil-to-Mid-2027-as-Iran-War-Holds-Up-Equipment.html",
+        "titulo": "Uganda Pushes First Oil to Mid-2027 as Iran War Holds Up Equipment",
+        "titulo_es": "Uganda retrasa su primera exportación de crudo hasta 2027 por la guerra en Irán",
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-16T09:30:00-06:00",
-        "categoria": null,
+        "publicado_at": "2026-11-16T17:00:00-06:00",
+        "categoria": "oferta",
         "pais": null,
-        "relevancia": null,
-        "resumen_es": "China’s thermal power generation fell from a year earlier for the fourth consecutive month in October, with year-to-date thermal power output down by 0.1%, according to official data compiled by Bloomberg. In October alone, China’s fossil fuel power generation, heavily dominated by coal, plunged by 7.3% compared to the same month last year, the data from China’s National Bureau of Statistics showed on Monday. The slump in October extended the annual drop in fossil fuel-powered generation to a fo",
-        "fetched_at": "2026-11-16T11:55:48-06:00"
+        "relevancia": 2,
+        "resumen_es": "Uganda pospone su primera exportación de crudo hasta 2027 por la guerra en Irán, retrasando una posible nueva fuente de suministro global.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
+      },
+      {
+        "id": 7,
+        "url": "https://oilprice.com/Geopolitics/Europe/Ukraine-Braces-for-Pivotal-Week-of-Defense-Talks-Amid-Fresh-Russian-Attacks.html",
+        "titulo": "Ukraine Braces for Pivotal Week of Defense Talks Amid Fresh Russian Attacks",
+        "titulo_es": "Ucrania se prepara para talks de defensa ante nuevos ataques rusos",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-16T09:00:00-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "Ucrania se prepara para conversaciones de defensa mientras Rusia intensifica ataques, manteniendo incertidumbre en los mercados energéticos globales.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
+      },
+      {
+        "id": 6,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Illinois-Ethanol-Plant-Bomb-Is-the-Latest-Threat-to-US-Energy-Sites.html",
+        "titulo": "Illinois Ethanol Plant Bomb Is the Latest Threat to U.S. Energy Sites",
+        "titulo_es": "Explosivo obliga a evacuar planta de etanol en Illinois",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-16T11:30:00-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 1,
+        "resumen_es": "Explosivo encontrado en planta de etanol de Illinois obliga a evacuación, sin impacto inmediato en el suministro de combustibles a Guatemala.",
+        "fetched_at": "2026-11-16T18:06:05-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 10,
-      "total_hoy": 43,
+      "titulos_es_hoy": 15,
+      "total_hoy": 39,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
