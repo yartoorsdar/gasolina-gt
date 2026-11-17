@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-11-16T18:06:05-06:00",
+  "actualizado_at": "2026-11-17T04:54:40-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-11-16",
   "productos": {
@@ -13,14 +13,10 @@
         "fecha": "2026-11-16",
         "precio": 28.49,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-16T18:04:39-06:00",
+        "fetched_at": "2026-11-17T04:53:37-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-16",
-          "precio": 27.45
-        },
         {
           "fecha": "2025-11-17",
           "precio": 28.42
@@ -1231,7 +1227,7 @@
             "fecha": "2026-11-16",
             "precio": 28.49,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-16T18:04:39-06:00",
+            "fetched_at": "2026-11-17T04:53:37-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1350,7 +1346,7 @@
             "fecha": "2026-11-16",
             "precio": 29.59,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-16T18:04:39-06:00",
+            "fetched_at": "2026-11-17T04:53:37-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1424,14 +1420,10 @@
         "fecha": "2026-11-16",
         "precio": 30.99,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-16T18:04:39-06:00",
+        "fetched_at": "2026-11-17T04:53:37-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-16",
-          "precio": 28.46
-        },
         {
           "fecha": "2025-11-17",
           "precio": 29.43
@@ -2650,7 +2642,7 @@
             "fecha": "2026-11-16",
             "precio": 30.99,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-16T18:04:39-06:00",
+            "fetched_at": "2026-11-17T04:53:37-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2777,7 +2769,7 @@
             "fecha": "2026-11-12",
             "precio": 33.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-16T18:04:39-06:00",
+            "fetched_at": "2026-11-17T04:53:37-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2841,14 +2833,10 @@
         "fecha": "2026-11-16",
         "precio": 39.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-16T18:04:39-06:00",
+        "fetched_at": "2026-11-17T04:53:37-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-16",
-          "precio": 26.96
-        },
         {
           "fecha": "2025-11-17",
           "precio": 27.49
@@ -4059,7 +4047,7 @@
             "fecha": "2026-11-16",
             "precio": 39.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-16T18:04:39-06:00",
+            "fetched_at": "2026-11-17T04:53:37-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4174,7 +4162,7 @@
             "fecha": "2026-11-12",
             "precio": 41.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-16T18:04:39-06:00",
+            "fetched_at": "2026-11-17T04:53:37-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4239,10 +4227,10 @@
       "unidad": "USD/barril",
       "orden": 4,
       "actual": {
-        "fecha": "2026-11-16",
-        "precio": 85.28,
+        "fecha": "2026-11-17",
+        "precio": 85.73,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-11-16T18:05:33-06:00",
+        "fetched_at": "2026-11-17T04:54:05-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5353,6 +5341,10 @@
         {
           "fecha": "2026-11-16",
           "precio": 85.28
+        },
+        {
+          "fecha": "2026-11-17",
+          "precio": 85.73
         }
       ],
       "mensual": [],
@@ -5374,7 +5366,7 @@
         {
           "anio": 2026,
           "promedio": 85.54,
-          "dias": 244,
+          "dias": 245,
           "meses": null,
           "fuente": "diario"
         }
@@ -5383,18 +5375,14 @@
         "spot": {
           "nombre": "Spot",
           "actual": {
-            "fecha": "2026-11-16",
-            "precio": 85.28,
+            "fecha": "2026-11-17",
+            "precio": 85.73,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-11-16T18:05:33-06:00",
+            "fetched_at": "2026-11-17T04:54:05-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
           "historial": [
-            {
-              "fecha": "2026-10-17",
-              "precio": 99.0
-            },
             {
               "fecha": "2026-10-18",
               "precio": 99.0
@@ -5514,6 +5502,10 @@
             {
               "fecha": "2026-11-16",
               "precio": 85.28
+            },
+            {
+              "fecha": "2026-11-17",
+              "precio": 85.73
             }
           ]
         }
@@ -5558,7 +5550,7 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 57,
+    "observaciones_7d": 37,
     "notas_leidas": 196,
     "medios": [
       "agn.gt",
@@ -5578,207 +5570,207 @@
     ]
   },
   "noticias": {
-    "total": 39,
+    "total": 38,
     "top": [
+      {
+        "id": 2,
+        "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQM1I0NFl3bXFyaEwxUkdBTjY2YlkxemRlaFJoS3BzcHc4bDJOSzUxbk5EOENaa3loZ1g4RENuc3ZrUGd3X3dlZlVoRHVOV0I3YmpyMU16QmJ1WkdIUTBUaS1md1NhSG9paVdNdldrYl9BTmQySGpPMFd0ZFRobzNnZTFWRTA5LVFJdzlfQVhfU0ZiTk9LTm83VDVKWlljVWo1ZWs2SExIX0hBdnFNb25nZGZabXhyYmJvTGJCTnByeGhDMndTci1pZUpaZFRpaU1PNnZR?oc=5",
+        "titulo": "Ukrainian Drones Hit Gazprom Refinery in Bashkortostan in Second Record Overnight Attack - The Moscow Times",
+        "titulo_es": "Drones ucranianos atacan refinería de Gazprom en Bashkortostan",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-17T03:50:33-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Drones ucranianos impactaron una refinería de Gazprom en Bashkortostan, reduciendo la producción de crudo ruso y presionando al alza los precios del combustible importado por Guatemala.",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
+      },
+      {
+        "id": 5,
+        "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE93RnJ2NFRZQ0N5MkJYSXNQdlRYcl9ZM2t3NEIxSDRWMWRESEpfbllQNTNtOWZqUk1CSFROT3FKbUZKeDhwMDRKLTNwdEd1U1RxZnRCMkExYTI3T19RcVhLLThNeVh0Q3p6RFI2TmNrZWt4Zw?oc=5",
+        "titulo": "Ataque ucranio daña emblemático puente, refinería e industrias rusas - La Jornada",
+        "titulo_es": "Ataque ucranio daña puente emblemático, refinería e industrias en Rusia",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-17T03:46:42-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "El ataque dañó un puente estratégico y una refinería rusa, interrumpiendo la infraestructura de transporte y suministro de energía, lo que puede afectar la disponibilidad y precios del combustible en Guatemala.",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
+      },
       {
         "id": 1,
         "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQLWF6Q2pLWVRqZk9NMXB6VnlJM3dVZEhZbkdQalltZXRkVGttbTE0eGZiUWZELUJ4cEw1N3ozbkFaRklpUjJCd3p0eXhhWDkxVEN1bEZGaTk4bXlxNmtlU0lOTmxRNWgxNnZyOU5QbFVYQVZTNDRzS1lCeDl6eV9fbC1WQmJRR3pfZzVVSHRBaV9La3F5WDR4U0JudURRYjdRSElJOTFoYTloTWxiZzRTV2NYYmdvQzcyeEtBcjQ1ZG91OXU3NGtEdEd6NXNwZFMtMzBmMTg3NVl3VFRqVEE?oc=5",
-        "titulo": "Gasolina regular llega a Q28.49 en Guatemala: así están los precios de los combustibles este 16 de noviembre - Prensa Libre",
-        "titulo_es": "Gasolina regular alcanza Q28.49 en Guatemala",
+        "titulo": "Precio de gasolina en Guatemala hoy, 16 de noviembre: regular baja hasta Q28.49 - Prensa Libre",
+        "titulo_es": "Precio de gasolina regular baja a Q28.49 en Guatemala",
         "medio": "Google News ES",
         "publicado_at": "2026-11-16T15:37:14-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Gasolina regular sube a Q28.49, reflejando costos de importación y afectando a los consumidores guatemaltecos.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
+        "resumen_es": "La gasolina regular bajó a Q28.49, reflejando la caída de precios internacionales y beneficiando a los consumidores guatemaltecos.",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
       },
       {
-        "id": 10,
+        "id": 12,
         "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPenJfWV9sVzd3Y0VKZUZwQllodlNacUhTLVpIc2NObXJVNkhmdmo3QXoydFVXVzdIeVdfbnZQV3l4YnAxYUlqZlJYejYtUks0TzVlMXVlNW9LaTBrNWVsdXBOdjVnbGw1ajQtQTJDT3JER3pxTklnRF9rcEZnTFhkWGhOclIxcjZ0N3pKSkl0VUJ4aldXM0NoSUxvdXByV1RIQy1QbVJwcDRwMU1hM1RRRVpvQlc?oc=5",
         "titulo": "Ukrainian drone attacks 'neutralized' 55% of Russia's oil refining capacity, Zelensky says - The Kyiv Independent",
-        "titulo_es": "Ataques ucranianos dejan inoperativo 55% de la capacidad de refinación rusa",
+        "titulo_es": "Ataques con drones ucranianos neutralizan el 55% de la capacidad de refinación rusa",
         "medio": "Google News EN",
         "publicado_at": "2026-11-15T17:30:24-06:00",
         "categoria": "oferta",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Ucrania afirma que ataques con drones han dejado inoperativa el 55% de la capacidad de refinación rusa, reduciendo la oferta mundial y presionando al alza los precios en Guatemala.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
-      },
-      {
-        "id": 13,
-        "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxORUZXUjR5dWRzUFJTSHRXMlk1b29PMXhhQzlxb0k1c3pfTG4xeXNyRWFjWVZJYnZ4cS1SZjJEc0F5akoxNFhETFJYa0l3MnRUd2ZuYUNuSjNiWEJjM25SME5KQXh3Nm54dUpSaDZUN25BWnhZTlBVWmxNZXJ5T29uZTg1OXd1dS01SVI5YzJnOHBkYmF0NVVOSHY4SQ?oc=5",
-        "titulo": "Ukrainian Drones Strike All Primary Refining Units at Russia’s Sixth-Largest Oil Refinery - Мілітарний",
-        "titulo_es": "Drones destruyen unidades de refinación en la sexta mayor refinería rusa",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-14T11:06:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Drones ucranianos destruyen todas las unidades de refinación de la sexta mayor refinería rusa, disminuyendo significativamente la oferta global de gasolina y diésel, lo que afecta precios en Guatemala.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
-      },
-      {
-        "id": 2,
-        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQbURFN2Y0WFBUT2pPOWZsczQxT3NHeC1xdVJMUVhKSW55ODEtWUxWQ0w3aDJkd2tYbDJhXzR4NXAxbHNNN1RNbFlHd3dTczdaZ1FjRnNMeUlFbXVkcHJucWZCN3dCb21hbGpYSHplbFIta1N5ZEM5SXhYSUk4Qmd6LV9GVkVzS2d6NFdlYmc2WkxtWTRmRGNsdU01d0ZxaDhzSWQ4NktaYVIwXzFzblBmaDQzblNKZnlReURfYmlhN2xvNVFWQmhnTXpPNHltLWFiTnhGSnB3?oc=5",
-        "titulo": "Precio del galón de gasolina en Guatemala: se reporta nuevas bajas en el promedio del MEM y estaciones - Prensa Libre",
-        "titulo_es": "Bajan los precios del galón de gasolina en Guatemala",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-09T19:14:57-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Bajan los precios del galón de gasolina en el promedio del MEM, reduciendo el gasto de los guatemaltecos.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
-      },
-      {
-        "id": 5,
-        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQZkZseFdKMWN4R0xWMU8zZzlnZTg3QlRTc0pobVNwc2xsNTVZTWRCaDZBeWt1dklkLXJyY2sxaGNjT1owWktrcEJiaENrdXhRQTZTQXZVcWs0Xzh2V19PRy1vVFpsYWFFSGZESUVDa3owS21zVXNTSURlRDd6ZmlqOFRPNGwyZXFQRTNMamFIM1FDYzV3RVdkY3N2OFhRUVNmcWU3QmdxUkNXaEV3OFdmS3owd2c?oc=5",
-        "titulo": "Ukraine war latest: Crimean Bridge hit in reported attack, traffic restrictions imposed - The Kyiv Independent",
-        "titulo_es": "Daño al puente de Crimea interrumpe tránsito de petróleo ruso",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-16T13:15:13-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Daño al puente de Crimea interrumpe el flujo de petróleo ruso hacia Europa, lo que puede elevar los precios de importación en Guatemala.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
-      },
-      {
-        "id": 8,
-        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOTmhGNVhidkt3TlpMM3l5UmpTaGYyRnEyZ0pDQnhydG0wWm9sS3VGN0pndWVSODhUbFhYTW5EalBIMEljZEVsNndnbVVNd1dmVzNOMVNHYmtpOEZjVXBaOHNfQ0dzQjlva0QyNEU5OS1vMm50TmhuVEFaZDZ0THpwTDUtX3dpeV9HUEYwOEZaVkhBNzBrZXg1dXljcmVFRC1CT0hqclh2cU9uSklvSTRnSUxXVTlmQmNhNlI1Q1E0S2hSdzF3?oc=5",
-        "titulo": "Ukraine launches biggest drone attack on Russia since war began, defence ministry data shows - Reuters",
-        "titulo_es": "Ucrania lanza el mayor ataque con drones contra Rusia",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-16T07:53:57-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Ucrania lleva a cabo el mayor ataque con drones contra instalaciones rusas, potencialmente reduciendo la producción de petróleo y elevando precios internacionales.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
-      },
-      {
-        "id": 11,
-        "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQMEpUQUJJR2NBbnZNekVuLXBZRnhveUZOSWk4WXZBRVQ3UEFEMC1BNE5zNDF5UkhyS3J3ODZkOU81aUdqaG9zYWZZeklzQWpDczJ1Z0FHNklUT25jb25EcDZMajZ4X0M5c0RxbGE2aFVxdGxlNEFHcDRyQjlTNm1JME03Tlc0N3BUVHFQZHRzMHB6eXZqX3JCSnlNaEZjajBfZmZaYUozVDd0WVlIaFA1eUhZUDZmRFRpaTlZ?oc=5",
-        "titulo": "Ukrainian drones strike Russia's petrochemical capital in overnight assault - France 24",
-        "titulo_es": "Drones ucranianos atacan la capital petroquímica de Rusia",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-15T07:36:53-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Drones ucranianos atacan la capital petroquímica de Rusia, afectando la producción de derivados y pudiendo encarecer los combustibles importados por Guatemala.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
-      },
-      {
-        "id": 12,
-        "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFAwbVlfdVF4MWY0bHp6Q0ZhLUlzdkw4WmxaWjhNVGZlU1pCWXNySjR6LTJsbUJLN01DQUVkYmZ6V3ZSRVRJQjBVM3h0azRWSkRmTFhWNEV2TVFIb0RJVXJFRDgzRFTSAXBBVV95cUxPdlJLck9Pd3lDcE1oTXJNSDR4MlhGZFB5Y0RkVHdSRW5GVG1CckdPM3Z5THdaRXhqcm50dTlaOWwyVkhKNVFEeGtEMjN4aFhsN3JTVGdoYXBwcDZvQjJZLVFYV3loM2RWM3FOMFFTeDRs?oc=5",
-        "titulo": "Drone attack on Russia's Tatarstan causes fire at one of Europe's largest petrochemical plants – photo - Українська правда",
-        "titulo_es": "Ataque con drones incendia planta petroquímica en Tataristán",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-14T23:51:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Un ataque con drones provoca incendio en una de las mayores plantas petroquímicas de Europa en Tataristán, reduciendo el suministro de productos refinados y elevando precios internacionales.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
+        "resumen_es": "Según Zelensky, los drones ucranianos neutralizaron el 55% de la capacidad de refinación rusa, reduciendo significativamente la oferta mundial de petróleo y elevando los precios en Guatemala.",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
       },
       {
         "id": 3,
         "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNUU1OMlBhNE5vbVlNaGNXYzFCMzROSDBnTjRaVlJyRk05UmxzejhiM0NRUlM3YkFhQWd0Z3BRQjZaa013MXMza1lENVh2M25SUm1JLXlBMjYxazB0VWV5NXpiNEhvYW96ZmI4VklZRXU5clhiLW41MF9sRDg2NnlrZ3FvbmU5VWY4Y19zTmVWV2paS285T05RUWJEVUpsajU1SU5EaUwzdU5VWGdMX0ZkaVo1X1ozS284N0pVeEFReFpocnRjREdxaFk0Z2FVWlFDMHhQbnlUZkc4QmVfYTNjUUtSR0w?oc=5",
         "titulo": "Un ataque con drones ucranianos contra una refinería rusa dejó cuatro trabajadores muertos y provocó un incendio - Itón Gadol",
-        "titulo_es": "Ataque con drones ucranianos deja muertos e incendio en refinería rusa",
+        "titulo_es": "Ataque con drones ucranianos deja 4 muertos e incendio en refinería rusa",
         "medio": "Google News ES",
         "publicado_at": "2026-11-14T09:33:29-06:00",
         "categoria": "oferta",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Ataque con drones ucranianos destruye parte de una refinería rusa, reduciendo la oferta mundial y pudiendo elevar precios de importación en Guatemala.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
-      },
-      {
-        "id": 15,
-        "url": "https://www.eia.gov/todayinenergy/detail.php?id=68404",
-        "titulo": "Global refinery inputs fell sharply in the second quarter of 2026 before modest recovery",
-        "titulo_es": "Caen inputs de refinería globales en Q2 2026 tras conflicto en Oriente Medio",
-        "medio": "EIA Today in Energy",
-        "publicado_at": "2026-11-03T08:00:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "La caída del 6% en los inputs de refinería globales en el segundo trimestre de 2026, tras conflicto en Oriente Medio, reduce la oferta de crudo y presiona al alza los precios de los combustibles importados por Guatemala.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
-      },
-      {
-        "id": 9,
-        "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPRThLWndRQk03NE9jTVQtX3FNd1lxOS1IeW54dFhVdC1nVjZYNk5YMWlmZy1PaDhvZzFRQjFMa3VpbnJBai15MVhWT2c2VV9Pa2k1OGdneVBfSjgzQmIxUDgzc1hjbjB0alRQdkU5TUFVcW1DTDZHbVZTVVNHSVpnNUVZRFk2cmt4cFE0SE5lSHk3cGduQXlULUM5S0J0Q1Q2VzlQeGpTM3gwNDBTemJra2c3RGtBOXl5TF95Qk5tRQ?oc=5",
-        "titulo": "Rusia intercepta más de 1,300 drones ucranianos en un ataque a gran escala - El Nuevo Día",
-        "titulo_es": "Rusia intercepta más de 1300 drones ucranianos",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-16T07:20:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Rusia neutraliza más de 1300 drones ucranianos, indicando una escalada del conflicto que puede presionar los mercados de energía.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
-      },
-      {
-        "id": 14,
-        "url": "https://www.eia.gov/todayinenergy/detail.php?id=68424",
-        "titulo": "Refineries have shifted production away from gasoline to middle distillates",
-        "titulo_es": "Refinerías reducen producción de gasolina a favor de diésel y jet fuel",
-        "medio": "EIA Today in Energy",
-        "publicado_at": "2026-11-05T08:00:00-06:00",
-        "categoria": "oferta",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Las refinerías aumentan la producción de diésel y combustible de aviación a costa de la gasolina, lo que puede reducir la disponibilidad de gasolina importada a Guatemala y afectar precios.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
+        "relevancia": 5,
+        "resumen_es": "Un ataque con drones ucranianos causó la muerte de cuatro trabajadores e incendió una refinería rusa, disminuyendo la oferta de petróleo y potencialmente elevando los precios en Guatemala.",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
       },
       {
         "id": 4,
+        "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPcTVzYmZBZlpGQ1NrNzRkZzAzQTgyS09SUW1NbWpqNEdzMXNkd0RSb2NNWVdXaEt6RXdtMDR2UW9kSXJkUnF2MjFNVmZNTUYwRmZ1b0QwUi1QOG5FYzFKN1hONHpMb3lscnJmODhMa1gwMDRsXzA3VVpiRTZPQjZmSzFNOXJkYmw3SHpMZlkwcV85VTNUcXAtTG0tQXpZSXJUeFBjRTk1S21zYVZFWkcxUXhyR0VaUjdZcjRWeXRzcmdpTnM?oc=5",
+        "titulo": "Ukrainian Drone Attack Kills 4 Workers, Sparks Fire at Volgograd Oil Refinery - The Moscow Times",
+        "titulo_es": "Drones ucranianos matan 4 trabajadores y provocan incendio en refinería de Volgogrado",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-13T03:26:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "Drones ucranianos provocaron un incendio y cuatro fallecimientos en la refinería de Volgogrado, afectando la capacidad de refinado ruso y pudiendo incrementar los precios del combustible en Guatemala.",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
+      },
+      {
+        "id": 8,
+        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQZkZseFdKMWN4R0xWMU8zZzlnZTg3QlRTc0pobVNwc2xsNTVZTWRCaDZBeWt1dklkLXJyY2sxaGNjT1owWktrcEJiaENrdXhRQTZTQXZVcWs0Xzh2V19PRy1vVFpsYWFFSGZESUVDa3owS21zVXNTSURlRDd6ZmlqOFRPNGwyZXFQRTNMamFIM1FDYzV3RVdkY3N2OFhRUVNmcWU3QmdxUkNXaEV3OFdmS3owd2c?oc=5",
+        "titulo": "Ukraine war latest: Crimean Bridge hit in reported attack, traffic restrictions imposed - The Kyiv Independent",
+        "titulo_es": "Puente de Crimea sufre ataque y se imponen restricciones de tráfico",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-16T13:15:13-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Un ataque al puente de Crimea provocó restricciones de tráfico, dificultando el tránsito de petróleo y gas rusos y pudiendo afectar los precios internacionales que paga Guatemala.",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
+      },
+      {
+        "id": 10,
+        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOTmhGNVhidkt3TlpMM3l5UmpTaGYyRnEyZ0pDQnhydG0wWm9sS3VGN0pndWVSODhUbFhYTW5EalBIMEljZEVsNndnbVVNd1dmVzNOMVNHYmtpOEZjVXBaOHNfQ0dzQjlva0QyNEU5OS1vMm50TmhuVEFaZDZ0THpwTDUtX3dpeV9HUEYwOEZaVkhBNzBrZXg1dXljcmVFRC1CT0hqclh2cU9uSklvSTRnSUxXVTlmQmNhNlI1Q1E0S2hSdzF3?oc=5",
+        "titulo": "Ukraine launches biggest drone attack on Russia since war began, defence ministry data shows - Reuters",
+        "titulo_es": "Ucrania lanza el mayor ataque con drones a Rusia desde el inicio de la guerra",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-16T07:53:57-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Ucrania lanzó el mayor ataque con drones a Rusia, dañando instalaciones energéticas y reduciendo la capacidad de producción, lo que puede presionar al alza los precios del combustible importado por Guatemala.",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
+      },
+      {
+        "id": 13,
+        "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQMEpUQUJJR2NBbnZNekVuLXBZRnhveUZOSWk4WXZBRVQ3UEFEMC1BNE5zNDF5UkhyS3J3ODZkOU81aUdqaG9zYWZZeklzQWpDczJ1Z0FHNklUT25jb25EcDZMajZ4X0M5c0RxbGE2aFVxdGxlNEFHcDRyQjlTNm1JME03Tlc0N3BUVHFQZHRzMHB6eXZqX3JCSnlNaEZjajBfZmZaYUozVDd0WVlIaFA1eUhZUDZmRFRpaTlZ?oc=5",
+        "titulo": "Ukrainian drones strike Russia's petrochemical capital in overnight assault - France 24",
+        "titulo_es": "Drones ucranianos atacan la capital petroquímica de Rusia durante la noche",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-15T07:36:53-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Drones ucranianos atacaron la capital petroquímica de Rusia, afectando la producción de productos derivados del petróleo y pudiendo influir en los precios del combustible en Guatemala.",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
+      },
+      {
+        "id": 6,
+        "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPbS1pV2FGQVJKaXdSS2FBN1BRajVha0VfaW5LOThLS3FQOTVmV29EcTRsdnZQR3dFUEtDNmF0R1REdHVGZEFwd2taZmdCbUFjSkRzN21pWFRpcXBzSGU2bFY0QWQ3Vy1zTEN3QS1TQlZkYmxlcWItQlVhMHBrbjFFYmpjRFZHRE5HRjM1dzJkSG9TT3BW0gGUAUFVX3lxTFBnUmhfeXBaeGxtb3pKUk42TkxHU3RON1dndjdHMmRtaWwtZUdqSDJ1WUhpLXQ5NVJiOXY0bVQ3S2pzODNzN2N0TkhPQXJGeWtsUU9UYTZzdzdrYXZZZUptRUpleUxCNFMtRk1EalZ4cmItSzVFQTFPSGlIYV82Z2hXb3hJMy1rUW5sYjBxNlIzZXE4cDE?oc=5",
+        "titulo": "Rusia y Ucrania intercambian ataques nocturnos con drones - DW.com",
+        "titulo_es": "Rusia y Ucrania intercambian ataques nocturnos con drones",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-16T19:13:32-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Rusia y Ucrania se lanzaron ataques nocturnos con drones, incrementando la tensión geopolítica que puede influir en los mercados energéticos internacionales.",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
+      },
+      {
+        "id": 7,
         "url": "https://oilprice.com/Energy/Crude-Oil/Uganda-Pushes-First-Oil-to-Mid-2027-as-Iran-War-Holds-Up-Equipment.html",
         "titulo": "Uganda Pushes First Oil to Mid-2027 as Iran War Holds Up Equipment",
-        "titulo_es": "Uganda retrasa su primera exportación de crudo hasta 2027 por la guerra en Irán",
+        "titulo_es": "Uganda pospone su primera exportación de petróleo hasta 2027 por la guerra en Irán",
         "medio": "OilPrice.com",
         "publicado_at": "2026-11-16T17:00:00-06:00",
         "categoria": "oferta",
         "pais": null,
         "relevancia": 2,
-        "resumen_es": "Uganda pospone su primera exportación de crudo hasta 2027 por la guerra en Irán, retrasando una posible nueva fuente de suministro global.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
+        "resumen_es": "Uganda retrasó su primera exportación de petróleo hasta mediados de 2027 debido a la guerra en Irán, limitando una futura fuente de crudo que podría haber diversificado el suministro de Guatemala.",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
       },
       {
-        "id": 7,
-        "url": "https://oilprice.com/Geopolitics/Europe/Ukraine-Braces-for-Pivotal-Week-of-Defense-Talks-Amid-Fresh-Russian-Attacks.html",
-        "titulo": "Ukraine Braces for Pivotal Week of Defense Talks Amid Fresh Russian Attacks",
-        "titulo_es": "Ucrania se prepara para talks de defensa ante nuevos ataques rusos",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-16T09:00:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Ucrania se prepara para conversaciones de defensa mientras Rusia intensifica ataques, manteniendo incertidumbre en los mercados energéticos globales.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
-      },
-      {
-        "id": 6,
+        "id": 9,
         "url": "https://oilprice.com/Latest-Energy-News/World-News/Illinois-Ethanol-Plant-Bomb-Is-the-Latest-Threat-to-US-Energy-Sites.html",
         "titulo": "Illinois Ethanol Plant Bomb Is the Latest Threat to U.S. Energy Sites",
-        "titulo_es": "Explosivo obliga a evacuar planta de etanol en Illinois",
+        "titulo_es": "Explosivo encontrado en planta de etanol de Illinois obliga a evacuar zona",
         "medio": "OilPrice.com",
         "publicado_at": "2026-11-16T11:30:00-06:00",
         "categoria": "otro",
         "pais": null,
         "relevancia": 1,
-        "resumen_es": "Explosivo encontrado en planta de etanol de Illinois obliga a evacuación, sin impacto inmediato en el suministro de combustibles a Guatemala.",
-        "fetched_at": "2026-11-16T18:06:05-06:00"
+        "resumen_es": "Se encontró un explosivo en una planta de etanol de Illinois, obligando a evacuar y cerrar la instalación, pero el impacto en el suministro de combustibles para Guatemala es mínimo.",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
+      },
+      {
+        "id": 18,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Iran-and-Oman-Hold-Talks-on-Strait-of-Hormuz-Security-as-Tanker-Attacks-Surge.html",
+        "titulo": "Iran and Oman Hold Talks on Strait of Hormuz Security as Tanker Attacks Surge",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-17T04:00:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "The foreign ministers of Iran and Oman discussed on Tuesday the situation in the region and the importance of keeping security in the maritime corridors to ensure smooth flows of shipping and trade, Oman’s Foreign Ministry said. Oman’s Foreign Minister Sayyid Badr Albusaidi and his visiting Iranian counterpart, Abbas Araghchi, also talked about revitalizing channels for dialogue and negotiations. “These efforts aim to broaden areas of understanding among the parties concerned and prevent the cri",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
+      },
+      {
+        "id": 30,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Japan-Proposes-an-Asian-IEA-to-Protect-Oil-Supplies.html",
+        "titulo": "Japan Proposes an 'Asian IEA' to Protect Oil Supplies",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-17T02:45:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Japan has proposed a joint Asian task force to handle crude oil stockpiling and a “Power Gulf Initiative” to deepen cooperation between Asian energy importers and their biggest regional suppliers in the Middle East. “We intend to promote it as an equivalent of an Asian version of the International Energy Agency,” Prime Minister Sanae Takaichi said at an Asia Zero Emission Community event that followed the ASEAN Summit, as quoted by Reuters. Despite the irony in discussing crude oil stockpiling a",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
+      },
+      {
+        "id": 19,
+        "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOUjY0a2xpMEF2LTVsZXVDa25tNnZVcTN3aTJrVU9CdmtvVDA4Zm9qcXBWSVNnRTNhRGxkMmJFV2czWjN5Q1B1WGJNNUVZdGJHOVcyUkltbXAya3g1SjIwTUNSX0xBTEtxTGhKc2RHTWQyRExmN3hPRVpoWXI4WEZrTms1Q1cyZmxHLTgxZERQem5iejJqYkJJb29DaGJDdw?oc=5",
+        "titulo": "Satellite image shows fires at two oil depots in Russia’s Azov - Цензор.НЕТ",
+        "titulo_es": null,
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-17T00:36:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Satellite image shows fires at two oil depots in Russia’s Azov Цензор.НЕТ",
+        "fetched_at": "2026-11-17T04:54:40-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 15,
-      "total_hoy": 39,
+      "titulos_es_hoy": 13,
+      "total_hoy": 38,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
