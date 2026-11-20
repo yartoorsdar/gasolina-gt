@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-11-19T11:54:06-06:00",
+  "actualizado_at": "2026-11-20T04:54:02-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-11-18",
   "productos": {
@@ -13,14 +13,10 @@
         "fecha": "2026-11-18",
         "precio": 28.49,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-19T11:53:07-06:00",
+        "fetched_at": "2026-11-20T04:52:59-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-19",
-          "precio": 28.42
-        },
         {
           "fecha": "2025-11-20",
           "precio": 28.42
@@ -1223,7 +1219,7 @@
             "fecha": "2026-11-18",
             "precio": 28.49,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-19T11:53:07-06:00",
+            "fetched_at": "2026-11-20T04:52:59-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1362,7 +1358,7 @@
             "fecha": "2026-11-18",
             "precio": 29.59,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-19T11:53:07-06:00",
+            "fetched_at": "2026-11-20T04:52:59-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1440,14 +1436,10 @@
         "fecha": "2026-11-18",
         "precio": 30.99,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-19T11:53:07-06:00",
+        "fetched_at": "2026-11-20T04:52:59-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-19",
-          "precio": 29.43
-        },
         {
           "fecha": "2025-11-20",
           "precio": 29.43
@@ -2658,7 +2650,7 @@
             "fecha": "2026-11-18",
             "precio": 30.99,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-19T11:53:07-06:00",
+            "fetched_at": "2026-11-20T04:52:59-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2801,7 +2793,7 @@
             "fecha": "2026-11-12",
             "precio": 33.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-19T11:53:07-06:00",
+            "fetched_at": "2026-11-20T04:52:59-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2871,14 +2863,10 @@
         "fecha": "2026-11-18",
         "precio": 39.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-19T11:53:07-06:00",
+        "fetched_at": "2026-11-20T04:52:59-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-19",
-          "precio": 27.49
-        },
         {
           "fecha": "2025-11-20",
           "precio": 27.49
@@ -4081,7 +4069,7 @@
             "fecha": "2026-11-18",
             "precio": 39.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-19T11:53:07-06:00",
+            "fetched_at": "2026-11-20T04:52:59-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4216,7 +4204,7 @@
             "fecha": "2026-11-12",
             "precio": 41.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-19T11:53:07-06:00",
+            "fetched_at": "2026-11-20T04:52:59-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4287,17 +4275,13 @@
       "unidad": "USD/barril",
       "orden": 4,
       "actual": {
-        "fecha": "2026-11-19",
-        "precio": 84.25,
+        "fecha": "2026-11-20",
+        "precio": 81.59,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-11-19T11:53:31-06:00",
+        "fetched_at": "2026-11-20T04:53:28-06:00",
         "incluye_impuestos": null
       },
       "historial": [
-        {
-          "fecha": "2025-11-19",
-          "precio": 59.83
-        },
         {
           "fecha": "2025-11-20",
           "precio": 59.42
@@ -5405,6 +5389,10 @@
         {
           "fecha": "2026-11-19",
           "precio": 84.25
+        },
+        {
+          "fecha": "2026-11-20",
+          "precio": 81.59
         }
       ],
       "mensual": [],
@@ -5425,8 +5413,8 @@
         },
         {
           "anio": 2026,
-          "promedio": 85.52,
-          "dias": 247,
+          "promedio": 85.51,
+          "dias": 248,
           "meses": null,
           "fuente": "diario"
         }
@@ -5435,18 +5423,14 @@
         "spot": {
           "nombre": "Spot",
           "actual": {
-            "fecha": "2026-11-19",
-            "precio": 84.25,
+            "fecha": "2026-11-20",
+            "precio": 81.59,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-11-19T11:53:31-06:00",
+            "fetched_at": "2026-11-20T04:53:28-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
           "historial": [
-            {
-              "fecha": "2026-10-20",
-              "precio": 97.88
-            },
             {
               "fecha": "2026-10-21",
               "precio": 97.09
@@ -5566,6 +5550,10 @@
             {
               "fecha": "2026-11-19",
               "precio": 84.25
+            },
+            {
+              "fecha": "2026-11-20",
+              "precio": 81.59
             }
           ]
         }
@@ -5610,8 +5598,8 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 54,
-    "notas_leidas": 216,
+    "observaciones_7d": 48,
+    "notas_leidas": 222,
     "medios": [
       "agn.gt",
       "dca.gob.gt",
@@ -5630,23 +5618,36 @@
     ]
   },
   "noticias": {
-    "total": 49,
+    "total": 51,
     "top": [
       {
-        "id": 9,
-        "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQeXMwUkl0ZFczYjR3QnpFRU1FRFYtQkZia2NQcFdHN1BjY0FKbFFnZXNiMEp5SDc2TlFZUmVvcDBFbGd5S2NJQmpZS1B6SmNWRUJrOHNtOGFWdk14Y2N0VlpnN1BQS3k5VGsyRkZMbmNYLUdWeE1uTjlfa01HS1VvZjBZMTBJMURhaTFsT1NhS2padXp1c0Mtb2k3bTRnUVZveGdJbnZHVUUzbGZiNTBIOHFuN2tNUDhsT2tseGRVQQ?oc=5",
-        "titulo": "Precio del petróleo sube por ataques a buques en Medio Oriente pese a previsiones de superávit - PortalPortuario",
-        "titulo_es": "Precio del petróleo sube por ataques a buques en Medio Oriente pese a previsiones de superávit - PortalPortuario",
+        "id": 6,
+        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5vTEFfcmlJeHoycGp4X202Mm5LdUNkNEYwVkNrcDhkSVluU0ZMOVhHS1loeFdOck5QTXpqNmlsdWt3MjV1WFFOWkhmSHZsZWhEQWdoNXhoeTFRcmxa0gFiQVVfeXFMTUlxNWdHT29SbXlsX3N0NlBrZjhhYTUtTzhPaUx0bDhkaTVXRUxfc1h3OGpJamlORHBhaC1PMzRpMEc3Um82SlBOenRBRUdPNzU3czBWTmNOV2I4bGpMMFJrVUE?oc=5",
+        "titulo": "\"Aquí los drones no vuelan\": la BBC en el interior del gasoducto desde el que Ucrania libra una guerra subterránea contra Rusia - BBC",
+        "titulo_es": "\"Aquí los drones no vuelan\": la BBC en el interior del gasoducto desde el que Ucrania libra una guerra subterránea contr",
         "medio": "Google News ES",
-        "publicado_at": "2026-11-19T06:30:15-06:00",
+        "publicado_at": "2026-11-19T22:13:05-06:00",
         "categoria": "otro",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Precio del petróleo sube por ataques a buques en Medio Oriente pese a previsiones de superávit PortalPortuario",
-        "fetched_at": "2026-11-19T11:54:05-06:00"
+        "resumen_es": "\"Aquí los drones no vuelan\": la BBC en el interior del gasoducto desde el que Ucrania libra una guerra subterránea contra Rusia BBC",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
       },
       {
-        "id": 11,
+        "id": 9,
+        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPblZJRndGRHhOMmp0cnNQSmswQTRCVk1NRGkwc2xHelhxNEJOcHYzaHBDR0lTLURSVmpPZ2FtYW1pY19XT2dRRE5rTlBTaVBCbldkTFF3X3dwRlgwZ2xFVkZkNjJLRERLQVl2X2o4MUlNejFuRUNrcHFoQ3ZmZV83RU91M2JmZUdNY0owNUlORUFnWUhISk5yTmlubmNicXNsdUZCb3RXVDlkSFMwM2ZR?oc=5",
+        "titulo": "Drones ucranianos golpean refinería de petróleo en la república rusa de Tatarstán - Plaza de Armas | Querétaro",
+        "titulo_es": "Drones ucranianos golpean refinería de petróleo en la república rusa de Tatarstán - Plaza de Armas | Querétaro",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-19T11:48:29-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Drones ucranianos golpean refinería de petróleo en la república rusa de Tatarstán Plaza de Armas | Querétaro",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
+      },
+      {
+        "id": 10,
         "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOQWlqcVpPY2JVWmhUUWNlNkJHN0M3ODdkanZtN09SYW8xTXRZeEVlbHd4QTBjLWlTTnVXZV9BaWpWV1JqMXI5S0ptTjBNUTZjMEIxVlV6aDBvTTZSQUFnR05mZG84ZHk0QV82Y1k5S3hwTmhzQzk2a2cwWVZDVkdMaEZVOVF1ckJaaEx5UHdTbkFKNF9QMUd2RVYzS3QwRFQwRHJYNnZwYVg4ZjRZUTNqc0poNTMtZFZwX0d3d3k1Q2dpZkE?oc=5",
         "titulo": "Rusia. Ataques con drones reducen casi a la mitad la refinación de petróleo - Resumen Latinoamericano -",
         "titulo_es": "Rusia. Ataques con drones reducen casi a la mitad la refinación de petróleo - Resumen Latinoamericano -",
@@ -5656,181 +5657,168 @@
         "pais": null,
         "relevancia": 4,
         "resumen_es": "Rusia. Ataques con drones reducen casi a la mitad la refinación de petróleo Resumen Latinoamericano -",
-        "fetched_at": "2026-11-19T11:54:05-06:00"
+        "fetched_at": "2026-11-20T04:54:02-06:00"
+      },
+      {
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE4yTUpQRkc1UktnQjBlRHhIai1MSjkzLV9Nd0gxU1pQZzQzd3RtV0t6czhLdGZEN1BwdFNKRU91RUNxYkVldlpxWFk2ZW80SGZNb2pXcXRFZ0E4MExIdUdheG5zMl_SAXBBVV95cUxOM3I4QmtMY1NlN0MyZzBHY3NqTnNnZzU1eWotMFJoYU5JVmRMcXlEM0cyTW5wS0RFSFRsQ3hmd0VEME05Ukx4dGxaY1A0Z0VfSzJ4MU5GSVVYV3ZtekQtX2M5WkN0azcyd1RVTlhZb3li?oc=5",
+        "titulo": "Drones attack Russia's Krasnodar Krai, fire breaks out at oil refinery – videos - Українська правда",
+        "titulo_es": "Drones incendian refinería en Krasnodar, Rusia, reduciendo su capacidad",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-17T23:36:00-06:00",
+        "categoria": "oferta",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Drones incendiaron una refinería en Krasnodar, reduciendo la capacidad de procesamiento ruso y presionando al alza los precios internacionales, lo que encarece los combustibles importados por Guatemala.",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
+      },
+      {
+        "id": 11,
+        "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOaVFLVWx0aDA3alQtS18zZ0tmcWg4d093NVdjbjJQbWRHZkZtR3ZSUTBhakhncXMtY3hzUlIzNjhvcG16dmZPTHlsSF9NaHZUczRTRDhoSXpTemlYaUpNZlRVeXVsclhlV0w0clo0R2RPbkUyTXpfN2RrNS1zWWJhdk1OLXZvQ3JzWXk5emFHRnZzSGlfd1VhY0tNUkdyQzF0dGpDV3E1ZEY2T25vaUtmZUVya09JdE12XzRaRnJ2Wno?oc=5",
+        "titulo": "El petróleo de Texas sube el 0,34%, pendiente de los ataques en Oriente Medio y Ormuz - AlbertoNews",
+        "titulo_es": "El petróleo de Texas sube el 0,34%, pendiente de los ataques en Oriente Medio y Ormuz - AlbertoNews",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-17T15:19:27-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El petróleo de Texas sube el 0,34%, pendiente de los ataques en Oriente Medio y Ormuz AlbertoNews",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
+      },
+      {
+        "id": 12,
+        "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOalFQVW9MejQxbFc1MkVoX0EtYWhrYjkxNmpuRU5HZ1lXMFZWUTd4NS1kQkh0RjZ2b2N6WU1GOHY5Z015UFRvT2lOSmhyMFNFNERCZW9HQ1F6dDZ3OWZKYmZIbmxMYkJ0M2cwVG9NTE9nVHdfYjFsZkxOdUlFZmxWQ2Y0Q0p6cnNzV1JTb1REOUJZWFpfcDd6bElKUmtpWUJYTzEyNENqNFdMcGRCZ0lZSFAyLXpjd1Rpb3dENWZITDVkXzFVWTlDV1dZVnc3QTQ4YkZnOVdYT0pyZnA5Znc?oc=5",
+        "titulo": "Los hutíes anuncian un nuevo ataque contra el oleoducto estratégico Este-Oeste en Arabia Saudí - Europa Press",
+        "titulo_es": "Los hutíes anuncian un nuevo ataque contra el oleoducto estratégico Este-Oeste en Arabia Saudí - Europa Press",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-17T12:37:53-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Los hutíes anuncian un nuevo ataque contra el oleoducto estratégico Este-Oeste en Arabia Saudí <font color=\"#6f6f",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
+      },
+      {
+        "id": 13,
+        "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPaDZsQ0ViTDNtajhPQkpaWk5FZjQwM05PWHZNSWZhN3FXVnJEOTZhTTFyVFFIbmZ3cUViMk5CTU1HbWpDTW55Y3MtZXl1YmQzcDRySkJ5OW1kZWlGYkpHVHk0ODNONTVZUW9pcEFhbEUxYWpFeXEzMjM5N0pUa1VZbEt5b3ZvUm1WQXJtSkZSZnNrcE9rUkJ5ZzdreU45cTluTlRHb3h0RDN6NlhXZTNCRE0tWThMa0ppaUdkSFh6NjRjLXRZWXQ4YjhOR3ZYUkR2THZKU3o2bkE4TnQwdjBuSDltU0ExVE0?oc=5",
+        "titulo": "Materias primas en Canadá: el petróleo sube tras el ataque a varios buques en el estrecho de Ormuz - MarketScreener España",
+        "titulo_es": "Materias primas en Canadá: el petróleo sube tras el ataque a varios buques en el estrecho de Ormuz - MarketScreener Espa",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-17T09:00:53-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Materias primas en Canadá: el petróleo sube tras el ataque a varios buques en el estrecho de Ormuz <f",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
+      },
+      {
+        "id": 4,
+        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQTW5DNmhKMURGdXVDUWxha2E1bVJEUzZkRnVfUWRxZ0pFN3hFdFAxZjBQM0UtTFlEbFRYeVdIRlJFQkFkQ2hWU3paTUh5YVppblNDU0duZGlpd0lhc0Z0NnpiQ0hwTmtnWE9kSkltM3MzeG9iWHRnVHk0b04yekxoaUtSaUxObHNNV3VzLTZucjl3UEJNMWdV?oc=5",
+        "titulo": "Ukrainian troops say they battled through underground gas pipeline to launch attack behind Russian lines - CBS News",
+        "titulo_es": "Tropas ucranianas usan gasoducto subterráneo para atacar tras líneas rusas",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-17T11:16:06-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Soldados ucranianos utilizaron un gasoducto subterráneo para lanzar ataques, evidenciando vulnerabilidades en la infraestructura energética rusa y posibles interrupciones que pueden afectar los precios globales.",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
       },
       {
         "id": 1,
+        "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQcGxjX1lzdnJaMEpqX1NzelBnT2U3Y0k0c1BlaGlrZXFpYXl0a01yOHNqQ1VxV19pSm9WTGpEMW5lMV9pWl95SFFDMGtwZlhiSjYyMjBSZnVYekNIU2prMjBCQnZMbkwxRFlxb2NlVGRqcVllamZNelRMZXlha0J2MlVSX0FCbnVBUkREUWhQUmJRczMydFNvcDQ1eGJRMFJINmdGYWNLTktUTGdTR0M1Nlh4Y2Y5MlNqd3JVdlNMTVJ3d2Vtb2lXRlRkREppYi1ubDAyVEpSNmI?oc=5",
+        "titulo": "Precio del petróleo podría bajar en el 2027: Guatemala mantendrá exoneración de combustibles hasta junio - Prensa Libre",
+        "titulo_es": "Precio del petróleo podría bajar en 2027 y Guatemala mantendrá exoneración hasta junio",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-19T16:02:02-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "Se prevé una caída del precio del crudo en 2027 y Guatemala mantendrá la exoneración de combustibles hasta junio, lo que mantendrá bajos los precios internos.",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
+      },
+      {
+        "id": 2,
         "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQLWF6Q2pLWVRqZk9NMXB6VnlJM3dVZEhZbkdQalltZXRkVGttbTE0eGZiUWZELUJ4cEw1N3ozbkFaRklpUjJCd3p0eXhhWDkxVEN1bEZGaTk4bXlxNmtlU0lOTmxRNWgxNnZyOU5QbFVYQVZTNDRzS1lCeDl6eV9fbC1WQmJRR3pfZzVVSHRBaV9La3F5WDR4U0JudURRYjdRSElJOTFoYTloTWxiZzRTV2NYYmdvQzcyeEtBcjQ1ZG91OXU3NGtEdEd6NXNwZFMtMzBmMTg3NVl3VFRqVEE?oc=5",
         "titulo": "Precio de gasolina en Guatemala hoy, 16 de noviembre: regular baja hasta Q28.49 - Prensa Libre",
-        "titulo_es": "Gasolina regular baja a Q28.49 en Guatemala el 16 de noviembre",
+        "titulo_es": "Gasolina regular en Guatemala baja a Q28.49 el 16 de noviembre",
         "medio": "Google News ES",
         "publicado_at": "2026-11-16T15:37:14-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El precio de la gasolina regular cayó a Q28.49, reflejando una disminución del costo internacional del crudo, lo que reduce el gasto de los guatemaltecos.",
-        "fetched_at": "2026-11-19T11:54:05-06:00"
+        "relevancia": 2,
+        "resumen_es": "La gasolina regular bajó a Q28.49, reflejando la caída del precio internacional y la exoneración vigente, reduciendo el costo para los guatemaltecos.",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
       },
       {
-        "id": 2,
-        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQbURFN2Y0WFBUT2pPOWZsczQxT3NHeC1xdVJMUVhKSW55ODEtWUxWQ0w3aDJkd2tYbDJhXzR4NXAxbHNNN1RNbFlHd3dTczdaZ1FjRnNMeUlFbXVkcHJucWZCN3dCb21hbGpYSHplbFIta1N5ZEM5SXhYSUk4Qmd6LV9GVkVzS2d6NFdlYmc2WkxtWTRmRGNsdU01d0ZxaDhzSWQ4NktaYVIwXzFzblBmaDQzblNKZnlReURfYmlhN2xvNVFWQmhnTXpPNHltLWFiTnhGSnB3?oc=5",
-        "titulo": "Precio del galón de gasolina en Guatemala: se reporta nuevas bajas en el promedio del MEM y estaciones - Prensa Libre",
-        "titulo_es": "Nuevas bajas en el precio promedio de gasolina en Guatemala",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-09T02:00:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El promedio del MEM y estaciones muestra nuevas bajas en la gasolina, indicando presión a la baja de los precios internacionales y beneficiando a los consumidores guatemaltecos.",
-        "fetched_at": "2026-11-19T11:54:05-06:00"
-      },
-      {
-        "id": 7,
-        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPblZJRndGRHhOMmp0cnNQSmswQTRCVk1NRGkwc2xHelhxNEJOcHYzaHBDR0lTLURSVmpPZ2FtYW1pY19XT2dRRE5rTlBTaVBCbldkTFF3X3dwRlgwZ2xFVkZkNjJLRERLQVl2X2o4MUlNejFuRUNrcHFoQ3ZmZV83RU91M2JmZUdNY0owNUlORUFnWUhISk5yTmlubmNicXNsdUZCb3RXVDlkSFMwM2ZR?oc=5",
-        "titulo": "Drones ucranianos golpean refinería de petróleo en la república rusa de Tatarstán - Plaza de Armas | Querétaro",
-        "titulo_es": "Drones ucranianos golpean refinería en Tatarstán, Rusia",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-19T11:48:29-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Un ataque de drones a una refinería en Tatarstán dañó la producción de crudo ruso, limitando la oferta mundial y potencialmente elevando los precios de los combustibles importados por Guatemala.",
-        "fetched_at": "2026-11-19T11:54:05-06:00"
-      },
-      {
-        "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE4yTUpQRkc1UktnQjBlRHhIai1MSjkzLV9Nd0gxU1pQZzQzd3RtV0t6czhLdGZEN1BwdFNKRU91RUNxYkVldlpxWFk2ZW80SGZNb2pXcXRFZ0E4MExIdUdheG5zMl_SAXBBVV95cUxOM3I4QmtMY1NlN0MyZzBHY3NqTnNnZzU1eWotMFJoYU5JVmRMcXlEM0cyTW5wS0RFSFRsQ3hmd0VEME05Ukx4dGxaY1A0Z0VfSzJ4MU5GSVVYV3ZtekQtX2M5WkN0azcyd1RVTlhZb3li?oc=5",
-        "titulo": "Drones attack Russia's Krasnodar Krai, fire breaks out at oil refinery – videos - Українська правда",
-        "titulo_es": "Drones provocan incendio en refinería de Krasnodar, Rusia",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-17T23:36:00-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Un ataque con drones provocó un incendio en una refinería de Krasnodar, disminuyendo la producción de petróleo ruso; la reducción de oferta puede influir en los precios internacionales que paga Guatemala.",
-        "fetched_at": "2026-11-19T11:54:05-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQM1I0NFl3bXFyaEwxUkdBTjY2YlkxemRlaFJoS3BzcHc4bDJOSzUxbk5EOENaa3loZ1g4RENuc3ZrUGd3X3dlZlVoRHVOV0I3YmpyMU16QmJ1WkdIUTBUaS1md1NhSG9paVdNdldrYl9BTmQySGpPMFd0ZFRobzNnZTFWRTA5LVFJdzlfQVhfU0ZiTk9LTm83VDVKWlljVWo1ZWs2SExIX0hBdnFNb25nZGZabXhyYmJvTGJCTnByeGhDMndTci1pZUpaZFRpaU1PNnZR?oc=5",
-        "titulo": "Ukrainian Drones Hit Gazprom Refinery in Bashkortostan in Second Record Overnight Attack - The Moscow Times",
-        "titulo_es": "Drones ucranianos atacan refinería Gazprom en Bashkortostán",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-17T03:50:00-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Drones ucranianos impactaron la refinería Gazprom en Bashkortostán, reduciendo la capacidad de refinado ruso; la menor oferta de productos refinados puede presionar al alza los precios del combustible en Guatemala.",
-        "fetched_at": "2026-11-19T11:54:05-06:00"
-      },
-      {
-        "id": 8,
-        "url": "https://oilprice.com/Geopolitics/Europe/Russia-Faces-a-Logistics-Nightmare-After-Crimea-Bridge-Collapse.html",
-        "titulo": "Russia Faces a Logistics Nightmare After Crimea Bridge Collapse",
-        "titulo_es": "Rusia enfrenta caos logístico tras colapso del puente de Crimea",
+        "id": 18,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Iran-Moves-to-Restart-Oil-Exports-Despite-US-Naval-Blockade.html",
+        "titulo": "Iran Moves to Restart Oil Exports Despite U.S. Naval Blockade",
+        "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-19T08:30:00-06:00",
-        "categoria": "infraestructura",
+        "publicado_at": "2026-11-20T03:00:00-06:00",
+        "categoria": null,
         "pais": null,
-        "relevancia": 2,
-        "resumen_es": "El colapso del puente de Crimea dificulta el transporte de petróleo y gas hacia Rusia, generando cuellos de botella logísticos que pueden encarecer los suministros energéticos para Guatemala.",
-        "fetched_at": "2026-11-19T11:54:05-06:00"
+        "relevancia": null,
+        "resumen_es": "Iran is preparing to relaunch crude oil exports even as the United States says it is going to tighten the naval blockade on Iranian ports it imposed earlier this year in response to Iran’s closing of the Strait of Hormuz. Bloomberg reported earlier today that a cargo of Iranian crude had been transferred from a Suezmax tanker under U.S. sanctions to a medium-range vessel that is not under sanctions. The information comes from an anti-Iran organization named United Against Nuclear Iran and vessel",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
       },
       {
-        "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPQ3Zva2pfbV84elhuMnJfTkVQNUpEM0ZkcE1wNXRpNTZNa0RjQWUzVGdXRjZVb3lDcDdNNFlhUDI4TUJCNTByODBmNXVWX2JzOXI4S2hNdFItbDQ0ZDY4Mk1aUENvSW1IMTBYelhWTXQtcmRvWmVreU9MZmlBVXlVeGpWallHTlpmTkktbTF1NVg2OHBBaXl1N2oteDNSVG9LRlE?oc=5",
-        "titulo": "Drone Attack Damages Gas Pipeline in Russia’s Krasnodar, Nine Injured - Caspian Post",
-        "titulo_es": "Drones dañan gasoducto en Krasnodar, Rusia, dejando nueve heridos",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-18T06:12:25-06:00",
-        "categoria": "infraestructura",
+        "id": 30,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Rebound-as-Houthi-Attacks-Reignite-Middle-East-Supply-Fears.html",
+        "titulo": "Oil Prices Rebound as Houthi Attacks Reignite Middle East Supply Fears",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-19T23:51:00-06:00",
+        "categoria": null,
         "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Drones dañaron un gasoducto en Krasnodar, reduciendo la capacidad de suministro de gas ruso; la caída de la oferta puede elevar los precios del gas y del combustible importado en Guatemala.",
-        "fetched_at": "2026-11-19T11:54:05-06:00"
+        "relevancia": null,
+        "resumen_es": "Crude oil prices earlier today reversed a decline that began earlier in the week, gaining on reports of fresh Houthi attacks on Saudi targets and continued tanker trouble in the Strait of Hormuz. At the time of writing, Brent crude was trading at $92.67 per barrel, and West Texas Intermediate was changing hands for $83.06 per barrel, after media reported the Yemeni Houthis had struck targets in Riyadh, including the city’s financial district and the headquarters of the country’s sovereign wealth",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
       },
       {
-        "id": 5,
-        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQTW5DNmhKMURGdXVDUWxha2E1bVJEUzZkRnVfUWRxZ0pFN3hFdFAxZjBQM0UtTFlEbFRYeVdIRlJFQkFkQ2hWU3paTUh5YVppblNDU0duZGlpd0lhc0Z0NnpiQ0hwTmtnWE9kSkltM3MzeG9iWHRnVHk0b04yekxoaUtSaUxObHNNV3VzLTZucjl3UEJNMWdV?oc=5",
-        "titulo": "Ukrainian troops say they battled through underground gas pipeline to launch attack behind Russian lines - CBS News",
-        "titulo_es": "Tropas ucranianas atraviesan gasoducto subterráneo para atacar tras líneas rusas",
+        "id": 19,
+        "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5SV3VLcC1fUXZ3eUN2ckZpSzd3akdsSE55cFRrUEZFNDZtVUFxcDRCWng5dHB3XzBDaUliLUowaGdqdDVkaW5va25nUkx5OVc4UXZoVU9qem1NdWFUNndPWldTeXFhVnVo0gFuQVVfeXFMTXRDbE5XQlFpNEF3ZVBycUpzZXFqQXJOdmVWTWVlX2NWLTNPc2w2TEk5TVdEb3FSZTV3c1JpSEJpUTlaX1g3cVhfY0o1cnFZd2xLZm03ZkJWTjRCelpOU2V5bl9pYlk0RkJsZnQtS1E?oc=5",
+        "titulo": "Oil prices gain as Houthi attacks on Riyadh raise supply concerns - CNBC",
+        "titulo_es": null,
         "medio": "Google News EN",
-        "publicado_at": "2026-11-17T11:16:06-06:00",
-        "categoria": "geopolitica",
+        "publicado_at": "2026-11-19T23:01:49-06:00",
+        "categoria": null,
         "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Tropas ucranianas usaron un gasoducto subterráneo para lanzar ataques, evidenciando la vulnerabilidad de la infraestructura energética rusa; aunque el impacto directo es limitado, aumenta la incertidumbre en los mercados globales.",
-        "fetched_at": "2026-11-19T11:54:05-06:00"
+        "relevancia": null,
+        "resumen_es": "Oil prices gain as Houthi attacks on Riyadh raise supply concerns CNBC",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
       },
       {
         "id": 20,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Carlyle-and-Orlen-Team-Up-to-Hunt-for-Energy-Deals-Across-Europe.html",
-        "titulo": "Carlyle and Orlen Team Up to Hunt for Energy Deals Across Europe",
+        "url": "https://oilprice.com/Energy/Energy-General/Canada-Builds-an-Energy-Exit-From-the-US.html",
+        "titulo": "Canada Builds an Energy Exit From the U.S.",
         "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-19T10:30:00-06:00",
+        "publicado_at": "2026-11-19T19:00:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "Global investment firm Carlyle and the largest energy company in central Europe, Poland’s Orlen, on Thursday agreed to jointly explore investment opportunities in the energy sector across in Poland, Europe, and internationally. The two firms signed a memorandum of understanding at the seventh ministerial meeting of the Partnership for Transatlantic Energy Cooperation (P-TEC) in Warsaw, Poland, on Thursday. Building a joint pipeline of energy investment projects, strengthening Europe’s energy sec",
-        "fetched_at": "2026-11-19T11:54:05-06:00"
+        "resumen_es": "Canada is building an energy export industry for a world beyond the tariff-chasing United States. In 2024, the U.S. bought all but 0.01% of Canada’s natural gas exports. Ottawa now wants 55% of those exports to go to other countries by the mid-2030s, and Germany’s state-owned Uniper has signed a 20-year deal for liquefied natural gas from a planned British Columbia terminal. Prime Minister Mark Carney has fast-tracked a state-backed pipeline to carry 1 million barrels a day of Alberta crude to t",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
       },
       {
-        "id": 36,
-        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeUlHaVFFSnlSWkY0ako5NjJsMTNsVjQ4eGhKc05oZGFWMDN4c3RQR0NyODVNUzNUenFRNS01Y1QyZi03Vm45eTNkbXF3bVBlTUhkWGVHeXIteUlPNFY2aEh3bnh4VXFaVzRMWk1fOV84SXQ4RlRMb2p4QWZ1b2NMb0JJQWZpdURHb2VLLVZVT20yQk5nWTBPUl9hUUxvcllXM0p1dFdxZjd2WWFlaEtVUGFoUzNHNG1IYWQyTkZfLUtOQQ?oc=5",
-        "titulo": "Oil Futures Pick Up as Middle East Risks Remain - WSJ",
-        "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-19T10:12:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Oil Futures Pick Up as Middle East Risks Remain WSJ",
-        "fetched_at": "2026-11-19T11:54:06-06:00"
-      },
-      {
-        "id": 21,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Venezuela-Turns-to-AI-to-Cut-Methane-Leaks.html",
-        "titulo": "Venezuela Turns to AI to Cut Methane Leaks",
+        "id": 31,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/US-Oil-and-Gas-Deal-Boom-Lures-BMO-Back-Into-the-Market.html",
+        "titulo": "US Oil and Gas Deal Boom Lures BMO Back Into the Market",
         "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-19T09:30:00-06:00",
+        "publicado_at": "2026-11-19T19:00:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "Venezuela is using artificial intelligence to reduce emissions and increase efficiency in its oil and gas industry, a senior official told Reuters on the sidelines of the COP31 summit in Antalya, as the world’s biggest crude reserves holder looks to boost production. Venezuela will not stop pumping oil, Albania del Mar Villarroel Gomez, vice minister for AI and efficiency in hydrocarbons, told Reuters. “Our policy is not to stop producing hydrocarbons,” the official told Reuters, as Venezuela",
-        "fetched_at": "2026-11-19T11:54:05-06:00"
-      },
-      {
-        "id": 22,
-        "url": "https://www.eia.gov/todayinenergy/detail.php?id=",
-        "titulo": "Oil flows through Middle East chokepoints increased in the third quarter",
-        "titulo_es": null,
-        "medio": "EIA Today in Energy",
-        "publicado_at": "2026-11-19T08:00:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Collective oil shipments through key chokepoints around the Middle East increased by 19% in the third quarter of 2026 (3Q26), according to our recently published Global Energy Security Data.",
-        "fetched_at": "2026-11-19T11:54:05-06:00"
-      },
-      {
-        "id": 37,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Traders-Seek-Long-Term-Crude-Supply-Deals-with-Qatar.html",
-        "titulo": "Traders Seek Long-Term Crude Supply Deals with Qatar",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-19T07:30:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "The biggest international oil trading houses are in talks with state-owned QatarEnergy to receive supply of Qatari crude oil for 2027 amid recovering flows through the Strait of Hormuz and traders’ experience of shuttling crude through the chokepoint in wartime conditions. Some of the largest commodity traders are asking for Qatari crude for 2027, mostly the Qatar Marine and Land grades, anonymous sources involved in the talks earlier this month have told Bloomberg. While some refiners are still",
-        "fetched_at": "2026-11-19T11:54:06-06:00"
+        "resumen_es": "Bank of Montreal (BMO) is jumping back into U.S. oil and gas investment banking six years after abandoning the business, apparently finding the American energy sector considerably more attractive now that companies are spending billions buying up each other. BMO Capital Markets is hiring Ali Akbar from Mizuho Financial Group to lead its rebuilt U.S. energy practice, Reuters reported Thursday, citing people familiar with the plans. Other Mizuho bankers are expected to join him next year. Akbar sp",
+        "fetched_at": "2026-11-20T04:54:02-06:00"
       }
     ],
     "llm": {
       "titulos_es_hoy": 10,
-      "total_hoy": 49,
+      "total_hoy": 51,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
