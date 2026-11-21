@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-11-20T11:54:22-06:00",
+  "actualizado_at": "2026-11-21T04:54:31-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-11-20",
   "productos": {
@@ -13,14 +13,10 @@
         "fecha": "2026-11-20",
         "precio": 28.49,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-20T11:53:47-06:00",
+        "fetched_at": "2026-11-21T04:53:39-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-20",
-          "precio": 28.42
-        },
         {
           "fecha": "2025-11-21",
           "precio": 28.42
@@ -1223,7 +1219,7 @@
             "fecha": "2026-11-20",
             "precio": 28.49,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-20T11:53:47-06:00",
+            "fetched_at": "2026-11-21T04:53:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1316,7 +1312,7 @@
             "fecha": "2026-11-18",
             "precio": 29.59,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-20T11:53:12-06:00",
+            "fetched_at": "2026-11-21T04:53:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1384,14 +1380,10 @@
         "fecha": "2026-11-20",
         "precio": 30.99,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-20T11:53:47-06:00",
+        "fetched_at": "2026-11-21T04:53:39-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-20",
-          "precio": 29.43
-        },
         {
           "fecha": "2025-11-21",
           "precio": 29.43
@@ -2602,7 +2594,7 @@
             "fecha": "2026-11-20",
             "precio": 30.99,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-20T11:53:47-06:00",
+            "fetched_at": "2026-11-21T04:53:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2635,10 +2627,6 @@
             ]
           },
           "historial": [
-            {
-              "fecha": "2026-10-21",
-              "precio": 35.19
-            },
             {
               "fecha": "2026-10-25",
               "precio": 34.19
@@ -2699,7 +2687,7 @@
             "fecha": "2026-11-12",
             "precio": 33.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-20T11:53:12-06:00",
+            "fetched_at": "2026-11-21T04:53:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2759,14 +2747,10 @@
         "fecha": "2026-11-20",
         "precio": 39.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-20T11:53:47-06:00",
+        "fetched_at": "2026-11-21T04:53:39-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-20",
-          "precio": 27.49
-        },
         {
           "fecha": "2025-11-21",
           "precio": 27.49
@@ -3969,7 +3953,7 @@
             "fecha": "2026-11-20",
             "precio": 39.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-20T11:53:47-06:00",
+            "fetched_at": "2026-11-21T04:53:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4058,7 +4042,7 @@
             "fecha": "2026-11-12",
             "precio": 41.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-20T11:53:12-06:00",
+            "fetched_at": "2026-11-21T04:53:39-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4119,17 +4103,13 @@
       "unidad": "USD/barril",
       "orden": 4,
       "actual": {
-        "fecha": "2026-11-20",
-        "precio": 83.2,
+        "fecha": "2026-11-21",
+        "precio": 83.65,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-11-20T11:53:47-06:00",
+        "fetched_at": "2026-11-21T04:53:58-06:00",
         "incluye_impuestos": null
       },
       "historial": [
-        {
-          "fecha": "2025-11-20",
-          "precio": 59.42
-        },
         {
           "fecha": "2025-11-21",
           "precio": 58.02
@@ -5237,6 +5217,10 @@
         {
           "fecha": "2026-11-20",
           "precio": 83.2
+        },
+        {
+          "fecha": "2026-11-21",
+          "precio": 83.65
         }
       ],
       "mensual": [],
@@ -5257,8 +5241,8 @@
         },
         {
           "anio": 2026,
-          "promedio": 85.52,
-          "dias": 248,
+          "promedio": 85.51,
+          "dias": 249,
           "meses": null,
           "fuente": "diario"
         }
@@ -5267,18 +5251,14 @@
         "spot": {
           "nombre": "Spot",
           "actual": {
-            "fecha": "2026-11-20",
-            "precio": 83.2,
+            "fecha": "2026-11-21",
+            "precio": 83.65,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-11-20T11:53:47-06:00",
+            "fetched_at": "2026-11-21T04:53:58-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
           "historial": [
-            {
-              "fecha": "2026-10-21",
-              "precio": 97.09
-            },
             {
               "fecha": "2026-10-22",
               "precio": 99.49
@@ -5398,6 +5378,10 @@
             {
               "fecha": "2026-11-20",
               "precio": 83.2
+            },
+            {
+              "fecha": "2026-11-21",
+              "precio": 83.65
             }
           ]
         }
@@ -5442,8 +5426,8 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 60,
-    "notas_leidas": 222,
+    "observaciones_7d": 54,
+    "notas_leidas": 223,
     "medios": [
       "agn.gt",
       "dca.gob.gt",
@@ -5462,101 +5446,179 @@
     ]
   },
   "noticias": {
-    "total": 49,
+    "total": 53,
     "top": [
       {
-        "id": 11,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Iran-Steps-Up-Hormuz-Tanker-Attacks-as-Oil-Prices-Slide.html",
-        "titulo": "Iran Steps Up Hormuz Tanker Attacks as Oil Prices Slide",
-        "titulo_es": "Irán intensifica ataques a buques en el estrecho de Hormuz mientras bajan los precios del petróleo",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-20T06:30:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "Irán intensifica ataques a buques en el estrecho de Hormuz, amenazando una ruta clave de suministro y provocando fluctuaciones en los precios del petróleo que impactan a Guatemala.",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
-      },
-      {
-        "id": 7,
+        "id": 8,
         "url": "https://oilprice.com/Energy/Crude-Oil/Tankers-Are-Being-Hit-Daily-So-Why-Is-Oil-Falling.html",
         "titulo": "Tankers Are Being Hit Daily. So Why Is Oil Falling?",
-        "titulo_es": "A pesar de ataques a petroleros, el crudo cae 5% esta semana",
+        "titulo_es": "Brent cae 5% a $91 pese a ataques diarios a petroleros",
         "medio": "OilPrice.com",
         "publicado_at": "2026-11-20T11:11:05-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "A pesar de los frecuentes ataques a buques, la oferta abundante de crudo hace que los precios caigan 5% esta semana, lo que podría traducirse en menores precios de combustible en Guatemala.",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
+        "resumen_es": "El Brent cayó 5% a $91 gracias al exceso de barriles en el mercado, presionando a la baja los precios del combustible importado por Guatemala.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
       },
       {
-        "id": 8,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Chinas-Oil-Imports-from-Persian-Gulf-Jump-to-Wartime-High.html",
-        "titulo": "China’s Oil Imports from Persian Gulf Jump to Wartime High",
-        "titulo_es": "Importaciones de crudo de China desde el Golfo Persa alcanzan nivel de guerra",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-20T09:36:00-06:00",
-        "categoria": "demanda",
+        "id": 12,
+        "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNUGNDM1JRSUp0WEtGYmRIX1FiNDBqakNyU0Q3OW9idG9kaWk4Um9DaXdMVUdLaVdINEtTbnVTU0hZTWdqUUZuNllqeXIwMjVyUFRMcjZsTUNXcW1qelFYYkliTTVsY0xPeFl0Qm5mdlhQWHNfbDktX3BVVVE3NTFBSzRPVWlGTkRpeUpGbjVLVUhWMG1CbWppMHAyVV9RZlEyNk0xU2ZRd3ZGMVZlckFjZnNIZl9nb3ZwbDJSWWl3?oc=5",
+        "titulo": "Ukraine strikes key Druzhba oil pipeline station in Russia's Tatarstan, General Staff confirms - The Kyiv Independent",
+        "titulo_es": "Ucrania ataca estación clave del oleoducto Druzhba en Tatarstán",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-20T06:01:09-06:00",
+        "categoria": "infraestructura",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "China incrementa sus importaciones de crudo del Golfo Persa en un 42%, aumentando la demanda global y presionando al alza los precios que Guatemala paga por el petróleo.",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
+        "resumen_es": "El ataque a una estación del oleoducto Druzhba interrumpe el flujo de crudo ruso hacia Europa, reduciendo la oferta y potencialmente elevando los precios del combustible importado por Guatemala.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
       },
       {
-        "id": 1,
+        "id": 14,
+        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPblZJRndGRHhOMmp0cnNQSmswQTRCVk1NRGkwc2xHelhxNEJOcHYzaHBDR0lTLURSVmpPZ2FtYW1pY19XT2dRRE5rTlBTaVBCbldkTFF3X3dwRlgwZ2xFVkZkNjJLRERLQVl2X2o4MUlNejFuRUNrcHFoQ3ZmZV83RU91M2JmZUdNY0owNUlORUFnWUhISk5yTmlubmNicXNsdUZCb3RXVDlkSFMwM2ZR?oc=5",
+        "titulo": "Drones ucranianos golpean refinería de petróleo en la república rusa de Tatarstán - Plaza de Armas | Querétaro",
+        "titulo_es": "Drones ucranianos golpean refinería de petróleo en Tatarstán, Rusia",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-19T11:48:29-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El ataque reduce la capacidad de refinación rusa, limitando la oferta de crudo y presionando al alza los precios internacionales que paga Guatemala.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
+      },
+      {
+        "id": 15,
+        "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOQWlqcVpPY2JVWmhUUWNlNkJHN0M3ODdkanZtN09SYW8xTXRZeEVlbHd4QTBjLWlTTnVXZV9BaWpWV1JqMXI5S0ptTjBNUTZjMEIxVlV6aDBvTTZSQUFnR05mZG84ZHk0QV82Y1k5S3hwTmhzQzk2a2cwWVZDVkdMaEZVOVF1ckJaaEx5UHdTbkFKNF9QMUd2RVYzS3QwRFQwRHJYNnZwYVg4ZjRZUTNqc0poNTMtZFZwX0d3d3k1Q2dpZkE?oc=5",
+        "titulo": "Rusia. Ataques con drones reducen casi a la mitad la refinación de petróleo - Resumen Latinoamericano -",
+        "titulo_es": "Ataques con drones reducen a la mitad la refinación de petróleo en Rusia",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-18T20:04:56-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Los ataques de drones han disminuido la producción de refinería rusa en un 50%, estrechando la oferta global y elevando los precios del combustible importado por Guatemala.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
+      },
+      {
+        "id": 2,
         "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQLWF6Q2pLWVRqZk9NMXB6VnlJM3dVZEhZbkdQalltZXRkVGttbTE0eGZiUWZELUJ4cEw1N3ozbkFaRklpUjJCd3p0eXhhWDkxVEN1bEZGaTk4bXlxNmtlU0lOTmxRNWgxNnZyOU5QbFVYQVZTNDRzS1lCeDl6eV9fbC1WQmJRR3pfZzVVSHRBaV9La3F5WDR4U0JudURRYjdRSElJOTFoYTloTWxiZzRTV2NYYmdvQzcyeEtBcjQ1ZG91OXU3NGtEdEd6NXNwZFMtMzBmMTg3NVl3VFRqVEE?oc=5",
         "titulo": "Precio de gasolina en Guatemala hoy, 16 de noviembre: regular baja hasta Q28.49 - Prensa Libre",
-        "titulo_es": "Baja el precio de la gasolina regular a Q28.49 en Guatemala",
+        "titulo_es": "Precio de gasolina regular en Guatemala baja a Q28.49",
         "medio": "Google News ES",
         "publicado_at": "2026-11-16T15:37:14-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "La gasolina regular baja a Q28.49, reflejando la caída del precio internacional del crudo y reduciendo el costo para los consumidores guatemaltecos.",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
+        "resumen_es": "La gasolina regular bajó a Q28.49, reflejando la caída del precio internacional y la política de exoneración, reduciendo el costo para los consumidores guatemaltecos.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
       },
       {
-        "id": 2,
+        "id": 3,
         "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQbURFN2Y0WFBUT2pPOWZsczQxT3NHeC1xdVJMUVhKSW55ODEtWUxWQ0w3aDJkd2tYbDJhXzR4NXAxbHNNN1RNbFlHd3dTczdaZ1FjRnNMeUlFbXVkcHJucWZCN3dCb21hbGpYSHplbFIta1N5ZEM5SXhYSUk4Qmd6LV9GVkVzS2d6NFdlYmc2WkxtWTRmRGNsdU01d0ZxaDhzSWQ4NktaYVIwXzFzblBmaDQzblNKZnlReURfYmlhN2xvNVFWQmhnTXpPNHltLWFiTnhGSnB3?oc=5",
         "titulo": "Precio del galón de gasolina en Guatemala: se reporta nuevas bajas en el promedio del MEM y estaciones - Prensa Libre",
-        "titulo_es": "Nuevas bajas del precio promedio de gasolina según MEM en Guatemala",
+        "titulo_es": "Precio del galón de gasolina en Guatemala registra nuevas bajas",
         "medio": "Google News ES",
         "publicado_at": "2026-11-09T02:00:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "El promedio del MEM y precios en estaciones disminuye nuevamente, indicando una tendencia a la baja del combustible importado que beneficia a los guatemaltecos.",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
+        "resumen_es": "El galón de gasolina registró nuevas bajas en el promedio del MEM y en estaciones, lo que alivia el gasto de los guatemaltecos.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
+      },
+      {
+        "id": 9,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Chinas-Oil-Imports-from-Persian-Gulf-Jump-to-Wartime-High.html",
+        "titulo": "China’s Oil Imports from Persian Gulf Jump to Wartime High",
+        "titulo_es": "Importaciones de crudo de China desde el Golfo aumentan a niveles de guerra",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-20T09:36:00-06:00",
+        "categoria": "demanda",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "China incrementó sus importaciones de crudo del Golfo en 42%, elevando la demanda mundial y pudiendo subir los precios que paga Guatemala.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
+      },
+      {
+        "id": 1,
+        "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQcGxjX1lzdnJaMEpqX1NzelBnT2U3Y0k0c1BlaGlrZXFpYXl0a01yOHNqQ1VxV19pSm9WTGpEMW5lMV9pWl95SFFDMGtwZlhiSjYyMjBSZnVYekNIU2prMjBCQnZMbkwxRFlxb2NlVGRqcVllamZNelRMZXlha0J2MlVSX0FCbnVBUkREUWhQUmJRczMydFNvcDQ1eGJRMFJINmdGYWNLTktUTGdTR0M1Nlh4Y2Y5MlNqd3JVdlNMTVJ3d2Vtb2lXRlRkREppYi1ubDAyVEpSNmI?oc=5",
+        "titulo": "Precio del petróleo podría bajar en el 2027: Guatemala mantendrá exoneración de combustibles hasta junio - Prensa Libre",
+        "titulo_es": "Precio del petróleo podría bajar en 2027 y Guatemala mantendrá exoneración de combustibles hasta junio",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-19T16:02:02-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Se prevé que el precio del petróleo baje en 2027 y Guatemala mantendrá la exoneración de impuestos a los combustibles hasta junio, lo que podría mantener bajos los precios locales.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
+      },
+      {
+        "id": 7,
+        "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQM1I0NFl3bXFyaEwxUkdBTjY2YlkxemRlaFJoS3BzcHc4bDJOSzUxbk5EOENaa3loZ1g4RENuc3ZrUGd3X3dlZlVoRHVOV0I3YmpyMU16QmJ1WkdIUTBUaS1md1NhSG9paVdNdldrYl9BTmQySGpPMFd0ZFRobzNnZTFWRTA5LVFJdzlfQVhfU0ZiTk9LTm83VDVKWlljVWo1ZWs2SExIX0hBdnFNb25nZGZabXhyYmJvTGJCTnByeGhDMndTci1pZUpaZFRpaU1PNnZR?oc=5",
+        "titulo": "Ukrainian Drones Hit Gazprom Refinery in Bashkortostan in Second Record Overnight Attack - The Moscow Times",
+        "titulo_es": "Drones ucranianos golpean refinería de Gazprom en Bashkortostán",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-17T03:50:00-06:00",
+        "categoria": "infraestructura",
+        "pais": null,
+        "relevancia": 3,
+        "resumen_es": "Drones ucranianos dañaron una refinería de Gazprom en Bashkortostán, reduciendo la producción de crudo ruso y potencialmente elevando los precios internacionales.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
+      },
+      {
+        "id": 10,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Indias-LPG-Consumption-Hits-8-Month-High-as-Supply-Rebounds.html",
+        "titulo": "India’s LPG Consumption Hits 8-Month High as Supply Rebounds",
+        "titulo_es": "Consumo de LPG en India alcanza máximo de 8 meses con recuperación de suministro",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-20T07:30:00-06:00",
+        "categoria": "demanda",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "El consumo de LPG en India alcanzó su nivel más alto en ocho meses, pero su impacto directo en los precios guatemaltecos es limitado.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
+      },
+      {
+        "id": 11,
+        "url": "https://oilprice.com/Energy/Energy-General/Trumps-Ukraine-Energy-Truce-Unravels-as-Russian-Missiles-Hit-Kyiv.html",
+        "titulo": "Trump’s Ukraine Energy Truce Unravels as Russian Missiles Hit Kyiv",
+        "titulo_es": "Se rompe el alto el fuego energético entre EE. UU. y Ucrania tras ataques rusos a Kyiv",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-20T06:30:00-06:00",
+        "categoria": "diplomacia",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "El colapso del alto el fuego energético entre EE. UU. y Ucrania aumenta la incertidumbre geopolítica, lo que puede influir en los precios internacionales del petróleo.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
       },
       {
         "id": 13,
-        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPblZJRndGRHhOMmp0cnNQSmswQTRCVk1NRGkwc2xHelhxNEJOcHYzaHBDR0lTLURSVmpPZ2FtYW1pY19XT2dRRE5rTlBTaVBCbldkTFF3X3dwRlgwZ2xFVkZkNjJLRERLQVl2X2o4MUlNejFuRUNrcHFoQ3ZmZV83RU91M2JmZUdNY0owNUlORUFnWUhISk5yTmlubmNicXNsdUZCb3RXVDlkSFMwM2ZR?oc=5",
-        "titulo": "Drones ucranianos golpean refinería de petróleo en la república rusa de Tatarstán - Plaza de Armas | Querétaro",
-        "titulo_es": "Drones ucranianos golpean refinería de petróleo en la república rusa de Tatarstán",
+        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5vTEFfcmlJeHoycGp4X202Mm5LdUNkNEYwVkNrcDhkSVluU0ZMOVhHS1loeFdOck5QTXpqNmlsdWt3MjV1WFFOWkhmSHZsZWhEQWdoNXhoeTFRcmxa0gFiQVVfeXFMTUlxNWdHT29SbXlsX3N0NlBrZjhhYTUtTzhPaUx0bDhkaTVXRUxfc1h3OGpJamlORHBhaC1PMzRpMEc3Um82SlBOenRBRUdPNzU3czBWTmNOV2I4bGpMMFJrVUE?oc=5",
+        "titulo": "\"Aquí los drones no vuelan\": la BBC en el interior del gasoducto desde el que Ucrania libra una guerra subterránea contra Rusia - BBC",
+        "titulo_es": "BBC muestra la guerra subterránea de Ucrania en un gasoducto ruso",
         "medio": "Google News ES",
-        "publicado_at": "2026-11-19T11:48:29-06:00",
-        "categoria": "infraestructura",
+        "publicado_at": "2026-11-19T22:13:05-06:00",
+        "categoria": "geopolitica",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Drones ucranianos golpean una refinería en Tatarstán, reduciendo la capacidad de producción de petróleo ruso y afectando la oferta mundial que Guatemala importa.",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
-      },
-      {
-        "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPQ3Zva2pfbV84elhuMnJfTkVQNUpEM0ZkcE1wNXRpNTZNa0RjQWUzVGdXRjZVb3lDcDdNNFlhUDI4TUJCNTByODBmNXVWX2JzOXI4S2hNdFItbDQ0ZDY4Mk1aUENvSW1IMTBYelhWTXQtcmRvWmVreU9MZmlBVXlVeGpWallHTlpmTkktbTF1NVg2OHBBaXl1N2oteDNSVG9LRlE?oc=5",
-        "titulo": "Drone Attack Damages Gas Pipeline in Russia’s Krasnodar, Nine Injured - Caspian Post",
-        "titulo_es": "Drones dañan gasoducto en Krasnodar, Rusia, dejando nueve heridos",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-18T06:12:25-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Un ataque con drones destruye parte del gasoducto de Krasnodar, reduciendo la oferta de gas ruso y potencialmente elevando los precios internacionales que afectan a Guatemala.",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
+        "relevancia": 2,
+        "resumen_es": "La BBC muestra cómo Ucrania utiliza un gasoducto ruso para operaciones subterráneas, señalando vulnerabilidades que pueden afectar la seguridad del suministro global de gas.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
       },
       {
         "id": 4,
+        "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPQ3Zva2pfbV84elhuMnJfTkVQNUpEM0ZkcE1wNXRpNTZNa0RjQWUzVGdXRjZVb3lDcDdNNFlhUDI4TUJCNTByODBmNXVWX2JzOXI4S2hNdFItbDQ0ZDY4Mk1aUENvSW1IMTBYelhWTXQtcmRvWmVreU9MZmlBVXlVeGpWallHTlpmTkktbTF1NVg2OHBBaXl1N2oteDNSVG9LRlE?oc=5",
+        "titulo": "Drone Attack Damages Gas Pipeline in Russia’s Krasnodar, Nine Injured - Caspian Post",
+        "titulo_es": "Dron daña gasoducto en Krasnodar, Rusia",
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-18T06:12:25-06:00",
+        "categoria": "geopolitica",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "Un dron dañó un gasoducto en Krasnodar, Rusia, provocando interrupciones que podrían reducir la oferta global de gas y afectar precios internacionales.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
+      },
+      {
+        "id": 5,
         "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE4yTUpQRkc1UktnQjBlRHhIai1MSjkzLV9Nd0gxU1pQZzQzd3RtV0t6czhLdGZEN1BwdFNKRU91RUNxYkVldlpxWFk2ZW80SGZNb2pXcXRFZ0E4MExIdUdheG5zMl_SAXBBVV95cUxOM3I4QmtMY1NlN0MyZzBHY3NqTnNnZzU1eWotMFJoYU5JVmRMcXlEM0cyTW5wS0RFSFRsQ3hmd0VEME05Ukx4dGxaY1A0Z0VfSzJ4MU5GSVVYV3ZtekQtX2M5WkN0azcyd1RVTlhZb3li?oc=5",
         "titulo": "Drones attack Russia's Krasnodar Krai, fire breaks out at oil refinery – videos - Українська правда",
         "titulo_es": "Drones provocan incendio en refinería de Krasnodar, Rusia",
@@ -5564,105 +5626,27 @@
         "publicado_at": "2026-11-17T23:36:00-06:00",
         "categoria": "infraestructura",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Drones provocan incendio en una refinería de Krasnodar, limitando la producción de petróleo ruso y presionando al alza los precios del crudo importado por Guatemala.",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
+        "relevancia": 2,
+        "resumen_es": "Un ataque con drones provocó un incendio en una refinería rusa, reduciendo temporalmente la capacidad de refinación y presionando los precios del crudo.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
       },
       {
         "id": 6,
-        "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQM1I0NFl3bXFyaEwxUkdBTjY2YlkxemRlaFJoS3BzcHc4bDJOSzUxbk5EOENaa3loZ1g4RENuc3ZrUGd3X3dlZlVoRHVOV0I3YmpyMU16QmJ1WkdIUTBUaS1md1NhSG9paVdNdldrYl9BTmQySGpPMFd0ZFRobzNnZTFWRTA5LVFJdzlfQVhfU0ZiTk9LTm83VDVKWlljVWo1ZWs2SExIX0hBdnFNb25nZGZabXhyYmJvTGJCTnByeGhDMndTci1pZUpaZFRpaU1PNnZR?oc=5",
-        "titulo": "Ukrainian Drones Hit Gazprom Refinery in Bashkortostan in Second Record Overnight Attack - The Moscow Times",
-        "titulo_es": "Drones ucranianos impactan refinería Gazprom en Bashkortostán, Rusia",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-17T03:50:00-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Drones ucranianos dañan la refinería Gazprom en Bashkortostán, reduciendo la capacidad de procesamiento de crudo ruso y contribuyendo a la volatilidad de los precios internacionales.",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
-      },
-      {
-        "id": 9,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Indias-LPG-Consumption-Hits-8-Month-High-as-Supply-Rebounds.html",
-        "titulo": "India’s LPG Consumption Hits 8-Month High as Supply Rebounds",
-        "titulo_es": "Consumo de LPG en India alcanza máximo de ocho meses al recuperarse el suministro",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-20T07:30:00-06:00",
-        "categoria": "demanda",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "El consumo de LPG en India alcanza su nivel más alto en ocho meses tras la recuperación del suministro, señalando una mayor demanda que puede influir en los precios internacionales del gas licuado.",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
-      },
-      {
-        "id": 10,
-        "url": "https://oilprice.com/Energy/Energy-General/Trumps-Ukraine-Energy-Truce-Unravels-as-Russian-Missiles-Hit-Kyiv.html",
-        "titulo": "Trump’s Ukraine Energy Truce Unravels as Russian Missiles Hit Kyiv",
-        "titulo_es": "Se rompe el alto al fuego energético entre EE. UU. y Ucrania tras misiles rusos",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-20T06:30:00-06:00",
-        "categoria": "diplomacia",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "El alto al fuego energético entre EE. UU. y Ucrania se rompe tras misiles rusos, aumentando la tensión geopolítica y la incertidumbre en los mercados energéticos.",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
-      },
-      {
-        "id": 12,
-        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5vTEFfcmlJeHoycGp4X202Mm5LdUNkNEYwVkNrcDhkSVluU0ZMOVhHS1loeFdOck5QTXpqNmlsdWt3MjV1WFFOWkhmSHZsZWhEQWdoNXhoeTFRcmxa0gFiQVVfeXFMTUlxNWdHT29SbXlsX3N0NlBrZjhhYTUtTzhPaUx0bDhkaTVXRUxfc1h3OGpJamlORHBhaC1PMzRpMEc3Um82SlBOenRBRUdPNzU3czBWTmNOV2I4bGpMMFJrVUE?oc=5",
-        "titulo": "\"Aquí los drones no vuelan\": la BBC en el interior del gasoducto desde el que Ucrania libra una guerra subterránea contra Rusia - BBC",
-        "titulo_es": "BBC explora interior del gasoducto donde Ucrania libra guerra subterránea contra Rusia",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-19T22:13:05-06:00",
-        "categoria": "infraestructura",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "La BBC muestra el interior de un gasoducto donde Ucrania lleva a cabo una guerra subterránea, subrayando riesgos para la infraestructura energética rusa y posibles repercusiones en el mercado global.",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
-      },
-      {
-        "id": 5,
         "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQTW5DNmhKMURGdXVDUWxha2E1bVJEUzZkRnVfUWRxZ0pFN3hFdFAxZjBQM0UtTFlEbFRYeVdIRlJFQkFkQ2hWU3paTUh5YVppblNDU0duZGlpd0lhc0Z0NnpiQ0hwTmtnWE9kSkltM3MzeG9iWHRnVHk0b04yekxoaUtSaUxObHNNV3VzLTZucjl3UEJNMWdV?oc=5",
         "titulo": "Ukrainian troops say they battled through underground gas pipeline to launch attack behind Russian lines - CBS News",
-        "titulo_es": "Tropas ucranianas usan gasoducto subterráneo para atacar tras líneas rusas",
+        "titulo_es": "Tropas ucranianas atraviesan gasoducto subterráneo para atacar tras líneas rusas",
         "medio": "Google News EN",
         "publicado_at": "2026-11-17T11:16:06-06:00",
         "categoria": "geopolitica",
         "pais": null,
         "relevancia": 2,
-        "resumen_es": "Tropas ucranianas atraviesan un gasoducto subterráneo para lanzar ataques, evidenciando la vulnerabilidad de la infraestructura energética rusa y su posible impacto en los mercados globales.",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
-      },
-      {
-        "id": 25,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/Lufthansa-to-Slash-1000-Jobs-as-Airlines-Reel-from-High-Fuel-Costs.html",
-        "titulo": "Lufthansa to Slash 1,000 Jobs as Airlines Reel from High Fuel Costs",
-        "titulo_es": null,
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-20T11:30:00-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "Europe’s biggest airline group, Lufthansa, plans to eliminate as many as 1,000 jobs and reduce capacity on short and medium-haul destinations, Bloomberg reported on Friday, citing a letter to employees it had seen. Lufthansa and all other airlines have struggled this year with increasing pressure on profits from soaring fuel prices amid the Middle East conflict. Spiking crude and jet fuel prices are adding billions of dollars to every air carrier’s fuel costs. In early November, Lufthansa Group",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
-      },
-      {
-        "id": 26,
-        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNYXJQRkRyWDN6c3NYeEVoQ2ZET2lzUXlSQUxLTVVpc0owV2lIRFo1cEp0ZDJfMzBwMUlVV3dtcl9oWVpkb0NhdVd5a09PNnRFejhXMzRZb0VVYlVUWUJlNW5sWnpmdU1fN3ozMy1SNWdKZmZSeXpGbUgwMGhud25kYTdkdmVvX3RBeERwUno1UE1QSVVOSDRfbg?oc=5",
-        "titulo": "US Treasury Presses Singapore and Malaysia on Iran Sanctions Compliance - gCaptain",
-        "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-20T11:12:46-06:00",
-        "categoria": null,
-        "pais": null,
-        "relevancia": null,
-        "resumen_es": "US Treasury Presses Singapore and Malaysia on Iran Sanctions Compliance gCaptain",
-        "fetched_at": "2026-11-20T11:54:22-06:00"
+        "resumen_es": "Tropas ucranianas usaron un gasoducto subterráneo para lanzar ofensivas, evidenciando vulnerabilidades en la infraestructura energética global.",
+        "fetched_at": "2026-11-21T04:54:31-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 13,
-      "total_hoy": 49,
+      "titulos_es_hoy": 15,
+      "total_hoy": 53,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
