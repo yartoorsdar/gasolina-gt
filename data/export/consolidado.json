@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-11-23T20:50:15-06:00",
+  "actualizado_at": "2026-11-24T04:54:08-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-11-23",
   "productos": {
@@ -13,14 +13,10 @@
         "fecha": "2026-11-23",
         "precio": 27.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-23T20:48:44-06:00",
+        "fetched_at": "2026-11-24T04:52:59-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-23",
-          "precio": 28.42
-        },
         {
           "fecha": "2025-11-24",
           "precio": 28.42
@@ -1219,7 +1215,7 @@
             "fecha": "2026-11-23",
             "precio": 27.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-23T20:48:44-06:00",
+            "fetched_at": "2026-11-24T04:52:59-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1227,7 +1223,7 @@
             "precio": 27.19,
             "confianza": "alta",
             "n_coinciden": 5,
-            "n_fuentes": 6,
+            "n_fuentes": 7,
             "fuentes": [
               {
                 "coincide": true,
@@ -1288,6 +1284,16 @@
                 "precio": 28.14,
                 "tipo": "monitoreado",
                 "url": "https://www.prensalibre.com/economia/precio-del-galon-de-combustible-en-guatemala-siguen-bajando-cuanto-cuestan-las-gasolinas-este-23-de-noviembre-y-que-explica-la-reduccion/"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-11-23",
+                "medio": "dca.gob.gt",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 28.14,
+                "tipo": "monitoreado",
+                "url": "https://dca.gob.gt/noticias-guatemala-diario-centro-america/precio-del-galon-de-combustible-en-guatemala-sigue-bajando/"
               }
             ]
           },
@@ -1360,7 +1366,7 @@
             "fecha": "2026-11-18",
             "precio": 29.59,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-23T20:48:44-06:00",
+            "fetched_at": "2026-11-24T04:52:59-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1428,14 +1434,10 @@
         "fecha": "2026-11-23",
         "precio": 29.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-23T20:48:44-06:00",
+        "fetched_at": "2026-11-24T04:52:59-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-23",
-          "precio": 29.43
-        },
         {
           "fecha": "2025-11-24",
           "precio": 29.43
@@ -2642,7 +2644,7 @@
             "fecha": "2026-11-23",
             "precio": 29.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-23T20:48:44-06:00",
+            "fetched_at": "2026-11-24T04:52:59-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2650,7 +2652,7 @@
             "precio": 29.69,
             "confianza": "alta",
             "n_coinciden": 5,
-            "n_fuentes": 6,
+            "n_fuentes": 7,
             "fuentes": [
               {
                 "coincide": true,
@@ -2711,6 +2713,16 @@
                 "precio": 30.64,
                 "tipo": "monitoreado",
                 "url": "https://www.prensalibre.com/economia/precio-del-galon-de-combustible-en-guatemala-siguen-bajando-cuanto-cuestan-las-gasolinas-este-23-de-noviembre-y-que-explica-la-reduccion/"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-11-23",
+                "medio": "dca.gob.gt",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 30.64,
+                "tipo": "monitoreado",
+                "url": "https://dca.gob.gt/noticias-guatemala-diario-centro-america/precio-del-galon-de-combustible-en-guatemala-sigue-bajando/"
               }
             ]
           },
@@ -2783,7 +2795,7 @@
             "fecha": "2026-11-12",
             "precio": 33.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-23T20:48:44-06:00",
+            "fetched_at": "2026-11-24T04:52:59-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2843,14 +2855,10 @@
         "fecha": "2026-11-23",
         "precio": 38.39,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-23T20:48:44-06:00",
+        "fetched_at": "2026-11-24T04:52:59-06:00",
         "incluye_impuestos": false
       },
       "historial": [
-        {
-          "fecha": "2025-11-23",
-          "precio": 27.49
-        },
         {
           "fecha": "2025-11-24",
           "precio": 27.43
@@ -4049,7 +4057,7 @@
             "fecha": "2026-11-23",
             "precio": 38.39,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-23T20:48:44-06:00",
+            "fetched_at": "2026-11-24T04:52:59-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4057,7 +4065,7 @@
             "precio": 38.39,
             "confianza": "alta",
             "n_coinciden": 5,
-            "n_fuentes": 6,
+            "n_fuentes": 7,
             "fuentes": [
               {
                 "coincide": true,
@@ -4118,6 +4126,16 @@
                 "precio": 39.2,
                 "tipo": "monitoreado",
                 "url": "https://www.prensalibre.com/economia/precio-del-galon-de-combustible-en-guatemala-siguen-bajando-cuanto-cuestan-las-gasolinas-este-23-de-noviembre-y-que-explica-la-reduccion/"
+              },
+              {
+                "coincide": false,
+                "fecha": "2026-11-23",
+                "medio": "dca.gob.gt",
+                "modalidad_inferida": false,
+                "peso": 0.5,
+                "precio": 39.2,
+                "tipo": "monitoreado",
+                "url": "https://dca.gob.gt/noticias-guatemala-diario-centro-america/precio-del-galon-de-combustible-en-guatemala-sigue-bajando/"
               }
             ]
           },
@@ -4186,7 +4204,7 @@
             "fecha": "2026-11-12",
             "precio": 41.79,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-23T20:48:44-06:00",
+            "fetched_at": "2026-11-24T04:52:59-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4247,10 +4265,10 @@
       "unidad": "USD/barril",
       "orden": 4,
       "actual": {
-        "fecha": "2026-11-23",
-        "precio": 79.84,
+        "fecha": "2026-11-24",
+        "precio": 80.04,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-11-23T20:49:19-06:00",
+        "fetched_at": "2026-11-24T04:53:24-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5369,6 +5387,10 @@
         {
           "fecha": "2026-11-23",
           "precio": 79.84
+        },
+        {
+          "fecha": "2026-11-24",
+          "precio": 80.04
         }
       ],
       "mensual": [],
@@ -5389,8 +5411,8 @@
         },
         {
           "anio": 2026,
-          "promedio": 85.48,
-          "dias": 251,
+          "promedio": 85.46,
+          "dias": 252,
           "meses": null,
           "fuente": "diario"
         }
@@ -5399,18 +5421,14 @@
         "spot": {
           "nombre": "Spot",
           "actual": {
-            "fecha": "2026-11-23",
-            "precio": 79.84,
+            "fecha": "2026-11-24",
+            "precio": 80.04,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-11-23T20:49:19-06:00",
+            "fetched_at": "2026-11-24T04:53:24-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
           "historial": [
-            {
-              "fecha": "2026-10-24",
-              "precio": 103.2
-            },
             {
               "fecha": "2026-10-25",
               "precio": 103.2
@@ -5530,6 +5548,10 @@
             {
               "fecha": "2026-11-23",
               "precio": 79.84
+            },
+            {
+              "fecha": "2026-11-24",
+              "precio": 80.04
             }
           ]
         }
@@ -5574,8 +5596,8 @@
         "peso": 1.0
       }
     },
-    "observaciones_7d": 84,
-    "notas_leidas": 233,
+    "observaciones_7d": 57,
+    "notas_leidas": 234,
     "medios": [
       "agn.gt",
       "chapintv.com",
@@ -5595,62 +5617,49 @@
     ]
   },
   "noticias": {
-    "total": 48,
+    "total": 40,
     "top": [
       {
         "id": 4,
-        "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9YeVVuSzlMa1Vza0JNYXpXbGw2emp5RndTVHplTzB1QllobEw0SW5Dc3VyTFhwMFJnMkpRSEJEZnhPOFFZYWZhckZXaUlKdTZPRzNyOGNzLWp0YUZDOHM4N0xZQWZHVm9zOHRPbXp1a040YUHSAXhBVV95cUxNcG02RV9VeGk3SG90SjhQdWEyTGd3RVdNRmw4YkZreEZmY2JHUU5nVGNBQklaSmFES0ppelA3UmZFVFVUdVF0RzlzdVBtWWF1emF1U3o1N0x4T25VRDVTMS1Od3BWZnhTVERFN0hJd1Bud1hHdkk3MnA?oc=5",
-        "titulo": "Yemen's Houthis claim attacks on Saudi oil refinery as Trump warns of new strikes next year - CNBC",
-        "titulo_es": "Los hutíes de Yemen reivindican los ataques contra la refinería de petróleo saudí, mientras Trump advierte de nuevos ata",
+        "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5BcHRJZk44U284SE9ZYXg2T2dkeEFzSk51a1VjNW9SbXRXanpKaXVoYko4Z1hVdDZmNFctdU9IT1drN3lmTUZFZDFuUExZaHNvZXZlTFhoZ2NVMGZqQ20xbC1BQ2jSAXBBVV95cUxQdm1VOFdWLUtWeGFrRHFpRnhreDZmN1p0bzdaejU0enBucUlQemdpLTIzLWplQ2RseHJRMERUQWRseTRkX1dMRzdLWEpDRXhfUHVYNGRIUFQtSWFpZDdTVGtla1RrZmxRQTRPdUtuczF1?oc=5",
+        "titulo": "Industrial facility damaged in drone attack on Russia's Perm Krai, fire at oil refinery reported – photo, video - Українська правда",
+        "titulo_es": "Ataque con drones daña refinería de petróleo en Perm, Rusia",
         "medio": "Google News EN",
-        "publicado_at": "2026-11-22T21:40:00-06:00",
-        "categoria": "otro",
+        "publicado_at": "2026-11-23T00:50:00-06:00",
+        "categoria": "infraestructura",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Los hutíes de Yemen reivindican los ataques contra la refinería de petróleo saudí, mientras Trump advierte de nuevos ataques el año que viene <",
-        "fetched_at": "2026-11-23T20:50:14-06:00"
-      },
-      {
-        "id": 1,
-        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOME5HQWZTNUt5bkMwNHJpbWVIa3BfVG9UQk1laTk5ZWR4TGd3RWhFbGFLblBPMWVsZFdZTGNWY05lbjB6d0VqZnlVVVFWZU1XQUJqdURsZTJIOGExOE9SbXB6VFh2b2JQT2tqcDJ0X29WLVdnM3VSa2YxU0NaLXFMLUZFbllza1BK?oc=5",
-        "titulo": "Combustibles en Guatemala: MEM reporta baja en precios de gasolinas y diésel - Prensa Libre",
-        "titulo_es": "Baja en precios de gasolinas y diésel en Guatemala, según MEM",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-22T14:54:11-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "MEM informa que los precios de gasolina y diésel disminuyeron en Guatemala, lo que reduce el costo para los importadores y consumidores.",
-        "fetched_at": "2026-11-23T20:50:14-06:00"
+        "resumen_es": "Un ataque con drones provocó daños e incendio en una refinería de petróleo en Perm, Rusia, lo que podría reducir la oferta mundial y presionar al alza los precios en Guatemala.",
+        "fetched_at": "2026-11-24T04:54:08-06:00"
       },
       {
         "id": 5,
-        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQTW5DNmhKMURGdXVDUWxha2E1bVJEUzZkRnVfUWRxZ0pFN3hFdFAxZjBQM0UtTFlEbFRYeVdIRlJFQkFkQ2hWU3paTUh5YVppblNDU0duZGlpd0lhc0Z0NnpiQ0hwTmtnWE9kSkltM3MzeG9iWHRnVHk0b04yekxoaUtSaUxObHNNV3VzLTZucjl3UEJNMWdV?oc=5",
-        "titulo": "Ukrainian troops say they battled through underground gas pipeline to launch attack behind Russian lines - CBS News",
-        "titulo_es": "Las tropas ucranianas afirman que lucharon a través de un gasoducto subterráneo para lanzar un ataque detrás de las líne",
+        "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9YeVVuSzlMa1Vza0JNYXpXbGw2emp5RndTVHplTzB1QllobEw0SW5Dc3VyTFhwMFJnMkpRSEJEZnhPOFFZYWZhckZXaUlKdTZPRzNyOGNzLWp0YUZDOHM4N0xZQWZHVm9zOHRPbXp1a040YUHSAXhBVV95cUxNcG02RV9VeGk3SG90SjhQdWEyTGd3RVdNRmw4YkZreEZmY2JHUU5nVGNBQklaSmFES0ppelA3UmZFVFVUdVF0RzlzdVBtWWF1emF1U3o1N0x4T25VRDVTMS1Od3BWZnhTVERFN0hJd1Bud1hHdkk3MnA?oc=5",
+        "titulo": "Yemen's Houthis claim attacks on Saudi oil refinery as Trump warns of new strikes next year - CNBC",
+        "titulo_es": "Hutíes atacan refinería saudí y EE. UU. advierte nuevos ataques",
         "medio": "Google News EN",
-        "publicado_at": "2026-11-17T11:16:06-06:00",
-        "categoria": "otro",
+        "publicado_at": "2026-11-22T21:40:00-06:00",
+        "categoria": "geopolitica",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "Las tropas ucranianas afirman que avanzaron a través de un gasoducto subterráneo para lanzar un ataque detrás de las líneas rusas CBS News",
-        "fetched_at": "2026-11-23T20:50:14-06:00"
-      },
-      {
-        "id": 3,
-        "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQLWF6Q2pLWVRqZk9NMXB6VnlJM3dVZEhZbkdQalltZXRkVGttbTE0eGZiUWZELUJ4cEw1N3ozbkFaRklpUjJCd3p0eXhhWDkxVEN1bEZGaTk4bXlxNmtlU0lOTmxRNWgxNnZyOU5QbFVYQVZTNDRzS1lCeDl6eV9fbC1WQmJRR3pfZzVVSHRBaV9La3F5WDR4U0JudURRYjdRSElJOTFoYTloTWxiZzRTV2NYYmdvQzcyeEtBcjQ1ZG91OXU3NGtEdEd6NXNwZFMtMzBmMTg3NVl3VFRqVEE?oc=5",
-        "titulo": "Precio de gasolina en Guatemala hoy, 16 de noviembre: regular baja hasta Q28.49 - Prensa Libre",
-        "titulo_es": "Gasolina regular en Guatemala baja a Q28.49 el 16 de noviembre",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-16T15:37:14-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "La gasolina regular bajó a Q28.49, reflejando la tendencia a la baja de los precios locales y aliviando la carga económica de los consumidores guatemaltecos.",
-        "fetched_at": "2026-11-23T20:50:14-06:00"
+        "resumen_es": "Los hutíes afirman haber atacado una refinería saudí, mientras EE. UU. advierte nuevos ataques, incrementando el riesgo de interrupciones en el suministro de crudo que afecta a Guatemala.",
+        "fetched_at": "2026-11-24T04:54:08-06:00"
       },
       {
         "id": 7,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Japan-Poised-to-Ramp-Up-LNG-Buying-as-Power-Prices-Surge.html",
+        "titulo": "Japan Poised to Ramp Up LNG Buying as Power Prices Surge",
+        "titulo_es": "Japón se prepara para aumentar la compra de GNL ante la subida de los precios de la electricidad",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-24T04:35:00-06:00",
+        "categoria": "otro",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "Las empresas de servicios públicos japonesas podrían aumentar la compra de cargamentos de GNL al contado, ya que el aumento de los precios de la electricidad en los últimos días ha hecho que la generación de energía a partir de gas sea rentable por primera vez desde el inicio de la guerra de Irán. El «spark spread» físico de Japón, la diferencia entre el precio que recibe una central eléctrica por la electricidad producida, se ha vuelto positivo en una media de siete días por primera vez desde e",
+        "fetched_at": "2026-11-24T04:54:08-06:00"
+      },
+      {
+        "id": 8,
         "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9ZaGN6US1ZTThIUkJac2NwWkE5bjVic2hxVDNMelBMOTcxaFQyR0VZMTZCRFZvTW9wajNRdHF6S0VPZU80Y0Ric3lBZ19LTXdBdUdFY2NmNUthUmdY0gFiQVVfeXFMTkJsYmdhMGNWejhydUpqUGVSc1VNUlp5MDlDRUR6RU13TVhFR2ktb3llNFlCck15WFNKeWNRWkljZ2NmOG0tVy1VQnBSbEdIX1hIN2JydkZtRXM3QXEzVmIyN2c?oc=5",
         "titulo": "Lo que el ataque contra un buque militar ruso en Libia revela sobre la propagación de la guerra de Ucrania - BBC",
         "titulo_es": "Lo que el ataque contra un buque militar ruso en Libia revela sobre la propagación de la guerra de Ucrania - BBC",
@@ -5660,23 +5669,23 @@
         "pais": null,
         "relevancia": 4,
         "resumen_es": "Lo que el ataque contra un buque militar ruso en Libia revela sobre la propagación de la guerra de Ucrania BBC",
-        "fetched_at": "2026-11-23T20:50:14-06:00"
+        "fetched_at": "2026-11-24T04:54:08-06:00"
       },
       {
         "id": 6,
         "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOZlRYU19ERFE4bndPem9uNjRTZ01SS1dzOURfaU9MV2JCY05RQjZEcFhYNXVPaVRJY1c4eC15dEl0QVY2ejRUMWRkUmc1cld5bTdPY1hyTWtDMDZ5V2w0b1FZTWtWM1pWVzMxSWRVMTRLTkNYS20ybDctYktxSDFOT21zaFAyZWMyZ2V4dkZGM0lZRHNyUXYtWnI2YkViazVaTlNoZGtUWDZoeko5RmdWYUhUWW5VQ2RPX2ppWWtfTnBpNXpNbnBMNXFyVXBqbDdhZnZpN0kwc0lKUktybGdTcVp1bmJub1hvTXVCVDN1Yk1Gd2ZhMXhBTmk5bjJBU1JKaGZPWQ?oc=5",
         "titulo": "Precio del galón de combustible en Guatemala sigue bajando: cuánto cuestan las gasolinas este 23 de noviembre y qué explica la reducción - Prensa Libre",
-        "titulo_es": "Precio del galón de combustible en Guatemala sigue bajando: cuánto cuestan las gasolinas este 23 de noviembre y qué expl",
+        "titulo_es": "Continúa la caída del precio del combustible en Guatemala, 23 de noviembre",
         "medio": "Google News ES",
         "publicado_at": "2026-11-23T16:30:38-06:00",
-        "categoria": "otro",
+        "categoria": "precios",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "Precio del galón de combustible en Guatemala sigue bajando: cuánto cuestan la",
-        "fetched_at": "2026-11-23T20:50:14-06:00"
+        "resumen_es": "Los precios del combustible siguen disminuyendo en Guatemala, con la gasolina a niveles más bajos, lo que indica menores costos de importación.",
+        "fetched_at": "2026-11-24T04:54:08-06:00"
       },
       {
-        "id": 8,
+        "id": 9,
         "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOT1N2RUl6eUg1NTN5S3dzM0JsRDZqT05iT1Eyd3A3RFRCT21XdTl2TFgtN2h0c0ZkQTdXa3Fyb1J5U0hRdkxfNEJGT0xZV1VuTU14Zmp5YlRJWU5pMFNjRmxFWFNzUDRWazJhVUoxTFhRMWxQa2x6c1BsSmw3V2ZyV256WnFQcE5WV3c1cFdTZF9PVWRUOTFNYUhpcFdIUHlmMHJmM0hSLVJzZGxseFdxRXZ4UXJWTUhPTUozSWZJWE5XYjgxbDA4QQ?oc=5",
         "titulo": "Russia says Novoshakhtinsk oil refinery halts operations after massive attack - The Standard (HK)",
         "titulo_es": "Rusia afirma que la refinería de petróleo de Novoshajtinsk ha interrumpido su actividad tras un ataque masivo - The Stan",
@@ -5686,23 +5695,10 @@
         "pais": null,
         "relevancia": 4,
         "resumen_es": "Rusia afirma que la refinería de petróleo de Novoshajtinsk ha interrumpido su actividad tras un ataque masivo The Standard (HK)",
-        "fetched_at": "2026-11-23T20:50:14-06:00"
+        "fetched_at": "2026-11-24T04:54:08-06:00"
       },
       {
-        "id": 9,
-        "url": "https://oilprice.com/Energy/Energy-General/Americas-Biggest-Oil-Export-Port-Faces-Thousands-of-Cyberattack-Attempts.html",
-        "titulo": "America’s Biggest Oil Export Port Faces Thousands of Cyberattack Attempts",
-        "titulo_es": "El mayor puerto exportador de petróleo de Estados Unidos se enfrenta a miles de intentos de ciberataque",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-23T11:00:00-06:00",
-        "categoria": "otro",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "El puerto que envía al extranjero la mayor parte del crudo estadounidense se enfrenta ahora a «cientos o incluso miles» de intentos de irrumpir en sus sistemas cada día, según declaró al Financial Times el director ejecutivo del puerto de Corpus Christi, Kent Britton, a medida que los piratas informáticos intensifican su campaña contra los puertos estadounidenses y los buques de carga que hacen escala en ellos. Es difícil exagerar lo que está en juego en Corpus Christi: alrededor del 60 % de las",
-        "fetched_at": "2026-11-23T20:50:14-06:00"
-      },
-      {
-        "id": 14,
+        "id": 12,
         "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQNWRaYkRGUjROT2MzZ3dYUW4wLVZqUU50ZVZpLW55R0VkM3ZCdFlxbTJwOG5YUEpBYnBvRG0xTjJDaE13TlpPNWR0aDNZRWJ6eTY0cl9vQVdCa044dldoeHhzeUlfb2EwS1pYRnRiUFhFZWlBNk1yTkpHck9pMW9nTDRZZ3Q1YzBzSkNj?oc=5",
         "titulo": "Los rebeldes hutíes se atribuyen la responsabilidad del ataque a las refinerías de petróleo de Arabia Saudí. - Vietnam.vn",
         "titulo_es": "Los rebeldes hutíes se atribuyen la responsabilidad del ataque a las refinerías de petróleo de Arabia Saudí. - Vietnam.v",
@@ -5712,90 +5708,116 @@
         "pais": null,
         "relevancia": 4,
         "resumen_es": "Los rebeldes hutíes se atribuyen la responsabilidad del ataque a las refinerías de petróleo de Arabia Saudí. Vietnam.vn",
-        "fetched_at": "2026-11-23T20:50:14-06:00"
+        "fetched_at": "2026-11-24T04:54:08-06:00"
+      },
+      {
+        "id": 1,
+        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOME5HQWZTNUt5bkMwNHJpbWVIa3BfVG9UQk1laTk5ZWR4TGd3RWhFbGFLblBPMWVsZFdZTGNWY05lbjB6d0VqZnlVVVFWZU1XQUJqdURsZTJIOGExOE9SbXB6VFh2b2JQT2tqcDJ0X29WLVdnM3VSa2YxU0NaLXFMLUZFbllza1BK?oc=5",
+        "titulo": "Combustibles en Guatemala: MEM reporta baja en precios de gasolinas y diésel - Prensa Libre",
+        "titulo_es": "Baja de precios de gasolina y diésel en Guatemala, según MEM",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-22T14:54:11-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "MEM informa que los precios de gasolina y diésel han descendido en Guatemala, reduciendo el costo para los consumidores y la demanda interna.",
+        "fetched_at": "2026-11-24T04:54:08-06:00"
+      },
+      {
+        "id": 3,
+        "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQLWF6Q2pLWVRqZk9NMXB6VnlJM3dVZEhZbkdQalltZXRkVGttbTE0eGZiUWZELUJ4cEw1N3ozbkFaRklpUjJCd3p0eXhhWDkxVEN1bEZGaTk4bXlxNmtlU0lOTmxRNWgxNnZyOU5QbFVYQVZTNDRzS1lCeDl6eV9fbC1WQmJRR3pfZzVVSHRBaV9La3F5WDR4U0JudURRYjdRSElJOTFoYTloTWxiZzRTV2NYYmdvQzcyeEtBcjQ1ZG91OXU3NGtEdEd6NXNwZFMtMzBmMTg3NVl3VFRqVEE?oc=5",
+        "titulo": "Precio de gasolina en Guatemala hoy, 16 de noviembre: regular baja hasta Q28.49 - Prensa Libre",
+        "titulo_es": "Gasolina regular baja a Q28.49 en Guatemala el 16 de noviembre",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-16T15:37:14-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 4,
+        "resumen_es": "El precio de la gasolina regular cayó a Q28.49, reflejando la tendencia a la baja del mercado y beneficiando a los usuarios guatemaltecos.",
+        "fetched_at": "2026-11-24T04:54:08-06:00"
       },
       {
         "id": 2,
         "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQcGxjX1lzdnJaMEpqX1NzelBnT2U3Y0k0c1BlaGlrZXFpYXl0a01yOHNqQ1VxV19pSm9WTGpEMW5lMV9pWl95SFFDMGtwZlhiSjYyMjBSZnVYekNIU2prMjBCQnZMbkwxRFlxb2NlVGRqcVllamZNelRMZXlha0J2MlVSX0FCbnVBUkREUWhQUmJRczMydFNvcDQ1eGJRMFJINmdGYWNLTktUTGdTR0M1Nlh4Y2Y5MlNqd3JVdlNMTVJ3d2Vtb2lXRlRkREppYi1ubDAyVEpSNmI?oc=5",
         "titulo": "Precio del petróleo podría bajar en el 2027: Guatemala mantendrá exoneración de combustibles hasta junio - Prensa Libre",
-        "titulo_es": "Precio del petróleo podría bajar en 2027; Guatemala mantiene exoneración hasta junio",
+        "titulo_es": "Posible caída del petróleo en 2027 y exoneración de combustibles hasta junio",
         "medio": "Google News ES",
         "publicado_at": "2026-11-19T16:02:02-06:00",
         "categoria": "precios",
         "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Se prevé una caída del precio del crudo para 2027 y Guatemala mantendrá la exoneración de combustibles hasta junio, manteniendo bajos los precios internos.",
-        "fetched_at": "2026-11-23T20:50:14-06:00"
+        "relevancia": 3,
+        "resumen_es": "Se prevé que el precio del crudo baje para 2027 y Guatemala mantendrá la exoneración de combustibles hasta junio, lo que podría mantener bajos los precios internos.",
+        "fetched_at": "2026-11-24T04:54:08-06:00"
       },
       {
-        "id": 34,
-        "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNZ2VLZ21qM3Z5ajRWcGFjUDQzd2o2UzZSekRtckRvS21LTWlaZEUxamJjUzRkaDNhZWhRQzQ3QWltSFBNdzhEUEZGb1hPZkJYUndJM2RwZXJjYW5YSjJkQS1pejR3UHUwUzNIbFJwc0E3Yy1BNV9LQlE2Q2tVakpmRkhWYmdMdWJGY00wcTctbGZtdmhiRGNJeVV5Y19YMDh2QVR3WHQ1b0QzOGxRWlNXMnhHMEFkX2lUbnFuRmswdFRlQQ?oc=5",
-        "titulo": "Iran’s IRGC says three tankers ablaze after hitting naval mines in Hormuz - Al Jazeera",
+        "id": 28,
+        "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNN3ZxbkdTVmVwTnVlcHhLSUxNcXZPcjY0WHhFdGkzdXpyMFNIQXpSQUtnQmU5azZUMVdpc1ZHSVhNYmtjcTR1bmZIQmFZRm1PNjY0R2xaMDFqUXJiY0tfWi1mZGtmMEZESWd4eEdBQmVFaWs1VDItTUVMRjNDQkhUaWdVZFd4eEVJcVZjQ2o1dG13UVptVU8yTW9BcC0zZUljeTNvNFg2VDhYTXFKTGhScUtLd2RWNktCWEk2TFZlMEhIT1FhMTJXRklaYzJHX0tTeXFWb1lYVTF4SV9tMVE?oc=5",
+        "titulo": "US-Iran News Live Updates: Oil prices dip near three-month low despite Strait of Hormuz shipping risks - The Indian Express",
         "titulo_es": null,
         "medio": "Google News EN",
-        "publicado_at": "2026-11-23T20:37:30-06:00",
+        "publicado_at": "2026-11-24T04:23:54-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "Iran’s IRGC says three tankers ablaze after hitting naval mines in Hormuz Al Jazeera",
-        "fetched_at": "2026-11-23T20:50:15-06:00"
+        "resumen_es": "US-Iran News Live Updates: Oil prices dip near three-month low despite Strait of Hormuz shipping risks <font colo",
+        "fetched_at": "2026-11-24T04:54:08-06:00"
       },
       {
-        "id": 17,
-        "url": "https://oilprice.com/Energy/Crude-Oil/Americas-Refiners-Drowned-Their-Own-Gasoline-Windfall.html",
-        "titulo": "America's Refiners Drowned Their Own Gasoline Windfall",
+        "id": 29,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Equinor-Locks-In-Longest-Gas-Supply-Deal-in-40-Years.html",
+        "titulo": "Equinor Locks In Longest Gas Supply Deal in 40 Years",
         "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-23T19:00:00-06:00",
+        "publicado_at": "2026-11-24T03:25:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "U.S. refiners spent 2026 squeezing less gasoline out of every barrel to chase diesel and jet fuel margins, and they still produced enough gasoline to nearly wipe out their margins on it. Gasoline yields averaged below 45% in the first eight months of the year and fell below the previous five-year low in every month, according to Energy Information Administration (EIA) data. Jet fuel's share of output topped 12% in March for the first time on record and stayed at or above that level through Augus",
-        "fetched_at": "2026-11-23T20:50:14-06:00"
+        "resumen_es": "Equinor has signed an 18-year gas supply agreement with Germany’s energy firm VNG in the longest gas sales agreement the Norwegian energy major has signed since 1986. Under the deal with VNG, announced on Tuesday, Equinor will supply up to 15.3 TWh, or around 1.4 billion cubic meters (bcm), of natural gas per year to VNG, starting on January 1, 2027. Deliveries will continue until the end of 2044, and gas will be delivered at Trading Hub Europe, the German gas market area. Pricing will reflect m",
+        "fetched_at": "2026-11-24T04:54:08-06:00"
       },
       {
-        "id": 35,
-        "url": "https://oilprice.com/Alternative-Energy/Renewable-Energy/Climate-Finance-Dispute-Derails-COP31-Negotiations.html",
-        "titulo": "Climate Finance Dispute Derails COP31 Negotiations",
+        "id": 14,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Hold-Near-Three-Month-Lows-Despite-Hormuz-Mine-Claims.html",
+        "titulo": "Oil Prices Hold Near Three-Month Lows Despite Hormuz Mine Claims",
         "titulo_es": null,
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-23T18:00:00-06:00",
+        "publicado_at": "2026-11-24T01:05:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "For the first time since 2009, the Conference of the Parties ended without a deal to advance an energy transition as participating countries failed to agree on key aspects of that deal. Disagreements were most notable in financial commitments for developing countries and in blaming oil and gas for climate change. COP31 was arguably doomed from the start. Financial commitments are a central part of the talks, with wealthy Western countries pledging billions in energy-transition assistance to deve",
-        "fetched_at": "2026-11-23T20:50:15-06:00"
+        "resumen_es": "Crude oil prices remained subdued in early trading on Tuesday, with Brent trading below $90 per barrel despite Iranian claims that three oil tankers had struck mines in the Strait of Hormuz. At the time of writing, Brent crude was trading at $88.67 per barrel, with West Texas Intermediate at $79.59 per barrel, both near the lowest in three months, after October highs of over $100 per barrel for both benchmarks. “Brent has largely lost any upward impetus in recent days as supply conditions remain",
+        "fetched_at": "2026-11-24T04:54:08-06:00"
       },
       {
-        "id": 18,
-        "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOSUM4Y05QSk1ydjh5ODFWQm4zSWR3LTlhTE9UaEhxYzVYQ3RWUGJHLWFYZC10WkV3Ty14UkhDdUp2cXRfTEFXNVR5cUJmLTRkeGRpNmRXQ0h1SUFnTTcyT01rNWUzWEdoUDNiaS1OTHdMeWZhaVJfRmoyT1lUZU1UV2xBMGNjRXBiQ2dnNzlwdVNDZHhqaFpfbWl1TWZSaElyY1VPRjZHN1NRRzd5dm1YUExQWjlxd0R0V21tWDk2SVRlMG5nN2c?oc=5",
-        "titulo": "Oil slides more than 3% as supply growth overshadows attack risks - TradingView",
+        "id": 30,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Electric-and-Hybrid-Cars-Capture-Three-Quarters-of-Europes-Auto-Market.html",
+        "titulo": "Electric and Hybrid Cars Capture Three-Quarters of Europe’s Auto Market",
         "titulo_es": null,
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-23T15:14:08-06:00",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-24T00:30:00-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "Oil slides more than 3% as supply growth overshadows attack risks TradingView",
-        "fetched_at": "2026-11-23T20:50:15-06:00"
+        "resumen_es": "Electric and hybrid vehicle sales across Europe dominated total car sales last month, representing around 75% of all new vehicle registrations, while gasoline and diesel car sales dropped, highlighting demand sensitivity to soaring energy commodity prices. The data comes from the European Automobile Manufacturers’ Association, which reported that battery electric vehicle sales specifically represented 29.8% of the total and plug-in hybrids accounted for 10.9% of the total in the European Union a",
+        "fetched_at": "2026-11-24T04:54:08-06:00"
       },
       {
-        "id": 36,
-        "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPbi1GbTFtZkZxbHpKOGFpcUEtd2pNRElVQk80clN2UVY2ZG5ZbS0wTlQ3X0N5REFOdy1TWUJiLVVSdi0xQllHWlFlXzk0ckQ0aGtjeGx0VEtCc2NaTVR6cHBvcl95T21Cb3VtSll6ZW9QWlUzSUtFUlBWSTZfOHIxVHJNdmdPaS1Cb1JBbmF6dm56Sk5xOG1V?oc=5",
-        "titulo": "U.S. Targets Financial Networks Behind Iran’s Tanker Fleet and Oil Trade - gCaptain",
+        "id": 15,
+        "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9aSnVNOTQ5Ml81YUdQSkxzbkI0bVF5OUV4RndqcjVrWkM1SGw4V0tZOVJEbGRmTGgybGxfTUwzRVNISTRFUmxkX0cydWlPcVRCN2dIWFFfaklmbk40ZnptNVMxUURLdWFoRUtUNkNR0gFzQVVfeXFMTVY0aG5JUVJlODBXb0tvdmJTRjJoV2R2Uk9TMVpKcFdpLVpTUThDU3MzcGw3RnVmanBjQ1VNRFlkRi1JZUMxMDRNcWFXLVJoNlo4dVB6VU91V2tYRnpDU1oyekUxaWQwdlBXbGJoZ1ZlSGNKcw?oc=5",
+        "titulo": "Iran says three tankers hit mines in Hormuz despite U.S. escort, as Treasury widens sanctions - CNBC",
         "titulo_es": null,
         "medio": "Google News EN",
-        "publicado_at": "2026-11-23T14:36:51-06:00",
+        "publicado_at": "2026-11-23T23:05:08-06:00",
         "categoria": null,
         "pais": null,
         "relevancia": null,
-        "resumen_es": "U.S. Targets Financial Networks Behind Iran’s Tanker Fleet and Oil Trade gCaptain",
-        "fetched_at": "2026-11-23T20:50:15-06:00"
+        "resumen_es": "Iran says three tankers hit mines in Hormuz despite U.S. escort, as Treasury widens sanctions <font color=",
+        "fetched_at": "2026-11-24T04:54:08-06:00"
       }
     ],
     "llm": {
       "titulos_es_hoy": 10,
-      "total_hoy": 48,
+      "total_hoy": 40,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
