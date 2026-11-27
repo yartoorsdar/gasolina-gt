@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "actualizado_at": "2026-11-27T11:54:10-06:00",
+  "actualizado_at": "2026-11-27T17:58:45-06:00",
   "precios_actualizados": true,
   "max_fecha_precios": "2026-11-25",
   "productos": {
@@ -13,7 +13,7 @@
         "fecha": "2026-11-25",
         "precio": 27.19,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-27T11:53:09-06:00",
+        "fetched_at": "2026-11-27T17:57:45-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -1207,7 +1207,7 @@
             "fecha": "2026-11-25",
             "precio": 27.19,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-27T11:53:09-06:00",
+            "fetched_at": "2026-11-27T17:57:45-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1304,7 +1304,7 @@
             "fecha": "2026-11-25",
             "precio": 28.29,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-27T11:53:09-06:00",
+            "fetched_at": "2026-11-27T17:57:45-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -1380,7 +1380,7 @@
         "fecha": "2026-11-25",
         "precio": 29.69,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-27T11:53:09-06:00",
+        "fetched_at": "2026-11-27T17:57:45-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -2582,7 +2582,7 @@
             "fecha": "2026-11-25",
             "precio": 29.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-27T11:53:09-06:00",
+            "fetched_at": "2026-11-27T17:57:45-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2679,7 +2679,7 @@
             "fecha": "2026-11-25",
             "precio": 30.99,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-27T11:53:09-06:00",
+            "fetched_at": "2026-11-27T17:57:45-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -2747,7 +2747,7 @@
         "fecha": "2026-11-25",
         "precio": 38.39,
         "fuente": "Consejo",
-        "fetched_at": "2026-11-27T11:53:09-06:00",
+        "fetched_at": "2026-11-27T17:57:45-06:00",
         "incluye_impuestos": false
       },
       "historial": [
@@ -3941,7 +3941,7 @@
             "fecha": "2026-11-25",
             "precio": 38.39,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-27T11:53:09-06:00",
+            "fetched_at": "2026-11-27T17:57:45-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4038,7 +4038,7 @@
             "fecha": "2026-11-25",
             "precio": 39.69,
             "fuente": "Consejo",
-            "fetched_at": "2026-11-27T11:53:09-06:00",
+            "fetched_at": "2026-11-27T17:57:45-06:00",
             "incluye_impuestos": false
           },
           "consenso": {
@@ -4104,9 +4104,9 @@
       "orden": 4,
       "actual": {
         "fecha": "2026-11-27",
-        "precio": 82.72,
+        "precio": 83.08,
         "fuente": "OilPriceAPI",
-        "fetched_at": "2026-11-27T11:53:35-06:00",
+        "fetched_at": "2026-11-27T17:58:10-06:00",
         "incluye_impuestos": null
       },
       "historial": [
@@ -5228,7 +5228,7 @@
         },
         {
           "fecha": "2026-11-27",
-          "precio": 82.72
+          "precio": 83.08
         }
       ],
       "mensual": [],
@@ -5249,7 +5249,7 @@
         },
         {
           "anio": 2026,
-          "promedio": 85.44,
+          "promedio": 85.45,
           "dias": 255,
           "meses": null,
           "fuente": "diario"
@@ -5260,9 +5260,9 @@
           "nombre": "Spot",
           "actual": {
             "fecha": "2026-11-27",
-            "precio": 82.72,
+            "precio": 83.08,
             "fuente": "OilPriceAPI",
-            "fetched_at": "2026-11-27T11:53:35-06:00",
+            "fetched_at": "2026-11-27T17:58:10-06:00",
             "incluye_impuestos": null
           },
           "consenso": null,
@@ -5389,7 +5389,7 @@
             },
             {
               "fecha": "2026-11-27",
-              "precio": 82.72
+              "precio": 83.08
             }
           ]
         }
@@ -5435,7 +5435,7 @@
       }
     },
     "observaciones_7d": 68,
-    "notas_leidas": 240,
+    "notas_leidas": 241,
     "medios": [
       "agn.gt",
       "chapintv.com",
@@ -5455,207 +5455,207 @@
     ]
   },
   "noticias": {
-    "total": 51,
+    "total": 49,
     "top": [
       {
-        "id": 4,
+        "id": 1,
+        "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPbzYtQkQ5TEFWY1NIY2QxSlEweDJVQ09YeGRGYmFpX1RQbU0zNzZ3T19YVU5VdUc2bHZYRXNTcVY2NWVZRFdpejBwcVFrSWQ1U0taZlV6WXBHS0FKZF9wODRmSEpUN3ZxbjFQd3g5VEZJQXlrWmhqX0lqYWVVZ0ExdnlmendiYW1JSmViZTVWSFRNZ3NuUkFoMWE1d1BVOGpObnhHbXdjbU1kb1oydFdB?oc=5",
+        "titulo": "Precio de la gasolina en Guatemala hoy: nueva rebaja este 26 de noviembre - Prensa Libre",
+        "titulo_es": "Precio de la gasolina en Guatemala baja este 26 de noviembre",
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-26T18:09:04-06:00",
+        "categoria": "precios",
+        "pais": null,
+        "relevancia": 5,
+        "resumen_es": "El precio de la gasolina se redujo hoy en Guatemala, lo que disminuye el costo para los consumidores y refleja la política de precios del gobierno.",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
+      },
+      {
+        "id": 5,
         "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOZlRYU19ERFE4bndPem9uNjRTZ01SS1dzOURfaU9MV2JCY05RQjZEcFhYNXVPaVRJY1c4eC15dEl0QVY2ejRUMWRkUmc1cld5bTdPY1hyTWtDMDZ5V2w0b1FZTWtWM1pWVzMxSWRVMTRLTkNYS20ybDctYktxSDFOT21zaFAyZWMyZ2V4dkZGM0lZRHNyUXYtWnI2YkViazVaTlNoZGtUWDZoeko5RmdWYUhUWW5VQ2RPX2ppWWtfTnBpNXpNbnBMNXFyVXBqbDdhZnZpN0kwc0lKUktybGdTcVp1bmJub1hvTXVCVDN1Yk1Gd2ZhMXhBTmk5bjJBU1JKaGZPWQ?oc=5",
         "titulo": "Precio del galón de combustible en Guatemala sigue bajando: cuánto cuestan las gasolinas este 23 de noviembre y qué explica la reducción - Prensa Libre",
-        "titulo_es": "Continúa la caída del precio del combustible en Guatemala el 23 de noviembre",
+        "titulo_es": "Precio del galón de combustible sigue bajando en Guatemala el 23 de noviembre",
         "medio": "Google News ES",
         "publicado_at": "2026-11-23T16:30:38-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 5,
-        "resumen_es": "El precio del combustible sigue cayendo en Guatemala el 23 de noviembre, manteniendo la tendencia a la baja para los usuarios locales.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
+        "resumen_es": "El galón de combustible sigue bajando en Guatemala, con precios más bajos que alivian a los consumidores y reflejan la caída del crudo en el mercado global.",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
       },
       {
-        "id": 1,
-        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOME5HQWZTNUt5bkMwNHJpbWVIa3BfVG9UQk1laTk5ZWR4TGd3RWhFbGFLblBPMWVsZFdZTGNWY05lbjB6d0VqZnlVVVFWZU1XQUJqdURsZTJIOGExOE9SbXB6VFh2b2JQT2tqcDJ0X29WLVdnM3VSa2YxU0NaLXFMLUZFbllza1BK?oc=5",
-        "titulo": "Combustibles en Guatemala: MEM reporta baja en precios de gasolinas y diésel - Prensa Libre",
-        "titulo_es": "Bajan precios de gasolina y diésel en Guatemala, según MEM",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-22T14:54:11-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "El MEM reporta una caída de los precios de la gasolina y diésel en Guatemala, lo que reduce el costo del combustible para los consumidores.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
-      },
-      {
-        "id": 2,
-        "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQLWF6Q2pLWVRqZk9NMXB6VnlJM3dVZEhZbkdQalltZXRkVGttbTE0eGZiUWZELUJ4cEw1N3ozbkFaRklpUjJCd3p0eXhhWDkxVEN1bEZGaTk4bXlxNmtlU0lOTmxRNWgxNnZyOU5QbFVYQVZTNDRzS1lCeDl6eV9fbC1WQmJRR3pfZzVVSHRBaV9La3F5WDR4U0JudURRYjdRSElJOTFoYTloTWxiZzRTV2NYYmdvQzcyeEtBcjQ1ZG91OXU3NGtEdEd6NXNwZFMtMzBmMTg3NVl3VFRqVEE?oc=5",
-        "titulo": "Precio de gasolina en Guatemala hoy, 16 de noviembre: regular baja hasta Q28.49 - Prensa Libre",
-        "titulo_es": "Gasolina regular baja a Q28.49 en Guatemala el 16 de noviembre",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-16T02:00:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 5,
-        "resumen_es": "El precio regular de la gasolina bajó a Q28.49, reflejando la tendencia a la baja del combustible en el país.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
-      },
-      {
-        "id": 5,
+        "id": 6,
         "url": "https://oilprice.com/Energy/Crude-Oil/The-Oil-Glut-Everyone-Expected-Is-Looking-Increasingly-Elusive.html",
         "titulo": "The Oil Glut Everyone Expected Is Looking Increasingly Elusive",
-        "titulo_es": "Brent sube a $96 por ataques hutíes y escasez de suministro",
+        "titulo_es": "Brent sube a $96 por ataques hutíes y escasez física",
         "medio": "OilPrice.com",
         "publicado_at": "2026-11-27T11:04:00-06:00",
         "categoria": "precios",
         "pais": null,
         "relevancia": 4,
-        "resumen_es": "El Brent sube a $96 por ataques hutíes y la reducción de suministros físicos, lo que puede elevar los precios del combustible importado por Guatemala.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
-      },
-      {
-        "id": 7,
-        "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNNEozRnhUUHlNLVBCNTZlTWRiQzd2X1JaUmxJdzhKR3lXMkpBRDdqWGNQODBTMmJmeUUyc3NOTjRJSFY3WHp4UjlxbHY4TWo0cVU2dmlmTlRUSkdYYUlRblhGVlY1bUJQZEUwb3NpLURMMTNJLWNxdzN3bHY1Qk1fUTh0MEd5OEFtRGs4T0RuRUlEUm1TVHVNNE1SYzkyc2RXYzdOVkdleEU1NTdEVlRfN0JxN3ZaUGIxMVI1VzFPanFhMDZFV0Yxb2QxS0gwekwtQzlzNWNsejdCcXhocG1vVEZOOVR2RE1pa2wyQ0FWbU40VHh2?oc=5",
-        "titulo": "Arabia Saudita reporta un ataque a una refinería en Jazan y responde con bombardeos contra objetivos hutíes - Diario Digital Conclusión",
-        "titulo_es": "Ataque a refinería saudí en Jazan y respuesta contra objetivos hutíes",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-27T09:16:14-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Un ataque a la refinería de Jazan en Arabia Saudí y la respuesta militar aumentan la incertidumbre en la producción saudí, lo que puede elevar los precios del crudo importado por Guatemala.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
+        "resumen_es": "El Brent alcanzó $96 tras ataques hutíes y una oferta física más estrecha, lo que puede encarecer las importaciones de petróleo de Guatemala.",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
       },
       {
         "id": 9,
-        "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNnhTU3BLVTVyamJ2UlZLb19BWHUwZzVTQXB6N1ZXeXFfS1NlWUVUVy1wWVFfQmlhT21UZlh0TFZzS0RkMWFYaFBNSVZEckxhSWJ1NDJlc2tVWXdZN1lQTDhYYVNvcC1aODlBeHhzVWE5SUNqRUMxMjA1LWI1aXlpak1zVEFnYjd1QXBFZll5MzY?oc=5",
-        "titulo": "Petróleo sube hacia los 100 dólares por ataques en Oriente Medio - Xpectro",
-        "titulo_es": "El petróleo se acerca a los $100 por ataques en Oriente Medio",
-        "medio": "Google News ES",
-        "publicado_at": "2026-11-27T07:12:30-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Los ataques en Oriente Medio impulsan el precio del petróleo cerca de $100, lo que puede traducirse en mayores costos de importación de combustible para Guatemala.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
-      },
-      {
-        "id": 12,
-        "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOUFJKcTlSNmZHYWt2WWZqdWxWTzhVX3Vqakhma0tlMlhBOWMtczBfOHdlMllydUdjTldlTlZwcFk3UmJNMGVqaHk3NzUyUEpKTGIzaVJOb0FZN3VBSzAtcW1hT3RCcE1hU1o4bmEwb1B6aGxpa0Q1QUFCbGJIbVdTdUpmcGhCcWZLdzl1OVlCQ0JHVHk2UzMzMl9YOGoxZw?oc=5",
-        "titulo": "Houthis strike Saudi oil infrastructure as Riyadh intensifies attacks on Yemen - CNN",
-        "titulo_es": "Hutíes atacan infraestructura petrolera saudí mientras Arabia intensifica ataques a Yemen",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-26T06:23:29-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 4,
-        "resumen_es": "Los hutíes atacan infraestructura petrolera saudí, generando incertidumbre en la producción de Arabia Saudí y presionando al alza los precios internacionales del crudo que importa Guatemala.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
-      },
-      {
-        "id": 8,
-        "url": "https://oilprice.com/Latest-Energy-News/World-News/US-Pushed-Iraq-and-Venezuela-to-Consider-Quitting-OPEC-Sources-Say.html",
-        "titulo": "U.S. Encouraged Iraq and Venezuela to Leave OPEC, Sources Say",
-        "titulo_es": "EE.UU. incita a Irak y Venezuela a abandonar la OPEP",
-        "medio": "OilPrice.com",
-        "publicado_at": "2026-11-27T08:30:00-06:00",
-        "categoria": "diplomacia",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "EE.UU. presiona a Irak y Venezuela para abandonar la OPEP, lo que podría alterar la oferta global de petróleo y afectar los precios del combustible en Guatemala.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
-      },
-      {
-        "id": 10,
         "url": "https://oilprice.com/Latest-Energy-News/World-News/Iraq-Boosts-Oil-Exports-to-36-Million-Barrels-per-Day.html",
         "titulo": "Iraq Boosts Oil Exports to 3.6 Million Barrels per Day",
-        "titulo_es": "Irak aumenta exportaciones de petróleo a 3,6 millones de barriles diarios",
+        "titulo_es": "Irak incrementa exportaciones de crudo a 3,6 millones de barriles diarios",
         "medio": "OilPrice.com",
         "publicado_at": "2026-11-27T05:30:00-06:00",
         "categoria": "oferta",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Irak incrementa sus exportaciones a 3.6 millones de barriles diarios, ampliando la oferta mundial y potencialmente reduciendo los precios del crudo importado por Guatemala.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
+        "relevancia": 4,
+        "resumen_es": "Irak elevó sus exportaciones a 3,6 millones de barriles diarios, aumentando la oferta mundial y pudiendo presionar a la baja los precios del crudo importado por Guatemala.",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
       },
       {
-        "id": 3,
+        "id": 4,
         "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPMTZrUldmeEVzY3NqeVp3TnRjZDVMS1VLRzNiQXVEcm5QcXFYMDA3OFBYR3EtMmVuU0h3dkoydW9vZ0hpbS1UUXI5T1U2Y3g0d1VSRl8yMmhyV3ZVRUh1Q3E1bEl0UmdtX2R1Tko0TENxT2ZkRGNhMDFCeWZtVFR0U0tWSldNckJ0endENXd4aUNRU2c?oc=5",
         "titulo": "Ukrainian long-range drones attack oil refinery in Bashkorstan - Gwara Media",
         "titulo_es": "Drones ucranianos atacan refinería en Bashkortostán",
         "medio": "Google News EN",
         "publicado_at": "2026-11-26T04:49:55-06:00",
-        "categoria": "geopolitica",
+        "categoria": "infraestructura",
         "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Drones ucranianos atacan una refinería en Bashkortostán, reduciendo la capacidad de producción rusa y pudiendo presionar al alza los precios internacionales del combustible.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
+        "relevancia": 4,
+        "resumen_es": "Drones ucranianos destruyeron una refinería en Bashkortostán, reduciendo la oferta de crudo ruso y potencialmente elevando los precios internacionales que paga Guatemala.",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
       },
       {
-        "id": 13,
-        "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9IbE5GYi1fVnNRb1lCZGVBSV9FbE5SeWpkTWJtN0VKVjBXUC1PbWJfZEtLSkE4eXBTbXhXMjJoZHF3Zkl3RjljNVpXSjFDdGVvbHFId2h5Q1I5bi13SzJxYTZ2Z2jSAXBBVV95cUxPak8wQm5uOFNpX1lzQXRsS250bDNfaHE3bl9tTW8zTkJvNnlGOXNMQmRmRm82cjQxeTZKLU9DQ1RSeVpmaEl4Q010RHE0aFNTWTNIQnNuX3g3MjBzOVQybUs0NktwUms3bG5nZWhyekgx?oc=5",
-        "titulo": "Key Russian oil hub on fire after drone attack – video, photos - Українська правда",
-        "titulo_es": "Centro petrolero ruso se incendia tras ataque con drones",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-26T03:21:00-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Un ataque con drones incendia un importante centro de petróleo ruso, reduciendo la capacidad de exportación y pudiendo elevar los precios del crudo en los mercados globales.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
-      },
-      {
-        "id": 14,
-        "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1WTlFSYk9Ednp4VVVlVzlkRnFFSHR0bVV1aVpsQU11NTVha0hhRHJWaDNYZURkNlNHb3BhRlp4akZ5akRybFZYbFZFdw?oc=5",
-        "titulo": "Ukrainian Drones Hit Oil Pipeline Hub, Refinery and Power Plant in Overnight Blitz Across Russia - Kyiv Post",
-        "titulo_es": "Drones ucranianos golpean hub de oleoductos, refinería y planta eléctrica en Rusia",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-26T02:53:29-06:00",
-        "categoria": "geopolitica",
-        "pais": null,
-        "relevancia": 3,
-        "resumen_es": "Drones ucranianos golpean un hub de oleoductos, una refinería y una planta eléctrica en Rusia, afectando la infraestructura energética y potencialmente los precios internacionales.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
-      },
-      {
-        "id": 6,
-        "url": "https://oilprice.com/Energy/Energy-General/Soaring-Fuel-Prices-Threaten-to-Push-More-Airlines-Into-Bankruptcy.html",
-        "titulo": "Soaring Fuel Prices Threaten to Push More Airlines Into Bankruptcy",
-        "titulo_es": "Altos precios del combustible amenazan la bancarrota de aerolíneas",
+        "id": 8,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/US-Pushed-Iraq-and-Venezuela-to-Consider-Quitting-OPEC-Sources-Say.html",
+        "titulo": "U.S. Encouraged Iraq and Venezuela to Leave OPEC, Sources Say",
+        "titulo_es": "EE.UU. presiona a Irak y Venezuela para abandonar la OPEP",
         "medio": "OilPrice.com",
-        "publicado_at": "2026-11-27T11:00:00-06:00",
-        "categoria": "precios",
-        "pais": null,
-        "relevancia": 2,
-        "resumen_es": "El aumento del precio del combustible de aviación amenaza la viabilidad de aerolíneas, indicando presión al alza en los mercados energéticos que también puede afectar los precios locales.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
-      },
-      {
-        "id": 15,
-        "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxPbnpiaXVERGNxYVJURUF0Vjhqd2NNMDdqQ2pseUVNVXk3VXBlMGFPdEVIa0hxaHVKcUhsazFCNmdYb2JDNy1tS04xS2RSUGVJYXJxcUJiVkxGRjhkYUI2aEpoV3NJbjFpN2Q0VERUbE1LVnY4alY5NlBNV2tJQUhLdUdZTy1qWjc1REVVV1lTMWdCZFlyWmdtcVEyVDJPd3FSRHdIVU53bEJadzdYR1p2T2hCczdvLXJqUG1sd3ZfUGVlYjhkZzJiX0ItbDRnYnFJSUREYzZ3QXVfY0o3RDlXc29kdHdVb1RyT05nM0dR?oc=5",
-        "titulo": "Exclusive: EU report confirms Trump threw Russian energy sector an economic lifeline even as sanctions, Ukrainian drones bite hard - The Kyiv Independent",
-        "titulo_es": "Informe de la UE confirma que Trump apoyó al sector energético ruso pese a sanciones",
-        "medio": "Google News EN",
-        "publicado_at": "2026-11-25T23:00:16-06:00",
+        "publicado_at": "2026-11-27T08:30:00-06:00",
         "categoria": "diplomacia",
         "pais": null,
-        "relevancia": 2,
-        "resumen_es": "Un informe de la UE revela que la administración Trump brindó apoyo al sector energético ruso pese a sanciones, lo que puede influir en la dinámica del mercado global de energía.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
+        "relevancia": 3,
+        "resumen_es": "EE.UU. instó a Irak y Venezuela a abandonar la OPEP, lo que podría alterar la producción global de crudo y afectar los precios de importación en Guatemala.",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
       },
       {
-        "id": 11,
+        "id": 7,
+        "url": "https://oilprice.com/Energy/Energy-General/Soaring-Fuel-Prices-Threaten-to-Push-More-Airlines-Into-Bankruptcy.html",
+        "titulo": "Soaring Fuel Prices Threaten to Push More Airlines Into Bankruptcy",
+        "titulo_es": "Altos precios del combustible amenazan la quiebra de aerolíneas",
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-27T11:00:00-06:00",
+        "categoria": "finanzas",
+        "pais": null,
+        "relevancia": 2,
+        "resumen_es": "El aumento de los precios del combustible eleva los costos operativos de aerolíneas, amenazando su viabilidad financiera, aunque su impacto directo en Guatemala es limitado.",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
+      },
+      {
+        "id": 10,
         "url": "https://oilprice.com/Latest-Energy-News/World-News/China-Has-More-Than-Enough-Energy-to-Weather-the-Winter.html",
         "titulo": "China Has More Than Enough Energy to Weather the Winter",
-        "titulo_es": "China dispone de energía suficiente para enfrentar el invierno",
+        "titulo_es": "China asegura suficiente energía para afrontar la demanda invernal",
         "medio": "OilPrice.com",
         "publicado_at": "2026-11-27T04:20:00-06:00",
-        "categoria": "otro",
+        "categoria": "oferta",
         "pais": null,
-        "relevancia": 1,
-        "resumen_es": "China asegura contar con suficiente carbón, gas y energía para el invierno, pero el tema tiene escasa repercusión directa sobre el suministro de combustible en Guatemala.",
-        "fetched_at": "2026-11-27T11:54:10-06:00"
+        "relevancia": 2,
+        "resumen_es": "China declara que cuenta con suficiente carbón, gas y energía para el invierno, indicando que su demanda no presionará la oferta global, con poco efecto inmediato en Guatemala.",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
+      },
+      {
+        "id": 23,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/OPEC-Faces-Growing-Pressure-As-Iraq-Pushes-for-Higher-Quota.html",
+        "titulo": "OPEC+ Faces Growing Pressure As Iraq Pushes for Higher Quota",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-27T11:30:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Iraq is negotiating with OPEC for permission to produce more oil, Oil Minister Basim Mohammed Khudair said Friday, arguing that the country needs a higher production ceiling to develop its energy infrastructure. The request comes ahead of Sunday's OPEC+ meetings on production policy for 2027. For now, Iraq isn't likely to get what it wants. Three sources told Reuters that OPEC+ members have agreed in principle to leave their production quotas unchanged for the first quarter of 2027. That is not",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
+      },
+      {
+        "id": 39,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/Oil-Surge-Pushes-Indonesia-to-Mull-First-Subsidized-Fuel-Price-Hike-in-Years.html",
+        "titulo": "Oil Surge Pushes Indonesia to Mull First Subsidized Fuel Price Hike in Years",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-27T10:30:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Indonesia, the largest economy in Southeast Asia, has discussed hiking the price of subsidized fuel for the first time since 2022, as the weakening local currency and persistently high oil prices weigh on government outlays for funding the subsidies. Indonesia, the world’s fourth-most populous country, hasn’t removed or reduced subsidies for gasoline and fuel amid the Strait of Hormuz crisis. The country, a net oil importer despite having domestic oil production, has subsidized fuel in one form",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
+      },
+      {
+        "id": 24,
+        "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxOVWNFck83WTZNQzh1a080T2lsLXhNWnNjNXpDQkIzNFhFV0Q5XzF5MC1xckk2SExIaVhTYVdNX0hUV2tIRjQxTXpEdDFHVTgyNDF1TTBmeUh0bkdzRXdtQzlBUUkzOVAxVE1xdnl0eUFlaDVpd05tXy1OTWo4cFJpaTdtakZpLXZIaXYyeHg0NllQNExXWDNIQThEN3pCUHc1REtUdDNQc0hNWE9MVnRfZ2k4Sk1Db1JNZnNCT2xybnMxeG9pMFQyek0zYWotbExLWkQ4anZIR3JJaWpDdmMzZnhhUjhuMnRVOUE?oc=5",
+        "titulo": "Petróleo rompe racha a la baja tras ataques en Medio Oriente; podría volver a los 100 dólares - LatinUS",
+        "titulo_es": null,
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-27T09:23:50-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Petróleo rompe racha a la baja tras ataques en Medio Oriente; podría volver a los 100 dólares <fo",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
+      },
+      {
+        "id": 25,
+        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOdEdLOEczMFlxd0NKcmE1dmVBcU5icVVEUlI2V19CVmZ1UGxNNEZoX0lMd2VOQjQxdHYwcGU0UGxpb1ZldFhQdkFVZm92WXZka2hCTU5xdjNPTjBFZ0hPeGQ1TGt4TFNqMUpod2xMbmN1WDBmRnVNRDVnV2hpR3FCT0FYQ2FHeEZs?oc=5",
+        "titulo": "Saudi oil facility comes under attack again - VOV World",
+        "titulo_es": null,
+        "medio": "Google News EN",
+        "publicado_at": "2026-11-27T09:12:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Saudi oil facility comes under attack again VOV World",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
+      },
+      {
+        "id": 26,
+        "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNRFg3MkQ2Z1RVM1hCVi1LbUFGMHdlRTBTSTFnaE9KY1lqeHk3eGI2RkNHcnhqZ294bFpjRmhPbXdibE9SV3NnMmFWdnhiVktMLWhKZHNzVnVqX3AwdkVvc003Q1Nkd0tLMlFxX2ZCQU90X1dFX04xZ0x2RUZ0blQxamp3Nk5ka3FhSUIwcVBkcjBUckE5T2VsamdR?oc=5",
+        "titulo": "Los ataques en Oriente Medio vuelven a impulsar los precios del petróleo - Mezha.net",
+        "titulo_es": null,
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-27T08:53:16-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "Los ataques en Oriente Medio vuelven a impulsar los precios del petróleo Mezha.net",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
+      },
+      {
+        "id": 40,
+        "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9rSEZ0bHlRWGh1c2xqOEpXLUt2eWx0QlYyYWItX1lNUWJjbUg3c0N0VnplWHF6bzl2Z2xsX2NpZHNUaE1oVWV4MGlJa1lQZHB5VkFqNnF6SkNaanlWSHN3YWZaUkZvT0h2VGVKajJyZ3dSRU1fd0hOWDZ6QTFwQQ?oc=5",
+        "titulo": "El petróleo se encamina hacia su primera ganancia semanal este mes por riesgos de suministro en Medio Oriente. - Quartz",
+        "titulo_es": null,
+        "medio": "Google News ES",
+        "publicado_at": "2026-11-27T07:42:57-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "El petróleo se encamina hacia su primera ganancia semanal este mes por riesgos de suministro en Medio Oriente. Quartz",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
+      },
+      {
+        "id": 27,
+        "url": "https://oilprice.com/Latest-Energy-News/World-News/South-Sudan-Readies-Licensing-Round-to-Boost-Oil-Production.html",
+        "titulo": "South Sudan Readies Licensing Round to Boost Oil Production",
+        "titulo_es": null,
+        "medio": "OilPrice.com",
+        "publicado_at": "2026-11-27T07:30:00-06:00",
+        "categoria": null,
+        "pais": null,
+        "relevancia": null,
+        "resumen_es": "South Sudan plans to launch a licensing round for five blocks as it looks to boost its oil production in the coming years, caretaker Petroleum Minister Awow Daniel Chuang said at an industry event in the country. The upcoming licensing round is part of South Sudan’s push to commercialize the country’s 14 available greenfield blocks and increase crude oil production from just under 170,000 barrels per day (bpd) at present to 200,000 bpd within the next two to three years, the official said at th",
+        "fetched_at": "2026-11-27T17:58:44-06:00"
       }
     ],
     "llm": {
-      "titulos_es_hoy": 15,
-      "total_hoy": 51,
+      "titulos_es_hoy": 10,
+      "total_hoy": 49,
       "error": null,
       "key_fp": {
         "GEMINI_API_KEY": "AQ.A*** len=53 sha=a31a3d48",
